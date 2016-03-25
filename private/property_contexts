@@ -61,6 +61,11 @@ persist.security.       u:object_r:system_prop:s0
 # if device owner is provisioned.
 ro.device_owner         u:object_r:device_logging_prop:s0
 
+# Device unique identifier, often set from the kernel
+# command line
+ro.boot.serialno        u:object_r:serialno_prop:s0
+ro.serialno             u:object_r:serialno_prop:s0
+
 # selinux non-persistent properties
 selinux.restorecon_recursive   u:object_r:restorecon_prop:s0
 selinux.                       u:object_r:security_prop:s0

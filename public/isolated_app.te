@@ -30,6 +30,10 @@ allow isolated_app self:process ptrace;
 ##### Neverallow
 #####
 
+# isolated apps should never have access to the device
+# serial number.
+neverallow isolated_app serialno_prop:file no_rw_file_perms;
+
 # Do not allow isolated_app to directly open tun_device
 neverallow isolated_app tun_device:chr_file open;
 
