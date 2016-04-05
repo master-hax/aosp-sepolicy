@@ -43,6 +43,11 @@ allow update_engine postinstall_file:file rx_file_perms;
 allow update_engine postinstall_file:lnk_file r_file_perms;
 allow update_engine postinstall_file:dir r_dir_perms;
 
+# update_engine will transition to "postinstall" domain when running the
+# postinstall program.
+allow update_engine self:process setcurrent;
+allow update_engine postinstall:process dyntransition;
+
 # Register the service to perform Binder IPC.
 binder_use(update_engine)
 allow update_engine update_engine_service:service_manager { add };

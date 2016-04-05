@@ -4,9 +4,10 @@
 type postinstall, domain;
 
 # Allow postinstall to write to its stdout/stderr when redirected via pipes to
-# update_engine.
+# update_engine and send a SIGCHLD to update_engine.
 allow postinstall update_engine:fd use;
 allow postinstall update_engine:fifo_file rw_file_perms;
+allow postinstall update_engine:process sigchld;
 
 # Allow postinstall to read and execute directories and files in the same
 # mounted location.
