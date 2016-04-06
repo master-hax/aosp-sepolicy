@@ -22,6 +22,30 @@
       "revId": "f84b798151c0b4f2cf2e75c3822d983ffcad8e09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ea598c6_7c4a5052",
+        "filename": "system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-04-06T18:36:57Z",
+      "side": 1,
+      "message": "We\u0027re effectively enforcing it today by setting the PR_SET_NO_NEW_PRIVS flag.\n\nIf we ignore that, then we can consider the two cases:\n\n1) transition - this occurs when one process executes another process and the new process is in a different security domain. Per bug 28035297 and bug 27994717, we want to discourage system_server from execing anything at all. So neverallowing \"transition\" seems to make sense to me.\n\n2) dyntransition - this occurs on a setcon() call from a single-threaded process. setcon() never works on a multi-threaded process (except in the special case of a typebounds - http://selinuxproject.org/page/TypeRules#typebounds_Rule). So this wouldn\u0027t be usable in general to system_server.\n\nI think it makes sense, but if it\u0027s controversial, I can drop it.",
+      "parentUuid": "6ea598c6_1cad8460",
+      "range": {
+        "startLine": 477,
+        "startChar": 0,
+        "endLine": 479,
+        "endChar": 64
+      },
+      "revId": "f84b798151c0b4f2cf2e75c3822d983ffcad8e09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
