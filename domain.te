@@ -545,3 +545,9 @@ neverallow {
   -ueventd
   -vold
 } fuse_device:chr_file *;
+
+# Enforce restrictions on kernel module origin.
+# Do not allow module loading using init_module. finit_module is allowed,
+# but only modules from the system, vendor, or boot partitions.
+neverallow domain domain:system module_load;
+neverallow * ~{ system_file rootfs }:system module_load;
