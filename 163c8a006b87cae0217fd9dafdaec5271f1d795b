@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ea598c6_86113a79",
+        "filename": "domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-04-07T19:39:51Z",
+      "side": 1,
+      "message": "Consider:\n\n  neverallow * ~{ system_file rootfs }:system module_load;\n\nwhich asserts that the only location allowed to load a kernel module is from the root filesystem or /system",
+      "revId": "163c8a006b87cae0217fd9dafdaec5271f1d795b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
