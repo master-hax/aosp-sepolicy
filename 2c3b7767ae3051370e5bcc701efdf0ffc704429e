@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "085974e9_b3e00d12",
+        "filename": "boot_control_hal.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-04-22T20:43:17Z",
+      "side": 1,
+      "message": "I think you mean:\n\n  allow boot_control_hal bootctrl_block_device:blk_file rw_file_perms;",
+      "range": {
+        "startLine": 2,
+        "startChar": 6,
+        "endLine": 2,
+        "endChar": 19
+      },
+      "revId": "2c3b7767ae3051370e5bcc701efdf0ffc704429e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "085974e9_b3c9ed99",
+        "filename": "update_engine.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-04-22T20:43:17Z",
+      "side": 1,
+      "message": "I\u0027d prefer we just add it here:\n\n  type update_engine, domain, domain_deprecated, boot_control_hal;",
+      "revId": "2c3b7767ae3051370e5bcc701efdf0ffc704429e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "085974e9_d38fc959",
+        "filename": "update_verifier.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-04-22T20:43:17Z",
+      "side": 1,
+      "message": "prefer:\n\n  type update_verifier, domain, boot_control_hal;",
+      "revId": "2c3b7767ae3051370e5bcc701efdf0ffc704429e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
