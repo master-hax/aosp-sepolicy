@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68f2f156_e09f625f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1010111
+      },
+      "writtenOn": "2016-04-25T15:01:05Z",
+      "side": 1,
+      "message": "upload the kernel change too and reference here",
+      "revId": "32b76a61c08769ef82f6726e3497cacece64e057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68f2f156_a0a95a8d",
+        "filename": "file.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1010111
+      },
+      "writtenOn": "2016-04-25T15:01:05Z",
+      "side": 1,
+      "message": "Since you switched back to using debugfs_tracing in genfs_contexts, you no longer need this type or the first allow rule below.",
+      "revId": "32b76a61c08769ef82f6726e3497cacece64e057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68f2f156_80b656eb",
+        "filename": "file.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1010111
+      },
+      "writtenOn": "2016-04-25T15:01:05Z",
+      "side": 1,
+      "message": "Not needed since you are assigning debugfs_tracing to tracefs in genfs_contexts.",
+      "revId": "32b76a61c08769ef82f6726e3497cacece64e057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68f2f156_60bb52d5",
+        "filename": "file.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1010111
+      },
+      "writtenOn": "2016-04-25T15:01:05Z",
+      "side": 1,
+      "message": "tracefs_type",
+      "range": {
+        "startLine": 224,
+        "startChar": 6,
+        "endLine": 224,
+        "endChar": 26
+      },
+      "revId": "32b76a61c08769ef82f6726e3497cacece64e057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68f2f156_40b04eed",
+        "filename": "init.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1010111
+      },
+      "writtenOn": "2016-04-25T15:01:05Z",
+      "side": 1,
+      "message": "Split this rule.  Leave w_file_perms here since it corresponds to the comment.  Add debugfs_tracing to the list of types in line 159 above, where we already allow { getattr relabelfrom } for the restorecon_recursive.",
+      "revId": "32b76a61c08769ef82f6726e3497cacece64e057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
