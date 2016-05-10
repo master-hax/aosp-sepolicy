@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d25390c8_e6efc02e",
+        "filename": "init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-05-10T18:32:38Z",
+      "side": 1,
+      "message": "Perhaps we should consider moving this to domain.te. In there, we already have:\n\n  allow domain sysfs:lnk_file read;\n\nmodify this to be\n\n  allow domain sysfs_type:lnk_file read;\n\ninstead?  Not sure....",
+      "revId": "912f3c10b330a474a61c63476970beaac367be13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
