@@ -16,7 +16,7 @@ allow vold cache_file:lnk_file r_file_perms;
 # Read access to pseudo filesystems.
 r_dir_file(vold, proc)
 r_dir_file(vold, proc_net)
-r_dir_file(vold, sysfs)
+r_dir_file(vold, sysfs_type)
 r_dir_file(vold, rootfs)
 
 # For a handful of probing tools, we choose an even more restrictive
@@ -88,7 +88,7 @@ allow vold domain:process { signal sigkill };
 allow vold self:capability { sys_ptrace kill };
 
 # XXX Label sysfs files with a specific type?
-allow vold sysfs:file rw_file_perms;
+allow vold sysfs:file w_file_perms;
 
 allow vold kmsg_device:chr_file rw_file_perms;
 

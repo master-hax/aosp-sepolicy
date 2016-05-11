@@ -11,7 +11,8 @@ allow gpsd gps_data_file:notdevfile_class_set create_file_perms;
 type_transition gpsd gps_data_file:sock_file gps_socket;
 allow gpsd gps_socket:sock_file create_file_perms;
 # XXX Label sysfs files with a specific type?
-allow gpsd sysfs:file rw_file_perms;
+allow gpsd sysfs:file w_file_perms;
+allow gpsd sysfs_type:file r_file_perms;
 
 allow gpsd gps_device:chr_file rw_file_perms;
 

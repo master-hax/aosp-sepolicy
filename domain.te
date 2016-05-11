@@ -97,7 +97,7 @@ allow domain system_file:file { execute read open getattr };
 allow domain system_file:lnk_file read;
 
 # read any sysfs symlinks
-allow domain sysfs:lnk_file read;
+allow domain sysfs_type:lnk_file read;
 
 # libc references /data/misc/zoneinfo for timezone related information
 r_dir_file(domain, zoneinfo_data_file)
@@ -118,7 +118,7 @@ allow domain proc_cpuinfo:file r_file_perms;
 # toybox loads libselinux which stats /sys/fs/selinux/
 allow domain selinuxfs:dir search;
 allow domain selinuxfs:file getattr;
-allow domain sysfs:dir search;
+allow domain sysfs_type:dir search;
 allow domain selinuxfs:filesystem getattr;
 
 # For /acct/uid/*/tasks.
