@@ -254,7 +254,6 @@ neverallow appdomain {
     video_device
     dm_device
     radio_device
-    gps_device
     rpmsg_device
 }:chr_file { read write };
 
@@ -334,9 +333,6 @@ neverallow appdomain system_data_file:dir_file_class_set
 
 # Write to various other parts of /data.
 neverallow appdomain drm_data_file:dir_file_class_set
-    { create write setattr relabelfrom relabelto append unlink link rename };
-neverallow { appdomain -system_app }
-    gps_data_file:dir_file_class_set
     { create write setattr relabelfrom relabelto append unlink link rename };
 neverallow { appdomain -platform_app }
     apk_data_file:dir_file_class_set
