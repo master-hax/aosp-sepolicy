@@ -149,6 +149,9 @@ allow vold userdata_block_device:blk_file rw_file_perms;
 # Access metadata block device used for encryption meta-data.
 allow vold metadata_block_device:blk_file rw_file_perms;
 
+# Access internal storage block to get its total size.
+allow vold mmc_block_device:blk_file r_file_perms;
+
 # Allow vold to manipulate /data/unencrypted
 allow vold unencrypted_data_file:{ file } create_file_perms;
 allow vold unencrypted_data_file:dir create_dir_perms;
