@@ -11,7 +11,6 @@ binder_use(racoon)
 
 allow racoon tun_device:chr_file r_file_perms;
 allow racoon cgroup:dir { add_name create };
-allow racoon kernel:system module_request;
 
 allow racoon self:key_socket create_socket_perms;
 allow racoon self:tun_socket create_socket_perms;

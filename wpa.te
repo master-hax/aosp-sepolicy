@@ -6,7 +6,6 @@ init_daemon_domain(wpa)
 
 net_domain(wpa)
 
-allow wpa kernel:system module_request;
 allow wpa self:capability { setuid net_admin setgid net_raw };
 allow wpa cgroup:dir create_dir_perms;
 allow wpa self:netlink_route_socket nlmsg_write;
