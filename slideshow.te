@@ -12,3 +12,5 @@ allow slideshow input_device:dir r_dir_perms;
 allow slideshow input_device:chr_file r_file_perms;
 allow slideshow tty_device:chr_file rw_file_perms;
 
+# slideshow can power off the device with the '-p' option
+set_prop(slideshow, powerctl_prop)
