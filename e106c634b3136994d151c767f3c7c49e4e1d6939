@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c6a3d67e_03cb6e34",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1013433
+      },
+      "writtenOn": "2016-06-03T00:24:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b942852e_df516b04",
+      "revId": "e106c634b3136994d151c767f3c7c49e4e1d6939",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b942852e_5f5f3b02",
         "filename": "ueventd.te",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2016-06-03T00:00:11Z",
       "side": 1,
       "message": "You also need to allow \"relabelfrom / relabelto\" here, otherwise this doesn\u0027t have the effect you intend.\n\ngetattr isn\u0027t needed if https://android-review.googlesource.com/235400 isn\u0027t accepted. See comments there.",
+      "revId": "e106c634b3136994d151c767f3c7c49e4e1d6939",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6a3d67e_8353de5b",
+        "filename": "ueventd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1013433
+      },
+      "writtenOn": "2016-06-03T00:24:37Z",
+      "side": 1,
+      "message": "Yes that is intentional. I never actually hit a chr_file case where there was a delta so I figured we could add those if needed as they occur.\n\nAnother approach would be to only run that lsetfilecon() if block is true, so we don\u0027t run that for chr_files.\n\nSo you pick:\n\n1. Only run on block true in make_device() (this requires no change and no CTS issues on N), this could be the N fix for my tree.\n\n2. allow relabelfrom/relabelto on dev_type:chr_file. This could be dangerous, mostly because of relabel to a different devtype thats accessable.\n\nI am actually leaning towards 1, its the simplest fix to the problem.",
+      "parentUuid": "b942852e_5f5f3b02",
       "revId": "e106c634b3136994d151c767f3c7c49e4e1d6939",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
