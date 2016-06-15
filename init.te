@@ -55,6 +55,9 @@ allow init rootfs:lnk_file { create unlink };
 # Mount debugfs on /sys/kernel/debug.
 allow init sysfs:dir mounton;
 
+# Allow permission on /sys/class/android_usb/android0.
+allow init sysfs:dir write;
+
 # Create cgroups mount points in tmpfs and mount cgroups on them.
 allow init tmpfs:dir create_dir_perms;
 allow init tmpfs:dir mounton;
