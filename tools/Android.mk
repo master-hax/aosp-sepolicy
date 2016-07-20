@@ -11,7 +11,6 @@ LOCAL_CFLAGS := -DLINK_SEPOL_STATIC -Wall -Werror
 LOCAL_SRC_FILES := check_seapp.c
 LOCAL_STATIC_LIBRARIES := libsepol
 LOCAL_WHOLE_STATIC_LIBRARIES := libpcre
-LOCAL_CXX_STL := none
 
 include $(BUILD_HOST_EXECUTABLE)
 
@@ -25,7 +24,6 @@ LOCAL_C_INCLUDES := external/selinux/libsepol/include \
 LOCAL_CFLAGS := -Wall -Werror
 LOCAL_SRC_FILES := checkfc.c
 LOCAL_STATIC_LIBRARIES := libsepol libselinux
-LOCAL_CXX_STL := none
 
 include $(BUILD_HOST_EXECUTABLE)
 
@@ -48,7 +46,6 @@ LOCAL_C_INCLUDES := external/selinux/libsepol/include
 LOCAL_CFLAGS := -Wall -Werror
 LOCAL_SRC_FILES := sepolicy-check.c
 LOCAL_STATIC_LIBRARIES := libsepol
-LOCAL_CXX_STL := none
 
 include $(BUILD_HOST_EXECUTABLE)
 
