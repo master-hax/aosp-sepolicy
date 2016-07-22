@@ -25,6 +25,7 @@ domain_trans(vold, shell_exec, blkid);
 domain_trans(vold, shell_exec, blkid_untrusted);
 domain_trans(vold, fsck_exec, fsck);
 domain_trans(vold, fsck_exec, fsck_untrusted);
+domain_trans(vold, tune2fs_exec, tune2fs);
 
 # Allow us to jump into execution domains of above tools
 allow vold self:process setexec;
