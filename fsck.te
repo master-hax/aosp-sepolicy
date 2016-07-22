@@ -4,6 +4,8 @@ type fsck_exec, exec_type, file_type;
 
 init_daemon_domain(fsck)
 
+domain_trans(fsck, tune2fs_exec, tune2fs);
+
 # /dev/__null__ created by init prior to policy load,
 # open fd inherited by fsck.
 allow fsck tmpfs:chr_file { read write ioctl };
@@ -25,6 +27,8 @@ allow fsck dm_device:blk_file rw_file_perms;
 # swap device before setting the EXT2_MF_SWAP mount flag.
 allow fsck swap_block_device:blk_file getattr;
 
+allow fsck tune2fs_exec:file { entrypoint };
+
 ###
 ### neverallow rules
 ###
@@ -44,4 +48,4 @@ neverallow fsck {
 # Only allow entry from init or vold via fsck binaries
 neverallow { domain -init -vold } fsck:process transition;
 neverallow * fsck:process dyntransition;
-neverallow fsck { file_type fs_type -fsck_exec }:file entrypoint;
+neverallow fsck { file_type fs_type -fsck_exec -tune2fs_exec }:file entrypoint;
