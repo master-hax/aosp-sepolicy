@@ -25,6 +25,7 @@ domain_trans(vold, shell_exec, blkid);
 domain_trans(vold, shell_exec, blkid_untrusted);
 domain_trans(vold, fsck_exec, fsck);
 domain_trans(vold, fsck_exec, fsck_untrusted);
+domain_trans(vold, tune2fs_exec, tune2fs);
 
 # Allow us to jump into execution domains of above tools
 allow vold self:process setexec;
@@ -94,6 +95,8 @@ allow vold kmsg_device:chr_file rw_file_perms;
 
 # Run fsck in the fsck domain.
 allow vold fsck_exec:file { r_file_perms execute };
+
+allow vold tune2fs_exec:file { r_file_perms execute };
 
 # Log fsck results
 allow vold fscklogs:dir rw_dir_perms;
@@ -191,3 +194,4 @@ neverallow { domain -vold -init } vold_data_file:notdevfile_class_set *;
 neverallow { domain -vold -init } restorecon_prop:property_service set;
 
 neverallow vold fsck_exec:file execute_no_trans;
+neverallow vold tune2fs_exec:file execute_no_trans;
