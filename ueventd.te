@@ -29,6 +29,9 @@ allow ueventd efs_file:file r_file_perms;
 # Use setfscreatecon() to label /dev directories and files.
 allow ueventd self:process setfscreate;
 
+# allow ueventd to wirte log to kernel log
+allow ueventd kmsg_device:chr_file w_file_perms;
+
 #####
 ##### neverallow rules
 #####
