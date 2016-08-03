@@ -88,6 +88,13 @@ allow system_server mediaserver:process { getsched setsched };
 # all processes on the device.
 r_dir_file(system_server, domain)
 
+# For writing to /proc/<tid>/timerslack_ns (XXX - this is probably wrong)
+allow system_server priv_app:file write;
+allow system_server untrusted_app:file write;
+allow system_server platform_app:file write;
+allow system_server system_app:file write;
+allow system_server isolated_app:file write;
+
 # Read/Write to /proc/net/xt_qtaguid/ctrl and and /dev/xt_qtaguid.
 allow system_server qtaguid_proc:file rw_file_perms;
 allow system_server qtaguid_device:chr_file rw_file_perms;
