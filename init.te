@@ -96,6 +96,10 @@ allow init contextmount_type:notdevfile_class_set r_file_perms;
 # specific type.
 allow init rootfs:{ dir file } relabelfrom;
 
+# restorecon /sbin/update_engine_sideload file for A/B sideloading from
+# recovery.
+allow init update_engine_exec:file relabelto;
+
 # mkdir, symlink, write, rm/rmdir, chown/chmod, restorecon/restorecon_recursive from init.rc files.
 # chown/chmod require open+read+setattr required for open()+fchown/fchmod().
 # system/core/init.rc requires at least cache_file and data_file_type.

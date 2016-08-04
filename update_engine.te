@@ -64,3 +64,23 @@ allow update_engine update_engine_service:service_manager { add };
 
 # Allow update_engine to call the callback function provided by priv_app.
 binder_call(update_engine, priv_app)
+
+# update_engine_sideload runs from recovery in the update_engine context. These
+# are additional requirements for recovery only.
+recovery_only(`
+  # Allow to send status updates back to the recovery program when sideloading
+  # an update from recovery.
+  allow update_engine recovery:fd use;
+  allow update_engine recovery:fifo_file rw_file_perms;
+
+  # Allow to read the sideload.zip package from /sideload.
+  allow update_engine fuse:dir r_dir_perms;
+  allow update_engine fuse:file r_file_perms;
+
+  # Allow to access the GUI file descriptors passed from recovery.
+  allow update_engine graphics_device:chr_file rw_file_perms;
+  allow update_engine input_device:chr_file r_file_perms;
+
+  # Allow to write to /tmp/last_install log.
+  allow update_engine tmpfs:file write;
+')
