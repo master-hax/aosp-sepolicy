@@ -296,7 +296,7 @@ neverallow { domain -init } properties_serial:file { no_w_file_perms no_x_file_p
 # Only recovery should be doing writes to /system
 neverallow { domain -recovery } { system_file exec_type }:dir_file_class_set
     { create write setattr relabelfrom append unlink link rename };
-neverallow { domain -recovery -kernel } { system_file exec_type }:dir_file_class_set relabelto;
+neverallow { domain -init -recovery -kernel } { system_file exec_type }:dir_file_class_set relabelto;
 
 # Don't allow mounting on top of /system files or directories
 neverallow * exec_type:dir_file_class_set mounton;
