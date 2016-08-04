@@ -101,6 +101,10 @@ recovery_only(`
   # This line seems suspect, as it should not really need to
   # set scheduling parameters for a kernel domain task.
   allow recovery kernel:process setsched;
+
+  # Allow recovery to execute update_engine_sideload in the update_engine
+  # context for A/B sideloading.
+  domain_auto_trans(recovery, update_engine_exec, update_engine);
 ')
 
 ###
