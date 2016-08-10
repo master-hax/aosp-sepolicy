@@ -2,6 +2,9 @@
 # it lives in the rootfs and has no unique file type.
 type adbd, domain, mlstrustedsubject;
 
+# logcat
+domain_auto_trans(adbd, logcat_exec, logcat)
+
 userdebug_or_eng(`
   allow adbd self:process setcurrent;
   allow adbd su:process dyntransition;
@@ -121,5 +124,5 @@ allow adbd rootfs:dir r_dir_perms;
 # No transitions from adbd to non-shell domains. adbd only ever
 # transitions to the shell domain. In particular, we never want
 # to see a transition from adbd to su (aka "adb root")
-neverallow adbd { domain -shell }:process transition;
+neverallow adbd { domain -shell -logcat }:process transition;
 neverallow adbd { domain userdebug_or_eng(`-su') }:process dyntransition;
