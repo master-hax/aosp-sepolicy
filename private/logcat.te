@@ -1,0 +1,36 @@
+neverallow {
+  domain
+  -appdomain
+  -debuggerd
+  -dumpstate
+  -logcat
+  -logpersist
+  userdebug_or_eng(`-perfprofd')
+  -system_server
+  userdebug_or_eng(`-su')
+  -surfaceflinger
+  -zygote
+} logcat_exec:file execute_no_trans;
+
+neverallow {
+  domain
+  -appdomain
+  -debuggerd
+  -dumpstate
+  -logcat
+  -logpersist
+  userdebug_or_eng(`-perfprofd')
+  -surfaceflinger
+  -system_server
+  -zygote
+} logdr_socket:sock_file write;
+
+neverallow {
+  domain
+  -appdomain
+  -dumpstate
+  -logcat
+  -logd
+  -logpersist
+  -system_app
+} logd_socket:sock_file write;
