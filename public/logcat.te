@@ -1,0 +1,21 @@
+# android log printing
+
+type logcat, domain, mlstrustedsubject;
+type logcat_exec, exec_type, file_type;
+
+###
+### Neverallow rules
+###
+### logcat should NEVER do any of this
+
+# Block device access.
+neverallow logcat dev_type:blk_file { read write };
+
+# ptrace any other app
+neverallow logcat domain:process ptrace;
+
+# Write to /system.
+neverallow logcat system_file:dir_file_class_set write;
+
+# Write to files in /data/data or system files on /data
+neverallow logcat { app_data_file system_data_file }:dir_file_class_set write;
