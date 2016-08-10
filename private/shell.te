@@ -8,3 +8,7 @@ allow shell atrace_exec:file rx_file_perms;
 tmpfs_domain(shell)
 # Map with PROT_EXEC.
 allow shell shell_tmpfs:file execute;
+
+# logcat
+domain_auto_trans(shell, logcat_exec, logcat)
+
