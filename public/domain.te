@@ -592,9 +592,10 @@ neverallow {
 
 neverallow {
   domain
+  -installd
+  -logcat
   -shell
   userdebug_or_eng(`-uncrypt')
-  -installd
 } shell_data_file:lnk_file read;
 
 # In addition to the symlink reading restrictions above, restrict
@@ -607,6 +608,7 @@ neverallow {
   -dumpstate
   -installd
   -init
+  -logcat
   -shell
   -vold
 } shell_data_file:dir no_w_dir_perms;
@@ -618,6 +620,7 @@ neverallow {
   -dumpstate
   -init
   -installd
+  -logcat
   -system_server # why?
   userdebug_or_eng(`-uncrypt')
 } shell_data_file:dir { open search };
@@ -630,6 +633,7 @@ neverallow {
   -appdomain
   -dumpstate
   -installd
+  -logcat
   userdebug_or_eng(`-uncrypt')
 } shell_data_file:file open;
 
