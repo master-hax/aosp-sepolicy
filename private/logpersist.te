@@ -13,7 +13,6 @@ userdebug_or_eng(`
   allow logpersist pstorefs:file r_file_perms;
 
   control_logd(logpersist)
-
   unix_socket_connect(logpersist, logdr, logd)
 
 ')

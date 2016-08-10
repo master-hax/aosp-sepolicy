@@ -71,8 +71,6 @@ type unlabeled, file_type;
 type system_file, file_type;
 # Type for /system/*/libart*
 type libart_file, file_type;
-# Type for /system/bin/logcat.
-type logcat_exec, exec_type, file_type;
 # /cores for coredumps on userdebug / eng builds
 type coredump_file, file_type;
 # Default type for anything under /data.
@@ -157,6 +155,7 @@ type keychain_data_file, file_type, data_file_type;
 type keystore_data_file, file_type, data_file_type;
 type media_data_file, file_type, data_file_type;
 type media_rw_data_file, file_type, data_file_type, mlstrustedobject;
+type misc_logd_file, file_type, data_file_type;
 type misc_user_data_file, file_type, data_file_type;
 type net_data_file, file_type, data_file_type;
 type nfc_data_file, file_type, data_file_type;
@@ -223,7 +222,6 @@ type logdr_socket, file_type, mlstrustedobject;
 type logdw_socket, file_type, mlstrustedobject;
 type mdns_socket, file_type;
 type mdnsd_socket, file_type, mlstrustedobject;
-type misc_logd_file, file_type;
 type mtpd_socket, file_type;
 type netd_socket, file_type;
 type property_socket, file_type, mlstrustedobject;
