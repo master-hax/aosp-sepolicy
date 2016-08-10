@@ -264,8 +264,10 @@ allow init sysfs_type:file rw_file_perms;
 
 # Init will create /data/misc/logd when the property persist.logd.logpersistd is "logcatd".
 # Init will also walk through the directory as part of a recursive restorecon.
-allow init misc_logd_file:dir { add_name open create read getattr setattr search write };
-allow init misc_logd_file:file { open create getattr setattr write };
+userdebug_or_eng(`
+  allow init misc_logd_file:dir { add_name open create read getattr setattr search write };
+  allow init misc_logd_file:file { open create getattr setattr write };
+')
 
 # Support "adb shell stop"
 allow init self:capability kill;

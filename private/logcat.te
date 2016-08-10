@@ -1,0 +1,33 @@
+# android log printing
+
+domain_auto_trans(shell, logcat_exec, logcat)
+domain_auto_trans(adbd, logcat_exec, logcat)
+userdebug_or_eng(`domain_auto_trans(su, logcat_exec, logcat)')
+
+r_dir_file(logcat, cgroup)
+
+allow logcat shell:fd use;
+allow logcat devpts:chr_file rw_file_perms;
+allow logcat tty_device:chr_file rw_file_perms;
+allow logcat console_device:chr_file rw_file_perms;
+allow logcat shell:fifo_file { write getattr };
+userdebug_or_eng(`
+  allow logcat shell_data_file:file create_file_perms;
+  allow logcat shell_data_file:dir create_dir_perms;
+')
+allow logcat adbd:fd use;
+allow logcat adbd:process sigchld;
+allow logcat adbd:unix_stream_socket { read write };
+
+allow logcat self:capability sys_nice;
+allow logcat pstorefs:dir search;
+allow logcat pstorefs:file r_file_perms;
+
+control_logd(logcat)
+read_logd(logcat)
+read_runtime_log_tags(logcat)
+
+# logcat is not allowed to write anywhere.
+neverallow logcat { file_type userdebug_or_eng(`-coredump_file -shell_data_file') }:file { create write append };
+
+neverallow { domain -init } misc_logd_file:dir create;
