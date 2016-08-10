@@ -4,8 +4,10 @@ type init, domain, domain_deprecated, mlstrustedsubject;
 # The init domain is entered by execing init.
 type init_exec, exec_type, file_type;
 
-# /dev/__null__ node created by init.
-allow init tmpfs:chr_file create_file_perms;
+# /dev/__null__, /dev/kmsg and other nodes created by init and prior to
+# initial policy load.
+allow init tmpfs:chr_file { write create_file_perms relabelfrom };
+allow init kmsg_device:chr_file { write relabelto };
 
 #
 # init direct restorecon calls.
@@ -39,9 +41,6 @@ allow init devpts:chr_file { read write open };
 
 # Create /dev/fscklogs files.
 allow init fscklogs:file create_file_perms;
-
-# Access /dev/__null__ node created prior to initial policy load.
-allow init tmpfs:chr_file write;
 
 # Access /dev/console.
 allow init console_device:chr_file rw_file_perms;

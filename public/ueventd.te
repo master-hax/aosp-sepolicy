@@ -3,7 +3,7 @@
 type ueventd, domain, domain_deprecated;
 
 # Write to /dev/kmsg.
-allow ueventd kmsg_device:chr_file rw_file_perms;
+allow ueventd kmsg_device:chr_file { rw_file_perms relabelto };
 
 allow ueventd self:capability { chown mknod net_admin setgid fsetid sys_rawio dac_override fowner };
 allow ueventd device:file create_file_perms;
@@ -17,7 +17,7 @@ allow ueventd sysfs_zram_uevent:file w_file_perms;
 allow ueventd sysfs_type:{ file lnk_file } { relabelfrom relabelto setattr getattr };
 allow ueventd sysfs_type:dir { relabelfrom relabelto setattr r_dir_perms };
 allow ueventd sysfs_devices_system_cpu:file rw_file_perms;
-allow ueventd tmpfs:chr_file rw_file_perms;
+allow ueventd tmpfs:chr_file { rw_file_perms relabelfrom setattr };
 allow ueventd dev_type:dir create_dir_perms;
 allow ueventd dev_type:lnk_file { create unlink };
 allow ueventd dev_type:chr_file { getattr create setattr unlink };
