@@ -1,0 +1,30 @@
+# wifi legacy hal
+type wifi_hal_legacy, domain;
+type wifi_hal_legacy_exec, exec_type, file_type;
+
+# may be started by init
+init_daemon_domain(wifi_hal_legacy)
+
+allow wifi_hal_legacy wifi_hal_legacy_exec:file rx_file_perms;
+
+# hwbinder access
+hwbinder_use(wifi_hal_legacy)
+
+# call into system_server/wificond process (callbacks)
+binder_call(wifi_hal_legacy, system_server)
+binder_call(wifi_hal_legacy, wificond)
+
+allow wifi_hal_legacy sysfs_wlan_fwpath:file w_file_perms;
+
+set_prop(wifi_hal_legacy, wifi_prop)
+set_prop(wifi_hal_legacy, ctl_default_prop)
+
+# create sockets to set interfaces up and down
+allow wifi_hal_legacy self:udp_socket create_socket_perms;
+allow wifi_hal_legacy self:capability { net_admin net_raw };
+allow wifi_hal_legacy self:netlink_route_socket nlmsg_write;
+allow wifi_hal_legacy self:netlink_socket create_socket_perms_no_ioctl;
+allow wifi_hal_legacy self:netlink_generic_socket create_socket_perms_no_ioctl;
+
+r_dir_file(wifi_hal_legacy, proc_net)
+r_dir_file(wifi_hal_legacy, sysfs_type)
