@@ -53,4 +53,15 @@ userdebug_or_eng(`
   dontaudit su domain:drmservice *;
   dontaudit su unlabeled:filesystem *;
   dontaudit su postinstall_file:filesystem *;
+
+  # Despite dontaudit set for all capabilties, many are audited due to
+  # SECURITY_CAP_AUDIT set in the kernel. Actually granting these capabilies
+  # prevents the misleading denials. This list is based capabilities commonly
+  # used by su in debug devices.
+  allow su self:capability { dac_override setuid setgid sys_ptrace };
+  allow su self:capability {
+    chown dac_override fowner fsetid ipc_lock kill net_admin net_raw setfcap
+    setgid setuid sys_admin sys_ptrace sys_rawio
+  };
+
 ')
