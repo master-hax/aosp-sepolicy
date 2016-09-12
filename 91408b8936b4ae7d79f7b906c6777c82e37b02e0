@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b9e867e_44db40e2",
+        "filename": "file_contexts",
+        "patchSetId": 8
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1010111
+      },
+      "writtenOn": "2016-09-12T12:52:29Z",
+      "side": 1,
+      "message": "Why do we need a separate domain for tune2fs?\nWhy can\u0027t it just run in the existing fsck domain?",
+      "revId": "91408b8936b4ae7d79f7b906c6777c82e37b02e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b9e867e_e4e8147a",
+        "filename": "fsck.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1010111
+      },
+      "writtenOn": "2016-09-12T12:52:29Z",
+      "side": 1,
+      "message": "Is tune2fs executed by fsck or by init?\nnit: No semicolon is needed at the end of a macro call; the macro call itself expands to statements with semicolons and your extra one just becomes an empty statement.",
+      "revId": "91408b8936b4ae7d79f7b906c6777c82e37b02e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b9e867e_c4dd10d2",
+        "filename": "fsck.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1010111
+      },
+      "writtenOn": "2016-09-12T12:52:29Z",
+      "side": 1,
+      "message": "Unnecessary - we aren\u0027t entering fsck domain via tune2fs executable.  And if we want to do so, just label tune2fs binary with fsck_exec type.",
+      "revId": "91408b8936b4ae7d79f7b906c6777c82e37b02e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b9e867e_a4e20c94",
+        "filename": "fsck.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1010111
+      },
+      "writtenOn": "2016-09-12T12:52:29Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "91408b8936b4ae7d79f7b906c6777c82e37b02e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b9e867e_84f82844",
+        "filename": "tune2fs.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1010111
+      },
+      "writtenOn": "2016-09-12T12:52:29Z",
+      "side": 1,
+      "message": "Looks the same as fsck.te.\nSo why not just label tune2fs with fsck_exec and be done with it.",
+      "revId": "91408b8936b4ae7d79f7b906c6777c82e37b02e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
