@@ -14,7 +14,14 @@ allow logd self:netlink_audit_socket { create_socket_perms_no_ioctl nlmsg_write 
 allow logd kernel:system syslog_read;
 allow logd kmsg_device:chr_file w_file_perms;
 allow logd system_data_file:{ file lnk_file } r_file_perms;
-allow logd event_log_tags_file:file r_file_perms;
+allow logd pstorefs:dir search;
+allow logd pstorefs:file r_file_perms;
+userdebug_or_eng(`
+  # Access to /data/misc/logd/event-log-tags
+  allow logd misc_logd_file:dir r_dir_perms;
+  allow logd misc_logd_file:file rw_file_perms;
+')
+allow logd event_log_tags_file:file rw_file_perms;
 
 # Access device logging gating property
 get_prop(logd, device_logging_prop)
