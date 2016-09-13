@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab523ec4_861a8cd8",
+        "filename": "logcat.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-09-13T19:34:57Z",
+      "side": 1,
+      "message": "on aosp-master (x86 and arm) build this appears to be giving us a headache? Internal master has no problems.\n\nlibsepol.expand_terule_helper: conflicting TE rule for (init, logcat_exec:process):  old was logpersist, new is logd",
+      "range": {
+        "startLine": 11,
+        "startChar": 1,
+        "endLine": 11,
+        "endChar": 50
+      },
+      "revId": "6ed72d13e34f3c1a7367a6ca963a5af3378d42a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab523ec4_4657b456",
+        "filename": "logcat.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-09-13T19:34:57Z",
+      "side": 1,
+      "message": "system/sepolicy/logcat.te:17:ERROR \u0027unknown type su\u0027 at token \u0027;\u0027 on line 13007:\nallow { shell adbd su } logcat_exec:file { getattr open read execute };\n\non userdebug build?\n\nSo a move to userdebug_or_eng for su although prudent, would still be broken :-(",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 57
+      },
+      "revId": "6ed72d13e34f3c1a7367a6ca963a5af3378d42a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
