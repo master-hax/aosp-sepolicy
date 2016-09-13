@@ -14,6 +14,7 @@ userdebug_or_eng(`
 
   control_logd(logpersist)
   unix_socket_connect(logpersist, logdr, logd)
+  allow logpersist event_log_tags_file:file r_file_perms;
 
 ')
 
@@ -35,6 +36,6 @@ neverallow logpersist { app_data_file system_data_file }:dir_file_class_set writ
 neverallow logpersist { file_type userdebug_or_eng(`-misc_logd_file -coredump_file') }:file { create write append };
 
 # logpersist is only allowed on userdebug/eng builds for misc_logd_file
-neverallow { domain userdebug_or_eng(`-logpersist -dumpstate') } misc_logd_file:file no_rw_file_perms;
-neverallow { domain userdebug_or_eng(`-logpersist') } misc_logd_file:dir { add_name link relabelfrom remove_name rename reparent rmdir write };
+neverallow { domain userdebug_or_eng(`-logpersist -logd -init -dumpstate') } misc_logd_file:file no_rw_file_perms;
+neverallow { domain userdebug_or_eng(`-logpersist -logd -init') } misc_logd_file:dir { add_name link relabelfrom remove_name rename reparent rmdir write };
 neverallow { domain userdebug_or_eng(`-init') } misc_logd_file:dir create;
