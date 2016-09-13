@@ -8,13 +8,19 @@ r_dir_file(logd, proc)
 r_dir_file(logd, proc_meminfo)
 r_dir_file(logd, proc_net)
 
-allow logd self:capability { setuid setgid setpcap sys_nice audit_control };
+allow logd self:capability { setuid setgid setpcap sys_nice audit_control dac_read_search dac_override };
 allow logd self:capability2 syslog;
 allow logd self:netlink_audit_socket { create_socket_perms_no_ioctl nlmsg_write };
 allow logd kernel:system syslog_read;
 allow logd kmsg_device:chr_file w_file_perms;
 allow logd system_data_file:{ file lnk_file } r_file_perms;
-allow logd event_log_tags_file:file r_file_perms;
+allow logd pstorefs:dir search;
+allow logd pstorefs:file r_file_perms;
+userdebug_or_eng(`
+  allow logd misc_logd_file:file create_file_perms;
+  allow logd misc_logd_file:dir rw_dir_perms;
+')
+allow logd event_log_tags_file:file rw_file_perms;
 
 # Access device logging gating property
 get_prop(logd, device_logging_prop)
@@ -44,4 +50,4 @@ neverallow logd { app_data_file system_data_file }:dir_file_class_set write;
 
 # logd is not allowed to write anywhere, and then
 # only on userdebug or eng builds
-neverallow logd { file_type -logd_tmpfs userdebug_or_eng(`-coredump_file') }:file { create write append };
+neverallow logd { file_type -logd_tmpfs -event_log_tags_file userdebug_or_eng(`-coredump_file -misc_logd_file') }:file { create write append };
