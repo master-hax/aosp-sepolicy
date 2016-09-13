@@ -251,9 +251,8 @@ allow fs_type self:filesystem associate;
 allow sysfs_type sysfs:filesystem associate;
 allow debugfs_type { debugfs debugfs_tracing }:filesystem associate;
 allow file_type labeledfs:filesystem associate;
-allow file_type tmpfs:filesystem associate;
+allow { file_type dev_type event_log_tags_file } tmpfs:filesystem associate;
 allow file_type rootfs:filesystem associate;
-allow dev_type tmpfs:filesystem associate;
 allow app_fuse_file app_fusefs:filesystem associate;
 allow postinstall_file self:filesystem associate;
 
