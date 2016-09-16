@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b28aa68_c6d4370f",
+        "filename": "bluetooth.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-09-16T20:03:02Z",
+      "side": 1,
+      "message": "You should only need rw_dir_perms, not create. AFAIK, you don\u0027t create subdirectories within /data/misc/bluetooth/logs .",
+      "range": {
+        "startLine": 13,
+        "startChar": 45,
+        "endLine": 13,
+        "endChar": 61
+      },
+      "revId": "0a9781ab80162084d70aff2c8bdaae0adec16877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b28aa68_a6cf3b7c",
+        "filename": "bluetooth.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-09-16T20:03:02Z",
+      "side": 1,
+      "message": "this directory only contains files, right? Not symlinks, socket files, nor fifos.\n\nCan we move notdevfile_class_set to just \"file\"?",
+      "range": {
+        "startLine": 14,
+        "startChar": 41,
+        "endLine": 14,
+        "endChar": 61
+      },
+      "revId": "0a9781ab80162084d70aff2c8bdaae0adec16877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
