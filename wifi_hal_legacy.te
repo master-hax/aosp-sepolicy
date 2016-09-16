@@ -1,0 +1,14 @@
+# wifi legacy hal
+type wifi_hal_legacy, domain;
+type wifi_hal_legacy_exec, exec_type, file_type;
+
+# may be started by init
+init_daemon_domain(wifi_hal_legacy)
+
+## hwbinder access
+hwbinder_use(wifi_hal_legacy)
+
+## call into wificond process (callbacks)
+binder_call(wifi_hal_legacy, wificond)
+
+r_dir_file(wifi_hal_legacy, proc_net)
