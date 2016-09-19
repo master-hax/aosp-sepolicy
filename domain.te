@@ -1,5 +1,7 @@
 # Rules for all domains.
 
+auditallow domain ion_device:chr_file *;
+
 # Allow reaping by init.
 allow domain init:process sigchld;
 
@@ -100,6 +102,17 @@ write_logd(domain)
 allow domain system_file:dir { search getattr };
 allow domain system_file:file { execute read open getattr };
 allow domain system_file:lnk_file read;
+
+# Initially grant all domains access to libart.
+# TODO move to a whitelist. b/29795519
+allow domain libart_file:file { execute read open getattr };
+auditallow {
+  domain
+  -dex2oat
+  -priv_app
+  -untrusted_app
+  -zygote
+} libart_file:file { execute read open getattr };
 
 # read any sysfs symlinks
 allow domain sysfs:lnk_file read;
