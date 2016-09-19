@@ -29,6 +29,9 @@ bluetooth_domain(untrusted_app)
 # to their sandbox directory and then execute.
 allow untrusted_app app_data_file:file { rx_file_perms execmod };
 
+# allow access to the interpreter
+allow untrusted_app libart_file:file { execute read open getattr };
+
 # ASEC
 allow untrusted_app asec_apk_file:file r_file_perms;
 allow untrusted_app asec_apk_file:dir r_dir_perms;
