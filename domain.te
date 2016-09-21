@@ -294,6 +294,7 @@ neverallow {
     userdebug_or_eng(`-su')
     -system_server
     -zygote
+    -webview_zygote
 } { file_type -system_file -exec_type -postinstall_file }:file execute;
 neverallow {
     domain
@@ -420,6 +421,9 @@ neverallow {
 neverallow { domain -zygote -system_server } zygote:unix_stream_socket connectto;
 neverallow { domain -system_server } zygote_socket:sock_file write;
 
+neverallow { domain -system_server -webview_zygote } webview_zygote:unix_stream_socket connectto;
+neverallow { domain -system_server } webview_zygote_socket:sock_file write;
+
 # Android does not support System V IPCs.
 #
 # The reason for this is due to the fact that, by design, they lead to global
@@ -526,7 +530,7 @@ neverallow {
 } shell:process { transition dyntransition };
 
 # Only domains spawned from zygote and runas may have the appdomain attribute.
-neverallow { domain -runas -zygote } {
+neverallow { domain -runas -webview_zygote -zygote } {
   appdomain -shell userdebug_or_eng(`-su') -bluetooth
 }:process { transition dyntransition };
 
