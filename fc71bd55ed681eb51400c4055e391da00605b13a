@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30a4ffca_68a8572b",
+        "filename": "dumpstate.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1013984
+      },
+      "writtenOn": "2016-09-21T21:22:52Z",
+      "side": 1,
+      "message": "No, it\u0027s set.\n\nThe property was set by ActivityManager, and dumpstate must reset it after its read, otherwise a new run from other entry point (like adb bugreport) would use the previous value.",
+      "parentUuid": "30a4ffca_e8e9077c",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 8
+      },
+      "revId": "fc71bd55ed681eb51400c4055e391da00605b13a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30a4ffca_e84fc7b9",
         "filename": "property.te",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-21T21:08:16Z",
       "side": 1,
       "message": "please remove core_property_type. This type was introduced as a backwards compatibility mechanism, and isn\u0027t intended to be used for new properties.",
+      "range": {
+        "startLine": 5,
+        "startChar": 44,
+        "endLine": 5,
+        "endChar": 62
+      },
+      "revId": "fc71bd55ed681eb51400c4055e391da00605b13a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30a4ffca_a8b53f85",
+        "filename": "property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1013984
+      },
+      "writtenOn": "2016-09-21T21:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30a4ffca_e84fc7b9",
       "range": {
         "startLine": 5,
         "startChar": 44,
