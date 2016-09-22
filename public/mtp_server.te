@@ -1,0 +1,12 @@
+type mtp_server, domain;
+
+# MtpServer uses /dev/mtp_usb
+allow mtp_server mtp_device:chr_file rw_file_perms;
+
+# MtpServer uses /dev/usb-ffs/mtp
+allow mtp_server functionfs:dir search;
+allow mtp_server functionfs:file rw_file_perms;
+
+# MtpServer sets sys.usb.ffs.mtp.ready
+set_prop(mtp_server, ffs_prop)
+

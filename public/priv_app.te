@@ -16,9 +16,6 @@ allow priv_app self:process ptrace;
 allow priv_app app_data_file:file rx_file_perms;
 auditallow priv_app app_data_file:file execute_no_trans;
 
-# android.process.media uses /dev/mtp_usb
-allow priv_app mtp_device:chr_file rw_file_perms;
-
 allow priv_app audioserver_service:service_manager find;
 allow priv_app cameraserver_service:service_manager find;
 allow priv_app drmserver_service:service_manager find;
