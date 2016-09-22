@@ -1,0 +1,44 @@
+type mediaprovider, domain;
+
+# MtpServer uses /dev/mtp_usb
+allow mediaprovider mtp_device:chr_file rw_file_perms;
+
+# MtpServer uses /dev/usb-ffs/mtp
+allow mediaprovider functionfs:dir search;
+allow mediaprovider functionfs:file rw_file_perms;
+
+# MtpServer sets sys.usb.ffs.mtp.ready
+set_prop(mediaprovider, ffs_prop)
+
+allow mediaprovider mediacodec_service:service_manager find;
+allow mediaprovider mediadrmserver_service:service_manager find;
+allow mediaprovider mediaextractor_service:service_manager find;
+allow mediaprovider mediaserver_service:service_manager find;
+allow mediaprovider app_api_service:service_manager find;
+allow mediaprovider system_api_service:service_manager find;
+allow mediaprovider persistent_data_block_service:service_manager find;
+allow mediaprovider recovery_service:service_manager find;
+
+# Write to /cache.
+allow mediaprovider { cache_file cache_recovery_file }:dir create_dir_perms;
+allow mediaprovider { cache_file cache_recovery_file }:file create_file_perms;
+
+# Write to /data/ota_package for OTA packages.
+allow mediaprovider ota_package_file:dir rw_dir_perms;
+allow mediaprovider ota_package_file:file create_file_perms;
+
+# Access to /data/media.
+allow mediaprovider media_rw_data_file:dir create_dir_perms;
+allow mediaprovider media_rw_data_file:file create_file_perms;
+
+# /sys and /proc access
+r_dir_file(mediaprovider, sysfs_type)
+r_dir_file(mediaprovider, proc)
+r_dir_file(mediaprovider, rootfs)
+
+# Allow GMS core to communicate with update_engine for A/B update.
+binder_call(mediaprovider, update_engine)
+allow mediaprovider update_engine_service:service_manager find;
+
+# Access to /data/preloads
+allow mediaprovider preloads_data_file:file r_file_perms;
