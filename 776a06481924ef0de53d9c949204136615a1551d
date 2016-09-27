@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "25dbdf69_b40c6849",
+        "filename": "android.hardware.nfc@1.0-service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-09-27T01:04:29Z",
+      "side": 1,
+      "message": "ok, in that case, please rename the file to match the type i.e. android_hardware_nfc_1_0_service.te. That way observed denials are clearly mapped to permissions in this file.",
+      "parentUuid": "25d67f37_b6a9282f",
+      "range": {
+        "startLine": 2,
+        "startChar": 5,
+        "endLine": 2,
+        "endChar": 37
+      },
+      "revId": "776a06481924ef0de53d9c949204136615a1551d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45b1b3f0_bdf2875d",
         "filename": "android.hardware.nfc@1.0-service.te",
         "patchSetId": 3
@@ -78,6 +102,24 @@
       "side": 1,
       "message": "This is code that I\u0027m moving from external/libnfci-nci.  Let\u0027s merge it as is, and maco@ can rework it later?",
       "parentUuid": "45b1b3f0_bdf2875d",
+      "revId": "776a06481924ef0de53d9c949204136615a1551d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25dbdf69_5414244e",
+        "filename": "android.hardware.nfc@1.0-service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-09-27T01:04:29Z",
+      "side": 1,
+      "message": "Many of these permissions are for behavior in the nfc app. You can\u0027t assume they\u0027re strictly a result of behavior in libnfc-nci.\n\nGranting permissions is easy, de-privileging a process is extremely difficult and error prone. We assume permissions are added because they are necessary. This type of commit breaks that assumption.\n\nAdding permissions that specifically address observed behavior is not asking too much.",
+      "parentUuid": "85a00ba7_577244a3",
       "revId": "776a06481924ef0de53d9c949204136615a1551d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
