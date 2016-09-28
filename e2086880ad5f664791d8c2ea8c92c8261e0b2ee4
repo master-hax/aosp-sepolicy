@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "25ccbff8_83805131",
+        "filename": "wificond.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-28T22:46:06Z",
+      "side": 1,
+      "message": "I was just grouping the HIDL processes together. \n|wifi_hal_legacy| and |wpa| interactions to wificond are over hwbinder, while |system_server| interacts over the regular binder.",
+      "parentUuid": "25ccbff8_23051d21",
+      "revId": "e2086880ad5f664791d8c2ea8c92c8261e0b2ee4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ccbff8_c377e992",
         "filename": "wpa.te",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-09-28T22:25:39Z",
       "side": 1,
       "message": "I don\u0027t understand this change. You haven\u0027t added permissions for hwbinder to do anything useful (like call another process), but you have removed permissions necessary to use the below \"binder_call(wpa, wificond)\" permission.",
+      "revId": "e2086880ad5f664791d8c2ea8c92c8261e0b2ee4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25ccbff8_832e913f",
+        "filename": "wpa.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-28T22:46:06Z",
+      "side": 1,
+      "message": "hmm. I don\u0027t think I understand what I\u0027m missing here. \n\nhwbinder_use() macro should take care of adding the required permissions. right?\nhttps://cs.corp.google.com/android/system/sepolicy/te_macros?rcl\u003d6577128baf72608ebc05baac221cc680825b5f72\u0026l\u003d192",
+      "parentUuid": "25ccbff8_c377e992",
       "revId": "e2086880ad5f664791d8c2ea8c92c8261e0b2ee4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
