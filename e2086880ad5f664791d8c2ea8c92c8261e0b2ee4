@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25ccbff8_23051d21",
+        "filename": "wificond.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-09-28T22:25:39Z",
+      "side": 1,
+      "message": "why change the ordering here??",
+      "revId": "e2086880ad5f664791d8c2ea8c92c8261e0b2ee4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25ccbff8_c377e992",
+        "filename": "wpa.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-09-28T22:25:39Z",
+      "side": 1,
+      "message": "I don\u0027t understand this change. You haven\u0027t added permissions for hwbinder to do anything useful (like call another process), but you have removed permissions necessary to use the below \"binder_call(wpa, wificond)\" permission.",
+      "revId": "e2086880ad5f664791d8c2ea8c92c8261e0b2ee4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
