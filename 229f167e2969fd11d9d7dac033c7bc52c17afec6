@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e29e1d21_51ad949b",
+        "filename": "app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-10-03T04:14:54Z",
+      "side": 1,
+      "message": "FYI: this would have the same effect as writing:\n\n  auditallow appdomain ion_device:chr_file ioctl;\n\nbut would avoid the policy bloat that negation rules add. Since ion_device isn\u0027t granted by any allow rule, removing it from the auditallow isn\u0027t needed.",
+      "revId": "229f167e2969fd11d9d7dac033c7bc52c17afec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
