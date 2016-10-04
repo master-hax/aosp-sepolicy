@@ -1,0 +1,22 @@
+# wifi legacy hal
+type android_hardware_wifi_1_0_service, domain;
+type android_hardware_wifi_1_0_service_exec, exec_type, file_type;
+
+# may be started by init
+init_daemon_domain(android_hardware_wifi_1_0_service)
+
+## hwbinder access
+hwbinder_use(android_hardware_wifi_1_0_service)
+
+## call into wificond process (callbacks)
+binder_call(android_hardware_wifi_1_0_service, wificond)
+
+r_dir_file(android_hardware_wifi_1_0_service, proc_net)
+r_dir_file(android_hardware_wifi_1_0_service, sysfs_type)
+
+allow android_hardware_wifi_1_0_service self:udp_socket create_socket_perms;
+allow android_hardware_wifi_1_0_service self:capability { net_admin net_raw };
+# allow android_hardware_wifi_1_0_service to speak to nl80211 in the kernel
+allow android_hardware_wifi_1_0_service self:netlink_socket create_socket_perms_no_ioctl;
+# newer kernels (e.g. 4.4 but not 4.1) have a new class for sockets
+allow android_hardware_wifi_1_0_service self:netlink_generic_socket create_socket_perms_no_ioctl;
