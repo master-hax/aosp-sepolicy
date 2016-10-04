@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "42ba8938_55ef3c0b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-10-04T23:42:07Z",
+      "side": 1,
+      "message": "Everyone that logs events needs to be able to read the tag number to tag string mapping. This file is no different to /etc/event-log-tags _except_ that one may view this dynamic content as a way to discover which applications on this platform are asking for an event log tag. A crafty person could intuit the package list?",
+      "parentUuid": "e29e1d21_b180a231",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 67
+      },
+      "revId": "a422d798979c4f9da697e2581c60c5f8665fd884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e29e1d21_f10b8adc",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-30T16:31:08Z",
       "side": 1,
       "message": "Why is this needed?",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 17
+      },
+      "revId": "a422d798979c4f9da697e2581c60c5f8665fd884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ba8938_9577e463",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-10-04T23:42:07Z",
+      "side": 1,
+      "message": "This gets triggered in logd, the code (not public yet) resets the DAC for the /dev/event-log-tags file if it has troubles opening it or detects corruption. I will probably need to put up the prototype code so you can instruct me.",
+      "parentUuid": "e29e1d21_f10b8adc",
       "range": {
         "startLine": 12,
         "startChar": 2,
