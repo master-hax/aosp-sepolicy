@@ -8,7 +8,7 @@ binder_use(wificond)
 binder_call(wificond, system_server)
 
 hwbinder_use(wificond)
-binder_call(wificond, wifi_hal_legacy)
+binder_call(wificond, android_hardware_wifi_1_0_service)
 binder_call(wificond, wpa)
 
 allow wificond wificond_service:service_manager { add find };
