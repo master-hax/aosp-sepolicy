@@ -97,7 +97,7 @@ allow installd {
     radio_data_file
     shell_data_file
     app_data_file
-    autoplay_data_file
+    ephemeral_data_file
 }:dir { create_dir_perms relabelfrom relabelto };
 
 allow installd {
@@ -107,7 +107,7 @@ allow installd {
     radio_data_file
     shell_data_file
     app_data_file
-    autoplay_data_file
+    ephemeral_data_file
 }:notdevfile_class_set { create_file_perms relabelfrom relabelto };
 
 # Similar for the files under /data/misc/profiles/
