@@ -4,3 +4,6 @@
 tmpfs_domain(system_server)
 # Create a socket for connections from debuggerd.
 type_transition system_server system_data_file:sock_file system_ndebug_socket "ndebugsocket";
+
+# Binder IPCs
+binder_call(system_server, android_hardware_vibrator_1_0_service)
