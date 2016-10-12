@@ -180,6 +180,11 @@ allow init dev_type:lnk_file create;
 # Disable tracing by writing to /sys/kernel/debug/tracing/tracing_on
 allow init debugfs_tracing:file w_file_perms;
 
+#============= init ==============
+allow init debugfs:file write;
+allow init debugfs_trace_marker:file getattr;
+allow init kmsg_device:chr_file relabelfrom;
+
 # chown/chmod on pseudo files.
 allow init { fs_type -contextmount_type -sdcard_type -rootfs }:file { open read setattr };
 allow init { fs_type -contextmount_type -sdcard_type -rootfs }:dir  { open read setattr search };
