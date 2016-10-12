@@ -19,3 +19,6 @@ allow hwservicemanager system_file:dir r_dir_perms;
 # TODO once hwservicemanager checks whether HALs are
 # allowed to register a certain service, add policy here
 # for allowing to check SELinux permissions.
+
+allow hwservicemanager system_file:dir read;
+allow hwservicemanager system_file:dir open;
