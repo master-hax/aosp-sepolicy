@@ -1,0 +1,27 @@
+# hwbinder access
+hwbinder_use(hal_bluetooth)
+
+allow hal_bluetooth system_file:dir read;
+allow hal_bluetooth system_file:dir open;
+
+# call into the Bluetooth process (callbacks)
+binder_call(hal_bluetooth, bluetooth)
+
+wakelock_use(hal_bluetooth);
+
+# bluetooth factory file accesses.
+r_dir_file(hal_bluetooth, bluetooth_efs_file)
+
+allow hal_bluetooth { uhid_device hci_attach_dev }:chr_file rw_file_perms;
+
+# look for a config file
+allow hal_bluetooth bluetooth_data_file:dir search;
+
+# sysfs access.
+r_dir_file(hal_bluetooth, sysfs_type)
+allow hal_bluetooth sysfs_bluetooth_writable:file rw_file_perms;
+allow hal_bluetooth self:capability2 wake_alarm;
+
+# Allow write access to bluetooth-specific properties
+set_prop(hal_bluetooth, bluetooth_prop)
+
