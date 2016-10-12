@@ -76,6 +76,7 @@ auditallow { domain_deprecated -init -system_server -vold } cache_file:lnk_file 
 
 #Allow access to ion memory allocation device
 allow domain_deprecated ion_device:chr_file rw_file_perms;
+allow domain_deprecated android_hardware_graphics_allocator_service:fd use;
 # split this auditallow into read and write perms since most domains seem to
 # only require read
 auditallow { domain_deprecated -appdomain -fingerprintd -keystore -surfaceflinger -system_server -tee -vold -zygote } ion_device:chr_file r_file_perms;

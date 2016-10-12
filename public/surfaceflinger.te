@@ -4,6 +4,10 @@ type surfaceflinger_exec, exec_type, file_type;
 
 typeattribute surfaceflinger mlstrustedsubject;
 
+# Perform HwBinder IPC.
+hwbinder_use(surfaceflinger)
+binder_call(surfaceflinger, android_hardware_graphics_allocator_service)
+
 # Perform Binder IPC.
 binder_use(surfaceflinger)
 binder_call(surfaceflinger, binderservicedomain)
