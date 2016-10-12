@@ -65,6 +65,7 @@ binder_call(adbd, surfaceflinger)
 # b/13188914
 allow adbd gpu_device:chr_file rw_file_perms;
 allow adbd ion_device:chr_file rw_file_perms;
+allow adbd android_hardware_graphics_allocator:fd use;
 r_dir_file(adbd, system_file)
 
 # Read /data/misc/adb/adb_keys.

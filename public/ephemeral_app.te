@@ -54,6 +54,7 @@ binder_call(ephemeral_app, system_server)
 
 # Allow read access to ion memory allocation device
 allow ephemeral_app ion_device:chr_file { read open };
+allow ephemeral_app android_hardware_graphics_allocator:fd use;
 
 # Use pipes and sockets provided by system_server via binder or local socket.
 allow ephemeral_app system_server:fifo_file rw_file_perms;

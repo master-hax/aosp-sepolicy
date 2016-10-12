@@ -1,0 +1,13 @@
+# graphics buffer allocator subsystem
+type android_hardware_graphics_allocator, domain;
+type android_hardware_graphics_allocator_exec, exec_type, file_type;
+
+# hwbinder access
+hwbinder_use(android_hardware_graphics_allocator)
+
+# GPU device access
+allow android_hardware_graphics_allocator gpu_device:chr_file rw_file_perms;
+allow android_hardware_graphics_allocator ion_device:chr_file r_file_perms;
+
+r_dir_file(android_hardware_graphics_allocator, sysfs_type)
+r_dir_file(android_hardware_graphics_allocator, system_file)
