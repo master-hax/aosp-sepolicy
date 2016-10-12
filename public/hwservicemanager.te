@@ -16,3 +16,6 @@ set_prop(hwservicemanager, hwservicemanager_prop)
 # TODO once hwservicemanager checks whether HALs are
 # allowed to register a certain service, add policy here
 # for allowing to check SELinux permissions.
+
+allow hwservicemanager system_file:dir read;
+allow hwservicemanager system_file:dir open;

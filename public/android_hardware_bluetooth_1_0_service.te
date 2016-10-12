@@ -1,0 +1,49 @@
+# Bluetooth subsystem
+type android_hardware_bluetooth_1_0_service, domain;
+type android_hardware_bluetooth_1_0_service_exec, exec_type, file_type;
+
+# hwbinder access
+hwbinder_use(android_hardware_bluetooth_1_0_service)
+
+allow android_hardware_bluetooth_1_0_service system_file:dir read;
+allow android_hardware_bluetooth_1_0_service system_file:dir open;
+
+# call into the Bluetooth process (callbacks)
+binder_call(android_hardware_bluetooth_1_0_service, bluetooth)
+
+# Allow access to net_admin ioctls
+allowxperm bluetooth self:udp_socket ioctl priv_sock_ioctls;
+
+wakelock_use(bluetooth);
+
+# Data file accesses.
+allow bluetooth bluetooth_data_file:dir create_dir_perms;
+allow bluetooth bluetooth_data_file:notdevfile_class_set create_file_perms;
+allow bluetooth bluetooth_logs_data_file:dir rw_dir_perms;
+allow bluetooth bluetooth_logs_data_file:file create_file_perms;
+
+# Socket creation under /data/misc/bluedroid.
+allow bluetooth bluetooth_socket:sock_file create_file_perms;
+
+# bluetooth factory file accesses.
+r_dir_file(bluetooth, bluetooth_efs_file)
+
+allow bluetooth { uhid_device hci_attach_dev }:chr_file rw_file_perms;
+
+# sysfs access.
+r_dir_file(bluetooth, sysfs_type)
+allow bluetooth sysfs_bluetooth_writable:file rw_file_perms;
+allow bluetooth self:capability net_admin;
+allow bluetooth self:capability2 wake_alarm;
+
+# tethering
+allow bluetooth self:packet_socket create_socket_perms_no_ioctl;
+allow bluetooth self:capability { net_admin net_raw net_bind_service };
+allow bluetooth efs_file:dir search;
+
+# proc access.
+allow bluetooth proc_bluetooth_writable:file rw_file_perms;
+
+# Allow write access to bluetooth specific properties
+set_prop(bluetooth, bluetooth_prop)
+
