@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c23feed_caeb0368",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-12T17:04:06Z",
+      "side": 1,
+      "message": "I don\u0027t think this is necessary. webview_zygote is launched by init, not zygote.",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 41
+      },
+      "revId": "120b99633ad0906f60e047209a3cffffbcd85759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c23feed_4a16f361",
+        "filename": "public/isolated_app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-12T17:04:06Z",
+      "side": 1,
+      "message": "Have you considered running this in its own domain?",
+      "revId": "120b99633ad0906f60e047209a3cffffbcd85759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c23feed_aa3ccfca",
+        "filename": "public/webview_zygote.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-12T17:04:06Z",
+      "side": 1,
+      "message": "does webview zygote need access to these socket types? How about:\nneverallow webview_zygote domain:{ rawip_socket tcp_socket udp_socket } *;\n\nWhat other socket types could be added to this rule?",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 1
+      },
+      "revId": "120b99633ad0906f60e047209a3cffffbcd85759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
