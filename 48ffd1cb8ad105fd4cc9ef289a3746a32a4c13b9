@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ca016a6_7123d816",
+        "filename": "public/logcat.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-10-12T21:47:00Z",
+      "side": 1,
+      "message": "Do we need to include more? what happens when an application does system(\"logcat ....\"), I expect it goes to -\u003eshell-\u003elogcat? I am concerned about:\n\npublic/system_server.te:neverallow system_server { file_type -toolbox_exec -logcat_exec -system_file }:file execute_no_trans;\n\nAs we might want to add system_server to the auto trans (or remove the -logcat-exec)?",
+      "range": {
+        "startLine": 5,
+        "startChar": 20,
+        "endLine": 5,
+        "endChar": 30
+      },
+      "revId": "48ffd1cb8ad105fd4cc9ef289a3746a32a4c13b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
