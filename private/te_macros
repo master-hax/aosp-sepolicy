@@ -95,10 +95,6 @@ tmpfs_domain($1)
 # Allow a base set of permissions required for all apps.
 define(`app_domain', `
 typeattribute $1 appdomain;
-# Label ashmem objects with our own unique type.
-tmpfs_domain($1)
-# Map with PROT_EXEC.
-allow $1 $1_tmpfs:file execute;
 ')
 
 #####################################
@@ -280,6 +276,11 @@ define(`recovery_only', ifelse(target_recovery, `true', $1, ))
 #
 define(`userdebug_or_eng', ifelse(target_build_variant, `eng', $1, ifelse(target_build_variant, `userdebug', $1)))
 define(`eng', ifelse(target_build_variant, `eng', $1))
+
+#####################################
+# Hack to get around checkpolicy limitation - provide rules only for building a
+# policy mask.
+define(`reqd_mask_only', ifelse(reqd_mask, `true', $1))
 
 #####################################
 # write_logd(domain)
