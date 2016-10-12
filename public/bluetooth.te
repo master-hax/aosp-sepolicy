@@ -61,6 +61,7 @@ allow bluetooth shell_data_file:file read;
 # Perform HwBinder IPC.
 hwbinder_use(bluetooth)
 binder_call(bluetooth, hal_telephony)
+binder_call(bluetooth, system_server)
 
 ###
 ### Neverallow rules
