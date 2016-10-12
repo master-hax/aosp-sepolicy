@@ -64,6 +64,10 @@ allow bluetooth shell_data_file:file read;
 allow bluetooth media_rw_data_file:dir create_dir_perms;
 allow bluetooth media_rw_data_file:file create_file_perms;
 
+# HAL - binder access
+allow bluetooth hwservicemanager:binder call;
+allow bluetooth hal_bluetooth:binder call;
+
 ###
 ### Neverallow rules
 ###
