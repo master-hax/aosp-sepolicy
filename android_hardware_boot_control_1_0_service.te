@@ -1,0 +1,9 @@
+# boot_control subsystem
+type android_hardware_boot_control_1_0_service, domain;
+type android_hardware_boot_control_1_0_service_exec, exec_type, file_type;
+
+# may be started by init
+init_daemon_domain(android_hardware_boot_control_1_0_service)
+
+# hwbinder access
+hwbinder_use(android_hardware_boot_control_1_0_service)
