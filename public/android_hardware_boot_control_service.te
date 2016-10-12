@@ -1,0 +1,9 @@
+# boot_control subsystem
+type android_hardware_boot_control_service, domain;
+type android_hardware_boot_control_service_exec, exec_type, file_type;
+
+# hwbinder access
+hwbinder_use(android_hardware_boot_control_service)
+
+# call into system_server process (callbacks)
+binder_call(android_hardware_boot_control_service, system_server)
