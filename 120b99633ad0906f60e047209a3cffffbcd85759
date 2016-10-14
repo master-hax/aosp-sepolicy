@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "1c99da37_787be17e",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2016-10-14T00:03:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c23feed_caeb0368",
+      "revId": "120b99633ad0906f60e047209a3cffffbcd85759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c23feed_4a16f361",
         "filename": "public/isolated_app.te",
         "patchSetId": 4
@@ -36,6 +54,24 @@
       "writtenOn": "2016-10-12T17:04:06Z",
       "side": 1,
       "message": "Have you considered running this in its own domain?",
+      "revId": "120b99633ad0906f60e047209a3cffffbcd85759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c99da37_98802d69",
+        "filename": "public/isolated_app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2016-10-14T00:03:59Z",
+      "side": 1,
+      "message": "I considered it briefly, but given that it would be identical to isolated_app, I\u0027m not sure there\u0027s a benefit. This also keeps Chrome.apk renderers and WebView.apk renderers using the same policy, which is nice for simplicity (unless we see a need for the policies to diverge).",
+      "parentUuid": "3c23feed_4a16f361",
       "revId": "120b99633ad0906f60e047209a3cffffbcd85759",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +95,24 @@
         "endLine": 82,
         "endChar": 1
       },
+      "revId": "120b99633ad0906f60e047209a3cffffbcd85759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc5582ad_a498e223",
+        "filename": "public/webview_zygote.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2016-10-14T00:03:59Z",
+      "side": 1,
+      "message": "I was able to restrict this to \"neverallow webview_zygote domain:socket *;\", which I find surprising given that I have read_logd and control_logd, but I guess those have specific target contexts so those don\u0027t get affected by the generic socket class neverallow?",
+      "parentUuid": "3c23feed_aa3ccfca",
       "revId": "120b99633ad0906f60e047209a3cffffbcd85759",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
