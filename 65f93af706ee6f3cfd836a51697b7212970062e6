@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "dc5582ad_272954a1",
+        "filename": "public/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1076138
+      },
+      "writtenOn": "2016-10-14T16:01:47Z",
+      "side": 1,
+      "message": "Like I mentioned on email, I think this is OK, modulus Jeff\u0027s comment.\n\nThis WebView refactor is not adding new attack surface -- it\u0027s splitting off existing code to a new process. Therefore, we\u0027re not allowing new code to take advantage of the neverallow exception: it\u0027s the same amount of code, now split into two processes.",
+      "parentUuid": "5c899276_84b59637",
+      "revId": "65f93af706ee6f3cfd836a51697b7212970062e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c899276_e4f582e3",
         "filename": "public/webview_zygote.te",
         "patchSetId": 5
