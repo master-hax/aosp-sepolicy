@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "7cdd769f_c92711b9",
+        "filename": "public/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1021004
+      },
+      "writtenOn": "2016-10-14T16:20:25Z",
+      "side": 1,
+      "message": "The WebView zygote will preload the code compiled from the WebView APK. All its children are WebView renderer processes who will run a service defined in that APK, so preloading that APK\u0027s dynamically generated code is beneficial as it\u0027s guaranteed to be used by all children.",
+      "parentUuid": "1c91dace_beef59aa",
+      "revId": "65f93af706ee6f3cfd836a51697b7212970062e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c899276_e4f582e3",
         "filename": "public/webview_zygote.te",
         "patchSetId": 5
