@@ -116,6 +116,24 @@
       "revId": "120b99633ad0906f60e047209a3cffffbcd85759",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c899276_441b2e7c",
+        "filename": "public/webview_zygote.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-14T03:12:17Z",
+      "side": 1,
+      "message": "\"socket\" is not adequate. It\u0027s not inclusive of all socket types, rather, it\u0027s any socket type that hasn\u0027t been assigned a more specific selinux class (such as udp_socket, unix_stream socket, etc). \n\nConsider adding (from global_macros) socket_class_set and seeing which socket classes must be omitted.",
+      "parentUuid": "dc5582ad_a498e223",
+      "revId": "120b99633ad0906f60e047209a3cffffbcd85759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
