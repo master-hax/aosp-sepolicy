@@ -163,6 +163,24 @@
     },
     {
       "key": {
+        "uuid": "dc5582ad_6a439341",
+        "filename": "public/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2016-10-14T20:39:51Z",
+      "side": 1,
+      "message": "I also replied on the thread Jorge CC\u0027d me on, but the intent is to make the webview_zygote be significantly more confined than the generic zygote. This should put us in a place where we can preload the WebView APK, giving us renderer startup performance benefits. As Torne notes, after the WebView moved into an APK, we lost this preloading in the zygote.",
+      "parentUuid": "bca52e1d_ebc131fc",
+      "revId": "65f93af706ee6f3cfd836a51697b7212970062e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c899276_e4f582e3",
         "filename": "public/webview_zygote.te",
         "patchSetId": 5
@@ -174,6 +192,24 @@
       "writtenOn": "2016-10-14T03:14:14Z",
       "side": 1,
       "message": "e.g. I was able to do every socket type but: packet_socket (for setting properties) unix_{stream,dgram}_socket for logd, and netlink_selinux_socket for selinux state.\n\nneverallow webview_zygote domain:{ socket tcp_socket udp_socket rawip_socket netlink_socket key_socket appletalk_socket netlink_route_socket netlink_firewall_socket netlink_tcpdiag_socket netlink_nflog_socket netlink_xfrm_socket netlink_audit_socket netlink_ip6fw_socket netlink_dnrt_socket netlink_kobject_uevent_socket tun_socket netlink_iscsi_socket netlink_fib_lookup_socket netlink_connector_socket netlink_netfilter_socket netlink_generic_socket netlink_scsitransport_socket netlink_rdma_socket netlink_crypto_socket } *;",
+      "revId": "65f93af706ee6f3cfd836a51697b7212970062e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc5582ad_e7757c5a",
+        "filename": "public/webview_zygote.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2016-10-14T20:39:51Z",
+      "side": 1,
+      "message": "\u003e e.g. I was able to do every socket type but: packet_socket (for setting properties) unix_{stream,dgram}_socket for logd, and netlink_selinux_socket for selinux state.\n\nThe webview_zygote shouldn\u0027t need to set properties, so just the unix_{stream,dgram}_socket and netlink_selinux_socket are necessary.\n\n \u003e neverallow webview_zygote domain:{ socket tcp_socket udp_socket rawip_socket netlink_socket key_socket appletalk_socket netlink_route_socket netlink_firewall_socket netlink_tcpdiag_socket netlink_nflog_socket netlink_xfrm_socket netlink_audit_socket netlink_ip6fw_socket netlink_dnrt_socket netlink_kobject_uevent_socket tun_socket netlink_iscsi_socket netlink_fib_lookup_socket netlink_connector_socket netlink_netfilter_socket netlink_generic_socket netlink_scsitransport_socket netlink_rdma_socket netlink_crypto_socket } *;\n\nThanks. Copied that and formatted it similar to how isolated_app does it. Is it not possible to do something like { socket_class_set - { exclusions } } ?",
+      "parentUuid": "5c899276_e4f582e3",
       "revId": "65f93af706ee6f3cfd836a51697b7212970062e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
