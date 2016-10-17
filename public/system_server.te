@@ -559,6 +559,8 @@ r_dir_file(system_server, sysfs_type)
 # Allow system_server to make binder calls to hwservicemanager
 binder_call(system_server, hwservicemanager)
 
+# Allow system_server to make binder calls to android_hardware_thermal_service
+binder_call(system_server, android_hardware_thermal_service)
 
 ###
 ### Neverallow rules
