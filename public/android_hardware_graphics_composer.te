@@ -1,0 +1,31 @@
+# graphics composer subsystem
+type android_hardware_graphics_composer, domain;
+type android_hardware_graphics_composer_exec, exec_type, file_type;
+
+# HwBinder access
+hwbinder_use(android_hardware_graphics_composer)
+# IComposerCallback
+binder_call(android_hardware_graphics_composer, surfaceflinger)
+
+# Binder access (for display.qservice)
+binder_use(android_hardware_graphics_composer)
+binder_service(android_hardware_graphics_composer)
+allow android_hardware_graphics_composer surfaceflinger_service:service_manager { add find };
+
+# GPU device access
+allow android_hardware_graphics_composer gpu_device:chr_file rw_file_perms;
+allow android_hardware_graphics_composer ion_device:chr_file r_file_perms;
+allow android_hardware_graphics_composer android_hardware_graphics_allocator:fd use;
+
+# Access /dev/graphics/fb0.
+allow android_hardware_graphics_composer graphics_device:dir search;
+allow android_hardware_graphics_composer graphics_device:chr_file rw_file_perms;
+
+allow android_hardware_graphics_composer system_server:fd use;
+allow android_hardware_graphics_composer bootanim:fd use;
+allow android_hardware_graphics_composer {appdomain ephemeral_app}:fd use;
+
+allow android_hardware_graphics_composer self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+
+r_dir_file(android_hardware_graphics_composer, sysfs_type)
+r_dir_file(android_hardware_graphics_composer, system_file)
