@@ -7,6 +7,7 @@ typeattribute surfaceflinger mlstrustedsubject;
 # Perform HwBinder IPC.
 hwbinder_use(surfaceflinger)
 binder_call(surfaceflinger, android_hardware_graphics_allocator_service)
+binder_call(surfaceflinger, android_hardware_graphics_composer_service)
 
 # Perform Binder IPC.
 binder_use(surfaceflinger)
