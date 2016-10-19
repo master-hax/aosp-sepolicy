@@ -1,3 +1,43 @@
-# type_transition must be private policy the domain_trans rules could stay
-# public, but conceptually should go with this
-init_daemon_domain(debuggerd)
+attribute debuggerd_domain;
+
+type debuggerd_exec, exec_type, file_type;
+
+allow debuggerd_domain self:capability { kill };
+
+# Use inherited file descriptors
+allow debuggerd_domain domain:fd use;
+allow debuggerd_domain domain:fifo_file write;
+
+# Write to the terminal
+allow debuggerd_domain devpts:chr_file { read write };
+
+# Talk to tombstoned
+allow debuggerd_domain tombstoned:unix_stream_socket { connectto };
+allow debuggerd_domain tombstoned_intercept_socket:sock_file { getattr write };
+
+# debuggerd called from dumpstate or system_server.
+type debuggerd_system, domain, debuggerd_domain;
+domain_auto_trans(dumpstate, debuggerd_exec, debuggerd_system);
+
+# Allow system_server to exec debuggerd and dynamically transition.
+allow system_server debuggerd_exec:file { execute execute_no_trans getattr open read };
+allow system_server debuggerd_system:process dyntransition;
+allow debuggerd_system system_server:process sigchld;
+
+# This is derived from the list that system server defines as interesting native processes
+# to dump during ANRs or watchdog aborts, defined in NATIVE_STACKS_OF_INTEREST in
+# frameworks/base/services/core/java/com/android/server/Watchdog.java.
+allow debuggerd_system {
+  audioserver
+  cameraserver
+  drmserver
+  inputflinger
+  mediacodec
+  mediadrmserver
+  mediaextractor
+  mediaserver
+  sdcardd
+  surfaceflinger
+}:process { signal };
+
+allow debuggerd_system anr_data_file:file write;
