@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcf8878b_c79656d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-19T19:16:18Z",
+      "side": 1,
+      "message": "This is not acceptable. Please move these out of surfaceflinger and put each into their own domain.\n\nDo not just duplicate surfaceflinger\u0027s permissions. Instead:\n\n1. start with an empty domain (no permissions)\n2. put the device into permissive mode (denials are logged but not enforced)\n3. Collect denials\n4. use audit2allow tool to generate new policy based on denials\n5. upload that for review.\n\nSee: https://source.android.com/security/selinux/device-policy.html#label_new_services_and_address_denials\n\nFor a more in-depth explanation.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 36
+      },
+      "revId": "7505b800963465295ea1dc6cc653155e0e28db13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcf8878b_d88f5ab6",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-19T19:16:18Z",
+      "side": 1,
+      "message": "This is a regex, so escape periods e.g.\n/system/bin/hw/android\\.hardware\\.graphics.allocator@2.0-service\n\nLooks like I missed that on the other Hal services :(",
+      "revId": "7505b800963465295ea1dc6cc653155e0e28db13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
