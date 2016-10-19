@@ -65,19 +65,6 @@ allow dumpstate {
   sdcardd
   surfaceflinger
 }:process signal;
-# Ask debuggerd for the backtraces of these processes.
-allow dumpstate {
-  audioserver
-  cameraserver
-  drmserver
-  inputflinger
-  mediacodec
-  mediadrmserver
-  mediaextractor
-  mediaserver
-  sdcardd
-  surfaceflinger
-}:debuggerd dump_backtrace;
 
 # TODO: added to match above sysfs rule. Remove me?
 allow dumpstate sysfs_usb:file w_file_perms;
