@@ -29,7 +29,7 @@ unix_socket_connect(hal_audio, bluetooth, bluetooth)
 
 # hal_audio should never execute any executable without
 # a domain transition
-neverallow hal_audio { file_type fs_type }:file execute_no_trans;
+neverallow hal_audio { file_type fs_type -crash_dump_exec }:file execute_no_trans;
 
 # hal_audio should never need network access.
 # Disallow network sockets.
