@@ -22,7 +22,7 @@ allow mediacodec ion_device:chr_file rw_file_perms;
 
 # mediacodec should never execute any executable without a
 # domain transition
-neverallow mediacodec { file_type fs_type }:file execute_no_trans;
+neverallow mediacodec { file_type fs_type -crash_dump_exec }:file execute_no_trans;
 
 # mediacodec should never need network access. Disallow network sockets.
 neverallow mediacodec domain:{ tcp_socket udp_socket rawip_socket } *;
