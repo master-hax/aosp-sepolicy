@@ -65,19 +65,20 @@ allow dumpstate {
   sdcardd
   surfaceflinger
 }:process signal;
+
 # Ask debuggerd for the backtraces of these processes.
-allow dumpstate {
-  audioserver
-  cameraserver
-  drmserver
-  inputflinger
-  mediacodec
-  mediadrmserver
-  mediaextractor
-  mediaserver
-  sdcardd
-  surfaceflinger
-}:debuggerd dump_backtrace;
+#allow dumpstate {
+#  audioserver
+#  cameraserver
+#  drmserver
+#  inputflinger
+#  mediacodec
+#  mediadrmserver
+#  mediaextractor
+#  mediaserver
+#  sdcardd
+#  surfaceflinger
+#}:debuggerd dump_backtrace;
 
 # Vibrate the device after we're done collecting the bugreport
 # /sys/class/timed_output/vibrator/enable

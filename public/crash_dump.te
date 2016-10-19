@@ -1,0 +1,35 @@
+type crash_dump, domain;
+type crash_dump_exec, exec_type, file_type;
+
+allow crash_dump crash_dump_exec:file { entrypoint open read execute getattr };
+
+allow crash_dump self:capability { sys_ptrace kill };
+allow crash_dump {
+  domain
+  -init
+  -keystore
+}:process { ptrace signal sigchld sigstop sigkill };
+
+# Use inherited file descriptors
+allow crash_dump domain:fd use;
+allow crash_dump domain:fifo_file write;
+
+allow crash_dump domain:dir r_dir_perms;
+allow crash_dump domain:file r_file_perms;
+allow crash_dump domain:lnk_file read;
+
+allow crash_dump shared_relro_file:dir r_dir_perms;
+allow crash_dump shared_relro_file:file r_file_perms;
+allow crash_dump exec_type:file r_file_perms;
+
+allow crash_dump system_data_file:file open;
+
+# Read /data/dalvik-cache.
+allow crash_dump dalvikcache_data_file:dir { search getattr };
+allow crash_dump dalvikcache_data_file:file r_file_perms;
+
+# Talk to tombstoned
+allow crash_dump tombstoned:unix_stream_socket { connectto };
+allow crash_dump tombstoned_crash_socket:sock_file { write };
+
+read_logd(crash_dump)
