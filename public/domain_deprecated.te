@@ -65,7 +65,6 @@ allow domain_deprecated dalvikcache_data_file:file r_file_perms;
 auditallow {
   domain_deprecated
   -appdomain
-  -debuggerd
   -dex2oat
   -dumpstate
   -init
@@ -76,7 +75,6 @@ auditallow {
 auditallow {
   domain_deprecated
   -appdomain
-  -debuggerd
   -dex2oat
   -dumpstate
   -init
@@ -166,8 +164,8 @@ auditallow {
 # Get SELinux enforcing status.
 allow domain_deprecated selinuxfs:dir r_dir_perms;
 allow domain_deprecated selinuxfs:file r_file_perms;
-auditallow { domain_deprecated -appdomain -debuggerd -init -installd -keystore -postinstall_dexopt -runas -servicemanager -system_server -ueventd -zygote } selinuxfs:dir { open getattr read ioctl lock }; # search granted in domain
-auditallow { domain_deprecated -appdomain -debuggerd -init -installd -keystore -postinstall_dexopt -runas -servicemanager -system_server -ueventd -zygote } selinuxfs:file { open read ioctl lock }; # getattr granted in domain
+auditallow { domain_deprecated -appdomain -init -installd -keystore -postinstall_dexopt -runas -servicemanager -system_server -ueventd -zygote } selinuxfs:dir { open getattr read ioctl lock }; # search granted in domain
+auditallow { domain_deprecated -appdomain -init -installd -keystore -postinstall_dexopt -runas -servicemanager -system_server -ueventd -zygote } selinuxfs:file { open read ioctl lock }; # getattr granted in domain
 
 # World readable asec image contents
 allow domain_deprecated asec_public_file:file r_file_perms;
