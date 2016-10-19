@@ -135,7 +135,7 @@ allow mediaserver system_server:fd use;
 
 # mediaserver should never execute any executable without a
 # domain transition
-neverallow mediaserver { file_type fs_type }:file execute_no_trans;
+neverallow mediaserver { file_type fs_type -crash_dump_exec }:file execute_no_trans;
 
 # do not allow privileged socket ioctl commands
 neverallowxperm mediaserver domain:{ rawip_socket tcp_socket udp_socket } ioctl priv_sock_ioctls;

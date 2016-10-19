@@ -50,15 +50,15 @@ selinux_check_access(webview_zygote)
 ##### Neverallow
 #####
 
-# Only permit transition to isolated_app.
-neverallow webview_zygote { domain -isolated_app }:process dyntransition;
+# Only permit transition to isolated_app or crash_dump.
+neverallow webview_zygote { domain -crash_dump -isolated_app }:process dyntransition;
 
 # Only setcon() transitions, no exec() based transitions
-neverallow webview_zygote *:process transition;
+neverallow webview_zygote { domain -crash_dump }:process transition;
 
 # Must not exec() a program without changing domains.
 # Having said that, exec() above is not allowed.
-neverallow webview_zygote *:file execute_no_trans;
+neverallow webview_zygote { domain -crash_dump_exec }:file execute_no_trans;
 
 # The only way to enter this domain is for init to exec() us.
 neverallow { domain -init } webview_zygote:process transition;
