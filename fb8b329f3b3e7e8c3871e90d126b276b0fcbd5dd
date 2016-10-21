@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dc24a349_56b192c6",
+        "filename": "private/service_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1096171
+      },
+      "writtenOn": "2016-10-21T06:18:59Z",
+      "side": 1,
+      "message": "Actually, I changed this back to surfaceflinger_service.  I do not want to take back any privilege to break devices without android_hardware_graphics_composer.\n\nBut display.qservice?  It seems very device-specific.",
+      "parentUuid": "9c714b5a_5daa1b5d",
+      "range": {
+        "startLine": 38,
+        "startChar": 87,
+        "endLine": 38,
+        "endChar": 95
+      },
+      "revId": "fb8b329f3b3e7e8c3871e90d126b276b0fcbd5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c714b5a_1da4a38a",
         "filename": "public/android_hardware_graphics_composer_service.te",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-20T16:30:15Z",
       "side": 1,
       "message": "drop please.",
+      "range": {
+        "startLine": 2,
+        "startChar": 39,
+        "endLine": 2,
+        "endChar": 47
+      },
+      "revId": "fb8b329f3b3e7e8c3871e90d126b276b0fcbd5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc24a349_76ae0e68",
+        "filename": "public/android_hardware_graphics_composer_service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1096171
+      },
+      "writtenOn": "2016-10-21T06:18:59Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "9c714b5a_1da4a38a",
       "range": {
         "startLine": 2,
         "startChar": 39,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "dc24a349_16bb1aa9",
+        "filename": "public/android_hardware_graphics_composer_service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1096171
+      },
+      "writtenOn": "2016-10-21T06:18:59Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "9c714b5a_fdc18f1d",
+      "range": {
+        "startLine": 3,
+        "startChar": 39,
+        "endLine": 3,
+        "endChar": 47
+      },
+      "revId": "fb8b329f3b3e7e8c3871e90d126b276b0fcbd5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c714b5a_fd0f4fa0",
         "filename": "public/android_hardware_graphics_composer_service.te",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "dc24a349_36b896a9",
+        "filename": "public/android_hardware_graphics_composer_service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1096171
+      },
+      "writtenOn": "2016-10-21T06:18:59Z",
+      "side": 1,
+      "message": "For the implementation I tested against,\n\n  /sys/devices/soc/900000.qcom,mdss_mdp/caps\n\nIt feels like something that should be removed from the generic rules here?  Same for the netlink rule above?",
+      "parentUuid": "9c714b5a_fd0f4fa0",
+      "range": {
+        "startLine": 30,
+        "startChar": 55,
+        "endLine": 30,
+        "endChar": 65
+      },
+      "revId": "fb8b329f3b3e7e8c3871e90d126b276b0fcbd5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c714b5a_7d303f03",
         "filename": "public/android_hardware_graphics_composer_service.te",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2016-10-20T17:13:33Z",
       "side": 1,
       "message": "What denials is this addressing? you should already have the necessary permissions granted in domain.te.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 67
+      },
+      "revId": "fb8b329f3b3e7e8c3871e90d126b276b0fcbd5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf74308_642ba0dd",
+        "filename": "public/android_hardware_graphics_composer_service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1096171
+      },
+      "writtenOn": "2016-10-21T06:18:59Z",
+      "side": 1,
+      "message": "I got\n\n    avc: denied { read } for name\u003d\"hw\" dev\u003d\"dm-0\" ino\u003d1706 scontext\u003du:r:android_hardware_graphics_composer:s0 tcontext\u003du:object_r:system_file:s0 tclass\u003ddir permissive\u003d1\n    avc: denied { open } for path\u003d\"/system/lib64/hw\" dev\u003d\"dm-0\" ino\u003d1706 scontext\u003du:r:android_hardware_graphics_composer:s0 tcontext\u003du:object_r:system_file:s0 tclass\u003ddir permissive\u003d1\n\nwithout this rule.",
+      "parentUuid": "9c714b5a_7d303f03",
       "range": {
         "startLine": 31,
         "startChar": 0,
