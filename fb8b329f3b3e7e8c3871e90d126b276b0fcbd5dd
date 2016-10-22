@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "dcf74308_c4d26fbb",
+        "filename": "public/android_hardware_graphics_composer_service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1096171
+      },
+      "writtenOn": "2016-10-22T00:17:40Z",
+      "side": 1,
+      "message": "As far as I can tell, the implementation uses uevents to receive hotplug and panel reset events.\n\nI do not think this is the case with every impl., but it ends up in the generic surfaceflinger.te somehow.",
+      "parentUuid": "1c8e3bb3_f79bc0ad",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 113
+      },
+      "revId": "fb8b329f3b3e7e8c3871e90d126b276b0fcbd5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c714b5a_fd0f4fa0",
         "filename": "public/android_hardware_graphics_composer_service.te",
         "patchSetId": 1
@@ -272,6 +296,30 @@
       "side": 1,
       "message": "Why is the underlying implementation reading the contents of the directory. It already has permission to read a known library. Can\u0027t it just do that instead.",
       "parentUuid": "dcf74308_642ba0dd",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 67
+      },
+      "revId": "fb8b329f3b3e7e8c3871e90d126b276b0fcbd5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf74308_847067fa",
+        "filename": "public/android_hardware_graphics_composer_service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1096171
+      },
+      "writtenOn": "2016-10-22T00:17:40Z",
+      "side": 1,
+      "message": "I am not sure about this one :(",
+      "parentUuid": "1c8e3bb3_b7a138e4",
       "range": {
         "startLine": 31,
         "startChar": 0,
