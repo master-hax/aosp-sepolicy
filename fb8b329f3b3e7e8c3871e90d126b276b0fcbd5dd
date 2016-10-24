@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "dc24a349_397f2784",
+        "filename": "public/android_hardware_graphics_composer_service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1096171
+      },
+      "writtenOn": "2016-10-24T22:49:38Z",
+      "side": 1,
+      "message": "I can remove it from here, but not surfaceflinger.  Not all targets use android_hardware_graphics_composer_service.",
+      "parentUuid": "a1d8a809_71bf9808",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 113
+      },
+      "revId": "fb8b329f3b3e7e8c3871e90d126b276b0fcbd5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c714b5a_fd0f4fa0",
         "filename": "public/android_hardware_graphics_composer_service.te",
         "patchSetId": 1
@@ -368,6 +392,30 @@
       "side": 1,
       "message": "Do you not have source?",
       "parentUuid": "dcf74308_847067fa",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 67
+      },
+      "revId": "fb8b329f3b3e7e8c3871e90d126b276b0fcbd5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc24a349_d9bab319",
+        "filename": "public/android_hardware_graphics_composer_service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1096171
+      },
+      "writtenOn": "2016-10-24T22:49:38Z",
+      "side": 1,
+      "message": "The HAL does dlopen some proprietary libraries.  I am not sure where the offending code is.  I searched for \"opendir\" and \"/system\" from where I have source code for and there was no result.  Is there a better way to trace this down?",
+      "parentUuid": "a1d8a809_11c40c9c",
       "range": {
         "startLine": 31,
         "startChar": 0,
