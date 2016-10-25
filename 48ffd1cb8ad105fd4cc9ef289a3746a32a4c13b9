@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8105644c_195d6f93",
+        "filename": "public/logcat.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-10-25T17:41:19Z",
+      "side": 1,
+      "message": "Because logcat_exec is transitioned from init in logpersist.te to the logpersist domain instead.",
+      "parentUuid": "8105644c_56a86472",
+      "range": {
+        "startLine": 5,
+        "startChar": 20,
+        "endLine": 5,
+        "endChar": 30
+      },
+      "revId": "48ffd1cb8ad105fd4cc9ef289a3746a32a4c13b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8105644c_997e7f1e",
         "filename": "public/logcat.te",
         "patchSetId": 8
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "8105644c_b94b83c9",
+        "filename": "public/logcat.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-10-25T17:41:19Z",
+      "side": 1,
+      "message": "then logcat will not work from adb or shell in a pipeline.",
+      "parentUuid": "8105644c_997e7f1e",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 34
+      },
+      "revId": "48ffd1cb8ad105fd4cc9ef289a3746a32a4c13b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8105644c_f98b4bfe",
         "filename": "public/logcat.te",
         "patchSetId": 8
@@ -83,6 +131,30 @@
       "writtenOn": "2016-10-25T17:06:26Z",
       "side": 1,
       "message": "ditto.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 50
+      },
+      "revId": "48ffd1cb8ad105fd4cc9ef289a3746a32a4c13b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8105644c_793bdb32",
+        "filename": "public/logcat.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-10-25T17:41:19Z",
+      "side": 1,
+      "message": "This breaks:\n\nlogcat \u003cblah\u003e | grep \u003cfoo\u003e\n\nlogcat -f /data/local/tmp/logfiles",
+      "parentUuid": "8105644c_f98b4bfe",
       "range": {
         "startLine": 15,
         "startChar": 0,
