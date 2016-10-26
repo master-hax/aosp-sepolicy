@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "66f40642_3fc9e746",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-10-26T22:48:38Z",
+      "side": 1,
+      "message": "Ok, the secure way of solving this is outside the reach of logd though. make /dev/event-log-tags a directory, and creating a multitude of /dev/event-log-tags/\u003cuid\u003e files each with the appropriate DAC.\n\nUnless if I move the log tag service from logd into init \u003cgasp\u003e or make it a standalone root process.\n\nAnother way to mitigate this, but creates problems with stickiness (and crashes of logd or the service) is to keep all of it inside the service. The problem with that is how slow the access would be and the _storm_ that we would have every time an application starts up. Having the file(s) to mmap() to is a major speedup.",
+      "parentUuid": "618870a5_6e3c3fde",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 67
+      },
+      "revId": "a422d798979c4f9da697e2581c60c5f8665fd884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e29e1d21_f10b8adc",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "dac_read_search wouldn\u0027t be enough to change file permissions, just enough for logd to read files it doesn\u0027t have dac permissions to.",
       "parentUuid": "42ba8938_9577e463",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 17
+      },
+      "revId": "a422d798979c4f9da697e2581c60c5f8665fd884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66f40642_5feb8b9c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-10-26T22:48:38Z",
+      "side": 1,
+      "message": "So it still sounds like a bug in my prototype implementation then ...",
+      "parentUuid": "211bd82a_1ed671dc",
       "range": {
         "startLine": 12,
         "startChar": 2,
