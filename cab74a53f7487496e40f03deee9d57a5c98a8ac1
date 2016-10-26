@@ -2,6 +2,230 @@
   "comments": [
     {
       "key": {
+        "uuid": "c17d9c54_28e5cf22",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "unused. delete",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 74
+      },
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17d9c54_88d5fb47",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "Who is expected to execute this? I think we can just delete this line and leave it with the default system_file label.",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 46
+      },
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17d9c54_c551acd9",
+        "filename": "private/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "Delete, already taken care of by \"init_daemon_domain(tombstoned)\"",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 47
+      },
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17d9c54_054c7439",
+        "filename": "private/tombstoned.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "Add here instead:\n, mlstrustedsubject;",
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17d9c54_453e7c80",
+        "filename": "private/tombstoned.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "Grabbing a wakelock?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 48
+      },
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17d9c54_25417803",
+        "filename": "private/tombstoned.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "Delete",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 43
+      },
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17d9c54_6806f7fa",
+        "filename": "public/adbd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "should we add this exemption, or exempt adb from transitioning to crash_dump?",
+      "range": {
+        "startLine": 124,
+        "startChar": 26,
+        "endLine": 124,
+        "endChar": 36
+      },
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17d9c54_28894f72",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "r_dir_file() macro includes these rules.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 38
+      },
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17d9c54_e88e877b",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "Why is this needed? this is system_server\u0027s file type.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 44
+      },
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17d9c54_a8b9df25",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "allow crash_dump tombstoned:unix_stream_socket { connectto };\nallow crash_dump tombstoned_crash_socket:sock_file { write };",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 61
+      },
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c17d9c54_82395aef",
         "filename": "public/domain.te",
         "patchSetId": 1
@@ -13,6 +237,161 @@
       "writtenOn": "2016-10-26T03:11:08Z",
       "side": 1,
       "message": "This is probably the interesting bit. AFAICT, going through a dynamic transition is required because of processes that set PR_SET_NO_NEW_PRIVS (i.e. app_process).",
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17d9c54_c870e3c2",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "We don\u0027t want to allow this right?",
+      "range": {
+        "startLine": 167,
+        "startChar": 80,
+        "endLine": 167,
+        "endChar": 96
+      },
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17d9c54_28606fea",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "Let\u0027s consider a whitelist instead of a blacklist.",
+      "range": {
+        "startLine": 167,
+        "startChar": 8,
+        "endLine": 167,
+        "endChar": 28
+      },
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17d9c54_a8947f91",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "Any reason to _not_ use the domain_auto_trans() macro?",
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17d9c54_485db32d",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "neverallow rules are all grouped below.",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 48
+      },
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17d9c54_081f2b82",
+        "filename": "public/dumpstate.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "just delete.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 28
+      },
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17d9c54_e89cc7a7",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "Unused",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 44
+      },
+      "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17d9c54_680ef751",
+        "filename": "public/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2016-10-26T17:41:36Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 28
+      },
       "revId": "cab74a53f7487496e40f03deee9d57a5c98a8ac1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
