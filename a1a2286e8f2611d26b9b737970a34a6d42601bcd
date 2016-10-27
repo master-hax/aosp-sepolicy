@@ -22,6 +22,30 @@
       "revId": "a1a2286e8f2611d26b9b737970a34a6d42601bcd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "863d7abf_d0dc1ccc",
+        "filename": "public/logcat.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-10-27T18:17:34Z",
+      "side": 1,
+      "message": "before this \u0027split\u0027 logcat could do so because it inherited it from adb or shell. After the split, we lose the ability to run logcat -f to land content in /data/local/tmp/.\n\nWhat you are asking is to remove something a developer might use as an alternative to dumping logcat data down the adb pipe.\n\nWould userdebug_or_eng() be acceptable?",
+      "parentUuid": "66f40642_e82d07ad",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 50
+      },
+      "revId": "a1a2286e8f2611d26b9b737970a34a6d42601bcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
