@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "a6eefe70_164f2adb",
+        "filename": "private/logpersist.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-10-27T22:31:27Z",
+      "side": 1,
+      "message": "Why is this neverallow rule being triggered for userdebug_or_eng(`allow init misc_logd_file:dir create\u0027) ?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 74
+      },
+      "revId": "a1a2286e8f2611d26b9b737970a34a6d42601bcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81b56446_d76b2bd1",
+        "filename": "public/init.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-10-27T22:31:27Z",
+      "side": 1,
+      "message": "this violated a neverallow rule in logpersist.te that is itself userdebug_or_eng(`-init\u0027). Why did it fail on the checkbuild?",
+      "range": {
+        "startLine": 229,
+        "startChar": 39,
+        "endLine": 229,
+        "endChar": 45
+      },
+      "revId": "a1a2286e8f2611d26b9b737970a34a6d42601bcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66f40642_e82d07ad",
         "filename": "public/logcat.te",
         "patchSetId": 10
