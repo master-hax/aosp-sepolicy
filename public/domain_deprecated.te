@@ -62,8 +62,27 @@ auditallow { domain_deprecated -appdomain -dex2oat -installd -system_server } ap
 # Read /data/dalvik-cache.
 allow domain_deprecated dalvikcache_data_file:dir { search getattr };
 allow domain_deprecated dalvikcache_data_file:file r_file_perms;
-auditallow { domain_deprecated -appdomain -debuggerd -dex2oat -init -installd -system_server -zygote } dalvikcache_data_file:dir { search getattr };
-auditallow { domain_deprecated -appdomain -debuggerd -dex2oat -installd -system_server -zygote } dalvikcache_data_file:file r_file_perms;
+auditallow {
+  domain_deprecated
+  -appdomain
+  -debuggerd
+  -dex2oat
+  -dumpstate
+  -init
+  -installd
+  -system_server
+  -zygote
+} dalvikcache_data_file:dir { search getattr };
+auditallow {
+  domain_deprecated
+  -appdomain
+  -debuggerd
+  -dex2oat
+  -dumpstate
+  -installd
+  -system_server
+  -zygote
+} dalvikcache_data_file:file r_file_perms;
 
 # Read already opened /cache files.
 allow domain_deprecated cache_file:dir r_dir_perms;
