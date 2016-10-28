@@ -102,6 +102,7 @@ sepolicy_build_files := security_classes \
                         ioctl_defines \
                         ioctl_macros \
                         *.te \
+                        roles_decl \
                         roles \
                         users \
                         initial_sid_contexts \
