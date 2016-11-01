@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "46db8268_b71c6a8d",
+        "filename": "private/logpersist.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-11-01T16:25:20Z",
+      "side": 1,
+      "message": "copy and paste ... will drop and retest.",
+      "parentUuid": "869f3a79_e92b4d4b",
+      "range": {
+        "startLine": 2,
+        "startChar": 25,
+        "endLine": 2,
+        "endChar": 42
+      },
+      "revId": "2b6f1bf03c269d76da507255f56953c5370b354e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66bde6e5_f75a009b",
         "filename": "public/logcat.te",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-31T21:36:11Z",
       "side": 1,
       "message": "Can you point me to where this happens? Worried about symlink following attacks.",
+      "range": {
+        "startLine": 16,
+        "startChar": 13,
+        "endLine": 16,
+        "endChar": 52
+      },
+      "revId": "2b6f1bf03c269d76da507255f56953c5370b354e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46db8268_17e57e60",
+        "filename": "public/logcat.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-11-01T16:25:20Z",
+      "side": 1,
+      "message": "logcat -f /data/local/tmp/logcat\n\nWe could do this before when we inherited from shell, but now that we are in a logcat domain, we can no longer do this.",
+      "parentUuid": "66bde6e5_f75a009b",
       "range": {
         "startLine": 16,
         "startChar": 13,
