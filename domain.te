@@ -292,9 +292,7 @@ neverallow domain { cache_file cache_backup_file cache_private_backup_file cache
 # Protect most domains from executing arbitrary content from /data.
 neverallow {
   domain
-  -untrusted_app
-  -priv_app
-  -shell
+  -appdomain
 } {
   data_file_type
   -dalvikcache_data_file
