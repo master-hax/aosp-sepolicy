@@ -144,6 +144,23 @@
     },
     {
       "key": {
+        "uuid": "cb285bc8_9e9b0d59",
+        "filename": "public/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-04T22:48:20Z",
+      "side": 1,
+      "message": "While you\u0027re here, can you please add the following neverallow?\n\n# Executable content should never be loaded from an\n# ephemeral app home directory.\nneverallow ephemeral_app ephemeral_data_file:file { execute execute_no_trans };",
+      "revId": "ced5b94b58e50978370dfa83a1dd105b2d9d1409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb285bc8_9e2cadb0",
         "filename": "public/file.te",
         "patchSetId": 2
