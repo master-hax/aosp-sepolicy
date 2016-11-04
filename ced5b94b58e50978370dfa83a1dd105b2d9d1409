@@ -1,0 +1,232 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb285bc8_be053133",
+        "filename": "private/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-04T22:43:28Z",
+      "side": 1,
+      "message": "This would allow normal APKs to read / map as executable ephemeral-app dalvik-cache files, and vice versa. We likely don\u0027t want that. It would be better to create a dedicated type for this to avoid pollution between app types.",
+      "revId": "ced5b94b58e50978370dfa83a1dd105b2d9d1409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb285bc8_3e12e17b",
+        "filename": "private/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-04T22:43:28Z",
+      "side": 1,
+      "message": "for the record, this weird nested structure has been historically problematic. Cutting and pasting the above may not be the cleanest approach.",
+      "revId": "ced5b94b58e50978370dfa83a1dd105b2d9d1409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb285bc8_7e145925",
+        "filename": "public/dex2oat.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-04T22:43:28Z",
+      "side": 1,
+      "message": "To better indicate that these should be kept together, recommend writing this as:\n\nr_dir_file(dex2oat, { apk_data_file ephemeral_apk_data_file })\n\nwhich merges this line and line 6.",
+      "revId": "ced5b94b58e50978370dfa83a1dd105b2d9d1409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb285bc8_3ef301f5",
+        "filename": "public/dex2oat.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-04T22:43:28Z",
+      "side": 1,
+      "message": "Recommend merging with line 26:\n\nallow dex2oat { apk_tmp_file ephemeral_apk_tmp_file }:file read;",
+      "revId": "ced5b94b58e50978370dfa83a1dd105b2d9d1409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb285bc8_beeed146",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-04T22:43:28Z",
+      "side": 1,
+      "message": "We shouldn\u0027t be allowing new executable types to have the execmod permission. There\u0027s no reason why we need to support text relocations on a new APK type. It\u0027s something we\u0027ve been trying to get rid of (b/20013628).",
+      "revId": "ced5b94b58e50978370dfa83a1dd105b2d9d1409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb285bc8_dee58563",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-04T22:43:28Z",
+      "side": 1,
+      "message": "Same as above. Ephemeral_apps shouldn\u0027t need text relocation support.",
+      "revId": "ced5b94b58e50978370dfa83a1dd105b2d9d1409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb285bc8_9ee30d20",
+        "filename": "public/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-04T22:43:28Z",
+      "side": 1,
+      "message": "Please avoid the use of execmod. This is text relocation support, which shouldn\u0027t be necessary for new app classes.",
+      "revId": "ced5b94b58e50978370dfa83a1dd105b2d9d1409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb285bc8_9e2cadb0",
+        "filename": "public/file.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-04T22:43:28Z",
+      "side": 1,
+      "message": "are ephemeral apps shared across a multi-user boundary? Normal APKs are, but I\u0027m not sure it makes sense for ephemeral apps...\n\nActually, it appears that the directory structure chosen for ephemeral apps isn\u0027t multi-user aware. What\u0027s the multi-user strategy here to avoid leaking ephemeral APKs from one user to another user?",
+      "range": {
+        "startLine": 101,
+        "startChar": 56,
+        "endLine": 101,
+        "endChar": 72
+      },
+      "revId": "ced5b94b58e50978370dfa83a1dd105b2d9d1409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb285bc8_9ec82db0",
+        "filename": "public/init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-04T22:43:28Z",
+      "side": 1,
+      "message": "all three of these lines are essentially a duplicate of line 118-124.",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 342,
+        "endChar": 56
+      },
+      "revId": "ced5b94b58e50978370dfa83a1dd105b2d9d1409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb285bc8_de6e25ad",
+        "filename": "public/installd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-04T22:43:28Z",
+      "side": 1,
+      "message": "please merge with line 12-14.\n\nallow installd { apk_data_file ephemeral_apk_data_file }:dir { ... };\n...",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 79
+      },
+      "revId": "ced5b94b58e50978370dfa83a1dd105b2d9d1409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb285bc8_3e7dc15e",
+        "filename": "public/installd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-04T22:43:28Z",
+      "side": 1,
+      "message": "please merge with lines 20-21.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 75
+      },
+      "revId": "ced5b94b58e50978370dfa83a1dd105b2d9d1409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb285bc8_9e8dcd51",
+        "filename": "public/platform_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-04T22:43:28Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "ced5b94b58e50978370dfa83a1dd105b2d9d1409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
