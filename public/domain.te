@@ -324,6 +324,7 @@ neverallow {
   -dalvikcache_data_file
   -system_data_file # shared libs in apks
   -apk_data_file
+  -ephemeral_apk_data_file
 }:file no_x_file_perms;
 
 neverallow { domain userdebug_or_eng(`-shell') } nativetest_data_file:file no_x_file_perms;
@@ -469,6 +470,7 @@ neverallow * {
   -apk_data_file
   -app_data_file
   -asec_public_file
+  -ephemeral_apk_data_file
 }:file execmod;
 
 # Do not allow making the stack or heap executable.
@@ -478,7 +480,7 @@ neverallow * self:process { execstack execheap };
 
 # prohibit non-zygote spawned processes from using shared libraries
 # with text relocations. b/20013628 .
-neverallow { domain -appdomain } file_type:file execmod;
+neverallow { domain -appdomain -ephemeral_app } file_type:file execmod;
 
 neverallow { domain -init } proc:{ file dir } mounton;
 
