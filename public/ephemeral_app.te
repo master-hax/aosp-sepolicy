@@ -38,6 +38,10 @@ allow ephemeral_app zygote:unix_dgram_socket write;
 allow ephemeral_app ephemeral_data_file:dir create_dir_perms;
 allow ephemeral_app ephemeral_data_file:{ file sock_file fifo_file } create_file_perms;
 
+# Allow apps to read/execute installed binaries
+allow ephemeral_app ephemeral_apk_data_file:dir r_dir_perms;
+allow ephemeral_app ephemeral_apk_data_file:file { rx_file_perms execmod };
+
 # For art.
 allow ephemeral_app dalvikcache_data_file:file { execute r_file_perms };
 allow ephemeral_app dalvikcache_data_file:lnk_file r_file_perms;
