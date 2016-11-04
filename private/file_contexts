@@ -231,6 +231,12 @@
 /system/bin/hw/android\.hardware\.wifi@1\.0-service           u:object_r:hal_wifi_exec:s0
 
 #############################
+# /system/etc files
+#
+/system/etc/passwd           u:object_r:passwd_group_system_file:s0
+/system/etc/group            u:object_r:passwd_group_system_file:s0
+
+#############################
 # Vendor files
 #
 /vendor(/.*)?		u:object_r:system_file:s0
