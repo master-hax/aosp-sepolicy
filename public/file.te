@@ -251,6 +251,9 @@ type gps_control, file_type;
 # property_contexts file
 type property_contexts, file_type;
 
+# /system/etc/passwd and group files
+type passwd_group_system_file, file_type;
+
 # Allow files to be created in their appropriate filesystems.
 allow fs_type self:filesystem associate;
 allow sysfs_type sysfs:filesystem associate;
