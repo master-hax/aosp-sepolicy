@@ -177,6 +177,8 @@ allowxperm domain domain:{ unix_dgram_socket unix_stream_socket }
 # separately.
 allowxperm domain devpts:chr_file ioctl unpriv_tty_ioctls;
 
+allow domain passwd_group_system_file:file r_file_perms;
+
 ###
 ### neverallow rules
 ###
@@ -675,3 +677,5 @@ neverallow {
   domain
   -recovery
 } self:capability setfcap;
+
+neverallow domain passwd_group_system_file:file no_w_file_perms;
