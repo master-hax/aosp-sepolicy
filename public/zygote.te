@@ -4,6 +4,8 @@ type zygote_exec, exec_type, file_type;
 
 typeattribute zygote mlstrustedsubject;
 
+allow zygote event_log_tags_file:file r_file_perms;
+
 # Override DAC on files and switch uid/gid.
 allow zygote self:capability { dac_override setgid setuid fowner chown };
 
