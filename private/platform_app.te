@@ -59,3 +59,6 @@ allow platform_app preloads_data_file:dir r_dir_perms;
 # Access to ephemeral APKs
 allow platform_app ephemeral_apk_data_file:dir r_dir_perms;
 allow platform_app ephemeral_apk_data_file:file r_file_perms;
+
+# Access logd events buffer
+read_runtime_log_tags(platform_app)
