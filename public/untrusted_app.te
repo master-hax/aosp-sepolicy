@@ -193,3 +193,7 @@ neverallow untrusted_app anr_data_file:dir ~search;
 # Avoid reads from generically labeled /proc files
 # Create a more specific label if needed
 neverallow untrusted_app proc:file { no_rw_file_perms no_x_file_perms };
+
+# why do we need to access events buffer? Failed to add to mac_permissions.xml?
+# ToDo: remove this to catch offender
+events_logd(untrusted_app)
