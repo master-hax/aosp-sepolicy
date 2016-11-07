@@ -12,6 +12,7 @@ userdebug_or_eng(`
 
   control_logd(logpersist)
   unix_socket_connect(logpersist, logdr, logd)
+  events_logd(logpersist)
 
 ')
 
