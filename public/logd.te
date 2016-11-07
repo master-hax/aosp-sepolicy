@@ -23,6 +23,7 @@ r_dir_file(logd, domain)
 allow logd kernel:system syslog_mod;
 
 control_logd(logd)
+events_logd(logd)
 
 ###
 ### Neverallow rules
@@ -47,3 +48,6 @@ neverallow logd { app_data_file system_data_file }:dir_file_class_set write;
 # Only init is allowed to enter the logd domain via exec()
 neverallow { domain -init } logd:process transition;
 neverallow * logd:process dyntransition;
+
+# protect the event-log-tags file
+neverallow * event_log_tags_file:file no_w_file_perms;
