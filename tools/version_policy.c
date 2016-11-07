@@ -17,6 +17,7 @@ void __attribute__ ((noreturn)) usage(char *prog)
 	printf("\n");
 	printf("Options:\n");
 	printf("  -b, --base=<file>          (req'd) base policy for versioning.\n");
+	printf("  -c, --contexts             contexts file to have types namespaced.\n");
 	printf("  -m, --mapping              generate cil version  mapping from base policy\n");
 	printf("  -n, --number               (req'd) version number to use.\n");
 	printf("  -o, --output=<file>        write cil policy to <file>\n");
@@ -89,6 +90,7 @@ int main(int argc, char *argv[])
 	int rc = SEPOL_ERR;
 	bool mapping = false;
 	char *base = NULL;
+	char *contexts = NULL;
 	char *tgt_policy = NULL;
 	char *num = NULL;
 	char *output = NULL;
@@ -98,6 +100,7 @@ int main(int argc, char *argv[])
 	static struct option long_opts[] = {
 		{"help", no_argument, 0, 'h'},
 		{"base", required_argument, 0, 'b'},
+		{"contexts", required_argument, 0, 'c'},
 		{"mapping", no_argument, 0, 'm'},
 		{"number", required_argument, 0, 'n'},
 		{"output", required_argument, 0, 'o'},
@@ -106,13 +109,16 @@ int main(int argc, char *argv[])
 	};
 
 	while (1) {
-		opt_char = getopt_long(argc, argv, "b:mn:o:t:h", long_opts, &opt_index);
+		opt_char = getopt_long(argc, argv, "b:c:mn:o:t:h", long_opts, &opt_index);
 		if (opt_char == -1) {
 			break;
 		}
 		switch (opt_char) {
 		case 'b':
 			base = strdup(optarg);
+			break;
+		case 'c':
+			contexts = strdup(optarg);
 			break;
 		case 'm':
 			mapping = true;
@@ -137,13 +143,13 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Unknown arguments supplied\n");
 		usage(argv[0]);
 	}
-	if (num == NULL || base == NULL || (mapping == false && tgt_policy == NULL)) {
+	if (num == NULL || base == NULL || (mapping == false && tgt_policy == NULL && contexts == NULL)) {
 		fprintf(stderr, "Please specify required arguments\n");
 		usage(argv[0]);
 	}
 
-	if (mapping && tgt_policy) {
-		fprintf(stderr, "Please select only one mode between --mapping and --tgt_policy\n");
+	if ((mapping && tgt_policy) || (mapping && contexts) || (contexts && tgt_policy)) {
+		fprintf(stderr, "Please select only one mode between --mapping --contexts and  --tgt_policy\n");
 		usage(argv[0]);
 	}
 
@@ -160,7 +166,7 @@ int main(int argc, char *argv[])
 		rc = cil_android_attrib_mapping(&out_db, base_db, num);
 		if (rc != SEPOL_OK)
 			goto exit;
-	} else {
+	} else if (tgt_policy) {
 		/* read target policy, ready for manipulation */
 		rc = read_cil_file(&out_db, tgt_policy);
 		if (rc != SEPOL_OK) {
@@ -172,13 +178,18 @@ int main(int argc, char *argv[])
 			goto exit;
 		}
 	}
-	rc = cil_write_ast(out_db, output);
-	if (rc != SEPOL_OK) {
+	if (contexts) {
+		rc = cil_android_namespace_contexts(output, contexts, base_db);
+	} else {
+		rc = cil_write_ast(out_db, output);
+	}
+	if (rc != SEPOL_OK)
 		goto exit;
 	}
 
 exit:
 	free(base);
+	free(contexts);
 	free(tgt_policy);
 	free(num);
 	free(output);
