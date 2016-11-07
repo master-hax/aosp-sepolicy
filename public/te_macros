@@ -316,6 +316,7 @@ allow $1 pmsg_device:chr_file w_file_perms;
 # log daemon via sockets
 define(`read_logd', `
 allow $1 logcat_exec:file rx_file_perms;
+allow $1 event_log_tags_file:file r_file_perms;
 unix_socket_connect($1, logdr, logd)
 ')
 
