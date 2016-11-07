@@ -5,4 +5,21 @@ init_daemon_domain(logd)
 # logd is not allowed to write anywhere other than /data/misc/logd, and then
 # only on userdebug or eng builds
 # TODO: deal with tmpfs_domain pub/priv split properly
-neverallow logd { file_type -logd_tmpfs userdebug_or_eng(`-coredump_file') }:file { create write append };
+neverallow logd { file_type -logd_tmpfs -event_log_tags_file userdebug_or_eng(`-coredump_file') }:file { create write append };
+
+# protect the event-log-tags file
+neverallow {
+  domain
+  -appdomain
+  -bootstat
+  -dumpstate
+  -logd
+  userdebug_or_eng(`-logpersist')
+  -radio
+  -servicemanager
+  -shell
+  -system_server
+  userdebug_or_eng(`-su')
+  -surfaceflinger
+  -zygote
+} event_log_tags_file:file no_rw_file_perms;

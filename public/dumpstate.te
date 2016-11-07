@@ -129,6 +129,7 @@ allow dumpstate gpu_device:chr_file rw_file_perms;
 # logd access
 read_logd(dumpstate)
 control_logd(dumpstate)
+events_logd(dumpstate)
 
 # Read /proc/net
 allow dumpstate proc_net:file r_file_perms;
