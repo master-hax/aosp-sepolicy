@@ -12,6 +12,7 @@ userdebug_or_eng(`
 
   control_logd(logpersist)
   unix_socket_connect(logpersist, logdr, logd)
+  allow logpersist event_log_tags_file:file r_file_perms;
 
 ')
 

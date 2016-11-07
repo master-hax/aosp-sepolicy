@@ -20,6 +20,7 @@ allow logcat pstorefs:file r_file_perms;
 
 control_logd(logcat)
 unix_socket_connect(logcat, logdr, logd)
+allow logcat event_log_tags_file:file r_file_perms;
 
 ###
 ### Neverallow rules
