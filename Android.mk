@@ -291,7 +291,6 @@ reqd_policy_mask.conf :=
 reqd_policy_mask.cil :=
 plat_pub_policy.conf :=
 plat_pub_policy.cil :=
-pruned_plat_pub_policy.cil :=
 plat_policy.conf :=
 plat_policy.cil :=
 nonplat_policy.conf :=
@@ -423,9 +422,14 @@ device_fcfiles_with_nl := $(call add_nl, $(device_fc_files), $(built_nl))
 
 file_contexts.device.tmp := $(intermediates)/file_contexts.device.tmp
 $(file_contexts.device.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
-$(file_contexts.device.tmp): $(device_fcfiles_with_nl)
+$(file_contexts.device.tmp): PRIVATE_VERS := $(BOARD_SEPOLICY_VERS)
+$(file_contexts.device.tmp): PRIVATE_FCFILES := $(device_fcfiles_with_nl)
+$(file_contexts.device.tmp): PRIVATE_PUBPOL := $(pruned_plat_pub_policy.cil)
+$(file_contexts.device.tmp): $(device_fcfiles_with_nl)\
+$(pruned_plat_pub_policy.cil) $(HOST_OUT_EXECUTABLES)/version_policy
 	@mkdir -p $(dir $@)
-	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $^ > $@
+	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $(PRIVATE_FCFILES) > $@.raw
+	$(hide) $(HOST_OUT_EXECUTABLES)/version_policy -n $(PRIVATE_VERS) -b $(PRIVATE_PUBPOL) -c $@.raw -o $@
 
 file_contexts.device.sorted.tmp := $(intermediates)/file_contexts.device.sorted.tmp
 $(file_contexts.device.sorted.tmp): PRIVATE_SEPOLICY := $(built_sepolicy)
@@ -538,16 +542,33 @@ LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-all_pc_files := $(call build_policy, property_contexts, $(PLAT_PRIVATE_POLICY) $(BOARD_SEPOLICY_DIRS))
-all_pcfiles_with_nl := $(call add_nl, $(all_pc_files), $(built_nl))
+local_pc_files := $(PLAT_PRIVATE_POLICY)/property_contexts
+local_pcfiles_with_nl := $(call add_nl, $(local_pc_files), $(built_nl))
+
+property_contexts.local.tmp := $(intermediates)/property_contexts.local.tmp
+$(property_contexts.local.tmp): $(local_pcfiles_with_nl)
+	@mkdir -p $(dir $@)
+	$(hide) m4 -s $^ > $@
+
+device_pc_files := $(call build_device_policy, property_contexts)
+device_pcfiles_with_nl := $(call add_nl, $(device_pc_files), $(built_nl))
+
+property_contexts.device.tmp := $(intermediates)/property_contexts.device.tmp
+$(property_contexts.device.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
+$(property_contexts.device.tmp): PRIVATE_VERS := $(BOARD_SEPOLICY_VERS)
+$(property_contexts.device.tmp): PRIVATE_PCFILES := $(device_pcfiles_with_nl)
+$(property_contexts.device.tmp): PRIVATE_PUBPOL := $(pruned_plat_pub_policy.cil)
+$(property_contexts.device.tmp): $(device_pcfiles_with_nl)\
+$(pruned_plat_pub_policy.cil) $(HOST_OUT_EXECUTABLES)/version_policy
+	@mkdir -p $(dir $@)
+	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $(PRIVATE_PCFILES) > $@.raw
+	$(hide) $(HOST_OUT_EXECUTABLES)/version_policy -n $(PRIVATE_VERS) -b $(PRIVATE_PUBPOL) -c $@.raw -o $@
 
 property_contexts.tmp := $(intermediates)/property_contexts.tmp
-$(property_contexts.tmp): PRIVATE_PC_FILES := $(all_pcfiles_with_nl)
 $(property_contexts.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
-$(property_contexts.tmp): $(all_pcfiles_with_nl)
+$(property_contexts.tmp): $(property_contexts.local.tmp) $(property_contexts.device.tmp)
 	@mkdir -p $(dir $@)
-	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $(PRIVATE_PC_FILES) > $@
-
+	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $^ > $@
 
 $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
 $(LOCAL_BUILT_MODULE): $(property_contexts.tmp) $(built_sepolicy) $(HOST_OUT_EXECUTABLES)/checkfc
@@ -592,15 +613,33 @@ LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-all_svc_files := $(call build_policy, service_contexts, $(PLAT_PRIVATE_POLICY) $(BOARD_SEPOLICY_DIRS))
-all_svcfiles_with_nl := $(call add_nl, $(all_svc_files), $(built_nl))
+local_svc_files := $(PLAT_PRIVATE_POLICY)/service_contexts
+local_svcfiles_with_nl := $(call add_nl, $(local_svc_files), $(built_nl))
+
+service_contexts.local.tmp := $(intermediates)/service_contexts.local.tmp
+$(service_contexts.local.tmp): $(local_svcfiles_with_nl)
+	@mkdir -p $(dir $@)
+	$(hide) m4 -s $^ > $@
+
+device_svc_files := $(call build_device_policy, service_contexts)
+device_svcfiles_with_nl := $(call add_nl, $(device_svc_files), $(built_nl))
+
+service_contexts.device.tmp := $(intermediates)/service_contexts.device.tmp
+$(service_contexts.device.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
+$(service_contexts.device.tmp): PRIVATE_VERS := $(BOARD_SEPOLICY_VERS)
+$(service_contexts.device.tmp): PRIVATE_SVCFILES := $(device_svcfiles_with_nl)
+$(service_contexts.device.tmp): PRIVATE_PUBPOL := $(pruned_plat_pub_policy.cil)
+$(service_contexts.device.tmp): $(device_svcfiles_with_nl)\
+$(pruned_plat_pub_policy.cil) $(HOST_OUT_EXECUTABLES)/version_policy
+	@mkdir -p $(dir $@)
+	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $(PRIVATE_SVCFILES) > $@.raw
+	$(hide) $(HOST_OUT_EXECUTABLES)/version_policy -n $(PRIVATE_VERS) -b $(PRIVATE_PUBPOL) -c $@.raw -o $@
 
 service_contexts.tmp := $(intermediates)/service_contexts.tmp
-$(service_contexts.tmp): PRIVATE_SVC_FILES := $(all_svcfiles_with_nl)
 $(service_contexts.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
-$(service_contexts.tmp): $(all_svcfiles_with_nl)
+$(service_contexts.tmp): $(service_contexts.local.tmp) $(service_contexts.device.tmp)
 	@mkdir -p $(dir $@)
-	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $(PRIVATE_SVC_FILES) > $@
+	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $^ > $@
 
 $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
 $(LOCAL_BUILT_MODULE): $(service_contexts.tmp) $(built_sepolicy) $(HOST_OUT_EXECUTABLES)/checkfc $(ACP)
@@ -695,5 +734,6 @@ built_general_sepolicy :=
 built_general_sepolicy.conf :=
 built_nl :=
 add_nl :=
+pruned_plat_pub_policy.cil :=
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
