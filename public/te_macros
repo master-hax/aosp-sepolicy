@@ -339,6 +339,13 @@ unix_socket_connect($1, logdr, logd)
 ')
 
 #####################################
+# events_logd(domain)
+# ability to directly interpret the dynamic events.
+define(`events_logd', `
+allow $1 event_log_tags_file:file r_file_perms;
+')
+
+#####################################
 # control_logd(domain)
 # Ability to control
 # android log daemon via sockets
