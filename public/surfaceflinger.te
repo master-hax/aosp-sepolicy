@@ -4,6 +4,8 @@ type surfaceflinger_exec, exec_type, file_type;
 
 typeattribute surfaceflinger mlstrustedsubject;
 
+allow surfaceflinger event_log_tags_file:file r_file_perms;
+
 # Perform HwBinder IPC.
 hwbinder_use(surfaceflinger)
 binder_call(surfaceflinger, hal_graphics_allocator)

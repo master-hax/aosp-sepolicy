@@ -2,6 +2,8 @@
 type bootstat, domain;
 type bootstat_exec, exec_type, file_type;
 
+allow bootstat event_log_tags_file:file r_file_perms;
+
 # Allow persistent storage in /data/misc/bootstat.
 allow bootstat bootstat_data_file:dir rw_dir_perms;
 allow bootstat bootstat_data_file:file create_file_perms;
