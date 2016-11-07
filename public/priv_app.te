@@ -144,3 +144,6 @@ neverallow priv_app mlstrustedsubject:process fork;
 # bugs, so we want to ensure priv_app never has this
 # capability.
 neverallow priv_app file_type:file link;
+
+# Access logd events buffer
+events_logd(priv_app)
