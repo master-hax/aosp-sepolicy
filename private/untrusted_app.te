@@ -103,6 +103,10 @@ allow untrusted_app preloads_data_file:file r_file_perms;
 # https://github.com/strazzere/anti-emulator/blob/master/AntiEmulator/src/diff/strazzere/anti/emulator/FindEmulator.java
 allow untrusted_app proc_tty_drivers:file r_file_perms;
 
+# why do we need to access events buffer? Failed to add to mac_permissions.xml?
+# ToDo: remove this to catch offender
+events_logd(untrusted_app)
+
 ###
 ### neverallow rules
 ###

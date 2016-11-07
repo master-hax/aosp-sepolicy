@@ -62,6 +62,8 @@ allow bluetooth shell_data_file:file read;
 hwbinder_use(bluetooth)
 binder_call(bluetooth, hal_telephony)
 
+events_logd(bluetooth)
+
 ###
 ### Neverallow rules
 ###
