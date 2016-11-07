@@ -137,6 +137,7 @@ allow dumpstate bluetooth_logs_data_file:file r_file_perms;
 allow dumpstate gpu_device:chr_file rw_file_perms;
 
 # logd access
+events_logd(dumpstate)
 read_logd(dumpstate)
 control_logd(dumpstate)
 
