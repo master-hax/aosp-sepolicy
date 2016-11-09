@@ -105,3 +105,6 @@ neverallow zygote {
   data_file_type
   -dalvikcache_data_file # map PROT_EXEC
 }:file no_x_file_perms;
+
+# Let the zygote access overlays so it can initialize the AssetManager
+get_prop(zygote, overlay_prop)
