@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b8e57b3_b7113879",
+        "filename": "public/webview_zygote.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-10T23:29:59Z",
+      "side": 1,
+      "message": "By default, files on the /data partition have the system_data_file label, unless a different label has been assigned. This rule allows the reading of symlinks of this general type. Do you know what specific symlink is being accessed here? Is this rule actually needed? This is something that the main zygote doesn\u0027t use, and something that we\u0027re trying to get rid of generally because it\u0027s too coarse grained.",
+      "revId": "b7175a93031c5bfbf00f7501ef251cdfefea2c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
