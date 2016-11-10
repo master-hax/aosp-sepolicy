@@ -99,7 +99,7 @@ write_logd(domain)
 # System file accesses.
 allow domain system_file:dir { search getattr };
 allow domain system_file:file { execute read open getattr };
-allow domain system_file:lnk_file read;
+allow domain system_file:lnk_file { read getattr };
 
 # Initially grant all domains access to libart.
 # TODO move to a whitelist. b/29795519
