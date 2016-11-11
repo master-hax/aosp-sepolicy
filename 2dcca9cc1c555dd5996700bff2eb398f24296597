@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b8e57b3_9adb7cd0",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-11T18:27:53Z",
+      "side": 1,
+      "message": "please revert to previous version to avoid messing up git history.",
+      "revId": "2dcca9cc1c555dd5996700bff2eb398f24296597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b8e57b3_9a8d3cc0",
+        "filename": "public/ephemeral_app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-11T18:27:53Z",
+      "side": 1,
+      "message": "do we really need to grant read permissions on these directories? Or is \"search\" sufficient? I\u0027d like to avoid situations where apps are scanning through these directories. What\u0027s the DAC permissions on these directories?",
+      "range": {
+        "startLine": 42,
+        "startChar": 48,
+        "endLine": 42,
+        "endChar": 59
+      },
+      "revId": "2dcca9cc1c555dd5996700bff2eb398f24296597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b8e57b3_7a679044",
+        "filename": "public/ephemeral_app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-11T18:27:53Z",
+      "side": 1,
+      "message": "can you please change this to:\n\n  { r_file_perms execute }\n\ninstead of rx_file_perms. In particular, this will ensure that APKs can only be used as a shared library source, and can\u0027t be exec()d (no \"execute_no_trans\" permission)",
+      "range": {
+        "startLine": 43,
+        "startChar": 49,
+        "endLine": 43,
+        "endChar": 66
+      },
+      "revId": "2dcca9cc1c555dd5996700bff2eb398f24296597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
