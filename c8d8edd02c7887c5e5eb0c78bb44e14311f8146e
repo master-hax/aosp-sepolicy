@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b8e57b3_bcaaf86e",
+        "filename": "public/hwservicemanager.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-11T16:31:48Z",
+      "side": 1,
+      "message": "These are too general. Also, I think you\u0027ll find you don\u0027t need these for hwservicemanager to run. Do you know where they\u0027re coming from?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 44
+      },
+      "revId": "c8d8edd02c7887c5e5eb0c78bb44e14311f8146e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b8e57b3_3c9fc847",
+        "filename": "public/init.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-11T16:31:48Z",
+      "side": 1,
+      "message": "Yeah, so audit2allow basically just gives you policy for all denials on the device. You probably just want to add the ones for bluetooth. Everything else should be resolved before ZBB.",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 44
+      },
+      "revId": "c8d8edd02c7887c5e5eb0c78bb44e14311f8146e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
