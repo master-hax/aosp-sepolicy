@@ -46,6 +46,30 @@
       "revId": "8c3a8ae5d3c96311b66b7a4197e9bf2ed1c52923",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30b088be_372b3747",
+        "filename": "public/isolated_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-15T20:39:45Z",
+      "side": 1,
+      "message": "Unfortunately the audit-then-block approach wasn\u0027t taken in https://android-review.googlesource.com/292656 :-( . I guess we could do it now (for write/append) if desired, but it seems reasonable to me that someone might want to pass writable file descriptors to an isolated_app.",
+      "parentUuid": "30b088be_d7de6356",
+      "range": {
+        "startLine": 32,
+        "startChar": 43,
+        "endLine": 32,
+        "endChar": 55
+      },
+      "revId": "8c3a8ae5d3c96311b66b7a4197e9bf2ed1c52923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
