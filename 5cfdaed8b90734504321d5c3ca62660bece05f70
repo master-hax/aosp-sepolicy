@@ -192,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "30b088be_d19d05f9",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-11-16T17:43:10Z",
+      "side": 1,
+      "message": "Every HAL will have an underlying process which is responsible for fulfilling the client requests.  These processes must be labeled with a type that has the corresponding HAL attributes, and in order to get into that new type, the corresponding executables need a label.  Not providing this label now would prevent any process from running as hal_light_default, and so anything relying on that would be broken.  It will be up to the provider of each HAL implementation to decide how to label the corresponding process and creating this transition.",
+      "parentUuid": "30b088be_5e12841c",
+      "range": {
+        "startLine": 230,
+        "startChar": 83,
+        "endLine": 230,
+        "endChar": 87
+      },
+      "revId": "5cfdaed8b90734504321d5c3ca62660bece05f70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30b088be_e1cabd2f",
         "filename": "private/hal_light.te",
         "patchSetId": 1
