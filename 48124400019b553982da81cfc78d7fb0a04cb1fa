@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30ca486f_c7ef613e",
+        "filename": "public/zygote.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-18T15:34:58Z",
+      "side": 1,
+      "message": "Please indent 2.\n\nAlso, note that this could also be written in terms of the other macro:\n\n  allow { zygote with_dexpreopt(`-zygote\u0027) } dalvikcache_data_file:file execute;\n\nso in general there\u0027s no need to have two different macros here. We should just choose whatever one makes the most sense.",
+      "revId": "48124400019b553982da81cfc78d7fb0a04cb1fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
