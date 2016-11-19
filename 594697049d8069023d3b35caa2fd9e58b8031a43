@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b010f8cf_b1791f38",
+        "filename": "private/file_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1013433
+      },
+      "writtenOn": "2016-11-19T02:33:12Z",
+      "side": 1,
+      "message": "We could do that now, probably should. However, I am not sure how to kick over the etc passwd/group files into vendor.",
+      "parentUuid": "30ca486f_a756e547",
+      "range": {
+        "startLine": 240,
+        "startChar": 1,
+        "endLine": 245,
+        "endChar": 29
+      },
+      "revId": "594697049d8069023d3b35caa2fd9e58b8031a43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30ca486f_472ef1c0",
         "filename": "public/domain.te",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-18T15:29:32Z",
       "side": 1,
       "message": "note: This is a rule check, but we all know these files land on r/o filesystems ...\n\nBy adding this, we may be causing unnecessary complications in the rules.",
+      "range": {
+        "startLine": 672,
+        "startChar": 0,
+        "endLine": 672,
+        "endChar": 64
+      },
+      "revId": "594697049d8069023d3b35caa2fd9e58b8031a43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b010f8cf_7fa01386",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1013433
+      },
+      "writtenOn": "2016-11-19T02:33:12Z",
+      "side": 1,
+      "message": "Huh? We\u0027re adding a compile time and CTS checked assertion that no one allows selinux permissions to modify the file.",
+      "parentUuid": "30ca486f_472ef1c0",
       "range": {
         "startLine": 672,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b010f8cf_5f9d4f52",
+        "filename": "public/file.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1013433
+      },
+      "writtenOn": "2016-11-19T02:33:12Z",
+      "side": 1,
+      "message": "No system_file is a type not an attribute.",
+      "parentUuid": "30ca486f_c708414d",
+      "range": {
+        "startLine": 255,
+        "startChar": 31,
+        "endLine": 255,
+        "endChar": 41
+      },
+      "revId": "594697049d8069023d3b35caa2fd9e58b8031a43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30ca486f_2739f501",
         "filename": "public/init.te",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-18T15:29:32Z",
       "side": 1,
       "message": "alphabetic please, Android policy is to not continuously add to the end resulting in merge conflicts.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 27
+      },
+      "revId": "594697049d8069023d3b35caa2fd9e58b8031a43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b010f8cf_d174933f",
+        "filename": "public/init.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1013433
+      },
+      "writtenOn": "2016-11-19T02:33:12Z",
+      "side": 1,
+      "message": "None of these are sorted. This would be the first time I heard of this policy.",
+      "parentUuid": "30ca486f_2739f501",
       "range": {
         "startLine": 124,
         "startChar": 0,
