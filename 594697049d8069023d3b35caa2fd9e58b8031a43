@@ -49,6 +49,53 @@
     },
     {
       "key": {
+        "uuid": "b010f8cf_5b3c3cf2",
+        "filename": "private/file_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-11-21T16:35:03Z",
+      "side": 1,
+      "message": "Today, do not have to figure it out, or do we?\n\nFor the Project XXXX style systems where /vendor contains _all_ device specific pieces, the results of your scripts may have to land in /vendor/etc/passwd and not in /system/etc/passwd.\n\nYou see, I have once again broken things by allowing too many choices. /system/etc/passwd may have no reason to exist except completeness?",
+      "parentUuid": "b010f8cf_b1791f38",
+      "range": {
+        "startLine": 240,
+        "startChar": 1,
+        "endLine": 245,
+        "endChar": 29
+      },
+      "revId": "594697049d8069023d3b35caa2fd9e58b8031a43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b010f8cf_1b15a467",
+        "filename": "private/file_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-11-21T16:35:03Z",
+      "side": 1,
+      "message": "I can debate that passwd_group_system_file does not have to exist, since things like this cover all the access requirements and segmentation. Do we really need a specific home for the passwd/group files?",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 40
+      },
+      "revId": "594697049d8069023d3b35caa2fd9e58b8031a43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30ca486f_472ef1c0",
         "filename": "public/domain.te",
         "patchSetId": 4
@@ -84,6 +131,30 @@
       "side": 1,
       "message": "Huh? We\u0027re adding a compile time and CTS checked assertion that no one allows selinux permissions to modify the file.",
       "parentUuid": "30ca486f_472ef1c0",
+      "range": {
+        "startLine": 672,
+        "startChar": 0,
+        "endLine": 672,
+        "endChar": 64
+      },
+      "revId": "594697049d8069023d3b35caa2fd9e58b8031a43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b010f8cf_dbc38cef",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-11-21T16:35:03Z",
+      "side": 1,
+      "message": "It was a note. note means nothing, it is merely a comment. I could have erased it once I confirmed all the side effects. I failed to do so. The complication was not undue IMHO.",
+      "parentUuid": "b010f8cf_7fa01386",
       "range": {
         "startLine": 672,
         "startChar": 0,
@@ -143,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "b010f8cf_1b47e497",
+        "filename": "public/file.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-11-21T16:35:03Z",
+      "side": 1,
+      "message": "I should have expanded my comment, it was to the selinux policy folks who would no doubt ask for clarification privately ;-}\n\nDo we want to make an attribute that also encompasses system files? Does it make sense?\n\nThis is really a policy decision for the security folks. currently system files are universally r/o I thought (not inspected). system files are also kept open to read for all. I am not sure we want to complicate our rules for the passwd files; albeit by me also requesting they land in /vendor/etc/passwd they are falling outside the scope of /system/etc.\n\nI do not know their plans. For instance it could make sense some day in the future where /system/etc/init/* are not universally readable?",
+      "parentUuid": "b010f8cf_5f9d4f52",
+      "range": {
+        "startLine": 255,
+        "startChar": 31,
+        "endLine": 255,
+        "endChar": 41
+      },
+      "revId": "594697049d8069023d3b35caa2fd9e58b8031a43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30ca486f_2739f501",
         "filename": "public/init.te",
         "patchSetId": 4
@@ -178,6 +273,30 @@
       "side": 1,
       "message": "None of these are sorted. This would be the first time I heard of this policy.",
       "parentUuid": "30ca486f_2739f501",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 27
+      },
+      "revId": "594697049d8069023d3b35caa2fd9e58b8031a43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b010f8cf_1bca4408",
+        "filename": "public/init.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-11-21T16:35:03Z",
+      "side": 1,
+      "message": "Policy is applied for include files, data structure initializations and by extension to this list. Alphabetic inclusion has a statistically much lower chance of merge conflict, so it is a policy that results in less babysitting for the person responsible for guiding it through the merge trees. More of a common sense policy than an Android coding guideline.\n\nYes, these are not sorted, by example I have a couple of CLs outstanding that makes some of them sorted, the ones that overlap with changes I am making.",
+      "parentUuid": "b010f8cf_d174933f",
       "range": {
         "startLine": 124,
         "startChar": 0,
