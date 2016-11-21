@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b010f8cf_5b131c7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-11-21T16:36:26Z",
+      "side": 1,
+      "message": "The only difference, I think, between /dev/random and /dev/urandom is whether or not the consumer blocks on an insufficient entropy counter in the kernel.  Splitting them by label would make sense if we designated access to /dev/random as more privileged to prevent an attacker from depleting the entropy pool and either blocking another consumer or encouraging the consumer to fall back to /dev/urandom.\n\nIn practice, these pools are not meaningfully different, though, and our policy already grants complete access to both, so consolidating lgtm.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 12
+      },
+      "revId": "df155b9e950a1532bc984745406a8b722d64eb22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
