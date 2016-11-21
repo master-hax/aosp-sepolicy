@@ -1,3 +1,14 @@
+# switch to incident domain for incident command
+domain_auto_trans(shell, incident_exec, incident)
+
+# TODO: These don't go here for sure, but it seems like runnign
+# adb shell inicident shouldn't require privileges that don't
+# come from shell.
+allow incident shell:fd { use  };
+allow incident adbd:fd { use  };
+allow incident adbd:unix_stream_socket { read write };
+allow incident adbd:process { sigchld };
+
 # systrace support - allow atrace to run
 allow shell debugfs_tracing:dir r_dir_perms;
 allow shell debugfs_tracing:file rw_file_perms;
@@ -7,3 +18,4 @@ allow shell atrace_exec:file rx_file_perms;
 # Run app_process.
 # XXX Transition into its own domain?
 app_domain(shell)
+

@@ -1,0 +1,17 @@
+# The incident command is used to call into the incidentd service to
+# take an incident report (binary, shared bugreport), download incident
+# reports that have already been taken, and monitor for new ones.
+# It doesn't do anything else.
+
+# incident
+type incident, domain;
+type incident_exec, exec_type, file_type;
+
+binder_use(incident)
+
+# Allow the incident command to talk to the incident server and stream the results.
+allow incident incident_service:service_manager find;
+binder_call(incident, incidentd)
+allow incident incidentd:fd use;
+allow incident incidentd:fifo_file write;
+
