@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "7014c0d4_67badc0b",
+        "filename": "private/logpersist.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T00:59:38Z",
+      "side": 1,
+      "message": "Essentially a duplicate of a neverallow rule in domain.te:\n\n# Only recovery should be doing writes to /system\nneverallow { domain -recovery } { system_file exec_type }:dir_file_class_set\n    { create write setattr relabelfrom append unlink link rename };",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7014c0d4_c79648d9",
         "filename": "public/domain.te",
         "patchSetId": 19
@@ -212,6 +229,69 @@
       "writtenOn": "2016-11-23T00:48:35Z",
       "side": 1,
       "message": "When run from the unprivileged \"adb shell\" user, DAC will deny this capability, even if granted by SELinux. This suggests this functionality may not be needed. Is this capability truly used?",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7014c0d4_c7a408ed",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T00:59:38Z",
+      "side": 1,
+      "message": "Essentially a duplicate of a neverallow rule in domain.te:\n\n# Only recovery should be doing writes to /system\nneverallow { domain -recovery } { system_file exec_type }:dir_file_class_set\n    { create write setattr relabelfrom append unlink link rename };",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7014c0d4_27b4e418",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T00:59:38Z",
+      "side": 1,
+      "message": "extra whitespace between backtick and -coredump_file",
+      "range": {
+        "startLine": 46,
+        "startChar": 48,
+        "endLine": 46,
+        "endChar": 49
+      },
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7014c0d4_a79f949e",
+        "filename": "public/logd.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T00:59:38Z",
+      "side": 1,
+      "message": "extra whitespace between backtick and -coredump_file",
+      "range": {
+        "startLine": 50,
+        "startChar": 58,
+        "endLine": 50,
+        "endChar": 59
+      },
       "revId": "65394d1cef37078571b33c8397330d5136536ed7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
