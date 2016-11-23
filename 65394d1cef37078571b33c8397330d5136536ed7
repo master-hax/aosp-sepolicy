@@ -205,6 +205,30 @@
     },
     {
       "key": {
+        "uuid": "6d08671c_b86519f7",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T18:50:02Z",
+      "side": 1,
+      "message": "The shell domain is used for only two reasons:\n\n  1) adb shell \n  2) Zygote spawned applications which run with UID\u003dshell\n\nYou can run \"ps -A -Z | grep u:r:shell\" to see processes running in the shell SELinux domain.\n\nYou may be confusing \"shell\" with /system/bin/sh. They are different. popen() as run by an untrusted_app runs in the untrusted_app SELinux domain.\n\nFor testing, you can install https://play.google.com/store/apps/details?id\u003djackpal.androidterm\u0026hl\u003den which allows you to run a shell within untrusted_app. From there, you can just run the \"logcat\" command line tool, and then run \"ps -A -Z\" to see what SELinux domain logcat is running in.",
+      "parentUuid": "6d08671c_584b9da1",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 38
+      },
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7014c0d4_e70eecaa",
         "filename": "public/logcat.te",
         "patchSetId": 19
