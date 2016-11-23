@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b07d5855_45b4bc82",
+        "filename": "public/logcat.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-11-23T18:28:07Z",
+      "side": 1,
+      "message": "Q about whether this is necessary is logcat is run from popen in the hands of (untrusted?) applications.",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 38
+      },
+      "revId": "0e7b393bc2e50c31a275669638bae699323dbeeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b07d5855_c5752cec",
         "filename": "public/logcat.te",
         "patchSetId": 20
@@ -13,6 +36,52 @@
       "writtenOn": "2016-11-23T17:28:21Z",
       "side": 1,
       "message": "By convention, rules for the various domains go in their specific file. Can you remove this, and put:\n\n  shell.te:\n  domain_auto_trans(shell, logcat_exec, logcat)\n\n  adbd.te:\n  domain_auto_trans(adbd, logcat_exec, logcat)",
+      "revId": "0e7b393bc2e50c31a275669638bae699323dbeeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b07d5855_05c9d40f",
+        "filename": "public/logcat.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-11-23T18:28:07Z",
+      "side": 1,
+      "message": "a) this line can merge into the above line (if not split out)\nb) debate as to whether logcat is granted the su domain rather than transition.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 62
+      },
+      "revId": "0e7b393bc2e50c31a275669638bae699323dbeeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b07d5855_e5acf03e",
+        "filename": "public/logcat.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-11-23T18:28:07Z",
+      "side": 1,
+      "message": "these need to move to shell, adb and su(?) domains.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 62
+      },
       "revId": "0e7b393bc2e50c31a275669638bae699323dbeeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
