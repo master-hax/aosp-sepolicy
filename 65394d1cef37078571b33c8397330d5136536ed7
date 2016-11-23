@@ -133,6 +133,30 @@
     },
     {
       "key": {
+        "uuid": "b07d5855_a56ae859",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-11-23T16:58:55Z",
+      "side": 1,
+      "message": "I thought applications use logcat as an API and can popen it as needed?",
+      "parentUuid": "7014c0d4_47d5589f",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 38
+      },
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7014c0d4_e70eecaa",
         "filename": "public/logcat.te",
         "patchSetId": 19
@@ -185,6 +209,24 @@
     },
     {
       "key": {
+        "uuid": "b07d5855_25a6d892",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-11-23T16:58:55Z",
+      "side": 1,
+      "message": "I was nervous about /dev/ because the logcat could be used as an exploit. I want to contain it. I am really on the fence to allow /dev/\u003cfile\u003e, need to keep it away from /dev/\u003cdevice\u003e or any of the /dev/\u003cconfig\u003e arenas.\n\n(parents fighting? :-) ) jeffv@ got real nervous with logcat being able to write anywhere. He had me scrub logcat writing to locations where shell can write (/data/local/tmp), I countered with a userdebug_or_eng. Did I go to far with su ... perhaps, since it is the grand master of userdebug_or_eng ;-\u003e\n\nI was expecting that when logcat is running, it is contained where it can write. Redirection (| or \u003e) and direction (logcat -f) have resulted in complications. What I am hoping for is a clear list of where logcat can write for development, and for user.",
+      "parentUuid": "7014c0d4_f2a2284a",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7014c0d4_e7682cd5",
         "filename": "public/logcat.te",
         "patchSetId": 19
@@ -219,6 +261,24 @@
     },
     {
       "key": {
+        "uuid": "b07d5855_257fb81a",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-11-23T16:58:55Z",
+      "side": 1,
+      "message": "logcat -b all -d | grep avc:\n\nThe pipe is denied without this line.",
+      "parentUuid": "7014c0d4_c76ba82b",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7014c0d4_e72d8cc3",
         "filename": "public/logcat.te",
         "patchSetId": 19
@@ -236,6 +296,24 @@
     },
     {
       "key": {
+        "uuid": "b07d5855_859de443",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-11-23T16:58:55Z",
+      "side": 1,
+      "message": "I had these open, jeff wanted me to remove them, I countered with userdebug_or_eng. Besides, any logged /data is bad m\u0027kay on \"user\" so this does follow through with logpersist.te limitations.\n\nYes, logcat -f will on purpose be broken and locked out on \"user\". I do not want logcat to be used as an exploit, and -f (especially via symbolic links) are security risks :-(. I could log a message at low priority, and then use logcat to write that content somewhere.\n\nI view all this discussion as the \"unintended side effects\" of creating a logcat domain. When I was at incept of logd, I had a specific logcat domain and we all scrubbed it because of the complications and side effects. I think I was here almost three years ago trying to defend logcat.te for some of the same reasons (except back then, none of us realized that logcat -f was broken badly)",
+      "parentUuid": "7014c0d4_e72d8cc3",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7014c0d4_27d864da",
         "filename": "public/logcat.te",
         "patchSetId": 19
@@ -247,6 +325,24 @@
       "writtenOn": "2016-11-23T00:48:35Z",
       "side": 1,
       "message": "When run from the unprivileged \"adb shell\" user, DAC will deny this capability, even if granted by SELinux. This suggests this functionality may not be needed. Is this capability truly used?",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b07d5855_65b700b7",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-11-23T16:58:55Z",
+      "side": 1,
+      "message": "logcat -f uses it, it drops to background cgroup and batch policy. This improves the impact logcat has on storage (there needs to be more work down there, -f is simplistic and could be evil with regards to storage).\n\nWe need to decide if -f and redirection are acceptable on \"user\" builds, but this capability needs to be available for all builds I expect.",
+      "parentUuid": "7014c0d4_27d864da",
       "revId": "65394d1cef37078571b33c8397330d5136536ed7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
