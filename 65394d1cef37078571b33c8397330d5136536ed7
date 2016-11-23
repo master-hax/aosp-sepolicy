@@ -1,0 +1,220 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7014c0d4_a72474c4",
+        "filename": "private/logpersist.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T00:48:35Z",
+      "side": 1,
+      "message": "Can you please indent 2 here? It makes it clearer that this is a userdebug_or_eng block.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 44
+      },
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7014c0d4_c79648d9",
+        "filename": "public/domain.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T00:48:35Z",
+      "side": 1,
+      "message": "You never actually grant logcat the ability to read symbolic links stored in /data/local/tmp. Adding an exclusion here is unneeded.",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7014c0d4_87edb047",
+        "filename": "public/domain.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T00:48:35Z",
+      "side": 1,
+      "message": "In logcat.te, this rule is granted conditionally within a userdebug_or_eng block. If you intended to keep the userdebug_or_eng block, adding a corresponding userdebug_or_eng block here would be consistent:\n\n  userdebug_or_eng(`-logcat\u0027)\n\nHowever, please see my comment in logcat.te.",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7014c0d4_27eaa42e",
+        "filename": "public/domain.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T00:48:35Z",
+      "side": 1,
+      "message": "In logcat.te, this rule is granted conditionally within a userdebug_or_eng block. If you intended to keep the userdebug_or_eng block, adding a corresponding userdebug_or_eng block here would be consistent:\n\n  userdebug_or_eng(`-logcat\u0027)\n\nHowever, please see my comment in logcat.te.",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7014c0d4_47e79863",
+        "filename": "public/domain.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T00:48:35Z",
+      "side": 1,
+      "message": "In logcat.te, this rule is granted conditionally within a userdebug_or_eng block. If you intended to keep the userdebug_or_eng block, adding a corresponding userdebug_or_eng block here would be consistent:\n\n  userdebug_or_eng(`-logcat\u0027)\n\nHowever, please see my comment in logcat.te.",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7014c0d4_47d5589f",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T00:48:35Z",
+      "side": 1,
+      "message": "Is this needed? This service shouldn\u0027t need to be reachable from Android applications. This flag indicates that this crosses an Android app multi-user boundary.",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 38
+      },
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7014c0d4_e70eecaa",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T00:48:35Z",
+      "side": 1,
+      "message": "By convention, rules for the various domains go in their specific file. Can you remove this, and put:\n\n  shell.te:\n\n  domain_auto_trans(shell, logcat_exec, logcat)\n\n  adbd.te:\n\n  domain_auto_trans(adbd, logcat_exec, logcat)",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7014c0d4_2704e47a",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T00:48:35Z",
+      "side": 1,
+      "message": "Today, the \"su\" domain can do everything that the logcat domain can do, so this isn\u0027t strictly necessary. This will effectively drop to logcat privileges when the adbd root user executes su. If this is what you want, it\u0027s fine, but more error prone.",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7014c0d4_e7682cd5",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T00:48:35Z",
+      "side": 1,
+      "message": "Already granted by virtue of line 5 above. Can be deleted.",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7014c0d4_c76ba82b",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T00:48:35Z",
+      "side": 1,
+      "message": "odd... Leaking file descriptor from the shell user?",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7014c0d4_e72d8cc3",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T00:48:35Z",
+      "side": 1,
+      "message": "If you exclude this, the following sequence of commands will fail\n\n  adb shell\n  logcat -f /data/local/tmp/asdf\n\non a user build. Intentional? What\u0027s the purpose of the userdebug_or_eng block here?",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7014c0d4_27d864da",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T00:48:35Z",
+      "side": 1,
+      "message": "When run from the unprivileged \"adb shell\" user, DAC will deny this capability, even if granted by SELinux. This suggests this functionality may not be needed. Is this capability truly used?",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
