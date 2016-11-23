@@ -167,6 +167,24 @@
     },
     {
       "key": {
+        "uuid": "7014c0d4_f2a2284a",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T02:02:40Z",
+      "side": 1,
+      "message": "As an example of how this might be error prone, consider the following:\n\n  adb root\n  adb shell\n  logcat -d \u003e /dev/logcat.txt\n\nIn this particular case, the adb root user (\"su\" domain) is asking logcat to dump it\u0027s output to /dev/logcat.txt. The logcat domain doesn\u0027t have permissions to write there, generating the denial:\n\navc: denied { write } for pid\u003d6869 comm\u003d\"logcat\" path\u003d\"/dev/logcat.txt\" dev\u003d\"tmpfs\" ino\u003d61215 scontext\u003du:r:logcat:s0 tcontext\u003du:object_r:device:s0 tclass\u003dfile permissive\u003d0\n\nand the file ends up empty:\n\n  marlin:/ # ls -la /dev/logcat.txt                                                                                                          \n  -rw-rw-rw- 1 root root 0 1970-05-11 14:09 /dev/logcat.txt",
+      "parentUuid": "7014c0d4_2704e47a",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7014c0d4_e7682cd5",
         "filename": "public/logcat.te",
         "patchSetId": 19
