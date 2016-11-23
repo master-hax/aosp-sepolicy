@@ -157,6 +157,30 @@
     },
     {
       "key": {
+        "uuid": "b07d5855_05b2b499",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T17:28:21Z",
+      "side": 1,
+      "message": "Ya, but you haven\u0027t defined a transition from an application domain into the logcat domain, so applications can\u0027t get here. Even if you did define a transition, zygote sets PR_SET_NO_NEW_PRIVS for applications, so SELinux domain transitions are not allowed from application domains.\n\nThis domain can *only* be entered by the adb shell user, or by adbd. Nobody else (including apps, dumpstate) can get to this domain as currently written.\n\nIf you want to require a domain transition for everyone who might execute /system/bin/logcat, then you could add the following neverallow rule to your policy:\n\n  neverallow domain logcat_exec:file execute_no_trans;\n\nand cleanup the remaining policy to comply with that neverallow rule.\n\nIn addition, you probably would want to block direct access to the /dev/socket/logd, /dev/socket/logdr, and /dev/socket/logdw sockets too, otherwise applications could bypass /system/bin/logd and pull the data they want directly.\n\n  neverallow { domain -logcat } logd_socket:sock_file write;\n  neverallow { domain -logcat } logdw_socket:sock_file write;\n  neverallow { domain -logcat } logdr_socket:sock_file write;\n  neverallow { domain -logcat } logd:unix_stream_socket connectto;\n\nHaving said that, to address this bug, all you really care about is the logpersist domain, not necessarily the logcat domain. As per our discussion years ago, I\u0027m worried that the complexity here may not be justified...",
+      "parentUuid": "b07d5855_a56ae859",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 38
+      },
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7014c0d4_e70eecaa",
         "filename": "public/logcat.te",
         "patchSetId": 19
@@ -227,6 +251,24 @@
     },
     {
       "key": {
+        "uuid": "b07d5855_85bec460",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T17:28:21Z",
+      "side": 1,
+      "message": "I\u0027m not saying you should allow /dev for writing. If you\u0027re comfortable with limiting how logcat can be used by the adb root user, and are willing to deal with the bugs, then I\u0027m fine with it. I just wanted to make sure you\u0027re aware of the potential complications.",
+      "parentUuid": "b07d5855_25a6d892",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7014c0d4_e7682cd5",
         "filename": "public/logcat.te",
         "patchSetId": 19
@@ -273,6 +315,24 @@
       "side": 1,
       "message": "logcat -b all -d | grep avc:\n\nThe pipe is denied without this line.",
       "parentUuid": "7014c0d4_c76ba82b",
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b07d5855_c5ce0c1a",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T17:28:21Z",
+      "side": 1,
+      "message": "Oh, that makes sense now.",
+      "parentUuid": "b07d5855_257fb81a",
       "revId": "65394d1cef37078571b33c8397330d5136536ed7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
