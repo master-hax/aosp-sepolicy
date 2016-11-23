@@ -52,6 +52,24 @@
       "revId": "eb4e39456c7ece8b19486b5f453dea099958924f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7014c0d4_327e6084",
+        "filename": "public/ioctl_macros",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T03:01:15Z",
+      "side": 1,
+      "message": "I\u0027m sorry, I made a mistake on FIONBIO. The kernel treats FIONBIO differently than other ioctls. See https://github.com/torvalds/linux/blob/master/security/selinux/hooks.c function selinux_file_ioctl(). Contrary to what I told you earlier FIONBIO isn\u0027t blocked because it\u0027s handled by a different check.\n\nI added the other ioctls you suggested, and I recognize that there might be more. We collect SELinux denials from droidfooders, so if we\u0027re inappropriately blocking some ioctls, we\u0027ll get feedback and can fix it.",
+      "parentUuid": "7014c0d4_c77f28c9",
+      "revId": "eb4e39456c7ece8b19486b5f453dea099958924f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
