@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b07d5855_c5752cec",
+        "filename": "public/logcat.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T17:28:21Z",
+      "side": 1,
+      "message": "By convention, rules for the various domains go in their specific file. Can you remove this, and put:\n\n  shell.te:\n  domain_auto_trans(shell, logcat_exec, logcat)\n\n  adbd.te:\n  domain_auto_trans(adbd, logcat_exec, logcat)",
+      "revId": "0e7b393bc2e50c31a275669638bae699323dbeeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b07d5855_2542587b",
+        "filename": "public/logcat.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-23T17:28:21Z",
+      "side": 1,
+      "message": "Already granted via \"domain_auto_trans\" (line 5) above.",
+      "revId": "0e7b393bc2e50c31a275669638bae699323dbeeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
