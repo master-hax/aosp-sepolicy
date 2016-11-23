@@ -34,6 +34,24 @@
       "revId": "eb4e39456c7ece8b19486b5f453dea099958924f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7014c0d4_c77f28c9",
+        "filename": "public/ioctl_macros",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2016-11-23T02:33:06Z",
+      "side": 1,
+      "message": "Blocking FIONBIO on sockets seems to me like it\u0027s guaranteed to break applications, for zero gain.\n\nThis change also seems like it might be too restrictive. You\u0027re missing several ioctls which seem perfectly reasonable to use, and that we have libc wrappers around (e.g. vim uses TCFLSH, tmux uses TIOCSPGRP/TIOCGPGRP)",
+      "parentUuid": "7014c0d4_0c70e749",
+      "revId": "eb4e39456c7ece8b19486b5f453dea099958924f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
