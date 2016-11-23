@@ -181,6 +181,30 @@
     },
     {
       "key": {
+        "uuid": "6d08671c_584b9da1",
+        "filename": "public/logcat.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-11-23T18:41:48Z",
+      "side": 1,
+      "message": "I expect popen goes through the shell domain, so it should be covered? I need to install some external applications I know that do such (it has been awhile, not sure if I can remember)\n\nI will have to review dumpstate (again, it has been awhile since initial landing). I should write a gTest for this, in logcat, to confirm that dumpstate can request execute it still. I think it can because it runs it via shell ...\n\nAll need to be able to write to logdw_socket ... yes, making neverallow rules for the reader and control sockets makes sense as part of the locking down of this domain.",
+      "parentUuid": "b07d5855_05b2b499",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 38
+      },
+      "revId": "65394d1cef37078571b33c8397330d5136536ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7014c0d4_e70eecaa",
         "filename": "public/logcat.te",
         "patchSetId": 19
