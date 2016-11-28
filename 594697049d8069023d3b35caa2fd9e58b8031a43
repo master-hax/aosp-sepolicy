@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "8d8afbd9_c7857229",
+        "filename": "private/file_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1013433
+      },
+      "writtenOn": "2016-11-28T16:21:04Z",
+      "side": 1,
+      "message": "The question I have asked here numerous times, is what makefile magic do I need to move the generated files to vendor if vendor is enabled.",
+      "parentUuid": "b010f8cf_5b3c3cf2",
+      "range": {
+        "startLine": 240,
+        "startChar": 1,
+        "endLine": 245,
+        "endChar": 29
+      },
+      "revId": "594697049d8069023d3b35caa2fd9e58b8031a43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b010f8cf_1b15a467",
         "filename": "private/file_contexts",
         "patchSetId": 4
@@ -84,6 +108,30 @@
       "writtenOn": "2016-11-21T16:35:03Z",
       "side": 1,
       "message": "I can debate that passwd_group_system_file does not have to exist, since things like this cover all the access requirements and segmentation. Do we really need a specific home for the passwd/group files?",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 40
+      },
+      "revId": "594697049d8069023d3b35caa2fd9e58b8031a43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d8afbd9_e713d61f",
+        "filename": "private/file_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1013433
+      },
+      "writtenOn": "2016-11-28T16:21:04Z",
+      "side": 1,
+      "message": "Thins like this apply a default label. However, for specific things that need different access, it makes sense to break it out. Dan Cashman has been breaking apart domain into domain_deprecated and (IIRC) one of the things dropped was world read perms on system_file.",
+      "parentUuid": "b010f8cf_1b15a467",
       "range": {
         "startLine": 248,
         "startChar": 0,
