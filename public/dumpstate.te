@@ -81,8 +81,7 @@ allow dumpstate {
 
 # Vibrate the device after we're done collecting the bugreport
 # /sys/class/timed_output/vibrator/enable
-# TODO: create a new file class, instead of allowing write access to all of /sys
-allow dumpstate sysfs:file w_file_perms;
+allow dumpstate sysfs_vibrator:file w_file_perms;
 
 # TODO: added to match above sysfs rule. Remove me?
 allow dumpstate sysfs_usb:file w_file_perms;
@@ -210,3 +209,8 @@ neverallow { domain -dumpstate } dumpstate_service:service_manager add;
 
 # only system_server and shell can find the dumpstate service
 neverallow { domain -system_server -shell } dumpstate_service:service_manager find;
+
+# Dumpstate should not be writing to any generically labeled sysfs files.
+# Create a specific label for the file type
+
+neverallow dumpstate sysfs:file no_w_file_perms;
