@@ -102,6 +102,9 @@ r_dir_file(dumpstate, cgroup)
 binder_call(dumpstate, binderservicedomain)
 binder_call(dumpstate, { appdomain ephemeral_app netd wificond })
 
+# ALlow dumpstate to talk to vibrator
+binder_call(system_server, hal_vibrator)
+
 # Reading /proc/PID/maps of other processes
 allow dumpstate self:capability sys_ptrace;
 
