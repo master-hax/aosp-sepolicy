@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "702a0062_2e79616e",
+        "filename": "public/dumpstate.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-29T23:32:34Z",
+      "side": 1,
+      "message": "Like I did in https://android-review.googlesource.com/#/c/307815/2/public/dumpstate.te, at the bottom of this file, can you add a neverallow rule blocking access to /sys files with the generic \"sysfs\" label.\n\n\n  # Dumpstate should not be writing to any generically labeled sysfs files.\n  # Create a specific label for the file type\n\n  neverallow dumpstate sysfs:file no_w_file_perms;",
+      "revId": "648cf34f0a8427b9966a473f0220e3a524c69dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
