@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "702a0062_a3864aa2",
+        "filename": "public/gatekeeperd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-29T22:19:27Z",
+      "side": 1,
+      "message": "If you modified this line to read:\n\n  type gatekeeperd, domain, hal_gatekeeper;\n\nYou could then delete lines 9, 10, 35, 36, and 37. However, please see my other comment about the ambiguous ownership of the various /data/misc/gatekeeper files.",
+      "revId": "8c2bbcc54deb71a695eb43773aa0a963e6a5005f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "702a0062_a332ca4c",
+        "filename": "public/gatekeeperd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-29T22:19:27Z",
+      "side": 1,
+      "message": "Duplicate of hal_gatekeeper.te line 4-5.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 40
+      },
+      "revId": "8c2bbcc54deb71a695eb43773aa0a963e6a5005f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "702a0062_037636f7",
+        "filename": "public/hal_gatekeeper.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-11-29T22:19:27Z",
+      "side": 1,
+      "message": "Who is intended to be the owner of the files in /data/misc/gatekeeper? With this change, the files are simultaneously owned by hal_gatekeeper_default and gatekeeperd, which feels like a layering violation / separation of privilege violation.\n\nGenerally speaking, data should be owned by one and only one process.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 81
+      },
+      "revId": "8c2bbcc54deb71a695eb43773aa0a963e6a5005f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
