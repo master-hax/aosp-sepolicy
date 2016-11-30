@@ -12,7 +12,7 @@ allow init tmpfs:chr_file create_file_perms;
 #
 # /dev/kmsg
 allow init tmpfs:chr_file relabelfrom;
-allow init kmsg_device:chr_file { write relabelto };
+allow init kmsg_device:chr_file { write relabelto relabelfrom};
 # /dev/__properties__
 allow init properties_device:dir relabelto;
 allow init properties_serial:file { write relabelto };
