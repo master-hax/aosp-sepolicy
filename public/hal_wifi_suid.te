@@ -1,0 +1,13 @@
+# wifi HAL's suid helper.
+type hal_wifi_suid, domain;
+type hal_wifi_suid_exec, exec_type, file_type;
+
+r_dir_file(hal_wifi_suid, proc_net)
+r_dir_file(hal_wifi_suid, sysfs_type)
+
+# Inherit and use pty created by android_fork_execvp()
+allow hal_wifi_suid devpts:chr_file { read write open ioctl };
+# suid helper changes the ownership of some files.
+allow hal_wifi_suid self:capability { chown };
+# suid helper changes the owership of this file on startup.
+allow hal_wifi_suid sysfs_wlan_fwpath:file { w_file_perms setattr };
