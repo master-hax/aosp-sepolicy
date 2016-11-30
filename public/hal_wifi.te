@@ -20,3 +20,8 @@ allow hal_wifi self:capability { net_admin net_raw };
 allow hal_wifi self:netlink_socket create_socket_perms_no_ioctl;
 # newer kernels (e.g. 4.4 but not 4.1) have a new class for sockets
 allow hal_wifi self:netlink_generic_socket create_socket_perms_no_ioctl;
+# allow hal to execute the suid helper
+allow hal_wifi hal_wifi_suid_exec:file { r_file_perms execute };
+allow hal_wifi devpts:chr_file { read write open ioctl };
+allow hal_wifi hal_wifi_suid:fd use;
+allow hal_wifi hal_wifi_suid:fifo_file write;
