@@ -1,0 +1,4 @@
+type hal_wifi_suid_exec, exec_type, file_type;
+
+# suid helper changes the ownership of some files.
+allow hal_wifi_suid_exec self:capability { chown };
