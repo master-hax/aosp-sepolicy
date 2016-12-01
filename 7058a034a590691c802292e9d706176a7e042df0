@@ -39,6 +39,24 @@
       "revId": "7058a034a590691c802292e9d706176a7e042df0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adffbf6a_dc2d92a7",
+        "filename": "public/init.te",
+        "patchSetId": 22
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-01T19:56:57Z",
+      "side": 1,
+      "message": "Also, if the intention here is that init cannot create this directory, please note that it\u0027s currently ineffective.\n\nInit is allowed to create a directory in /data, which will have the default label of system_data_file. And init has the ability to assign the misc_logd_file label to this directory by virtue of line 174.\n\nI\u0027m not sure this particular restriction is buying what you think it\u0027s buying...",
+      "parentUuid": "adffbf6a_9c930aeb",
+      "revId": "7058a034a590691c802292e9d706176a7e042df0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
