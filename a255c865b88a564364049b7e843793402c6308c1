@@ -1,0 +1,146 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "adffbf6a_9c002ab6",
+        "filename": "private/logpersist.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-01T20:53:13Z",
+      "side": 1,
+      "message": "This adds the ability for logpersist (aka /system/bin/logcat executed from init) to subsequently execute logcat again. See the definition of read_log in system/sepolicy/global/te_macros\n\nAs logpersist/logcat never executes /system/bin/logcat, I would prefer to avoid adding this rule. It\u0027s easier to reason about a process if it can\u0027t exec anything else.",
+      "revId": "a255c865b88a564364049b7e843793402c6308c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adffbf6a_4f70c2fc",
+        "filename": "public/file.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-01T20:53:13Z",
+      "side": 1,
+      "message": "Files stored on the /data partition should have the \"data_file_type\" label.\n\n  type misc_logd_file, file_type, data_file_type;\n\nIt looks like this bug has been here for a while....",
+      "revId": "a255c865b88a564364049b7e843793402c6308c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adffbf6a_7cde262b",
+        "filename": "public/logcat.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-01T20:53:13Z",
+      "side": 1,
+      "message": "logcat itself doesn\u0027t create directories. It just writes to a pre-existing directory. So you just need \"rw_dir_perms\" here, or maybe even \"ra_dir_perms\" (if logcat never unlinks a file).",
+      "range": {
+        "startLine": 14,
+        "startChar": 35,
+        "endLine": 14,
+        "endChar": 51
+      },
+      "revId": "a255c865b88a564364049b7e843793402c6308c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adffbf6a_5cc40253",
+        "filename": "public/logcat.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-01T20:53:13Z",
+      "side": 1,
+      "message": "this adds the ability for logcat to execute /system/bin/logcat, which isn\u0027t performed by the code + not needed. It\u0027s easier to reason about processes which can\u0027t execute any other processes.",
+      "revId": "a255c865b88a564364049b7e843793402c6308c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adffbf6a_2f61fe4d",
+        "filename": "public/logcat.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-01T20:53:13Z",
+      "side": 1,
+      "message": "Delete lines 45, 48, 51, 53, 54, 55, 56, 57, 58, and 62. Instead, add the following exception:\n\n  -appdomain\n\nwhich is the generic attribute assigned to all processes spawned by zygote.",
+      "revId": "a255c865b88a564364049b7e843793402c6308c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adffbf6a_fcbe96b0",
+        "filename": "public/logcat.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-01T20:53:13Z",
+      "side": 1,
+      "message": "userdebug_or_eng(`-su\u0027)\n\nthe \"su\" domain does not exist on user builds.",
+      "revId": "a255c865b88a564364049b7e843793402c6308c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adffbf6a_6fb14695",
+        "filename": "public/surfaceflinger.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-01T20:53:13Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "a255c865b88a564364049b7e843793402c6308c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adffbf6a_2fa73e5c",
+        "filename": "public/zygote.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-01T20:53:13Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "a255c865b88a564364049b7e843793402c6308c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
