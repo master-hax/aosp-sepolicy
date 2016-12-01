@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "adffbf6a_1c2c3a07",
+        "filename": "private/logpersist.te",
+        "patchSetId": 22
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-01T19:45:47Z",
+      "side": 1,
+      "message": "-coredump_file should also be placed within the \"userdebug_or_eng\" section. Writing to /cores is only allowed on userdebug or eng builds.",
+      "range": {
+        "startLine": 36,
+        "startChar": 70,
+        "endLine": 36,
+        "endChar": 84
+      },
+      "revId": "7058a034a590691c802292e9d706176a7e042df0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adffbf6a_9c930aeb",
+        "filename": "public/init.te",
+        "patchSetId": 22
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-01T19:45:47Z",
+      "side": 1,
+      "message": "As a general rule, the use of userdebug_or_eng blocks is discouraged because it complicates testing and introduces differences between shipping builds and non-shipping builds.\n\nOn a userdebug build, only logpersist has the ability to create misc_logd_file files. \n\nsesearch --allow -t misc_logd_file -p create -c file out/target/product/marlin/root/sepolicy\n\nAnd on a user build, even that is gone.\n\nWith nobody (not even init) being able to create files of this type, is it really a big deal if init manages to create this directory on a user build? Sure, init can create the directory, but on a user build, nobody can create files within this directory. I don\u0027t really think this buys us anything.\n\nI would prefer to avoid the use of userdebug_or_eng blocks here just because it\u0027s yet another difference between what we test and what we ship, and I don\u0027t think it\u0027s worth it for this particular case.",
+      "revId": "7058a034a590691c802292e9d706176a7e042df0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
