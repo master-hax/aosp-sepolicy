@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "adffbf6a_190a8c00",
+        "filename": "public/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-01T19:04:25Z",
+      "side": 1,
+      "message": "\"write\" is already included in \"create_file_perms\". Redundant and can be deleted. Line 44 from the original version was redundant too.\n\n\"relabelfrom\" is a duplicate of line 16.",
+      "revId": "a10769f4a77eb878778a405d172db6bf9b361588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adffbf6a_791bd859",
+        "filename": "public/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-01T19:04:25Z",
+      "side": 1,
+      "message": "Duplicate of line 17",
+      "revId": "a10769f4a77eb878778a405d172db6bf9b361588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adffbf6a_595254fa",
+        "filename": "public/ueventd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-01T19:04:25Z",
+      "side": 1,
+      "message": "When ueventd creates files, it uses setfscreatecon (granted on line 23 and line 33) to atomically create device nodes of this type. It doesn\u0027t create as the generic type then relabel. \n\nhttps://android.googlesource.com/platform/system/core/+/de07029ad07cc9f1da6fecdb8d81d039f7d1a8f5/init/devices.cpp#256\n\nWhat code is triggering this?",
+      "revId": "a10769f4a77eb878778a405d172db6bf9b361588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adffbf6a_59209462",
+        "filename": "public/ueventd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-01T19:04:25Z",
+      "side": 1,
+      "message": "Shouldn\u0027t init have already labeled any tmpfs files already by this point? See https://android.googlesource.com/platform/system/core/+/de07029ad07cc9f1da6fecdb8d81d039f7d1a8f5/init/init.cpp#662 \n\nWhat code is triggering this?",
+      "revId": "a10769f4a77eb878778a405d172db6bf9b361588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
