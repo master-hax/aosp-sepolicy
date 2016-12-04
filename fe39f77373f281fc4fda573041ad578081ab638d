@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad109fcf_51d9c3dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-04T23:55:58Z",
+      "side": 1,
+      "message": "\"... removed if possible, not only from Pixel devices, but from all Android devices\".",
+      "revId": "fe39f77373f281fc4fda573041ad578081ab638d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad109fcf_91df3bc4",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-04T23:55:58Z",
+      "side": 1,
+      "message": "You specifically excluded init from accessing this in line 187 of init.te, so this neverallow assertion exception can be deleted. Same for line 271. This will make the assertion stronger.",
+      "revId": "fe39f77373f281fc4fda573041ad578081ab638d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad109fcf_b1c91f11",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-04T23:55:58Z",
+      "side": 1,
+      "message": "There\u0027s no rule granting access to kernel to port_device, so this neverallow assertion exception can be deleted. Also, while you\u0027re here, the same can be said for line 272.",
+      "revId": "fe39f77373f281fc4fda573041ad578081ab638d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad109fcf_71dcc7ce",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-04T23:55:58Z",
+      "side": 1,
+      "message": "There\u0027s an existing neverallow rule for kmem_device in system/sepolicy/public/shell.te. Can you add port_device to that neverallow? The access that the shell user should have to /dev/port should be limited to no more than running stat() on the file. Also consider adding a comment here, like we do on line 273.",
+      "revId": "fe39f77373f281fc4fda573041ad578081ab638d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
