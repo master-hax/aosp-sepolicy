@@ -144,7 +144,6 @@ $(reqd_policy_mask.conf): $(call build_policy, $(sepolicy_build_files), $(REQD_M
 		-D target_build_variant=$(TARGET_BUILD_VARIANT) \
 		-D target_build_treble=$(ENABLE_TREBLE) \
 		-D target_with_dexpreopt=$(WITH_DEXPREOPT) \
-		-D target_with_dexpreopt_pic=$(WITH_DEXPREOPT_PIC) \
 		-D target_arch=$(PRIVATE_TGT_ARCH) \
 		-s $^ > $@
 
@@ -174,7 +173,6 @@ $(BOARD_SEPOLICY_VERS_DIR) $(REQD_MASK_POLICY))
 		-D target_build_variant=$(TARGET_BUILD_VARIANT) \
 		-D target_build_treble=$(ENABLE_TREBLE) \
 		-D target_with_dexpreopt=$(WITH_DEXPREOPT) \
-		-D target_with_dexpreopt_pic=$(WITH_DEXPREOPT_PIC) \
 		-D target_arch=$(PRIVATE_TGT_ARCH) \
 		-s $^ > $@
 
@@ -229,7 +227,6 @@ $(PLAT_PUBLIC_POLICY) $(PLAT_PRIVATE_POLICY))
 		-D target_build_variant=$(TARGET_BUILD_VARIANT) \
 		-D target_build_treble=$(ENABLE_TREBLE) \
 		-D target_with_dexpreopt=$(WITH_DEXPREOPT) \
-		-D target_with_dexpreopt_pic=$(WITH_DEXPREOPT_PIC) \
 		-D target_arch=$(PRIVATE_TGT_ARCH) \
 		-s $^ > $@
 	$(hide) sed '/dontaudit/d' $@ > $@.dontaudit
@@ -302,7 +299,6 @@ $(BOARD_SEPOLICY_VERS_DIR) $(REQD_MASK_POLICY) $(BOARD_SEPOLICY_DIRS))
 		-D target_build_variant=$(TARGET_BUILD_VARIANT) \
 		-D target_build_treble=$(ENABLE_TREBLE) \
 		-D target_with_dexpreopt=$(WITH_DEXPREOPT) \
-		-D target_with_dexpreopt_pic=$(WITH_DEXPREOPT_PIC) \
 		-D target_arch=$(PRIVATE_TGT_ARCH) \
 		-s $^ > $@
 	$(hide) sed '/dontaudit/d' $@ > $@.dontaudit
@@ -378,7 +374,6 @@ $(BOARD_SEPOLICY_VERS_DIR) $(REQD_MASK_POLICY))
 		-D target_build_variant=$(TARGET_BUILD_VARIANT) \
 		-D target_build_treble=$(ENABLE_TREBLE) \
 		-D target_with_dexpreopt=$(WITH_DEXPREOPT) \
-		-D target_with_dexpreopt_pic=$(WITH_DEXPREOPT_PIC) \
 		-D target_arch=$(PRIVATE_TGT_ARCH) \
 		-D target_recovery=true \
 		-s $^ > $@
@@ -417,7 +412,6 @@ $(PLAT_PUBLIC_POLICY) $(PLAT_PRIVATE_POLICY))
 		-D target_build_variant=$(TARGET_BUILD_VARIANT) \
 		-D target_build_treble=$(ENABLE_TREBLE) \
 		-D target_with_dexpreopt=$(WITH_DEXPREOPT) \
-		-D target_with_dexpreopt_pic=$(WITH_DEXPREOPT_PIC) \
 		-D target_arch=$(PRIVATE_TGT_ARCH) \
 		-D target_recovery=true \
 		-s $^ > $@
@@ -487,7 +481,6 @@ $(BOARD_SEPOLICY_VERS_DIR) $(REQD_MASK_POLICY) $(BOARD_SEPOLICY_DIRS))
 		-D target_build_variant=$(TARGET_BUILD_VARIANT) \
 		-D target_build_treble=$(ENABLE_TREBLE) \
 		-D target_with_dexpreopt=$(WITH_DEXPREOPT) \
-		-D target_with_dexpreopt_pic=$(WITH_DEXPREOPT_PIC) \
 		-D target_arch=$(PRIVATE_TGT_ARCH) \
 		-D target_recovery=true \
 		-s $^ > $@
@@ -569,7 +562,6 @@ $(PLAT_PUBLIC_POLICY) $(PLAT_PRIVATE_POLICY))
 		-D target_build_variant=user \
 		-D target_build_treble=$(ENABLE_TREBLE) \
 		-D target_with_dexpreopt=$(WITH_DEXPREOPT) \
-		-D target_with_dexpreopt_pic=$(WITH_DEXPREOPT_PIC) \
 		-D target_arch=$(PRIVATE_TGT_ARCH) \
 		-s $^ > $@
 	$(hide) sed '/dontaudit/d' $@ > $@.dontaudit
