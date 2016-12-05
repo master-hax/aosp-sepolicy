@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "ad109fcf_e01d7b8e",
+        "filename": "public/surfaceflinger.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-12-05T22:47:11Z",
+      "side": 1,
+      "message": "Discovered surfaceflinger and some others read /system/etc/event-log-tags. I made the assumption that if they do so, they probably want to be able to read the logs.\n\nThis is a direct result of my \u0027logd: restrict access to /system/etc/event-log-tags\u0027 commit which is an aid for discovering who accessed this file.\n\nMaybe I will leave it alone here and add the read access rights specifically to the logd: patch for now? I still need to find out _why_ zygote, surfaceflinger and bootstat are accessing the event mapping file.",
+      "parentUuid": "adffbf6a_6fb14695",
+      "revId": "a255c865b88a564364049b7e843793402c6308c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adffbf6a_2fa73e5c",
         "filename": "public/zygote.te",
         "patchSetId": 2
