@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad109fcf_f19d57f7",
+        "filename": "public/ueventd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-05T00:36:38Z",
+      "side": 1,
+      "message": "line 52 can also be merged with line 50 if you want:\n\n  neverallow ueventd { kmem_device port_device }:chr_file ...;\n\nI have no preference either way.",
+      "range": {
+        "startLine": 50,
+        "startChar": 19,
+        "endLine": 50,
+        "endChar": 30
+      },
+      "revId": "82783d8d201295fa394a2b7c8306b0fcaa538b1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
