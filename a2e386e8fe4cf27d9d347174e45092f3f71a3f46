@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad109fcf_dbc4acfa",
+        "filename": "private/logpersist.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-12-05T23:49:55Z",
+      "side": 1,
+      "message": "This should be in the /system/etc/event-log-tags patch.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 57
+      },
+      "revId": "a2e386e8fe4cf27d9d347174e45092f3f71a3f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad109fcf_7b36e045",
+        "filename": "public/logcat.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-12-05T23:49:55Z",
+      "side": 1,
+      "message": "This should be put in the /system/etc/event-log-tags patch?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 51
+      },
+      "revId": "a2e386e8fe4cf27d9d347174e45092f3f71a3f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad109fcf_5bc0bce8",
+        "filename": "public/logd.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-12-05T23:49:55Z",
+      "side": 1,
+      "message": "We do not want logd creating /data/misc/logd/event-log-tags, we want init to create the file if necessary (but not overwrite it), and logd to open it at will.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 2
+      },
+      "revId": "a2e386e8fe4cf27d9d347174e45092f3f71a3f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
