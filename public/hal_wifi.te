@@ -20,3 +20,10 @@ allow hal_wifi self:capability { net_admin net_raw };
 allow hal_wifi self:netlink_socket create_socket_perms_no_ioctl;
 # newer kernels (e.g. 4.4 but not 4.1) have a new class for sockets
 allow hal_wifi self:netlink_generic_socket create_socket_perms_no_ioctl;
+
+# wifi hal writes firmware paths to this file.
+# wifi hal also changes the owership of this file on startup.
+allow hal_wifi sysfs_wlan_fwpath:file { w_file_perms setattr };
+# wifi hal drops root shortly after starting
+# wifi hal changes the ownership of some files before dropping root
+allow hal_wifi self:capability { setuid setgid setpcap chown };
