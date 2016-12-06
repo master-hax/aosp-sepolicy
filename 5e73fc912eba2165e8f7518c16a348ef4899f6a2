@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd24f349_764daedf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-06T18:09:23Z",
+      "side": 1,
+      "message": "This is mildly misleading. I believe you meant to say:\n\nwebview_zygote needs to load and map executable shared libraries which are stored uncompressed within the WebView APK.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 59
+      },
+      "revId": "5e73fc912eba2165e8f7518c16a348ef4899f6a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd24f349_567e721d",
+        "filename": "public/webview_zygote.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-06T18:09:23Z",
+      "side": 1,
+      "message": "rx_file_perms includes { execute execute_no_trans }. The latter is only used on exec() based transitions, which shouldn\u0027t be happening here. (ie, you never call exec() on an apk).\n\nIn this particular case, instead you want:\n\n  allow webview_zygote apk_data_file:file { r_file_perms execute };\n\nAlso, please keep in mind that this allows webview_zygote to not only load executable content from the webview APK, but also from other APKs. That seems undesirable but there\u0027s insufficient isolation between APKs today.",
+      "range": {
+        "startLine": 14,
+        "startChar": 40,
+        "endLine": 14,
+        "endChar": 53
+      },
+      "revId": "5e73fc912eba2165e8f7518c16a348ef4899f6a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd24f349_d6928239",
+        "filename": "public/webview_zygote.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-06T18:09:23Z",
+      "side": 1,
+      "message": "Can you please add some neverallow rules to further strengthen the assertions for this domain:\n\n# Only setcon() transitions, no exec() based transitions\nneverallow webview_zygote *:process transition;\n\n# Must not exec() a program without changing domains.\n# Having said that, exec() above is not allowed. \nneverallow webview_zygote *:file execute_no_trans;\n\n# The only way to enter this domain is for init to exec() us.\nneverallow { domain -init } webview_zygote:process transition;\nneverallow * webview_zygote:process dyntransition;",
+      "revId": "5e73fc912eba2165e8f7518c16a348ef4899f6a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
