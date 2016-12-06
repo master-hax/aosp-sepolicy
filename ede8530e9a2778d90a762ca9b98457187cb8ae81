@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad109fcf_76a95558",
+        "filename": "private/logpersist.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-06T00:50:43Z",
+      "side": 1,
+      "message": "need to eliminate userdebug_or_eng here, otherwise this doesn\u0027t compile on user builds.\n\nneverallow { domain -init } misc_logd_file:dir create;",
+      "range": {
+        "startLine": 41,
+        "startChar": 20,
+        "endLine": 41,
+        "endChar": 45
+      },
+      "revId": "ede8530e9a2778d90a762ca9b98457187cb8ae81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
