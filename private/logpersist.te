@@ -39,3 +39,7 @@ neverallow logpersist { file_type userdebug_or_eng(`-misc_logd_file -coredump_fi
 neverallow { domain -init userdebug_or_eng(`-logpersist -logd -dumpstate') } misc_logd_file:file no_rw_file_perms;
 neverallow { domain -init userdebug_or_eng(`-logpersist -logd') } misc_logd_file:dir { add_name link relabelfrom remove_name rename reparent rmdir write };
 neverallow { domain -init } misc_logd_file:dir create;
+
+# Only init is allowed to enter the logpersist domain via exec()
+neverallow { domain -init } logpersist:process transition;
+neverallow * logpersist:process dyntransition;
