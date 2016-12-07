@@ -165,6 +165,11 @@ binder_call(system_server, netd)
 binder_call(system_server, wificond)
 binder_service(system_server)
 
+# Perform HwBinder IPC.
+hwbinder_use(system_server)
+binder_call(system_server, hal_wifi)
+binder_call(system_server, wpa)
+
 # Ask debuggerd to dump backtraces for native stacks of interest.
 #
 # This is derived from the list that system server defines as interesting native processes
