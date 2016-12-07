@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd24f349_2b9ee4f3",
+        "filename": "public/hal_wifi.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-07T21:10:58Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be device-specific?  The HAL doesn\u0027t mandate uid as far as I\u0027m aware.  This HAL needs to be converted to an attribute and then the implementation-specific details should be taken care of in the appropriate place (see https://android-review.googlesource.com/#/c/303549/)",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 63
+      },
+      "revId": "2de9961f3f60bd736c39c4618154a71685ed8edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
