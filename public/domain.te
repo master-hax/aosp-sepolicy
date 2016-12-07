@@ -100,6 +100,10 @@ allow domain system_file:dir { search getattr };
 allow domain system_file:file { execute read open getattr };
 allow domain system_file:lnk_file read;
 
+# /system/etc/fonts.xml
+allow domain fonts_xml_file:file r_file_perms;
+auditallow domain fonts_xml_file:file r_file_perms;
+
 # Initially grant all domains access to libart.
 # TODO move to a whitelist. b/29795519
 allow domain libart_file:file { execute read open getattr };
