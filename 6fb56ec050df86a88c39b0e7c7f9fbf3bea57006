@@ -46,6 +46,30 @@
       "revId": "6fb56ec050df86a88c39b0e7c7f9fbf3bea57006",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd24f349_91a15d7b",
+        "filename": "public/bluetooth.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-12-08T23:25:01Z",
+      "side": 1,
+      "message": "Yes rild is implementing the HAL. And that\u0027s going to be device-specific going forward.\n\nSo as far as telephony is concerned, there are sepolicy changes required for 3 processes; for radio, rild and bluetooth. The CL for radio and rild is here: https://android-review.googlesource.com/#/c/308742/\n\nLet me know what your suggestion is.",
+      "parentUuid": "cd24f349_4edfa428",
+      "range": {
+        "startLine": 63,
+        "startChar": 23,
+        "endLine": 63,
+        "endChar": 27
+      },
+      "revId": "6fb56ec050df86a88c39b0e7c7f9fbf3bea57006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
