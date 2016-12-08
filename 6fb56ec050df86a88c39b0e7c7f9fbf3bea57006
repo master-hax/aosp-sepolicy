@@ -22,6 +22,30 @@
       "revId": "6fb56ec050df86a88c39b0e7c7f9fbf3bea57006",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd24f349_4edfa428",
+        "filename": "public/bluetooth.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-08T23:09:08Z",
+      "side": 1,
+      "message": "Yes I\u0027m a bit confused by this.  bluetooth should be a platform domain/component, as is rild.  Is it the case that rild is implementing the HAL?  if so, is this device-specific or expected of all devices?  There should be a HAL_foo attribute (telephony in this case) which should replace rild here, which rild should probably have as part of its type.",
+      "parentUuid": "6d5ce705_18ace568",
+      "range": {
+        "startLine": 63,
+        "startChar": 23,
+        "endLine": 63,
+        "endChar": 27
+      },
+      "revId": "6fb56ec050df86a88c39b0e7c7f9fbf3bea57006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
