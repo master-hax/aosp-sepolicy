@@ -53,4 +53,4 @@ allow rild self:socket create_socket_perms_no_ioctl;
 
 # Allow access to hwservicemanager for binderized hal
 binder_call(rild, hwservicemanager)
-binder_call(rild, radio)
+binder_call(rild, hal_telephony)
