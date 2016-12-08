@@ -1,6 +1,6 @@
 # rild - radio interface layer daemon
 type rild, domain, domain_deprecated;
-type rild_exec, exec_type, file_type;
+type rild_exec, exec_type, file_type, hal_telephony;
 
 net_domain(rild)
 allowxperm rild self:udp_socket ioctl priv_sock_ioctls;
@@ -51,6 +51,3 @@ r_dir_file(rild, system_file)
 # granting the ioctl permission for rild should be device specific
 allow rild self:socket create_socket_perms_no_ioctl;
 
-# Allow access to hwservicemanager for binderized hal
-binder_call(rild, hwservicemanager)
-binder_call(rild, radio)
