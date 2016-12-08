@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d5ce705_18ace568",
+        "filename": "public/bluetooth.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T23:03:11Z",
+      "side": 1,
+      "message": "can we make this more in line with b/32123421?\n\n- add hal_telephony attribute\n- make all sepolicy relevant to telephony go in hal_telephony\n- have rild use the hal_telephony attribute\n\nThis will make it possible/easier for device makers to create alternative implementations independent of rild.\n\nThoughts, Dan?",
+      "range": {
+        "startLine": 63,
+        "startChar": 23,
+        "endLine": 63,
+        "endChar": 27
+      },
+      "revId": "6fb56ec050df86a88c39b0e7c7f9fbf3bea57006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
