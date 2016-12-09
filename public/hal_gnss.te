@@ -1,0 +1,7 @@
+# hwbinder access
+hwbinder_use(hal_gnss)
+
+allow hal_gnss sysfs:file { read open getattr };
+allow hal_gnss system_file:dir { read open };
+
+binder_call(hal_gnss, system_server)
