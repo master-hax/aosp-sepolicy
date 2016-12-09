@@ -286,6 +286,30 @@
     },
     {
       "key": {
+        "uuid": "1a23a39f_b58760a2",
+        "filename": "public/file.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1013433
+      },
+      "writtenOn": "2016-12-09T00:07:48Z",
+      "side": 1,
+      "message": "The general statement is, \"use hard types as it\u0027s easy to circumvent neverallow rules with attributes\".\n\nHowever, I don\u0027t think that statement applies here. In general, almost everything in the current file_contexts for system are things attributed with exec_type which gets checked in neverallows and if folks don\u0027t add it, things break (unless they copy paste all the rules for another domain).\n\nAlso, there is no check to make sure that types associated via file_contexts under /system are never granted write.\n\nThis would be the only non-executable in policy that is given a specific label.\n\ndomain has: { execute read open getattr } on system_file.\n\nLooking back at this I am not even sure why I uploaded this, nothing should have been failing as things labeled system_file have open/read for domain (IIRC I never saw any). I think I took your (marks) comment at face value and just did it. The comment can be found here: https://android-review.googlesource.com/#/c/220570 on Oct 26th @ 9:25",
+      "parentUuid": "b010f8cf_1b47e497",
+      "range": {
+        "startLine": 255,
+        "startChar": 31,
+        "endLine": 255,
+        "endChar": 41
+      },
+      "revId": "594697049d8069023d3b35caa2fd9e58b8031a43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30ca486f_2739f501",
         "filename": "public/init.te",
         "patchSetId": 4
@@ -345,6 +369,30 @@
       "side": 1,
       "message": "Policy is applied for include files, data structure initializations and by extension to this list. Alphabetic inclusion has a statistically much lower chance of merge conflict, so it is a policy that results in less babysitting for the person responsible for guiding it through the merge trees. More of a common sense policy than an Android coding guideline.\n\nYes, these are not sorted, by example I have a couple of CLs outstanding that makes some of them sorted, the ones that overlap with changes I am making.",
       "parentUuid": "b010f8cf_d174933f",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 27
+      },
+      "revId": "594697049d8069023d3b35caa2fd9e58b8031a43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a427b4d_efae2165",
+        "filename": "public/init.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1013433
+      },
+      "writtenOn": "2016-12-09T00:07:48Z",
+      "side": 1,
+      "message": "I\u0027m not going to make the CL change things non-needed items, if you have yours merged that sorts this, i\u0027ll gladly rebase ontop and place this lexicographically.",
+      "parentUuid": "b010f8cf_1bca4408",
       "range": {
         "startLine": 124,
         "startChar": 0,
