@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a427b4d_047dc41e",
+        "filename": "public/hal_wifi.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-09T19:38:51Z",
+      "side": 1,
+      "message": "Done.\n\nAll the HIDL interface objects have a mechanism for the clients (system_server) to register callback HIDL interface objects with with the server(hal_wifi). These are used to notify the clients about the occurence of any asynchronous events. \n\nFor ex: https://cs.corp.google.com/android/hardware/interfaces/wifi/1.0/IWifi.hal?rcl\u003d566cb52d0404428f83dca626939ccdc6363f9de5\u0026l\u003d44.",
+      "parentUuid": "5a427b4d_8323ee6f",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 41
+      },
+      "revId": "14fc24cbdaa7746c11e6fae3f456b95f4289abc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a427b4d_233202b8",
         "filename": "public/system_server.te",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-09T16:52:11Z",
       "side": 1,
       "message": "how does this relate to the HIDL?",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 31
+      },
+      "revId": "14fc24cbdaa7746c11e6fae3f456b95f4289abc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a427b4d_64c0101f",
+        "filename": "public/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-09T19:38:51Z",
+      "side": 1,
+      "message": "hwbinder still uses binder underneath. And, I don\u0027t think we have added a new macro |hwbinder_call| to identify HIDL binder calls (as opposed to normal binder calls).",
+      "parentUuid": "5a427b4d_233202b8",
       "range": {
         "startLine": 170,
         "startChar": 0,
