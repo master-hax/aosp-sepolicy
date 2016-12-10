@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a427b4d_8ef54eac",
+        "filename": "public/mediaprovider.te",
+        "patchSetId": 16
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-10T00:30:10Z",
+      "side": 1,
+      "message": "this seems odd... Why would MediaProvider need access to /data/ota_package? That seems like something only gmscore should do.",
+      "range": {
+        "startLine": 26,
+        "startChar": 1,
+        "endLine": 28,
+        "endChar": 60
+      },
+      "revId": "2c5285afe6d967eb110cacbf1b83afcaab377d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a427b4d_4ed64612",
+        "filename": "public/mediaprovider.te",
+        "patchSetId": 16
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-10T00:30:10Z",
+      "side": 1,
+      "message": "can be deleted. This would have been required before https://android-review.googlesource.com/310550 , but now media_rw_data_file is granted to all app domains, including this new mediaprovider app domain.",
+      "range": {
+        "startLine": 30,
+        "startChar": 1,
+        "endLine": 32,
+        "endChar": 62
+      },
+      "revId": "2c5285afe6d967eb110cacbf1b83afcaab377d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a427b4d_0ef03eac",
+        "filename": "public/mediaprovider.te",
+        "patchSetId": 16
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-10T00:30:10Z",
+      "side": 1,
+      "message": "seems odd too. Why would access to update_engine be required? mediaprovider shouldn\u0027t have anything to do with OTAs...",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 63
+      },
+      "revId": "2c5285afe6d967eb110cacbf1b83afcaab377d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
