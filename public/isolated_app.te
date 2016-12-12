@@ -31,6 +31,8 @@ allow isolated_app self:process ptrace;
 # TODO: consider removing write/append. We want to limit isolated_apps
 # ability to mutate files of any type.
 allow isolated_app sdcard_type:file { read write append getattr lock };
+# Allow for sdcardfs
+allow isolated_app media_rw_data_file:file { read write append getattr lock };
 auditallow isolated_app sdcard_type:file { write append };
 
 # For webviews, isolated_app processes can be forked from the webview_zygote
