@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a427b4d_61a358e6",
+        "filename": "public/isolated_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-12T20:27:01Z",
+      "side": 1,
+      "message": "It would probably be better to write lines 33-36 as:\n\nallow isolated_app { sdcard_type media_rw_data_file }:file { read write append getattr lock };\nauditallow isolated_app { sdcard_type media_rw_data_file }:file { write append };\n\nIt\u0027s also an open question whether we want to continue to allow isolated apps to write to sdcard file descriptors, but I haven\u0027t looked at the data yet to see if we can remove this.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 58
+      },
+      "revId": "2834985252ca6a3ac1f6ab026bde79451e902fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
