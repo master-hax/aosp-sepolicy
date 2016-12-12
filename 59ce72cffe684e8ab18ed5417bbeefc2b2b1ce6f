@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a427b4d_e7c1983d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-12T22:54:19Z",
+      "side": 1,
+      "message": "The denial you included was only for a \"stat\" call, however, you granted read-write access to this data. Are you sure you need rw_file_perms, and not just stat?",
+      "revId": "59ce72cffe684e8ab18ed5417bbeefc2b2b1ce6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a427b4d_a7b390e4",
+        "filename": "public/uncrypt.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-12T22:54:19Z",
+      "side": 1,
+      "message": "includes stat, but also includes other permissions which may be overly broad.",
+      "range": {
+        "startLine": 35,
+        "startChar": 41,
+        "endLine": 35,
+        "endChar": 54
+      },
+      "revId": "59ce72cffe684e8ab18ed5417bbeefc2b2b1ce6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
