@@ -29,8 +29,10 @@ set_prop(uncrypt, powerctl_prop)
 
 # Raw writes to block device
 allow uncrypt self:capability sys_rawio;
-allow uncrypt misc_block_device:blk_file w_file_perms;
 allow uncrypt block_device:dir r_dir_perms;
+
+# Read and write to bootloader control block (BCB).
+allow uncrypt misc_block_device:blk_file {getattr read w_file_perms};
 
 # Access userdata block device.
 allow uncrypt userdata_block_device:blk_file w_file_perms;
