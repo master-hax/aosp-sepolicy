@@ -1,0 +1,6 @@
+type hal_audio_default, hal_audio, domain;
+type hal_audio_default_exec, exec_type, file_type;
+
+# type_transition must be private policy the domain_trans rules could stay
+# public, but conceptually should go with this
+init_daemon_domain(hal_audio_default)
