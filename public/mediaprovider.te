@@ -1,5 +1,8 @@
 type mediaprovider, domain;
 
+# DownloadManager lives in MediaProvider domain, and it needs the network
+net_domain(mediaserver)
+
 # MtpServer uses /dev/mtp_usb
 allow mediaprovider mtp_device:chr_file rw_file_perms;
 
