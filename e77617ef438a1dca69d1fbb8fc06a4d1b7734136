@@ -22,6 +22,30 @@
       "revId": "e77617ef438a1dca69d1fbb8fc06a4d1b7734136",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a756307_c2a3c382",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2016-12-14T21:42:35Z",
+      "side": 1,
+      "message": "Yes, that\u0027s the plan. But unfortunately there are 212 properties in default_prop which we need to define access control rules for. If we just turn it off today I suspect a bunch of stuff will break. Any volunteers?\n\n$ adb shell su 0 getprop -Z | awk \u0027{print $2}\u0027  | sort | uniq -c | sort -nr\n    212 [u:object_r:default_prop:s0]\n     61 [u:object_r:boottime_prop:s0]\n     35 [u:object_r:radio_prop:s0]\n     23 [u:object_r:dalvik_prop:s0]\n     20 [u:object_r:system_prop:s0]\n      8 [u:object_r:vold_prop:s0]",
+      "parentUuid": "1a756307_1a0f091b",
+      "range": {
+        "startLine": 18,
+        "startChar": 28,
+        "endLine": 19,
+        "endChar": 64
+      },
+      "revId": "e77617ef438a1dca69d1fbb8fc06a4d1b7734136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
