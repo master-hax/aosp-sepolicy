@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "1a756307_195f1b91",
+        "filename": "private/hal_boot_default.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2016-12-14T01:18:35Z",
+      "side": 1,
+      "message": "Yes, I think adding boot_control_hal there would resolve the issue.\nThe boot_control_hal attribute predates Treble - my understanding is it was created to abstract out block device permissions that update_engine and update_verifier need both normally and in recovery. It was kept because the new HAL needs these permissions, but the version of update_engine that runs in recovery and uses the libhardware HAL still needs the permissions as well.\nI added deymo@ since he knows more about this",
+      "parentUuid": "1a756307_2e148b28",
+      "range": {
+        "startLine": 1,
+        "startChar": 23,
+        "endLine": 1,
+        "endChar": 31
+      },
+      "revId": "be19c54da8cc785b25df03b4a18ffc03421cd001",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a756307_ae3cfbf2",
         "filename": "private/hal_boot_default.te",
         "patchSetId": 3
