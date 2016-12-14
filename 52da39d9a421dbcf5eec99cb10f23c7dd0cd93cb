@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "1a756307_6e1e834a",
+        "filename": "public/hal_audio.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-14T01:00:33Z",
+      "side": 0,
+      "message": "why is this needed?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 46
+      },
+      "revId": "52da39d9a421dbcf5eec99cb10f23c7dd0cd93cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a756307_ce0cd721",
+        "filename": "public/hal_audio.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-14T01:00:33Z",
+      "side": 0,
+      "message": "do we want to be exporting all of proc to all audio hals?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 27
+      },
+      "revId": "52da39d9a421dbcf5eec99cb10f23c7dd0cd93cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a756307_68911b9e",
         "filename": "public/hal_boot.te",
         "patchSetId": 3
@@ -13,6 +59,30 @@
       "writtenOn": "2016-12-13T23:02:16Z",
       "side": 0,
       "message": "The boot hal needs the block device permissions that this attribute grants. deymo@ has comments at https://android-review.googlesource.com/#/c/301103/ and b/32920003 that explain the potential issues with switching to the new format or merging the two attributes",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 39
+      },
+      "revId": "52da39d9a421dbcf5eec99cb10f23c7dd0cd93cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a756307_ee6b5398",
+        "filename": "public/hal_boot.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-14T01:00:33Z",
+      "side": 0,
+      "message": "we probably want to break this out into a separate change since it\u0027ll involve more than the common pattern across the rest of the HALs.",
+      "parentUuid": "1a756307_68911b9e",
       "range": {
         "startLine": 2,
         "startChar": 23,
