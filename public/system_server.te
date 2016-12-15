@@ -158,6 +158,7 @@ binder_service(system_server)
 
 # Perform HwBinder IPC.
 hwbinder_use(system_server)
+binder_call(hwservicemanager, system_server)
 binder_call(system_server, hal_boot)
 binder_call(system_server, hal_light)
 binder_call(system_server, hal_memtrack)
