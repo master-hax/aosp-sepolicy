@@ -46,6 +46,30 @@
       "revId": "06a76e5a80b98977dee3e167224f65f5d878b626",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a756307_6dcd971f",
+        "filename": "public/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-15T19:22:56Z",
+      "side": 1,
+      "message": "Yeah, I know. I\u0027m asking if the correct solution to this is adding:\n\nallow hwservicemanager $1:binder { call transfer };\n\nto hwbinder_use?",
+      "parentUuid": "1a756307_22e72ef7",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 44
+      },
+      "revId": "06a76e5a80b98977dee3e167224f65f5d878b626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
