@@ -127,6 +127,9 @@ allow installd dumpstate:fifo_file  { getattr write };
 binder_call(installd, system_server)
 allow installd permission_service:service_manager find;
 
+# Allow installd to read and write quotas
+allow installd labeledfs:filesystem { quotaget quotamod };
+
 ###
 ### Neverallow rules
 ###
