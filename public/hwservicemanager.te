@@ -9,7 +9,6 @@ type hwservicemanager_exec, exec_type, file_type;
 # created by other domains.  It never passes its own references
 # or initiates a Binder IPC.
 allow hwservicemanager self:binder set_context_mgr;
-allow hwservicemanager { domain -init }:binder transfer;
 
 set_prop(hwservicemanager, hwservicemanager_prop)
 
