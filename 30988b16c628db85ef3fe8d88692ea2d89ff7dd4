@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9a5073f1_57b9e4a7",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2016-12-16T04:17:46Z",
+      "side": 1,
+      "message": "This isn\u0027t correct, anyone else that defined LOCAL_TARGET_ARCH could override your use of it. You\u0027d need to pass it in via a PRIVATE_* variable like the ADDITIONAL_M4DEFS above.\n\n(You could remove all but one setting of LOCAL_TARGET_ARCH today and nothing would change)",
+      "range": {
+        "startLine": 507,
+        "startChar": 19,
+        "endLine": 507,
+        "endChar": 36
+      },
+      "revId": "30988b16c628db85ef3fe8d88692ea2d89ff7dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5073f1_5438028d",
         "filename": "Android.mk",
         "patchSetId": 2
