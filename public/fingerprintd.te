@@ -10,10 +10,10 @@ allow fingerprintd system_file:dir r_dir_perms;
 allow fingerprintd fingerprintd_service:service_manager { add find };
 
 # allow HAL module to read dir contents
-allow fingerprintd fingerprintd_data_file:file { create_file_perms };
+allow fingerprintd hal_fingerprint_data_file:file { create_file_perms };
 
 # allow HAL module to read/write/unlink contents of this dir
-allow fingerprintd fingerprintd_data_file:dir rw_dir_perms;
+allow fingerprintd hal_fingerprint_data_file:dir rw_dir_perms;
 
 # Need to add auth tokens to KeyStore
 use_keystore(fingerprintd)

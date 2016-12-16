@@ -1,0 +1,17 @@
+# Allow access to hwservicemanager for binderized hal
+hwbinder_use(hal_fingerprint)
+
+# Scan through /system/lib64/hw looking for installed HALs
+r_dir_file(hal_fingerprint, system_file)
+
+# allow HAL module to read dir contents
+allow hal_fingerprint hal_fingerprint_data_file:file { create_file_perms };
+
+# allow HAL module to read/write/unlink contents of this dir
+allow hal_fingerprint hal_fingerprint_data_file:dir rw_dir_perms;
+
+# Need to add auth tokens to KeyStore
+use_keystore(hal_fingerprint)
+allow hal_fingerprint keystore:keystore_key { add_auth };
+
+allow hal_fingerprint ion_device:chr_file r_file_perms;
