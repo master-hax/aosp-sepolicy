@@ -34,6 +34,24 @@
       "revId": "775276c8ad395491b4736f89ba73b84fe84d0ff1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5073f1_a691fca3",
+        "filename": "private/storaged.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1051712
+      },
+      "writtenOn": "2016-12-16T21:20:23Z",
+      "side": 1,
+      "message": "If I understand it right, r_dir_perms allows a few permission on the dir while r_dir_file allows permissions on dir and file. So how does r_dir_perms allow access on file under the dir? Maybe /proc/123/io is allowed and /proc/cmdinfo is disallowed by r_dir_perms while r_dir_file allows both?",
+      "parentUuid": "9a5073f1_abbaa5a1",
+      "revId": "775276c8ad395491b4736f89ba73b84fe84d0ff1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
