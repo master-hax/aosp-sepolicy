@@ -185,7 +185,6 @@
 /system/bin/otapreopt_chroot   u:object_r:otapreopt_chroot_exec:s0
 /system/bin/otapreopt_slot   u:object_r:otapreopt_slot_exec:s0
 /system/bin/keystore	u:object_r:keystore_exec:s0
-/system/bin/fingerprintd u:object_r:fingerprintd_exec:s0
 /system/bin/gatekeeperd u:object_r:gatekeeperd_exec:s0
 /system/bin/debuggerd	u:object_r:debuggerd_exec:s0
 /system/bin/debuggerd64	u:object_r:debuggerd_exec:s0
@@ -229,8 +228,10 @@
 /system/bin/webview_zygote64     u:object_r:webview_zygote_exec:s0
 /system/fake-lib(64)?/libart.*   u:object_r:libart_file:s0
 /system/lib(64)?/libart.*        u:object_r:libart_file:s0
+/system/lib(64)?/hw(/.*)?        u:object_r:hal_file:s0
 /system/bin/hw/android\.hardware\.audio@2\.0-service          u:object_r:hal_audio_default_exec:s0
 /system/bin/hw/android\.hardware\.boot@1\.0-service           u:object_r:hal_boot_exec:s0
+/system/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service u:object_r:hal_fingerprint_exec:s0
 /system/bin/hw/android\.hardware\.dumpstate@1\.0-service      u:object_r:hal_dumpstate_default_exec:s0
 /system/bin/hw/android\.hardware\.graphics\.allocator@2\.0-service   u:object_r:hal_graphics_allocator_default_exec:s0
 /system/bin/hw/android\.hardware\.graphics\.composer@2\.1-service    u:object_r:hal_graphics_composer_default_exec:s0
@@ -339,7 +340,7 @@
 /data/misc/profman(/.*)?        u:object_r:profman_dump_data_file:s0
 
 # Fingerprint data
-/data/system/users/[0-9]+/fpdata(/.*)? u:object_r:fingerprintd_data_file:s0
+/data/system/users/[0-9]+/fpdata(/.*)? u:object_r:hal_fingerprint_data_file:s0
 
 # Bootchart data
 /data/bootchart(/.*)?		u:object_r:bootchart_data_file:s0
