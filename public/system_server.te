@@ -149,7 +149,7 @@ binder_use(system_server)
 binder_call(system_server, { appdomain ephemeral_app })
 binder_call(system_server, binderservicedomain)
 binder_call(system_server, dumpstate)
-binder_call(system_server, fingerprintd)
+binder_call(system_server, fingerprint_hal)
 binder_call(system_server, gatekeeperd)
 binder_call(system_server, installd)
 binder_call(system_server, netd)
@@ -465,7 +465,7 @@ allow system_server batteryproperties_service:service_manager find;
 allow system_server cameraserver_service:service_manager find;
 allow system_server drmserver_service:service_manager find;
 allow system_server dumpstate_service:service_manager find;
-allow system_server fingerprintd_service:service_manager find;
+allow system_server fingerprint_hal_service:service_manager find;
 allow system_server gatekeeper_service:service_manager find;
 allow system_server installd_service:service_manager find;
 allow system_server keystore_service:service_manager find;
@@ -525,8 +525,8 @@ allow system_server mnt_expand_file:dir r_dir_perms;
 
 # Allow system process to relabel the fingerprint directory after mkdir
 # and delete the directory and files when no longer needed
-allow system_server fingerprintd_data_file:dir { r_dir_perms remove_name rmdir relabelto write };
-allow system_server fingerprintd_data_file:file { getattr unlink };
+allow system_server fingerprint_hal_data_file:dir { r_dir_perms remove_name rmdir relabelto write };
+allow system_server fingerprint_hal_data_file:file { getattr unlink };
 
 # Allow system process to read network MAC address
 allow system_server sysfs_mac_address:file r_file_perms;

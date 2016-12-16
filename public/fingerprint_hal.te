@@ -1,0 +1,31 @@
+type fingerprint_hal, domain, domain_deprecated;
+type fingerprint_hal_exec, exec_type, file_type;
+
+binder_use(fingerprint_hal)
+
+# Allow access to hwservicemanager for binderized hal
+binder_call(fingerprint_hal, hwservicemanager)
+
+# Scan through /system/lib64/hw looking for installed HALs
+allow fingerprint_hal system_file:dir r_dir_perms;
+
+# need to find KeyStore and add self
+allow fingerprint_hal fingerprint_hal_service:service_manager { add find };
+
+# allow HAL module to read dir contents
+allow fingerprint_hal fingerprint_hal_data_file:file { create_file_perms };
+
+# allow HAL module to read/write/unlink contents of this dir
+allow fingerprint_hal fingerprint_hal_data_file:dir rw_dir_perms;
+
+# Need to add auth tokens to KeyStore
+use_keystore(fingerprint_hal)
+allow fingerprint_hal keystore:keystore_key { add_auth };
+
+# For permissions checking
+binder_call(fingerprint_hal, system_server);
+allow fingerprint_hal permission_service:service_manager find;
+
+r_dir_file(fingerprint_hal, cgroup)
+r_dir_file(fingerprint_hal, sysfs_type)
+allow fingerprint_hal ion_device:chr_file r_file_perms;
