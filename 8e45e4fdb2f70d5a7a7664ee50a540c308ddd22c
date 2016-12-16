@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "9a5073f1_2017b40b",
+        "filename": "public/gatekeeperd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-16T18:55:52Z",
+      "side": 1,
+      "message": "Ok.  It\u0027d be nice to (and we should) move gatekeeperd into the private sepolicy (effectively hiding it from device-specific policy) and then requiring devices to interact with it via hal_gatekeeper. There are a few instances where this will be problematic, since gatekeeperd is directly referred to in device-specific policy in a few places:\n\"cs/gatekeeperd f:sepolicy/ f:device/\"\n\nbut those accesses should be fixed, since we shouldn\u0027t have the platform relying on non-platform properties or calling into non-HAL device-specific daemons. +malchev@ to verify or refute this assertion.",
+      "parentUuid": "1a756307_5a5b4111",
+      "range": {
+        "startLine": 1,
+        "startChar": 18,
+        "endLine": 1,
+        "endChar": 32
+      },
+      "revId": "8e45e4fdb2f70d5a7a7664ee50a540c308ddd22c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a427b4d_6a78cd2f",
         "filename": "public/hal_gatekeeper.te",
         "patchSetId": 5
