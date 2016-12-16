@@ -334,7 +334,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := sepolicy
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
+LOCAL_MODULE_PATH := $(TARGET_OUT_INTERMEDIATES)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
@@ -518,7 +518,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := sepolicy.recovery
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
+LOCAL_MODULE_PATH := $(TARGET_OUT_INTERMEDIATES)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
@@ -541,6 +541,7 @@ $(LOCAL_BUILT_MODULE): $(HOST_OUT_EXECUTABLES)/secilc $(HOST_OUT_EXECUTABLES)/se
 		fi
 	$(hide) mv $@.tmp $@
 
+built_sepolicy.recovery := $(LOCAL_BUILT_MODULE)
 all_cil_files.recovery :=
 
 ##################################
@@ -908,7 +909,8 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
-$(LOCAL_BUILT_MODULE): $(built_sepolicy) $(built_pc) $(built_fc) $(built_sc) $(built_svc)
+$(LOCAL_BUILT_MODULE): $(built_sepolicy) $(built_sepolicy.recovery) $(built_pc) \
+$(built_fc) $(built_sc) $(built_svc)
 	@mkdir -p $(dir $@)
 	$(hide) echo -n $(BUILD_FINGERPRINT_FROM_FILE) > $@
 
@@ -924,6 +926,7 @@ built_nl :=
 built_pc :=
 built_sc :=
 built_sepolicy :=
+built_sepolicy.recovery :=
 built_svc :=
 mapping_policy_nvr :=
 mapping_policy_nvr.recovery :=
