@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9a5073f1_fadabd33",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-16T18:20:25Z",
+      "side": 1,
+      "message": "Actually, it looks like this wasn\u0027t even in the recovery policy build previously.  Will change, as well as changing for the other sites.",
+      "parentUuid": "9a5073f1_57b9e4a7",
+      "range": {
+        "startLine": 507,
+        "startChar": 19,
+        "endLine": 507,
+        "endChar": 36
+      },
+      "revId": "30988b16c628db85ef3fe8d88692ea2d89ff7dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5073f1_5438028d",
         "filename": "Android.mk",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2016-12-16T04:07:16Z",
       "side": 1,
       "message": "shouldn\u0027t nonplat_policy_nvr.recovery be cleared, I don\u0027t see an unset?",
+      "revId": "30988b16c628db85ef3fe8d88692ea2d89ff7dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5073f1_7a996d63",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-16T18:20:25Z",
+      "side": 1,
+      "message": "Yes, actually this is missing in a few places.  Will change.",
+      "parentUuid": "9a5073f1_5438028d",
       "revId": "30988b16c628db85ef3fe8d88692ea2d89ff7dd4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "9a5073f1_c56d1a75",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-16T18:20:25Z",
+      "side": 1,
+      "message": "I was wondering why this differed from sepolicy, and originally intended to keep this change as a \u0027pure refactoring\u0027 split, but since there are a couple of other errors pointed out in the recovery and non-recovery code, I\u0027ll switch this to \u0027optional\u0027 to match sepolicy, but I can remove both completely if you\u0027d prefer.",
+      "parentUuid": "9a5073f1_970c2cb6",
+      "range": {
+        "startLine": 543,
+        "startChar": 0,
+        "endLine": 543,
+        "endChar": 24
+      },
+      "revId": "30988b16c628db85ef3fe8d88692ea2d89ff7dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5073f1_5421e260",
         "filename": "Android.mk",
         "patchSetId": 2
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "9a5073f1_9ac6115b",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-16T18:20:25Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/#/c/266053/ appears to be the genesis.  Looks like jeffv@ added some ioctl defines that weren\u0027t as architecture-agnostic as hoped.",
+      "parentUuid": "9a5073f1_5421e260",
+      "revId": "30988b16c628db85ef3fe8d88692ea2d89ff7dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5073f1_34061ed0",
         "filename": "Android.mk",
         "patchSetId": 2
@@ -93,6 +177,24 @@
       "writtenOn": "2016-12-16T04:07:16Z",
       "side": 1,
       "message": "Same for these...cleared?",
+      "revId": "30988b16c628db85ef3fe8d88692ea2d89ff7dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5073f1_0578022f",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-16T18:20:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a5073f1_34061ed0",
       "revId": "30988b16c628db85ef3fe8d88692ea2d89ff7dd4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
