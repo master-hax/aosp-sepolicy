@@ -1,0 +1,6 @@
+# health info abstraction
+type hal_health_default, hal_health, domain;
+type hal_health_default_exec, exec_type, file_type;
+
+# may be started by init
+init_daemon_domain(hal_health_default)
