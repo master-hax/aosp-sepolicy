@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "9a5073f1_0bcad13e",
+        "filename": "public/gatekeeperd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1097918
+      },
+      "writtenOn": "2016-12-16T19:14:50Z",
+      "side": 1,
+      "message": "one clarification: gatekeeperd is going to be present on both new and legacy systems, but it\u0027s behavior is different:\non legacy systems it has to implement HAL, on new systems it has to bind to HAL; in both cases it exports public binder API used by GatekeeperService.\nshould it still be moved to private ?",
+      "parentUuid": "9a5073f1_2017b40b",
+      "range": {
+        "startLine": 1,
+        "startChar": 18,
+        "endLine": 1,
+        "endChar": 32
+      },
+      "revId": "8e45e4fdb2f70d5a7a7664ee50a540c308ddd22c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a427b4d_6a78cd2f",
         "filename": "public/hal_gatekeeper.te",
         "patchSetId": 5
