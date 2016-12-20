@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7a2c67b_9d34933a",
+        "filename": "private/hal_gatekeeper_default.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-20T17:31:30Z",
+      "side": 1,
+      "message": "so the split-off gatekeeper hal process doesn\u0027t need any permissions specific to our implementation?  (including scanning for those .so\u0027s?  This seems to be common among other HALs, so might indicate a lack of fully-fleshed-out HAL implementations, or lack of testing on binderized builds?",
+      "revId": "3a7be98f8fea6f0166f808d6d8d9b49508c6f6d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a2c67b_5da05b44",
+        "filename": "public/hal_gatekeeper.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-20T17:31:30Z",
+      "side": 1,
+      "message": "these rules indicate that tee_device and ion_device are now expected to be public and common to all android devices as well.  Is this necessarily the case?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 54
+      },
+      "revId": "3a7be98f8fea6f0166f808d6d8d9b49508c6f6d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
