@@ -52,6 +52,24 @@
       "revId": "775276c8ad395491b4736f89ba73b84fe84d0ff1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a2c67b_e9ef113e",
+        "filename": "private/storaged.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1051712
+      },
+      "writtenOn": "2016-12-20T01:46:05Z",
+      "side": 1,
+      "message": "I \"think\" we need r_dir_file to read files under /proc/PID/io. But I don\u0027t know why it still works with r_dir_perms and even without this line. I have to run as root but this shouldn\u0027t affect sepolicy, right? I guess the permission is given indirectly, e.g. dumpstate has r_file_perms on proc so system allows it when dumpstate invokes storaged.\n\nDo you have any recommendation how to proceed so that this patch can be merged? Thanks!",
+      "parentUuid": "9a5073f1_a691fca3",
+      "revId": "775276c8ad395491b4736f89ba73b84fe84d0ff1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
