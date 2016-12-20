@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "d7a2c67b_49918531",
+        "filename": "public/gatekeeperd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-20T01:02:01Z",
+      "side": 1,
+      "message": "The problem is in the way I\u0027ve set up the public/private split.  The way it\u0027s set up right now, the policy associated with the hal attribute is actually shipped with the device.  Since the hal, regardless of where it is implemented, needs to be able to talk to gatekeeprd, the policy allowing that needs to be present in the hal_gatekeeper attribute, and thus the knowledge of the gatekeeperd type as well.\n\nSo unless I change this (might do), I think it has to remain public.",
+      "parentUuid": "9a5073f1_0bcad13e",
+      "range": {
+        "startLine": 1,
+        "startChar": 18,
+        "endLine": 1,
+        "endChar": 32
+      },
+      "revId": "8e45e4fdb2f70d5a7a7664ee50a540c308ddd22c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a427b4d_6a78cd2f",
         "filename": "public/hal_gatekeeper.te",
         "patchSetId": 5
@@ -251,6 +275,30 @@
       "side": 1,
       "message": "why not; these are libraries under /system/lib and system/lib/hw; nothing more; this is to be able to load .so that has dynamic load dependencies on other .so; don\u0027t believe it needs to be more specific.",
       "parentUuid": "d7a2c67b_26d558fc",
+      "range": {
+        "startLine": 8,
+        "startChar": 21,
+        "endLine": 8,
+        "endChar": 32
+      },
+      "revId": "8e45e4fdb2f70d5a7a7664ee50a540c308ddd22c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a2c67b_2990c92a",
+        "filename": "public/hal_gatekeeper.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-20T01:02:01Z",
+      "side": 1,
+      "message": "this is an implementation detail, though, which should be in the hal implementation\u0027s private policy.",
+      "parentUuid": "d7a2c67b_869c4c55",
       "range": {
         "startLine": 8,
         "startChar": 21,
