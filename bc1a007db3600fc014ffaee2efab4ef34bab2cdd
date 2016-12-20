@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7a2c67b_7863e558",
+        "filename": "public/attributes",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-20T19:01:02Z",
+      "side": 1,
+      "message": "delete",
+      "revId": "bc1a007db3600fc014ffaee2efab4ef34bab2cdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a2c67b_9834a13a",
+        "filename": "public/bluetooth.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-20T19:01:02Z",
+      "side": 1,
+      "message": "both bluetooth and rild are implementing the same HAL?  That seems wrong.",
+      "range": {
+        "startLine": 2,
+        "startChar": 43,
+        "endLine": 2,
+        "endChar": 56
+      },
+      "revId": "bc1a007db3600fc014ffaee2efab4ef34bab2cdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a2c67b_3846cdc3",
+        "filename": "public/hal_telephony.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-20T19:01:02Z",
+      "side": 1,
+      "message": "this is implementation-specific, right?  We could move this to private policy.  In fact, rild is hal_telephony, so why is this needed?",
+      "range": {
+        "startLine": 3,
+        "startChar": 27,
+        "endLine": 3,
+        "endChar": 31
+      },
+      "revId": "bc1a007db3600fc014ffaee2efab4ef34bab2cdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a2c67b_589b8902",
+        "filename": "public/rild.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-20T19:01:02Z",
+      "side": 1,
+      "message": "previous comments indicate that rild is implementing this HAL, but this CL assigns that attribute to the other two processes, radio and bluetooth.  halp?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 32
+      },
+      "revId": "bc1a007db3600fc014ffaee2efab4ef34bab2cdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
