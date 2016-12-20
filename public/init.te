@@ -277,6 +277,9 @@ allow init property_data_file:file create_file_perms;
 # Set any property.
 allow init property_type:property_service set;
 
+# Read device's serial number from system properties
+get_prop(init, serialno_prop)
+
 # Run "ifup lo" to bring up the localhost interface
 allow init self:udp_socket { create ioctl };
 # in addition to unpriv ioctls granted to all domains, init also needs:
