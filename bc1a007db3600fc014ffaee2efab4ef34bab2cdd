@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "d7a2c67b_b8e71df6",
+        "filename": "public/bluetooth.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-12-20T19:43:01Z",
+      "side": 1,
+      "message": "Bluetooth has a SIM access profile for which it needs access to vendor RIL. The interface has always been a part of RIL.",
+      "parentUuid": "d7a2c67b_9834a13a",
+      "range": {
+        "startLine": 2,
+        "startChar": 43,
+        "endLine": 2,
+        "endChar": 56
+      },
+      "revId": "bc1a007db3600fc014ffaee2efab4ef34bab2cdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7a2c67b_3846cdc3",
         "filename": "public/hal_telephony.te",
         "patchSetId": 8
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "d7a2c67b_989ca155",
+        "filename": "public/hal_telephony.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-12-20T19:43:01Z",
+      "side": 1,
+      "message": "Whether needed or not may depend on your answer to the other question I have posted.\nThis will be implementation-specific in future. For existing, and even for next year\u0027s devices, it is expected to be this way.",
+      "parentUuid": "d7a2c67b_3846cdc3",
+      "range": {
+        "startLine": 3,
+        "startChar": 27,
+        "endLine": 3,
+        "endChar": 31
+      },
+      "revId": "bc1a007db3600fc014ffaee2efab4ef34bab2cdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7a2c67b_589b8902",
         "filename": "public/rild.te",
         "patchSetId": 8
@@ -76,6 +124,30 @@
       "writtenOn": "2016-12-20T19:01:02Z",
       "side": 1,
       "message": "previous comments indicate that rild is implementing this HAL, but this CL assigns that attribute to the other two processes, radio and bluetooth.  halp?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 32
+      },
+      "revId": "bc1a007db3600fc014ffaee2efab4ef34bab2cdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a2c67b_78b445ce",
+        "filename": "public/rild.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-12-20T19:43:01Z",
+      "side": 1,
+      "message": "rild does implement the hal, but because of callbacks access needs to be both ways, that is, radio and rild need to be able to access each other, and same for bt; bluetooth and rild need to be able to access each other. Let me know what the right way to do that is.",
+      "parentUuid": "d7a2c67b_589b8902",
       "range": {
         "startLine": 56,
         "startChar": 0,
