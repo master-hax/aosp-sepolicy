@@ -104,11 +104,6 @@ attribute bluetoothdomain;
 # All domains used for binder service domains.
 attribute binderservicedomain;
 
-# All domains that access the boot_control HAL. The permissions the HAL
-# requires are specific to the implementation provided in each device, but
-# common daemons need to be aware of those when calling into the HAL.
-attribute boot_control_hal;
-
 # update_engine related domains that need to apply an update and run
 # postinstall. This includes the background daemon and the sideload tool from
 # recovery for A/B devices.
@@ -116,6 +111,7 @@ attribute update_engine_common;
 
 # HALs
 attribute hal_audio;
+attribute hal_boot;
 attribute hal_dumpstate;
 attribute hal_gatekeeper;
 attribute hal_graphics_allocator;
