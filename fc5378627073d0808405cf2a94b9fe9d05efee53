@@ -22,6 +22,30 @@
       "revId": "fc5378627073d0808405cf2a94b9fe9d05efee53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a2c67b_d81f6f1f",
+        "filename": "public/logd.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-21T17:32:43Z",
+      "side": 1,
+      "message": "We tend to strongly discourage these perms.  They mean that logd is trying to access files fro which it doesn\u0027t have the usual unix UID/GID setup.  The most common solution here is to either add a group-owner to the resource being accessed or GID to the process.  First step to removing them would be to figure out which resource caused the check.\n\nTo do that, I\u0027ve traditionally instrumented the capability check in the kernel, but I believe you can also use a combinatino of audit2allow to see which files are being accessed (or strace) and permission addition/removal.",
+      "parentUuid": "d7a2c67b_d83a0ff4",
+      "range": {
+        "startLine": 11,
+        "startChar": 74,
+        "endLine": 11,
+        "endChar": 102
+      },
+      "revId": "fc5378627073d0808405cf2a94b9fe9d05efee53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
