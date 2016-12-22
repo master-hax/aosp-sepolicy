@@ -681,45 +681,47 @@ general_file_contexts.tmp :=
 
 ##################################
 include $(CLEAR_VARS)
-LOCAL_MODULE := seapp_contexts
+LOCAL_MODULE := plat_seapp_contexts
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-all_sc_files := $(call build_policy, seapp_contexts, $(PLAT_PRIVATE_POLICY) $(BOARD_SEPOLICY_DIRS))
+plat_sc_files := $(call build_policy, seapp_contexts, $(PLAT_PRIVATE_POLICY))
 
 $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
-$(LOCAL_BUILT_MODULE): PRIVATE_SC_FILES := $(all_sc_files)
-$(LOCAL_BUILT_MODULE): $(built_sepolicy) $(all_sc_files) $(HOST_OUT_EXECUTABLES)/checkseapp
+$(LOCAL_BUILT_MODULE): PRIVATE_SC_FILES := $(plat_sc_files)
+$(LOCAL_BUILT_MODULE): $(built_sepolicy) $(plat_sc_files) $(HOST_OUT_EXECUTABLES)/checkseapp
 	@mkdir -p $(dir $@)
 	$(hide) $(HOST_OUT_EXECUTABLES)/checkseapp -p $(PRIVATE_SEPOLICY) -o $@ $(PRIVATE_SC_FILES)
 
-built_sc := $(LOCAL_BUILT_MODULE)
-all_sc_files :=
+built_plat_sc := $(LOCAL_BUILT_MODULE)
+plat_sc_files :=
 
 ##################################
 include $(CLEAR_VARS)
-LOCAL_MODULE := general_seapp_contexts
+LOCAL_MODULE := nonplat_seapp_contexts
 LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_TAGS := tests
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-all_sc_files := $(addprefix $(PLAT_PRIVATE_POLICY)/, seapp_contexts)
+nonplat_sc_files := $(call build_policy, seapp_contexts, $(BOARD_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
 
-$(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_general_sepolicy)
-$(LOCAL_BUILT_MODULE): PRIVATE_SC_FILE := $(all_sc_files)
-$(LOCAL_BUILT_MODULE): $(built_general_sepolicy) $(all_sc_files) $(HOST_OUT_EXECUTABLES)/checkseapp
+$(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
+$(LOCAL_BUILT_MODULE): PRIVATE_SC_FILES := $(nonplat_sc_files)
+$(LOCAL_BUILT_MODULE): $(built_sepolicy) $(nonplat_sc_files) $(HOST_OUT_EXECUTABLES)/checkseapp
 	@mkdir -p $(dir $@)
-	$(hide) $(HOST_OUT_EXECUTABLES)/checkseapp -p $(PRIVATE_SEPOLICY) -o $@ $(PRIVATE_SC_FILE)
+	$(hide) $(HOST_OUT_EXECUTABLES)/checkseapp -p $(PRIVATE_SEPOLICY) -o $@ $(PRIVATE_SC_FILES)
 
-all_sc_files :=
+built_nonplat_sc := $(LOCAL_BUILT_MODULE)
+nonplat_sc_files :=
 
 ##################################
 include $(CLEAR_VARS)
-LOCAL_MODULE := general_seapp_neverallows
+LOCAL_MODULE := plat_seapp_neverallows
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := tests
 
@@ -908,7 +910,8 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
-$(LOCAL_BUILT_MODULE): $(built_sepolicy) $(built_pc) $(built_fc) $(built_sc) $(built_svc)
+$(LOCAL_BUILT_MODULE): $(built_sepolicy) $(built_pc) $(built_fc) \
+$(built_plat_sc) $(built_nonplat_sc) $(built_svc)
 	@mkdir -p $(dir $@)
 	$(hide) echo -n $(BUILD_FINGERPRINT_FROM_FILE) > $@
 
@@ -922,7 +925,8 @@ built_general_sepolicy :=
 built_general_sepolicy.conf :=
 built_nl :=
 built_pc :=
-built_sc :=
+built_nonplat_sc :=
+built_plat_sc :=
 built_sepolicy :=
 built_svc :=
 mapping_policy_nvr :=
