@@ -60,3 +60,8 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/recovery/root/plat_property_context
 
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/property_contexts)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/recovery/root/property_contexts)
+
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/nonplat_property_contexts)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/recovery/root/nonplat_property_contexts)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/plat_property_contexts)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/recovery/root/plat_property_contexts)
