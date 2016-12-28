@@ -46,6 +46,30 @@
       "revId": "e04f0dca9fcc202e638824cf4a1d4eba7392de76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a2c67b_fa6fa4d9",
+        "filename": "private/hal_sensors_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2016-12-28T20:08:02Z",
+      "side": 1,
+      "message": "This was introduced before the hals were put into attributes and reflected the idea that a process with that type could be started by init or created by another means for non-platform implementations.  It is no longer the case that hals are concrete types, so the hal_sensors_default type IS started by init, and no other way.",
+      "parentUuid": "d7a2c67b_3ad45ca3",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 24
+      },
+      "revId": "e04f0dca9fcc202e638824cf4a1d4eba7392de76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
