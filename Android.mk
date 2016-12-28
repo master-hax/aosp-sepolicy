@@ -207,7 +207,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := plat_sepolicy.cil
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
@@ -248,7 +247,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := mapping_sepolicy.cil
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
@@ -277,7 +275,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := nonplat_sepolicy.cil
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
@@ -395,7 +392,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := plat_sepolicy.recovery.cil
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
@@ -434,7 +430,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := mapping_sepolicy.recovery.cil
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
@@ -464,7 +459,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := nonplat_sepolicy.recovery.cil
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
@@ -518,7 +512,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := sepolicy.recovery
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
