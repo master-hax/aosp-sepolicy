@@ -22,6 +22,30 @@
       "revId": "e16b7634cca4e9cca1b9c3dc3a8e5481ba52189d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a2c67b_7f7081f4",
+        "filename": "public/logpersist.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2016-12-29T17:05:58Z",
+      "side": 1,
+      "message": "mmi is a _device_ domain for a manufacturer\u0027s test tool and can never exist on _any_ static rule :-( it was a source of the build-error (w/o -mmi) that caused both of these to be commented out until root cause and plan could be established.\n\nI am using this to document the list of domains that require transition to logpersist. logpersist is used as a debug or eng jail for persistent logcat operations that partners must turn off on user builds. I do not ever expect to uncomment this until we have an \"authenticated\" means to \"enhance\" neverallow rules to allow a domain to slip in like this. For instance, if neverallow rules (neverallow_with_undefined?) allowed undefined domains to be listed we could grow this list as each new partner/vendor requests?\n\nThe companion introduction of the logcat.te domain (still under review) should prevent them from going around this.",
+      "parentUuid": "d7a2c67b_7fbe4162",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 64
+      },
+      "revId": "e16b7634cca4e9cca1b9c3dc3a8e5481ba52189d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
