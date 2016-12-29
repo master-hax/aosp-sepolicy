@@ -72,8 +72,8 @@ userdebug_or_eng(`
   set_prop(shell, persist_debug_prop)
 ')
 
-# Read device's serial number from system properties
-get_prop(shell, serialno_prop)
+# Read all properties
+get_prop(shell, property_type)
 
 # allow shell access to services
 allow shell servicemanager:service_manager list;
