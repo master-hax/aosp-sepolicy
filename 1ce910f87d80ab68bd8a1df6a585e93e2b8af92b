@@ -22,6 +22,30 @@
       "revId": "1ce910f87d80ab68bd8a1df6a585e93e2b8af92b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a2c67b_bfb91913",
+        "filename": "public/hal_dumpstate.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-29T18:24:15Z",
+      "side": 1,
+      "message": "So, dumpstate is a special case of a hal. It\u0027s not going to support passthrough. Both dumpstate and hal_dumpstate need this permission.\n\nHere\u0027s what happens:\n- dumpstate creates many files in bugreports in order to construct a bugreport.\n- dumpstate passes one of these files to the device\u0027s dumpstate hal as a handle/file descriptor\n- the dumpstate hal writes to this file\n\nSo, this permission actually belongs in both places.",
+      "parentUuid": "d7a2c67b_ff9f919a",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 47
+      },
+      "revId": "1ce910f87d80ab68bd8a1df6a585e93e2b8af92b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
