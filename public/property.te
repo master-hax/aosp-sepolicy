@@ -44,6 +44,8 @@ type system_radio_prop, property_type, core_property_type;
 type vold_prop, property_type, core_property_type;
 type wifi_log_prop, property_type, log_property_type;
 type wifi_prop, property_type;
+type default_property, property_type, core_property_type;
+type hal_property, property_type, core_property_type;
 
 allow property_type tmpfs:filesystem associate;
 
@@ -83,4 +85,6 @@ neverallow * {
   -system_prop
   -system_radio_prop
   -vold_prop
+  -default_property
+  -hal_property
 }:file no_rw_file_perms;
