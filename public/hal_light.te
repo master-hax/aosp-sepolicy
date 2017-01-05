@@ -3,3 +3,5 @@ hwbinder_use(hal_light)
 
 # call into system_server process (callbacks)
 binder_call(hal_light, system_server)
+
+allow hal_light sysfs_leds:file rw_file_perms;
