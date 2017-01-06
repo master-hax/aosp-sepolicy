@@ -70,6 +70,24 @@
       "revId": "f209b1aca1bb1b1e7c03bfe3fa9874733156384a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7e3a6ee_96f4abb0",
+        "filename": "private/storaged.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1051712
+      },
+      "writtenOn": "2017-01-06T18:53:26Z",
+      "side": 1,
+      "message": "I was using \"r_dir_file(storaged, proc)\". Nick suggested it should be \"allow storaged proc:dir r_dir_perms;\" \n\nIf I understand it right, the diff is r_dir_file allows file and dir whereas r_dir_perms only allows dir.\n\nstoraged will need access to file (/proc/PID/io) and dir (/proc/PID) so I\u0027m not sure how it works.",
+      "parentUuid": "d7e3a6ee_56878333",
+      "revId": "f209b1aca1bb1b1e7c03bfe3fa9874733156384a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
