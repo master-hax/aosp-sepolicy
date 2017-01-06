@@ -106,6 +106,24 @@
       "revId": "f209b1aca1bb1b1e7c03bfe3fa9874733156384a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7e3a6ee_a5632b57",
+        "filename": "private/storaged.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-06T23:40:56Z",
+      "side": 1,
+      "message": "The original rule was written as:\n\n  r_dir_file(storaged, proc)\n\nwhich allows you to read all files, directories, and symlinks labeled as \"u:object_r:proc:s0\". This consists of a number of files in /proc, as you can see from running:\n\n  adb shell su 0 ls -laZ /proc | grep u:object_r:proc:s0\n\nHowever, that doesn\u0027t give you access to /proc/PID entries, which do not use the \"proc\" label. For example:\n\n  bullhead:/ # ls -ladZ /proc/1                                                                                                                          \n  dr-xr-xr-x 8 root root u:r:init:s0 0 1971-04-07 10:06 /proc/1\n\nThat directory has the \"init\" label, not the \"proc\" label. \n\nThe \"r_dir_file(storaged, domain)\" line you added in https://android-review.googlesource.com/#/c/315121/8/private/storaged.te allows you access to all /proc/pid files.\n\nBoth rules are needed. The first rule is needed to list out entries in the /proc directory, and the second rule is needed to recurse into the relevant /proc/pid entries.",
+      "parentUuid": "d7e3a6ee_99721c02",
+      "revId": "f209b1aca1bb1b1e7c03bfe3fa9874733156384a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
