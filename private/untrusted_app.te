@@ -103,6 +103,10 @@ allow untrusted_app preloads_data_file:file r_file_perms;
 # https://github.com/strazzere/anti-emulator/blob/master/AntiEmulator/src/diff/strazzere/anti/emulator/FindEmulator.java
 allow untrusted_app proc_tty_drivers:file r_file_perms;
 
+# Access to /proc/crypto, to allow reading crypto providers
+# compiled into the kernel
+allow untrusted_app proc_crypto:file r_file_perms;
+
 ###
 ### neverallow rules
 ###
