@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d7e3a6ee_a245e618",
+        "filename": "private/domain.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-06T18:09:02Z",
+      "side": 1,
+      "message": "Note: CAP_SYS_PTRACE is also used for accessing sensitive /proc files associated with processes which could leak memory information. It isn\u0027t necessary running ptrace on the process. See storaged.te line 32",
+      "parentUuid": "d7e3a6ee_02521a2a",
+      "revId": "67d957c34446741aeacab091d73b278d3d387ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7e3a6ee_826f0adb",
         "filename": "private/dumpstate.te",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2017-01-06T17:58:20Z",
       "side": 1,
       "message": "any? Did you mean storaged or any service offerred by storaged?",
+      "revId": "67d957c34446741aeacab091d73b278d3d387ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7e3a6ee_02a05a86",
+        "filename": "private/dumpstate.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-06T18:09:02Z",
+      "side": 1,
+      "message": "ya, this should be fixed.",
+      "parentUuid": "d7e3a6ee_826f0adb",
       "revId": "67d957c34446741aeacab091d73b278d3d387ab2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "d7e3a6ee_a2a96677",
+        "filename": "private/storaged.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-06T18:09:02Z",
+      "side": 1,
+      "message": "mlstrustedsubject indicates a process which is allowed to access data across a multi-user boundary. This process is trusted to maintain the integrity of data, even when handling Android APK processes running in different physical users.\n\nIn particular, this is needed for scanning through /proc/PID, since each of those files could belong to a different Android physical user.\n\nSee also line 14",
+      "parentUuid": "d7e3a6ee_c292f2a3",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 40
+      },
+      "revId": "67d957c34446741aeacab091d73b278d3d387ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7e3a6ee_e2b8ce0f",
         "filename": "private/storaged.te",
         "patchSetId": 7
@@ -70,6 +130,41 @@
       "writtenOn": "2017-01-06T17:58:20Z",
       "side": 1,
       "message": "Why does storaged need to read contents of arbitrary files under /proc? My undertstanding is that this is what this rule grants...",
+      "revId": "67d957c34446741aeacab091d73b278d3d387ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7e3a6ee_e2f0ceb0",
+        "filename": "private/storaged.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-06T18:09:02Z",
+      "side": 1,
+      "message": "Specifically, this allows access to /proc/PID files for any domain, which is needed for \"ps\" like activities.",
+      "parentUuid": "d7e3a6ee_e2b8ce0f",
+      "revId": "67d957c34446741aeacab091d73b278d3d387ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7e3a6ee_c24af224",
+        "filename": "private/storaged.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-06T18:09:02Z",
+      "side": 1,
+      "message": "An explicit neverallow rule for ptrace is here.",
       "revId": "67d957c34446741aeacab091d73b278d3d387ab2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
