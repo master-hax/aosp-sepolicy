@@ -124,6 +124,24 @@
       "revId": "f209b1aca1bb1b1e7c03bfe3fa9874733156384a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7e3a6ee_058f7fbd",
+        "filename": "private/storaged.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-06T23:49:23Z",
+      "side": 1,
+      "message": "Clarifying a bit more....\n\nr_dir_file(storaged, proc)\nr_dir_file(storaged, domain)\n\nThe two rules above allow you to read files, directories, and symlinks associated with /proc/PID entries. In addition, it allows you to read files, directories, and symlinks associated with files in /proc (outside of /proc/PID) which have the \"proc\" label.\n\nwhereas....\n\nallow storaged proc:dir r_dir_perms;\nr_dir_file(storaged, domain)\n\nallows you to read files, directories, and symlinks associated with /proc/PID entries. But does NOT allow you to read files or symlinks associated with /proc files outside of /proc/pid.\n\nFor example, the file /proc/devices would be readable with the former, but not the latter.",
+      "parentUuid": "d7e3a6ee_a5632b57",
+      "revId": "f209b1aca1bb1b1e7c03bfe3fa9874733156384a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
