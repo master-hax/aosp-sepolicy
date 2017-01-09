@@ -312,6 +312,7 @@ allow init device:file create_file_perms;
 # TODO: Move these devices into their own type unless they
 # are only ever accessed by init.
 allow init device:chr_file { rw_file_perms setattr };
+auditallow allow init device:chr_file { rw_file_perms setattr };
 
 # keychord configuration
 allow init self:capability sys_tty_config;
