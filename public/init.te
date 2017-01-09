@@ -312,9 +312,11 @@ allow init device:file create_file_perms;
 # TODO: Move these devices into their own type unless they
 # are only ever accessed by init.
 allow init device:chr_file { rw_file_perms setattr };
+auditallow init device:chr_file { rw_file_perms setattr };
 
 # keychord configuration
 allow init self:capability sys_tty_config;
+allow init keychord_device:chr_file { rw_file_perms setattr };
 
 # Access device mapper for setting up dm-verity
 allow init dm_device:chr_file rw_file_perms;
