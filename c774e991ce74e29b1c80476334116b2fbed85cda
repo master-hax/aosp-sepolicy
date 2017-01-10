@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3e9cd6a_82b3fa4b",
+        "filename": "public/init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-10T00:37:35Z",
+      "side": 1,
+      "message": "This is triggering for /dev/keychord. See comment on line 311.\n\n[    3.522093] type\u003d1400 audit(42843455.186:5): avc:  granted  { read write } for  pid\u003d1 comm\u003d\"init\" name\u003d\"keychord\" dev\u003d\"tmpfs\" ino\u003d11787 scontext\u003du:r:init:s0 tcontext\u003du:object_r:device:s0 tclass\u003dchr_file\n[    3.522122] type\u003d1400 audit(42843455.186:6): avc:  granted  { read write open } for  pid\u003d1 comm\u003d\"init\" path\u003d\"/dev/keychord\" dev\u003d\"tmpfs\" ino\u003d11787 scontext\u003du:r:init:s0 tcontext\u003du:object_r:device:s0 tclass\u003dchr_file\n\n\nCan you please fix this?",
+      "revId": "c774e991ce74e29b1c80476334116b2fbed85cda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
