@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3e9cd6a_96fb3c9d",
+        "filename": "private/file_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-01-10T07:42:06Z",
+      "side": 1,
+      "message": "remove this. hal files are not going to be in /system, this will be done in one-big pass laster, use system_file for now, which applies to everything under /system, /vendor etc.",
+      "revId": "f98cfabdfb2f4ff44c2f302dbbe28aecfe4fce80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3e9cd6a_d618a430",
+        "filename": "private/hal_fingerprint_default.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-01-10T07:42:06Z",
+      "side": 1,
+      "message": "s/hal_fingerprint/hal_fingerprint_default.",
+      "revId": "f98cfabdfb2f4ff44c2f302dbbe28aecfe4fce80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3e9cd6a_b61520f7",
+        "filename": "private/hal_fingerprint_default.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-01-10T07:42:06Z",
+      "side": 1,
+      "message": "move these 2 lines to the top of the file",
+      "revId": "f98cfabdfb2f4ff44c2f302dbbe28aecfe4fce80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3e9cd6a_7632f8c8",
+        "filename": "public/file.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-01-10T07:42:06Z",
+      "side": 1,
+      "message": "please don\u0027t add this new type yet and rely on system_file for now. The comment is also misplaced a bit, since HAL files are always supposed to be in /vendor \u0027or\u0027 /odm.\n\n\"domain\" already gives rx permissions for system_file and you should be fine if you simply add r_dir_file(..) in your private/hal_XXX.te file for now.",
+      "revId": "f98cfabdfb2f4ff44c2f302dbbe28aecfe4fce80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3e9cd6a_7659d8f6",
+        "filename": "public/hal_fingerprint.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-01-10T07:42:06Z",
+      "side": 1,
+      "message": "a comment for which sysfs files are we adding this for? If they are device-specific please do this in device-specific .te files.",
+      "revId": "f98cfabdfb2f4ff44c2f302dbbe28aecfe4fce80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3e9cd6a_51713e48",
+        "filename": "public/service.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-01-10T07:42:06Z",
+      "side": 1,
+      "message": "I don\u0027t see anything labeled with this type in this patch, is this still needed?",
+      "revId": "f98cfabdfb2f4ff44c2f302dbbe28aecfe4fce80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3e9cd6a_56dc9426",
+        "filename": "public/system_server.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-01-10T07:42:06Z",
+      "side": 1,
+      "message": "/nit/ move this to where other hals are? between 162-171",
+      "revId": "f98cfabdfb2f4ff44c2f302dbbe28aecfe4fce80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3e9cd6a_96b0dce8",
+        "filename": "public/system_server.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-01-10T07:42:06Z",
+      "side": 1,
+      "message": "this is likely not needed at all, delete?",
+      "revId": "f98cfabdfb2f4ff44c2f302dbbe28aecfe4fce80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
