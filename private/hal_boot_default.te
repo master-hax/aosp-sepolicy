@@ -1,0 +1,6 @@
+# boot_control subsystem
+type hal_boot_default, hal_boot, boot_control_hal, domain;
+type hal_boot_default_exec, exec_type, file_type;
+
+# may be started by init
+init_daemon_domain(hal_boot_default)
