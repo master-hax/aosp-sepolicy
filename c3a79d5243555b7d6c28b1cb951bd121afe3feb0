@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "c3d8490b_2298ce07",
+        "filename": "public/attributes",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-01-12T18:59:29Z",
+      "side": 1,
+      "message": "s/hal_boot/hal_boot_control",
+      "revId": "c3a79d5243555b7d6c28b1cb951bd121afe3feb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_828c1ad5",
+        "filename": "public/hal_boot.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-01-12T18:59:29Z",
+      "side": 1,
+      "message": "I think this should be split into a separate file and as a new attribute. The reason for this is for recovery, the boot_control_hal is dlopened and possibly needs these allow rules.\n\nso, the way I see this needs to be done\n\npublic/attributes.te : attribute boot_control\npublic/boot_control.te : allow boot_control bootctrl_block_device:blk_file rw_file_perms;\nprivate/hal_boot_control.te : type hal_boot_control_default, hal_boot, boot_control, domain\n\nSo, in recovery, you should only add a typeattribute statement for this new \u0027boot_control\u0027 or similarly named attribute and not \u0027hal_boot\u0027.",
+      "revId": "c3a79d5243555b7d6c28b1cb951bd121afe3feb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3d8490b_7d5442c0",
         "filename": "public/recovery.te",
         "patchSetId": 6
@@ -13,6 +47,30 @@
       "writtenOn": "2017-01-11T23:59:35Z",
       "side": 1,
       "message": "This grants recovery environment HIDL stuff.",
+      "range": {
+        "startLine": 11,
+        "startChar": 47,
+        "endLine": 11,
+        "endChar": 55
+      },
+      "revId": "c3a79d5243555b7d6c28b1cb951bd121afe3feb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_e27ac6d2",
+        "filename": "public/recovery.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-01-12T18:59:29Z",
+      "side": 1,
+      "message": "\u003e This grants recovery environment HIDL stuff.\n\nYes, exactly the problem I pointed out in comments for the previous file.",
+      "parentUuid": "c3d8490b_7d5442c0",
       "range": {
         "startLine": 11,
         "startChar": 47,
