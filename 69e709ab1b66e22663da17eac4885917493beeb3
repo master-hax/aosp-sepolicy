@@ -25,6 +25,64 @@
     },
     {
       "key": {
+        "uuid": "c3d8490b_a5b048e8",
+        "filename": "private/hal_boot_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-01-12T21:22:30Z",
+      "side": 1,
+      "message": "\u003e Hals can\u0027t be expected to have to include this. This attribute\n \u003e needs to be absorbed into hal_boot. boot_control_hal\n \u003e can\u0027t/shouldn\u0027t be part of the public policy.\n\nHow about making this type public instead of making the hal_boot attribute public ?",
+      "parentUuid": "c3d8490b_65c90e5e",
+      "range": {
+        "startLine": 2,
+        "startChar": 33,
+        "endLine": 2,
+        "endChar": 49
+      },
+      "revId": "69e709ab1b66e22663da17eac4885917493beeb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_65aa6077",
+        "filename": "private/hal_boot_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-01-12T21:22:30Z",
+      "side": 1,
+      "message": "/nit/ while we are at it, may be call \u0027hal_boot\u0027 something betteri identifiable - \u0027hal_bootctl\u0027 or \u0027hal_boot_control\u0027",
+      "revId": "69e709ab1b66e22663da17eac4885917493beeb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_25a458a5",
+        "filename": "public/attributes",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-01-12T21:22:30Z",
+      "side": 1,
+      "message": "/nit/ better name as suggested before.",
+      "revId": "69e709ab1b66e22663da17eac4885917493beeb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3d8490b_a518562f",
         "filename": "public/hal_boot.te",
         "patchSetId": 2
@@ -36,6 +94,30 @@
       "writtenOn": "2017-01-11T18:52:26Z",
       "side": 1,
       "message": "Delete",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 24
+      },
+      "revId": "69e709ab1b66e22663da17eac4885917493beeb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_45a15c93",
+        "filename": "public/hal_boot.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-01-12T21:22:30Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "c3d8490b_a518562f",
       "range": {
         "startLine": 1,
         "startChar": 0,
