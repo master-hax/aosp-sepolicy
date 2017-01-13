@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "23c0454e_7dbe2b74",
+        "filename": "public/hal_bluetooth.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T20:56:09Z",
+      "side": 1,
+      "message": "We should keep all the rules surrounding bluetooth_data_file in one block, and use the appropriate macros.\n\nWhat is the expectation for the hal to be able to access  /data/misc/blue{tooth,droid}/.* ? Do you just want to be able to edit existing files, or create new files? Do you need to handle symlinks, or not?\n\nDepending on your needs, you\u0027d want to replace lines 17-21 with one of the following options\n\n1)\n\nallow hal_bluetooth bluetooth_data_file:dir rw_dir_perms;\nallow hal_bluetooth bluetooth_data_file:file create_file_perms;\n\nAllows creating and deleting of files in /data/misc/blue{tooth,droid}/.* . Does not allow the creation of subdirectories within /data/misc/blue{tooth,droid}/.* . Does not allow the reading or creation of symlinks.\n\n2) \n\nallow hal_bluetooth bluetooth_data_file:dir create_dir_perms;\nallow hal_bluetooth bluetooth_data_file:file create_file_perms;\n\nAllows creating and deleting of files and directories in /data/misc/blue{tooth,droid}/.* . Does not allow the reading or creation of symlinks.\n\n3) \n\nallow hal_bluetooth bluetooth_data_file:dir create_dir_perms;\nallow hal_bluetooth bluetooth_data_file:{ file lnk_file } create_file_perms;\n\nAllows creating and deleting of files, directories, and symlinks in /data/misc/blue{tooth,droid}/.* . \n\n4) \n\nallow hal_bluetooth bluetooth_data_file:dir rw_dir_perms;\nallow hal_bluetooth bluetooth_data_file:{ file lnk_file } create_file_perms;\n\nAllows creating and deleting of files and symlinks in /data/misc/blue{tooth,droid}/.* . Does not allow the creating of subdirectories.\n\n\nNote: please avoid symlinks if they really aren\u0027t necessary. They are often the source of security and other bugs.",
+      "revId": "64ba78935da67d1f51d9873a614bf9700d07bf96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23c0454e_5d5b2f97",
         "filename": "public/hal_bluetooth.te",
         "patchSetId": 1
