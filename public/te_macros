@@ -217,6 +217,8 @@ allow hwservicemanager $1:binder { call transfer };
 allow hwservicemanager $1:dir search;
 allow hwservicemanager $1:file { read open };
 allow hwservicemanager $1:process getattr;
+# TODO(b/34180936): move to haldomain attribute
+get_prop($1, hal_binderization_prop)
 # rw access to /dev/hwbinder and /dev/ashmem is presently granted to
 # all domains in domain.te.
 ')
