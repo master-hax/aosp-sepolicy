@@ -25,6 +25,10 @@ allow ephemeral_app ephemeral_app_tmpfs:file execute;
 allow ephemeral_app self:process execmem;
 allow ephemeral_app ashmem_device:chr_file execute;
 
+# Read /data/dalvik-cache.
+allow ephemeral_app dalvikcache_data_file:dir { search getattr };
+allow ephemeral_app dalvikcache_data_file:file r_file_perms;
+
 # Send logcat messages to logd.
 write_logd(ephemeral_app)
 
