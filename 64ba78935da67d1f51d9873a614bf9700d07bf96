@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "23c0454e_5d5b2f97",
+        "filename": "public/hal_bluetooth.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-01-13T20:51:26Z",
+      "side": 1,
+      "message": "bluetooth.te contains:\n\nallow bluetooth bluetooth_data_file:dir create_dir_perms;\nallow bluetooth bluetooth_data_file:notdevfile_class_set create_file_perms;\n\nAny reason why this domain is granted a smaller set of permissions for bluetooth_data_file?",
+      "revId": "64ba78935da67d1f51d9873a614bf9700d07bf96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23c0454e_7d12abd2",
         "filename": "public/hal_bluetooth.te",
         "patchSetId": 1
