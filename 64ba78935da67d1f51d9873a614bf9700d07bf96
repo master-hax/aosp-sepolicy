@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "23c0454e_7daf0b85",
+        "filename": "public/hal_bluetooth.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-01-13T22:02:04Z",
+      "side": 1,
+      "message": "We don\u0027t need symlinks.\n\nI\u0027d like to see /data/misc/hal_bluetooth/ for logs (option 1 s/bluetooth_data_file/hal_bluetooth_data_file/)\n\nAnd\n\nr_dir_file(hal_bluetooth, bluetooth_data_file)\n\nWe should probably add\n#1 for hal_bluetooth_default for backward compatibility.",
+      "parentUuid": "23c0454e_7dbe2b74",
+      "revId": "64ba78935da67d1f51d9873a614bf9700d07bf96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23c0454e_5d5b2f97",
         "filename": "public/hal_bluetooth.te",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "23c0454e_dd41fff8",
+        "filename": "public/hal_bluetooth.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-01-13T22:02:04Z",
+      "side": 1,
+      "message": "The Bluetooth stack keeps logs here.  The HAL mostly needs these files for configuration.  I was hoping to limit what the HAL needs.",
+      "parentUuid": "23c0454e_5d5b2f97",
+      "revId": "64ba78935da67d1f51d9873a614bf9700d07bf96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23c0454e_7d12abd2",
         "filename": "public/hal_bluetooth.te",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2017-01-13T20:46:04Z",
       "side": 1,
       "message": "lgtm after one answer.\n\nDo you want to open up /data/misc/blue{tooth,droid}/.* to all implementations of the HAL or is this only for \"default\" implementation ?\n\nIf only for \"default\" implementation, then I will suggest to move to private/hal_bluetooth.te, but if this is something that will be needed by all BT HAL implementations, then this is fine.",
+      "revId": "64ba78935da67d1f51d9873a614bf9700d07bf96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_1d5457bf",
+        "filename": "public/hal_bluetooth.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-01-13T22:02:04Z",
+      "side": 1,
+      "message": "I would like all HAL implementations to be able to read config files in this directory.\n\nOne of our legacy HAL implementations logs the firmware version in this directory.\n\nI think it would be good to have a place for the HAL to log firmware versions, exceptional events, etc.  But I wasn\u0027t sure it was worth making a separate file type (hal_bluetooth_data_file?)\n\nIf we made a new type, then HAL access to bluetooth_data_file would be read-only.",
+      "parentUuid": "23c0454e_7d12abd2",
       "revId": "64ba78935da67d1f51d9873a614bf9700d07bf96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
