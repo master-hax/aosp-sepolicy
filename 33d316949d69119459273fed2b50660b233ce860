@@ -1,0 +1,334 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3d8490b_8efbe19c",
+        "filename": "private/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "Nit: technically this does more than allow it. It allows it *and automatically performs* the domain transition.\n\nI would phrase this as:\n\n  # Transition to crash_dump when /system/bin/crash_dump* is executed\n  # This occurs when the process crashes",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_ae0025b9",
+        "filename": "private/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "Allow rules should be placed before neverallow assertions. Can you please move lines 13-14 to line 1?",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_6e0a3dda",
+        "filename": "private/file_contexts",
+        "patchSetId": 13
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "shell_exec is reserved for the shell script interpreter, /system/bin/sh. This line cause the SELinux system to treat /system/bin/sh and /system/bin/debuggerd identically, but clearly they aren\u0027t.\n\nIt would be better to create a separate label for this, or just use the old debuggerd_exec label.",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_4eaad976",
+        "filename": "public/adbd.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "In the old debuggerd.te rules, adbd was specifically excluded from being ptraced. See https://android-review.googlesource.com/#/c/295129/13/public/debuggerd.te line 13. This was because, at the time, statically linked binaries did not setup handlers to call into debuggerd when they crashed. Are statically linked binaries handled differently now?",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_59714548",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "This is handled by the domain_auto_trans() macro called at https://android-review.googlesource.com/#/c/295129/13/private/domain.te line 14. See the definition of the domain_trans macro in system/sepolicy/public/te_macros\n\nCan be deleted.",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_19d09dd6",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "I would prefer we not introduce a \"not_userdebug_or_eng\" macro. It makes things slightly confusing, and can always be replaced by a userdebug_or_eng() statement.\n\nIn this case, you can split this into two statements which have the same effect without causing a new macro to be introduced.\n\nallow crash_dump {\n  domain\n  -init\n  -crash_dump\n  -keystore\n  -logd\n}:process { ptrace signal sigchld sigstop sigkill };\n\nuserdebug_or_eng(`\n  allow crash_dump logd:process { ptrace signal sigchld sigstop sigkill };\n\u0027)",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_b90871a2",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "already covered by line 19. Can be deleted.",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_9951ed79",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "nit: by convention, the opening and closing braces are typically omitted on permissions which have only a single entry in them.\n\n  allow crash_dump tombstoned:unix_stream_socket connectto;\n\n(here and lots of other places)",
+      "range": {
+        "startLine": 31,
+        "startChar": 47,
+        "endLine": 31,
+        "endChar": 48
+      },
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_79e9a986",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "I suspect we want this to be \"append\", not \"write\". /data/anr files are typically only appended to. This ensures that one process can\u0027t modify ANR data for processes which executed earlier.",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_19fe5d42",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "append instead of write? Prevents a process from modifying pre-existing entries already in the file.",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_7937694e",
+        "filename": "public/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "These are exec() based transitions. setcurrent is only used for transitions based off of setcon(), which is not occurring here.",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_b93dd131",
+        "filename": "public/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "Already covered by the domain_auto_trans macro called at https://android-review.googlesource.com/#/c/295129/13/private/domain.te line 14. See the definition of the macro in system/sepolicy/public/te_macros",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_99380d42",
+        "filename": "public/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "Already covered by the domain_auto_trans macro called at https://android-review.googlesource.com/#/c/295129/13/private/domain.te line 14. See the definition of the macro in system/sepolicy/public/te_macros.",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_99afad3f",
+        "filename": "public/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": ":-)",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_39e7a193",
+        "filename": "public/domain_deprecated.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "this was deleted in https://android-review.googlesource.com/305583 . Did you mean to restore this? Seems like a merge error of some kind....",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 42
+      },
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_396ec117",
+        "filename": "public/system_server.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "comment is out of date.",
+      "range": {
+        "startLine": 621,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 65
+      },
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_f977d9e7",
+        "filename": "public/te_macros",
+        "patchSetId": 13
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "Not needed. See comments at https://android-review.googlesource.com/#/c/295129/13/public/crash_dump.te line 12",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d8490b_599e25f9",
+        "filename": "public/tombstoned.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-13T01:07:41Z",
+      "side": 1,
+      "message": "append vs write?",
+      "range": {
+        "startLine": 11,
+        "startChar": 36,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
