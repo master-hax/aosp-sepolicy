@@ -6,3 +6,8 @@ hwbinder_use(haldomain)
 
 # find passthrough hals
 allow haldomain system_file:dir r_dir_perms;
+
+# TODO(b/34274385): hals wait for data to be mounted so they can
+# start only if persist.hal.binderization is enabled. (for dogfood
+# stability).
+get_prop(vold, vold_prop)
