@@ -132,6 +132,8 @@ allow dumpstate dalvikcache_data_file:lnk_file r_file_perms;
 allow dumpstate bluetooth_data_file:dir search;
 allow dumpstate bluetooth_logs_data_file:dir r_dir_perms;
 allow dumpstate bluetooth_logs_data_file:file r_file_perms;
+allow dumpstate bluetoothhal_data_file:dir search;
+allow dumpstate bluetoothhal_data_file:file r_file_perms;
 
 # Dumpstate calls screencap, which grabs a screenshot. Needs gpu access
 allow dumpstate gpu_device:chr_file rw_file_perms;

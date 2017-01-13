@@ -16,6 +16,10 @@ allow hal_bluetooth { uhid_device hci_attach_dev }:chr_file rw_file_perms;
 # Access to config files to look for a Bluetooth address
 r_dir_file(hal_bluetooth, bluetooth_data_file)
 
+# Logging for exceptional events
+allow hal_bluetooth bluetoothhal_data_file:dir { search write add_name };
+allow hal_bluetooth bluetoothhal_data_file:file { append write };
+
 # sysfs access.
 r_dir_file(hal_bluetooth, sysfs_type)
 allow hal_bluetooth sysfs_bluetooth_writable:file rw_file_perms;
