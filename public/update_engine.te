@@ -28,7 +28,7 @@ binder_use(update_engine)
 allow update_engine update_engine_service:service_manager { add };
 
 # Allow update_engine to call the callback function provided by priv_app.
-binder_call(update_engine, priv_app)
+binder_call(update_engine, priv_app_common)
 
 # Read OTA zip file at /data/ota_package/.
 allow update_engine ota_package_file:file r_file_perms;

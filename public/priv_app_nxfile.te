@@ -1,0 +1,7 @@
+###
+### A domain for further sandboxing privileged apps.
+###
+
+type priv_app_nxfile, domain;
+
+neverallow priv_app_nxfile app_data_file:file no_x_file_perms;
