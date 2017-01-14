@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23c0454e_9bbeac71",
+        "filename": "private/priv_app_common.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-14T04:24:54Z",
+      "side": 1,
+      "message": "Is this actually used by priv_app_nxfile ? I would prefer not to carry this over.",
+      "revId": "753201c6ecf2a25b589e71f304f1c699199599bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_9bd5cc9b",
+        "filename": "private/priv_app_nxfile.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-14T04:24:54Z",
+      "side": 1,
+      "message": "Given that the purpose of this domain is primarily to remove the file exec permission, you should at least add a neverallow rule:\n\nneverallow priv_app app_data_file:file no_x_file_perms;",
+      "revId": "753201c6ecf2a25b589e71f304f1c699199599bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_5bb41493",
+        "filename": "public/app.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-14T04:24:54Z",
+      "side": 1,
+      "message": "neverallow negations should always be a concrete type, not an attribute. Otherwise, it\u0027s possible for another domain to \"opt-out\" of this neverallow rule by just assigning their domain this attribute.\n\nYou can replace this by:\n\n  -priv_app -priv_app_nxfile",
+      "range": {
+        "startLine": 416,
+        "startChar": 38,
+        "endLine": 416,
+        "endChar": 53
+      },
+      "revId": "753201c6ecf2a25b589e71f304f1c699199599bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_7bb9d089",
+        "filename": "public/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-14T04:24:54Z",
+      "side": 1,
+      "message": "neverallow negations should always be a concrete type, not an attribute. Otherwise, it\u0027s possible for another domain to \"opt-out\" of this neverallow rule by just assigning their domain this attribute.\n\nYou can replace this by:\n\n  -priv_app -priv_app_nxfile",
+      "revId": "753201c6ecf2a25b589e71f304f1c699199599bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
