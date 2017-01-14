@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "23c0454e_a90c0564",
+        "filename": "private/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T02:13:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3d8490b_8efbe19c",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3d8490b_ae0025b9",
         "filename": "private/domain.te",
         "patchSetId": 13
@@ -30,6 +48,24 @@
       "writtenOn": "2017-01-13T01:07:41Z",
       "side": 1,
       "message": "Allow rules should be placed before neverallow assertions. Can you please move lines 13-14 to line 1?",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_c9094153",
+        "filename": "private/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T02:13:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3d8490b_ae0025b9",
       "revId": "33d316949d69119459273fed2b50660b233ce860",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "23c0454e_e916fd71",
+        "filename": "private/file_contexts",
+        "patchSetId": 13
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T02:13:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3d8490b_6e0a3dda",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3d8490b_4eaad976",
         "filename": "public/adbd.te",
         "patchSetId": 13
@@ -64,6 +118,24 @@
       "writtenOn": "2017-01-13T01:07:41Z",
       "side": 1,
       "message": "In the old debuggerd.te rules, adbd was specifically excluded from being ptraced. See https://android-review.googlesource.com/#/c/295129/13/public/debuggerd.te line 13. This was because, at the time, statically linked binaries did not setup handlers to call into debuggerd when they crashed. Are statically linked binaries handled differently now?",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_1a2d3d67",
+        "filename": "public/adbd.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T02:13:04Z",
+      "side": 1,
+      "message": "Yes, the signal handler has been split off to a library that static binaries can link in to get crash reporting.",
+      "parentUuid": "c3d8490b_4eaad976",
       "revId": "33d316949d69119459273fed2b50660b233ce860",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "23c0454e_9a206d6b",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T02:13:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3d8490b_59714548",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3d8490b_19d09dd6",
         "filename": "public/crash_dump.te",
         "patchSetId": 13
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "23c0454e_da2ae548",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T02:13:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3d8490b_19d09dd6",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3d8490b_b90871a2",
         "filename": "public/crash_dump.te",
         "patchSetId": 13
@@ -115,6 +223,24 @@
       "writtenOn": "2017-01-13T01:07:41Z",
       "side": 1,
       "message": "already covered by line 19. Can be deleted.",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_fa27a17d",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T02:13:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3d8490b_b90871a2",
       "revId": "33d316949d69119459273fed2b50660b233ce860",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -144,6 +270,30 @@
     },
     {
       "key": {
+        "uuid": "23c0454e_3a5919f8",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T02:13:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3d8490b_9951ed79",
+      "range": {
+        "startLine": 31,
+        "startChar": 47,
+        "endLine": 31,
+        "endChar": 48
+      },
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3d8490b_79e9a986",
         "filename": "public/crash_dump.te",
         "patchSetId": 13
@@ -155,6 +305,24 @@
       "writtenOn": "2017-01-13T01:07:41Z",
       "side": 1,
       "message": "I suspect we want this to be \"append\", not \"write\". /data/anr files are typically only appended to. This ensures that one process can\u0027t modify ANR data for processes which executed earlier.",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_a9e96568",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T02:13:04Z",
+      "side": 1,
+      "message": "Does this check that the file pointer is at the end of the file, or does it only check that the fd is opened with O_APPEND?\n\nCurrently, dumpstate creates its /data/anr/traces.txt.bugreport file without O_APPEND.\n\n(It also chmods the file to 0666, which seems bad.)",
+      "parentUuid": "c3d8490b_79e9a986",
       "revId": "33d316949d69119459273fed2b50660b233ce860",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -178,6 +346,24 @@
     },
     {
       "key": {
+        "uuid": "23c0454e_cea5c78a",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T02:13:04Z",
+      "side": 1,
+      "message": "This should already be the case because of the way tombstoned creates the files (unlink, creat, pass the fd to crash_dump), but making it do this is easy, so done.",
+      "parentUuid": "c3d8490b_19fe5d42",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3d8490b_7937694e",
         "filename": "public/domain.te",
         "patchSetId": 13
@@ -189,6 +375,24 @@
       "writtenOn": "2017-01-13T01:07:41Z",
       "side": 1,
       "message": "These are exec() based transitions. setcurrent is only used for transitions based off of setcon(), which is not occurring here.",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_29a47549",
+        "filename": "public/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T02:13:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3d8490b_7937694e",
       "revId": "33d316949d69119459273fed2b50660b233ce860",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -212,6 +416,24 @@
     },
     {
       "key": {
+        "uuid": "23c0454e_e97a7dd2",
+        "filename": "public/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T02:13:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3d8490b_b93dd131",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3d8490b_99380d42",
         "filename": "public/domain.te",
         "patchSetId": 13
@@ -223,6 +445,24 @@
       "writtenOn": "2017-01-13T01:07:41Z",
       "side": 1,
       "message": "Already covered by the domain_auto_trans macro called at https://android-review.googlesource.com/#/c/295129/13/private/domain.te line 14. See the definition of the macro in system/sepolicy/public/te_macros.",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_89ff49ee",
+        "filename": "public/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T02:13:04Z",
+      "side": 1,
+      "message": "The domain_auto_trans doesn\u0027t seem to be enough, I get tons of these when I remove this line:\n\n#\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d audioserver \u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nallow audioserver crash_dump:process sigchld;\n\n#\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d cameraserver \u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nallow cameraserver crash_dump:process sigchld;\n\n#\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d drmserver \u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nallow drmserver crash_dump:process sigchld;\n\netc.\n\nI moved the sigchld line next to the domain_auto_trans in private/domain.te for now.",
+      "parentUuid": "c3d8490b_99380d42",
       "revId": "33d316949d69119459273fed2b50660b233ce860",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -269,6 +509,30 @@
     },
     {
       "key": {
+        "uuid": "23c0454e_49a9b120",
+        "filename": "public/domain_deprecated.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T02:13:04Z",
+      "side": 1,
+      "message": "Yeah, I think this was a bad merge. Removed.",
+      "parentUuid": "c3d8490b_39e7a193",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 42
+      },
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3d8490b_396ec117",
         "filename": "public/system_server.te",
         "patchSetId": 13
@@ -292,6 +556,30 @@
     },
     {
       "key": {
+        "uuid": "23c0454e_a945e577",
+        "filename": "public/system_server.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T02:13:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3d8490b_396ec117",
+      "range": {
+        "startLine": 621,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 65
+      },
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3d8490b_f977d9e7",
         "filename": "public/te_macros",
         "patchSetId": 13
@@ -303,6 +591,24 @@
       "writtenOn": "2017-01-13T01:07:41Z",
       "side": 1,
       "message": "Not needed. See comments at https://android-review.googlesource.com/#/c/295129/13/public/crash_dump.te line 12",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_e93fddf1",
+        "filename": "public/te_macros",
+        "patchSetId": 13
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T02:13:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3d8490b_f977d9e7",
       "revId": "33d316949d69119459273fed2b50660b233ce860",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
