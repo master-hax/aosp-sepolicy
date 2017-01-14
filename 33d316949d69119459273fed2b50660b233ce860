@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "23c0454e_e92a7d48",
+        "filename": "private/file_contexts",
+        "patchSetId": 13
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-14T03:15:34Z",
+      "side": 1,
+      "message": "I don\u0027t see any change here. /system/bin/debuggerd should have a different label than shell_exec.",
+      "parentUuid": "23c0454e_e916fd71",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3d8490b_4eaad976",
         "filename": "public/adbd.te",
         "patchSetId": 13
@@ -329,6 +347,24 @@
     },
     {
       "key": {
+        "uuid": "23c0454e_e9419df8",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-14T03:15:34Z",
+      "side": 1,
+      "message": "This checks to see if the file descriptor was opened with O_APPEND. For SELinux purposes, a file descriptor can only be writable or appendable, but not both. A file descriptor opened writable without append uses the \"write\" permission check, whereas a file descriptor opened with writable | O_APPEND uses the \"append\" permission check.\n\nThe 666 is sorta OK as long as we ensure read is never granted, and we only use append instead of write. That way, crash_dump can never get a writable file descriptor.",
+      "parentUuid": "23c0454e_a9e96568",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3d8490b_19fe5d42",
         "filename": "public/crash_dump.te",
         "patchSetId": 13
@@ -358,6 +394,24 @@
       "side": 1,
       "message": "This should already be the case because of the way tombstoned creates the files (unlink, creat, pass the fd to crash_dump), but making it do this is easy, so done.",
       "parentUuid": "c3d8490b_19fe5d42",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_4900d1b8",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-14T03:15:34Z",
+      "side": 1,
+      "message": "From an SELinux perspective, write and append are different, so specifying write without append will disallow O_APPEND file descriptors, but allow writable file descriptors without O_APPEND. Mildly confusing...",
+      "parentUuid": "23c0454e_cea5c78a",
       "revId": "33d316949d69119459273fed2b50660b233ce860",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -463,6 +517,24 @@
       "side": 1,
       "message": "The domain_auto_trans doesn\u0027t seem to be enough, I get tons of these when I remove this line:\n\n#\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d audioserver \u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nallow audioserver crash_dump:process sigchld;\n\n#\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d cameraserver \u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nallow cameraserver crash_dump:process sigchld;\n\n#\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d drmserver \u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nallow drmserver crash_dump:process sigchld;\n\netc.\n\nI moved the sigchld line next to the domain_auto_trans in private/domain.te for now.",
       "parentUuid": "c3d8490b_99380d42",
+      "revId": "33d316949d69119459273fed2b50660b233ce860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_890ae9d6",
+        "filename": "public/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-14T03:15:34Z",
+      "side": 1,
+      "message": "Ah, I see my mistake. Normally SIGCHLD is sent from a child to a parent. However, in the case of a process being ptraced, SIGCHLD is redirected from the parent to the ptracing process. That\u0027s why I was wrong, and your domain.te line is correct.\n\nThe process crashes, exec()s crash_dump, and crash_dump catches the SIGCHLD of it\u0027s parent. That\u0027s backwards from the normal SIGCHLD handling, hence my confusion.",
+      "parentUuid": "23c0454e_89ff49ee",
       "revId": "33d316949d69119459273fed2b50660b233ce860",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
