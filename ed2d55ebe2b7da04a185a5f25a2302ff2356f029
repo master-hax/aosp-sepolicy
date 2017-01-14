@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "23c0454e_db090453",
+        "filename": "private/file_contexts",
+        "patchSetId": 14
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T06:12:07Z",
+      "side": 1,
+      "message": "Sorry, accidentally left out the change.\n\n/system/bin/debuggerd still exists, but it\u0027s replaced with a binary that just triggers tombstone generation/prints backtraces to the console. (it\u0027s basically a wrapper around kill, plus some additional code to talk to tombstoned for the backtrace case).\n\nCan I just delete this line and let it execute in whatever context calls it?",
+      "parentUuid": "23c0454e_0928994e",
+      "range": {
+        "startLine": 198,
+        "startChar": 33,
+        "endLine": 198,
+        "endChar": 43
+      },
+      "revId": "ed2d55ebe2b7da04a185a5f25a2302ff2356f029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23c0454e_49e7f1f5",
         "filename": "public/dumpstate.te",
         "patchSetId": 14
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "23c0454e_3b9af8b5",
+        "filename": "public/dumpstate.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T06:12:07Z",
+      "side": 1,
+      "message": "Done (and also in crash_dump.te)",
+      "parentUuid": "23c0454e_49e7f1f5",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 60
+      },
+      "revId": "ed2d55ebe2b7da04a185a5f25a2302ff2356f029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23c0454e_a9f5e59d",
         "filename": "public/system_server.te",
         "patchSetId": 14
@@ -59,6 +107,30 @@
       "writtenOn": "2017-01-14T03:15:34Z",
       "side": 1,
       "message": "please replace with:\n\n  unix_socket_connect(system_server, tombstoned_intercept, tombstoned)\n\nwhich is a macro defined in system/sepolicy/public/te_macro which does exactly what you specified on lines 179-180.",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 64
+      },
+      "revId": "ed2d55ebe2b7da04a185a5f25a2302ff2356f029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_9b994cc0",
+        "filename": "public/system_server.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T06:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23c0454e_a9f5e59d",
       "range": {
         "startLine": 179,
         "startChar": 0,
@@ -99,6 +171,30 @@
       "writtenOn": "2017-01-14T03:15:34Z",
       "side": 1,
       "message": "write vs append?",
+      "range": {
+        "startLine": 11,
+        "startChar": 36,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "ed2d55ebe2b7da04a185a5f25a2302ff2356f029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_3b6598f6",
+        "filename": "public/tombstoned.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-01-14T06:12:07Z",
+      "side": 1,
+      "message": "This actually isn\u0027t necessary, crash_dump is the one writing to the fd, not tombstoned.",
+      "parentUuid": "23c0454e_09edf9cf",
       "range": {
         "startLine": 11,
         "startChar": 36,
