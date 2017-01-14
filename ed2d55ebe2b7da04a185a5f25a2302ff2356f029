@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23c0454e_0928994e",
+        "filename": "private/file_contexts",
+        "patchSetId": 14
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-14T03:15:34Z",
+      "side": 1,
+      "message": "please don\u0027t use shell_exec for the debuggerd label.\n\nLikely, you want to delete this line entirely if debuggerd is no longer used.",
+      "range": {
+        "startLine": 198,
+        "startChar": 33,
+        "endLine": 198,
+        "endChar": 43
+      },
+      "revId": "ed2d55ebe2b7da04a185a5f25a2302ff2356f029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_49e7f1f5",
+        "filename": "public/dumpstate.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-14T03:15:34Z",
+      "side": 1,
+      "message": "Please replace this by:\n\n  unix_socket_connect(dumpstate, tombstoned_intercept, tombstoned)\n\nwhich is a macro defined in system/sepolicy/public/te_macros which does exactly what you\u0027ve specified on line 70-71.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 60
+      },
+      "revId": "ed2d55ebe2b7da04a185a5f25a2302ff2356f029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_a9f5e59d",
+        "filename": "public/system_server.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-14T03:15:34Z",
+      "side": 1,
+      "message": "please replace with:\n\n  unix_socket_connect(system_server, tombstoned_intercept, tombstoned)\n\nwhich is a macro defined in system/sepolicy/public/te_macro which does exactly what you specified on lines 179-180.",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 64
+      },
+      "revId": "ed2d55ebe2b7da04a185a5f25a2302ff2356f029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_c9f221b3",
+        "filename": "public/system_server.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-14T03:15:34Z",
+      "side": 1,
+      "message": "Replace with:\n\n# Ensure that system_server doesn\u0027t perform any domain transitions other than transitioning to the crash_dump domain when a crash occurs.\n\nor something like that. Line 623 isn\u0027t accurate.",
+      "revId": "ed2d55ebe2b7da04a185a5f25a2302ff2356f029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c0454e_09edf9cf",
+        "filename": "public/tombstoned.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-14T03:15:34Z",
+      "side": 1,
+      "message": "write vs append?",
+      "range": {
+        "startLine": 11,
+        "startChar": 36,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "ed2d55ebe2b7da04a185a5f25a2302ff2356f029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
