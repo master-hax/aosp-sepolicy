@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "236e8540_f88159e7",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 18
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-17T22:34:45Z",
+      "side": 1,
+      "message": "Please add the following neverallow assertion to the bottom of this file:\n\n###\n### neverallow assertions\n###\n\n# A domain transition must occur for crash_dump to get the privileges needed to trace the process.\n# Do not allow the execution of crash_dump without a domain transition.\nneverallow domain crash_dump_exec:file execute_no_trans;\n\nPlease see the comment at the bottom of https://android-review.googlesource.com/#/c/295129/18/public/hal_audio.te",
+      "revId": "67a777267eb975482da4c42bde151db0ca116090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a39fd578_2966d52b",
+        "filename": "public/hal_audio.te",
+        "patchSetId": 18
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-17T22:34:45Z",
+      "side": 1,
+      "message": "I\u0027m sorry I missed this before, but this is incorrect.\n\n\"execute_no_trans\" is the permission needed to execute a binary without undergoing a domain transition. However, you explicitly force a domain transition on line 3 of https://android-review.googlesource.com/#/c/295129/18/private/domain.te . If you allow this exception, then domains with the attribute hal_audio will be allowed to execute /system/bin/crash_dump*, but the crash_dump binary will be running in the domain that executed it, not in the crash_dump domain. Because it\u0027s running in the wrong domain, it\u0027s not going to have the permissions it needs.\n\nThis neverallow exception doesn\u0027t appear used by your policy, so this is likely a bug and you should be able to revert to the initial version.\n\nOtherwise, I suspect hal_audio_default domain (which implements the hal_audio attribute) has set NO_NEW_PRIVS, which is suppressing the SELinux domain transition here.",
+      "revId": "67a777267eb975482da4c42bde151db0ca116090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
