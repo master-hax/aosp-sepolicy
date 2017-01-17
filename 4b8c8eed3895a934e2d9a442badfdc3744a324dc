@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c39e897c_0ab53fbf",
+        "filename": "private/hal_bluetooth_default.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-17T21:47:39Z",
+      "side": 1,
+      "message": "Line 14 says you can write to files which already exist. However, \"w_file_perms\" does not grant \"create\" permissions. (Please see the definition of w_file_perms in system/sepolicy/public/global_macros). Because of this, hal_bluetooth_default is not allowed to create files of type bluetooth_data_file.\n\nHowever, line 13 says you can add new things to the bluetooth_data_file directory. But if you can\u0027t create files, what exactly is being placed into this directory?\n\nIt seems you want one of the following:\n\n1) \n\n  allow hal_bluetooth_default bluetooth_data_file:dir r_dir_perms;\n  allow hal_bluetooth_default bluetooth_data_file:file w_file_perms;\n\nor 2)\n\n  allow hal_bluetooth_default bluetooth_data_file:dir ra_dir_perms;\n  allow hal_bluetooth_default bluetooth_data_file:file create_file_perms;\n\nDepending on whether you intend to create files in this directory or not.\n\n#1 sets the directory permissions such that you can read the directory entries (to find the file to write), and write to the file, but not create new files.\n\n#2 sets the directory permissions such that you can read the directory entries (to find the file to write), add new files to the directory, and create / write the files.",
+      "revId": "4b8c8eed3895a934e2d9a442badfdc3744a324dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
