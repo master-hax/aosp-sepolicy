@@ -126,7 +126,7 @@ typeattribute $1 bluetoothdomain;
 #
 define(`hal_impl_domain', `
 typeattribute $1 haldomain;
-typeattribute $1 $2;
+ifelse($2, `', `', `typeattribute $1 $2;')
 ')
 
 #####################################
