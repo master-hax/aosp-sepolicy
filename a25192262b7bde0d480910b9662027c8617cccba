@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63915dce_c40532fa",
+        "filename": "private/haldomain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-01-18T18:07:10Z",
+      "side": 1,
+      "message": "public vs private: Are we guaranteeing that any HAL impl domain will be able to use HW binder (but not saying how exactly), or are we, *in addition*, guaranteeing a particular way to access it (e.g., via binder to hwservicemanager)? If it\u0027s the former, then this line should stay here in private. If it\u0027s the latter, then this should go to public/haldomain.te.\n\nDo the HAL impl binary blobs on vendor partition contain code which is hard-coded to talk to hwservicemanager via Binder, or do they load that glue layer via some dynamic library from system partition?",
+      "revId": "a25192262b7bde0d480910b9662027c8617cccba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63915dce_447da282",
+        "filename": "public/hal_telephony.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-01-18T18:07:10Z",
+      "side": 1,
+      "message": "Delete",
+      "revId": "a25192262b7bde0d480910b9662027c8617cccba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
