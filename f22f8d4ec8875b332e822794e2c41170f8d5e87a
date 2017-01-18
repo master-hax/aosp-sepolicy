@@ -1,0 +1,284 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0847de68_a6404865",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-18T22:56:54Z",
+      "side": 1,
+      "message": "already granted by line 15 above. See definition of app_domain() in system/sepolicy/public/te_macros",
+      "range": {
+        "startLine": 17,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 53
+      },
+      "revId": "f22f8d4ec8875b332e822794e2c41170f8d5e87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_e60be048",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-18T22:56:54Z",
+      "side": 1,
+      "message": "Already allowed by line 231 of https://android-review.googlesource.com/#/c/324092/2/public/app.te",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 51
+      },
+      "revId": "f22f8d4ec8875b332e822794e2c41170f8d5e87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_46063440",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-18T22:56:54Z",
+      "side": 1,
+      "message": "Already allowed in system/sepolicy/private/app.te",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 43
+      },
+      "revId": "f22f8d4ec8875b332e822794e2c41170f8d5e87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_c6f10421",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-18T22:56:54Z",
+      "side": 1,
+      "message": "perhaps, for a future change, we should block the creating of pipes and named sockets?",
+      "range": {
+        "startLine": 29,
+        "startChar": 47,
+        "endLine": 29,
+        "endChar": 66
+      },
+      "revId": "f22f8d4ec8875b332e822794e2c41170f8d5e87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_2620d8bb",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-18T22:56:54Z",
+      "side": 1,
+      "message": "is the relaxation to r_dir_perms from search deliberate here?",
+      "range": {
+        "startLine": 32,
+        "startChar": 48,
+        "endLine": 32,
+        "endChar": 59
+      },
+      "revId": "f22f8d4ec8875b332e822794e2c41170f8d5e87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_8649cc70",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-18T22:56:54Z",
+      "side": 1,
+      "message": "read-write access is granted at https://android-review.googlesource.com/#/c/324092/2/public/app.te line 243? Is the intention here to restrict this to only read and open? The ion device isn\u0027t going to be usable without ioctl....",
+      "revId": "f22f8d4ec8875b332e822794e2c41170f8d5e87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_a67a8888",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-18T22:56:54Z",
+      "side": 1,
+      "message": "Already granted on lines 61-63 of https://android-review.googlesource.com/#/c/324092/2/public/app.te",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 84
+      },
+      "revId": "f22f8d4ec8875b332e822794e2c41170f8d5e87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_26bc5819",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-18T22:56:54Z",
+      "side": 1,
+      "message": "already granted on line 60 of https://android-review.googlesource.com/#/c/324092/2/public/app.te",
+      "revId": "f22f8d4ec8875b332e822794e2c41170f8d5e87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_c6c22486",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-18T22:56:54Z",
+      "side": 1,
+      "message": "already granted on line 69 of https://android-review.googlesource.com/#/c/324092/2/public/app.te",
+      "revId": "f22f8d4ec8875b332e822794e2c41170f8d5e87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_069a7cb1",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-18T22:56:54Z",
+      "side": 1,
+      "message": "Already granted on line 173 of https://android-review.googlesource.com/#/c/324092/2/public/app.te",
+      "revId": "f22f8d4ec8875b332e822794e2c41170f8d5e87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_c6ab44c4",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-18T22:56:54Z",
+      "side": 1,
+      "message": "already granted on line 172 of https://android-review.googlesource.com/#/c/324092/2/public/app.te",
+      "revId": "f22f8d4ec8875b332e822794e2c41170f8d5e87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_86faecbf",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-18T22:56:54Z",
+      "side": 1,
+      "message": "Already granted to all SELinux domains in system/sepolicy/public/domain.te",
+      "revId": "f22f8d4ec8875b332e822794e2c41170f8d5e87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_86266c83",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-18T22:56:54Z",
+      "side": 1,
+      "message": "already covered by line 69",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 55
+      },
+      "revId": "f22f8d4ec8875b332e822794e2c41170f8d5e87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_66fa509a",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-18T22:56:54Z",
+      "side": 1,
+      "message": "already covered by line 69",
+      "revId": "f22f8d4ec8875b332e822794e2c41170f8d5e87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
