@@ -78,6 +78,8 @@ unix_socket_connect(mediaserver, bluetooth, bluetooth)
 # Connect to tee service.
 allow mediaserver tee:unix_stream_socket connectto;
 
+# XXX mediadrmserver also adds a mediaserver_service
+allow mediaserver mediaserver_service:service_manager { add find };
 allow mediaserver activity_service:service_manager find;
 allow mediaserver appops_service:service_manager find;
 allow mediaserver audioserver_service:service_manager find;
@@ -86,7 +88,6 @@ allow mediaserver batterystats_service:service_manager find;
 allow mediaserver drmserver_service:service_manager find;
 allow mediaserver mediaextractor_service:service_manager find;
 allow mediaserver mediacodec_service:service_manager find;
-allow mediaserver mediaserver_service:service_manager { add find };
 allow mediaserver mediaanalytics_service:service_manager find;
 allow mediaserver media_session_service:service_manager find;
 allow mediaserver permission_service:service_manager find;
@@ -139,3 +140,6 @@ neverallow mediaserver { file_type fs_type }:file execute_no_trans;
 
 # do not allow privileged socket ioctl commands
 neverallowxperm mediaserver domain:{ rawip_socket tcp_socket udp_socket } ioctl priv_sock_ioctls;
+
+# do not allow things other than mediaserver and mediadrmserver to add mediaserver services to service manager.
+neverallow { domain -mediaserver -mediadrmserver } mediaserver_service:service_manager add;
