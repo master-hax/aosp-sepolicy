@@ -27,6 +27,11 @@ allow crash_dump dalvikcache_data_file:file r_file_perms;
 # Unwind through libart.
 allow crash_dump libart_file:file r_file_perms;
 
+### HACK: Make crash_dump permissive temporarily to catch denials without breaking backtraces.
+userdebug_or_eng(`
+  permissive crash_dump;
+')
+
 # Talk to tombstoned
 unix_socket_connect(crash_dump, tombstoned_crash, tombstoned)
 
