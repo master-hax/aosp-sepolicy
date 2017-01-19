@@ -20,4 +20,12 @@ allow hal_fingerprint permission_service:service_manager find;
 # For memory allocation
 allow hal_fingerprint ion_device:chr_file r_file_perms;
 
+# Allow fingerprint to talk to find keystore
+allow hal_fingerprint servicemanager:binder call;
+
+# Allow servicemanager to inspect our service.
+allow servicemanager hal_fingerprint:dir { read search };
+allow servicemanager hal_fingerprint:file { open read };
+allow servicemanager hal_fingerprint:process getattr;
+
 r_dir_file(hal_fingerprint, cgroup)
