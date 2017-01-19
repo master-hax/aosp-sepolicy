@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0847de68_db92eee6",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-19T21:15:44Z",
+      "side": 1,
+      "message": "In private/isolated_app.te, we have:\n\n  allow isolated_app { sdcard_type media_rw_data_file }:file { read write append getattr lock };\n\nWe can do the same thing here:\n\n  allow ephemeral_app { sdcard_type media_rw_data_file }:file { read write append getattr lock };\n\nThis is equivalent to lines 26-28 above. \n\nAlso, should we allow write access? Do we want to allow a file returned by the picker to be writable to ephemeral_apps? Or should ephemeral_apps be able to make a copy of the file and only edit it locally?\n\n(we\u0027re asking the same question for isolated_app, and currently have an auditallow in place. See system/sepolicy/private/isolated_app.te",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 28,
+        "endChar": 83
+      },
+      "revId": "05b6953c6e76e0e8664e6cf3eb3cf2be76c59e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_1b5e4655",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-19T21:15:44Z",
+      "side": 1,
+      "message": "sdcardfs and fuse are both instances of sdcard_type. The neverallow rule should be written in terms of sdcard_type. This also covers vfat mount points for devices with external sdcards.\n\nI\u0027d recommend writing this as:\n\n  neverallow ephemeral_app { sdcard_type media_rw_data_file }:file { open create };\n\nwhich is equivalent to lines 64-66, but also covers vfat.\n\nWhile you\u0027re here, you might also want to add the following assertion:\n\n  neverallow ephemeral_app { sdcard_type media_rw_data_file }:dir search;\n\nwhich would ensure that ephemeral_apps cannot enter any of these directories either.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 63
+      },
+      "revId": "05b6953c6e76e0e8664e6cf3eb3cf2be76c59e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
