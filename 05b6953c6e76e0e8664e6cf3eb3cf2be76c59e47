@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0847de68_5b227ed6",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1022895
+      },
+      "writtenOn": "2017-01-19T21:26:42Z",
+      "side": 1,
+      "message": "Done.\n\nYes, we do want them to be able to write files on sdcard if given the access by the picker.",
+      "parentUuid": "0847de68_db92eee6",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 28,
+        "endChar": 83
+      },
+      "revId": "05b6953c6e76e0e8664e6cf3eb3cf2be76c59e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0847de68_1b5e4655",
         "filename": "private/ephemeral_app.te",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-19T21:15:44Z",
       "side": 1,
       "message": "sdcardfs and fuse are both instances of sdcard_type. The neverallow rule should be written in terms of sdcard_type. This also covers vfat mount points for devices with external sdcards.\n\nI\u0027d recommend writing this as:\n\n  neverallow ephemeral_app { sdcard_type media_rw_data_file }:file { open create };\n\nwhich is equivalent to lines 64-66, but also covers vfat.\n\nWhile you\u0027re here, you might also want to add the following assertion:\n\n  neverallow ephemeral_app { sdcard_type media_rw_data_file }:dir search;\n\nwhich would ensure that ephemeral_apps cannot enter any of these directories either.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 63
+      },
+      "revId": "05b6953c6e76e0e8664e6cf3eb3cf2be76c59e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_bb12927c",
+        "filename": "private/ephemeral_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1022895
+      },
+      "writtenOn": "2017-01-19T21:26:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0847de68_1b5e4655",
       "range": {
         "startLine": 64,
         "startChar": 0,
