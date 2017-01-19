@@ -7,7 +7,7 @@ binder_use(mediaanalytics)
 binder_call(mediaanalytics, binderservicedomain)
 binder_service(mediaanalytics)
 
-allow mediaanalytics mediaanalytics_service:service_manager add;
+add_service(mediaanalytics, mediaanalytics_service)
 
 allow mediaanalytics system_server:fd use;
 
