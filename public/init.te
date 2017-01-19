@@ -380,3 +380,9 @@ neverallow init servicemanager:service_manager list;
 
 # Init should not be creating subdirectories in /data/local/tmp
 neverallow init shell_data_file:dir { write add_name remove_name };
+
+# Init should not be clearing AT_SECURE for children spawned by
+# init. This allows init to set LD_PRELOAD or other sensitive
+# environment variables for init's children, which could allow
+# code injection attacks.
+neverallow init *:process noatsecure;
