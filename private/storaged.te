@@ -21,7 +21,7 @@ userdebug_or_eng(`
 ')
 
 # Binder permissions
-allow storaged storaged_service:service_manager add;
+add_service(storaged, storaged_service)
 allow storaged permission_service:service_manager find;
 
 binder_use(storaged)
