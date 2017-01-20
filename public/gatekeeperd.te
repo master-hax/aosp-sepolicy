@@ -5,6 +5,7 @@ type gatekeeperd_exec, exec_type, file_type;
 # gatekeeperd
 binder_service(gatekeeperd)
 binder_use(gatekeeperd)
+hwbinder_use(gatekeeperd)
 
 # need to find KeyStore and add self
 allow gatekeeperd gatekeeper_service:service_manager { add find };
