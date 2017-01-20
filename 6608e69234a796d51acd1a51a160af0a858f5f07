@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0847de68_87a88a62",
+        "filename": "public/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-20T23:11:46Z",
+      "side": 1,
+      "message": "actually, can you merge this to one line:\n\n  neverallow * *:{ blk_file chr_file } rename;\n\nAlso, convention is that we don\u0027t add brackets around permissions which only have one element.\n\nOK:  neverallow * *:{ blk_file chr_file } rename;\n\nNOT OK:   neverallow * *:{ blk_file chr_file } { rename };",
+      "revId": "6608e69234a796d51acd1a51a160af0a858f5f07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
