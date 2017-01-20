@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0847de68_e3ccd3b8",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-20T22:45:05Z",
+      "side": 1,
+      "message": "the SELinux policy parser uses the m4 macro language, which sometimes has issues with single quotes. \n\nCan you replace this by:\n\n  \"Do not allow ...\"",
+      "range": {
+        "startLine": 282,
+        "startChar": 5,
+        "endLine": 282,
+        "endChar": 6
+      },
+      "revId": "832e6f55f184a7541bfc80cbe8b731813aefd79e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_830abf06",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-20T22:45:05Z",
+      "side": 1,
+      "message": "block_device refers to files in /dev/block which use the default label. It doesn\u0027t refer to other /dev/block files where a label was specifically assigned.\n\nInstead of \"block_device\", can you please use \"dev_type\", which refers to all files in /dev?\n\nAlternatively, it would be best to write this as:\n\n  neverallow * *:blk_file { rename };\n\nwhich would handle blk_file files regardless of what label they are assigned.",
+      "range": {
+        "startLine": 283,
+        "startChar": 13,
+        "endLine": 283,
+        "endChar": 25
+      },
+      "revId": "832e6f55f184a7541bfc80cbe8b731813aefd79e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847de68_43f4c7d8",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-20T22:45:05Z",
+      "side": 1,
+      "message": "device refers to files in /dev which use the default label. It doesn\u0027t refer to other /dev files where a label was specifically assigned.\n\nInstead of \"device\", can you please use \"dev_type\", which refers to all files in /dev?\n\nAlternatively, it would be best to write this as:\n\n  neverallow * *:chr_file { rename };\n\nwhich would handle chr_files regardless of the label assigned to them.",
+      "range": {
+        "startLine": 284,
+        "startChar": 13,
+        "endLine": 284,
+        "endChar": 19
+      },
+      "revId": "832e6f55f184a7541bfc80cbe8b731813aefd79e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
