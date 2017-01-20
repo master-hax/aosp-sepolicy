@@ -279,6 +279,9 @@ neverallow * init:binder *;
 # Rather force a relabel to a more specific type
 neverallow { domain -kernel -init -recovery } block_device:blk_file { open read write };
 
+# Do not allow renaming of block files or character files
+neverallow * *:{ blk_file chr_file } rename;
+
 # Don't allow raw read/write/open access to generic devices.
 # Rather force a relabel to a more specific type.
 # init is exempt from this as there are character devices that only it uses.
