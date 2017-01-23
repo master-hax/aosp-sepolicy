@@ -9,6 +9,9 @@ r_dir_file(storaged, sysfs_type)
 r_dir_file(storaged, proc_net)
 r_dir_file(storaged, domain)
 
+# set uid/gid to system to lower root privileges.
+allow storaged self:capability dac_override;
+
 # Read /proc/uid_io/stats
 allow storaged proc_uid_io_stats:file r_file_perms;
 
