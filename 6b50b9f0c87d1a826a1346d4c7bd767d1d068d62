@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0847de68_c95a0ceb",
+        "filename": "public/tombstoned.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-23T20:52:40Z",
+      "side": 1,
+      "message": "auditallow doesn\u0027t actually grant the rule. You want an allow statement here.\n\nauditallow just says \"if this was allowed by policy, then create an \"avc granted\" audit message when this is triggered.\n\n  allow tombstoned anr_data_file:file write;\n  # TODO: Find out why this is happening.\n  auditallow tombstoned anr_data_file:file write;\n\nor modify line 13 to read:\n\n  allow tombstoned anr_data_file:file { getattr append write };\n  # TODO: Find out why this is happening.\n  auditallow tombstoned anr_data_file:file write;",
+      "revId": "6b50b9f0c87d1a826a1346d4c7bd767d1d068d62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
