@@ -33,6 +33,23 @@
       "revId": "0223ca51f9148692a3d5d0d5723f912ae4f376ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75f9f697_408e552f",
+        "filename": "public/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-01-24T18:53:17Z",
+      "side": 1,
+      "message": "Behind the covers, at the moment, any domain which hosts a HAL impl needs to be marked with haldomain. Any domain which hosts a Light HAL mipl needs to be marked with hal_light. hal_impl_domain macro is meant to hide the impl details.\n\nThis is the current design of SELinux attributes/policy for HALs. If this design is wrong, we need to change it. I\u0027m fine with landing this as is and change in a follow-up.",
+      "revId": "0223ca51f9148692a3d5d0d5723f912ae4f376ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
