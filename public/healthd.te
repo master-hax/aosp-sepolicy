@@ -43,7 +43,7 @@ r_dir_file(healthd, sysfs_type)
 ###
 
 # Read /sys/fs/pstore/console-ramoops
-# Don't worry about overly broad permissions for now, as there's
+# Do not worry about overly broad permissions for now, as there is
 # only one file in /sys/fs/pstore
 allow healthd pstorefs:dir r_dir_perms;
 allow healthd pstorefs:file r_file_perms;

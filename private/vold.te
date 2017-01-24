@@ -14,6 +14,6 @@ domain_trans(vold, fsck_exec, fsck);
 domain_trans(vold, fsck_exec, fsck_untrusted);
 
 # Newly created storage dirs are always treated as mount stubs to prevent us
-# from accidentally writing when the mount point isn't present.
+# from accidentally writing when the mount point is not present.
 type_transition vold storage_file:dir storage_stub_file;
 type_transition vold mnt_media_rw_file:dir mnt_media_rw_stub_file;

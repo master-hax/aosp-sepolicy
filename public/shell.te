@@ -72,12 +72,12 @@ userdebug_or_eng(`
   set_prop(shell, persist_debug_prop)
 ')
 
-# Read device's serial number from system properties
+# Read the device serial number from system properties
 get_prop(shell, serialno_prop)
 
 # allow shell access to services
 allow shell servicemanager:service_manager list;
-# don't allow shell to access GateKeeper service
+# do not allow shell to access GateKeeper service
 # TODO: why is this so broad? Tightening candidate? It needs at list:
 # - dumpstate_service (so it can receive dumpstate progress updates)
 allow shell { service_manager_type -gatekeeper_service -netd_service -installd_service}:service_manager find;
@@ -130,7 +130,7 @@ allow shell sysfs:dir r_dir_perms;
 allow shell ion_device:chr_file rw_file_perms;
 
 #
-# filesystem test for insecure chr_file's is done
+# filesystem test for any potential insecure chr_file is done
 # via a host side test
 #
 allow shell dev_type:dir r_dir_perms;
@@ -140,7 +140,7 @@ allow shell dev_type:chr_file getattr;
 allow shell proc:lnk_file getattr;
 
 #
-# filesystem test for insucre blk_file's is done
+# filesystem test for any potential insecure blk_file is done
 # via hostside test
 #
 allow shell dev_type:blk_file getattr;

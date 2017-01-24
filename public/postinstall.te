@@ -1,6 +1,6 @@
 # Domain where the postinstall program runs during the update.
 # Extend the permissions in this domain to allow this program to access other
-# files needed by the specific device on your device's sepolicy directory.
+# files needed by the specific device on the sepolicy directory of your device.
 type postinstall, domain;
 
 # Allow postinstall to write to its stdout/stderr when redirected via pipes to

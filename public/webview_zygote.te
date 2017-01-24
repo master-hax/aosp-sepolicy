@@ -85,7 +85,7 @@ neverallow webview_zygote {
     -webviewupdate_service
 }:service_manager find;
 
-# Isolated apps shouldn't be able to access the driver directly.
+# Isolated apps should not be able to access the driver directly.
 neverallow webview_zygote gpu_device:chr_file { rwx_file_perms };
 
 # Do not allow webview_zygote access to /cache.

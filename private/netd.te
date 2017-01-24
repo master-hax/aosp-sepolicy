@@ -2,7 +2,7 @@
 # public, but conceptually should go with this
 init_daemon_domain(netd)
 
-# Allow netd to spawn dnsmasq in it's own domain
+# Allow netd to spawn dnsmasq in its own domain
 domain_auto_trans(netd, dnsmasq_exec, dnsmasq)
 
 # Allow netd to start clatd in its own domain

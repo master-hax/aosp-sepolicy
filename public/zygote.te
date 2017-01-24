@@ -44,7 +44,7 @@ allow zygote libart_file:file { execute read open getattr };
 # /data/dalvik-cache.
 allow { zygote with_dexpreopt(`-zygote') } dalvikcache_data_file:file execute;
 
-# Execute idmap and dex2oat within zygote's own domain.
+# Execute idmap and dex2oat within the zygote domain.
 # TODO:  Should either of these be transitioned to the same domain
 # used by installd or stay in-domain for zygote?
 allow zygote idmap_exec:file rx_file_perms;

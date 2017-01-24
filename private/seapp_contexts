@@ -78,8 +78,8 @@ neverallow user=((?!shared_relro).)* domain=shared_relro
 neverallow user=_isolated domain=((?!isolated_app).)*
 neverallow user=((?!_isolated).)* domain=isolated_app
 
-# uid shell should always be in shell domain, however non-shell
-# uid's can be in shell domain
+# uid shell should always be in shell domain, however any non-shell
+# uid can be in shell domain
 neverallow user=shell domain=((?!shell).)*
 
 # Ephemeral Apps must run in the ephemeral_app domain

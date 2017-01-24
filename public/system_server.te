@@ -131,8 +131,8 @@ allow system_server debugfs:file r_file_perms;
 # The DhcpClient and WifiWatchdog use packet_sockets
 allow system_server self:packet_socket create_socket_perms_no_ioctl;
 
-# NetworkDiagnostics requires explicit bind() calls to ping sockets. These aren't actually the same
-# as raw sockets, but the kernel doesn't yet distinguish between the two.
+# NetworkDiagnostics requires explicit bind() calls to ping sockets. These are not actually the same
+# as raw sockets, but the kernel does not yet distinguish between the two.
 allow system_server node:rawip_socket node_bind;
 
 # 3rd party VPN clients require a tun_socket to be created
@@ -402,7 +402,7 @@ set_prop(system_server, cppreopt_prop)
 # Collect metrics on boot time created by init
 get_prop(system_server, boottime_prop)
 
-# Read device's serial number from system properties
+# Read the device serial number from system properties
 get_prop(system_server, serialno_prop)
 
 # Read/write the property which keeps track of whether this is the first start of system_server
@@ -472,7 +472,7 @@ read_logd(system_server)
 allow system_server sysfs_lowmemorykiller:file { getattr w_file_perms };
 
 # Read /sys/fs/pstore/console-ramoops
-# Don't worry about overly broad permissions for now, as there's
+# Do not worry about overly broad permissions for now, as there is
 # only one file in /sys/fs/pstore
 allow system_server pstorefs:dir r_dir_perms;
 allow system_server pstorefs:file r_file_perms;
@@ -540,7 +540,7 @@ allow system_server { mnt_user_file storage_file }:dir { getattr search };
 allow system_server { mnt_user_file storage_file }:lnk_file { getattr read };
 
 # Allow statfs() on storage devices, which happens fast enough that
-# we shouldn't be killed during unsafe removal
+# we should not be killed during unsafe removal
 allow system_server sdcard_type:dir { getattr search };
 
 # Traverse into expanded storage
@@ -637,7 +637,7 @@ neverallow system_server { bluetooth_data_file nfc_data_file shell_data_file app
 # getting worse. b/28035297
 neverallow system_server { file_type -toolbox_exec -logcat_exec }:file execute_no_trans;
 
-# Ensure that system_server doesn't perform any domain transitions other than
+# Ensure that system_server does not perform any domain transitions other than
 # transitioning to the crash_dump domain when a crash occurs.
 neverallow system_server { domain -crash_dump }:process transition;
 neverallow system_server *:process dyntransition;

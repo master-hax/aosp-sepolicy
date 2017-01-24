@@ -21,7 +21,7 @@ allow clatd self:capability { net_admin net_raw setuid setgid };
 
 # clatd calls mmap(MAP_LOCKED) with a 1M buffer. MAP_LOCKED first checks
 # capable(CAP_IPC_LOCK), and then checks to see the requested amount is
-# under RLIMIT_MEMLOCK. If the latter check succeeds clatd won't have
+# under RLIMIT_MEMLOCK. If the latter check succeeds clatd will not have
 # needed CAP_IPC_LOCK. But this is not guaranteed to succeed on all devices
 # so we permit any requests we see from clatd asking for this capability.
 # See https://android-review.googlesource.com/127940 and

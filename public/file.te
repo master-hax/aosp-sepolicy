@@ -266,7 +266,7 @@ allow dev_type tmpfs:filesystem associate;
 allow app_fuse_file app_fusefs:filesystem associate;
 allow postinstall_file self:filesystem associate;
 
-# It's a bug to assign the file_type attribute and fs_type attribute
+# It is a bug to assign the file_type attribute and fs_type attribute
 # to any type. Do not allow it.
 #
 # For example, the following is a bug:

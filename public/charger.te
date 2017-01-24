@@ -24,7 +24,7 @@ allow charger sysfs:file write;
 allow charger sysfs_batteryinfo:file r_file_perms;
 
 # Read /sys/fs/pstore/console-ramoops
-# Don't worry about overly broad permissions for now, as there's
+# Do not worry about overly broad permissions for now, as there is
 # only one file in /sys/fs/pstore
 allow charger pstorefs:dir r_dir_perms;
 allow charger pstorefs:file r_file_perms;

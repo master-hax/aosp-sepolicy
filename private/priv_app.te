@@ -119,8 +119,8 @@ neverallow priv_app domain:netlink_kobject_uevent_socket *;
 # Receive or send generic netlink messages
 neverallow priv_app domain:netlink_socket *;
 
-# Too much leaky information in debugfs. It's a security
-# best practice to ensure these files aren't readable.
+# Too much leaky information in debugfs. It is a security
+# best practice to ensure these files are not readable.
 neverallow priv_app debugfs:file read;
 
 # Do not allow privileged apps to register services.

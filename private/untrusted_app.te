@@ -40,7 +40,7 @@ allow untrusted_app asec_public_file:file { execute execmod };
 
 # Used by Finsky / Android "Verify Apps" functionality when
 # running "adb install foo.apk".
-# TODO: Long term, we don't want apps probing into shell data files.
+# TODO: Long term, we do not want apps probing into shell data files.
 # Figure out a way to remove these rules.
 allow untrusted_app shell_data_file:file r_file_perms;
 allow untrusted_app shell_data_file:dir r_dir_perms;
@@ -113,8 +113,8 @@ neverallow untrusted_app domain:netlink_kobject_uevent_socket *;
 # Receive or send generic netlink messages
 neverallow untrusted_app domain:netlink_socket *;
 
-# Too much leaky information in debugfs. It's a security
-# best practice to ensure these files aren't readable.
+# Too much leaky information in debugfs. It is a security
+# best practice to ensure these files are not readable.
 neverallow untrusted_app debugfs_type:file read;
 
 # Do not allow untrusted apps to register services.

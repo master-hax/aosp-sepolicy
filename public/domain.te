@@ -271,11 +271,11 @@ neverallow { domain -init } proc_security:file { append write };
 # No domain should be allowed to ptrace init.
 neverallow * init:process ptrace;
 
-# Init can't do anything with binder calls. If this neverallow rule is being
-# triggered, it's probably due to a service with no SELinux domain.
+# Init can not do anything with binder calls. If this neverallow rule is being
+# triggered, it is probably due to a service with no SELinux domain.
 neverallow * init:binder *;
 
-# Don't allow raw read/write/open access to block_device
+# Do not allow raw read/write/open access to block_device
 # Rather force a relabel to a more specific type
 neverallow { domain -kernel -init -recovery } block_device:blk_file { open read write };
 
@@ -284,7 +284,7 @@ neverallow { domain -kernel -init -recovery } block_device:blk_file { open read 
 # e.g. https://googleprojectzero.blogspot.com/2016/12/chrome-os-exploit-one-byte-overflow-and.html
 neverallow * *:{ blk_file chr_file } rename;
 
-# Don't allow raw read/write/open access to generic devices.
+# Do not allow raw read/write/open access to generic devices.
 # Rather force a relabel to a more specific type.
 # init is exempt from this as there are character devices that only it uses.
 # ueventd is exempt from this, as it is managing these devices.
@@ -296,7 +296,7 @@ neverallow { domain -init -ueventd } device:chr_file { open read write };
 neverallow { domain -kernel -init -recovery -vold -zygote -update_engine -otapreopt_chroot } { fs_type -sdcard_type }:filesystem { mount remount relabelfrom relabelto };
 
 #
-# Assert that, to the extent possible, we're not loading executable content from
+# Assert that, to the extent possible, we are not loading executable content from
 # outside the rootfs or /system partition except for a few whitelisted domains.
 #
 neverallow {
@@ -343,7 +343,7 @@ neverallow { domain -recovery } { system_file exec_type }:dir_file_class_set
     { create write setattr relabelfrom append unlink link rename };
 neverallow { domain -recovery -kernel } { system_file exec_type }:dir_file_class_set relabelto;
 
-# Don't allow mounting on top of /system files or directories
+# Do not allow mounting on top of /system files or directories
 neverallow * exec_type:dir_file_class_set mounton;
 neverallow { domain -init } system_file:dir_file_class_set mounton;
 
@@ -372,7 +372,7 @@ neverallow * default_android_service:service_manager add;
 neverallow { domain -init } default_prop:property_service set;
 neverallow { domain -init } mmc_prop:property_service set;
 
-# Do not allow reading device's serial number from system properties except form
+# Do not allow reading the device serial number from system properties except form
 # a few whitelisted domains.
 neverallow {
   domain
@@ -482,7 +482,7 @@ neverallow { domain -dumpstate -system_server } tombstoned_intercept_socket:sock
 # - a non-buggy and non-malicious process crashes or is explicitly killed.
 #
 # Killing processes automatically to make room for new ones is an
-# important part of Android's application lifecycle implementation. This means
+# important part of the Androids application lifecycle implementation. This means
 # that, even assuming only non-buggy and non-malicious code, it is very likely
 # that over time, the kernel global tables used to implement SysV IPCs will fill
 # up.
