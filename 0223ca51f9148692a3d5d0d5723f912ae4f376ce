@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b61a1ec_2df22890",
+        "filename": "public/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-01-24T18:33:11Z",
+      "side": 1,
+      "message": "Please replace with hal_impl_domain(system_server, hal_light). hal_impl_domain is for any domain which hosts a HAL impl. If it\u0027s confusing, we should rename the macro. If you don\u0027t use the macro, you\u0027re not associating systems_server with haldomain, which is a problem.",
+      "revId": "0223ca51f9148692a3d5d0d5723f912ae4f376ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
