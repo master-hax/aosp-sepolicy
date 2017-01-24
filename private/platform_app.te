@@ -59,3 +59,7 @@ allow platform_app preloads_data_file:dir r_dir_perms;
 # Access to ephemeral APKs
 allow platform_app ephemeral_apk_data_file:dir r_dir_perms;
 allow platform_app ephemeral_apk_data_file:file r_file_perms;
+
+# Access to cache_backup_file
+allow platform_app cache_backup_file:dir search;
+allow platform_app cache_backup_file:file r_file_perms;
