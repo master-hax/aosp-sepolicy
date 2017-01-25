@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7c633c7_3497ec8b",
+        "filename": "public/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-25T23:08:27Z",
+      "side": 1,
+      "message": "Can you split this across multiple lines, so in the future, we have a good git blame output.\n\nallow system_server {\n  system_app_data_file\n  bluetooth_data_file\n  ...\n}:dir { getattr read search };",
+      "revId": "8492b7bf81e713292d7c32531ad9f700fe84b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
