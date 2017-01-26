@@ -71,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "c2bb549b_19500170",
+        "filename": "private/file_contexts",
+        "patchSetId": 28
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2017-01-26T18:10:58Z",
+      "side": 1,
+      "message": "1) I will keep it space, this is the policy for both Android and Kernel to fix style as you touch individual pieces to reduce the impact of future cleanups.\n2) File, leveraging the device tmpfs. Similar class as properties dynamic mmap\u0027d store directory tree, but a single file. See line 156. Was not comfortable with _device suffix. runtime_event_log_tags_device gets my spidey senses tingling as disingenuous.",
+      "range": {
+        "startLine": 77,
+        "startChar": 35,
+        "endLine": 77,
+        "endChar": 54
+      },
+      "revId": "4934767562c62e1fbe028c22e91c831ebfea740f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d6c2949_d29f9d87",
         "filename": "private/logd.te",
         "patchSetId": 28
@@ -88,6 +111,23 @@
     },
     {
       "key": {
+        "uuid": "8444a7e7_e1ca550e",
+        "filename": "private/logd.te",
+        "patchSetId": 28
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2017-01-26T18:10:58Z",
+      "side": 1,
+      "message": "Ok, I need a primer on the envisioned application classes and hierarchy. I had -appdomain here, and yet when I added untrusted_app to allow it access, I had to also add -untrusted_app here. Or is this \u0027fixed\u0027 now and I need to retest?\n\nWhat how should I separate them out as, what is the set of all applications that land on /system (but are not untrusted_app)? system_app? priv_app? What about Device owner? Chrome wants to extend the event log tags, will fall to \u0027plan b\u0027 slow long path registration, I expect it is untrusted_app, but is it?",
+      "revId": "4934767562c62e1fbe028c22e91c831ebfea740f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04885493_4658c666",
         "filename": "public/te_macros",
         "patchSetId": 28
@@ -99,6 +139,23 @@
       "writtenOn": "2017-01-26T17:36:41Z",
       "side": 1,
       "message": "Is there a better more descriptive name? How about read_logd_dynamic_tags or similar? Something with a verb, probably.",
+      "revId": "4934767562c62e1fbe028c22e91c831ebfea740f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b12734cc_6fb122b0",
+        "filename": "public/te_macros",
+        "patchSetId": 28
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2017-01-26T18:10:58Z",
+      "side": 1,
+      "message": "If I made it much longer, I would be tempted to just land\n\nallow domain event_log_tags_file:file r_file_perms;\n\nI don\u0027t like dynamic in the macro name unless we rename event_log_tags_file to dynamic_event_log_tags_file. This is really a runtime registration event log tags file, it grows without bounds (to an asymptote) until reboot.\n\nKISS Plan (if acceptable):\n- rename event_log_tags_file to runtime_event_log_tags_file\n- rename macro to read_runtime_log_tags\n- writers (logd and init) will not use a macro to add their write access.\n\n[TL;DR]\n\nOf course, this is a legacy from before where we erroneously thought we could declare anything bundled on /system as having access to the file, and anything not bundled would be denied. Essentially before if you can not read this file, then you have no rights posting events messages to the log. But that is not the case, we are limiting access to trusted bundled system applications only.\n\nSince we can not differentiate applications on /system, and store applications, all as untrusted_app, I will always remain troubled ;-/",
       "revId": "4934767562c62e1fbe028c22e91c831ebfea740f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
