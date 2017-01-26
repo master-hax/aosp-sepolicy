@@ -128,6 +128,23 @@
     },
     {
       "key": {
+        "uuid": "e93c3c23_6ee6fe1d",
+        "filename": "private/logd.te",
+        "patchSetId": 28
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-01-26T18:27:41Z",
+      "side": 1,
+      "message": "Here\u0027s the current \"hierarchy\" (it\u0027s a set really, not hierarchical):\n$ sepolicy-analyze out/target/product/bullhead/root/sepolicy attribute appdomain\n\nbluetooth\nephemeral_app\nisolated_app\nnfc\nplatform_app\npriv_app\nradio\nshared_relro\nshell\nsu\nsystem_app\nuntrusted_app\n\nWhat you probably want to do is have two separate rules: one for everything except appdomain, the other for appdomain. For example, the current rule is precisely the first rule I\u0027m talking about. The rule does not cover appdomain. You can now add a second neverallow rule into app.te, which will apply to certain domains in appdomain set. For example, if you want to explicitly enumerate which appdomain domains are permitted access:\n\nneverallow {\n  appdomain\n  -priv_app\n  -system_app\n  -platform_app\n} ...\n\nOR, if you want to explicitly enumerate which appdomains should be denied access, add per-domain rules into corresponding domain-specific .te files. For example, untrusted_app.te:\n\nneverallow untrusted_app ...;",
+      "revId": "4934767562c62e1fbe028c22e91c831ebfea740f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04885493_4658c666",
         "filename": "public/te_macros",
         "patchSetId": 28
@@ -156,6 +173,23 @@
       "writtenOn": "2017-01-26T18:10:58Z",
       "side": 1,
       "message": "If I made it much longer, I would be tempted to just land\n\nallow domain event_log_tags_file:file r_file_perms;\n\nI don\u0027t like dynamic in the macro name unless we rename event_log_tags_file to dynamic_event_log_tags_file. This is really a runtime registration event log tags file, it grows without bounds (to an asymptote) until reboot.\n\nKISS Plan (if acceptable):\n- rename event_log_tags_file to runtime_event_log_tags_file\n- rename macro to read_runtime_log_tags\n- writers (logd and init) will not use a macro to add their write access.\n\n[TL;DR]\n\nOf course, this is a legacy from before where we erroneously thought we could declare anything bundled on /system as having access to the file, and anything not bundled would be denied. Essentially before if you can not read this file, then you have no rights posting events messages to the log. But that is not the case, we are limiting access to trusted bundled system applications only.\n\nSince we can not differentiate applications on /system, and store applications, all as untrusted_app, I will always remain troubled ;-/",
+      "revId": "4934767562c62e1fbe028c22e91c831ebfea740f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c834455_eda2aa68",
+        "filename": "public/te_macros",
+        "patchSetId": 28
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-01-26T18:27:41Z",
+      "side": 1,
+      "message": "I like the plan.\n\nWhat legacy do you mean? untrusted_app can be both pre-installed and post-installed. It is by design that it does not matter whether an untrusted app comes from /system, /vendor or from /data. If you want to grant access to more privileged apps only, you need to cut out untrusted_app, isolated_app, ephemeral_app at the very least. Or you can specifically target the types of higher-privileged apps, such as priv_app, system_app, platform_app.",
       "revId": "4934767562c62e1fbe028c22e91c831ebfea740f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
