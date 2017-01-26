@@ -16,6 +16,23 @@
       "revId": "844c64e3417d05951e1cb087aa4df33f5f0df2c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5befd0d_73339f74",
+        "filename": "public/init.te",
+        "patchSetId": 34
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2017-01-26T18:53:17Z",
+      "side": 1,
+      "message": "The creation of /data/misc/logd directory (for logpersist), and /data/misc/logd/event-log-tags file (for logd) and for userdebug and eng only is totally managed by init. Ever since we split logpersist from logd domains, logd has had _zero_ access to any content in /data/misc/logd. For these changes, I am only granting logd the ability to read and write to this file, leaving creation to an userdebug or eng-only rc file.\n\nNo one else needs access to this file, I use it for long-term persistence (as in through reboot) so that logcat -b all -L (last logcat) in bugreports work 100% correctly (99.9% correctly without it). logd is responsible for propagating /data/misc/logd/event-log-tags to /dev/event-log-tags on startup, and for keeping it up to date.\n\ninit, logpersist, logd and bugreports are incestuous for this directory, I wanted to keep the overlap minimal and controlled with regards to this directory, but it is a balancing act.",
+      "revId": "844c64e3417d05951e1cb087aa4df33f5f0df2c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
