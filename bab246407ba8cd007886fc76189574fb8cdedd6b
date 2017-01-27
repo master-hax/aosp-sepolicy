@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a41ba0a9_59062402",
+        "filename": "private/logd.te",
+        "patchSetId": 30
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-01-27T01:31:07Z",
+      "side": 1,
+      "message": "Nick, which .te files should these neverallow rules go? I see that we mostly places them in the file corresponding to the first parameter (e.g., this one would stay in logd.te but the ones below would go to domain.te and app.te).",
+      "revId": "bab246407ba8cd007886fc76189574fb8cdedd6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03303b71_30963316",
+        "filename": "private/platform_app.te",
+        "patchSetId": 30
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-01-27T01:31:07Z",
+      "side": 1,
+      "message": "I thought this was about tags, not about events buffer. Same comment for other places this comment is used.",
+      "revId": "bab246407ba8cd007886fc76189574fb8cdedd6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0cbefd9b_047d5259",
+        "filename": "private/zygote.te",
+        "patchSetId": 30
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-01-27T01:31:07Z",
+      "side": 1,
+      "message": "Why does Zygote need to read the mapping? If zygote can read something before it spawns apps, the data will be available to all apps (incl. untrusted_app). Thus, unless special care is taken inside zygote, any such access is suspect/dangerous.\n\nIf special care is taken not to leak this into spawned apps, what is it?",
+      "revId": "bab246407ba8cd007886fc76189574fb8cdedd6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b82370f9_862ddc44",
+        "filename": "public/file.te",
+        "patchSetId": 30
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-01-27T01:31:07Z",
+      "side": 1,
+      "message": "Please add a description of this type. Given that it\u0027s declared in the public directory, vendor / device-specific policy is permitted to reference this type and thus it\u0027s best to document what this is.\n\nFor example:\n# Runtime event log tag mappings file\ntype ...",
+      "revId": "bab246407ba8cd007886fc76189574fb8cdedd6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7195802_0058e780",
+        "filename": "public/te_macros",
+        "patchSetId": 30
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-01-27T01:31:07Z",
+      "side": 1,
+      "message": "I thought this was about event tags mappings, not the actual events.",
+      "range": {
+        "startLine": 349,
+        "startChar": 38,
+        "endLine": 349,
+        "endChar": 44
+      },
+      "revId": "bab246407ba8cd007886fc76189574fb8cdedd6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
