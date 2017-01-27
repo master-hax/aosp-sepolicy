@@ -1,3 +1,10 @@
 # type_transition must be private policy the domain_trans rules could stay
 # public, but conceptually should go with this
-init_daemon_domain(surfaceflinger)
+#
+# Do not use init_daemon_domain() as we want the tmpfs rules to be public for
+# for access to ashmem tmpfs files passed via IPC.
+domain_auto_trans(init, surfaceflinger_exec, surfaceflinger)
+
+# Continuation of tmpfs_domain() macro, type_transitions should
+# not be in atributee policy.
+type_transition surfaceflinger tmpfs:file surfaceflinger_tmpfs;

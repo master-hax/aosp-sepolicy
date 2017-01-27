@@ -145,6 +145,7 @@ allow init {
   -system_app_data_file
   -system_file
   -vold_data_file
+  -surfaceflinger_tmpfs
 }:file { create getattr open read write setattr relabelfrom unlink };
 
 allow init {
