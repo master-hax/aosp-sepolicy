@@ -53,6 +53,23 @@
     },
     {
       "key": {
+        "uuid": "974a2bbd_57cf9ef1",
+        "filename": "private/platform_app.te",
+        "patchSetId": 30
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-01-27T18:13:39Z",
+      "side": 1,
+      "message": "Agreed. Thank you!",
+      "revId": "bab246407ba8cd007886fc76189574fb8cdedd6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0cbefd9b_047d5259",
         "filename": "private/zygote.te",
         "patchSetId": 30
@@ -87,6 +104,23 @@
     },
     {
       "key": {
+        "uuid": "45c33585_47f8cdb9",
+        "filename": "private/zygote.te",
+        "patchSetId": 30
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-01-27T18:13:39Z",
+      "side": 1,
+      "message": "OK.",
+      "revId": "bab246407ba8cd007886fc76189574fb8cdedd6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b82370f9_862ddc44",
         "filename": "public/file.te",
         "patchSetId": 30
@@ -115,6 +149,23 @@
       "writtenOn": "2017-01-27T18:05:30Z",
       "side": 1,
       "message": "Or do we make this private?",
+      "revId": "bab246407ba8cd007886fc76189574fb8cdedd6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d55f99f_ff148c10",
+        "filename": "public/file.te",
+        "patchSetId": 30
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-01-27T18:13:39Z",
+      "side": 1,
+      "message": "Not yet. It should stay public for now.\n\nI\u0027m in the process of moving as much as possible out of public into private. I\u0027ll see if this can be moved. At the moment, it can\u0027t because the read_ macro you introduced is public and that macro expands to an allow rule which references this tag. Thus, you\u0027d need to hide the macro as well. Even if we did, it\u0027s unclear whether dynamic tags should be available to vendor-created SELinux domains (e.g., their device-specific services). If they should be, then we need to provide some public type/attribute through which access it granted.",
       "revId": "bab246407ba8cd007886fc76189574fb8cdedd6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
