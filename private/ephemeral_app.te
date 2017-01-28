@@ -61,3 +61,6 @@ neverallow ephemeral_app proc:file { no_rw_file_perms no_x_file_perms };
 # Directly access external storage
 neverallow ephemeral_app { sdcard_type media_rw_data_file }:file {open create};
 neverallow ephemeral_app { sdcard_type media_rw_data_file }:dir search;
+
+# /proc/net files contain too much information about other apps.
+neverallow ephemeral_app proc_net:file no_rw_file_perms;
