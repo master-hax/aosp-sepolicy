@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62b79bdc_2c6363e3",
+        "filename": "private/app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-28T01:10:00Z",
+      "side": 1,
+      "message": "qtaguid_proc is a file (aka /proc/net/xt_qtaguid/ctrl), not a directory or symlink. The r_dir_file() macro grants read permission on files, symlinks, and directories. The latter two permissions don\u0027t make any sense.\n\nLine 144 already grants read/write access to qtaguid_proc, so using r_dir_file() to again grant read access is redundant.\n\nqtaguid_proc only covers /proc/net/xt_qtaguid/ctrl . /proc/net/xt_qtguid/stats does not use the qtaguid_proc label, but rather, uses the generic proc_net label, which is already addressed through line 148 below.\n\nThis line can be deleted.",
+      "revId": "85ad3c04b682ccdffd49d41509032173c1b6feab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
