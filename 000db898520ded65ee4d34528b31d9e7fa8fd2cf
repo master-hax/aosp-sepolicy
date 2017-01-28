@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "912ae1a0_a75f2c49",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-28T22:57:01Z",
+      "side": 1,
+      "message": "\"domain\" is an attribute assigned to all processes, including init and ueventd.\n\n  sepolicy-analyze $OUT/root/sepolicy attribute domain\n\nAdding \"init\" and \"ueventd\" are redundant, as init and ueventd are types which have the attribute domain. This could be written as:\n\n  neverallow domain device:chr_file { open read write };\n\nand have the exact same effect.",
+      "range": {
+        "startLine": 289,
+        "startChar": 11,
+        "endLine": 289,
+        "endChar": 34
+      },
+      "revId": "000db898520ded65ee4d34528b31d9e7fa8fd2cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

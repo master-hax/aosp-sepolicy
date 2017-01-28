@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4531ea08_03d9fac4",
+        "filename": "public/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-28T22:57:01Z",
+      "side": 0,
+      "message": "Ugh, I feel like I\u0027ve been giving you bad information.\n\nThe auditallow you had in place only covered \"device\" types. Other types weren\u0027t audited. \n\n\"dev_type\" is an attribute assigned to lots of different types (see system/sepolicy/public/devices.te\")\n\n  type device, dev_type, fs_type;\n  type alarm_device, dev_type, mlstrustedobject;\n  type ashmem_device, dev_type, mlstrustedobject;\n  type audio_device, dev_type;\n  ...\n\n  sepolicy-analyze $OUT/root/sepolicy attribute dev_type\n\nso by removing this rule, you\u0027d be removing access to a lot more types than just \"device\" that you audited for.\n\nAlso, the auditallow you had in place only covered \"open\", \"read\", and \"write\", but did not cover \"setattr\".\n\nIf you intend to remove this, can you add more auditallows to cover this case? I suspect (but can\u0027t prove without additional auditing) that open and read are safe to remove. But I think setattr might be used by chown/chmod calls in init.rc for files in /dev.",
+      "revId": "e8acd7695b96434cde84c8bc16b364d39856857d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
