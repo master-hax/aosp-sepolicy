@@ -33,6 +33,23 @@
       "revId": "85ad3c04b682ccdffd49d41509032173c1b6feab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1123bba_76527af1",
+        "filename": "private/app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-28T20:00:50Z",
+      "side": 1,
+      "message": "appdomain is allowed read-WRITE access to qtaguid_proc (line 144), so changing the label of /proc/net/xt_qtguid from proc_net to qtaguid_proc would allow write access to files where previously only read access was granted. I haven\u0027t analyzed the effect of making these previously read-only files writable.\n\nIn addition, changing /proc/net/xt_qtguid from proc_net to qtaguid_proc would have the effect of removing access to these files for domains which had proc_net access, but currently have no rules for accessing qtaguid_proc. For instance, netd currently has the following rule:\n\n  r_dir_file(netd, proc_net)\n  # For /proc/sys/net/ipv[46]/route/flush.\n  allow netd proc_net:file rw_file_perms;\n\nbut has no rules for qtaguid_proc. If netd is reading proc/net/xt_qtguid, and the label is changed, netd would no longer have permissions to read these files without a policy change. We would need to fixup the policy to allow read access to qtaguid_proc for all domains which have read access to proc_net, or otherwise determine that this functionality isn\u0027t required.",
+      "revId": "85ad3c04b682ccdffd49d41509032173c1b6feab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
