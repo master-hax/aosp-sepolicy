@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fc50603_8a8e2625",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-29T21:33:50Z",
+      "side": 1,
+      "message": "Compile failure:\n\nneverallow check failed at out/target/product/marlin/obj/ETC/nonplat_sepolicy.recovery.cil_intermediates/nonplat_policy_nvr.recovery.cil:2234\n  (neverallow domain device_current (chr_file (read write open)))\n    \u003croot\u003e\n    allow at out/target/product/marlin/obj/ETC/plat_sepolicy.recovery.cil_intermediates/plat_policy_nvr.recovery.cil:5045\n      (allow init base_typeattr_165 (chr_file (read setattr open)))\n    \u003croot\u003e\n    allow at out/target/product/marlin/obj/ETC/nonplat_sepolicy.recovery.cil_intermediates/nonplat_policy_nvr.recovery.cil:3160\n      (allow init_current base_typeattr_165_current (chr_file (read setattr open)))\n\nneverallow check failed at out/target/product/marlin/obj/ETC/plat_sepolicy.recovery.cil_intermediates/plat_policy_nvr.recovery.cil:3749 from system/sepolicy/public/domain.te:274\n  (neverallow domain device (chr_file (read write open)))\n    \u003croot\u003e\n    allow at out/target/product/marlin/obj/ETC/plat_sepolicy.recovery.cil_intermediates/plat_policy_nvr.recovery.cil:5045\n      (allow init base_typeattr_165 (chr_file (read setattr open)))\n    \u003croot\u003e\n    allow at out/target/product/marlin/obj/ETC/nonplat_sepolicy.recovery.cil_intermediates/nonplat_policy_nvr.recovery.cil:3160\n      (allow init_current base_typeattr_165_current (chr_file (read setattr open)))",
+      "revId": "151215b515437ad5d42442961e0b40b2155d1e2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
