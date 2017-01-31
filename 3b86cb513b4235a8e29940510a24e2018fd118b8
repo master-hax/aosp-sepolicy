@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3456199c_d9a9de94",
+        "filename": "public/init.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-01-31T22:28:19Z",
+      "side": 1,
+      "message": "I\u0027d prefer if we continue to allow access to setattr for init, eg:\n\n  allow init { dev_type -kmem_device -port_device -device }:chr_file { read open };\n  allow init { dev_type -kmem_device -port_device }:chr_file setattr;\n  auditallow init { dev_type -kmem_device -port_device -device }:chr_file { read open };\n  \n\nI am reminded of your patch at c101a29ebe69197ea386bc219c50a4031d5626ad, where a harmless setattr was being performed. It would have been much worse if someone had saw a denial for this, created a label, and granted access. Setattr only changes the UID/GID/permissions of the file, and is harmless without an open/read operation.\n\nThoughts?",
+      "revId": "3b86cb513b4235a8e29940510a24e2018fd118b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
