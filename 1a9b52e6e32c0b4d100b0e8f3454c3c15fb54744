@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "021fde2b_d2fe6ecf",
+        "filename": "public/incident.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-03T21:45:52Z",
+      "side": 1,
+      "message": "I meant that according to the current policy incident is not permitted to IPC over Binder into incidentd. Which is contrary to what the comment says. If everything works just fine, even without this, perhaps this means incident isn\u0027t performing any IPCs into incidentd?\n\nTry adding -- policy still compiles:\n\nneverallow incident incidentd:binder { call transfer };\n# Allow the serverdomain to transfer references to the client on the reply.\nneverallow incidentd incident:binder transfer;\n# Receive and use open files from the server.\nneverallow incident incidentd:fd use;",
+      "parentUuid": "72268b85_10d84093",
+      "revId": "1a9b52e6e32c0b4d100b0e8f3454c3c15fb54744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c75d9a4_ca0082c5",
         "filename": "public/incidentd.te",
         "patchSetId": 1
