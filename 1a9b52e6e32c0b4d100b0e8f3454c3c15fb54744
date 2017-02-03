@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10099447_04920b15",
+        "filename": "public/incident.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-03T18:17:43Z",
+      "side": 1,
+      "message": "Please check whether incident command can successfully call into incidentd.\n\nThis comment doesn\u0027t appear to match the grants below. The allow rule below only grants incident the power to obtain incident_service\u0027s Binder token from service manager.  It does not grant Binder IPC using that token. Presumably, the token is backed by incidentd domain. Thus, what\u0027s likely missing is binder_call(incident, incidentd).",
+      "revId": "1a9b52e6e32c0b4d100b0e8f3454c3c15fb54744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c75d9a4_ca0082c5",
+        "filename": "public/incidentd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-03T18:17:43Z",
+      "side": 1,
+      "message": "ephemeral_app has finally been moved into appdomain. Thus, this should be just appdomain.",
+      "range": {
+        "startLine": 55,
+        "startChar": 23,
+        "endLine": 55,
+        "endChar": 50
+      },
+      "revId": "1a9b52e6e32c0b4d100b0e8f3454c3c15fb54744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e21f7636_5be75677",
+        "filename": "public/incidentd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-03T18:17:43Z",
+      "side": 1,
+      "message": "Please replace this line and the corresponding neverallow with the recently added macro:\n\nadd_service(incidentd, incident_service)",
+      "revId": "1a9b52e6e32c0b4d100b0e8f3454c3c15fb54744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
