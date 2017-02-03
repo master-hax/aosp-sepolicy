@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "72268b85_10d84093",
+        "filename": "public/incident.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000701
+      },
+      "writtenOn": "2017-02-03T21:36:30Z",
+      "side": 1,
+      "message": "Hmm. It seems to be already working. In fact, if I remove this line or change it to neverallow, I don\u0027t get any build failures and everything still works.\n\nAny tips on where else to look for that?  If I leave this line and change the line in incidentd.te\n\nneverallow { domain -system_server -system_app -incident -incidentd } incident_service:service_manager find;\n\nto not include -incident, then I do trigger the neverallow check.",
+      "parentUuid": "10099447_04920b15",
+      "revId": "1a9b52e6e32c0b4d100b0e8f3454c3c15fb54744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c75d9a4_ca0082c5",
         "filename": "public/incidentd.te",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "5f7a82d0_ffb0370c",
+        "filename": "public/incidentd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000701
+      },
+      "writtenOn": "2017-02-03T21:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c75d9a4_ca0082c5",
+      "range": {
+        "startLine": 55,
+        "startChar": 23,
+        "endLine": 55,
+        "endChar": 50
+      },
+      "revId": "1a9b52e6e32c0b4d100b0e8f3454c3c15fb54744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e21f7636_5be75677",
         "filename": "public/incidentd.te",
         "patchSetId": 1
@@ -53,6 +95,24 @@
       "writtenOn": "2017-02-03T18:17:43Z",
       "side": 1,
       "message": "Please replace this line and the corresponding neverallow with the recently added macro:\n\nadd_service(incidentd, incident_service)",
+      "revId": "1a9b52e6e32c0b4d100b0e8f3454c3c15fb54744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfa17a91_c9d1dc7b",
+        "filename": "public/incidentd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000701
+      },
+      "writtenOn": "2017-02-03T21:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e21f7636_5be75677",
       "revId": "1a9b52e6e32c0b4d100b0e8f3454c3c15fb54744",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
