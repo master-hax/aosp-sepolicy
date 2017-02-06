@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6b9b580e_6fc4eef5",
+        "filename": "private/hal_drm_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2017-02-06T21:47:34Z",
+      "side": 1,
+      "message": "That\u0027s right, before DRM HAL was running in passthrough mode in mediadrmserver process.\n\nDRM HAL did not ever run in mediacodec and is not supposed to.\n\nCould it have something to do with mediacodec and mediadrmserver being mlstrustedobject, but drm_hal is not?",
+      "parentUuid": "1fd01030_e0f9970c",
+      "revId": "2e14427de4a239ac7bdaba0e75eaa90821d57ee8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1654d3a_a4f68bca",
         "filename": "private/hal_drm_default.te",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-02-06T19:13:53Z",
       "side": 1,
       "message": "Why is this needed? Did DRM HAL run in untrusted_app prior to recent changes?",
+      "revId": "2e14427de4a239ac7bdaba0e75eaa90821d57ee8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "843e5888_fbede129",
+        "filename": "private/hal_drm_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2017-02-06T21:47:34Z",
+      "side": 1,
+      "message": "same as above?",
+      "parentUuid": "e1654d3a_a4f68bca",
       "revId": "2e14427de4a239ac7bdaba0e75eaa90821d57ee8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
