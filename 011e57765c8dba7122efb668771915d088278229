@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8db6e88_9c7ceabe",
+        "filename": "private/shell.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000701
+      },
+      "writtenOn": "2017-02-06T21:30:08Z",
+      "side": 1,
+      "message": "Ok, so when I this line of domain_auto_trans instead of init_daemon_domain in private/incident.te so that it would actually go into the incident domain, I was able to start testing it on a non-root shell.  There\u0027s another domain_auto_trans line in su.te for the su --\u003e incident domain transition.\n\nIt doesn\u0027t surprise me to have to add the shell:fd line below so incident can use stdout from shell, but the ones for adbd do surprise me.  Is there some encapsulation missing for shell commands run from adb, or is this expected?  I determined that these four lines below were needed by running it and fixing the errors as they popped out.  They all make sense as things that incident would do, but I\u0027m surprised that they need to be adbd rules and not shell rules.  Thoughts?",
+      "revId": "011e57765c8dba7122efb668771915d088278229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
