@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "233f318c_5a523cac",
+        "filename": "private/hal_drm_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T22:36:23Z",
+      "side": 1,
+      "message": "It might have to do with MLS. What are the exact denials you\u0027re seeing which is being fixed by these two allow rules?",
+      "parentUuid": "6b9b580e_6fc4eef5",
+      "revId": "2e14427de4a239ac7bdaba0e75eaa90821d57ee8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1654d3a_a4f68bca",
         "filename": "private/hal_drm_default.te",
         "patchSetId": 2
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "same as above?",
       "parentUuid": "e1654d3a_a4f68bca",
+      "revId": "2e14427de4a239ac7bdaba0e75eaa90821d57ee8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e6dd98c_932732a4",
+        "filename": "private/hal_drm_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T22:36:23Z",
+      "side": 1,
+      "message": "Perhaps. I see that mediadrmserver was granted binder_call(appdomain) which means binder_call(untrusted_app) (because untrusted_app belongs into the appdomain set) which means allow mediadrmserver untrusted_app:fd use; and a couple of more rules. However, it doesn\u0027t automatically necessarily mean that DRM HAL needs to IPC over Binder into untrusted app. Do you know why DRM HAL is attempting to IPC into untrusted_app? I mean, it might be an IPC callback, but you said that only mediadrmserver initiates calls into DRM HAL...",
+      "parentUuid": "843e5888_fbede129",
       "revId": "2e14427de4a239ac7bdaba0e75eaa90821d57ee8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
