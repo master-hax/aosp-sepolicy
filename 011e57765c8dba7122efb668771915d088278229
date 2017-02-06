@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "abf6b362_488b7f3c",
+        "filename": "private/incident.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T22:24:05Z",
+      "side": 1,
+      "message": "This is misplaced. incident is not started from init.",
+      "revId": "011e57765c8dba7122efb668771915d088278229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8db6e88_9c7ceabe",
         "filename": "private/shell.te",
         "patchSetId": 2
@@ -13,6 +30,217 @@
       "writtenOn": "2017-02-06T21:30:08Z",
       "side": 1,
       "message": "Ok, so when I this line of domain_auto_trans instead of init_daemon_domain in private/incident.te so that it would actually go into the incident domain, I was able to start testing it on a non-root shell.  There\u0027s another domain_auto_trans line in su.te for the su --\u003e incident domain transition.\n\nIt doesn\u0027t surprise me to have to add the shell:fd line below so incident can use stdout from shell, but the ones for adbd do surprise me.  Is there some encapsulation missing for shell commands run from adb, or is this expected?  I determined that these four lines below were needed by running it and fixing the errors as they popped out.  They all make sense as things that incident would do, but I\u0027m surprised that they need to be adbd rules and not shell rules.  Thoughts?",
+      "revId": "011e57765c8dba7122efb668771915d088278229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6cace451_198d1e7b",
+        "filename": "private/shell.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T22:24:05Z",
+      "side": 1,
+      "message": "* Please move this to private/inident.te.\n\n* Although ADBD spawns shell and then relabels it in SELinux terms, the I/O fds and similar are not relabeled. They remain labeled as adbd:fd, for example. I spoke with nnk@google.com and the question we have is whether it\u0027s worth moving incident, the command-line tool, into a seprate domain, instead of letting it run as shell or su, same as most other executables spawned from shell run. For example, if I\u0027m not mistaken, there\u0027s no bugreport SELinux domain. What security advantages do you get by running incident (the client of incidentd) in a separate domain.",
+      "parentUuid": "d8db6e88_9c7ceabe",
+      "revId": "011e57765c8dba7122efb668771915d088278229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca02cbb_13c35ac3",
+        "filename": "private/shell.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T22:24:05Z",
+      "side": 1,
+      "message": "These rules indeed should move to private/incident.te.",
+      "revId": "011e57765c8dba7122efb668771915d088278229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "beb07c06_cee41469",
+        "filename": "private/shell.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T22:24:05Z",
+      "side": 1,
+      "message": "Please comment the reason for each of these rules. See similar rules in other domains.",
+      "revId": "011e57765c8dba7122efb668771915d088278229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14810f09_bf9a7ce4",
+        "filename": "private/shell.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T22:24:05Z",
+      "side": 1,
+      "message": "Extraneous empty line. Remove.",
+      "revId": "011e57765c8dba7122efb668771915d088278229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29ce1fe2_df001e89",
+        "filename": "public/incident.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T22:24:05Z",
+      "side": 1,
+      "message": "This is not needed here. It\u0027s already declared in private/incident.te.",
+      "revId": "011e57765c8dba7122efb668771915d088278229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5765033d_4eef0af4",
+        "filename": "public/incident.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T22:24:05Z",
+      "side": 1,
+      "message": "Please move all rules from this line onwards to private/incident.te.",
+      "revId": "011e57765c8dba7122efb668771915d088278229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c764499_3ed9c930",
+        "filename": "public/incident.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T22:24:05Z",
+      "side": 1,
+      "message": "Why do you need this? If I\u0027m not mistaken, it\u0027s already granted by binder_call(incident, incidentd) above.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 32
+      },
+      "revId": "011e57765c8dba7122efb668771915d088278229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e575b93_dd49b730",
+        "filename": "public/incident.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T22:24:05Z",
+      "side": 1,
+      "message": "Why is this needed? What is this FIFO used for?",
+      "revId": "011e57765c8dba7122efb668771915d088278229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ce8a49c_4c287d67",
+        "filename": "public/incidentd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T22:24:05Z",
+      "side": 1,
+      "message": "Please move all rules from here onwards to private/incidentd.te.",
+      "revId": "011e57765c8dba7122efb668771915d088278229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f8286bc_18ebd464",
+        "filename": "public/incidentd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T22:24:05Z",
+      "side": 1,
+      "message": "By convention, no curly braces are used for sets of one. So:\n  binder_call(incidentd, appdomain)",
+      "revId": "011e57765c8dba7122efb668771915d088278229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f764a09_14639913",
+        "filename": "public/incidentd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T22:24:05Z",
+      "side": 1,
+      "message": "I believe this is covered by binder_call below.",
+      "revId": "011e57765c8dba7122efb668771915d088278229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab15aca3_236671a1",
+        "filename": "public/incidentd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T22:24:05Z",
+      "side": 1,
+      "message": "What\u0027s this for?",
       "revId": "011e57765c8dba7122efb668771915d088278229",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
