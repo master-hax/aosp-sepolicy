@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fd01030_e0f9970c",
+        "filename": "private/hal_drm_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T19:13:53Z",
+      "side": 1,
+      "message": "Why is this needed? If I understand the situation correctly, DRM HAL in the past always ran inside mediadrmserver domain. I don\u0027t see any grants there for mediacodec:fd. Did the DRM HAL by any chance run also in mediacodec? If so, binder_call(hal_drm, mediacodec) is would be more appropriate here and mediacodec\u0027s rules would need to be adjusted accordingly as well, so that the DRM HAL can be used from there even when it runs out of process.",
+      "revId": "2e14427de4a239ac7bdaba0e75eaa90821d57ee8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1654d3a_a4f68bca",
+        "filename": "private/hal_drm_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-06T19:13:53Z",
+      "side": 1,
+      "message": "Why is this needed? Did DRM HAL run in untrusted_app prior to recent changes?",
+      "revId": "2e14427de4a239ac7bdaba0e75eaa90821d57ee8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
