@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "3c42b5bb_029cd0c7",
+        "filename": "private/shell.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000701
+      },
+      "writtenOn": "2017-02-06T22:37:02Z",
+      "side": 1,
+      "message": "- There is a bugreport domain -- it\u0027s the dumpstate domain.\n\n- My idea for separating out incident is that I wanted to limit the number of things that can communicate with incidentd, since it has essentially the same privileges as the dumpstate domain (i.e. a lot).  By funneling all traffic to incidentd through incident, my thinking is that there\u0027s less to worry about there.  On the other hand, maybe this is stupid, because the other thing on the list that can access it is system_server.  But shell is a lot more wide open than system server.  If you think this is overengineering it, then just granting the binder and FD privileges to shell (and su) would probably be easier.  I can certainly do that.\n\n- I\u0027ll get started on all the other comments you made to move stuff around and comment it.",
+      "parentUuid": "6cace451_198d1e7b",
+      "revId": "011e57765c8dba7122efb668771915d088278229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca02cbb_13c35ac3",
         "filename": "private/shell.te",
         "patchSetId": 2
