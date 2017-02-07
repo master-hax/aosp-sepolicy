@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "ac54f260_02d6b4ca",
+        "filename": "private/hal_drm_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2017-02-07T18:56:57Z",
+      "side": 1,
+      "message": "02-07 09:47:56.569  4665  4665 I Binder:4664_1: type\u003d1400 audit(0.0:566): avc: denied { use } for path\u003d\"anon_inode:dmabuf\" dev\u003d\"anon_inodefs\" ino\u003d12662 scontext\u003du:r:hal_drm_default:s0 tcontext\u003du:r:mediacodec:s0 tclass\u003dfd permissive\u003d1\n\n02-07 09:47:56.406  4665  4665 I Binder:4664_1: type\u003d1400 audit(0.0:565): avc: denied { use } for path\u003d\"/dev/ashmem\" dev\u003d\"tmpfs\" ino\u003d15701 scontext\u003du:r:hal_drm_default:s0 tcontext\u003du:r:untrusted_app:s0:c512,c768 tclass\u003dfd permissive\u003d1",
+      "parentUuid": "233f318c_5a523cac",
+      "revId": "2e14427de4a239ac7bdaba0e75eaa90821d57ee8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1654d3a_a4f68bca",
         "filename": "private/hal_drm_default.te",
         "patchSetId": 2
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "Perhaps. I see that mediadrmserver was granted binder_call(appdomain) which means binder_call(untrusted_app) (because untrusted_app belongs into the appdomain set) which means allow mediadrmserver untrusted_app:fd use; and a couple of more rules. However, it doesn\u0027t automatically necessarily mean that DRM HAL needs to IPC over Binder into untrusted app. Do you know why DRM HAL is attempting to IPC into untrusted_app? I mean, it might be an IPC callback, but you said that only mediadrmserver initiates calls into DRM HAL...",
       "parentUuid": "843e5888_fbede129",
+      "revId": "2e14427de4a239ac7bdaba0e75eaa90821d57ee8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e24300d3_aef7e25b",
+        "filename": "private/hal_drm_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2017-02-07T18:56:57Z",
+      "side": 1,
+      "message": "DRM HAL IPCs to untrusted_app when it delivers DRM-related events",
+      "parentUuid": "0e6dd98c_932732a4",
       "revId": "2e14427de4a239ac7bdaba0e75eaa90821d57ee8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
