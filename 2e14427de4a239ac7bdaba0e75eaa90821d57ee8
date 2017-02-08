@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "beb46b08_c0a1eb73",
+        "filename": "private/hal_drm_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-02-08T05:07:25Z",
+      "side": 1,
+      "message": "this was previously granted to mediadrmserver by:\nbinder_call(mediadrmserver, binderservicedomain)",
+      "parentUuid": "ac54f260_02d6b4ca",
+      "revId": "2e14427de4a239ac7bdaba0e75eaa90821d57ee8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1654d3a_a4f68bca",
         "filename": "private/hal_drm_default.te",
         "patchSetId": 2
@@ -138,6 +156,24 @@
       "side": 1,
       "message": "DRM HAL IPCs to untrusted_app when it delivers DRM-related events",
       "parentUuid": "0e6dd98c_932732a4",
+      "revId": "2e14427de4a239ac7bdaba0e75eaa90821d57ee8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a56f3a0_3ebc4d82",
+        "filename": "private/hal_drm_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-02-08T05:07:25Z",
+      "side": 1,
+      "message": "also previously granted by:\nbinder_call(mediadrmserver, binderservicedomain)\n\nWe should probably make this:\nallow hal_drm_default { appdomain -isolated_app }:fd use;\n\nBecause other app types likely require access.",
+      "parentUuid": "e24300d3_aef7e25b",
       "revId": "2e14427de4a239ac7bdaba0e75eaa90821d57ee8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
