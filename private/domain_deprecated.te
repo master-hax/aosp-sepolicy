@@ -1,0 +1,44 @@
+###
+### Neverallow assertions
+###
+
+# Prevent new domains from using domain_deprecated. domain_deprecated
+# consists of a series of rules we originally added to domain.te which
+# turned out to be overly permissive, and are only assigned to domains
+# for backwards compatibility purposes.
+
+neverallow {
+  domain_deprecated
+  userdebug_or_eng(`-atrace')
+  -bluetooth
+  -clatd
+  -dex2oat
+  -dhcp
+  -dumpstate
+  -fingerprintd
+  -fsck
+  -fsck_untrusted
+  -init
+  -installd
+  -keystore
+  -mtp
+  -netd
+  userdebug_or_eng(`-perfprofd')
+  -platform_app
+  -ppp
+  -radio
+  -recovery
+  -rild
+  -runas
+  -sdcardd
+  -shared_relro
+  -system_app
+  -system_server
+  -tee
+  -ueventd
+  -uncrypt
+  -update_engine
+  -vold
+  -wpa
+  -zygote
+} domain:process fork;
