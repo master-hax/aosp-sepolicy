@@ -1,36 +1,67 @@
-binder_use(hal_audio)
-binder_call(hal_audio, audioserver)
-binder_call(hal_audio, system_server)
-hwallocator_use(hal_audio)
+# HwBinder IPC from client to server, and callbacks
+binder_call(hal_audio_client, hal_audio_server)
+binder_call(hal_audio_server, hal_audio_client)
 
-allow hal_audio ion_device:chr_file r_file_perms;
+# Both client and the server need to use hwallocator
+hwallocator_use(hal_audio_client)
+hwallocator_use(hal_audio_server)
 
-allow hal_audio system_file:dir { open read };
+binder_use(hal_audio_server)
+
+allow hal_audio_server ion_device:chr_file r_file_perms;
+
+allow hal_audio_server system_file:dir { open read };
 
 userdebug_or_eng(`
   # used for pcm capture for debug.
-  allow hal_audio audiohal_data_file:dir create_dir_perms;
-  allow hal_audio audiohal_data_file:file create_file_perms;
+  allow hal_audio_server audiohal_data_file:dir create_dir_perms;
+  allow hal_audio_server audiohal_data_file:file create_file_perms;
 ')
 
-r_dir_file(hal_audio, proc)
-allow hal_audio audio_device:dir r_dir_perms;
-allow hal_audio audio_device:chr_file rw_file_perms;
+r_dir_file(hal_audio_server, proc)
+allow hal_audio_server audio_device:dir r_dir_perms;
+allow hal_audio_server audio_device:chr_file rw_file_perms;
 
-allow hal_audio scheduling_policy_service:service_manager find;
+allow hal_audio_server scheduling_policy_service:service_manager find;
 
 # Needed on some devices for playing audio on paired BT device,
 # but seems appropriate for all devices.
-unix_socket_connect(hal_audio, bluetooth, bluetooth)
+unix_socket_connect(hal_audio_server, bluetooth, bluetooth)
 
 ###
 ### neverallow rules
 ###
 
-# hal_audio should never execute any executable without
+# hal_audio_server should never execute any executable without
 # a domain transition
-neverallow hal_audio { file_type fs_type }:file execute_no_trans;
+neverallow hal_audio_server { file_type fs_type }:file execute_no_trans;
 
-# hal_audio should never need network access.
+# hal_audio_server should never need network access.
 # Disallow network sockets.
-neverallow hal_audio domain:{ tcp_socket udp_socket rawip_socket } *;
+neverallow hal_audio_server domain:{ tcp_socket udp_socket rawip_socket } *;
+
+# Rules included only when Audio HAL runs in passthrough mode,
+# inside processes of its clients.
+passthrough_hal(hal_audio, `
+  binder_use(hal_audio_client)
+
+  allow hal_audio_client ion_device:chr_file r_file_perms;
+
+  allow hal_audio_client system_file:dir { open read };
+
+  userdebug_or_eng(`
+    # used for pcm capture for debug.
+    allow hal_audio_client audiohal_data_file:dir create_dir_perms;
+    allow hal_audio_client audiohal_data_file:file create_file_perms;
+  ')
+
+  r_dir_file(hal_audio_client, proc)
+  allow hal_audio_client audio_device:dir r_dir_perms;
+  allow hal_audio_client audio_device:chr_file rw_file_perms;
+
+  allow hal_audio_client scheduling_policy_service:service_manager find;
+
+  # Needed on some devices for playing audio on paired BT device,
+  # but seems appropriate for all devices.
+  unix_socket_connect(hal_audio_client, bluetooth, bluetooth)
+')
