@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c526482f_027838f7",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-14T18:02:16Z",
+      "side": 1,
+      "message": "Yes, this should definitely be removed. However, this has nothing to do with the refactoring performed in this commit. The solution is to land a separate commit that cleans up the scheduling policy Binder IPC rules which are no longer needed. Whether such commit lands before or after this one, does not matter.",
+      "parentUuid": "e7ce8f9f_dc483731",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 2
+      },
+      "revId": "7b4dffae98d7b07b78e51893a6bce7566ffaa36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "922c0bae_d34a20ab",
         "filename": "public/hal_audio.te",
         "patchSetId": 5
