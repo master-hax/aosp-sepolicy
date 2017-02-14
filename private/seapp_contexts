@@ -7,6 +7,7 @@
 #	name (string)
 #	path (string)
 #	isPrivApp (boolean)
+#       minTargetSdkVersion (unsigned integer)
 # isSystemServer=true can only be used once.
 # An unspecified isSystemServer defaults to false.
 # isEphemeralApp=true will match apps marked by PackageManager as Ephemeral
@@ -19,6 +20,9 @@
 # user=_isolated will match any isolated service UID.
 # isPrivApp=true will only match for applications preinstalled in
 #       /system/priv-app.
+# minTargetSdkVersion will match applications with a targetSdkVersion
+#       greater than or equal to the specified value. If unspecified,
+#       it has a default value of 0.
 # All specified input selectors in an entry must match (i.e. logical AND).
 # Matching is case-insensitive.
 #
@@ -34,6 +38,8 @@
 #	  (8) Specified name= string before unspecified name= string.
 #	  (9) Specified path= string before unspecified path= string.
 # 	  (10) Specified isPrivApp= before unspecified isPrivApp= boolean.
+#         (11) Higher value of minTargetSdkVersion= before lower value of minTargetSdkVersion=
+#              integer. Note that minTargetSdkVersion= defaults to 0 if unspecified.
 #
 # Outputs:
 #	domain (string)
