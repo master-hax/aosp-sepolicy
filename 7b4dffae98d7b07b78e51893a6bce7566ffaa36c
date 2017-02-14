@@ -116,6 +116,29 @@
       "revId": "7b4dffae98d7b07b78e51893a6bce7566ffaa36c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a33452b_4ab283a5",
+        "filename": "public/hal_audio.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-02-14T18:26:16Z",
+      "side": 1,
+      "message": "Rather than duplicating all of this, how about:\n\ndefine(hal_audio_use, `\n    allow $1 ...\n    allow $1 ...\n\u0027)\n\nhal_audio_use(hal_audio_client)\npassthrough_hal(hal_audio, `\n    hal_audio_use(hal_audio_server)\n\u0027)\n\nYou can even put the last part of that in a macro which allows you to construct this easily for an arbitrary hal.",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 61
+      },
+      "revId": "7b4dffae98d7b07b78e51893a6bce7566ffaa36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
