@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "58d11fb2_0a16eb96",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2017-02-14T23:41:00Z",
+      "side": 1,
+      "message": "Oh, I see -- so SELinux actually detects that system server is setting scheduler for a thread that relates to audio hal, regardless of which process has initiated the request. Yes, in this case the rule needs to stay. Sorry for misguiding you, I wasn\u0027t understanding well enough how these requests are handled.\n\nSo only the rules allowing hal server to look for the system server and use binder for calling it need to be dropped, as you mention.",
+      "parentUuid": "4dece7f5_93e20086",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 2
+      },
+      "revId": "7b4dffae98d7b07b78e51893a6bce7566ffaa36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "922c0bae_d34a20ab",
         "filename": "public/hal_audio.te",
         "patchSetId": 5
