@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7ce8f9f_dc483731",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2017-02-14T17:54:31Z",
+      "side": 1,
+      "message": "We probably need to update this. It uses to be that audio hal was asking system server directly via binder to change the scheduler.\n\nIn this series of changes: go/ag/#/q/topic:remove-binder-call-from-hal, I\u0027ve made a change to make audio hal to delegate scheduler change via audioserver to system server (because direct calls to binder from hals are being clamped down). However, audio_hal still needs to be able to adjust niceness of its threads by itself.\n\nConsidering that, we probably don\u0027t need this rule:\n\nallow system_server hal_audio_server:process { getsched setsched };\n\nThe second one isn\u0027t needed if having having a permission for \"audioserver:process\" is enough if the audioserver changes the scheduler *on behalf* of hal, as opposed to just hosting hal in the same process.\n\nPlease confirm that \u0027getsched / setsched\u0027 is not needed for setting thread\u0027s nice number.",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 2
+      },
+      "revId": "7b4dffae98d7b07b78e51893a6bce7566ffaa36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "922c0bae_d34a20ab",
+        "filename": "public/hal_audio.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2017-02-14T17:54:31Z",
+      "side": 1,
+      "message": "See my previous comment, this may be removed.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 44
+      },
+      "revId": "7b4dffae98d7b07b78e51893a6bce7566ffaa36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef102a38_37563013",
+        "filename": "public/hal_audio.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2017-02-14T17:54:31Z",
+      "side": 1,
+      "message": "Also can be removed.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 46
+      },
+      "revId": "7b4dffae98d7b07b78e51893a6bce7566ffaa36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
