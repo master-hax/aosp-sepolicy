@@ -43,6 +43,11 @@ allow crash_dump anr_data_file:file { append getattr };
 # Append to tombstone files.
 allow crash_dump tombstone_data_file:file { append getattr };
 
+# Write to su pipes (e.g  `debuggerd -b 123`) on userdebug builds.
+userdebug_or_eng(`
+  allow crash_dump su:fifo_file { append getattr };
+')
+
 read_logd(crash_dump)
 
 ###
