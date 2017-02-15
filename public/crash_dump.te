@@ -19,7 +19,7 @@ userdebug_or_eng(`
 
 # Use inherited file descriptors
 allow crash_dump domain:fd use;
-allow crash_dump domain:fifo_file write;
+allow crash_dump domain:fifo_file append;
 
 r_dir_file(crash_dump, domain)
 allow crash_dump exec_type:file r_file_perms;
