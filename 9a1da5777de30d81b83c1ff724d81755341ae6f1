@@ -46,6 +46,30 @@
       "revId": "9a1da5777de30d81b83c1ff724d81755341ae6f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "830d8b35_b82c3449",
+        "filename": "private/hal_bluetooth_default.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-17T19:29:05Z",
+      "side": 1,
+      "message": "Whoever added this was OK with the result. I\u0027m keeping this as is since I\u0027m running out of time on this one. My tests show that this is only needed for binderized Bluetooth HAL. Thus, hal_bluetooth_server might be more appropriate. You may want to check whether you need a similar rule for the hikey Bluetooth HAL.",
+      "parentUuid": "62cb402b_1ff64f11",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 2
+      },
+      "revId": "9a1da5777de30d81b83c1ff724d81755341ae6f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
