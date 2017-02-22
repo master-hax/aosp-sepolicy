@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c54a803_4c60e199",
+        "filename": "private/untrusted_app_all.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-02-22T04:52:11Z",
+      "side": 1,
+      "message": "The create_pty() macro creates a new type for the pty, which is intended to be specific to the domain it\u0027s running in. This avoids leaking one pty for one domain to another domain.\n\nIt would be better, IMHO, to have two create_pty entries:\n\n  create_pty(untrusted_app)\n  create_pty(untrusted_app_25)\n\nwhich will have the result of creating two new PTY types:\n\n  untrusted_app_devpts\n  untrusted_app_25_devpts",
+      "revId": "5670f8e6ad4b90ee1f55728694e6f52723b121fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
