@@ -94,6 +94,30 @@
       "revId": "2eca9e4a44377b7b32620e44075743ea4d7a4b8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb7ee653_f0659bc1",
+        "filename": "public/hal_camera.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-02-22T18:38:36Z",
+      "side": 1,
+      "message": "No, I mean that the isolated_app domain should not be interacting with the camera, camera HAL or cameraserver at all.\n\nAlex\u0027s point is that cameraserver currently has permission to use FDs from isolated app. Granted by:\n\nbinder_call(cameraserver, appdomain)\n\nLet\u0027s remove the permission here, and in cameraserver.\n\nbinder_call(cameraserver, { appdomain -isolated_app })",
+      "parentUuid": "6b52b6fd_5562793c",
+      "range": {
+        "startLine": 17,
+        "startChar": 17,
+        "endLine": 17,
+        "endChar": 26
+      },
+      "revId": "2eca9e4a44377b7b32620e44075743ea4d7a4b8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
