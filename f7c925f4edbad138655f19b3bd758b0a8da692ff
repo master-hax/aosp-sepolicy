@@ -46,6 +46,30 @@
       "revId": "f7c925f4edbad138655f19b3bd758b0a8da692ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afef2b2c_995313c2",
+        "filename": "public/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-02-23T23:06:53Z",
+      "side": 1,
+      "message": "My point was that I didn\u0027t think it actually worked. And for the most of debugfs/tracefs it looks like I\u0027m right.\n\nadb shell\n$ su\n# mkdir /sys/kernel/debug/foo                                     \nmkdir: \u0027/sys/kernel/debug/foo\u0027: Operation not permitted\n# mkdir /sys/kernel/debug/tracing/foo                             \nmkdir: \u0027/sys/kernel/debug/tracing/foo\u0027: Operation not permitted\nmkdir /sys/kernel/debug/tracing/instances/foo\n\nIt only works in instances.\n\nLearned something new today :)",
+      "parentUuid": "ccda83ae_6677f3d3",
+      "range": {
+        "startLine": 190,
+        "startChar": 41,
+        "endLine": 190,
+        "endChar": 57
+      },
+      "revId": "f7c925f4edbad138655f19b3bd758b0a8da692ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
