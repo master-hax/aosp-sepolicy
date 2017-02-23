@@ -34,6 +34,24 @@
       "revId": "f062dfb7e2d899691e8e73edf846ce6f3af4e1f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e912fde_c3e16c5b",
+        "filename": "private/storaged.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1051712
+      },
+      "writtenOn": "2017-02-23T19:33:13Z",
+      "side": 1,
+      "message": "seems that setpcap is required for capbset_drop\n\n08-07 16:18:50.596   668   668 E /system/bin/storaged: libminijail[668]: could not drop capability from bounding set: Operation not permitted\n08-07 16:18:50.596   668   668 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 668 (storaged)\n08-07 16:18:50.593   668   668 W storaged: type\u003d1400 audit(0.0:5): avc: denied { setpcap } for capability\u003d8 scontext\u003du:r:storaged:s0 tcontext\u003du:r:storaged:s0 tclass\u003dcapability permissive\u003d0",
+      "parentUuid": "5993ef57_a9b52f42",
+      "revId": "f062dfb7e2d899691e8e73edf846ce6f3af4e1f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
