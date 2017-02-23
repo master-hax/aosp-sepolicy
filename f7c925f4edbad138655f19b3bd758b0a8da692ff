@@ -22,6 +22,30 @@
       "revId": "f7c925f4edbad138655f19b3bd758b0a8da692ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ccda83ae_6677f3d3",
+        "filename": "public/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-23T21:19:18Z",
+      "side": 1,
+      "message": "create_dir_perms is used so that we can create a separate tracefs \"instance\" for wifi. The separate instance lets us ensure that wifi doesn\u0027t interfere with the use of atrace.\n\nThere\u0027s more detail in the ftrace documentation [1]. I\u0027m happy to elaborate, or add a comment explaining the need for create_dir_perms, if you\u0027d like.\n\n[1] https://googleplex-android.git.corp.google.com/platform/hardware/bsp/kernel/common/v4.1/+/f7e8ead6a2a75fe6dc2dfb2ba2420718450ab33b/Documentation/trace/ftrace.txt#2663",
+      "parentUuid": "17d545d4_c810dbf4",
+      "range": {
+        "startLine": 190,
+        "startChar": 41,
+        "endLine": 190,
+        "endChar": 57
+      },
+      "revId": "f7c925f4edbad138655f19b3bd758b0a8da692ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
