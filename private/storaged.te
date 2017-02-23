@@ -18,7 +18,7 @@ allow storaged proc_uid_io_stats:file r_file_perms;
 # Read /data/system/packages.list
 allow storaged system_data_file:file r_file_perms;
 
-allow storaged self:capability { setgid setuid sys_nice sys_ptrace };
+allow storaged self:capability { setgid setpcap sys_nice };
 
 userdebug_or_eng(`
   # Read access to debugfs
