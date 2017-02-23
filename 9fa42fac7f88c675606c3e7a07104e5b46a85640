@@ -99,6 +99,24 @@
       "revId": "9fa42fac7f88c675606c3e7a07104e5b46a85640",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9001563b_2cc98126",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1066743
+      },
+      "writtenOn": "2017-02-23T23:31:03Z",
+      "side": 1,
+      "message": "If anything in Android wanted to read any proc_security-labelled file, it would need an explicit allow rule. neverallow rules ensure that this does not happen at compile-time. Compilation passed, so that means that currently nothing in Android (except init) has requested access to this, and if somebody in the future tried, they will get a compilation error.",
+      "parentUuid": "db22d751_c43cde9f",
+      "revId": "9fa42fac7f88c675606c3e7a07104e5b46a85640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
