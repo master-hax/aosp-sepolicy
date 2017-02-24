@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "53855c63_a91ca4d4",
+        "filename": "public/hal_camera.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2017-02-24T02:02:18Z",
+      "side": 1,
+      "message": "oops... you are right.\nThis was \"allow camera hal_camera:fd use\"\nI need to remove this line here and add it to device specific te.",
+      "parentUuid": "f061b181_cf694a19",
+      "revId": "385aabbe551d91efe0466eeb42cf09f075b4ee13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d46c01d_dcfe1201",
         "filename": "public/hal_camera.te",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "4970fe87_c922a910",
+        "filename": "public/hal_camera.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2017-02-24T02:02:18Z",
+      "side": 1,
+      "message": "So far it\u0027s not needed in my test.\nThis one is probably for the preview case, where surfaceflinger allocate preview buffer for camera HAL.",
+      "parentUuid": "6d46c01d_dcfe1201",
+      "revId": "385aabbe551d91efe0466eeb42cf09f075b4ee13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b6229dc_92c7c2ac",
         "filename": "public/hal_camera.te",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2017-02-24T01:57:07Z",
       "side": 1,
       "message": "Why does mediaserver need access to these FDs?",
+      "revId": "385aabbe551d91efe0466eeb42cf09f075b4ee13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e38333ba_509963bb",
+        "filename": "public/hal_camera.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2017-02-24T02:02:18Z",
+      "side": 1,
+      "message": "For the HAL1 recording use case, HAL will send native handles created by HAL itself to mediaserver.",
+      "parentUuid": "3b6229dc_92c7c2ac",
       "revId": "385aabbe551d91efe0466eeb42cf09f075b4ee13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
