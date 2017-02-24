@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc470bcd_58a20a2d",
+        "filename": "public/hal_camera.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-24T02:08:41Z",
+      "side": 1,
+      "message": "Since you\u0027re granting access in both directions, I suggest grouping the lines accordingly. So:\n\nallow hal_camera { appdomain -isolated_app }:fd use;\nallow { appdomain -isolated_app } hal_camera:fd use;\nallow hal_camera surfaceflinger:fd use;\nallow hal_camera surfaceflinger:fd use;",
+      "revId": "745a8fcbf8d868f7a0081fb188b1bb7ca3a00a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
