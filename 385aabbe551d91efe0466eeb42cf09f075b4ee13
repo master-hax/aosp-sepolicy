@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f061b181_cf694a19",
+        "filename": "public/hal_camera.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-24T01:57:07Z",
+      "side": 1,
+      "message": "Does this line compile? It sounds like something\u0027s missing here.",
+      "revId": "385aabbe551d91efe0466eeb42cf09f075b4ee13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d46c01d_dcfe1201",
+        "filename": "public/hal_camera.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-24T01:57:07Z",
+      "side": 1,
+      "message": "Is the reverse needed as well? Does surfaceflinger need to use hal_camera\u0027s FDs? I\u0027m asking becaues you\u0027re saying that this relationship goes both ways for other domains, but this doesn\u0027t appear to be the case for surfaceflinger for some reason.",
+      "revId": "385aabbe551d91efe0466eeb42cf09f075b4ee13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b6229dc_92c7c2ac",
+        "filename": "public/hal_camera.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-02-24T01:57:07Z",
+      "side": 1,
+      "message": "Why does mediaserver need access to these FDs?",
+      "revId": "385aabbe551d91efe0466eeb42cf09f075b4ee13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
