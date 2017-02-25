@@ -526,6 +526,21 @@ neverallow {
   -init
   -installd # for relabelfrom and unlink, check for this in explicit neverallow
 } system_data_file:file no_w_file_perms;
+
+#
+# Files in /data receive the system_data_file label by default. This is
+# system_server's data file type. Only a few domains should be creating
+# directories here.
+# init: More on this below
+# installd: for creating app data directories.
+# vold: For mounting internal storage
+# system_server: because this is system_server's data type
+#
+# If you require a new directory in /data, have init create it for you
+# in an init.*.rc script. Init has all the permissions necessary to create
+# and apply the selinux label.
+neverallow { domain -init -installd -system_server -vold } system_data_file: dir create;
+
 # do not grant anything greater than r_file_perms and relabelfrom unlink
 # to installd
 neverallow installd system_data_file:file ~{ r_file_perms relabelfrom unlink };
