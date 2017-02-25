@@ -18,6 +18,7 @@ allow hal_camera { appdomain -isolated_app }:fd use;
 allow { appdomain -isolated_app } hal_camera:fd use;
 allow hal_camera surfaceflinger:fd use;
 allow mediaserver hal_camera:fd use;
+allow mediacodec hal_camera:fd use;
 
 ###
 ### neverallow rules
