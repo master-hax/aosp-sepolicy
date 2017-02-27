@@ -22,6 +22,30 @@
       "revId": "df32f3e82b45278f5817226b3f2576b0612f6103",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eef94549_0dbcbd70",
+        "filename": "public/init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-02-27T23:42:40Z",
+      "side": 1,
+      "message": "\u003e Is this really necessary? No domain is currently allowed this.\n\nyeah, it is. Because the sailfish block devices are now labeled with system_block_device. so, we need to be able to relable existing tmpfs block_device  and symlinks to \u0027system_block_device\u0027 in restorecon :(",
+      "parentUuid": "389ff899_e4daab5c",
+      "range": {
+        "startLine": 35,
+        "startChar": 42,
+        "endLine": 35,
+        "endChar": 50
+      },
+      "revId": "df32f3e82b45278f5817226b3f2576b0612f6103",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
