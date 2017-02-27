@@ -70,6 +70,30 @@
       "revId": "df32f3e82b45278f5817226b3f2576b0612f6103",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1ff1832_b05a6ffd",
+        "filename": "public/init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-02-27T23:57:24Z",
+      "side": 1,
+      "message": "\u003e Are you actually seeing a denial for symlink? We don\u0027t normally\n \u003e label symlinks.\n\nYes, see: b/35792677, denials are listed there and here\u0027s where the device code labels the symlinks with \u0027system_block_device\u0027 -\u003e\n\nhttps://cs.corp.google.com/android/device/google/marlin/sepolicy/file_contexts?rcl\u003d7b05d30008e4c4b43b16b8c553a1985fa73f8e3e\u0026l\u003d55",
+      "parentUuid": "ee910ea2_f8088166",
+      "range": {
+        "startLine": 35,
+        "startChar": 42,
+        "endLine": 35,
+        "endChar": 50
+      },
+      "revId": "df32f3e82b45278f5817226b3f2576b0612f6103",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
