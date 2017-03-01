@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a6fb44a_e33cbf64",
+        "filename": "public/hal_wifi_offload.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-03-01T20:07:49Z",
+      "side": 1,
+      "message": "Same as in PS1, this comment is misleading. It permits calls from any domain marked as client of Wi-Fi Offload HAL. I\u0027d suggest dropping this comment or replacing with the stock comment used in other such files:\n# HwBinder IPC from client to server, and callbacks",
+      "revId": "e47006ac41fdffaa6b774fa3d3d7c70debef5249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a487cba_16555176",
+        "filename": "vendor/hal_wifi_offload_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-03-01T20:07:49Z",
+      "side": 1,
+      "message": "Is Wi-Fi Offload HAL a new HAL introduced only in O, or was there a pre-O HAL with similar functionality? If so, which domains were clients of that HAL?",
+      "revId": "e47006ac41fdffaa6b774fa3d3d7c70debef5249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
