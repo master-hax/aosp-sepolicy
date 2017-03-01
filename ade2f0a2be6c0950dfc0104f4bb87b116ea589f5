@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "deda2c73_8ef2261e",
+        "filename": "public/hal_wifi_offload.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-03-01T19:22:56Z",
+      "side": 1,
+      "message": "This comment is misleading. It permits calls from any domain marked as client of Wi-Fi Offload HAL. I\u0027d suggest dropping this comment or replacing with the stock comment used in other such files:\n# HwBinder IPC from client to server, and callbacks",
+      "revId": "ade2f0a2be6c0950dfc0104f4bb87b116ea589f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76915183_cb7a89ef",
+        "filename": "public/hal_wifi_offload.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-03-01T19:22:56Z",
+      "side": 1,
+      "message": "I believe you need to replace wifi with wifi_offload here and in the binder_call below.",
+      "revId": "ade2f0a2be6c0950dfc0104f4bb87b116ea589f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
