@@ -1,0 +1,7 @@
+type modprobe, domain;
+
+allow modprobe proc:file r_file_perms;
+recovery_only(`
+  allow modprobe rootfs:system module_load;
+  allow modprobe rootfs:file r_file_perms;
+')
