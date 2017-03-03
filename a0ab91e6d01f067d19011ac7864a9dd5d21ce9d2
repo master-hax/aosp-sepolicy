@@ -69,6 +69,24 @@
       "revId": "a0ab91e6d01f067d19011ac7864a9dd5d21ce9d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e90ac76_3ddaa815",
+        "filename": "public/hal_wifi.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-03-03T17:29:33Z",
+      "side": 1,
+      "message": "In this case, please remove set_prop(system_server, wifi_prop) from private/system_server.te. This access will be granted to system_server automatically (incl. in AOSP builds) because system_server is declared as a client of Wi-Fi HAL (see hal_client_domain(system_server, hal_wifi) in private/system_server.te).",
+      "parentUuid": "82b38fad_05c2edb3",
+      "revId": "a0ab91e6d01f067d19011ac7864a9dd5d21ce9d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
