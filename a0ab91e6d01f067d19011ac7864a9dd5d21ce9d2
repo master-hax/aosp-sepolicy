@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7ae8c27e_c9bef2f7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-03T17:03:05Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "0c3abf35_4589be53",
+      "revId": "a0ab91e6d01f067d19011ac7864a9dd5d21ce9d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd72e264_8a90303f",
         "filename": "public/hal_wifi.te",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-03-03T16:44:32Z",
       "side": 1,
       "message": "system_server is also permitted to read \u0026 write wifi_prop. Is it only because Wi-Fi HAL can (and in the past always has) run in passthrough mode inside system_server? I\u0027m asking to find out whether we can remove write access to wifi_prop from system_server now.",
+      "revId": "a0ab91e6d01f067d19011ac7864a9dd5d21ce9d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82b38fad_05c2edb3",
+        "filename": "public/hal_wifi.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-03T17:03:05Z",
+      "side": 1,
+      "message": "Previously the wlan driver loading was handled by the system_server, then we moved it to wificond daemon last year. Now with the treble effort, we\u0027re moving it to the HAL.\n\nWill need to cleanup all of these permissions once the Wifi HAL is active. It\u0027s not yet mainlined.",
+      "parentUuid": "fd72e264_8a90303f",
       "revId": "a0ab91e6d01f067d19011ac7864a9dd5d21ce9d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
