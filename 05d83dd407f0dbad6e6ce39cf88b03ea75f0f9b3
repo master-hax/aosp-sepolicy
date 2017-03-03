@@ -34,6 +34,24 @@
       "revId": "05d83dd407f0dbad6e6ce39cf88b03ea75f0f9b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a44d3745_2d3b7a08",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1077068
+      },
+      "writtenOn": "2017-03-03T18:31:01Z",
+      "side": 1,
+      "message": "My understanding looking at what the bionic/linker does is that if you stick /vendor/lib in the library path it will be parsed by the linker regardless of whether you use a HAL or not; it happens when loading a dynamically linked executable that doesn\u0027t use HALs.\n\nI\u0027m looking at this function:\n\n  https://android.googlesource.com/platform/bionic/+/master/linker/linker_utils.cpp#175\n\nwhich is the one that calls realpath(), and is called from linker_main.cpp",
+      "parentUuid": "31b5fa62_0145ef8e",
+      "revId": "05d83dd407f0dbad6e6ce39cf88b03ea75f0f9b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
