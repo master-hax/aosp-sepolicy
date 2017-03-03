@@ -16,6 +16,24 @@
       "revId": "05d83dd407f0dbad6e6ce39cf88b03ea75f0f9b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07e3059f_9e5be2b5",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-03-03T18:27:22Z",
+      "side": 1,
+      "message": "There\u0027s an inherent conflict between a fine grain policy and creating a policy which is maintainable and has minimal complexity. Complexity is the enemy of security, and that\u0027s also true when creating security policy.\n\nIn this case, it\u0027s just granting the ability to run stat() on symlinks in /system. I\u0027d argue that keeping the policy simple in this case provides more value than fine grain control over stat on symlinks.",
+      "parentUuid": "31b5fa62_0145ef8e",
+      "revId": "05d83dd407f0dbad6e6ce39cf88b03ea75f0f9b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
