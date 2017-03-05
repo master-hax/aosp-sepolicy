@@ -22,6 +22,30 @@
       "revId": "38d3eca0d40811fed4b01947bc4b65dd0a375ce1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de07a393_abdd3546",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-03-05T14:54:41Z",
+      "side": 1,
+      "message": "Right now we only have two SELinux domains for untrusted apps, one domain for API \u003c\u003d 25, and one for \u003e 25. I\u0027d prefer to keep this at 25 because the fewer SELinux domains we have, the simpler the policy stays. Creating a new domain for various API levels isn\u0027t that simple today.",
+      "parentUuid": "61771f6b_1fcfa840",
+      "range": {
+        "startLine": 47,
+        "startChar": 20,
+        "endLine": 47,
+        "endChar": 22
+      },
+      "revId": "38d3eca0d40811fed4b01947bc4b65dd0a375ce1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
