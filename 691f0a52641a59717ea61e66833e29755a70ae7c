@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17dd1839_6fcaadc5",
+        "filename": "public/init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-03-06T06:16:01Z",
+      "side": 1,
+      "message": "Can you please try changing lines 184 and 185 to read:\n\nallow init { sysfs debugfs debugfs_tracing }:{ dir file lnk_file } { getattr relabelfrom };\nallow init { sysfs_type debugfs_type }:{ dir file lnk_file } { relabelto getattr };\n\nand see if that is sufficient to resolve this?",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 71
+      },
+      "revId": "691f0a52641a59717ea61e66833e29755a70ae7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
