@@ -25,6 +25,75 @@
     },
     {
       "key": {
+        "uuid": "9e738ba7_0e7cd85c",
+        "filename": "public/hal_wifi_supplicant.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-03-06T23:36:39Z",
+      "side": 1,
+      "message": "Seems like this should go into device specific policy. Let\u0027s remove.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 55
+      },
+      "revId": "2b84e823a421c79dfb5690db9e0ed40258bd09ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb7eb45_0feb882b",
+        "filename": "public/hal_wifi_supplicant.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-03-06T23:36:39Z",
+      "side": 1,
+      "message": "alphabetical order",
+      "range": {
+        "startLine": 12,
+        "startChar": 44,
+        "endLine": 12,
+        "endChar": 75
+      },
+      "revId": "2b84e823a421c79dfb5690db9e0ed40258bd09ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14453125_8e0eda3e",
+        "filename": "public/hal_wifi_supplicant.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-03-06T23:36:39Z",
+      "side": 1,
+      "message": "Can this just be r_dir_perms? It would be better to have init create these dirs for you.",
+      "range": {
+        "startLine": 19,
+        "startChar": 45,
+        "endLine": 19,
+        "endChar": 61
+      },
+      "revId": "2b84e823a421c79dfb5690db9e0ed40258bd09ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45a3bb47_ea566acc",
         "filename": "vendor/file_contexts",
         "patchSetId": 2
@@ -41,6 +110,29 @@
         "startChar": 56,
         "endLine": 31,
         "endChar": 57
+      },
+      "revId": "2b84e823a421c79dfb5690db9e0ed40258bd09ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6415980_cff0ca8a",
+        "filename": "vendor/hal_wifi_supplicant_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-03-06T23:36:39Z",
+      "side": 1,
+      "message": "Let\u0027s finally fix this the correct way. Have init.rc create this directory. The label is already matched to this dir in file_contexts.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 84
       },
       "revId": "2b84e823a421c79dfb5690db9e0ed40258bd09ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
