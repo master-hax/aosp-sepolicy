@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb2d8f30_17ff1fb5",
+        "filename": "Android.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-03-07T20:36:55Z",
+      "side": 1,
+      "message": "This needs to be emptied at the bottom of this section, see nonplat_sc_files.",
+      "revId": "8d7155791d934834830045a239014612666b9353",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6716f72_32ed0fd8",
+        "filename": "Android.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-03-07T20:36:55Z",
+      "side": 1,
+      "message": "I believe the value of $(plat_sc_files) is empty here. The usual approach is to assign plat_sc_files to some upper-cased var above and then use that upper-cased local var here. See how this is done with PRIVATE_SC_FILES for nonplat_sc_files.",
+      "revId": "8d7155791d934834830045a239014612666b9353",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
