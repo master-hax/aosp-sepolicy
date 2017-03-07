@@ -39,6 +39,24 @@
       "revId": "09a1f664e4039ae3a9e860134dcc292b46b913fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5bd8229_9c3a8509",
+        "filename": "Android.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1013433
+      },
+      "writtenOn": "2017-03-07T18:47:27Z",
+      "side": 1,
+      "message": "Statements cannot span multiple lines, processing is per-line.\n\nIIRC -e is needed on Mac.\n\nThese are not kernel policy files, these are processed by userspace via check_seapp.c and by zygote and installd.\n\n-i is needed, as NevErAllow is valid... strcasecmp()...\nper the top comment block of seapp_contexts:\n# Matching is case-insensitive.",
+      "parentUuid": "6a3e4d6b_7fb1319c",
+      "revId": "09a1f664e4039ae3a9e860134dcc292b46b913fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
