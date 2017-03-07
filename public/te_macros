@@ -390,6 +390,19 @@ define(`recovery_only', ifelse(target_recovery, `true', $1, ))
 #
 define(`userdebug_or_eng', ifelse(target_build_variant, `eng', $1, ifelse(target_build_variant, `userdebug', $1)))
 
+####################################
+# Fallback crash handling for seccomped processes.
+#
+define(`seccomp_crash_dump', `
+# Write to `debuggerd -b` pipe.
+userdebug_or_eng(`
+  allow $1 su:fifo_file append;
+');
+allow $1 anr_data_file:file append;
+allow $1 tombstoned:unix_stream_socket connectto;
+allow $1 tombstoned_crash_socket:sock_file write;
+')
+
 #####################################
 # WITH_DEXPREOPT builds
 # SELinux rules which apply only when pre-opting.
