@@ -770,7 +770,7 @@ LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-plat_sc_files := $(call build_policy, seapp_contexts, $(PLAT_PRIVATE_POLICY))
+plat_sc_files := $(call build_policy, seapp_contexts seapp_neverallows, $(PLAT_PRIVATE_POLICY))
 
 $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
 $(LOCAL_BUILT_MODULE): PRIVATE_SC_FILES := $(plat_sc_files)
@@ -791,6 +791,7 @@ LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 include $(BUILD_SYSTEM)/base_rules.mk
 
 nonplat_sc_files := $(call build_policy, seapp_contexts, $(PLAT_VENDOR_POLICY) $(BOARD_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
+nonplat_sc_files += $(call build_policy, seapp_neverallows, $(PLAT_PRIVATE_POLICY) $(PLAT_VENDOR_POLICY) $(BOARD_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
 
 $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
 $(LOCAL_BUILT_MODULE): PRIVATE_SC_FILES := $(nonplat_sc_files)
@@ -809,7 +810,7 @@ LOCAL_MODULE_TAGS := tests
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-$(LOCAL_BUILT_MODULE): $(addprefix $(PLAT_PRIVATE_POLICY)/, seapp_contexts)
+$(LOCAL_BUILT_MODULE): $(addprefix $(PLAT_PRIVATE_POLICY)/, seapp_neverallows)
 	@mkdir -p $(dir $@)
 	- $(hide) grep -ie '^neverallow' $< > $@
 
