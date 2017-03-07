@@ -793,8 +793,8 @@ include $(BUILD_SYSTEM)/base_rules.mk
 nonplat_sc_files := $(call build_policy, seapp_contexts, $(PLAT_VENDOR_POLICY) $(BOARD_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
 
 $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
-$(LOCAL_BUILT_MODULE): PRIVATE_SC_FILES := $(nonplat_sc_files)
-$(LOCAL_BUILT_MODULE): $(built_sepolicy) $(nonplat_sc_files) $(HOST_OUT_EXECUTABLES)/checkseapp
+$(LOCAL_BUILT_MODULE): PRIVATE_SC_FILES := $(nonplat_sc_files) $(TARGET_OUT_ETC)/plat_seapp_neverallows
+$(LOCAL_BUILT_MODULE): $(built_sepolicy) $(nonplat_sc_files) $(TARGET_OUT_ETC)/plat_seapp_neverallows $(HOST_OUT_EXECUTABLES)/checkseapp
 	@mkdir -p $(dir $@)
 	$(hide) $(HOST_OUT_EXECUTABLES)/checkseapp -p $(PRIVATE_SEPOLICY) -o $@ $(PRIVATE_SC_FILES)
 
