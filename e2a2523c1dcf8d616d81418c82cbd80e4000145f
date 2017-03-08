@@ -118,6 +118,30 @@
       "revId": "e2a2523c1dcf8d616d81418c82cbd80e4000145f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4571084_2cc76f7e",
+        "filename": "public/modprobe.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1143592
+      },
+      "writtenOn": "2017-03-08T06:44:01Z",
+      "side": 1,
+      "message": "OK. I found that I need to give read permissions to the kernel also as can be seen from below denials.\n\nDenials:\n[   14.670605] c3      1 audit: type\u003d1400 audit(6227037.640:3): avc:  denied  { read } for  pid\u003d1 comm\u003d\"init\" name\u003d\"cmdline\" dev\u003d\"proc\" ino\u003d4026532350 scontext\u003du:r:kernel:s0 tcontext\u003du:object_r:proc_cmdline:s0 tclass\u003dfile permissive\u003d1\n[   14.690828] c3      1 audit: type\u003d1400 audit(6227037.660:4): avc:  denied  { open } for  pid\u003d1 comm\u003d\"init\" path\u003d\"/proc/cmdline\" dev\u003d\"proc\" ino\u003d4026532350 scontext\u003du:r:kernel:s0 tcontext\u003du:object_r:proc_cmdline:s0 tclass\u003dfile permissive\u003d1\n[   14.712108] c3      1 audit: type\u003d1404 audit(6227037.680:5): enforcing\u003d1 old_enforcing\u003d0 auid\u003d4294967295 ses\u003d4294967295\n[   14.724234] c2      1 selinux: SELinux: Loaded file_contexts",
+      "parentUuid": "823b7d4b_5dfa3105",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 38
+      },
+      "revId": "e2a2523c1dcf8d616d81418c82cbd80e4000145f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
