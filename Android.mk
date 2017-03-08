@@ -631,9 +631,6 @@ $(LOCAL_BUILT_MODULE): $(built_general_sepolicy.conf) $(HOST_OUT_EXECUTABLES)/ch
 
 built_general_sepolicy := $(LOCAL_BUILT_MODULE)
 
-##################################
-# TODO - remove this.   Keep around until we get the filesystem creation stuff taken care of.
-#
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := file_contexts.bin
@@ -712,7 +709,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := plat_file_contexts
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
+LOCAL_MODULE_PATH := $(TARGET_OUT)/etc/selinux
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
@@ -742,7 +739,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := nonplat_file_contexts
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/etc/selinux
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
