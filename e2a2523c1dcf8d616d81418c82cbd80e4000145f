@@ -22,6 +22,30 @@
       "revId": "e2a2523c1dcf8d616d81418c82cbd80e4000145f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b361504a_f6d14f23",
+        "filename": "public/modprobe.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1143592
+      },
+      "writtenOn": "2017-03-08T05:06:15Z",
+      "side": 1,
+      "message": "What about for /proc/cmdline ?\n\nI tried it, but I have following denials. Note that even with those denials inserting modules has been succeeded.\n\n[   17.091823] c2      1 audit: type\u003d1400 audit(6221547.076:4): avc:  denied  { setattr } for  pid\u003d1 comm\u003d\"init\" name\u003d\"system\" dev\u003d\"rootfs\" ino\u003d12891 scontext\u003du:r:init:s0 tcontext\u003du:object_r:rootfs:s0 tclass\u003dlnk_file permissive\u003d0\n[   17.111385] c2      1 init: starting service \u0027exec 1 (/sbin/modprobe)\u0027...\n[   17.118103] c2      1 init: SVC_EXEC pid 435 (uid 0 gid 0+0 context u:r:modprobe:s0) started; waiting...\n[   17.120842] c0    435 audit: type\u003d1400 audit(6221547.106:5): avc:  denied  { search } for  pid\u003d435 comm\u003d\"modprobe\" name\u003d\"/\" dev\u003d\"tmpfs\" ino\u003d14434 scontext\u003du:r:modprobe:s0 tcontext\u003du:object_r:tmpfs:s0 tclass\u003ddir permissive\u003d0   \n[   17.121006] c0    435 audit: type\u003d1400 audit(6221547.106:6): avc:  denied  { read } for  pid\u003d435 comm\u003d\"modprobe\" name\u003d\"cmdline\" dev\u003d\"proc\" ino\u003d4026532350 scontext\u003du:r:modprobe:s0 tcontext\u003du:object_r:proc:s0 tclass\u003dfile permissive\u003d0\n[   17.129950] c0    435 NILFS version 2 loaded\n[   17.171728] c2      1 init: Command \u0027exec u:r:modprobe:s0 -- /sbin/modprobe -a nilfs2 ftl\u0027 action\u003dinit (/init.rc:32) returned 0 took 60.3427ms.\n[   17.184661] c2      1 init: Service \u0027exec 1 (/sbin/modprobe)\u0027 (pid 435) exited with status 0\n[   17.192905] c2      1 init: SVC_EXEC pid 435 finished...\n[   17.198199] c2      1 init: Wait for exec took 0.0868338 seconds\n\n#\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d modprobe \u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nallow modprobe proc:file read;\nallow modprobe tmpfs:dir search;",
+      "parentUuid": "b96b86ea_515bd07f",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 38
+      },
+      "revId": "e2a2523c1dcf8d616d81418c82cbd80e4000145f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
