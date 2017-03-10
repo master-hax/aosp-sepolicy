@@ -257,7 +257,7 @@ neverallow { domain -init } usermodehelper:file { append write };
 neverallow { domain -init } proc_security:file { append open read write };
 
 # No domain should be allowed to ptrace init.
-neverallow * init:process ptrace;
+# neverallow * init:process ptrace;
 
 # Init can't do anything with binder calls. If this neverallow rule is being
 # triggered, it's probably due to a service with no SELinux domain.

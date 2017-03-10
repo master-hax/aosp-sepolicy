@@ -14,7 +14,10 @@ allow crash_dump {
 dontaudit crash_dump self:capability { sys_ptrace };
 
 userdebug_or_eng(`
-  allow crash_dump logd:process { ptrace signal sigchld sigstop sigkill };
+  allow crash_dump {
+    logd
+    init
+  }:process { ptrace signal sigchld sigstop sigkill };
 ')
 
 # Use inherited file descriptors
