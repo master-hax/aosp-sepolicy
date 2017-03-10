@@ -26,6 +26,12 @@ hwbinder_use(mediacodec)
 hwallocator_use(mediacodec)
 allow mediacodec system_file:dir { open read };
 
+# mediacodec recieve a gralloc buffer fd from the bufferhubd.
+allow mediacodec bufferhubd:fd use;
+
+# bufferhubd may receive sync fence fd from the media codec.
+allow bufferhubd mediacodec:fd use;
+
 ###
 ### neverallow rules
 ###
