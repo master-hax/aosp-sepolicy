@@ -26,6 +26,9 @@ hwbinder_use(mediacodec)
 hwallocator_use(mediacodec)
 allow mediacodec system_file:dir { open read };
 
+# PDX FD
+use_pdx_fd(mediacodec, bufferhubd)
+
 ###
 ### neverallow rules
 ###

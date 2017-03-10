@@ -108,6 +108,17 @@ allow $2 $1:fd use;
 ')
 
 #####################################
+# use_pdx_fd(clientdomain, serverdomain)
+define(`use_pdx_fd', `
+# Clients recieve an event fd from the server.
+allow $1 $2:fd use;
+# Servers may receive sync fences, gralloc buffers, etc, from clients.
+# This could be tightened on a per-server basis, but keeping track of service
+# clients is error prone.
+allow $2 $1:fd use;
+')
+
+#####################################
 # init_daemon_domain(domain)
 # Set up a transition from init to the daemon domain
 # upon executing its binary.
