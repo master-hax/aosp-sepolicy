@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e9e199a_f97997f6",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-03-13T19:47:39Z",
+      "side": 1,
+      "message": "Please make sure you clear the variable at the end of this file (near line 1117) to avoid leaking this variable to other make files.",
+      "revId": "fbc8b847eb398c581f81784b4acd6c9013ca7b47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45db4775_d80d2cfa",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-03-13T19:47:39Z",
+      "side": 1,
+      "message": "This target is used for building the policy for use in cts neverallow tests. For that purpose, targe_with_asan should always be false. We do something similar on line 621 to force this to be a user build. Otherwise, CTS built under ASAN could relax a neverallow rule we intended to keep.",
+      "revId": "fbc8b847eb398c581f81784b4acd6c9013ca7b47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
