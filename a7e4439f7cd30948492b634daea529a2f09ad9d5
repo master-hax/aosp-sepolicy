@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f6bb0d2_3dd4bfaa",
+        "filename": "public/hal_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-03-13T20:48:18Z",
+      "side": 1,
+      "message": "typo: network",
+      "range": {
+        "startLine": 1,
+        "startChar": 28,
+        "endLine": 1,
+        "endChar": 35
+      },
+      "revId": "a7e4439f7cd30948492b634daea529a2f09ad9d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bbc9d9b_dc2bd103",
+        "filename": "public/hal_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-03-13T20:48:18Z",
+      "side": 1,
+      "message": "hal_bluetooth_server -- it\u0027s cleaner and also hal_bluetooth can be associated with clients of Bluetooth HAL, and these are never associated with halserverdomain. Same comment for all the lines below.\n\nP. S. rild can stay as is for now because it hasn\u0027t yet been switch to _client/_server attribute mode.",
+      "range": {
+        "startLine": 5,
+        "startChar": 3,
+        "endLine": 5,
+        "endChar": 16
+      },
+      "revId": "a7e4439f7cd30948492b634daea529a2f09ad9d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
