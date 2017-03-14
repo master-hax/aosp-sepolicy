@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "405064d5_80a9f56f",
+        "filename": "private/untrusted_app_all.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-03-14T21:15:52Z",
+      "side": 1,
+      "message": "preloads_media_file (/data/preloads/media) is a subdirectory of preloads_data_file (/data/preloads). As a result, you need to grant search permission to preloads_media_file so that you can reach /data/preloads/media\n\n  allow untrusted_app_all preloads_data_file:dir search;\n\nin addition to what you have.",
+      "revId": "c25ccca83bb642f38c44687837cbee90ace67f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
