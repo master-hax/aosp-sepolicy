@@ -66,3 +66,5 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/recovery/root/property_contexts)
 
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/selinux/plat_property_contexts)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/selinux/nonplat_property_contexts)
+
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/selinux/nonplat_mac_permissions.xml)

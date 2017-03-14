@@ -1038,7 +1038,11 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := nonplat_mac_permissions.xml
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
+ifeq ($(PRODUCT_FULL_TREBLE),true)
 LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/etc/selinux
+else
+LOCAL_MODULE_PATH := $(TARGET_OUT)/etc/selinux
+endif
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
