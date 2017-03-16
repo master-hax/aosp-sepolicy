@@ -22,6 +22,30 @@
       "revId": "ebcec9b8bbf6c725aaaaf6122cbb47cbca44569a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad755a53_00ecccf7",
+        "filename": "public/profman.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-16T18:22:17Z",
+      "side": 1,
+      "message": "Profiles for non-primary dex code is stored next to the dex file in the app data folder. When compiling, profman needs to keep a copy of what data was already used to avoid unnecessary recompilation. That copy is also kept next to the dex file.\n\nIt\u0027s the same things we are doing for dex2oat. The only difference is that we preferred to split the profile analyzer in a different binary so that we keep things simpler and cleaner in the runtime.",
+      "parentUuid": "fc1e3f66_cf766644",
+      "range": {
+        "startLine": 20,
+        "startChar": 48,
+        "endLine": 20,
+        "endChar": 53
+      },
+      "revId": "ebcec9b8bbf6c725aaaaf6122cbb47cbca44569a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
