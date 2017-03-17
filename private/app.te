@@ -156,6 +156,9 @@ binder_call(appdomain, ephemeral_app)
 hwbinder_use(appdomain)
 hwallocator_use(appdomain)
 
+# App can access configstore HAL which is read only
+binder_call(appdomain, hal_configstore)
+
 # Already connected, unnamed sockets being passed over some other IPC
 # hence no sock_file or connectto permission. This appears to be how
 # Chrome works, may need to be updated as more apps using isolated services
