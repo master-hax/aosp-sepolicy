@@ -22,6 +22,30 @@
       "revId": "9e6b24c6a5dc026924b2ab983d6644063585cd9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88da5d25_967aacbe",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-03-17T04:24:26Z",
+      "side": 1,
+      "message": "We are, but not in this commit. Normally, such rules are in hal_light.te which then removes the need to have binder_call(system_server, hal_light) here. However, adding such boilerplate rules to this commit would only make it bigger, and I still would not be able to remove binder_call(system_server, hal_light) just to be super-safe, since this commit is supposed to be just adding rules, not removing (and proving that the rules are the same is extra cognitive load).",
+      "parentUuid": "73a25e8a_19af56a3",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 37
+      },
+      "revId": "9e6b24c6a5dc026924b2ab983d6644063585cd9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
