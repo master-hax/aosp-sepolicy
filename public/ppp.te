@@ -7,7 +7,7 @@ net_domain(ppp)
 
 r_dir_file(ppp, proc_net)
 
-allow ppp mtp:socket rw_socket_perms_no_ioctl;
+allow ppp mtp:socket rw_socket_perms;
 allow ppp mtp:unix_dgram_socket rw_socket_perms;
 allow ppp ppp_device:chr_file rw_file_perms;
 allow ppp self:capability net_admin;
