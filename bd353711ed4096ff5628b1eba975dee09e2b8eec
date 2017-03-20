@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ff1fbf7_a5bbd1b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-03-20T21:14:43Z",
+      "side": 1,
+      "message": "Please update the reasoning for why this is OK (suggested text in the paragraph below).\n\nLetting apps have direct access to this HAL is OK because: (1) the API of this HAL does not make clients provide any sensitive information to the HAL, which makes it impossible for the HAL to disclose sensitive information of its clients when the HAL is compromised, (2) we will require that this HAL is binderized (i.e., does not run inside the process of its clients), (3) we will require that this HAL runs in a tight seccomp sandbox (this HAL doesn\u0027t need much access, if at all) and, (4) we\u0027ll restrict the HALs powers via neverallows.",
+      "revId": "bd353711ed4096ff5628b1eba975dee09e2b8eec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
