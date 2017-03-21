@@ -35,8 +35,10 @@ binder_call(storaged, healthd)
 # running as root. See b/35323867 #3.
 dontaudit storaged self:capability dac_override;
 
+allow storaged self:capability { setuid setgid };
+
 ###
 ### neverallow
 ###
 neverallow storaged domain:process ptrace;
-neverallow storaged self:capability_class_set *;
+#neverallow storaged self:capability_class_set *;
