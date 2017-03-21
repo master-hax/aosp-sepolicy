@@ -64,6 +64,9 @@ allow dumpstate {
   mediaserver
   sdcardd
   surfaceflinger
+
+  # allow all hal processes to be dumped
+  halserverdomain
 }:process signal;
 
 # Connect to tombstoned to intercept dumps.
