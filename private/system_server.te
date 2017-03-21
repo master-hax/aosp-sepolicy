@@ -219,6 +219,9 @@ allow system_server {
   mediametrics
   sdcardd
   surfaceflinger
+
+  # allow all hal processes to be dumped
+  halserverdomain
 }:process { signal };
 
 # Use sockets received over binder from various services.
