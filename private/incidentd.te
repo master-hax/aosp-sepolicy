@@ -47,6 +47,9 @@ allow incidentd {
   mediaserver
   sdcardd
   surfaceflinger
+
+  # allow all hal processes to be dumped
+  halserverdomain
 }:process signal;
 
 # Allow incidentd to make binder calls to any binder service
