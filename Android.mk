@@ -124,6 +124,11 @@ sepolicy_build_files := security_classes \
                         genfs_contexts \
                         port_contexts
 
+# CIL files which contain hacks around current limitation of human-readable
+# module policy language. These files are appended to the CIL files produced
+# from module language files.
+sepolicy_build_cil_hack_files := hack.cil
+
 my_target_arch := $(TARGET_ARCH)
 ifneq (,$(filter mips mips64,$(TARGET_ARCH)))
   my_target_arch := mips
@@ -236,9 +241,13 @@ $(PLAT_PUBLIC_POLICY) $(PLAT_PRIVATE_POLICY))
 	$(hide) sed '/dontaudit/d' $@ > $@.dontaudit
 
 plat_policy_nvr := $(intermediates)/plat_policy_nvr.cil
-$(plat_policy_nvr): $(plat_policy.conf) $(HOST_OUT_EXECUTABLES)/checkpolicy
+$(plat_policy_nvr): PRIVATE_ADDITIONAL_CIL_FILES := \
+  $(call build_policy, $(sepolicy_build_cil_hack_files), $(PLAT_PRIVATE_POLICY))
+$(plat_policy_nvr): $(plat_policy.conf) $(HOST_OUT_EXECUTABLES)/checkpolicy \
+  $(call build_policy, $(sepolicy_build_cil_hack_files), $(PLAT_PRIVATE_POLICY))
 	@mkdir -p $(dir $@)
 	$(hide) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -C -c $(POLICYVERS) -o $@ $<
+	$(hide) cat $(PRIVATE_ADDITIONAL_CIL_FILES) >> $@
 
 $(LOCAL_BUILT_MODULE): PRIVATE_CIL_FILES := $(plat_policy_nvr)
 $(LOCAL_BUILT_MODULE): $(HOST_OUT_EXECUTABLES)/secilc $(plat_policy_nvr)
