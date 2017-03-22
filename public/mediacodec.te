@@ -4,6 +4,9 @@ type mediacodec_exec, exec_type, file_type;
 
 typeattribute mediacodec mlstrustedsubject;
 
+# TODO(b/36375899) attributize this domain appropriately
+typeattribute mediacodec halclientdomain;
+
 binder_use(mediacodec)
 binder_call(mediacodec, binderservicedomain)
 binder_call(mediacodec, appdomain)
