@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f98a31a_6ecc1c6b",
+        "filename": "private/bluetooth.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-03-22T03:02:42Z",
+      "side": 1,
+      "message": "My guess is that this is not required.  The UNIX socket way of talking to netd should be scoped to just network management service.  All new or ported functionality should be exported via binder instead. (this is our intention, at least)",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 19
+      },
+      "revId": "da6356f19a305b48adfa216b69e7a53ddef31249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
