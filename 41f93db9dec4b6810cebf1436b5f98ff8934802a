@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e379f43_72de037e",
+        "filename": "private/incidentd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-03-22T04:45:27Z",
+      "side": 1,
+      "message": "These shouldn\u0027t be needed. You can start with the minimum capability set already using filesystem capabilities: https://source.android.com/devices/tech/config/filesystem.html",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 70
+      },
+      "revId": "41f93db9dec4b6810cebf1436b5f98ff8934802a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72591fb6_77ce09d0",
+        "filename": "private/incidentd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-03-22T04:45:27Z",
+      "side": 1,
+      "message": "This seems much too broad. Why do you need to read proc for init, or the TEE, or keystore, or gatekeeper, or....",
+      "revId": "41f93db9dec4b6810cebf1436b5f98ff8934802a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec33ff20_1091c108",
+        "filename": "private/incidentd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-03-22T04:45:27Z",
+      "side": 1,
+      "message": "none of these are labeled system_file. Can we get this down to a whitelist?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 50
+      },
+      "revId": "41f93db9dec4b6810cebf1436b5f98ff8934802a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8977352a_927c0bb1",
+        "filename": "private/incidentd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-03-22T04:45:27Z",
+      "side": 1,
+      "message": "this is likely also too broad. Please whitelist instead of default granting access.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 43
+      },
+      "revId": "41f93db9dec4b6810cebf1436b5f98ff8934802a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f1b2d1e_756235d0",
+        "filename": "private/incidentd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-03-22T04:45:27Z",
+      "side": 1,
+      "message": "Not appropriate for production builds",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 27
+      },
+      "revId": "41f93db9dec4b6810cebf1436b5f98ff8934802a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
