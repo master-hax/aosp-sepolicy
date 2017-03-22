@@ -47,9 +47,12 @@ allow bluetooth radio_service:service_manager find;
 allow bluetooth surfaceflinger_service:service_manager find;
 allow bluetooth app_api_service:service_manager find;
 allow bluetooth system_api_service:service_manager find;
+allow bluetooth netd_service:service_manager find;
 
 # Bluetooth Sim Access Profile Socket to the RIL
 unix_socket_connect(bluetooth, sap_uim, rild)
+
+unix_socket_connect(bluetooth, netd, netd)
 
 # already open bugreport file descriptors may be shared with
 # the bluetooth process, from a file in
@@ -58,6 +61,7 @@ allow bluetooth shell_data_file:file read;
 
 hal_client_domain(bluetooth, hal_bluetooth)
 binder_call(bluetooth, hal_telephony)
+binder_call(bluetooth, netd)
 hal_client_domain(bluetooth, hal_telephony)
 
 read_runtime_log_tags(bluetooth)
