@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "601308fe_d8f191d8",
+        "filename": "private/halclientdomain.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-23T01:23:47Z",
+      "side": 1,
+      "message": "ope, yeah, forgot these comments",
+      "parentUuid": "0854b84a_3a0e2bd8",
+      "revId": "856e4401a77fc8f01722e320056b524a523bcdff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb44ba8b_53efe54e",
         "filename": "public/mediacodec.te",
         "patchSetId": 10
@@ -30,6 +48,24 @@
       "writtenOn": "2017-03-23T00:57:57Z",
       "side": 1,
       "message": "Which HAL is this a client of? I thought hit is actually a HAL server (OMX HAL). If so, shouldn\u0027t the temporary workaround be:\n  typeattribute mediacodec halserverdomain;\n?",
+      "revId": "856e4401a77fc8f01722e320056b524a523bcdff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d87484_1bfe92af",
+        "filename": "public/mediacodec.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-23T01:23:47Z",
+      "side": 1,
+      "message": "It should be halserverdomain, good catch",
+      "parentUuid": "bb44ba8b_53efe54e",
       "revId": "856e4401a77fc8f01722e320056b524a523bcdff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "47ef26c4_871225dd",
+        "filename": "public/mediaserver.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-23T01:23:47Z",
+      "side": 1,
+      "message": "The comment is wrong, good catch",
+      "parentUuid": "9266727c_4f25d802",
+      "revId": "856e4401a77fc8f01722e320056b524a523bcdff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2811fc4_46e6d91d",
         "filename": "public/sensord.te",
         "patchSetId": 10
@@ -64,6 +118,24 @@
       "writtenOn": "2017-03-23T00:57:57Z",
       "side": 1,
       "message": "Not needed. Graphics Allocator HAL is required to be binderized and hence the hal_client_domain(sensord, hal_graphics_allocator_server) above will also grant the use of grallow HAL FDs. See https://android-review.googlesource.com/#/c/354350/1/private/app.te.",
+      "revId": "856e4401a77fc8f01722e320056b524a523bcdff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15aa7bc9_613daa1a",
+        "filename": "public/sensord.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-23T01:23:47Z",
+      "side": 1,
+      "message": "it\u0027s not talking to the hal directly (or this wouldn\u0027t work) but getting the fd from somewhere else",
+      "parentUuid": "b2811fc4_46e6d91d",
       "revId": "856e4401a77fc8f01722e320056b524a523bcdff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
