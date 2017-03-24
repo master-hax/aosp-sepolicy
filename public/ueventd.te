@@ -10,6 +10,7 @@ allow ueventd device:file create_file_perms;
 
 r_dir_file(ueventd, sysfs_type)
 r_dir_file(ueventd, rootfs)
+
 allow ueventd sysfs:file w_file_perms;
 allow ueventd sysfs_usb:file w_file_perms;
 allow ueventd sysfs_hwrandom:file w_file_perms;
@@ -28,6 +29,9 @@ allow ueventd efs_file:file r_file_perms;
 
 # Get SELinux enforcing status.
 r_dir_file(ueventd, selinuxfs)
+
+# Get file contexts for new device nodes
+allow ueventd file_contexts:file r_file_perms;
 
 # Use setfscreatecon() to label /dev directories and files.
 allow ueventd self:process setfscreate;
