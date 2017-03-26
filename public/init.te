@@ -139,6 +139,7 @@ allow init {
   -system_app_data_file
   -system_file
   -vold_data_file
+  -vold_virtual_disk_data_file
 }:dir { write add_name remove_name rmdir relabelfrom };
 
 allow init {
@@ -152,6 +153,7 @@ allow init {
   -system_app_data_file
   -system_file
   -vold_data_file
+  -vold_virtual_disk_data_file
 }:file { create getattr open read write setattr relabelfrom unlink };
 
 allow init {
@@ -164,6 +166,7 @@ allow init {
   -system_app_data_file
   -system_file
   -vold_data_file
+  -vold_virtual_disk_data_file
 }:{ sock_file fifo_file } { create getattr open read setattr relabelfrom unlink };
 
 allow init {
@@ -176,6 +179,7 @@ allow init {
   -system_app_data_file
   -system_file
   -vold_data_file
+  -vold_virtual_disk_data_file
 }:lnk_file { create getattr setattr relabelfrom unlink };
 
 allow init cache_file:lnk_file r_file_perms;
@@ -280,6 +284,9 @@ allow init keystore_data_file:file { getattr };
 # the directory as part of a recursive restorecon.
 allow init vold_data_file:dir { open create read getattr setattr search };
 allow init vold_data_file:file { getattr };
+
+# vold manages the virtual disk file, but restorecon will poke at it
+allow init vold_virtual_disk_data_file:file { getattr };
 
 # Init creates /data/local/tmp at boot
 allow init shell_data_file:dir { open create read getattr setattr search };

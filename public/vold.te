@@ -146,6 +146,7 @@ allow vold proc_drop_caches:file w_file_perms;
 # Give vold a place where only vold can store files; everyone else is off limits
 allow vold vold_data_file:dir create_dir_perms;
 allow vold vold_data_file:file create_file_perms;
+allow vold vold_virtual_disk_data_file:file create_file_perms;
 
 # linux keyring configuration
 allow vold init:key { write search setattr };
@@ -178,5 +179,9 @@ neverallow { domain -vold } vold_data_file:notdevfile_class_set ~{ relabelto get
 neverallow { domain -vold -init } vold_data_file:dir *;
 neverallow { domain -vold -init } vold_data_file:notdevfile_class_set *;
 neverallow { domain -vold -init } restorecon_prop:property_service set;
+
+# Nobody else can look at our virtual disk.
+neverallow { domain -vold -kernel } vold_virtual_disk_data_file:notdevfile_class_set ~{ relabelto getattr };
+neverallow { domain -vold -kernel -init } vold_virtual_disk_data_file:notdevfile_class_set *;
 
 neverallow vold fsck_exec:file execute_no_trans;
