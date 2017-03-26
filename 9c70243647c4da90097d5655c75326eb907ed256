@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e5a6314_0470d57e",
+        "filename": "public/kernel.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-03-26T20:53:20Z",
+      "side": 1,
+      "message": "This is passed as a file descriptor to the kernel, right? It doesn\u0027t open it by path (you haven\u0027t granted directory search permission)?\n\nIf so, this should be sufficient:\n\n  allow kernel vold_data_file:file { read write };",
+      "revId": "9c70243647c4da90097d5655c75326eb907ed256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
