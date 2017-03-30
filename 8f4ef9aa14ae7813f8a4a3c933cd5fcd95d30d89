@@ -2,6 +2,63 @@
   "comments": [
     {
       "key": {
+        "uuid": "7d4a4424_18120ccc",
+        "filename": "tools/sepolicy-analyze/attribute.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-03-30T22:42:54Z",
+      "side": 1,
+      "message": "Shouldn\u0027t -r be before the name?",
+      "revId": "8f4ef9aa14ae7813f8a4a3c933cd5fcd95d30d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8703af2_48a1dde4",
+        "filename": "tools/sepolicy-analyze/attribute.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-03-30T22:42:54Z",
+      "side": 1,
+      "message": "not an attr anymore. attr_or_type or some other name typically used by this code for the result of hashtab_search.",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 8
+      },
+      "revId": "8f4ef9aa14ae7813f8a4a3c933cd5fcd95d30d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8583f86b_5ce635b4",
+        "filename": "tools/sepolicy-analyze/attribute.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-03-30T22:42:54Z",
+      "side": 1,
+      "message": "I must say I spent a couple of minutes figuring out why this check is needed and what it does. If this is just about excluding the type itself because it\u0027s somehow mapped to itself in the bitmap, then I suggest using if (!strcmp()) continue approach, for readability.",
+      "revId": "8f4ef9aa14ae7813f8a4a3c933cd5fcd95d30d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7dd202ce_6e7a6ad4",
         "filename": "tools/sepolicy-analyze/attribute.c",
         "patchSetId": 2
