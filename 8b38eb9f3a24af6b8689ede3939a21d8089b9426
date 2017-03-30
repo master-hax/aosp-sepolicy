@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a39486f0_8ba7187c",
+        "filename": "private/shell.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-03-30T21:41:46Z",
+      "side": 1,
+      "message": "Please replace this with:\n\n  binder_call(shell, storaged)\n\nwhich adds a few more permissions needed to make this robust.",
+      "revId": "8b38eb9f3a24af6b8689ede3939a21d8089b9426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ad78ebf_30cb1b96",
+        "filename": "private/storaged.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-03-30T21:41:46Z",
+      "side": 1,
+      "message": "Can be deleted when you add the \"binder_call\" statement in shell.te.",
+      "revId": "8b38eb9f3a24af6b8689ede3939a21d8089b9426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
