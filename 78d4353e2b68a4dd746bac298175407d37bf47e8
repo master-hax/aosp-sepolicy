@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "25396ea4_731acdb4",
+        "filename": "private/logcat.te",
+        "patchSetId": 18
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2017-04-04T21:46:52Z",
+      "side": 1,
+      "message": "Do we want to support logcat -f on \"user\" builds?\n\nI am not sure who uses logcat -f (logpersist is the only one I know that uses this flag, and it was _borken_ in L and no one noticed it, so I suspect no one has been using it(!))",
+      "parentUuid": "c2e15c5b_db2a67bd",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 2
+      },
+      "revId": "78d4353e2b68a4dd746bac298175407d37bf47e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a0165c97_60f72492",
         "filename": "private/logcat.te",
         "patchSetId": 18
@@ -105,6 +129,30 @@
       "writtenOn": "2017-04-04T21:36:37Z",
       "side": 1,
       "message": "Can we do without? I\"m not sure we want logcat to be able to increase it\u0027s priority. Currently granted to logd so not a regression.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 38
+      },
+      "revId": "78d4353e2b68a4dd746bac298175407d37bf47e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59134fe0_404a69bf",
+        "filename": "private/logcat.te",
+        "patchSetId": 18
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2017-04-04T21:46:52Z",
+      "side": 1,
+      "message": "logcat _decreases_ its priority when -f is specified. It places itself in to the background cgroup and all.",
+      "parentUuid": "a0165c97_60f72492",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -151,6 +199,30 @@
       "writtenOn": "2017-04-04T21:36:37Z",
       "side": 1,
       "message": "write create open\n\nHow about { data_file_type -misc_logd_file }",
+      "range": {
+        "startLine": 21,
+        "startChar": 72,
+        "endLine": 21,
+        "endChar": 77
+      },
+      "revId": "78d4353e2b68a4dd746bac298175407d37bf47e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d65beaa_dfe234ae",
+        "filename": "public/logcat.te",
+        "patchSetId": 18
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2017-04-04T21:46:52Z",
+      "side": 1,
+      "message": "-misc_logd_file is for logpersist only.\n\nAll of this, is a direct result of not knowing if we want to allow logcat -f to be supported or not, or where logcat -f is allowed to write. I still am not sure where to go with that :-(",
+      "parentUuid": "94ae5167_46b0f233",
       "range": {
         "startLine": 21,
         "startChar": 72,
