@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "783b909e_b0119d0c",
+        "filename": "private/logcat.te",
+        "patchSetId": 18
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-04-04T21:36:37Z",
+      "side": 1,
+      "message": "we generally put these statements into the source domain\u0027s .te file.",
+      "range": {
+        "startLine": 3,
+        "startChar": 18,
+        "endLine": 3,
+        "endChar": 23
+      },
+      "revId": "78d4353e2b68a4dd746bac298175407d37bf47e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d26e6ec_1f8255f6",
+        "filename": "private/logcat.te",
+        "patchSetId": 18
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-04-04T21:36:37Z",
+      "side": 1,
+      "message": "why read?",
+      "range": {
+        "startLine": 11,
+        "startChar": 33,
+        "endLine": 11,
+        "endChar": 46
+      },
+      "revId": "78d4353e2b68a4dd746bac298175407d37bf47e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e3ae529_6578d21e",
+        "filename": "private/logcat.te",
+        "patchSetId": 18
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-04-04T21:36:37Z",
+      "side": 1,
+      "message": "why read?",
+      "range": {
+        "startLine": 12,
+        "startChar": 37,
+        "endLine": 12,
+        "endChar": 50
+      },
+      "revId": "78d4353e2b68a4dd746bac298175407d37bf47e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2e15c5b_db2a67bd",
+        "filename": "private/logcat.te",
+        "patchSetId": 18
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-04-04T21:36:37Z",
+      "side": 1,
+      "message": "Would rather we grant shell read permission to a separate directory on userdebug builds. Seems less likely to cause bugs and minimizes the diff between userdebug and user builds.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 2
+      },
+      "revId": "78d4353e2b68a4dd746bac298175407d37bf47e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0165c97_60f72492",
+        "filename": "private/logcat.te",
+        "patchSetId": 18
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-04-04T21:36:37Z",
+      "side": 1,
+      "message": "Can we do without? I\"m not sure we want logcat to be able to increase it\u0027s priority. Currently granted to logd so not a regression.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 38
+      },
+      "revId": "78d4353e2b68a4dd746bac298175407d37bf47e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "048543aa_9c7adaa7",
+        "filename": "public/logcat.te",
+        "patchSetId": 18
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-04-04T21:36:37Z",
+      "side": 1,
+      "message": "is this rule necessary or even useful? This is a dm-verity protected partition.",
+      "range": {
+        "startLine": 18,
+        "startChar": 18,
+        "endLine": 18,
+        "endChar": 48
+      },
+      "revId": "78d4353e2b68a4dd746bac298175407d37bf47e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94ae5167_46b0f233",
+        "filename": "public/logcat.te",
+        "patchSetId": 18
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-04-04T21:36:37Z",
+      "side": 1,
+      "message": "write create open\n\nHow about { data_file_type -misc_logd_file }",
+      "range": {
+        "startLine": 21,
+        "startChar": 72,
+        "endLine": 21,
+        "endChar": 77
+      },
+      "revId": "78d4353e2b68a4dd746bac298175407d37bf47e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
