@@ -77,7 +77,7 @@ allow netd netdomain:{
   udp_socket
   rawip_socket
   tun_socket
-} { read write getattr setattr getopt setopt };
+} { read write getattr setattr getopt setopt bind };
 allow netd netdomain:fd use;
 
 # give netd permission to read and write netlink xfrm
