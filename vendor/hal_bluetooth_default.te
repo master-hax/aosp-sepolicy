@@ -3,3 +3,7 @@ hal_server_domain(hal_bluetooth_default, hal_bluetooth)
 
 type hal_bluetooth_default_exec, exec_type, file_type;
 init_daemon_domain(hal_bluetooth_default)
+
+# default vendor libs (linux) need access to AF_BLUETOOTH socket
+allow hal_bluetooth_default self:socket { bind create read write };
+
