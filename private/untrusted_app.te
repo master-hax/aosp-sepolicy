@@ -24,6 +24,14 @@ untrusted_app_domain(untrusted_app)
 net_domain(untrusted_app)
 bluetooth_domain(untrusted_app)
 
+# allow untrusted apps to use UDP sockets provided by the system server but not
+# modify them other than to connect
+allow untrusted_app system_server:udp_socket { read write connect sendto recvfrom };
+
 # Allow the allocation and use of ptys
 # Used by: https://play.google.com/store/apps/details?id=jackpal.androidterm
 create_pty(untrusted_app)
+
+neverallow untrusted_app system_server:udp_socket {
+        ioctl getattr setattr lock relabelfrom relabelto append
+        bind listen accept getopt setopt shutdown name_bind };
