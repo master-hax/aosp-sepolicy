@@ -1,0 +1,68 @@
+###
+### A domain for android.process.media, which contains both
+### MediaProvider and DownloadProvider and associated services.
+###
+
+typeattribute mediaprovider coredomain;
+app_domain(mediaprovider)
+
+# DownloadProvider accesses the network.
+net_domain(mediaprovider)
+
+allow mediaprovider app_api_service:service_manager find;
+allow mediaprovider audioserver_service:service_manager find;
+allow mediaprovider mediaserver_service:service_manager find;
+allow mediaprovider surfaceflinger_service:service_manager find;
+
+# Traverse into /mnt/media_rw for bypassing FUSE daemon
+allow priv_app mnt_media_rw_file:dir search;
+
+# Allow MediaProvider to read/write cached ringtones (opened by system).
+allow mediaprovider ringtone_file:file { getattr read write };
+
+# MtpServer uses /dev/mtp_usb
+allow mediaprovider mtp_device:chr_file rw_file_perms;
+
+# MtpServer uses /dev/usb-ffs/mtp
+allow mediaprovider functionfs:dir search;
+allow mediaprovider functionfs:file rw_file_perms;
+
+# MtpServer sets sys.usb.ffs.mtp.ready
+set_prop(mediaprovider, ffs_prop)
+
+###
+### neverallow rules
+###
+
+# Receive or send uevent messages.
+neverallow mediaprovider domain:netlink_kobject_uevent_socket *;
+
+# Receive or send generic netlink messages
+neverallow mediaprovider domain:netlink_socket *;
+
+# Too much leaky information in debugfs. It's a security
+# best practice to ensure these files aren't readable.
+neverallow mediaprovider debugfs:file read;
+
+# Do not allow privileged apps to register services.
+# Only trusted components of Android should be registering
+# services.
+neverallow mediaprovider service_manager_type:service_manager add;
+
+# Do not allow mediaprovider to be assigned mlstrustedsubject.
+# This would undermine the per-user isolation model being
+# enforced via levelFrom=user in seapp_contexts and the mls
+# constraints.  As there is no direct way to specify a neverallow
+# on attribute assignment, this relies on the fact that fork
+# permission only makes sense within a domain (hence should
+# never be granted to any other domain within mlstrustedsubject)
+# and mediaprovider is allowed fork permission to itself.
+neverallow mediaprovider mlstrustedsubject:process fork;
+
+# Do not allow mediaprovider to hard link to any files.
+# In particular, if mediaprovider links to other app data
+# files, installd will not be able to guarantee the deletion
+# of the linked to file. Hard links also contribute to security
+# bugs, so we want to ensure mediaprovider never has this
+# capability.
+neverallow mediaprovider file_type:file link;
