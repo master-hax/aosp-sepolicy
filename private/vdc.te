@@ -1,3 +1,14 @@
 typeattribute vdc coredomain;
 
 init_daemon_domain(vdc)
+
+#XXX: Inherited vold things, fixme
+permissive vdc;
+# audit: type=1400 audit(101.031:188): avc:  denied  { use } for  pid=2420 comm="vdc" path="/dev/pts/0" dev="devpts" ino=3 scontext=u:r:vdc:s0 tcontext=u:r:vold:s0 tclass=fd permissive=0
+# audit: type=1400 audit(101.031:189): avc:  denied  { use } for  pid=2420 comm="vdc" path="pipe:[16417]" dev="pipefs" ino=16417 scontext=u:r:vdc:s0 tcontext=u:r:vold:s0 tclass=fd permissive=0
+# audit: type=1400 audit(101.031:194): avc:  denied  { use } for  pid=2420 comm="vdc" path="pipe:[16419]" dev="pipefs" ino=16419 scontext=u:r:vdc:s0 tcontext=u:r:vold:s0 tclass=fd permissive=0
+# audit: type=1400 audit(101.031:190): avc:  denied  { use } for  pid=2420 comm="vdc" path="pipe:[16417]" dev="pipefs" ino=16417 scontext=u:r:vdc:s0 tcontext=u:r:vold:s0 tclass=fd permissive=0
+# audit: type=1400 audit(101.031:191): avc:  denied  { use } for  pid=2420 comm="vdc" path="pipe:[16418]" dev="pipefs" ino=16418 scontext=u:r:vdc:s0 tcontext=u:r:vold:s0 tclass=fd permissive=0
+# audit: type=1400 audit(101.031:192): avc:  denied  { use } for  pid=2420 comm="vdc" path="pipe:[16418]" dev="pipefs" ino=16418 scontext=u:r:vdc:s0 tcontext=u:r:vold:s0 tclass=fd permissive=0
+# audit: type=1400 audit(101.031:193): avc:  denied  { use } for  pid=2420 comm="vdc" path="pipe:[16419]" dev="pipefs" ino=16419 scontext=u:r:vdc:s0 tcontext=u:r:vold:s0 tclass=fd permissive=0
+# audit: type=1400 audit(101.031:195): avc:  denied  { use } for  pid=2420 comm="vdc" path="/system/bin/vdc" dev="mmcblk0p9" ino=573 scontext=u:r:vdc:s0 tcontext=u:r:vold:s0 tclass=fd
