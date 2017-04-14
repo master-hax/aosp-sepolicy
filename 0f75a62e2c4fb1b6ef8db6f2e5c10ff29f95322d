@@ -70,6 +70,53 @@
       "revId": "0f75a62e2c4fb1b6ef8db6f2e5c10ff29f95322d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fde6db2_a980d7b1",
+        "filename": "private/untrusted_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2017-04-14T01:44:00Z",
+      "side": 1,
+      "message": "Given this is a public API and we allow untrusted_app, then priv_app and builtin apps should be able to do it too.\n\nNot sure about ephemeral apps; what are the tradeoffs we make here? We could:\n\n1. Take the view that since the ability to encrypt traffic is\n   desirable, ephemeral apps should be able to do this as\n   well.\n2. Be conservative and given that this is a new API, not\n   expose it to ephemeral apps.\n\nThoughts?",
+      "parentUuid": "dcebe326_d261aeba",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 19
+      },
+      "revId": "0f75a62e2c4fb1b6ef8db6f2e5c10ff29f95322d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a1a6d51_5262955f",
+        "filename": "private/untrusted_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2017-04-14T01:44:00Z",
+      "side": 1,
+      "message": "Are there other operations we need to allow here? What about close()? setsockopt()? bind()?",
+      "range": {
+        "startLine": 29,
+        "startChar": 89,
+        "endLine": 29,
+        "endChar": 90
+      },
+      "revId": "0f75a62e2c4fb1b6ef8db6f2e5c10ff29f95322d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
