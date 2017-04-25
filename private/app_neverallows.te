@@ -79,8 +79,9 @@ neverallow { all_untrusted_apps -mediaprovider } {
   file_type
   -app_data_file            # The apps sandbox itself
   -media_rw_data_file       # Internal storage. Known that apps can
-                            # leave artfacts here after uninstall.
+                            # leave artifacts here after uninstall.
   -user_profile_data_file   # Access to profile files
+  -anr_data_file            # Dump stack traces in global stack trace dir.
   userdebug_or_eng(`
     -method_trace_data_file # only on ro.debuggable=1
     -coredump_file          # userdebug/eng only
@@ -91,8 +92,8 @@ neverallow { all_untrusted_apps -mediaprovider } {
 neverallow all_untrusted_apps tun_device:chr_file open;
 
 # Only allow appending to /data/anr/traces.txt (b/27853304, b/18340553)
-neverallow all_untrusted_apps anr_data_file:file ~{ open append };
-neverallow all_untrusted_apps anr_data_file:dir ~search;
+neverallow all_untrusted_apps anr_data_file:file ~{ create append };
+neverallow all_untrusted_apps anr_data_file:dir ~{ search create write add_name };
 
 # Avoid reads from generically labeled /proc files
 # Create a more specific label if needed
