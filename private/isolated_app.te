@@ -59,8 +59,8 @@ neverallow isolated_app app_data_file:file open;
 # Only allow appending to /data/anr/traces.txt (b/27853304, b/18340553)
 # TODO: are there situations where isolated_apps write to this file?
 # TODO: should we tighten these restrictions further?
-neverallow isolated_app anr_data_file:file ~{ open append };
-neverallow isolated_app anr_data_file:dir ~search;
+neverallow isolated_app anr_data_file:file ~{ create append };
+neverallow isolated_app anr_data_file:dir ~{ search create write add_name };
 
 # b/17487348
 # Isolated apps can only access three services,
