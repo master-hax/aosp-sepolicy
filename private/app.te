@@ -109,9 +109,11 @@ allow appdomain shortcut_manager_icons:file { getattr read };
 # Read icon file (opened by system).
 allow appdomain icon_file:file { getattr read };
 
-# Write to /data/anr/traces.txt.
-allow appdomain anr_data_file:dir search;
-allow appdomain anr_data_file:file { open append };
+# Only allow creating new files and appending to them /data/anr/
+# Disallow all other operations including 'read', 'write' etc.
+# See b/32064548, b/27853304 and, b/18340553 for historical context.
+allow appdomain anr_data_file:dir { search write add_name };
+allow appdomain anr_data_file:file { create open append };
 
 # Allow apps to send dump information to dumpstate
 allow appdomain dumpstate:fd use;
