@@ -45,6 +45,30 @@
       "revId": "310fb78761846db15c2841cdff49cd6383460b9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70cfc18b_79faa26c",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-04-26T15:14:05Z",
+      "side": 1,
+      "message": "priv_app.te allows privileged apps to *read* traces. I don\u0027t know off hand why that is (and couldn\u0027t find anything useful on cs/), but I think it might be used by reporting frameworks. I\u0027d prefer to make that change separately if that\u0027s ok with you ?",
+      "parentUuid": "1fa68c8e_9a335abf",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 82
+      },
+      "revId": "310fb78761846db15c2841cdff49cd6383460b9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
