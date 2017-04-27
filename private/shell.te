@@ -13,3 +13,8 @@ app_domain(shell)
 
 # allow shell to call dumpsys storaged
 binder_call(shell, storaged)
+
+# allow shell to ls /vendor/etc/selinux to allow CTS device info collection
+allow shell hwservice_contexts_file:file getattr;
+allow shell mac_perms_file:file getattr;
+allow shell vndservice_contexts_file:file getattr;
