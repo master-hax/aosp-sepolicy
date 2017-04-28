@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "9c39372f_6f7c9434",
+        "filename": "tools/fc_sort/fc_sort.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-28T02:46:11Z",
+      "side": 1,
+      "message": "From the spec:\n\n       If *lineptr is set to NULL and *n is set 0 before the call, then\n       getline() will allocate a buffer for storing the line.  This buffer\n       should be freed by the user program even if getline() failed.\n\n       Alternatively, before calling getline(), *lineptr can contain a\n       pointer to a malloc(3)-allocated buffer *n bytes in size.  If the\n       buffer is not large enough to hold the line, getline() resizes it\n       with realloc(3), updating *lineptr and *n as necessary.\n\nSo:\n* null + 0 is OK and allocates the buffer (what I meant by \"always zero\" on start)\n* non-null + size is OK, and reallocs on demand",
+      "parentUuid": "de92b67b_43ab0849",
+      "revId": "bd4c1f40d1cddc31793231277987e3afcc28e47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfc45fa8_3d1c8533",
         "filename": "tools/fc_sort/fc_sort.c",
         "patchSetId": 1
