@@ -478,15 +478,14 @@ int main(int argc, char *argv[])
 		current->next = temp;
 		current = current->next;
 		lines++;
-
-
-		free(line_buf);
-		line_buf = NULL;
 	}
+	free(line_buf);
+	line_buf = NULL;
 	fclose(in_file);
 
 	/* Create the bucket linked list from the earlier linked list. */
 	current = head->next;
+	free(head);
 	bcurrent = master =
 	    (file_context_bucket_t *)
 	    malloc(sizeof(file_context_bucket_t));
