@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "de92b67b_43ab0849",
+        "filename": "tools/fc_sort/fc_sort.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2017-04-28T02:44:05Z",
+      "side": 1,
+      "message": "I need to read the manpages more carefully. It\u0027s ok for buf_len to be anything, because a NULL line_buf means it is ignored. Whew. I guess the stranger part is reusing that same new buf_len repeatedly in the future, when lines might be longer. It\u0027s hard to tell if there are correctness issues there without digging deeper into the rest of the code (and its expectations about the file).",
+      "parentUuid": "fe6981d9_00917bbd",
+      "revId": "bd4c1f40d1cddc31793231277987e3afcc28e47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfc45fa8_3d1c8533",
         "filename": "tools/fc_sort/fc_sort.c",
         "patchSetId": 1
