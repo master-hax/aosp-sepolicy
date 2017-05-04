@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0a643369_d0768fa2",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-05-04T19:57:53Z",
+      "side": 1,
+      "message": "We can label in device specific policy since it\u0027s only dynamic across device types (e.g. different for Marlin vs Flounder), not within a target device (i.e. the same for all Marlins).\n\nAlso broad labels like this have the potential to really negatively impact boot time. You should verify that this is not causing major boot time regressions.",
+      "parentUuid": "6fa6af57_b22f748a",
+      "range": {
+        "startLine": 419,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 67
+      },
+      "revId": "b4464ea89706f0aac940fddb1eb5d4ace46260b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f1e6c49_19c0f4a9",
         "filename": "private/genfs_contexts",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Is there a way to not overriding existing access to proc? Otherwise, since we have allowed any with proc label to access /proc/filesystems, either grant or deny them access to filesystems changes existing behaviors of other apps, which is not the goal of this patch. I\u0027d just allow /proc for mke2fs in this case.",
       "parentUuid": "2f1e6c49_19c0f4a9",
+      "range": {
+        "startLine": 6,
+        "startChar": 15,
+        "endLine": 6,
+        "endChar": 26
+      },
+      "revId": "b4464ea89706f0aac940fddb1eb5d4ace46260b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac320a6b_1180ea98",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-05-04T19:57:53Z",
+      "side": 1,
+      "message": "Not really. This is a good change, we want processes to only have access to the files in /proc that they need, I just want you to be aware that it has the potential to cause bugs elsewhere. Please do some testing. We can then track on go/sedenials to ensure we\u0027re not causing bugs.",
+      "parentUuid": "afe3a377_415b273f",
       "range": {
         "startLine": 6,
         "startChar": 15,
