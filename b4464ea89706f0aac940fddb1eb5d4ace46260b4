@@ -237,6 +237,30 @@
       "revId": "b4464ea89706f0aac940fddb1eb5d4ace46260b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "beb6ee35_ac224fc3",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1051712
+      },
+      "writtenOn": "2017-05-04T22:21:01Z",
+      "side": 1,
+      "message": "To clarify, by app I really meant anything that is allowed to access /proc but not accessing /proc/filesystems.\n\nSearching through proc:file, I found those.\n\nneverallow all_untrusted_apps proc:file \nneverallow ephemeral_app proc:file\n\nuserdebug_or_eng(`\nauditallow {\n  domain_deprecated\n  -fsck\n  -fsck_untrusted\n  -rild\n  -sdcardd\n  -system_server\n  -update_engine\n  -vold\n} proc:file r_file_perms;\n\n# Write to /proc/sys/kernel/panic_on_oops.\nr_dir_file(init, proc)\nallow init proc:file w_file_perms;\n\nallow postinstall_dexopt proc:file { getattr open read };\n\n# access /proc/misc\n# Access is also granted to proc:file, but it is likely unneeded\n# due to the more specific grant to proc_misc immediately below.\nallow update_engine proc:file r_file_perms; # delete candidate\n\n# access /proc/filesystems\nallow sdcardd proc:file r_file_perms;\n\n\nI guess neverallow rules are not affecting us, not sure about auditallow.\n\nAssuming comments are correct, init and update_engine shouldn\u0027t be affected. sdcardd will need to use proc_filesystems instead.\n\npostinstall_dexopt doesn\u0027t give any comment...\n\nI think the proper way is to make a separate patch to add proc_filesystems and update files accordingly. Then I can use this label for mke2fs.\n\nOpen a bug to selinux team?",
+      "parentUuid": "4eac6e0f_105b5ffc",
+      "range": {
+        "startLine": 6,
+        "startChar": 15,
+        "endLine": 6,
+        "endChar": 26
+      },
+      "revId": "b4464ea89706f0aac940fddb1eb5d4ace46260b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
