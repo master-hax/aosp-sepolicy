@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "979a17c0_8138477f",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1051712
+      },
+      "writtenOn": "2017-05-04T21:22:21Z",
+      "side": 1,
+      "message": "I think I\u0027d step back and use fs/ext[0-9]+ if boot time is a concern. making rules device specific make it difficult to change supported filesystems.",
+      "parentUuid": "0a643369_d0768fa2",
+      "range": {
+        "startLine": 419,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 67
+      },
+      "revId": "b4464ea89706f0aac940fddb1eb5d4ace46260b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f1e6c49_19c0f4a9",
         "filename": "private/genfs_contexts",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Not really. This is a good change, we want processes to only have access to the files in /proc that they need, I just want you to be aware that it has the potential to cause bugs elsewhere. Please do some testing. We can then track on go/sedenials to ensure we\u0027re not causing bugs.",
       "parentUuid": "afe3a377_415b273f",
+      "range": {
+        "startLine": 6,
+        "startChar": 15,
+        "endLine": 6,
+        "endChar": 26
+      },
+      "revId": "b4464ea89706f0aac940fddb1eb5d4ace46260b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16267ff2_beda555e",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1051712
+      },
+      "writtenOn": "2017-05-04T21:22:21Z",
+      "side": 1,
+      "message": "It feels too risky to change from \nallowing a single app (mke2fs) to read /proc/filesystems \nto\nrestricting everyone that previously using proc to use proc_filesystems. This should really be in a separate patch. \n\nI agree with you to use limited access but the way to do it and fix all other apps seems too risky. We can\u0027t possibly test every app and I\u0027d not do that for this particular patch.\n\nIdeally we should open bug to audit wider than necessary access and restrict them to minimal.",
+      "parentUuid": "ac320a6b_1180ea98",
       "range": {
         "startLine": 6,
         "startChar": 15,
