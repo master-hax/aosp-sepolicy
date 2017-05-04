@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a41da642_f959a2c3",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-05-04T03:28:57Z",
+      "side": 1,
+      "message": "this is much to broad and will block access to other file systems, e.g. /sys/fs/selinux or /sys/fs/pstore.",
+      "range": {
+        "startLine": 419,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 67
+      },
+      "revId": "b4464ea89706f0aac940fddb1eb5d4ace46260b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f1e6c49_19c0f4a9",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-05-04T03:28:57Z",
+      "side": 1,
+      "message": "note that other processes which previously had access to proc/filesystems under its \"proc\" label will now lose access. This change is fine, but be sure you test it well, and be prepared for it to cause bugs.",
+      "range": {
+        "startLine": 6,
+        "startChar": 15,
+        "endLine": 6,
+        "endChar": 26
+      },
+      "revId": "b4464ea89706f0aac940fddb1eb5d4ace46260b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
