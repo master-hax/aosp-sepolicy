@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "781d0718_e635cb5b",
+        "filename": "private/app.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-05-08T16:35:18Z",
+      "side": 1,
+      "message": "Let\u0027s split these permissions between the old way of writing to anr data and the new way so that it\u0027s clear what permissions should be removed later. i.e.\n\n# Old way of collecting anr traces\n# add comment/b#/STOPSHIP whatever is appropriate here to\n# prevent both methods from shipping.\nallow appdomain anr_data_file:dir search;\nallow appdomain anr_data_file:file { append open };\n# New way of collecting anr traces\n# etc\nallow appdomain anr_data_file:dir { add_name search write };\nallow appdomain anr_data_file:file { append create };",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 58
+      },
+      "revId": "644f0183292ba44a622eb7e84c76c67b3a0afb7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "016c80b1_e7bcd086",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-05-08T16:35:18Z",
+      "side": 1,
+      "message": "Similarly let\u0027s split this up so that the open permission is neverallowed once that permission is removed.",
+      "range": {
+        "startLine": 105,
+        "startChar": 59,
+        "endLine": 105,
+        "endChar": 63
+      },
+      "revId": "644f0183292ba44a622eb7e84c76c67b3a0afb7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "493d8d7d_10b4f687",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-05-08T16:35:18Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 106,
+        "startChar": 58,
+        "endLine": 106,
+        "endChar": 64
+      },
+      "revId": "644f0183292ba44a622eb7e84c76c67b3a0afb7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
