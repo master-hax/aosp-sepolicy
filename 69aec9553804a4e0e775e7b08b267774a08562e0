@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7439a879_4cce0b66",
+        "filename": "private/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-05-08T17:55:24Z",
+      "side": 1,
+      "message": "For selinux we require ext4 because we need xattr support. Is there a reason to make this more general? 5-9 doesn\u0027t exist and we can\u0027t use 2-3 because no xattr support.\n\nCan this be further narrowed down to:\n/sys/fs/ext4/features ?\n\nThat would cut down on boot-time regressions due to relabeling the 100+ files in /sys/fs/ext4/. There\u0027s only 5 files in /sys/fs/ext4/features/",
+      "range": {
+        "startLine": 419,
+        "startChar": 12,
+        "endLine": 419,
+        "endChar": 15
+      },
+      "revId": "69aec9553804a4e0e775e7b08b267774a08562e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
