@@ -642,6 +642,11 @@ with_asan(`
   allow system_server shell_exec:file rx_file_perms;
 ')
 
+# Allow apps to connect and write to the tombstoned java trace socket in
+# order to dump their traces.
+unix_socket_connect(system_server, tombstoned_java_trace, tombstoned)
+allow system_server tombstoned:fd use;
+
 ###
 ### Neverallow rules
 ###

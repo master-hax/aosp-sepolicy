@@ -110,6 +110,9 @@ allow appdomain shortcut_manager_icons:file { getattr read };
 allow appdomain icon_file:file { getattr read };
 
 # Write to /data/anr/traces.txt.
+#
+# TODO: These permissions can be withdrawn once we've switched to
+# the new stack dumping mechanism, b/32064548
 allow appdomain anr_data_file:dir search;
 allow appdomain anr_data_file:file { open append };
 
@@ -269,6 +272,11 @@ pdx_client({ appdomain -isolated_app -ephemeral_app }, pose_client)
 pdx_client({ appdomain -isolated_app -ephemeral_app }, performance_client)
 # Apps do not directly open the IPC socket for bufferhubd.
 pdx_use({ appdomain -isolated_app -ephemeral_app }, bufferhub_client)
+
+# Allow apps to connect and write to the tombstoned java trace socket in
+# order to dump their traces.
+unix_socket_connect(appdomain, tombstoned_java_trace, tombstoned)
+allow appdomain tombstoned:fd use;
 
 ###
 ### CTS-specific rules
