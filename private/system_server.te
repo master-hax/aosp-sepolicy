@@ -706,3 +706,8 @@ neverallow system_server system_server_tmpfs:file execute;
 # dexoptanalyzer is currently used only for secondary dex files which
 # system_server should never access.
 neverallow system_server dexoptanalyzer_exec:file no_x_file_perms;
+
+# Allow the system_server to connect to the tombstoned_java_trace socket in order
+# to obtain an FD to which it can dump its traces.
+unix_socket_connect(system_server, tombstoned_java_trace, tombstoned)
+allow system_server tombstoned:fd use;

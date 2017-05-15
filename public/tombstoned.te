@@ -15,3 +15,8 @@ allow tombstoned anr_data_file:file { getattr append };
 # TODO: Find out why this is happening.
 allow tombstoned anr_data_file:file write;
 auditallow tombstoned anr_data_file:file write;
+
+# Changes for the new stack dumping mechanism. Each trace goes into a
+# separate file, and these files are managed by tombstoned.
+allow tombstoned anr_data_file:dir rw_dir_perms;
+allow tombstoned anr_data_file:file create_file_perms;

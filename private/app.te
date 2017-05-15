@@ -484,3 +484,8 @@ neverallow {
   -bluetooth
   -system_app
 } bluetooth_prop:file create_file_perms;
+
+# Allow apps to connect to the tombstoned java trace socket in order to obtain an FD to which
+# they can dump their traces.
+unix_socket_connect(appdomain, tombstoned_java_trace, tombstoned)
+allow appdomain tombstoned:fd use;
