@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b8ecfd9_362951a7",
+        "filename": "private/app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-05-16T04:38:19Z",
+      "side": 1,
+      "message": "We generally group neverallow rules at the bottom of a file. So these allow rules should go above those.",
+      "revId": "534cc0e251fde3501e6eb73cbe9b0ad67389e3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26a14489_869eb854",
+        "filename": "private/app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-05-16T04:38:19Z",
+      "side": 1,
+      "message": "This (poorly named) macro includes the \"write\" permission. We discussed not granting write.",
+      "range": {
+        "startLine": 490,
+        "startChar": 0,
+        "endLine": 490,
+        "endChar": 19
+      },
+      "revId": "534cc0e251fde3501e6eb73cbe9b0ad67389e3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d014da1b_2eed0684",
+        "filename": "public/tombstoned.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-05-16T04:38:19Z",
+      "side": 1,
+      "message": "Does tombstoned actually require read permissions to these files?",
+      "range": {
+        "startLine": 22,
+        "startChar": 36,
+        "endLine": 22,
+        "endChar": 53
+      },
+      "revId": "534cc0e251fde3501e6eb73cbe9b0ad67389e3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
