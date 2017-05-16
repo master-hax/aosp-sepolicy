@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "57b6d6ba_392f6eaf",
+        "filename": "private/app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-05-16T14:26:11Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "e6a7ac0a_0931302e",
+      "range": {
+        "startLine": 490,
+        "startChar": 0,
+        "endLine": 490,
+        "endChar": 19
+      },
+      "revId": "534cc0e251fde3501e6eb73cbe9b0ad67389e3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d014da1b_2eed0684",
         "filename": "public/tombstoned.te",
         "patchSetId": 2
@@ -119,6 +143,30 @@
       "side": 1,
       "message": "Done. No, it does not. It does need getattr in order to purge older entries.\n\nPS: I was a little surprised to see that we\u0027re already granting it a lot of anr_data_file related permissions. I can\u0027t see why it needed them before these changes.",
       "parentUuid": "d014da1b_2eed0684",
+      "range": {
+        "startLine": 22,
+        "startChar": 36,
+        "endLine": 22,
+        "endChar": 53
+      },
+      "revId": "534cc0e251fde3501e6eb73cbe9b0ad67389e3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a79bb362_19200975",
+        "filename": "public/tombstoned.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-05-16T14:26:11Z",
+      "side": 1,
+      "message": "Do you have time to clean those up? I would like to get this locked down. Should we add a neverallow for read access to anr_data_file?",
+      "parentUuid": "3da9a169_c9211b4f",
       "range": {
         "startLine": 22,
         "startChar": 36,
