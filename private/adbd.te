@@ -34,6 +34,9 @@ allow adbd devpts:chr_file rw_file_perms;
 allow adbd shell_data_file:dir create_dir_perms;
 allow adbd shell_data_file:file create_file_perms;
 
+# adb forward unix domain sockets on /data/local/tmp
+allow adbd shell_data_file:sock_file write;
+
 # adb pull /data/misc/profman.
 allow adbd profman_dump_data_file:dir r_dir_perms;
 allow adbd profman_dump_data_file:file r_file_perms;
