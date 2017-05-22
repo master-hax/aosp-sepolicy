@@ -179,6 +179,9 @@ allow adbd perfetto_traces_data_file:dir r_dir_perms;
 allow adbd shell:unix_stream_socket { read write };
 allow adbd shell:fd use;
 
+# Connect to unix domain sockets on /data/local/tmp.
+allow adbd shell_data_file:sock_file write;
+
 ###
 ### Neverallow rules
 ###
