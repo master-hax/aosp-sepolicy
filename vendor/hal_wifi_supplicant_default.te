@@ -10,3 +10,6 @@ type_transition hal_wifi_supplicant_default wifi_data_file:dir wpa_socket "socke
 
 # TODO(b/34603782): Remove this once Wi-Fi Supplicant HAL stops using Binder
 typeattribute hal_wifi_supplicant_default binder_in_vendor_violators;
+
+# Allow wpa_supplicant to access cnd with socket
+allow hal_wifi_supplicant_default cnd:unix_dgram_socket sendto;
