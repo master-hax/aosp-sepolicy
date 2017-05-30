@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5622e89b_b3625153",
+        "filename": "vendor/hal_wifi_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-05-30T16:13:22Z",
+      "side": 1,
+      "message": "Is this needed to verify that the wifi kernel module has been loaded? I suspect that this also belongs in device-specific policy since other devices don\u0027t require it.",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 35
+      },
+      "revId": "231f3f7f3618b400b97eedee5b726510de9a6648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07cf03b8_5a25f704",
+        "filename": "vendor/hal_wifi_supplicant_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-05-30T16:13:22Z",
+      "side": 1,
+      "message": "cnd is a qualcomm proprietary daemon. This change belongs in device-specific policy. Core policy never contain SoC vendor features.",
+      "range": {
+        "startLine": 15,
+        "startChar": 34,
+        "endLine": 15,
+        "endChar": 37
+      },
+      "revId": "231f3f7f3618b400b97eedee5b726510de9a6648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
