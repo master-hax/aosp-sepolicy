@@ -16,6 +16,24 @@
       "revId": "5ae675680bb3671ba337d5c248de934230d77aa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30c946e0_8d48dcca",
+        "filename": "private/app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-30T18:35:22Z",
+      "side": 1,
+      "message": "This isn\u0027t for native dumping - all permissions required for native dumping are held by crash_dump, and not the app processes themselves. This wasn\u0027t used by java dumping either since the earlier method involved no direct communication with dumpstate (inotify was used instead).\n\nI guess that begs the question : \"what are these permissions used for ?\". I\u0027ll found out and update the comment at the very least.",
+      "parentUuid": "f7fa7e18_59fa77c6",
+      "revId": "5ae675680bb3671ba337d5c248de934230d77aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
