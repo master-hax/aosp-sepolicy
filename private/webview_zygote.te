@@ -22,8 +22,8 @@ allow webview_zygote apk_data_file:file { r_file_perms execute };
 allow webview_zygote shared_relro_file:dir search;
 allow webview_zygote shared_relro_file:file r_file_perms;
 
-# Set the UID/GID of the process.
-allow webview_zygote self:capability { setgid setuid };
+# Override DAC on files and switch uid/gid.
+allow webview_zygote self:capability { dac_override setgid setuid chown };
 # Drop capabilities from bounding set.
 allow webview_zygote self:capability setpcap;
 # Switch SELinux context to app domains.
@@ -34,6 +34,9 @@ allow webview_zygote isolated_app:process dyntransition;
 allow webview_zygote dalvikcache_data_file:dir r_dir_perms;
 allow webview_zygote dalvikcache_data_file:lnk_file r_file_perms;
 allow webview_zygote dalvikcache_data_file:file { r_file_perms execute };
+
+# Control cgroups.
+allow webview_zygote cgroup:dir create_dir_perms;
 
 # Allow webview_zygote to stat the files that it opens. It must
 # be able to inspect them so that it can reopen them on fork
