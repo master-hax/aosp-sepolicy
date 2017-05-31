@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2eba9e3f_a1f88cb9",
+        "filename": "vendor/hal_wifi_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1116403
+      },
+      "writtenOn": "2017-05-31T01:57:32Z",
+      "side": 1,
+      "message": "\u003e\u003eIs this needed to verify that the wifi kernel module has been loaded?\n\nYes.\n\n\n\u003e\u003eI suspect that this also belongs in device-specific policy since other devices don\u0027t require it.\n\nThis violation happens when \"WIFI_DRIVER_MODULE_PATH\" is defined. It depends on device whether it\u0027s defined or not. However AOSP(frameworks/opt/net/wifi/libwifi_hal/wifi_hal_common.cpp) supports both cases(the definition is defined, not defined). So I think this violation also needs to be taken care of in AOSP. What do you think?",
+      "parentUuid": "5622e89b_b3625153",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 35
+      },
+      "revId": "231f3f7f3618b400b97eedee5b726510de9a6648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07cf03b8_5a25f704",
         "filename": "vendor/hal_wifi_supplicant_default.te",
         "patchSetId": 2
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "Submitting this change would cause a build breakage on non-qualcommon devices where cnd is not defined.",
       "parentUuid": "07cf03b8_5a25f704",
+      "range": {
+        "startLine": 15,
+        "startChar": 34,
+        "endLine": 15,
+        "endChar": 37
+      },
+      "revId": "231f3f7f3618b400b97eedee5b726510de9a6648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58103dd9_b701b86b",
+        "filename": "vendor/hal_wifi_supplicant_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1116403
+      },
+      "writtenOn": "2017-05-31T01:57:32Z",
+      "side": 1,
+      "message": "Thanks for your comment. Yes I agree with you. This should be handled as device-specific policy. Will be removed.",
+      "parentUuid": "2c4504cd_a990b0c8",
       "range": {
         "startLine": 15,
         "startChar": 34,
