@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "038de891_ca655e38",
+        "filename": "public/netd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-06-08T06:03:22Z",
+      "side": 1,
+      "message": "nit: you may want to explain *why* the assertion is present. Perhaps something like:\n\n  # persist.netd.stable_secret contains RFC 7217 stable secrets which should never be leaked to other processes.\n  # make sure they never leak.\n\n...\n\n  # We want to ensure that no other process ever tries tampering with persist.netd.stable_secret, the RFC 7217 stable secrets managed by netd. Doing so could compromise user privacy.",
+      "revId": "888d21ab848ccd8301f1d69dbf3e382d55a559dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
