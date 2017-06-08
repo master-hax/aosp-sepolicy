@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0cf8f7d0_f24bff5c",
+        "filename": "public/netd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1121773
+      },
+      "writtenOn": "2017-06-08T05:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a70f955_ef9a905d",
+      "revId": "2721e9dc1fefd51382b490b37ac3fafa497acd1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f3f20a3_c840a16b",
         "filename": "public/netd.te",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-08T05:42:42Z",
       "side": 1,
       "message": "Can you please add neverallow statements (compile time assertions + CTS tests) of the form:\n\n  neverallow { domain -netd -init } netd_prop:file r_file_perms;\n  neverallow { domain -netd -init } netd_prop:property_service set;\n\nThe first one guarantees that nobody other than netd and init can read the underlying property. (init needs to read it because it manages the property space).\n\nThe second one guarantees that nobody other than netd and init can set the property.\n\nThese assertions will ensure that this property doesn\u0027t leak out and that this secret is protected across all CTS compatible Android devices.",
+      "revId": "2721e9dc1fefd51382b490b37ac3fafa497acd1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19190f87_31a948bf",
+        "filename": "public/netd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1121773
+      },
+      "writtenOn": "2017-06-08T05:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f3f20a3_c840a16b",
       "revId": "2721e9dc1fefd51382b490b37ac3fafa497acd1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
