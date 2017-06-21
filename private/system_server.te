@@ -94,6 +94,10 @@ allow system_server self:socket create_socket_perms_no_ioctl;
 # Set and get routes directly via netlink.
 allow system_server self:netlink_route_socket nlmsg_write;
 
+# Create netfilter sockets.
+allow system_server self:netlink_netfilter_socket create;
+allow system_server self:netlink_netfilter_socket bind;
+
 # Kill apps.
 allow system_server appdomain:process { getpgid sigkill signal };
 
