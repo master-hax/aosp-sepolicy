@@ -22,6 +22,30 @@
       "revId": "9414de08ed2f2071890a17d1f18ef0c3093bec58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e92db93_40b31745",
+        "filename": "public/update_engine_common.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1088085
+      },
+      "writtenOn": "2017-06-24T00:13:51Z",
+      "side": 1,
+      "message": "From the dmesg, I also get denial for search and sys_rawio. Also curious why does sys_rawio goes away if I grant it r_dir_perms?\n\n\navc: denied { search } for pid\u003d748 comm\u003d\"update_engine\" name\u003d\"postinstall\" dev\u003d\"dm-0\" ino\u003d38 scontext\u003du:r:update_engine:s0 tcontext\u003du:object_r:postinstall_mnt_dir:s0 tclass\u003ddir permissive\u003d0\n\n[  409.579825] type\u003d1400 audit(1498261967.720:1007): avc: denied { sys_rawio } for pid\u003d748 comm\u003d\"update_engine\" capability\u003d17 scontext\u003du:r:update_engine:s0 tcontext\u003du:r:update_engine:s0 tclass\u003dcapability permissive\u003d0",
+      "parentUuid": "257cb641_4405e920",
+      "range": {
+        "startLine": 18,
+        "startChar": 61,
+        "endLine": 18,
+        "endChar": 72
+      },
+      "revId": "9414de08ed2f2071890a17d1f18ef0c3093bec58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
