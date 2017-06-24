@@ -11,3 +11,6 @@ allow preopt2cachename cppreopts:fifo_file { getattr read write };
 
 # Allow write to logcat.
 allow preopt2cachename proc_net:file r_file_perms;
+
+# Allow preopt2cachename access oem_other partition data
+allow preopt2cachename oemfs:dir search;

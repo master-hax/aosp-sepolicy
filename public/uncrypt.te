@@ -43,3 +43,5 @@ allow uncrypt proc:file r_file_perms;
 
 # Read files in /sys
 r_dir_file(uncrypt, sysfs)
+
+allow uncrypt oemfs:dir { search };

@@ -16,7 +16,12 @@ allow cppreopts shell_exec:file rx_file_perms;
 
 # Allow us to run find on /postinstall
 allow cppreopts system_file:dir { open read };
+allow cppreopts system_file:file { execute_no_trans };
 
 # Allow running the cp command using cppreopts permissions. Needed so we can
 # write into dalvik-cache
 allow cppreopts toolbox_exec:file rx_file_perms;
+
+# Allow cppreopts access oem_other partition data
+allow cppreopts oemfs:file { getattr open read };
+allow cppreopts oemfs:dir { open read search };

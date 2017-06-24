@@ -410,6 +410,9 @@ allow init system_data_file:lnk_file r_file_perms;
 # For init to be able to run shell scripts from vendor
 allow init vendor_shell_exec:file execute;
 
+# mount oem_other image
+allow init oemfs:dir mounton;
+
 ###
 ### neverallow rules
 ###
