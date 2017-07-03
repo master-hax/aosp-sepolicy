@@ -120,12 +120,22 @@ auditallow {
 ')
 
 # Read already opened /cache files.
-allow domain_deprecated cache_file:dir r_dir_perms;
-allow domain_deprecated cache_file:file { getattr read };
-allow domain_deprecated cache_file:lnk_file r_file_perms;
+allow {
+  domain_deprecated
+  -dumpstate
+} cache_file:dir r_dir_perms;
+allow {
+  domain_deprecated
+  -dumpstate
+} cache_file:file { getattr read };
+allow {
+  domain_deprecated
+  -dumpstate
+} cache_file:lnk_file r_file_perms;
 userdebug_or_eng(`
 auditallow {
   domain_deprecated
+  -dumpstate
   -recovery
   -system_server
   -vold
@@ -133,18 +143,21 @@ auditallow {
 auditallow {
   domain_deprecated
   -appdomain
+  -dumpstate
   -recovery
   -system_server
   -vold
 } cache_file:dir getattr;
 auditallow {
   domain_deprecated
+  -dumpstate
   -recovery
   -system_server
   -vold
 } cache_file:file { getattr read };
 auditallow {
   domain_deprecated
+  -dumpstate
   -system_server
   -vold
 } cache_file:lnk_file r_file_perms;

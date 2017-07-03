@@ -85,6 +85,9 @@ allow dumpstate debugfs:file r_file_perms;
 allow dumpstate { block_device storage_file tmpfs }:dir { search getattr };
 allow dumpstate fuse_device:chr_file getattr;
 allow dumpstate { dm_device cache_block_device }:blk_file getattr;
+# Run df on /cache
+allow dumpstate cache_file:dir { search getattr };
+allow dumpstate cache_file:lnk_file read;
 
 # Read /dev/cpuctl and /dev/cpuset
 r_dir_file(dumpstate, cgroup)
