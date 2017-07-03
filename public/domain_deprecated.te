@@ -142,6 +142,7 @@ allow domain_deprecated cache_file:lnk_file r_file_perms;
 userdebug_or_eng(`
 auditallow {
   domain_deprecated
+  -dumpstate
   -recovery
   -system_server
   -vold
@@ -149,18 +150,21 @@ auditallow {
 auditallow {
   domain_deprecated
   -appdomain
+  -dumpstate
   -recovery
   -system_server
   -vold
 } cache_file:dir getattr;
 auditallow {
-  domain_deprecated
+  domain_deprecateda
+  -dumpstate
   -recovery
   -system_server
   -vold
 } cache_file:file { getattr read };
 auditallow {
-  domain_deprecated
+  domain_deprecateda
+  -dumpstate
   -system_server
   -vold
 } cache_file:lnk_file r_file_perms;
