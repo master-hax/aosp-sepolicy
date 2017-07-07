@@ -55,6 +55,7 @@ allow zygote dex2oat_exec:file rx_file_perms;
 allow zygote cgroup:dir create_dir_perms;
 allow zygote cgroup:{ file lnk_file } r_file_perms;
 allow zygote self:capability sys_admin;
+allow zygote memcg_device:dir search;
 
 # Allow zygote to stat the files that it opens. The zygote must
 # be able to inspect them so that it can reopen them on fork
