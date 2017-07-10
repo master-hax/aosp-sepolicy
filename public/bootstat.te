@@ -8,6 +8,10 @@ read_runtime_log_tags(bootstat)
 allow bootstat bootstat_data_file:dir rw_dir_perms;
 allow bootstat bootstat_data_file:file create_file_perms;
 
+# Allow write to logd
+allow bootstat logd_socket:sock_file { write };
+allow bootstat logd:unix_stream_socket { connectto };
+
 # Read access to pseudo filesystems (for /proc/uptime).
 r_dir_file(bootstat, proc)
 
