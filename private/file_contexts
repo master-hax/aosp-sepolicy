@@ -300,15 +300,18 @@
 /vendor/etc/selinux/nonplat_file_contexts   u:object_r:file_contexts_file:s0
 /vendor/etc/selinux/nonplat_seapp_contexts    u:object_r:seapp_contexts_file:s0
 /vendor/etc/selinux/nonplat_sepolicy.cil       u:object_r:sepolicy_file:s0
+/vendor/etc/selinux/vendor_sepolicy.cil       u:object_r:sepolicy_file:s0
 /vendor/etc/selinux/precompiled_sepolicy        u:object_r:sepolicy_file:s0
 /vendor/etc/selinux/precompiled_sepolicy\.plat_and_mapping\.sha256 u:object_r:sepolicy_file:s0
 /vendor/etc/selinux/vndservice_contexts         u:object_r:vndservice_contexts_file:s0
+/vendor/etc/selinux/declaration/nonplat_declaration.cil       u:object_r:sepolicy_file:s0
 
 #############################
 # OEM and ODM files
 #
 /odm(/.*)?              u:object_r:system_file:s0
 /oem(/.*)?              u:object_r:oemfs:s0
+/odm/etc/selinux/odm_sepolicy.cil       u:object_r:sepolicy_file:s0
 
 
 #############################

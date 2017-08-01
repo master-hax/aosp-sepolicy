@@ -71,3 +71,6 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/selinux/mapping_sepolicy
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/selinux/plat_sepolicy.cil.sha256)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/selinux/precompiled_sepolicy.plat.sha256)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/selinux/mapping_sepolicy.cil)
+
+$(call add-clean-step, rm -rf $(TARGET_OUT_VENDOR)/etc/selinux/nonplat_sepolicy.cil)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/ETC/nonplat_sepolicy.cil_intermediates)
