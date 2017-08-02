@@ -32,6 +32,7 @@ type proc_uid_time_in_state, fs_type;
 type proc_zoneinfo, fs_type;
 type selinuxfs, fs_type, mlstrustedobject;
 type cgroup, fs_type, mlstrustedobject;
+type cgroup_bpf, fs_type, mlstrustedobject;
 type sysfs, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_uio, sysfs_type, fs_type;
 type sysfs_batteryinfo, fs_type, sysfs_type;
@@ -42,6 +43,7 @@ type sysfs_nfc_power_writable, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_wake_lock, fs_type, sysfs_type;
 type sysfs_mac_address, fs_type, sysfs_type;
 type sysfs_usb, sysfs_type, file_type, mlstrustedobject;
+type fs_bpf, fs_type, sysfs_type, mlstrustedobject;
 type configfs, fs_type;
 # /sys/devices/system/cpu
 type sysfs_devices_system_cpu, fs_type, sysfs_type;
@@ -279,6 +281,7 @@ type property_contexts, file_type;
 # Allow files to be created in their appropriate filesystems.
 allow fs_type self:filesystem associate;
 allow cgroup tmpfs:filesystem associate;
+allow cgroup_bpf tmpfs:filesystem associate;
 allow sysfs_type sysfs:filesystem associate;
 allow debugfs_type { debugfs debugfs_tracing }:filesystem associate;
 allow file_type labeledfs:filesystem associate;

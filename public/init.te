@@ -61,6 +61,7 @@ allow init self:capability sys_admin;
 # Create and mount on directories in /.
 allow init rootfs:dir create_dir_perms;
 allow init { rootfs cache_file cgroup storage_file system_data_file system_file postinstall_mnt_dir }:dir mounton;
+allow init cgroup_bpf:dir { create mounton };
 
 # Mount on /dev/usb-ffs/adb.
 allow init device:dir mounton;
@@ -263,6 +264,9 @@ allow init sysfs_type:dir r_dir_perms;
 allow init sysfs_type:lnk_file read;
 allow init sysfs_type:file rw_file_perms;
 
+# Mount bpf fs on sys/fs/bpf
+allow init fs_bpf:dir mounton;
+
 # Init will create /data/misc/logd when the property persist.logd.logpersistd is "logcatd".
 # Init will also walk through the directory as part of a recursive restorecon.
 allow init misc_logd_file:dir { add_name open create read getattr setattr search write };
@@ -346,6 +350,7 @@ allow init hw_random_device:chr_file r_file_perms;
 # TODO:  Move these files into their own type unless they are
 # only ever accessed by init.
 allow init device:file create_file_perms;
+allow init device:chr_file relabelto;
 
 # keychord configuration
 allow init self:capability sys_tty_config;
