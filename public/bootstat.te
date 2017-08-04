@@ -13,3 +13,16 @@ r_dir_file(bootstat, proc)
 
 # Collect metrics on boot time created by init
 get_prop(bootstat, boottime_prop)
+set_prop(bootstat, system_prop)
+
+# Allow access to /sys/fs/pstore/ and syslog
+allow bootstat pstorefs:dir search;
+allow bootstat pstorefs:file r_file_perms;
+allow bootstat kernel:system syslog_read;
+
+# Allow access to /data/misc/reboot/
+allow bootstat reboot_data_file:dir search;
+allow bootstat reboot_data_file:file r_file_perms;
+
+# Allow access to reading the logs
+read_logd(bootstat)
