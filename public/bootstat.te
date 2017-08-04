@@ -13,3 +13,24 @@ r_dir_file(bootstat, proc)
 
 # Collect metrics on boot time created by init
 get_prop(bootstat, boottime_prop)
+
+# ToDo: move access to the following to system health HAL
+
+# to write sys.boot.reason, which shares in the same default
+# system_prop group as ro.boot.bootreason, both to be read
+# by the same set of applications.
+set_prop(bootstat, system_prop)
+
+# Allow access to /sys/fs/pstore/ and syslog
+allow bootstat pstorefs:dir search;
+allow bootstat pstorefs:file r_file_perms;
+allow bootstat kernel:system syslog_read;
+
+# Allow access to /data/misc/reboot/
+allow bootstat reboot_data_file:dir search;
+allow bootstat reboot_data_file:file r_file_perms;
+
+# Allow access to reading the logs to read aspects of system health
+read_logd(bootstat)
+
+# ToDo: end
