@@ -20,6 +20,9 @@ userdebug_or_eng(`
   # Access to /data/misc/logd/event-log-tags
   allow logd misc_logd_file:dir r_dir_perms;
   allow logd misc_logd_file:file rw_file_perms;
+
+  # Following factory reset, data may be unlabeled initally
+  dontaudit logd unlabeled:dir search;
 ')
 allow logd runtime_event_log_tags_file:file rw_file_perms;
 
