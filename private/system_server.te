@@ -443,6 +443,11 @@ set_prop(system_server, ctl_bugreport_prop)
 # cppreopt property
 set_prop(system_server, cppreopt_prop)
 
+# BootReceiver to read ro.boot.bootreason
+get_prop(system_server, bootloader_boot_reason_prop)
+# PowerManager to read and clear persist.sys.boot.reason
+set_prop(system_server, last_boot_reason_prop)
+
 # Collect metrics on boot time created by init
 get_prop(system_server, boottime_prop)
 
