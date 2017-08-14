@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b03e8bc_8536011a",
+        "filename": "private/app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-08-14T04:45:46Z",
+      "side": 1,
+      "message": "I\u0027d actually like to expand this to be more specific (in addition to the general appdomain rules here)\nneverallow { untrusted_app -shell } { domain -untrusted_app }:file no_rw_file_perms;\nneverallow { isolated_app -shell } { domain -isolated_app }:file no_rw_file_perms;\n...",
+      "range": {
+        "startLine": 373,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 76
+      },
+      "revId": "7a4638096916b729af479710660a3e14bb5358fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
