@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0ea8fc29_a117c315",
+        "filename": "public/bootstat.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2017-08-14T17:04:30Z",
+      "side": 1,
+      "message": "sys.boot.reason is meant as a replacement for ro.boot.bootreason; all those that can read the later, need to be able to read the new one. ro.boot.bootreason is currently system_prop as well and I intend on this new fungible property to be readable by all.\n\nDo I need a security review if sys.boot.reason contains similar, but canonical/cooked, content as ro.boot.bootreason or is there a move to hide the later?\n\n(notwithstanding my own architectural concern and debate about creating a new API, ro.boot.bootreason is readonly, evolution requires that we need to rewrite it, only reason to add a new Android property. It could just as easily be a file in /data except that is much harder to protect from snooping and privacy)",
+      "parentUuid": "1ab9a7ea_4ccd5ec4",
+      "range": {
+        "startLine": 16,
+        "startChar": 19,
+        "endLine": 16,
+        "endChar": 30
+      },
+      "revId": "bc1ed373fff00abd0dc54f67dc4ea396e8eafda3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb0592cd_4eaef930",
         "filename": "public/bootstat.te",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-08-14T04:14:43Z",
       "side": 1,
       "message": "should these be debug-only?",
+      "revId": "bc1ed373fff00abd0dc54f67dc4ea396e8eafda3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6df87aa9_55404556",
+        "filename": "public/bootstat.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2017-08-14T17:04:30Z",
+      "side": 1,
+      "message": "Reading logcat content is part of the refinement of the boot reasons (inspecting system health clues during boot to determine if battery was reason for power down).\n\nTo be clear, this is a prototype, easier sometimes to debate code than a design document. This may be replaced by a HAL to abstract it (and the above), so this permission might migrate to the system health daemon. Too early to tell, I do know that these pair of (prototype) CLs starts the system design andsecurity discussions :-)",
+      "parentUuid": "fb0592cd_4eaef930",
       "revId": "bc1ed373fff00abd0dc54f67dc4ea396e8eafda3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
