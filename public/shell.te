@@ -76,6 +76,11 @@ userdebug_or_eng(`
 # Read device's serial number from system properties
 get_prop(shell, serialno_prop)
 
+# Read state of boot reason properties
+get_prop(shell, bootloader_boot_reason_prop)
+get_prop(shell, last_boot_reason_prop)
+get_prop(shell, system_boot_reason_prop)
+
 # allow shell access to services
 allow shell servicemanager:service_manager list;
 # don't allow shell to access GateKeeper service
