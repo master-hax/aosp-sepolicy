@@ -195,7 +195,12 @@ LOCAL_REQUIRED_MODULES += \
     plat_and_mapping_sepolicy.cil.sha256 \
     secilc \
     plat_sepolicy_vers.txt \
-    treble_sepolicy_tests
+
+ifneq ($(with_asan),true)
+LOCAL_REQUIRED_MODULES += \
+    treble_sepolicy_tests \
+
+endif
 
 # Include precompiled policy, unless told otherwise
 ifneq ($(PRODUCT_PRECOMPILED_SEPOLICY),false)
@@ -220,6 +225,18 @@ LOCAL_REQUIRED_MODULES += \
     plat_service_contexts \
     plat_hwservice_contexts \
     vndservice_contexts \
+
+ifneq ($(TARGET_BUILD_VARIANT), user)
+LOCAL_REQUIRED_MODULES += \
+    selinux_denial_metadata \
+
+endif
+
+ifneq ($(with_asan),true)
+LOCAL_REQUIRED_MODULES += \
+    sepolicy_tests \
+
+endif
 
 include $(BUILD_PHONY_PACKAGE)
 
@@ -657,6 +674,24 @@ file_contexts.device.sorted.tmp :=
 file_contexts.device.tmp :=
 file_contexts.local.tmp :=
 
+##################################
+ifneq ($(TARGET_BUILD_VARIANT), user)
+  include $(CLEAR_VARS)
+
+  LOCAL_MODULE := selinux_denial_metadata
+  LOCAL_MODULE_CLASS := ETC
+  LOCAL_MODULE_PATH := $(TARGET_OUT)/etc/selinux
+
+  include $(BUILD_SYSTEM)/base_rules.mk
+
+  bug_files := $(call build_policy, bug_map, $(LOCAL_PATH) $(PLAT_PRIVATE_POLICY) $(PLAT_VENDOR_POLICY) $(BOARD_SEPOLICY_DIRS) $(PLAT_PUBLIC_POLICY))
+
+  $(LOCAL_BUILT_MODULE) : $(bug_files)
+	  @mkdir -p $(dir $@)
+	  cat $^ > $@
+
+  bug_files :=
+endif
 ##################################
 include $(CLEAR_VARS)
 
