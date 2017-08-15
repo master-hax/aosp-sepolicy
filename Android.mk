@@ -197,6 +197,59 @@ ifneq (,$(filter address,$(SANITIZE_TARGET)))
   with_asan := true
 endif
 
+include $(CLEAR_VARS)
+LOCAL_MODULE := selinux_policy
+LOCAL_MODULE_TAGS := optional
+# Include SELinux policy. We do this here because different modules
+# need to be included based on the value of PRODUCT_FULL_TREBLE. This
+# type of conditional inclusion cannot be done in top-level files such
+# as build/target/product/embedded.mk.
+# This conditional inclusion closely mimics the conditional logic
+# inside init/init.cpp for loading SELinux policy from files.
+ifeq ($(PRODUCT_FULL_TREBLE),true)
+
+# Use split SELinux policy
+LOCAL_REQUIRED_MODULES += \
+    $(platform_mapping_file) \
+    nonplat_sepolicy.cil \
+    plat_sepolicy.cil \
+    plat_and_mapping_sepolicy.cil.sha256 \
+    secilc \
+    plat_sepolicy_vers.txt \
+
+ifneq ($(with_asan),true)
+LOCAL_REQUIRED_MODULES += \
+    treble_sepolicy_tests \
+
+endif
+
+# Include precompiled policy, unless told otherwise
+ifneq ($(PRODUCT_PRECOMPILED_SEPOLICY),false)
+LOCAL_REQUIRED_MODULES += precompiled_sepolicy precompiled_sepolicy.plat_and_mapping.sha256
+endif
+else
+# Use monolithic SELinux policy
+LOCAL_REQUIRED_MODULES += sepolicy
+endif
+
+LOCAL_REQUIRED_MODULES += \
+    nonplat_file_contexts \
+    plat_file_contexts \
+
+ifneq ($(TARGET_BUILD_VARIANT), user)
+LOCAL_REQUIRED_MODULES += \
+    selinux_denial_metadata \
+
+endif
+
+ifneq ($(with_asan),true)
+LOCAL_REQUIRED_MODULES += \
+    sepolicy_tests \
+
+endif
+
+include $(BUILD_PHONY_PACKAGE)
+
 ##################################
 # reqd_policy_mask - a policy.conf file which contains only the bare minimum
 # policy necessary to use checkpolicy.  This bare-minimum policy needs to be
@@ -797,6 +850,24 @@ file_contexts.device.sorted.tmp :=
 file_contexts.device.tmp :=
 file_contexts.local.tmp :=
 
+##################################
+ifneq ($(TARGET_BUILD_VARIANT), user)
+  include $(CLEAR_VARS)
+
+  LOCAL_MODULE := selinux_denial_metadata
+  LOCAL_MODULE_CLASS := ETC
+  LOCAL_MODULE_PATH := $(TARGET_OUT)/etc/selinux
+
+  include $(BUILD_SYSTEM)/base_rules.mk
+
+  bug_files := $(call build_policy, bug_map, $(LOCAL_PATH) $(PLAT_PRIVATE_POLICY) $(PLAT_VENDOR_POLICY) $(BOARD_SEPOLICY_DIRS) $(PLAT_PUBLIC_POLICY))
+
+  $(LOCAL_BUILT_MODULE) : $(bug_files)
+	  @mkdir -p $(dir $@)
+	  cat $^ > $@
+
+  bug_files :=
+endif
 ##################################
 include $(CLEAR_VARS)
 
