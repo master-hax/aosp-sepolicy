@@ -175,6 +175,9 @@ allow shell seapp_contexts_file:file r_file_perms;
 allow shell service_contexts_file:file r_file_perms;
 allow shell sepolicy_file:file r_file_perms;
 
+allow shell fs_bpf:dir search;
+allow shell fs_bpf:file read;
+
 ###
 ### Neverallow rules
 ###
