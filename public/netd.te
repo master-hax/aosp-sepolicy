@@ -93,6 +93,9 @@ allow netd netdomain:fd use;
 # give netd permission to read and write netlink xfrm
 allow netd self:netlink_xfrm_socket { create_socket_perms_no_ioctl nlmsg_write nlmsg_read };
 
+# give netd permission to use eBPF functionalities
+allow netd self:bpf { map_create map_update map_read map_delete prog_load prog_use };
+
 ###
 ### Neverallow rules
 ###
