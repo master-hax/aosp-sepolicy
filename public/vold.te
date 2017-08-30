@@ -188,7 +188,7 @@ neverallow { domain -vold -init } vold_data_file:dir *;
 neverallow { domain -vold -init -kernel } vold_data_file:notdevfile_class_set *;
 neverallow { domain -vold -init } restorecon_prop:property_service set;
 
-neverallow vold fsck_exec:file execute_no_trans;
+neverallow vold *:file execute_no_trans;
 neverallow { domain -init } vold:process { transition dyntransition };
 neverallow vold *:process ptrace;
 neverallow vold *:rawip_socket *;
