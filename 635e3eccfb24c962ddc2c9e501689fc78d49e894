@@ -16,6 +16,29 @@
       "revId": "635e3eccfb24c962ddc2c9e501689fc78d49e894",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3de756c8_0cb29441",
+        "filename": "tools/fc_sort/fc_sort.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2017-08-30T01:53:20Z",
+      "side": 1,
+      "message": "The static analyzer should point to the return statement about potential memory leak. I don\u0027t know why. That\u0027s probably what to be blamed for adding NOLINT at the printf.\n\nHow about replacing return -1 with exit(-1) or any non-zero exit? Static analysis will recognize the non-return function exit and not complain about leaking memory.",
+      "range": {
+        "startLine": 520,
+        "startChar": 0,
+        "endLine": 520,
+        "endChar": 17
+      },
+      "revId": "635e3eccfb24c962ddc2c9e501689fc78d49e894",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
