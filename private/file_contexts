@@ -39,20 +39,30 @@
 
 # SELinux policy files
 /nonplat_file_contexts  u:object_r:file_contexts_file:s0
+/vendor_file_contexts  u:object_r:file_contexts_file:s0
+/odm_file_contexts  u:object_r:file_contexts_file:s0
 /plat_file_contexts     u:object_r:file_contexts_file:s0
 /mapping_sepolicy\.cil   u:object_r:sepolicy_file:s0
 /nonplat_sepolicy\.cil   u:object_r:sepolicy_file:s0
 /plat_sepolicy\.cil      u:object_r:sepolicy_file:s0
 /plat_property_contexts  u:object_r:property_contexts_file:s0
 /nonplat_property_contexts  u:object_r:property_contexts_file:s0
+/vendor_property_contexts  u:object_r:property_contexts_file:s0
+/odm_property_contexts  u:object_r:property_contexts_file:s0
 /seapp_contexts     u:object_r:seapp_contexts_file:s0
 /nonplat_seapp_contexts     u:object_r:seapp_contexts_file:s0
+/vendor_seapp_contexts     u:object_r:seapp_contexts_file:s0
+/odm_seapp_contexts     u:object_r:seapp_contexts_file:s0
 /plat_seapp_contexts     u:object_r:seapp_contexts_file:s0
 /sepolicy           u:object_r:sepolicy_file:s0
 /plat_service_contexts   u:object_r:service_contexts_file:s0
 /plat_hwservice_contexts   u:object_r:hwservice_contexts_file:s0
 /nonplat_service_contexts   u:object_r:service_contexts_file:s0
 /nonplat_hwservice_contexts   u:object_r:hwservice_contexts_file:s0
+/vendor_service_contexts   u:object_r:service_contexts_file:s0
+/vendor_hwservice_contexts   u:object_r:hwservice_contexts_file:s0
+/odm_service_contexts   u:object_r:service_contexts_file:s0
+/odm_hwservice_contexts   u:object_r:hwservice_contexts_file:s0
 /vndservice_contexts   u:object_r:vndservice_contexts_file:s0
 
 ##########################
@@ -300,15 +310,32 @@
 /vendor/etc/selinux/nonplat_file_contexts   u:object_r:file_contexts_file:s0
 /vendor/etc/selinux/nonplat_seapp_contexts    u:object_r:seapp_contexts_file:s0
 /vendor/etc/selinux/nonplat_sepolicy.cil       u:object_r:sepolicy_file:s0
+/vendor/etc/selinux/vendor_mac_permissions.xml u:object_r:mac_perms_file:s0
+/vendor/etc/selinux/vendor_property_contexts   u:object_r:property_contexts_file:s0
+/vendor/etc/selinux/vendor_service_contexts    u:object_r:service_contexts_file:s0
+/vendor/etc/selinux/vendor_hwservice_contexts    u:object_r:hwservice_contexts_file:s0
+/vendor/etc/selinux/vendor_file_contexts   u:object_r:file_contexts_file:s0
+/vendor/etc/selinux/vendor_seapp_contexts    u:object_r:seapp_contexts_file:s0
+/vendor/etc/selinux/vendor_sepolicy.cil       u:object_r:sepolicy_file:s0
 /vendor/etc/selinux/precompiled_sepolicy        u:object_r:sepolicy_file:s0
 /vendor/etc/selinux/precompiled_sepolicy\.plat_and_mapping\.sha256 u:object_r:sepolicy_file:s0
 /vendor/etc/selinux/vndservice_contexts         u:object_r:vndservice_contexts_file:s0
+/vendor/etc/selinux/declaration/nonplat_declaration.cil       u:object_r:sepolicy_file:s0
 
 #############################
 # OEM and ODM files
 #
 /odm(/.*)?              u:object_r:system_file:s0
 /oem(/.*)?              u:object_r:oemfs:s0
+/odm/etc/selinux/odm_mac_permissions.xml u:object_r:mac_perms_file:s0
+/odm/etc/selinux/odm_property_contexts   u:object_r:property_contexts_file:s0
+/odm/etc/selinux/odm_service_contexts    u:object_r:service_contexts_file:s0
+/odm/etc/selinux/odm_hwservice_contexts    u:object_r:hwservice_contexts_file:s0
+/odm/etc/selinux/odm_file_contexts   u:object_r:file_contexts_file:s0
+/odm/etc/selinux/odm_seapp_contexts    u:object_r:seapp_contexts_file:s0
+/odm/etc/selinux/odm_sepolicy.cil       u:object_r:sepolicy_file:s0
+/odm/etc/selinux/precompiled_sepolicy        u:object_r:sepolicy_file:s0
+/odm/etc/selinux/precompiled_sepolicy\.plat_and_mapping\.sha256 u:object_r:sepolicy_file:s0
 
 
 #############################
