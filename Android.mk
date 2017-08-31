@@ -24,7 +24,7 @@ ifneq (REL,$(PLATFORM_VERSION_CODENAME))
 endif
 PLATFORM_SEPOLICY_VERSION := $(join $(addsuffix .,$(sepolicy_major_vers)), $(sepolicy_minor_vers))
 sepolicy_major_vers :=
-sepolicy_minor_vers :=
+sdepolicy_minor_vers :=
 
 include $(CLEAR_VARS)
 # SELinux policy version.
@@ -113,6 +113,21 @@ $(warning BOARD_SEPOLICY_VERS not specified, assuming current platform version)
 BOARD_SEPOLICY_VERS := $(PLATFORM_SEPOLICY_VERSION)
 endif
 
+# BOARD_SEPOLICY_DIRS is used for vendor/odm sepolicy customization before.
+# It has been replaced by BOARD_VENDOR_SEPOLICY_DIRS (mandatory) and
+# BOARD_ODM_SEPOLICY_DIRS (optional).
+ifdef BOARD_SEPOLICY_DIRS
+ifdef BOARD_VENDOR_SEPOLICY_DIRS
+$(error BOARD_SEPOLICY_DIRS is deprecated, use BOARD_VENDOR_SEPOLICY_DIRS instead)
+endif
+BOARD_VENDOR_SEPOLICY_DIRS := $(BOARD_SEPOLICY_DIRS)
+endif
+
+ifdef BOARD_ODM_SEPOLICY_DIRS
+ifneq ($(PRODUCT_FULL_TREBLE),true)
+$(error RPODUCT_FULL_TREBLE needs to be true when using BOARD_ODM_SEPOLICY_DIRS)
+endif
+endif
 
 platform_mapping_file := $(BOARD_SEPOLICY_VERS).cil
 
@@ -126,9 +141,12 @@ define build_policy
 $(foreach type, $(1), $(foreach file, $(addsuffix /$(type), $(2)), $(sort $(wildcard $(file)))))
 endef
 
-# Builds paths for all policy files found in BOARD_SEPOLICY_DIRS.
+# Builds paths for all policy files found in BOARD_VENDOR_SEPOLICY_DIRS.
 # $(1): the set of policy name paths to build
-build_device_policy = $(call build_policy, $(1), $(PLAT_VENDOR_POLICY) $(BOARD_SEPOLICY_DIRS))
+build_vendor_policy = $(call build_policy, $(1), $(PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS))
+
+# Builds paths for all policy files found in BOARD_ODM_SEPOLICY_DIRS.
+build_odm_policy = $(call build_policy, $(1), $(BOARD_ODM_SEPOLICY_DIRS))
 
 # Add a file containing only a newline in-between each policy configuration
 # 'contexts' file. This will allow OEM policy configuration files without a
@@ -197,7 +215,8 @@ ifeq ($(PRODUCT_FULL_TREBLE),true)
 # Use split SELinux policy
 LOCAL_REQUIRED_MODULES += \
     $(platform_mapping_file) \
-    nonplat_sepolicy.cil \
+    plat_pub_versioned.cil \
+    vendor_sepolicy.cil \
     plat_sepolicy.cil \
     plat_and_mapping_sepolicy.cil.sha256 \
     secilc \
@@ -207,6 +226,10 @@ ifneq ($(with_asan),true)
 LOCAL_REQUIRED_MODULES += \
     treble_sepolicy_tests \
 
+endif
+
+ifdef BOARD_ODM_SEPOLICY_DIRS
+LOCAL_REQUIRED_MODULES += odm_sepolicy.cil
 endif
 
 # Include precompiled policy, unless told otherwise
@@ -219,11 +242,11 @@ LOCAL_REQUIRED_MODULES += sepolicy
 endif
 
 LOCAL_REQUIRED_MODULES += \
-    nonplat_file_contexts \
-    nonplat_mac_permissions.xml \
-    nonplat_property_contexts \
-    nonplat_seapp_contexts \
-    nonplat_hwservice_contexts \
+    vendor_file_contexts \
+    vendor_mac_permissions.xml \
+    vendor_property_contexts \
+    vendor_seapp_contexts \
+    vendor_hwservice_contexts \
     plat_file_contexts \
     plat_mac_permissions.xml \
     plat_property_contexts \
@@ -234,7 +257,7 @@ LOCAL_REQUIRED_MODULES += \
     vndservice_contexts \
 
 ifneq ($(PRODUCT_FULL_TREBLE),true)
-LOCAL_REQUIRED_MODULES += nonplat_service_contexts
+LOCAL_REQUIRED_MODULES += vendor_service_contexts
 endif
 
 ifneq ($(TARGET_BUILD_VARIANT), user)
@@ -247,6 +270,15 @@ ifneq ($(with_asan),true)
 LOCAL_REQUIRED_MODULES += \
     sepolicy_tests \
 
+endif
+
+ifdef BOARD_ODM_SEPOLICY_DIRS
+LOCAL_REQUIRED_MODULES += \
+    odm_file_contexts \
+    odm_mac_permissions.xml \
+    odm_property_contexts \
+    odm_seapp_contexts \
+    odm_hwservice_contexts
 endif
 
 include $(BUILD_PHONY_PACKAGE)
@@ -423,9 +455,18 @@ $(LOCAL_BUILT_MODULE): $(built_plat_cil) $(built_mapping_cil)
 	cat $^ | sha256sum | cut -d' ' -f1 > $@
 
 #################################
+# Both vendor sepolicy and odm sepolicy need $(PLAT_PUBLIC_POLICY) and
+# $(REQD_MASK_POLICY) to pass an intermediate check via "checkpolicy".
+# In order to prevent Re-declaration, plat_pub_versioned.cil is
+# introduced to include the two files. It will be combined with vendor and
+# odm sepolicy temporarily during "checkpolicy" check.
+# plat_pub_versioned.cil will be a separate output file to /vendor,
+# to be merged with vendor_sepolicy.cil and/or odm_sepolicy.cil when the
+# device boots.
+#################################
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := nonplat_sepolicy.cil
+LOCAL_MODULE := plat_pub_versioned.cil
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
@@ -433,47 +474,117 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/etc/selinux
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-# nonplat_policy.conf - A combination of the non-platform private, vendor and
-# the exported platform policy associated with the version the non-platform
-# policy targets.  This needs attributization and to be combined with the
-# platform-provided policy.  Like plat_pub_policy.conf, this needs to make use
-# of the reqd_policy_mask files from private policy in order to use checkpolicy.
-nonplat_policy.conf := $(intermediates)/nonplat_policy.conf
-$(nonplat_policy.conf): PRIVATE_MLS_SENS := $(MLS_SENS)
-$(nonplat_policy.conf): PRIVATE_MLS_CATS := $(MLS_CATS)
-$(nonplat_policy.conf): PRIVATE_TGT_ARCH := $(my_target_arch)
-$(nonplat_policy.conf): PRIVATE_TGT_WITH_ASAN := $(with_asan)
-$(nonplat_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
-$(nonplat_policy.conf): PRIVATE_FULL_TREBLE := $(PRODUCT_FULL_TREBLE)
-$(nonplat_policy.conf): $(call build_policy, $(sepolicy_build_files), \
-$(PLAT_PUBLIC_POLICY) $(REQD_MASK_POLICY) $(PLAT_VENDOR_POLICY) $(BOARD_SEPOLICY_DIRS))
+$(LOCAL_BUILT_MODULE) : PRIVATE_VERS := $(BOARD_SEPOLICY_VERS)
+$(LOCAL_BUILT_MODULE) : PRIVATE_TGT_POL := $(plat_pub_policy.cil)
+$(LOCAL_BUILT_MODULE) : PRIVATE_DEP_CIL_FILES := $(built_plat_cil) $(built_mapping_cil)
+$(LOCAL_BUILT_MODULE) : $(plat_pub_policy.cil) $(HOST_OUT_EXECUTABLES)/version_policy \
+  $(HOST_OUT_EXECUTABLES)/secilc $(built_plat_cil) $(built_mapping_cil)
+	@mkdir -p $(dir $@)
+	$(HOST_OUT_EXECUTABLES)/version_policy -b $< -t $(PRIVATE_TGT_POL) -n $(PRIVATE_VERS) -o $@
+	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -m -M true -G -N -c $(POLICYVERS) \
+		$(PRIVATE_DEP_CIL_FILES) $@ -o /dev/null -f /dev/null
+
+built_plat_pub_cil := $(LOCAL_BUILT_MODULE)
+
+#################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := vendor_sepolicy.cil
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_PROPRIETARY_MODULE := true
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/etc/selinux
+
+include $(BUILD_SYSTEM)/base_rules.mk
+
+vendor_policy.conf := $(intermediates)/vendor_policy.conf
+$(vendor_policy.conf): PRIVATE_MLS_SENS := $(MLS_SENS)
+$(vendor_policy.conf): PRIVATE_MLS_CATS := $(MLS_CATS)
+$(vendor_policy.conf): PRIVATE_TGT_ARCH := $(my_target_arch)
+$(vendor_policy.conf): PRIVATE_TGT_WITH_ASAN := $(with_asan)
+$(vendor_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
+$(vendor_policy.conf): PRIVATE_FULL_TREBLE := $(PRODUCT_FULL_TREBLE)
+$(vendor_policy.conf): $(call build_policy, $(sepolicy_build_files), \
+$(PLAT_PUBLIC_POLICY) $(REQD_MASK_POLICY) $(PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS))
 	$(transform-policy-to-conf)
 	$(hide) sed '/dontaudit/d' $@ > $@.dontaudit
 
-nonplat_policy_raw := $(intermediates)/nonplat_policy_raw.cil
-$(nonplat_policy_raw): PRIVATE_POL_CONF := $(nonplat_policy.conf)
-$(nonplat_policy_raw): PRIVATE_REQD_MASK := $(reqd_policy_mask.cil)
-$(nonplat_policy_raw): $(HOST_OUT_EXECUTABLES)/checkpolicy $(nonplat_policy.conf) \
+vendor_policy_raw := $(intermediates)/vendor_policy_raw.cil
+$(vendor_policy_raw): PRIVATE_POL_CONF := $(vendor_policy.conf)
+$(vendor_policy_raw): PRIVATE_REQD_MASK := $(reqd_policy_mask.cil)
+$(vendor_policy_raw): $(HOST_OUT_EXECUTABLES)/checkpolicy $(vendor_policy.conf) \
 $(reqd_policy_mask.cil)
 	@mkdir -p $(dir $@)
 	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $< -C -M -c $(POLICYVERS) -o $@.tmp $(PRIVATE_POL_CONF)
 	$(hide) grep -Fxv -f $(PRIVATE_REQD_MASK) $@.tmp > $@
 
 $(LOCAL_BUILT_MODULE) : PRIVATE_VERS := $(BOARD_SEPOLICY_VERS)
-$(LOCAL_BUILT_MODULE) : PRIVATE_TGT_POL := $(nonplat_policy_raw)
-$(LOCAL_BUILT_MODULE) : PRIVATE_DEP_CIL_FILES := $(built_plat_cil) $(built_mapping_cil)
-$(LOCAL_BUILT_MODULE) : $(plat_pub_policy.cil) $(nonplat_policy_raw) \
-$(HOST_OUT_EXECUTABLES)/version_policy $(HOST_OUT_EXECUTABLES)/secilc \
-$(built_plat_cil) $(built_mapping_cil)
+$(LOCAL_BUILT_MODULE) : PRIVATE_TGT_POL := $(vendor_policy_raw)
+$(LOCAL_BUILT_MODULE) : PRIVATE_DEP_CIL_FILES := $(built_plat_cil) $(built_plat_pub_cil) $(built_mapping_cil)
+$(LOCAL_BUILT_MODULE) : PRIVATE_FILTER_CIL := $(built_plat_pub_cil)
+$(LOCAL_BUILT_MODULE) : $(plat_pub_policy.cil) $(vendor_policy_raw) \
+  $(HOST_OUT_EXECUTABLES)/version_policy $(HOST_OUT_EXECUTABLES)/secilc \
+  $(built_plat_cil) $(built_plat_pub_cil) $(built_mapping_cil)
 	@mkdir -p $(dir $@)
-	$(HOST_OUT_EXECUTABLES)/version_policy -b $< -t $(PRIVATE_TGT_POL) -n $(PRIVATE_VERS) -o $@
+	$(HOST_OUT_EXECUTABLES)/version_policy -b $< -t $(PRIVATE_TGT_POL) -n $(PRIVATE_VERS) -o $@.tmp
+	$(hide) grep -Fxv -f $(PRIVATE_FILTER_CIL) $@.tmp > $@
 	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -m -M true -G -N -c $(POLICYVERS) \
 		$(PRIVATE_DEP_CIL_FILES) $@ -o /dev/null -f /dev/null
 
-built_nonplat_cil := $(LOCAL_BUILT_MODULE)
-nonplat_policy.conf :=
-nonplat_policy_raw :=
+built_vendor_cil := $(LOCAL_BUILT_MODULE)
+vendor_policy.conf :=
+vendor_policy_raw :=
 
+#################################
+ifdef BOARD_ODM_SEPOLICY_DIRS
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := odm_sepolicy.cil
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_PROPRIETARY_MODULE := true
+LOCAL_MODULE_PATH := $(TARGET_OUT_ODM)/etc/selinux
+
+include $(BUILD_SYSTEM)/base_rules.mk
+
+odm_policy.conf := $(intermediates)/odm_policy.conf
+$(odm_policy.conf): PRIVATE_MLS_SENS := $(MLS_SENS)
+$(odm_policy.conf): PRIVATE_MLS_CATS := $(MLS_CATS)
+$(odm_policy.conf): PRIVATE_TGT_ARCH := $(my_target_arch)
+$(odm_policy.conf): PRIVATE_TGT_WITH_ASAN := $(with_asan)
+$(odm_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
+$(odm_policy.conf): PRIVATE_FULL_TREBLE := $(PRODUCT_FULL_TREBLE)
+$(odm_policy.conf): $(call build_policy, $(sepolicy_build_files), \
+$(PLAT_PUBLIC_POLICY) $(REQD_MASK_POLICY) $(BOARD_ODM_SEPOLICY_DIRS))
+	$(transform-policy-to-conf)
+	$(hide) sed '/dontaudit/d' $@ > $@.dontaudit
+
+odm_policy_raw := $(intermediates)/odm_policy_raw.cil
+$(odm_policy_raw): PRIVATE_POL_CONF := $(odm_policy.conf)
+$(odm_policy_raw): PRIVATE_REQD_MASK := $(reqd_policy_mask.cil)
+$(odm_policy_raw): $(HOST_OUT_EXECUTABLES)/checkpolicy $(odm_policy.conf) \
+$(reqd_policy_mask.cil)
+	@mkdir -p $(dir $@)
+	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $< -C -M -c $(POLICYVERS) -o $@.tmp $(PRIVATE_POL_CONF)
+	$(hide) grep -Fxv -f $(PRIVATE_REQD_MASK) $@.tmp > $@
+
+$(LOCAL_BUILT_MODULE) : PRIVATE_VERS := $(BOARD_SEPOLICY_VERS)
+$(LOCAL_BUILT_MODULE) : PRIVATE_TGT_POL := $(odm_policy_raw)
+$(LOCAL_BUILT_MODULE) : PRIVATE_DEP_CIL_FILES := $(built_plat_cil) $(built_plat_pub_cil) $(built_mapping_cil)
+$(LOCAL_BUILT_MODULE) : PRIVATE_FILTER_CIL := $(built_plat_pub_cil)
+$(LOCAL_BUILT_MODULE) : $(plat_pub_policy.cil) $(odm_policy_raw) \
+  $(HOST_OUT_EXECUTABLES)/version_policy $(HOST_OUT_EXECUTABLES)/secilc \
+  $(built_plat_cil) $(built_plat_pub_cil) $(built_mapping_cil)
+	@mkdir -p $(dir $@)
+	$(HOST_OUT_EXECUTABLES)/version_policy -b $< -t $(PRIVATE_TGT_POL) -n $(PRIVATE_VERS) -o $@.tmp
+	$(hide) grep -Fxv -f $(PRIVATE_FILTER_CIL) $@.tmp > $@
+	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -m -M true -G -N -c $(POLICYVERS) \
+		$(PRIVATE_DEP_CIL_FILES) $@ -o /dev/null -f /dev/null
+
+built_odm_cil := $(LOCAL_BUILT_MODULE)
+odm_policy.conf :=
+odm_policy_raw :=
+endif
 #################################
 include $(CLEAR_VARS)
 
@@ -481,18 +592,32 @@ LOCAL_MODULE := precompiled_sepolicy
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
+
+ifeq ($(BOARD_USES_ODMIMAGE),true)
+LOCAL_MODULE_PATH := $(TARGET_OUT_ODM)/etc/selinux
+else
 LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/etc/selinux
+endif
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-$(LOCAL_BUILT_MODULE): PRIVATE_CIL_FILES := \
-$(built_plat_cil) $(built_mapping_cil) $(built_nonplat_cil)
-$(LOCAL_BUILT_MODULE): $(HOST_OUT_EXECUTABLES)/secilc \
-$(built_plat_cil) $(built_mapping_cil) $(built_nonplat_cil)
+all_cil_files := \
+    $(built_plat_cil) \
+    $(built_mapping_cil) \
+    $(built_plat_pub_cil) \
+    $(built_vendor_cil)
+
+ifdef BOARD_ODM_SEPOLICY_DIRS
+all_cil_files += $(built_odm_cil)
+endif
+
+$(LOCAL_BUILT_MODULE): PRIVATE_CIL_FILES := $(all_cil_files)
+$(LOCAL_BUILT_MODULE): $(HOST_OUT_EXECUTABLES)/secilc $(all_cil_files)
 	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -m -M true -G -c $(POLICYVERS) \
 		$(PRIVATE_CIL_FILES) -o $@ -f /dev/null
 
 built_precompiled_sepolicy := $(LOCAL_BUILT_MODULE)
+all_cil_files :=
 
 #################################
 # SHA-256 digest of the plat_sepolicy.cil and mapping_sepolicy.cil files against
@@ -503,7 +628,12 @@ LOCAL_MODULE := precompiled_sepolicy.plat_and_mapping.sha256
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
+
+ifeq ($(BOARD_USES_ODMIMAGE),true)
+LOCAL_MODULE_PATH := $(TARGET_OUT_ODM)/etc/selinux
+else
 LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/etc/selinux
+endif
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
@@ -525,7 +655,12 @@ include $(BUILD_SYSTEM)/base_rules.mk
 all_cil_files := \
     $(built_plat_cil) \
     $(built_mapping_cil) \
-    $(built_nonplat_cil)
+    $(built_plat_pub_cil) \
+    $(built_vendor_cil)
+
+ifdef BOARD_ODM_SEPOLICY_DIRS
+all_cil_files += $(built_odm_cil)
+endif
 
 $(LOCAL_BUILT_MODULE): PRIVATE_CIL_FILES := $(all_cil_files)
 $(LOCAL_BUILT_MODULE): $(HOST_OUT_EXECUTABLES)/secilc $(HOST_OUT_EXECUTABLES)/sepolicy-analyze $(all_cil_files)
@@ -566,7 +701,8 @@ $(sepolicy.recovery.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEF
 $(sepolicy.recovery.conf): PRIVATE_TGT_RECOVERY := -D target_recovery=true
 $(sepolicy.recovery.conf): $(call build_policy, $(sepolicy_build_files), \
                            $(PLAT_PUBLIC_POLICY) $(PLAT_PRIVATE_POLICY) \
-                           $(PLAT_VENDOR_POLICY) $(BOARD_SEPOLICY_DIRS))
+                           $(PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS) \
+                           $(BOARD_ODM_SEPOLICY_DIRS))
 	$(transform-policy-to-conf)
 	$(hide) sed '/dontaudit/d' $@ > $@.dontaudit
 
@@ -648,7 +784,12 @@ $(file_contexts.local.tmp): $(local_fcfiles_with_nl)
 	@mkdir -p $(dir $@)
 	$(hide) m4 -s $^ > $@
 
-device_fc_files := $(call build_device_policy, file_contexts)
+device_fc_files := $(call build_vendor_policy, file_contexts)
+
+ifdef BOARD_ODM_SEPOLICY_DIRS
+device_fc_files += $(call build_odm_policy, file_contexts)
+endif
+
 device_fcfiles_with_nl := $(call add_nl, $(device_fc_files), $(built_nl))
 
 file_contexts.device.tmp := $(intermediates)/file_contexts.device.tmp
@@ -659,7 +800,8 @@ $(file_contexts.device.tmp): $(device_fcfiles_with_nl)
 
 file_contexts.device.sorted.tmp := $(intermediates)/file_contexts.device.sorted.tmp
 $(file_contexts.device.sorted.tmp): PRIVATE_SEPOLICY := $(built_sepolicy)
-$(file_contexts.device.sorted.tmp): $(file_contexts.device.tmp) $(built_sepolicy) $(HOST_OUT_EXECUTABLES)/fc_sort $(HOST_OUT_EXECUTABLES)/checkfc
+$(file_contexts.device.sorted.tmp): $(file_contexts.device.tmp) $(built_sepolicy) \
+  $(HOST_OUT_EXECUTABLES)/fc_sort $(HOST_OUT_EXECUTABLES)/checkfc
 	@mkdir -p $(dir $@)
 	$(hide) $(HOST_OUT_EXECUTABLES)/checkfc -e $(PRIVATE_SEPOLICY) $<
 	$(hide) $(HOST_OUT_EXECUTABLES)/fc_sort $< $@
@@ -681,9 +823,12 @@ local_fcfiles_with_nl :=
 device_fc_files :=
 device_fcfiles_with_nl :=
 file_contexts.concat.tmp :=
-file_contexts.device.sorted.tmp :=
-file_contexts.device.tmp :=
+file_contexts.vendor.sorted.tmp :=
+file_contexts.vendor.tmp :=
+file_contexts.odm.sorted.tmp :=
+file_contexts.odm.tmp :=
 file_contexts.local.tmp :=
+all_file_contexts :=
 
 ##################################
 ifneq ($(TARGET_BUILD_VARIANT), user)
@@ -740,7 +885,7 @@ local_fcfiles_with_nl :=
 ##################################
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := nonplat_file_contexts
+LOCAL_MODULE := vendor_file_contexts
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 ifeq ($(PRODUCT_FULL_TREBLE),true)
@@ -751,22 +896,55 @@ endif
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-nonplat_fc_files := $(call build_device_policy, file_contexts)
-nonplat_fcfiles_with_nl := $(call add_nl, $(nonplat_fc_files), $(built_nl))
+vendor_fc_files := $(call build_vendor_policy, file_contexts)
+vendor_fcfiles_with_nl := $(call add_nl, $(vendor_fc_files), $(built_nl))
 
-$(LOCAL_BUILT_MODULE): PRIVATE_FC_FILES := $(nonplat_fcfiles_with_nl)
+$(LOCAL_BUILT_MODULE): PRIVATE_FC_FILES := $(vendor_fcfiles_with_nl)
 $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
 $(LOCAL_BUILT_MODULE): PRIVATE_FC_SORT := $(HOST_OUT_EXECUTABLES)/fc_sort
 $(LOCAL_BUILT_MODULE): $(HOST_OUT_EXECUTABLES)/checkfc $(HOST_OUT_EXECUTABLES)/fc_sort \
-$(nonplat_fcfiles_with_nl) $(built_sepolicy)
+$(vendor_fcfiles_with_nl) $(built_sepolicy)
 	@mkdir -p $(dir $@)
 	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $(PRIVATE_FC_FILES) > $@.tmp
 	$(hide) $< $(PRIVATE_SEPOLICY) $@.tmp
 	$(hide) $(PRIVATE_FC_SORT) $@.tmp $@
 
-built_nonplat_fc := $(LOCAL_BUILT_MODULE)
-nonplat_fc_files :=
-nonplat_fcfiles_with_nl :=
+built_vendor_fc := $(LOCAL_BUILT_MODULE)
+vendor_fc_files :=
+vendor_fcfiles_with_nl :=
+
+##################################
+ifdef BOARD_ODM_SEPOLICY_DIRS
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := odm_file_contexts
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+ifeq ($(PRODUCT_FULL_TREBLE),true)
+LOCAL_MODULE_PATH := $(TARGET_OUT_ODM)/etc/selinux
+else
+LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
+endif
+
+include $(BUILD_SYSTEM)/base_rules.mk
+
+odm_fc_files := $(call build_odm_policy, file_contexts)
+odm_fcfiles_with_nl := $(call add_nl, $(odm_fc_files), $(built_nl))
+
+$(LOCAL_BUILT_MODULE): PRIVATE_FC_FILES := $(odm_fcfiles_with_nl)
+$(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
+$(LOCAL_BUILT_MODULE): PRIVATE_FC_SORT := $(HOST_OUT_EXECUTABLES)/fc_sort
+$(LOCAL_BUILT_MODULE): $(HOST_OUT_EXECUTABLES)/checkfc $(HOST_OUT_EXECUTABLES)/fc_sort \
+$(odm_fcfiles_with_nl) $(built_sepolicy)
+	@mkdir -p $(dir $@)
+	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $(PRIVATE_FC_FILES) > $@.tmp
+	$(hide) $< $(PRIVATE_SEPOLICY) $@.tmp
+	$(hide) $(PRIVATE_FC_SORT) $@.tmp $@
+
+built_odm_fc := $(LOCAL_BUILT_MODULE)
+odm_fc_files :=
+odm_fcfiles_with_nl :=
+endif
 
 ##################################
 include $(CLEAR_VARS)
@@ -784,16 +962,31 @@ $(LOCAL_BUILT_MODULE): $(built_plat_fc)
 
 ##################################
 include $(CLEAR_VARS)
-LOCAL_MODULE := nonplat_file_contexts.recovery
-LOCAL_MODULE_STEM := nonplat_file_contexts
+LOCAL_MODULE := vendor_file_contexts.recovery
+LOCAL_MODULE_STEM := vendor_file_contexts
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_RECOVERY_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-$(LOCAL_BUILT_MODULE): $(built_nonplat_fc)
+$(LOCAL_BUILT_MODULE): $(built_vendor_fc)
 	$(hide) cp -f $< $@
+
+##################################
+ifdef BOARD_ODM_SEPOLICY_DIRS
+include $(CLEAR_VARS)
+LOCAL_MODULE := odm_file_contexts.recovery
+LOCAL_MODULE_STEM := odm_file_contexts
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_RECOVERY_ROOT_OUT)
+
+include $(BUILD_SYSTEM)/base_rules.mk
+
+$(LOCAL_BUILT_MODULE): $(built_odm_fc)
+	$(hide) cp -f $< $@
+endif
 
 ##################################
 include $(CLEAR_VARS)
@@ -821,7 +1014,7 @@ plat_sc_files :=
 
 ##################################
 include $(CLEAR_VARS)
-LOCAL_MODULE := nonplat_seapp_contexts
+LOCAL_MODULE := vendor_seapp_contexts
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 ifeq ($(PRODUCT_FULL_TREBLE),true)
@@ -832,19 +1025,48 @@ endif
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-nonplat_sc_files := $(call build_policy, seapp_contexts, $(PLAT_VENDOR_POLICY) $(BOARD_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
+vendor_sc_files := $(call build_policy, seapp_contexts, $(PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
 plat_sc_neverallow_files := $(call build_policy, seapp_contexts, $(PLAT_PRIVATE_POLICY))
 
 $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
-$(LOCAL_BUILT_MODULE): PRIVATE_SC_FILES := $(nonplat_sc_files)
+$(LOCAL_BUILT_MODULE): PRIVATE_SC_FILES := $(vendor_sc_files)
 $(LOCAL_BUILT_MODULE): PRIVATE_SC_NEVERALLOW_FILES := $(plat_sc_neverallow_files)
-$(LOCAL_BUILT_MODULE): $(built_sepolicy) $(nonplat_sc_files) $(HOST_OUT_EXECUTABLES)/checkseapp $(plat_sc_neverallow_files)
+$(LOCAL_BUILT_MODULE): $(built_sepolicy) $(vendor_sc_files) $(HOST_OUT_EXECUTABLES)/checkseapp $(plat_sc_neverallow_files)
 	@mkdir -p $(dir $@)
 	$(hide) grep -ihe '^neverallow' $(PRIVATE_SC_NEVERALLOW_FILES) > $@.tmp
 	$(hide) $(HOST_OUT_EXECUTABLES)/checkseapp -p $(PRIVATE_SEPOLICY) -o $@ $(PRIVATE_SC_FILES) $@.tmp
 
-built_nonplat_sc := $(LOCAL_BUILT_MODULE)
-nonplat_sc_files :=
+built_vendor_sc := $(LOCAL_BUILT_MODULE)
+vendor_sc_files :=
+
+##################################
+ifdef BOARD_ODM_SEPOLICY_DIRS
+include $(CLEAR_VARS)
+LOCAL_MODULE := odm_seapp_contexts
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+ifeq ($(PRODUCT_FULL_TREBLE),true)
+LOCAL_MODULE_PATH := $(TARGET_OUT_ODM)/etc/selinux
+else
+LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
+endif
+
+include $(BUILD_SYSTEM)/base_rules.mk
+
+odm_sc_files := $(call build_policy, seapp_contexts, $(BOARD_ODM_SEPOLICY_DIRS))
+plat_sc_neverallow_files := $(call build_policy, seapp_contexts, $(PLAT_PRIVATE_POLICY))
+
+$(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
+$(LOCAL_BUILT_MODULE): PRIVATE_SC_FILES := $(odm_sc_files)
+$(LOCAL_BUILT_MODULE): PRIVATE_SC_NEVERALLOW_FILES := $(plat_sc_neverallow_files)
+$(LOCAL_BUILT_MODULE): $(built_sepolicy) $(odm_sc_files) $(HOST_OUT_EXECUTABLES)/checkseapp $(plat_sc_neverallow_files)
+	@mkdir -p $(dir $@)
+	$(hide) grep -ie '^neverallow' $(PRIVATE_SC_NEVERALLOW_FILES) > $@.tmp
+	$(hide) $(HOST_OUT_EXECUTABLES)/checkseapp -p $(PRIVATE_SEPOLICY) -o $@ $(PRIVATE_SC_FILES) $@.tmp
+
+built_odm_sc := $(LOCAL_BUILT_MODULE)
+odm_sc_files :=
+endif
 
 ##################################
 include $(CLEAR_VARS)
@@ -896,7 +1118,7 @@ plat_property_contexts.tmp :=
 
 ##################################
 include $(CLEAR_VARS)
-LOCAL_MODULE := nonplat_property_contexts
+LOCAL_MODULE := vendor_property_contexts
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 
@@ -908,26 +1130,62 @@ endif
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-nonplat_pcfiles := $(call build_policy, property_contexts, $(PLAT_VENDOR_POLICY) $(BOARD_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
+vendor_pcfiles := $(call build_policy, property_contexts, $(PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
 
-nonplat_property_contexts.tmp := $(intermediates)/nonplat_property_contexts.tmp
-$(nonplat_property_contexts.tmp): PRIVATE_PC_FILES := $(nonplat_pcfiles)
-$(nonplat_property_contexts.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
-$(nonplat_property_contexts.tmp): $(nonplat_pcfiles)
+vendor_property_contexts.tmp := $(intermediates)/vendor_property_contexts.tmp
+$(vendor_property_contexts.tmp): PRIVATE_PC_FILES := $(vendor_pcfiles)
+$(vendor_property_contexts.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
+$(vendor_property_contexts.tmp): $(vendor_pcfiles)
 	@mkdir -p $(dir $@)
 	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $(PRIVATE_PC_FILES) > $@
 
 
 $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
 $(LOCAL_BUILT_MODULE): PRIVATE_FC_SORT := $(HOST_OUT_EXECUTABLES)/fc_sort
-$(LOCAL_BUILT_MODULE): $(nonplat_property_contexts.tmp) $(built_sepolicy) $(HOST_OUT_EXECUTABLES)/checkfc $(HOST_OUT_EXECUTABLES)/fc_sort
+$(LOCAL_BUILT_MODULE): $(vendor_property_contexts.tmp) $(built_sepolicy) $(HOST_OUT_EXECUTABLES)/checkfc $(HOST_OUT_EXECUTABLES)/fc_sort
 	@mkdir -p $(dir $@)
 	$(hide) $(PRIVATE_FC_SORT) $< $@
 	$(hide) $(HOST_OUT_EXECUTABLES)/checkfc -p $(PRIVATE_SEPOLICY) $@
 
-built_nonplat_pc := $(LOCAL_BUILT_MODULE)
-nonplat_pcfiles :=
-nonplat_property_contexts.tmp :=
+built_vendor_pc := $(LOCAL_BUILT_MODULE)
+vendor_pcfiles :=
+vendor_property_contexts.tmp :=
+
+##################################
+ifdef BOARD_ODM_SEPOLICY_DIRS
+include $(CLEAR_VARS)
+LOCAL_MODULE := odm_property_contexts
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+
+ifeq ($(PRODUCT_FULL_TREBLE),true)
+LOCAL_MODULE_PATH := $(TARGET_OUT_ODM)/etc/selinux
+else
+LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
+endif
+
+include $(BUILD_SYSTEM)/base_rules.mk
+
+odm_pcfiles := $(call build_policy, property_contexts, $(BOARD_ODM_SEPOLICY_DIRS))
+
+odm_property_contexts.tmp := $(intermediates)/odm_property_contexts.tmp
+$(odm_property_contexts.tmp): PRIVATE_PC_FILES := $(odm_pcfiles)
+$(odm_property_contexts.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
+$(odm_property_contexts.tmp): $(odm_pcfiles)
+	@mkdir -p $(dir $@)
+	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $(PRIVATE_PC_FILES) > $@
+
+
+$(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
+$(LOCAL_BUILT_MODULE): $(odm_property_contexts.tmp) $(built_sepolicy) $(HOST_OUT_EXECUTABLES)/checkfc
+	@mkdir -p $(dir $@)
+	$(hide) sed -e 's/#.*$$//' -e '/^$$/d' $< | sort -u -o $@
+	$(hide) $(HOST_OUT_EXECUTABLES)/checkfc -p $(PRIVATE_SEPOLICY) $@
+
+built_odm_pc := $(LOCAL_BUILT_MODULE)
+odm_pcfiles :=
+odm_property_contexts.tmp :=
+endif
 
 ##################################
 include $(CLEAR_VARS)
@@ -945,16 +1203,31 @@ $(LOCAL_BUILT_MODULE): $(built_plat_pc)
 
 ##################################
 include $(CLEAR_VARS)
-LOCAL_MODULE := nonplat_property_contexts.recovery
-LOCAL_MODULE_STEM := nonplat_property_contexts
+LOCAL_MODULE := vendor_property_contexts.recovery
+LOCAL_MODULE_STEM := vendor_property_contexts
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_RECOVERY_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-$(LOCAL_BUILT_MODULE): $(built_nonplat_pc)
+$(LOCAL_BUILT_MODULE): $(built_vendor_pc)
 	$(hide) cp -f $< $@
+
+##################################
+ifdef BOARD_ODM_SEPOLICY_DIRS
+include $(CLEAR_VARS)
+LOCAL_MODULE := odm_property_contexts.recovery
+LOCAL_MODULE_STEM := odm_property_contexts
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_RECOVERY_ROOT_OUT)
+
+include $(BUILD_SYSTEM)/base_rules.mk
+
+$(LOCAL_BUILT_MODULE): $(built_odm_pc)
+	$(hide) cp -f $< $@
+endif
 
 ##################################
 include $(CLEAR_VARS)
@@ -995,31 +1268,31 @@ ifneq ($(PRODUCT_FULL_TREBLE),true)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := nonplat_service_contexts
+LOCAL_MODULE := vendor_service_contexts
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-nonplat_svcfiles := $(call build_policy, service_contexts, $(PLAT_VENDOR_POLICY) $(BOARD_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
+vendor_svcfiles := $(call build_policy, service_contexts, $(PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
 
-nonplat_service_contexts.tmp := $(intermediates)/nonplat_service_contexts.tmp
-$(nonplat_service_contexts.tmp): PRIVATE_SVC_FILES := $(nonplat_svcfiles)
-$(nonplat_service_contexts.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
-$(nonplat_service_contexts.tmp): $(nonplat_svcfiles)
+vendor_service_contexts.tmp := $(intermediates)/vendor_service_contexts.tmp
+$(vendor_service_contexts.tmp): PRIVATE_SVC_FILES := $(vendor_svcfiles)
+$(vendor_service_contexts.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
+$(vendor_service_contexts.tmp): $(vendor_svcfiles)
 	@mkdir -p $(dir $@)
 	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $(PRIVATE_SVC_FILES) > $@
 
 $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
-$(LOCAL_BUILT_MODULE): $(nonplat_service_contexts.tmp) $(built_sepolicy) $(HOST_OUT_EXECUTABLES)/checkfc $(ACP)
+$(LOCAL_BUILT_MODULE): $(vendor_service_contexts.tmp) $(built_sepolicy) $(HOST_OUT_EXECUTABLES)/checkfc $(ACP)
 	@mkdir -p $(dir $@)
 	sed -e 's/#.*$$//' -e '/^$$/d' $< > $@
 	$(hide) $(HOST_OUT_EXECUTABLES)/checkfc -s $(PRIVATE_SEPOLICY) $@
 
-built_nonplat_svc := $(LOCAL_BUILT_MODULE)
-nonplat_svcfiles :=
-nonplat_service_contexts.tmp :=
+built_vendor_svc := $(LOCAL_BUILT_MODULE)
+vendor_svcfiles :=
+vendor_service_contexts.tmp :=
 
 endif
 
@@ -1058,7 +1331,7 @@ plat_hwservice_contexts.tmp :=
 ##################################
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := nonplat_hwservice_contexts
+LOCAL_MODULE := vendor_hwservice_contexts
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 ifeq ($(PRODUCT_FULL_TREBLE),true)
@@ -1069,23 +1342,57 @@ endif
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-nonplat_hwsvcfiles := $(call build_policy, hwservice_contexts, $(PLAT_VENDOR_POLICY) $(BOARD_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
+vendor_hwsvcfiles := $(call build_policy, hwservice_contexts, $(PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
 
-nonplat_hwservice_contexts.tmp := $(intermediates)/nonplat_hwservice_contexts.tmp
-$(nonplat_hwservice_contexts.tmp): PRIVATE_SVC_FILES := $(nonplat_hwsvcfiles)
-$(nonplat_hwservice_contexts.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
-$(nonplat_hwservice_contexts.tmp): $(nonplat_hwsvcfiles)
+vendor_hwservice_contexts.tmp := $(intermediates)/vendor_hwservice_contexts.tmp
+$(vendor_hwservice_contexts.tmp): PRIVATE_SVC_FILES := $(vendor_hwsvcfiles)
+$(vendor_hwservice_contexts.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
+$(vendor_hwservice_contexts.tmp): $(vendor_hwsvcfiles)
 	@mkdir -p $(dir $@)
 	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $(PRIVATE_SVC_FILES) > $@
 
 $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
-$(LOCAL_BUILT_MODULE): $(nonplat_hwservice_contexts.tmp) $(built_sepolicy) $(HOST_OUT_EXECUTABLES)/checkfc $(ACP)
+$(LOCAL_BUILT_MODULE): $(vendor_hwservice_contexts.tmp) $(built_sepolicy) $(HOST_OUT_EXECUTABLES)/checkfc $(ACP)
 	@mkdir -p $(dir $@)
 	sed -e 's/#.*$$//' -e '/^$$/d' $< > $@
 	$(hide) $(HOST_OUT_EXECUTABLES)/checkfc -e -l $(PRIVATE_SEPOLICY) $@
 
-nonplat_hwsvcfiles :=
-nonplat_hwservice_contexts.tmp :=
+vendor_hwsvcfiles :=
+vendor_hwservice_contexts.tmp :=
+
+##################################
+ifdef BOARD_ODM_SEPOLICY_DIRS
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := odm_hwservice_contexts
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+ifeq ($(PRODUCT_FULL_TREBLE),true)
+LOCAL_MODULE_PATH := $(TARGET_OUT_ODM)/etc/selinux
+else
+LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
+endif
+
+include $(BUILD_SYSTEM)/base_rules.mk
+
+odm_hwsvcfiles := $(call build_policy, hwservice_contexts, $(BOARD_ODM_SEPOLICY_DIRS))
+
+odm_hwservice_contexts.tmp := $(intermediates)/odm_hwservice_contexts.tmp
+$(odm_hwservice_contexts.tmp): PRIVATE_SVC_FILES := $(odm_hwsvcfiles)
+$(odm_hwservice_contexts.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
+$(odm_hwservice_contexts.tmp): $(odm_hwsvcfiles)
+	@mkdir -p $(dir $@)
+	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $(PRIVATE_SVC_FILES) > $@
+
+$(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
+$(LOCAL_BUILT_MODULE): $(odm_hwservice_contexts.tmp) $(built_sepolicy) $(HOST_OUT_EXECUTABLES)/checkfc $(ACP)
+	@mkdir -p $(dir $@)
+	sed -e 's/#.*$$//' -e '/^$$/d' $< > $@
+	$(hide) $(HOST_OUT_EXECUTABLES)/checkfc -e -l $(PRIVATE_SEPOLICY) $@
+
+odm_hwsvcfiles :=
+odm_hwservice_contexts.tmp :=
+endif
 
 ##################################
 include $(CLEAR_VARS)
@@ -1101,7 +1408,7 @@ endif
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-vnd_svcfiles := $(call build_policy, vndservice_contexts, $(PLAT_VENDOR_POLICY) $(BOARD_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
+vnd_svcfiles := $(call build_policy, vndservice_contexts, $(PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
 
 vndservice_contexts.tmp := $(intermediates)/vndservice_contexts.tmp
 $(vndservice_contexts.tmp): PRIVATE_SVC_FILES := $(vnd_svcfiles)
@@ -1155,7 +1462,7 @@ plat_mac_perms_keys.tmp :=
 ##################################
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := nonplat_mac_permissions.xml
+LOCAL_MODULE := vendor_mac_permissions.xml
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/etc/selinux
@@ -1163,22 +1470,52 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/etc/selinux
 include $(BUILD_SYSTEM)/base_rules.mk
 
 # Build keys.conf
-nonplat_mac_perms_keys.tmp := $(intermediates)/nonplat_keys.tmp
-$(nonplat_mac_perms_keys.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
-$(nonplat_mac_perms_keys.tmp): $(call build_policy, keys.conf, $(PLAT_VENDOR_POLICY) $(BOARD_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
+vendor_mac_perms_keys.tmp := $(intermediates)/vendor_keys.tmp
+$(vendor_mac_perms_keys.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
+$(vendor_mac_perms_keys.tmp): $(call build_policy, keys.conf, $(PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
 	@mkdir -p $(dir $@)
 	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $^ > $@
 
-all_nonplat_mac_perms_files := $(call build_policy, mac_permissions.xml, $(PLAT_VENDOR_POLICY) $(BOARD_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
+all_vendor_mac_perms_files := $(call build_policy, mac_permissions.xml, $(PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
 
-$(LOCAL_BUILT_MODULE): PRIVATE_MAC_PERMS_FILES := $(all_nonplat_mac_perms_files)
-$(LOCAL_BUILT_MODULE): $(nonplat_mac_perms_keys.tmp) $(HOST_OUT_EXECUTABLES)/insertkeys.py \
-$(all_nonplat_mac_perms_files)
+$(LOCAL_BUILT_MODULE): PRIVATE_MAC_PERMS_FILES := $(all_vendor_mac_perms_files)
+$(LOCAL_BUILT_MODULE): $(vendor_mac_perms_keys.tmp) $(HOST_OUT_EXECUTABLES)/insertkeys.py \
+$(all_vendor_mac_perms_files)
 	@mkdir -p $(dir $@)
 	$(hide) $(HOST_OUT_EXECUTABLES)/insertkeys.py -t $(TARGET_BUILD_VARIANT) -c $(TOP) $< -o $@ $(PRIVATE_MAC_PERMS_FILES)
 
-nonplat_mac_perms_keys.tmp :=
-all_nonplat_mac_perms_files :=
+vendor_mac_perms_keys.tmp :=
+all_vendor_mac_perms_files :=
+
+##################################
+ifdef BOARD_ODM_SEPOLICY_DIRS
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := odm_mac_permissions.xml
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT_ODM)/etc/selinux
+
+include $(BUILD_SYSTEM)/base_rules.mk
+
+# Build keys.conf
+odm_mac_perms_keys.tmp := $(intermediates)/odm_keys.tmp
+$(odm_mac_perms_keys.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
+$(odm_mac_perms_keys.tmp): $(call build_policy, keys.conf, $(PLAT_VENDOR_POLICY) $(BOARD_ODM_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
+	@mkdir -p $(dir $@)
+	$(hide) m4 -s $(PRIVATE_ADDITIONAL_M4DEFS) $^ > $@
+
+all_odm_mac_perms_files := $(call build_policy, mac_permissions.xml, $(PLAT_VENDOR_POLICY) $(BOARD_ODM_SEPOLICY_DIRS) $(REQD_MASK_POLICY))
+
+$(LOCAL_BUILT_MODULE): PRIVATE_MAC_PERMS_FILES := $(all_odm_mac_perms_files)
+$(LOCAL_BUILT_MODULE): $(odm_mac_perms_keys.tmp) $(HOST_OUT_EXECUTABLES)/insertkeys.py \
+$(all_odm_mac_perms_files)
+	@mkdir -p $(dir $@)
+	$(hide) $(HOST_OUT_EXECUTABLES)/insertkeys.py -t $(TARGET_BUILD_VARIANT) -c $(TOP) $< -o $@ $(PRIVATE_MAC_PERMS_FILES)
+
+odm_mac_perms_keys.tmp :=
+all_odm_mac_perms_files :=
+endif
 
 #################################
 include $(CLEAR_VARS)
@@ -1188,15 +1525,22 @@ LOCAL_MODULE_TAGS := tests
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
+all_fc_files := $(built_plat_fc) $(built_vendor_fc)
+ifdef BOARD_ODM_SEPOLICY_DIRS
+all_fc_files += $(built_odm_fc)
+endif
+all_fc_args := $(foreach file, $(all_fc_files), -f $(file))
+
 sepolicy_tests := $(intermediates)/sepolicy_tests
 $(sepolicy_tests): PRIVATE_PLAT_FC := $(built_plat_fc)
 $(sepolicy_tests): PRIVATE_NONPLAT_FC := $(built_nonplat_fc)
 $(sepolicy_tests): PRIVATE_SEPOLICY := $(built_sepolicy)
+$(sepolicy_tests): ALL_FC_ARGS := $(all_fc_args)
 $(sepolicy_tests): $(HOST_OUT_EXECUTABLES)/sepolicy_tests \
-$(built_plat_fc) $(built_nonplat_fc) $(built_sepolicy)
+$(all_fc_files) $(built_sepolicy)
 	@mkdir -p $(dir $@)
 	$(hide) $(HOST_OUT_EXECUTABLES)/sepolicy_tests -l $(HOST_OUT)/lib64/libsepolwrap.$(SHAREDLIB_EXT) \
-		-f $(PRIVATE_PLAT_FC) -f $(PRIVATE_NONPLAT_FC) -p $(PRIVATE_SEPOLICY)
+		$(ALL_FC_ARGS)  -p $(PRIVATE_SEPOLICY)
 	$(hide) touch $@
 
 ##################################
@@ -1296,25 +1640,29 @@ $(call build_policy, $(sepolicy_build_cil_workaround_files), $(BASE_PLAT_PRIVATE
 	$(hide) cat $(PRIVATE_ADDITIONAL_CIL_FILES) >> $@
 	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -m -M true -G -c $(POLICYVERS) $@ -o $@ -f /dev/null
 
+all_fc_files := $(built_plat_fc) $(built_vendor_fc)
+ifdef BOARD_ODM_SEPOLICY_DIRS
+all_fc_files += $(built_odm_fc)
+endif
+all_fc_args := $(foreach file, $(all_fc_files), -f $(file))
+
 treble_sepolicy_tests := $(intermediates)/treble_sepolicy_tests
-$(treble_sepolicy_tests): PRIVATE_PLAT_FC := $(built_plat_fc)
-$(treble_sepolicy_tests): PRIVATE_NONPLAT_FC := $(built_nonplat_fc)
 $(treble_sepolicy_tests): PRIVATE_SEPOLICY := $(built_sepolicy)
 $(treble_sepolicy_tests): PRIVATE_SEPOLICY_OLD := $(built_26.0_plat_sepolicy)
 $(treble_sepolicy_tests): PRIVATE_COMBINED_MAPPING := $(26.0_mapping.combined.cil)
 $(treble_sepolicy_tests): PRIVATE_PLAT_SEPOLICY := $(built_plat_sepolicy)
+$(treble_sepolicy_tests): ALL_FC_ARGS := $(all_fc_args)
 ifeq ($(PRODUCT_FULL_TREBLE_OVERRIDE),true)
 $(treble_sepolicy_tests): PRIVATE_FAKE_TREBLE := --fake-treble
 else
 $(treble_sepolicy_tests): PRIVATE_FAKE_TREBLE :=
 endif
 $(treble_sepolicy_tests): $(HOST_OUT_EXECUTABLES)/treble_sepolicy_tests \
-$(built_plat_fc) $(built_nonplat_fc) $(built_sepolicy) $(built_plat_sepolicy) \
-$(built_26.0_plat_sepolicy) $(26.0_compat) $(26.0_mapping.combined.cil)
+  $(all_fc_files) $(built_sepolicy) $(built_plat_sepolicy) \
+  $(built_26.0_plat_sepolicy) $(26.0_compat) $(26.0_mapping.combined.cil)
 	@mkdir -p $(dir $@)
 	$(hide) $(HOST_OUT_EXECUTABLES)/treble_sepolicy_tests -l \
-		$(HOST_OUT)/lib64/libsepolwrap.$(SHAREDLIB_EXT) \
-		-f $(PRIVATE_PLAT_FC) -f $(PRIVATE_NONPLAT_FC) \
+		$(HOST_OUT)/lib64/libsepolwrap.$(SHAREDLIB_EXT) $(ALL_FC_ARGS) \
 		-b $(PRIVATE_PLAT_SEPOLICY) -m $(PRIVATE_COMBINED_MAPPING) \
 		-o $(PRIVATE_SEPOLICY_OLD) -p $(PRIVATE_SEPOLICY) \
 		$(PRIVATE_FAKE_TREBLE)
@@ -1337,22 +1685,29 @@ endif # ($(PRODUCT_FULL_TREBLE),true)
 #################################
 
 add_nl :=
-build_device_policy :=
+build_vendor_policy :=
+build_odm_policy :=
 build_policy :=
 built_plat_fc :=
-built_nonplat_fc :=
+built_vendor_fc :=
+built_odm_fc :=
 built_nl :=
 built_plat_cil :=
+built_plat_pub_cil :=
 built_mapping_cil :=
 built_plat_pc :=
-built_nonplat_cil :=
-built_nonplat_pc :=
-built_nonplat_sc :=
+built_vendor_cil :=
+built_vendor_pc :=
+built_vendor_sc :=
+built_odm_cil :=
+built_odm_pc :=
+built_odm_sc :=
 built_plat_sc :=
 built_precompiled_sepolicy :=
 built_sepolicy :=
 built_plat_svc :=
-built_nonplat_svc :=
+built_vendor_svc :=
+built_odm_svc :=
 mapping_policy :=
 my_target_arch :=
 plat_pub_policy.cil :=
