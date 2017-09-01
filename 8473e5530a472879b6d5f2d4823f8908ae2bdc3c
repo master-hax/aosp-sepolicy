@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "a1712a26_50fe791d",
+        "filename": "Android.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2017-09-01T10:12:56Z",
+      "side": 1,
+      "message": "Should we introduce PLAT_ODM_POLICY?",
+      "range": {
+        "startLine": 142,
+        "startChar": 48,
+        "endLine": 142,
+        "endChar": 66
+      },
+      "revId": "8473e5530a472879b6d5f2d4823f8908ae2bdc3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "813e1d7f_ffe14b6f",
         "filename": "Android.mk",
         "patchSetId": 8
@@ -41,6 +64,52 @@
         "startChar": 20,
         "endLine": 837,
         "endChar": 21
+      },
+      "revId": "8473e5530a472879b6d5f2d4823f8908ae2bdc3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b71c3ef_1d994d32",
+        "filename": "Android.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2017-09-01T10:12:56Z",
+      "side": 1,
+      "message": "same here, should we use PLAT_ODM_POLICY?",
+      "range": {
+        "startLine": 1155,
+        "startChar": 57,
+        "endLine": 1155,
+        "endChar": 75
+      },
+      "revId": "8473e5530a472879b6d5f2d4823f8908ae2bdc3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2af34ca5_b52a2d1b",
+        "filename": "Android.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2017-09-01T10:12:56Z",
+      "side": 1,
+      "message": "Is this needed?\n\nbuilt_odm_fc will be empty if BOARD_ODM_SEPOLICY_DIRS isn\u0027t set. So maybe we can always pass built_odm_fc to treble_sepolicy_tests.py?\n\nBtw, you might need to change tests/treble_sepolicy_tests.py, as it uses nonplat_file_contexts there.",
+      "range": {
+        "startLine": 1556,
+        "startChar": 0,
+        "endLine": 1561,
+        "endChar": 17
       },
       "revId": "8473e5530a472879b6d5f2d4823f8908ae2bdc3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
