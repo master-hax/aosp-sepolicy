@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c0ec9b09_8637b1b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1204359
+      },
+      "writtenOn": "2017-09-04T04:14:29Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "ef9d39c0_c4b2ea8d",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 47
+      },
+      "revId": "8473e5530a472879b6d5f2d4823f8908ae2bdc3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1712a26_50fe791d",
         "filename": "Android.mk",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2017-09-01T10:12:56Z",
       "side": 1,
       "message": "Should we introduce PLAT_ODM_POLICY?",
+      "range": {
+        "startLine": 142,
+        "startChar": 48,
+        "endLine": 142,
+        "endChar": 66
+      },
+      "revId": "8473e5530a472879b6d5f2d4823f8908ae2bdc3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ee0e955_e014a691",
+        "filename": "Android.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1204359
+      },
+      "writtenOn": "2017-09-04T04:14:29Z",
+      "side": 1,
+      "message": "There will not be a PLAT_ODM_POLICY.\nRemove PLAT_VENDOR_POLICY to prevent multiple definition.",
+      "parentUuid": "a1712a26_50fe791d",
       "range": {
         "startLine": 142,
         "startChar": 48,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "eaaac17c_fa7cccd5",
+        "filename": "Android.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1204359
+      },
+      "writtenOn": "2017-09-04T04:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "813e1d7f_ffe14b6f",
+      "range": {
+        "startLine": 837,
+        "startChar": 20,
+        "endLine": 837,
+        "endChar": 21
+      },
+      "revId": "8473e5530a472879b6d5f2d4823f8908ae2bdc3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b71c3ef_1d994d32",
         "filename": "Android.mk",
         "patchSetId": 8
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "645acd88_b9cbb28a",
+        "filename": "Android.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1204359
+      },
+      "writtenOn": "2017-09-04T04:14:29Z",
+      "side": 1,
+      "message": "only need BOARD_ODM_SEPOLICY_DIRS",
+      "parentUuid": "3b71c3ef_1d994d32",
+      "range": {
+        "startLine": 1155,
+        "startChar": 57,
+        "endLine": 1155,
+        "endChar": 75
+      },
+      "revId": "8473e5530a472879b6d5f2d4823f8908ae2bdc3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2af34ca5_b52a2d1b",
         "filename": "Android.mk",
         "patchSetId": 8
@@ -105,6 +201,30 @@
       "writtenOn": "2017-09-01T10:12:56Z",
       "side": 1,
       "message": "Is this needed?\n\nbuilt_odm_fc will be empty if BOARD_ODM_SEPOLICY_DIRS isn\u0027t set. So maybe we can always pass built_odm_fc to treble_sepolicy_tests.py?\n\nBtw, you might need to change tests/treble_sepolicy_tests.py, as it uses nonplat_file_contexts there.",
+      "range": {
+        "startLine": 1556,
+        "startChar": 0,
+        "endLine": 1561,
+        "endChar": 17
+      },
+      "revId": "8473e5530a472879b6d5f2d4823f8908ae2bdc3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "838dce98_ff020019",
+        "filename": "Android.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 1204359
+      },
+      "writtenOn": "2017-09-04T04:14:29Z",
+      "side": 1,
+      "message": "1. Yes, it will be empty if BOARD_ODM_SEPOLICY_DIRS isn\u0027t set.\n2. I think \"nonplat_file_contexts\" in treble_sepolicy_tests.py is just an example to use that tool.",
+      "parentUuid": "2af34ca5_b52a2d1b",
       "range": {
         "startLine": 1556,
         "startChar": 0,
