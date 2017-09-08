@@ -26,6 +26,9 @@ allow logd runtime_event_log_tags_file:file rw_file_perms;
 # Access device logging gating property
 get_prop(logd, device_logging_prop)
 
+# Know when persistent properties have been set
+get_prop(logd, persistent_properties_ready_prop)
+
 r_dir_file(logd, domain)
 
 allow logd kernel:system syslog_mod;
