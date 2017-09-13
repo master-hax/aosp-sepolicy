@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2040405f_dccac8b1",
+        "filename": "public/bootstat.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-09-13T20:32:48Z",
+      "side": 1,
+      "message": "If you don\u0027t want anyone reading a property, you should enforce that with an SELinux neverallow compile time assertion.\n\nSomething like:\n\nneverallow { domain -bootstat -init -whomeverelse } { bootloader_boot_reason_prop last_boot_reason_prop }:file { open read };",
+      "parentUuid": "a42ec98f_dc3e2153",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 41
+      },
+      "revId": "801918d14ac8f7c6968cecbbb2311355f7f31639",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7996272e_d1b7c64b",
         "filename": "public/bootstat.te",
         "patchSetId": 6
