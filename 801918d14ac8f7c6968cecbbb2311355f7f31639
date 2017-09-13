@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a42ec98f_dc3e2153",
+        "filename": "public/bootstat.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2017-09-13T20:25:15Z",
+      "side": 1,
+      "message": "Plans in plans, controls in controls ;-/\n\nI made separate labels for all three so that I could monitor users, so its more to facilitate auditing.\n\nI don\u0027t \u0027want\u0027 anyone to read bootloader_boot_reason_prop or last_boot_reason_prop unless _absolutely_ necessary as they only represent a partial picture and could, and have been, abused. This desire would confound consolidating system_boot_reason_prop and last_boot_reason_prop.\n\nI may open up system_boot_reason_prop for anyone to read though.",
+      "parentUuid": "663dd808_dec67ef7",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 41
+      },
+      "revId": "801918d14ac8f7c6968cecbbb2311355f7f31639",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7996272e_d1b7c64b",
         "filename": "public/bootstat.te",
         "patchSetId": 6
@@ -36,6 +60,24 @@
       "writtenOn": "2017-09-13T20:07:09Z",
       "side": 1,
       "message": "There are two ways of accessing dmesg, either via syslog_read, or via /dev/kmsg. I wish we\u0027d standardize on one or the other.",
+      "revId": "801918d14ac8f7c6968cecbbb2311355f7f31639",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9572117f_adfbd09f",
+        "filename": "public/bootstat.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2017-09-13T20:25:15Z",
+      "side": 1,
+      "message": "syslog_read (SYSLOG_ACTION_READ_ALL) dumps of the entire contents, including before a reset. Reading from /dev/kmsg would only read in new content after the last reset, or last read (effectively SYSLOG_ACTION_READ). I _must_ use syslog_read as a result as I want the full context (I am looking for the first healthd: log)",
+      "parentUuid": "7996272e_d1b7c64b",
       "revId": "801918d14ac8f7c6968cecbbb2311355f7f31639",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
