@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "663dd808_dec67ef7",
+        "filename": "public/bootstat.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-09-13T20:07:09Z",
+      "side": 1,
+      "message": "last_boot_reason_prop and system_boot_reason_prop have almost identical security controls, with the exception that system_server can read last_boot_reason_prop but not system_boot_reason_prop. Perhaps consolidate it in the future?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 41
+      },
+      "revId": "801918d14ac8f7c6968cecbbb2311355f7f31639",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7996272e_d1b7c64b",
+        "filename": "public/bootstat.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-09-13T20:07:09Z",
+      "side": 1,
+      "message": "There are two ways of accessing dmesg, either via syslog_read, or via /dev/kmsg. I wish we\u0027d standardize on one or the other.",
+      "revId": "801918d14ac8f7c6968cecbbb2311355f7f31639",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
