@@ -1,6 +1,8 @@
 # volume manager
 type vold, domain;
 type vold_exec, exec_type, file_type;
+type vold_tool, domain;
+typeattribute vold_tool coredomain;
 
 # Read already opened /cache files.
 allow vold cache_file:dir r_dir_perms;
@@ -26,12 +28,12 @@ allow vold file_contexts_file:file r_file_perms;
 allow vold self:process setexec;
 
 # For sgdisk launched through popen()
-allow vold shell_exec:file rx_file_perms;
+allow vold shell_exec:file { r_file_perms execute };
 
 typeattribute vold mlstrustedsubject;
 allow vold self:process setfscreate;
-allow vold system_file:file x_file_perms;
-not_full_treble(`allow vold vendor_file:file x_file_perms;')
+allow vold_tool system_file:file x_file_perms;
+not_full_treble(`allow vold_tool vendor_file:file x_file_perms;')
 allow vold block_device:dir create_dir_perms;
 allow vold device:dir write;
 allow vold devpts:chr_file rw_file_perms;
@@ -174,7 +176,7 @@ allow vold app_fusefs:filesystem { relabelfrom relabelto };
 allow vold app_fusefs:filesystem { mount unmount };
 
 # MoveTask.cpp executes cp and rm
-allow vold toolbox_exec:file rx_file_perms;
+allow vold_tool toolbox_exec:file rx_file_perms;
 
 # Prepare profile dir for users.
 allow vold user_profile_data_file:dir create_dir_perms;
@@ -188,7 +190,7 @@ neverallow { domain -vold -init } vold_data_file:dir *;
 neverallow { domain -vold -init -kernel } vold_data_file:notdevfile_class_set *;
 neverallow { domain -vold -init } restorecon_prop:property_service set;
 
-neverallow vold fsck_exec:file execute_no_trans;
+neverallow vold *:file execute_no_trans;
 neverallow { domain -init } vold:process { transition dyntransition };
 neverallow vold *:process ptrace;
 neverallow vold *:rawip_socket *;
