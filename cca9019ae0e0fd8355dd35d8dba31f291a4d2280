@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9f2062f2_ca7cc400",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-09-15T15:16:55Z",
+      "side": 1,
+      "message": "spelling: inaccurate",
+      "range": {
+        "startLine": 17,
+        "startChar": 42,
+        "endLine": 17,
+        "endChar": 51
+      },
+      "revId": "cca9019ae0e0fd8355dd35d8dba31f291a4d2280",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4cf737a_a6d24b09",
         "filename": "public/bootstat.te",
         "patchSetId": 2
@@ -38,6 +61,53 @@
       "message": "I landed this in bootstat.te because I made this the required core Android component (formerly optional) that generates the Canonical Boot Reason.\n\nPlease advise regarding the placement of these neverallows, as arguably some or all of it it could be elsewhere?",
       "range": {
         "startLine": 34,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 44
+      },
+      "revId": "cca9019ae0e0fd8355dd35d8dba31f291a4d2280",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977e14c_dc3a9016",
+        "filename": "public/bootstat.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-09-15T15:16:55Z",
+      "side": 1,
+      "message": "IMHO, where it\u0027s currently at is the best place. The \"owner\" of these properties is bootstat, so it makes sense to place the assertions near the owner\u0027s policy.",
+      "parentUuid": "59a64772_c0a48106",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 44
+      },
+      "revId": "cca9019ae0e0fd8355dd35d8dba31f291a4d2280",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaba1d6e_597d45af",
+        "filename": "public/bootstat.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2017-09-15T15:16:55Z",
+      "side": 1,
+      "message": "Can you please delete lines 62-65? I\u0027m not sure we\u0027d ever want to leak this information to apps, for instance, and I don\u0027t think these comments add any value.",
+      "range": {
+        "startLine": 62,
         "startChar": 0,
         "endLine": 65,
         "endChar": 44
