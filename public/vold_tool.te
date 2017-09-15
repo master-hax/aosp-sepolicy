@@ -1,0 +1,10 @@
+# volume manager tool
+type vold_tool, domain;
+typeattribute vold_tool coredomain;
+
+allow vold_tool system_file:file x_file_perms;
+not_full_treble(`allow vold_tool vendor_file:file x_file_perms;')
+
+# MoveTask.cpp executes cp and rm
+# allow vold_tool toolbox_exec:file rx_file_perms;
+
