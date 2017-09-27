@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "c55e0701_033a69f2",
+        "filename": "public/vold.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1070654
+      },
+      "writtenOn": "2017-09-27T09:41:09Z",
+      "side": 1,
+      "message": "rx_file_perms is { r_file_perms x_file_perms }\nr_file_perms is{ getattr open read ioctl lock }\nx_file_perms is{ getattr execute execute_no_trans }\n\nso \n\n{ r_file_perms execute } is the same as (non formal syntax) \n{ r_file_perms x_file_perms -execute_no_trans }.\nWe only remove execute_no_trans.\n\nI did not see any execute denials, but I was not checking for it either.",
+      "parentUuid": "4b324403_50b03cb6",
+      "range": {
+        "startLine": 31,
+        "startChar": 42,
+        "endLine": 31,
+        "endChar": 49
+      },
+      "revId": "14a359055515da156ef0c7d7181f4a30c5a1a487",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "763ddf2e_b130cf0d",
         "filename": "public/vold.te",
         "patchSetId": 5
