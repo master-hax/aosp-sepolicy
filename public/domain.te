@@ -461,6 +461,7 @@ neverallow {
   -recovery
   -shell
   -system_server
+  -vendor_init
 } serialno_prop:file r_file_perms;
 
 # Do not allow reading the last boot timestamp from system properties
@@ -677,6 +678,7 @@ full_treble_only(`
         -installd
         -postinstall_dexopt
         -system_server
+        -vendor_init
     } vendor_app_file:dir { open read getattr search };
 
     neverallow {
@@ -688,6 +690,7 @@ full_treble_only(`
         -installd
         -postinstall_dexopt
         -system_server
+        -vendor_init
     } vendor_app_file:{ file lnk_file } r_file_perms;
 
     # Limit access to /vendor/overlay
@@ -699,6 +702,7 @@ full_treble_only(`
         -installd
         -system_server
         -zygote
+        -vendor_init
     } vendor_overlay_file:dir { getattr open read search };
 
     neverallow {
@@ -709,6 +713,7 @@ full_treble_only(`
         -installd
         -system_server
         -zygote
+        -vendor_init
     } vendor_overlay_file:{ file lnk_file } r_file_perms;
 
     # Non-vendor domains are not allowed to file execute shell
@@ -716,6 +721,7 @@ full_treble_only(`
     neverallow {
         coredomain
         -init
+        -vendor_init
     } vendor_shell_exec:file { execute execute_no_trans };
 
     # Do not allow vendor components to execute files from system
@@ -726,6 +732,7 @@ full_treble_only(`
         -appdomain
         -rild
         -vendor_executes_system_violators
+        -vendor_init
     } {
         exec_type
         -vendor_file_type
