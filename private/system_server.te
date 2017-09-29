@@ -691,6 +691,9 @@ with_asan(`
   allow system_server shell_exec:file rx_file_perms;
 ')
 
+# Allow system_server to send signal to Wi-Fi HAL
+allow system_server hal_wifi:process signal;
+
 ###
 ### Neverallow rules
 ###
