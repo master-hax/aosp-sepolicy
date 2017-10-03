@@ -164,6 +164,12 @@ pdx_use($1, $2)
 # upon executing its binary.
 define(`init_daemon_domain', `
 domain_auto_trans(init, $1_exec, $1)
+# In addition to allowing init to transition to this domain, on debug builds
+# allow transitioning from logwrapper so that debug tools such as valgrind
+# run in service in the correct sandbox.
+userdebug_or_eng(`
+  domain_auto_trans(logwrapper, $1_exec, $1)
+')
 tmpfs_domain($1)
 ')
 

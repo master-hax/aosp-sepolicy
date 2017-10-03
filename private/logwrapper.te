@@ -1,0 +1,9 @@
+userdebug_or_eng(`
+  typeattribute logwrapper coredomain;
+  init_daemon_domain(logwrapper)
+
+  # logwrapper talks to its child process through /dev/ptmx
+  allow logwrapper devpts:chr_file { open read write };
+  allow domain logwrapper:fd use;
+  allow domain devpts:chr_file { read write };
+')

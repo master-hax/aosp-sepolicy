@@ -69,7 +69,14 @@ neverallow webview_zygote { domain -crash_dump }:process transition;
 neverallow webview_zygote *:file execute_no_trans;
 
 # The only way to enter this domain is for init to exec() us.
-neverallow { domain -init } webview_zygote:process transition;
+# Or if run within logwrapper for debug builds.
+neverallow {
+    domain
+    -init
+    userdebug_or_eng(`
+        -logwrapper
+    ')
+} webview_zygote:process transition;
 neverallow * webview_zygote:process dyntransition;
 
 # Disallow write access to properties.

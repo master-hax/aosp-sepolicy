@@ -45,7 +45,14 @@ neverallow {
   -rild
 } { file_type fs_type }:file execute_no_trans;
 # Do not allow a process other than init to transition into a HAL domain.
-neverallow { domain -init } halserverdomain:process transition;
+# Or if run within logwrapper for debug builds.
+neverallow {
+  domain
+  -init
+  userdebug_or_eng(`
+    -logwrapper
+  ')
+} halserverdomain:process transition;
 # Only allow transitioning to a domain by running its executable. Do not
 # allow transitioning into a HAL domain by use of seclabel in an
 # init.*.rc script.

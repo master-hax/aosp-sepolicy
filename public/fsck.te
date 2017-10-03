@@ -53,6 +53,14 @@ neverallow fsck {
 }:blk_file no_rw_file_perms;
 
 # Only allow entry from init or vold via fsck binaries
-neverallow { domain -init -vold } fsck:process transition;
+# Or if run within logwrapper for debug builds.
+neverallow {
+  domain
+  -init
+  -vold
+  userdebug_or_eng(`
+    -logwrapper
+  ')
+} fsck:process transition;
 neverallow * fsck:process dyntransition;
 neverallow fsck { file_type fs_type -fsck_exec }:file entrypoint;
