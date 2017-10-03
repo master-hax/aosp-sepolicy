@@ -1,0 +1,9 @@
+# logwrapper
+type logwrapper, domain;
+type logwrapper_exec, exec_type, file_type;
+
+userdebug_or_eng(`
+  typeattribute logwrapper coredomain;
+  domain_auto_trans(init, logwrapper_exec, logwrapper)
+  #init_daemon_domain(logwrapper)
+')

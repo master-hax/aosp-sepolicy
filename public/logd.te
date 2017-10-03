@@ -62,7 +62,14 @@ neverallow logd system_file:dir_file_class_set write;
 neverallow logd { app_data_file system_data_file }:dir_file_class_set write;
 
 # Only init is allowed to enter the logd domain via exec()
-neverallow { domain -init } logd:process transition;
+# Or if run within logwrapper for debug builds.
+neverallow {
+  domain
+  -init
+  userdebug_or_eng(`
+    -logwrapper
+  ')
+} logd:process transition;
 neverallow * logd:process dyntransition;
 
 # protect the event-log-tags file
