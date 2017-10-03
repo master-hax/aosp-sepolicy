@@ -39,11 +39,11 @@ allow update_engine_common shell_exec:file rx_file_perms;
 allow update_engine_common postinstall:process { signal sigstop sigkill };
 
 # access /proc/misc and /proc/sys/kernel/random/boot_id
-allow update_engine proc:file r_file_perms;
-allow update_engine proc_misc:file r_file_perms;
+allow update_engine_common proc:file r_file_perms;
+allow update_engine_common proc_misc:file r_file_perms;
 
 # read directories on /system and /vendor
-allow update_engine system_file:dir r_dir_perms;
+allow update_engine_common system_file:dir r_dir_perms;
 
 # Read files in /sys
-r_dir_file(uncrypt, sysfs)
+r_dir_file(update_engine_common, sysfs)
