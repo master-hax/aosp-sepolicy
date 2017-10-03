@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "a4773bdc_4ba5c7ba",
+        "filename": "private/app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-10-03T22:24:23Z",
+      "side": 0,
+      "message": "just clean up. These are already handled by line 193.",
+      "revId": "daf0c6c1875f1847f380a5c4f880677336c38341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15f7231a_1a56597a",
+        "filename": "private/app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-10-03T22:24:23Z",
+      "side": 0,
+      "message": "covered in domain.te",
+      "revId": "daf0c6c1875f1847f380a5c4f880677336c38341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8c080df_02099c0f",
         "filename": "private/app.te",
         "patchSetId": 2
@@ -13,6 +47,24 @@
       "writtenOn": "2017-10-03T21:57:55Z",
       "side": 0,
       "message": "Removing this weakens policy, right? Because then any ioctl could be issued, not just the whitelisted ioctls.",
+      "revId": "daf0c6c1875f1847f380a5c4f880677336c38341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ba26a35_b53f1c0a",
+        "filename": "private/app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-10-03T22:24:23Z",
+      "side": 0,
+      "message": "No, these rules are already defined for domain in domain.te. Having it here is redundant. These are enforced via neverallow rules so if all ioctls were accessible we\u0027d see neverallow violations.",
+      "parentUuid": "a8c080df_02099c0f",
       "revId": "daf0c6c1875f1847f380a5c4f880677336c38341",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
