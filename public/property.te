@@ -21,7 +21,7 @@ type dhcp_prop, property_type, core_property_type;
 type dumpstate_options_prop, property_type;
 type dumpstate_prop, property_type, core_property_type;
 type ffs_prop, property_type, core_property_type;
-type fingerprint_prop, property_type, core_property_type;
+type fingerprint_prop, property_type;
 type firstboot_prop, property_type;
 type hwservicemanager_prop, property_type;
 type last_boot_reason_prop, property_type;
@@ -77,7 +77,6 @@ neverallow * {
   -dhcp_prop
   -dumpstate_prop
   -ffs_prop
-  -fingerprint_prop
   -logd_prop
   -net_radio_prop
   -nfc_prop
