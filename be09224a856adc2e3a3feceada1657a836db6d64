@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eddc92b6_657ea16e",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-10-09T22:49:07Z",
+      "side": 1,
+      "message": "For simplicity, what are your thoughts on not distinguishing between sysfs_dm and sysfs_dm_uevent? i.e. having them both be sysfs_dm?\n\nI don\u0027t think a whole lot is gained by separating the two.\n\nSince genfscon is simple prefix matching, this could all be simplified to one line:\ngenfscon sysfs /devices/virtual/block/dm- u:object_r:sysfs_dm:s0",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 42
+      },
+      "revId": "be09224a856adc2e3a3feceada1657a836db6d64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
