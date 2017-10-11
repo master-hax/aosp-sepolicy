@@ -22,6 +22,30 @@
       "revId": "63a37e34d2fe8650242f827b23e34152c52cd7a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09f8af25_7dd121ac",
+        "filename": "public/hal_dumpstate.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1013984
+      },
+      "writtenOn": "2017-10-11T16:48:14Z",
+      "side": 1,
+      "message": "Actually, it should not have write permission neither. I think that was a temporary grant because some implementations were writing the modem logs to that directory, and dumpstate was adding it to the zip file.\n\nBut now these files are passed back to dumpstate through the 2nd FD from the HIDL method, so I think we should remove this write permission (I filed bug 67678507 for it)\n\nI wonder if there\u0027s another place that\u0027s used just for tests where these files could be written, so the permission is not granted to the production directory.",
+      "parentUuid": "0c0ebc3f_30b40549",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 58
+      },
+      "revId": "63a37e34d2fe8650242f827b23e34152c52cd7a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
