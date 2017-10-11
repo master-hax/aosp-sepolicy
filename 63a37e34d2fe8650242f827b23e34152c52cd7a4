@@ -46,6 +46,30 @@
       "revId": "63a37e34d2fe8650242f827b23e34152c52cd7a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "553157f5_a8b3979d",
+        "filename": "public/hal_dumpstate.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1142563
+      },
+      "writtenOn": "2017-10-11T17:05:30Z",
+      "side": 1,
+      "message": "@Felipe,\n\nSEpolicy for modem logs is in hal_dumpstate_impl.te, according to b/67648445 this fix is for VTS, hal_dumpstate already has write permission to create tmp file to save data from 1st FD, but also need read permission to validate if there is any content written. I am not sure if the permissions are needed for user build.",
+      "parentUuid": "09f8af25_7dd121ac",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 58
+      },
+      "revId": "63a37e34d2fe8650242f827b23e34152c52cd7a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
