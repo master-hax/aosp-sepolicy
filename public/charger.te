@@ -6,7 +6,6 @@ type charger, domain;
 allow charger kmsg_device:chr_file rw_file_perms;
 
 # Read access to pseudo filesystems.
-r_dir_file(charger, sysfs_type)
 r_dir_file(charger, rootfs)
 r_dir_file(charger, cgroup)
 
