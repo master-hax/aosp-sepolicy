@@ -6,7 +6,6 @@ type charger, domain;
 allow charger kmsg_device:chr_file rw_file_perms;
 
 # Read access to pseudo filesystems.
-r_dir_file(charger, sysfs_type)
 r_dir_file(charger, rootfs)
 r_dir_file(charger, cgroup)
 
@@ -17,10 +16,7 @@ wakelock_use(charger)
 
 allow charger self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
 
-# Write to /sys/power/state
-# TODO:  Split into a separate type?
-allow charger sysfs:file write;
-
+allow charger sysfs_power:file write;
 allow charger sysfs_batteryinfo:file r_file_perms;
 
 # Read /sys/fs/pstore/console-ramoops
