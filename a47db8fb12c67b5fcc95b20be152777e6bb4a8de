@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3417aa4d_5f29b8f4",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-10-17T19:57:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "559277f2_6695fe4d",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 93
+      },
+      "revId": "a47db8fb12c67b5fcc95b20be152777e6bb4a8de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "161da215_3c504a54",
         "filename": "public/postinstall_dexopt.te",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-17T08:01:31Z",
       "side": 1,
       "message": "looks unrelated",
+      "range": {
+        "startLine": 13,
+        "startChar": 25,
+        "endLine": 13,
+        "endChar": 41
+      },
+      "revId": "a47db8fb12c67b5fcc95b20be152777e6bb4a8de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbc6e104_9277e3ba",
+        "filename": "public/postinstall_dexopt.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-10-17T19:57:44Z",
+      "side": 1,
+      "message": "Fake ota hits this denial without this rule:\n[ 2320.670815] type\u003d1400 audit(1506985556.046:64): avc: denied { read } for pid\u003d12686 comm\u003d\"otapreopt\" name\u003d\"filesystems\" dev\u003d\"proc\" ino\u003d4026532176 scontext\u003du:r:postinstall_dexopt:s0 tcontext\u003du:object_r:proc_filesystems:s0 tclass\u003dfile permissive\u003d0",
+      "parentUuid": "161da215_3c504a54",
       "range": {
         "startLine": 13,
         "startChar": 25,
