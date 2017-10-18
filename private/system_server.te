@@ -629,6 +629,8 @@ userdebug_or_eng(`
   allow system_server perfprofd_service:service_manager find;
 ')
 
+add_service(system_server, batteryproperties_service)
+
 allow system_server keystore:keystore_key {
 	get_state
 	get
