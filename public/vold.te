@@ -33,15 +33,13 @@ allow vold file_contexts_file:file r_file_perms;
 allow vold self:process setexec;
 
 # For sgdisk launched through popen()
-allow vold shell_exec:file rx_file_perms;
+allow vold shell_exec:file { r_file_perms execute };
 
 # For formatting adoptable storage devices
-allow vold e2fs_exec:file rx_file_perms;
+allow vold e2fs_exec:file { r_file_perms execute };
 
 typeattribute vold mlstrustedsubject;
 allow vold self:process setfscreate;
-allow vold system_file:file x_file_perms;
-not_full_treble(`allow vold vendor_file:file x_file_perms;')
 allow vold block_device:dir create_dir_perms;
 allow vold device:dir write;
 allow vold devpts:chr_file rw_file_perms;
@@ -93,9 +91,6 @@ allow vold self:capability { sys_ptrace kill };
 allow vold sysfs:file rw_file_perms;
 
 allow vold kmsg_device:chr_file rw_file_perms;
-
-# Run fsck in the fsck domain.
-allow vold fsck_exec:file { r_file_perms execute };
 
 # Log fsck results
 allow vold fscklogs:dir rw_dir_perms;
@@ -190,9 +185,6 @@ allow vold fuse:filesystem { relabelfrom };
 allow vold app_fusefs:filesystem { relabelfrom relabelto };
 allow vold app_fusefs:filesystem { mount unmount };
 
-# MoveTask.cpp executes cp and rm
-allow vold toolbox_exec:file rx_file_perms;
-
 # Prepare profile dir for users.
 allow vold user_profile_data_file:dir create_dir_perms;
 
@@ -217,7 +209,7 @@ neverallow vold {
   userdebug_or_eng(`-su')
 }:binder call;
 
-neverallow vold fsck_exec:file execute_no_trans;
+neverallow vold *:file execute_no_trans;
 neverallow { domain -init } vold:process { transition dyntransition };
 neverallow vold *:process ptrace;
 neverallow vold *:rawip_socket *;
