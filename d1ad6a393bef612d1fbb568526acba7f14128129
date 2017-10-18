@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8edbbaa9_f754ee03",
+        "filename": "Android.mk",
+        "patchSetId": 15
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2017-10-18T17:00:10Z",
+      "side": 1,
+      "message": "we could end up with BOARD_SEPOLICY_DIRS and BOARD_ODM_SEPOLICY_DIRS defined, which feels like it should also be an error (basically if you use either of the new bits, you should abandon the old).",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 5
+      },
+      "revId": "d1ad6a393bef612d1fbb568526acba7f14128129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12014078_7e3ad07c",
+        "filename": "Android.mk",
+        "patchSetId": 15
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2017-10-18T17:00:10Z",
+      "side": 1,
+      "message": "not immediately obvious that this is versioned, so maybe add that to name, e.g. buitl_plat_pub_vers_cil?  Also, it seems silly to include the plat_pub in vendor and odm only to scrape it out.  Perhaps we could avoid doing this?  With the multiple declarations, it might be easier now, though we might have to move some other components around.",
+      "range": {
+        "startLine": 524,
+        "startChar": 48,
+        "endLine": 524,
+        "endChar": 66
+      },
+      "revId": "d1ad6a393bef612d1fbb568526acba7f14128129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11a011a8_1732ee1c",
+        "filename": "Android.mk",
+        "patchSetId": 15
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2017-10-18T17:00:10Z",
+      "side": 1,
+      "message": "aside: we really should break up recovery to follow treble.",
+      "range": {
+        "startLine": 702,
+        "startChar": 2,
+        "endLine": 702,
+        "endChar": 24
+      },
+      "revId": "d1ad6a393bef612d1fbb568526acba7f14128129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b56b42e2_506e1a0f",
+        "filename": "Android.mk",
+        "patchSetId": 15
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2017-10-18T17:00:10Z",
+      "side": 1,
+      "message": "these don\u0027t exist anymore",
+      "range": {
+        "startLine": 826,
+        "startChar": 0,
+        "endLine": 829,
+        "endChar": 24
+      },
+      "revId": "d1ad6a393bef612d1fbb568526acba7f14128129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa16d951_4b6341c8",
+        "filename": "Android.mk",
+        "patchSetId": 15
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2017-10-18T17:00:10Z",
+      "side": 1,
+      "message": "is this necessary?",
+      "range": {
+        "startLine": 917,
+        "startChar": 0,
+        "endLine": 917,
+        "endChar": 29
+      },
+      "revId": "d1ad6a393bef612d1fbb568526acba7f14128129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e78b7393_8195643a",
+        "filename": "Android.mk",
+        "patchSetId": 15
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2017-10-18T17:00:10Z",
+      "side": 1,
+      "message": "this is always true now",
+      "range": {
+        "startLine": 923,
+        "startChar": 0,
+        "endLine": 923,
+        "endChar": 34
+      },
+      "revId": "d1ad6a393bef612d1fbb568526acba7f14128129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ece6ec9e_91a4b4ca",
+        "filename": "Android.mk",
+        "patchSetId": 15
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2017-10-18T17:00:10Z",
+      "side": 1,
+      "message": "unnecessary",
+      "range": {
+        "startLine": 1048,
+        "startChar": 0,
+        "endLine": 1048,
+        "endChar": 34
+      },
+      "revId": "d1ad6a393bef612d1fbb568526acba7f14128129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb73fd7c_216098fa",
+        "filename": "Android.mk",
+        "patchSetId": 15
+      },
+      "lineNbr": 1161,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2017-10-18T17:00:10Z",
+      "side": 1,
+      "message": "same as two above: remove",
+      "range": {
+        "startLine": 1161,
+        "startChar": 0,
+        "endLine": 1161,
+        "endChar": 34
+      },
+      "revId": "d1ad6a393bef612d1fbb568526acba7f14128129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d627c4b_10313ec4",
+        "filename": "Android.mk",
+        "patchSetId": 15
+      },
+      "lineNbr": 1370,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2017-10-18T17:00:10Z",
+      "side": 1,
+      "message": "and again",
+      "range": {
+        "startLine": 1370,
+        "startChar": 0,
+        "endLine": 1370,
+        "endChar": 34
+      },
+      "revId": "d1ad6a393bef612d1fbb568526acba7f14128129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4092511_5e8a313a",
+        "filename": "private/file_contexts",
+        "patchSetId": 15
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2017-10-18T17:00:10Z",
+      "side": 1,
+      "message": "it would be nice if we could not need to add the rood-dir odm files",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 18
+      },
+      "revId": "d1ad6a393bef612d1fbb568526acba7f14128129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
