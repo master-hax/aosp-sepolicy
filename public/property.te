@@ -2,7 +2,7 @@ type audio_prop, property_type, core_property_type;
 type boottime_prop, property_type;
 type bluetooth_prop, property_type;
 type bootloader_boot_reason_prop, property_type;
-type config_prop, property_type, core_property_type;
+type config_prop, property_type, config_property_type, core_property_type;
 type cppreopt_prop, property_type, core_property_type;
 type ctl_bootanim_prop, property_type;
 type ctl_bugreport_prop, property_type;
@@ -12,15 +12,15 @@ type ctl_dumpstate_prop, property_type;
 type ctl_fuse_prop, property_type;
 type ctl_mdnsd_prop, property_type;
 type ctl_rildaemon_prop, property_type;
-type dalvik_prop, property_type, core_property_type;
+type dalvik_prop, property_type, dalvik_property_type, core_property_type;
 type debuggerd_prop, property_type, core_property_type;
 type debug_prop, property_type, core_property_type;
-type default_prop, property_type, core_property_type;
+type default_prop, property_type, default_property_type, core_property_type;
 type device_logging_prop, property_type;
 type dhcp_prop, property_type, core_property_type;
 type dumpstate_options_prop, property_type;
-type dumpstate_prop, property_type, core_property_type;
-type ffs_prop, property_type, core_property_type;
+type dumpstate_prop, property_type, dumpstate_property_type, core_property_type;
+type ffs_prop, property_type, ffs_property_type, core_property_type;
 type fingerprint_prop, property_type, core_property_type;
 type firstboot_prop, property_type;
 type hwservicemanager_prop, property_type;
@@ -35,23 +35,73 @@ type net_dns_prop, property_type;
 type net_radio_prop, property_type, core_property_type;
 type netd_stable_secret_prop, property_type;
 type nfc_prop, property_type, core_property_type;
-type overlay_prop, property_type;
+type overlay_prop, property_type, overlay_property_type;
 type pan_result_prop, property_type, core_property_type;
 type persist_debug_prop, property_type, core_property_type;
 type persistent_properties_ready_prop, property_type;
-type pm_prop, property_type;
+type pm_prop, property_type, pm_property_type;
 type powerctl_prop, property_type, core_property_type;
-type radio_prop, property_type, core_property_type;
+type radio_prop, property_type, radio_property_type, core_property_type;
 type restorecon_prop, property_type, core_property_type;
 type safemode_prop, property_type;
 type serialno_prop, property_type;
 type shell_prop, property_type, core_property_type;
 type system_boot_reason_prop, property_type;
-type system_prop, property_type, core_property_type;
-type system_radio_prop, property_type, core_property_type;
-type vold_prop, property_type, core_property_type;
+type system_prop, property_type, system_property_type, core_property_type;
+type system_radio_prop, property_type, system_radio_property_type, core_property_type;
+type vold_prop, property_type, vold_property_type, core_property_type;
 type wifi_log_prop, property_type, log_property_type;
 type wifi_prop, property_type;
+
+# properties for whitelisting
+type dumpstate_dry_run_prop, property_type, dumpstate_property_type, core_property_type;
+type gsm_sim_operator_numeric_prop, property_type, radio_property_type, core_property_type;
+type persist_radio_airplane_mode_on_prop, property_type, radio_property_type, core_property_type;
+type persist_radio_multisim_config_prop, property_type, radio_property_type, core_property_type;
+type persist_sys_dalvik_vm_lib_2_prop, property_type, system_property_type, core_property_type;
+type persist_sys_sf_color_saturation_prop, property_type, system_property_type, core_property_type;
+type persist_sys_timezone_prop, property_type, system_property_type, core_property_type;
+type public_readable_default_prop, property_type, default_property_type, core_property_type;
+type public_readable_vendor_init_settable_default_prop, property_type, default_property_type, core_property_type;
+type ro_boot_vendor_overlay_theme_prop, property_type, overlay_property_type;
+type ro_config_alarm_alert_prop, property_type, config_property_type, core_property_type;
+type ro_config_media_vol_steps_prop, property_type, config_property_type, core_property_type;
+type ro_config_notification_sound_prop, property_type, config_property_type, core_property_type;
+type ro_config_ringtone_prop, property_type, config_property_type, core_property_type;
+type ro_crypto_scrypt_params_prop, property_type, vold_property_type, core_property_type;
+type ro_crypto_state_prop, property_type, vold_property_type, core_property_type;
+type ro_crypto_type_prop, property_type, vold_property_type, core_property_type;
+type service_bootanim_exit_prop, property_type, system_property_type, core_property_type;
+type sys_boot_from_charger_mode_prop, property_type, system_property_type, core_property_type;
+type sys_retaildemo_enabled_prop, property_type, system_property_type, core_property_type;
+type sys_shutdown_requested_prop, property_type, system_property_type, core_property_type;
+type sys_usb_config_prop, property_type, system_radio_property_type, core_property_type;
+type sys_usb_configfs_prop, property_type, system_radio_property_type, core_property_type;
+type sys_usb_controller_prop, property_type, system_property_type, core_property_type;
+type sys_usb_ffs_max_read_prop, property_type, ffs_property_type, core_property_type;
+type sys_usb_ffs_max_write_prop, property_type, ffs_property_type, core_property_type;
+type sys_usb_mtp_device_type_prop, property_type, system_property_type, core_property_type;
+type sys_usb_state_prop, property_type, system_property_type, core_property_type;
+type vendor_init_settable_dalvik_prop, property_type, dalvik_property_type, core_property_type;
+type vendor_init_settable_default_prop, property_type, default_property_type, core_property_type;
+type vendor_init_settable_pm_prop, property_type, pm_property_type;
+type vendor_default_prop, property_type;
+type vold_decrypt_prop, property_type, vold_property_type, core_property_type;
+type vold_post_fs_data_done_prop, property_type, vold_property_type, core_property_type;
+
+not_compatible_property(`
+  typeattribute vendor_default_prop core_property_type;
+')
+
+compatible_property_only(`
+  get_prop(domain, debug_prop)
+  get_prop(domain, log_prop)
+  get_prop(domain, log_tag_prop)
+  get_prop(domain, logd_prop)
+  get_prop(domain, wifi_log_prop)
+
+  typeattribute vendor_default_prop vendor_property_type;
+')
 
 allow property_type tmpfs:filesystem associate;
 
@@ -69,15 +119,15 @@ allow property_type tmpfs:filesystem associate;
 neverallow * {
   core_property_type
   -audio_prop
-  -config_prop
+  -config_property_type
   -cppreopt_prop
-  -dalvik_prop
+  -dalvik_property_type
   -debuggerd_prop
   -debug_prop
-  -default_prop
+  -default_property_type
   -dhcp_prop
-  -dumpstate_prop
-  -ffs_prop
+  -dumpstate_property_type
+  -ffs_property_type
   -fingerprint_prop
   -logd_prop
   -net_radio_prop
@@ -85,10 +135,50 @@ neverallow * {
   -pan_result_prop
   -persist_debug_prop
   -powerctl_prop
-  -radio_prop
+  -radio_property_type
   -restorecon_prop
   -shell_prop
-  -system_prop
-  -system_radio_prop
-  -vold_prop
+  -system_property_type
+  -system_radio_property_type
+  -vendor_default_prop
+  -vold_property_type
 }:file no_rw_file_perms;
+
+compatible_property_only(`
+  neverallow {
+    domain
+    -coredomain
+    -appdomain
+    -vendor_init
+  } {
+    core_property_type
+  }:file no_w_file_perms;
+
+  neverallow {
+    domain
+    -coredomain
+    -appdomain
+    -vendor_init
+  } {
+    core_property_type
+    -debug_prop
+    -dumpstate_dry_run_prop
+    -gsm_sim_operator_numeric_prop
+    -log_prop
+    -log_tag_prop
+    -logd_prop
+    -nfc_prop
+    -persist_sys_timezone_prop
+    -powerctl_prop
+    -public_readable_default_prop
+    -public_readable_vendor_init_settable_default_prop
+    -radio_property_type
+    -ro_crypto_state_prop
+    -ro_crypto_type_prop
+    -service_bootanim_exit_prop
+    -sys_boot_from_charger_mode_prop
+    -sys_shutdown_requested_prop
+    -vold_decrypt_prop
+    -wifi_log_prop
+  }:file no_rw_file_perms;
+')

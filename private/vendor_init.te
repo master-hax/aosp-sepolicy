@@ -4,3 +4,29 @@ typeattribute vendor_init coredomain;
 # Sometimes we have to write to non-existent files to avoid conditional
 # init behavior. See b/35303861 for an example.
 dontaudit vendor_init sysfs:dir write;
+
+set_prop(vendor_init, gsm_sim_operator_numeric_prop)
+set_prop(vendor_init, persist_sys_dalvik_vm_lib_2_prop)
+set_prop(vendor_init, persist_sys_sf_color_saturation_prop)
+set_prop(vendor_init, public_readable_vendor_init_settable_default_prop)
+set_prop(vendor_init, ro_boot_vendor_overlay_theme_prop)
+set_prop(vendor_init, ro_config_alarm_alert_prop)
+set_prop(vendor_init, ro_config_media_vol_steps_prop)
+set_prop(vendor_init, ro_config_notification_sound_prop)
+set_prop(vendor_init, ro_config_ringtone_prop)
+set_prop(vendor_init, ro_crypto_scrypt_params_prop)
+set_prop(vendor_init, sys_usb_config_prop)
+set_prop(vendor_init, sys_usb_configfs_prop)
+set_prop(vendor_init, sys_usb_controller_prop)
+set_prop(vendor_init, sys_usb_ffs_max_read_prop)
+set_prop(vendor_init, sys_usb_ffs_max_write_prop)
+set_prop(vendor_init, sys_usb_mtp_device_type_prop)
+set_prop(vendor_init, sys_usb_state_prop)
+set_prop(vendor_init, vendor_init_settable_dalvik_prop)
+set_prop(vendor_init, vendor_init_settable_default_prop)
+set_prop(vendor_init, vendor_init_settable_pm_prop)
+set_prop(vendor_init, vold_post_fs_data_done_prop)
+
+get_prop(vendor_init, persist_radio_airplane_mode_on_prop)
+get_prop(vendor_init, persist_radio_multisim_config_prop)
+get_prop(vendor_init, sys_retaildemo_enabled_prop)
