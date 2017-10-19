@@ -212,3 +212,27 @@ allow vendor_init serialno_prop:file { getattr open read };
 
 # Vendor init can perform operations on trusted and security Extended Attributes
 allow vendor_init self:global_capability_class_set sys_admin;
+
+set_prop(vendor_init, debug_prop)
+set_prop(vendor_init, logd_prop)
+set_prop(vendor_init, log_tag_prop)
+set_prop(vendor_init, log_prop)
+set_prop(vendor_init, serialno_prop)
+set_prop(vendor_init, vendor_property_type)
+set_prop(vendor_init, wifi_log_prop)
+
+set_prop(vendor_init, pr_vs_config_prop)
+set_prop(vendor_init, pr_vs_default_prop)
+set_prop(vendor_init, pr_vs_radio_prop)
+set_prop(vendor_init, vs_config_prop)
+set_prop(vendor_init, vs_dalvik_prop)
+set_prop(vendor_init, vs_default_prop)
+set_prop(vendor_init, vs_ffs_prop)
+set_prop(vendor_init, vs_overlay_prop)
+set_prop(vendor_init, vs_pm_prop)
+set_prop(vendor_init, vs_system_prop)
+set_prop(vendor_init, vs_system_radio_prop)
+set_prop(vendor_init, vs_vold_prop)
+
+get_prop(vendor_init, vr_radio_prop)
+get_prop(vendor_init, vr_system_prop)
