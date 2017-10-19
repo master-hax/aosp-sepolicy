@@ -54,7 +54,7 @@ allow adbd anr_data_file:file r_file_perms;
 # Set service.adb.*, sys.powerctl, and sys.usb.ffs.ready properties.
 set_prop(adbd, shell_prop)
 set_prop(adbd, powerctl_prop)
-set_prop(adbd, ffs_prop)
+set_prop(adbd, ffs_property_type)
 
 # Access device logging gating property
 get_prop(adbd, device_logging_prop)
