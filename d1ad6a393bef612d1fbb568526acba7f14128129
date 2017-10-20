@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "20828280_72baa1e0",
+        "filename": "Android.mk",
+        "patchSetId": 15
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2017-10-20T15:43:44Z",
+      "side": 1,
+      "message": "Good suggestion, Will switch to buitl_plat_pub_vers_cil.\n  \nIncluding buitl_plat_pub_vers_cil isn\u0027t just to scrape it out. It\u0027s needed to pass the checkpolicy at line 518.\n  \nI\u0027m not sure how to avoid that, need more investigation.",
+      "parentUuid": "12014078_7e3ad07c",
+      "range": {
+        "startLine": 524,
+        "startChar": 48,
+        "endLine": 524,
+        "endChar": 66
+      },
+      "revId": "d1ad6a393bef612d1fbb568526acba7f14128129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11a011a8_1732ee1c",
         "filename": "Android.mk",
         "patchSetId": 15
@@ -119,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "fba9c7db_c5c118cf",
+        "filename": "Android.mk",
+        "patchSetId": 15
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2017-10-20T15:43:44Z",
+      "side": 1,
+      "message": "Treble shouldn\u0027t affect recovery is updatable or not.\nIn Treble, there are two modes:\n  1) system-only OTA (introduced by Treble) or\n  2) traditional OTA (includes system, vendor, boot, etc) --\u003e this exists before Treble\n\nMy understanding for recovery update-ability is:\n  a. For A/B devices (devices with _a/_b partitions), recovery partition is /boot partition (BOARD_USES_RECOVERY_AS_BOOT, TARGET_NO_RECOVERY). So it will updated when an OTA happens. Even if the OTA fail, it still can fallback to another slot (_a --\u003e _b or vice versa).\n\n  b. For non-A/B devices, recovery partition shouldn\u0027t be OTA-ed. Because there is no fallback if the update fails.\n\nIn any cases, recovery partition (kernel + recovery-ramdisk.img) needs to be \"self-contained\". It shouldn\u0027t rely on mounting other partitions, because it might trigger another level of recovery, which ends up with infinite recovery boots.\n\nI can file an issue for discussion, but so far I didn\u0027t see issues about that.",
+      "parentUuid": "ef76e871_0ddab5f9",
+      "range": {
+        "startLine": 702,
+        "startChar": 2,
+        "endLine": 702,
+        "endChar": 24
+      },
+      "revId": "d1ad6a393bef612d1fbb568526acba7f14128129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b56b42e2_506e1a0f",
         "filename": "Android.mk",
         "patchSetId": 15
@@ -177,6 +225,30 @@
       "writtenOn": "2017-10-18T17:00:10Z",
       "side": 1,
       "message": "is this necessary?",
+      "range": {
+        "startLine": 917,
+        "startChar": 0,
+        "endLine": 917,
+        "endChar": 29
+      },
+      "revId": "d1ad6a393bef612d1fbb568526acba7f14128129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1be946b_71d9bb79",
+        "filename": "Android.mk",
+        "patchSetId": 15
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2017-10-20T15:43:44Z",
+      "side": 1,
+      "message": "Without this, there will be an empty file $OUT/odm/etc/selinux/odm_file_contexts.\n\nNeed to check if it\u0027s allowed.",
+      "parentUuid": "fa16d951_4b6341c8",
       "range": {
         "startLine": 917,
         "startChar": 0,
