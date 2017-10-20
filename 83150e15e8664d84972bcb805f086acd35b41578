@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1826fc44_14b7fa79",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-10-20T02:00:01Z",
+      "side": 1,
+      "message": "BTW, the emulator code (which is x86) doesn\u0027t have the DT, so they pass androidboot.android_dt_dir\u003d\u003csome directory in sysfs\u003e.\n\nSee: https://cs.corp.google.com/android/system/core/fs_mgr/fs_mgr_fstab.cpp?rcl\u003dbf2dcb2e1bb606fcfcb201c4f0588bef79e83275\u0026l\u003d370\n\n\nThis change will break that, since anyone trying to read the dt_configs will fail to read them (since they assume to have permissions for sysfs).\n\nI think this needs to be documented and emulator genfs_context change needs to go together with this.\n\nadding bohu@ to the CL as well",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 97
+      },
+      "revId": "83150e15e8664d84972bcb805f086acd35b41578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5e011ca_76bf524c",
         "filename": "public/update_engine_common.te",
         "patchSetId": 8
