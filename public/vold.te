@@ -221,3 +221,6 @@ neverallow vold fsck_exec:file execute_no_trans;
 neverallow { domain -init } vold:process { transition dyntransition };
 neverallow vold *:process ptrace;
 neverallow vold *:rawip_socket *;
+
+# vold seems to be recursively checking directories under /proc, and doesn't need access to asound
+dontaudit vold proc_asound:dir read;
