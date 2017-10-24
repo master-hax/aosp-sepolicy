@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c75c670a_0257fce5",
+        "filename": "private/compat/26.0/26.0.ignore.cil",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2017-10-24T20:52:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a32cdb98_007c5240",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "5d7da6dd3366f774db5819fff26dc5c1802331fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e81283e9_d56c7038",
         "filename": "public/init.te",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-24T20:47:07Z",
       "side": 1,
       "message": "Not sure this rule belongs in the fwk policy, because writing to to /proc/sys/vm/page-cluster seems device-specific:\nhttps://cs.corp.google.com/aosp-master/device/google/marlin/init.common.rc?l\u003d98",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 47
+      },
+      "revId": "5d7da6dd3366f774db5819fff26dc5c1802331fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d4fa6c5_4055456b",
+        "filename": "public/init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2017-10-24T20:52:59Z",
+      "side": 1,
+      "message": "I see it across multiple devices, so I think it\u0027s generic enough to go into this policy.",
+      "parentUuid": "e81283e9_d56c7038",
       "range": {
         "startLine": 281,
         "startChar": 0,
