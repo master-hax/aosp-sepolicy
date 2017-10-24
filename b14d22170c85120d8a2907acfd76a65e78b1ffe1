@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "045501f2_e22b13d0",
+        "filename": "public/vold_prepare_subdirs.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-10-24T18:13:12Z",
+      "side": 1,
+      "message": "It\u0027s not at all clear to me why this is needed. vold_prepare_subdirs should not need to to setexec at all because it\u0027s not transitioning to another domain. Only vold should need this permission, which it already has.",
+      "range": {
+        "startLine": 8,
+        "startChar": 40,
+        "endLine": 8,
+        "endChar": 47
+      },
+      "revId": "b14d22170c85120d8a2907acfd76a65e78b1ffe1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
