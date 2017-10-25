@@ -9,3 +9,9 @@ allow hal_health_client hal_health_hwservice:hwservice_manager find;
 # /{system,vendor,odm}/lib[64]/hw/ in order
 # to be able to open the hal implementation .so files
 r_dir_file(hal_health, system_file)
+
+# Common rules for a health service
+allow hal_health_server sysfs:dir r_dir_perms;
+r_dir_file(hal_health_server, sysfs_batteryinfo)
+allow hal_health_server self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+wakelock_use(hal_health_server)
