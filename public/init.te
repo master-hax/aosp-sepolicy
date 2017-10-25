@@ -206,7 +206,7 @@ allow init debugfs_tracing_instances:file w_file_perms;
 allow init debugfs_wifi_tracing:file w_file_perms;
 
 # chown/chmod on pseudo files.
-allow init { fs_type -contextmount_type -sdcard_type -rootfs }:file { open read setattr };
+allow init { fs_type -contextmount_type -sdcard_type -rootfs -proc }:file { open read setattr };
 allow init { fs_type -contextmount_type -sdcard_type -rootfs }:dir  { open read setattr search };
 
 # init should not be able to read or open generic devices
@@ -257,8 +257,9 @@ allow init { usermodehelper sysfs_usermodehelper }:file rw_file_perms;
 allow init proc_security:file rw_file_perms;
 
 # Write to /proc/sys/kernel/panic_on_oops.
-r_dir_file(init, proc)
-allow init proc:file w_file_perms;
+#r_dir_file(init, proc)
+#allow init proc:file w_file_perms;
+neverallow init proc:file no_rw_file_perms;
 
 # Write to /proc/sys/net/ping_group_range and other /proc/sys/net files.
 r_dir_file(init, proc_net)
