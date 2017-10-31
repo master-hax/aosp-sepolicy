@@ -22,6 +22,30 @@
       "revId": "6d2518803a1478dae9f34e30badc280ae0550a81",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2334739c_a85516b1",
+        "filename": "private/domain.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-10-31T21:04:16Z",
+      "side": 1,
+      "message": "Not really, but it will make pruning the exceptions list a lot less painful if these neverallow rules only apply to treblized devices, since they can break older (non-treble) devices, e.g.\nhttps://android.googlesource.com/device/google/dragon/+/master/sepolicy/cameraserver.te#14\n\nAlso, given that we are defining the common kernel interface for purposes of Treble, i don\u0027t think we have a reason to enforce these neverallow rules on non-treble devices.",
+      "parentUuid": "5578d691_31318642",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 18
+      },
+      "revId": "6d2518803a1478dae9f34e30badc280ae0550a81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
