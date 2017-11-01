@@ -1,16 +1,18 @@
 # Device types
 type device, dev_type, fs_type;
 type alarm_device, dev_type, mlstrustedobject;
-type adb_device, dev_type;
 type ashmem_device, dev_type, mlstrustedobject;
 type audio_device, dev_type;
 type audio_timer_device, dev_type;
 type audio_seq_device, dev_type;
 type binder_device, dev_type, mlstrustedobject;
 type hwbinder_device, dev_type, mlstrustedobject;
+type vndbinder_device, dev_type;
 type block_device, dev_type;
 type camera_device, dev_type;
 type dm_device, dev_type;
+type keychord_device, dev_type;
+type loop_control_device, dev_type;
 type loop_device, dev_type;
 type pmsg_device, dev_type, mlstrustedobject;
 type radio_device, dev_type;
@@ -28,12 +30,13 @@ type hw_random_device, dev_type;
 type input_device, dev_type;
 type kmem_device, dev_type;
 type port_device, dev_type;
-type log_device, dev_type, mlstrustedobject;
+type lowpan_device, dev_type;
 type mtd_device, dev_type;
 type mtp_device, dev_type, mlstrustedobject;
 type nfc_device, dev_type;
 type ptmx_device, dev_type, mlstrustedobject;
 type kmsg_device, dev_type;
+type kmsg_debug_device, dev_type;
 type null_device, dev_type, mlstrustedobject;
 type random_device, dev_type, mlstrustedobject;
 type sensors_device, dev_type;
@@ -99,6 +102,3 @@ type metadata_block_device, dev_type;
 
 # The 'misc' partition used by recovery and A/B.
 type misc_block_device, dev_type;
-
-# Bootctrl block device used by A/B update (update_engine, update_verifier).
-type bootctrl_block_device, dev_type;

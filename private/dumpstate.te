@@ -1,9 +1,12 @@
-# type_transition must be private policy the domain_trans rules could stay
-# public, but conceptually should go with this
+typeattribute dumpstate coredomain;
+
 init_daemon_domain(dumpstate)
 
 # Execute and transition to the vdc domain
 domain_auto_trans(dumpstate, vdc_exec, vdc)
+
+# Acquire advisory lock on /system/etc/xtables.lock from ip[6]tables
+allow dumpstate system_file:file lock;
 
 # TODO: deal with tmpfs_domain pub/priv split properly
 allow dumpstate dumpstate_tmpfs:file execute;
@@ -17,3 +20,6 @@ allow dumpstate storaged_exec:file rx_file_perms;
 
 # Allow dumpstate to make binder calls to storaged service
 binder_call(dumpstate, storaged)
+
+# Collect metrics on boot time created by init
+get_prop(dumpstate, boottime_prop)

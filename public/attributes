@@ -10,16 +10,6 @@ attribute dev_type;
 # All types used for processes.
 attribute domain;
 
-# Temporary attribute used for migrating permissions out of domain.
-# Motivation: Domain is overly permissive. Start removing permissions
-# from domain and assign them to the domain_deprecated attribute.
-# Domain_deprecated and domain can initially be assigned to all
-# domains. The goal is to not assign domain_deprecated to new domains
-# and to start removing domain_deprecated where it's not required or
-# reassigning the appropriate permissions to the inheriting domain
-# when necessary.
-attribute domain_deprecated;
-
 # All types used for filesystems.
 # On change, update CHECK_FC_ASSERT_ATTRS
 # definition in tools/checkfc.c.
@@ -39,6 +29,11 @@ attribute exec_type;
 
 # All types used for /data files.
 attribute data_file_type;
+expandattribute data_file_type false;
+# All types in /data, not in /data/vendor
+attribute core_data_file_type;
+# All types in /vendor
+attribute vendor_file_type;
 
 # All types use for sysfs files.
 attribute sysfs_type;
@@ -76,13 +71,31 @@ attribute system_server_service;
 # services which should be available to all but isolated apps
 attribute app_api_service;
 
+# services which should be available to all ephemeral apps
+attribute ephemeral_app_api_service;
+
 # services which export only system_api
 attribute system_api_service;
 
-# All types used for services managed by service_manager.
+# All types used for services managed by servicemanager.
 # On change, update CHECK_SC_ASSERT_ATTRS
 # definition in tools/checkfc.c.
 attribute service_manager_type;
+
+# All types used for services managed by hwservicemanager
+attribute hwservice_manager_type;
+
+# All HwBinder services guaranteed to be passthrough. These services always run
+# in the process of their clients, and thus operate with the same access as
+# their clients.
+attribute same_process_hwservice;
+
+# All HwBinder services guaranteed to be offered only by core domain components
+attribute coredomain_hwservice;
+
+# All types used for services managed by vndservicemanager
+attribute vndservice_manager_type;
+
 
 # All domains that can override MLS restrictions.
 # i.e. processes that can read up and write down.
@@ -95,6 +108,9 @@ attribute mlstrustedobject;
 # All domains used for apps.
 attribute appdomain;
 
+# All third party apps.
+attribute untrusted_app_all;
+
 # All domains used for apps with network access.
 attribute netdomain;
 
@@ -104,33 +120,128 @@ attribute bluetoothdomain;
 # All domains used for binder service domains.
 attribute binderservicedomain;
 
-# All domains that access the boot_control HAL. The permissions the HAL
-# requires are specific to the implementation provided in each device, but
-# common daemons need to be aware of those when calling into the HAL.
-attribute boot_control_hal;
-
 # update_engine related domains that need to apply an update and run
 # postinstall. This includes the background daemon and the sideload tool from
 # recovery for A/B devices.
 attribute update_engine_common;
 
+# All core domains (as opposed to vendor/device-specific domains)
+attribute coredomain;
+
+# All socket devices owned by core domain components
+attribute coredomain_socket;
+
+# All vendor domains which violate the requirement of not using Binder
+# TODO(b/35870313): Remove this once there are no violations
+attribute binder_in_vendor_violators;
+expandattribute binder_in_vendor_violators false;
+
+# All vendor domains which violate the requirement of not using sockets for
+# communicating with core components
+# TODO(b/36577153): Remove this once there are no violations
+attribute socket_between_core_and_vendor_violators;
+expandattribute socket_between_core_and_vendor_violators false;
+
+# All vendor domains which violate the requirement of not executing
+# system processes
+# TODO(b/36463595)
+attribute vendor_executes_system_violators;
+expandattribute vendor_executes_system_violators false;
+
+# All domains which violate the requirement of not sharing files by path
+# between between vendor and core domains.
+# TODO(b/34980020)
+attribute data_between_core_and_vendor_violators;
+expandattribute data_between_core_and_vendor_violators false;
+
+# hwservices that are accessible from untrusted applications
+# WARNING: Use of this attribute should be avoided unless
+# absolutely necessary.  It is a temporary allowance to aid the
+# transition to treble and will be removed in a future platform
+# version, requiring all hwservices that are labeled with this
+# attribute to be submitted to AOSP in order to maintain their
+# app-visibility.
+attribute untrusted_app_visible_hwservice;
+expandattribute untrusted_app_visible_hwservice false;
+
+# halserver domains that are accessible to untrusted applications.  These
+# domains are typically those hosting  hwservices attributed by the
+# untrusted_app_visible_hwservice.
+# WARNING: Use of this attribute should be avoided unless absolutely necessary.
+# It is a temporary allowance to aid the transition to treble and will be
+# removed in the future platform version, requiring all halserver domains that
+# are labeled with this attribute to be submitted to AOSP in order to maintain
+# their app-visibility.
+attribute untrusted_app_visible_halserver;
+expandattribute untrusted_app_visible_halserver false;
+
+# PDX services
+attribute pdx_endpoint_dir_type;
+attribute pdx_endpoint_socket_type;
+expandattribute pdx_endpoint_socket_type false;
+attribute pdx_channel_socket_type;
+expandattribute pdx_channel_socket_type false;
+
+pdx_service_attributes(display_client)
+pdx_service_attributes(display_manager)
+pdx_service_attributes(display_screenshot)
+pdx_service_attributes(display_vsync)
+pdx_service_attributes(performance_client)
+pdx_service_attributes(bufferhub_client)
+
+# All HAL servers
+attribute halserverdomain;
+# All HAL clients
+attribute halclientdomain;
+expandattribute halclientdomain true;
+
 # HALs
-attribute hal_audio;
-attribute hal_bluetooth;
-attribute hal_dumpstate;
-attribute hal_gatekeeper;
-attribute hal_graphics_allocator;
-attribute hal_graphics_composer;
-attribute hal_health;
-attribute hal_ir;
-attribute hal_light;
-attribute hal_memtrack;
-attribute hal_nfc;
-attribute hal_power;
-attribute hal_sensors;
-attribute hal_telephony;
-attribute hal_thermal;
-attribute hal_vibrator;
-attribute hal_vr;
-attribute hal_wifi;
-attribute hal_contexthub;
+hal_attribute(allocator);
+hal_attribute(audio);
+hal_attribute(bluetooth);
+hal_attribute(bootctl);
+hal_attribute(broadcastradio);
+hal_attribute(camera);
+hal_attribute(configstore);
+hal_attribute(contexthub);
+hal_attribute(drm);
+hal_attribute(cas);
+hal_attribute(dumpstate);
+hal_attribute(fingerprint);
+hal_attribute(gatekeeper);
+hal_attribute(gnss);
+hal_attribute(graphics_allocator);
+hal_attribute(graphics_composer);
+hal_attribute(health);
+hal_attribute(ir);
+hal_attribute(keymaster);
+hal_attribute(light);
+hal_attribute(lowpan);
+hal_attribute(memtrack);
+hal_attribute(neuralnetworks);
+hal_attribute(nfc);
+hal_attribute(oemlock);
+hal_attribute(power);
+hal_attribute(sensors);
+hal_attribute(telephony);
+hal_attribute(tetheroffload);
+hal_attribute(thermal);
+hal_attribute(tv_cec);
+hal_attribute(tv_input);
+hal_attribute(usb);
+hal_attribute(vibrator);
+hal_attribute(vr);
+hal_attribute(weaver);
+hal_attribute(wifi);
+hal_attribute(wifi_offload);
+hal_attribute(wifi_supplicant);
+
+# HwBinder services offered across the core-vendor boundary
+#
+# We annotate server domains with x_server  to loosen the coupling between
+# system and vendor images. For example, it should be possible to move a service
+# from one core domain to another, without having to update the vendor image
+# which contains clients of this service.
+
+attribute display_service_server;
+attribute wifi_keystore_service_server;

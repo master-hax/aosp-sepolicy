@@ -1,10 +1,13 @@
 # Domain for update_engine daemon.
-# update_engine uses the boot_control_hal.
-type update_engine, domain, domain_deprecated, update_engine_common, boot_control_hal;
+type update_engine, domain, update_engine_common;
 type update_engine_exec, exec_type, file_type;
-type update_engine_data_file, file_type, data_file_type;
 
 net_domain(update_engine);
+
+# Read/[write] to /proc/net/xt_qtaguid/ctrl and /dev/xt_qtaguid to tag network
+# sockets.
+allow update_engine qtaguid_proc:file rw_file_perms;
+allow update_engine qtaguid_device:chr_file r_file_perms;
 
 # Following permissions are needed for update_engine.
 allow update_engine self:process { setsched };
@@ -25,7 +28,7 @@ dontaudit update_engine kernel:system module_request;
 
 # Register the service to perform Binder IPC.
 binder_use(update_engine)
-allow update_engine update_engine_service:service_manager { add };
+add_service(update_engine, update_engine_service)
 
 # Allow update_engine to call the callback function provided by priv_app.
 binder_call(update_engine, priv_app)
@@ -34,6 +37,11 @@ binder_call(update_engine, priv_app)
 allow update_engine ota_package_file:file r_file_perms;
 allow update_engine ota_package_file:dir r_dir_perms;
 
-# Use binderized HAL
-hwbinder_use(update_engine)
-binder_call(update_engine, hal_boot)
+# Use Boot Control HAL
+hal_client_domain(update_engine, hal_bootctl)
+
+# access /proc/misc
+allow update_engine proc_misc:file r_file_perms;
+
+# read directories on /system and /vendor
+allow update_engine system_file:dir r_dir_perms;

@@ -5,11 +5,14 @@ allow kernel self:capability sys_nice;
 
 # Root fs.
 r_dir_file(kernel, rootfs)
-r_dir_file(kernel, proc)
+allow kernel proc_cmdline:file r_file_perms;
 
 # Get SELinux enforcing status.
 allow kernel selinuxfs:dir r_dir_perms;
 allow kernel selinuxfs:file r_file_perms;
+
+# Get file contexts during first stage
+allow kernel file_contexts_file:file r_file_perms;
 
 # Allow init relabel itself.
 allow kernel rootfs:file relabelfrom;
@@ -47,10 +50,11 @@ allow kernel tmpfs:chr_file write;
 allow kernel selinuxfs:file write;
 allow kernel self:security setcheckreqprot;
 
-# MTP sync (b/15835289)
 # kernel thread "loop0", used by the loop block device, for ASECs (b/17158723)
-allow kernel priv_app:fd use;
 allow kernel sdcard_type:file { read write };
+
+# f_mtp driver accesses files from kernel context.
+allow kernel mediaprovider:fd use;
 
 # Allow the kernel to read OBB files from app directories. (b/17428116)
 # Kernel thread "loop0" reads a vold supplied file descriptor.
@@ -73,6 +77,9 @@ userdebug_or_eng(`
 allow kernel media_rw_data_file:dir create_dir_perms;
 allow kernel media_rw_data_file:file create_file_perms;
 
+# Access to /data/misc/vold/virtual_disk.
+allow kernel vold_data_file:file read;
+
 ###
 ### neverallow rules
 ###
@@ -90,3 +97,8 @@ neverallow * kernel:process { transition dyntransition };
 # - You are running an exploit which switched to the init task credentials
 #   and is then trying to exec a shell or other program.  You lose!
 neverallow kernel *:file { entrypoint execute_no_trans };
+
+# the kernel should not be accessing files owned by other users.
+# Instead of adding dac_{read_search,override}, fix the unix permissions
+# on files being accessed.
+neverallow kernel self:capability { dac_override dac_read_search };

@@ -1,11 +1,14 @@
-## hwbinder access
-hwbinder_use(hal_wifi)
+# HwBinder IPC from client to server, and callbacks
+binder_call(hal_wifi_client, hal_wifi_server)
+binder_call(hal_wifi_server, hal_wifi_client)
 
-## call into system_server process (for invoking callbacks)
-binder_call(hal_wifi, system_server)
+add_hwservice(hal_wifi_server, hal_wifi_hwservice)
+allow hal_wifi_client hal_wifi_hwservice:hwservice_manager find;
 
 r_dir_file(hal_wifi, proc_net)
 r_dir_file(hal_wifi, sysfs_type)
+
+set_prop(hal_wifi, wifi_prop)
 
 # allow hal wifi set interfaces up and down
 allow hal_wifi self:udp_socket create_socket_perms;
@@ -18,3 +21,5 @@ allow hal_wifi self:netlink_socket create_socket_perms_no_ioctl;
 allow hal_wifi self:netlink_generic_socket create_socket_perms_no_ioctl;
 # hal_wifi writes firmware paths to this file.
 allow hal_wifi sysfs_wlan_fwpath:file { w_file_perms };
+# allow hal_wifi to access /proc/modules to check if Wi-Fi driver is loaded
+allow hal_wifi proc_modules:file { getattr open read };

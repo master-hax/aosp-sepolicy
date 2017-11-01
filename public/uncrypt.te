@@ -1,5 +1,5 @@
 # uncrypt
-type uncrypt, domain, domain_deprecated, mlstrustedsubject;
+type uncrypt, domain, mlstrustedsubject;
 type uncrypt_exec, exec_type, file_type;
 
 allow uncrypt self:capability dac_override;
@@ -14,6 +14,7 @@ userdebug_or_eng(`
 
 # Read /cache/recovery/command
 # Read /cache/recovery/uncrypt_file
+allow uncrypt cache_file:dir search;
 allow uncrypt cache_recovery_file:dir rw_dir_perms;
 allow uncrypt cache_recovery_file:file create_file_perms;
 
@@ -36,3 +37,9 @@ allow uncrypt block_device:dir r_dir_perms;
 allow uncrypt userdata_block_device:blk_file w_file_perms;
 
 r_dir_file(uncrypt, rootfs)
+
+# uncrypt reads /proc/cmdline
+allow uncrypt proc_cmdline:file r_file_perms;
+
+# Read files in /sys
+r_dir_file(uncrypt, sysfs_dt_firmware_android)

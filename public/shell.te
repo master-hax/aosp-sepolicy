@@ -46,6 +46,7 @@ allow shell input_device:chr_file rw_file_perms;
 r_dir_file(shell, system_file)
 allow shell system_file:file x_file_perms;
 allow shell toolbox_exec:file rx_file_perms;
+allow shell tzdatacheck_exec:file rx_file_perms;
 allow shell shell_exec:file rx_file_perms;
 allow shell zygote_exec:file rx_file_perms;
 
@@ -75,21 +76,46 @@ userdebug_or_eng(`
 # Read device's serial number from system properties
 get_prop(shell, serialno_prop)
 
+# Read state of logging-related properties
+get_prop(shell, device_logging_prop)
+
+# Read state of boot reason properties
+get_prop(shell, bootloader_boot_reason_prop)
+get_prop(shell, last_boot_reason_prop)
+get_prop(shell, system_boot_reason_prop)
+
 # allow shell access to services
 allow shell servicemanager:service_manager list;
 # don't allow shell to access GateKeeper service
 # TODO: why is this so broad? Tightening candidate? It needs at list:
 # - dumpstate_service (so it can receive dumpstate progress updates)
-allow shell { service_manager_type -gatekeeper_service -netd_service -installd_service}:service_manager find;
+allow shell {
+  service_manager_type
+  -gatekeeper_service
+  -incident_service
+  -installd_service
+  -netd_service
+  -virtual_touchpad_service
+  -vold_service
+  -vr_hwc_service
+}:service_manager find;
 allow shell dumpstate:binder call;
 
-# allow shell to look through /proc/ for ps, top, netstat
+# allow shell to get information from hwservicemanager
+# for instance, listing hardware services with lshal
+hwbinder_use(shell)
+allow shell hwservicemanager:hwservice_manager list;
+
+# allow shell to look through /proc/ for lsmod, ps, top, netstat.
 r_dir_file(shell, proc)
 r_dir_file(shell, proc_net)
+allow shell proc_filesystems:file r_file_perms;
 allow shell proc_interrupts:file r_file_perms;
 allow shell proc_meminfo:file r_file_perms;
+allow shell proc_modules:file r_file_perms;
 allow shell proc_stat:file r_file_perms;
 allow shell proc_timer:file r_file_perms;
+allow shell proc_version:file r_file_perms;
 allow shell proc_zoneinfo:file r_file_perms;
 r_dir_file(shell, cgroup)
 allow shell domain:dir { search open read getattr };
@@ -119,8 +145,9 @@ allow shell bootchart_data_file:file create_file_perms;
 allow shell self:process ptrace;
 
 # allow shell to get battery info
-allow shell sysfs_batteryinfo:file r_file_perms;
 allow shell sysfs:dir r_dir_perms;
+allow shell sysfs_batteryinfo:dir r_dir_perms;
+allow shell sysfs_batteryinfo:file r_file_perms;
 
 # Allow access to ion memory allocation device.
 allow shell ion_device:chr_file rw_file_perms;
@@ -140,6 +167,13 @@ allow shell proc:lnk_file getattr;
 # via hostside test
 #
 allow shell dev_type:blk_file getattr;
+
+# read selinux policy files
+allow shell file_contexts_file:file r_file_perms;
+allow shell property_contexts_file:file r_file_perms;
+allow shell seapp_contexts_file:file r_file_perms;
+allow shell service_contexts_file:file r_file_perms;
+allow shell sepolicy_file:file r_file_perms;
 
 ###
 ### Neverallow rules

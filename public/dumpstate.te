@@ -1,5 +1,5 @@
 # dumpstate
-type dumpstate, domain, domain_deprecated, mlstrustedsubject;
+type dumpstate, domain, mlstrustedsubject;
 type dumpstate_exec, exec_type, file_type;
 
 net_domain(dumpstate)
@@ -26,7 +26,11 @@ allow dumpstate self:capability {
 #   /system/bin/logcat
 #   /system/bin/dumpsys
 allow dumpstate system_file:file execute_no_trans;
+not_full_treble(`allow dumpstate vendor_file:file execute_no_trans;')
 allow dumpstate toolbox_exec:file rx_file_perms;
+
+# hidl searches for files in /system/lib(64)/hw/
+allow dumpstate system_file:dir r_dir_perms;
 
 # Create and write into /data/anr/
 allow dumpstate self:capability { dac_override chown fowner fsetid };
@@ -49,35 +53,33 @@ allow dumpstate pstorefs:file r_file_perms;
 allow dumpstate domain:process getattr;
 
 # Signal java processes to dump their stack
-allow dumpstate { appdomain ephemeral_app system_server }:process signal;
+allow dumpstate { appdomain system_server }:process signal;
 
 # Signal native processes to dump their stack.
-# This list comes from native_processes_to_dump in dumpstate/utils.c
 allow dumpstate {
+  # This list comes from native_processes_to_dump in dumpstate/utils.c
   audioserver
   cameraserver
   drmserver
   inputflinger
-  mediacodec
   mediadrmserver
   mediaextractor
   mediaserver
   sdcardd
   surfaceflinger
+
+  # This list comes from hal_interfaces_to_dump in dumpstate/utils.c
+  hal_audio_server
+  hal_bluetooth_server
+  hal_camera_server
+  hal_graphics_composer_server
+  hal_sensors_server
+  hal_vr_server
+  mediacodec # TODO(b/36375899): hal_omx_server
 }:process signal;
-# Ask debuggerd for the backtraces of these processes.
-allow dumpstate {
-  audioserver
-  cameraserver
-  drmserver
-  inputflinger
-  mediacodec
-  mediadrmserver
-  mediaextractor
-  mediaserver
-  sdcardd
-  surfaceflinger
-}:debuggerd dump_backtrace;
+
+# Connect to tombstoned to intercept dumps.
+unix_socket_connect(dumpstate, tombstoned_intercept, tombstoned)
 
 # TODO: added to match above sysfs rule. Remove me?
 allow dumpstate sysfs_usb:file w_file_perms;
@@ -85,23 +87,31 @@ allow dumpstate sysfs_usb:file w_file_perms;
 # Other random bits of data we want to collect
 allow dumpstate qtaguid_proc:file r_file_perms;
 allow dumpstate debugfs:file r_file_perms;
-# df for /storage/emulated needs search
-allow dumpstate { storage_file block_device }:dir { search getattr };
+
+# df for
+allow dumpstate {
+  block_device
+  cache_file
+  rootfs
+  selinuxfs
+  storage_file
+  tmpfs
+}:dir { search getattr };
 allow dumpstate fuse_device:chr_file getattr;
 allow dumpstate { dm_device cache_block_device }:blk_file getattr;
+allow dumpstate { cache_file rootfs }:lnk_file { getattr read };
 
 # Read /dev/cpuctl and /dev/cpuset
 r_dir_file(dumpstate, cgroup)
 
 # Allow dumpstate to make binder calls to any binder service
 binder_call(dumpstate, binderservicedomain)
-binder_call(dumpstate, { appdomain ephemeral_app netd wificond })
+binder_call(dumpstate, { appdomain netd wificond })
 
+hal_client_domain(dumpstate, hal_dumpstate)
+hal_client_domain(dumpstate, hal_graphics_allocator)
 # Vibrate the device after we are done collecting the bugreport
-# For binderized mode:
-binder_call(dumpstate, hal_dumpstate)
-binder_call(dumpstate, hal_vibrator)
-binder_call(dumpstate, hwservicemanager)
+hal_client_domain(dumpstate, hal_vibrator)
 # For passthrough mode:
 allow dumpstate sysfs_vibrator:file { rw_file_perms getattr };
 
@@ -123,7 +133,6 @@ allow dumpstate zygote_exec:file rx_file_perms;
 allow dumpstate ashmem_device:chr_file execute;
 allow dumpstate self:process execmem;
 # For art.
-allow dumpstate libart_file:file { r_file_perms execute };
 allow dumpstate dalvikcache_data_file:dir { search getattr };
 allow dumpstate dalvikcache_data_file:file { r_file_perms execute };
 allow dumpstate dalvikcache_data_file:lnk_file r_file_perms;
@@ -139,9 +148,16 @@ allow dumpstate gpu_device:chr_file rw_file_perms;
 # logd access
 read_logd(dumpstate)
 control_logd(dumpstate)
+read_runtime_log_tags(dumpstate)
 
-# Read /proc/net
+# Read files in /proc
+allow dumpstate proc_cmdline:file r_file_perms;
+allow dumpstate proc_meminfo:file r_file_perms;
 allow dumpstate proc_net:file r_file_perms;
+allow dumpstate proc_pagetypeinfo:file r_file_perms;
+allow dumpstate proc_version:file r_file_perms;
+allow dumpstate proc_vmallocinfo:file r_file_perms;
+r_dir_file(dumpstate, proc)
 
 # Read network state info files.
 allow dumpstate net_data_file:dir search;
@@ -166,8 +182,6 @@ allow dumpstate recovery_data_file:file r_file_perms;
 userdebug_or_eng(`
   allow dumpstate user_profile_data_file:dir r_dir_perms;
   allow dumpstate user_profile_data_file:file r_file_perms;
-  allow dumpstate user_profile_foreign_dex_data_file:dir r_dir_perms;
-  allow dumpstate user_profile_foreign_dex_data_file:file r_file_perms;
 ')
 
 # Access /data/misc/logd
@@ -176,8 +190,27 @@ userdebug_or_eng(`
   allow dumpstate misc_logd_file:file r_file_perms;
 ')
 
-allow dumpstate { service_manager_type -gatekeeper_service -dumpstate_service }:service_manager find;
+allow dumpstate {
+  service_manager_type
+  -dumpstate_service
+  -gatekeeper_service
+  -incident_service
+  -virtual_touchpad_service
+  -vold_service
+  -vr_hwc_service
+}:service_manager find;
+# suppress denials for services dumpstate should not be accessing.
+dontaudit dumpstate {
+  dumpstate_service
+  gatekeeper_service
+  incident_service
+  virtual_touchpad_service
+  vold_service
+  vr_hwc_service
+}:service_manager find;
+
 allow dumpstate servicemanager:service_manager list;
+allow dumpstate hwservicemanager:hwservice_manager list;
 
 allow dumpstate devpts:chr_file rw_file_perms;
 
@@ -190,6 +223,14 @@ set_prop(dumpstate, dumpstate_options_prop)
 # Read device's serial number from system properties
 get_prop(dumpstate, serialno_prop)
 
+# Read state of logging-related properties
+get_prop(dumpstate, device_logging_prop)
+
+# Read state of boot reason properties
+get_prop(dumpstate, bootloader_boot_reason_prop)
+get_prop(dumpstate, last_boot_reason_prop)
+get_prop(dumpstate, system_boot_reason_prop)
+
 # Access to /data/media.
 # This should be removed if sdcardfs is modified to alter the secontext for its
 # accesses to the underlying FS.
@@ -198,17 +239,43 @@ allow dumpstate proc_interrupts:file r_file_perms;
 allow dumpstate proc_zoneinfo:file r_file_perms;
 
 # Create a service for talking back to system_server
-allow dumpstate dumpstate_service:service_manager add;
+add_service(dumpstate, dumpstate_service)
+
+# use /dev/ion for screen capture
+allow dumpstate ion_device:chr_file r_file_perms;
+
+# read default labeled files in /sys
+r_dir_file(dumpstate, sysfs)
+
+# Allow dumpstate to run top
+allow dumpstate proc_stat:file r_file_perms;
+
+# Allow dumpstate to read backlight details
+allow dumpstate sysfs_leds:lnk_file r_file_perms;
+allow dumpstate sysfs_leds:file r_file_perms;
+allow dumpstate sysfs_leds:dir search;
+
+# Allow dumpstate to talk to installd over binder
+binder_call(dumpstate, installd);
+
+# Allow dumpstate to run ip xfrm policy
+allow dumpstate self:netlink_xfrm_socket { create_socket_perms_no_ioctl nlmsg_read };
+
+# Allow dumpstate to run iotop
+allow dumpstate self:netlink_socket create_socket_perms_no_ioctl;
+# newer kernels (e.g. 4.4) have a new class for sockets
+allow dumpstate self:netlink_generic_socket create_socket_perms_no_ioctl;
 
 ###
 ### neverallow rules
 ###
 
-# only dumpstate can add the dumpstate service
-neverallow { domain -dumpstate } dumpstate_service:service_manager add;
+# dumpstate has capability sys_ptrace, but should only use that capability for
+# accessing sensitive /proc/PID files, never for using ptrace attach.
+neverallow dumpstate *:process ptrace;
 
-# only system_server and shell can find the dumpstate service
-neverallow { domain -system_server -shell } dumpstate_service:service_manager find;
+# only system_server, dumpstate and shell can find the dumpstate service
+neverallow { domain -system_server -shell -dumpstate } dumpstate_service:service_manager find;
 
 # Dumpstate should not be writing to any generically labeled sysfs files.
 # Create a specific label for the file type

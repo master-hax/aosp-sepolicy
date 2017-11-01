@@ -4,11 +4,14 @@
 ### server.
 ###
 
-typeattribute system_app domain_deprecated;
+typeattribute system_app coredomain;
 
 app_domain(system_app)
 net_domain(system_app)
 binder_service(system_app)
+
+# android.ui and system.ui
+allow system_app rootfs:dir getattr;
 
 # Read and write /data/data subdirectory.
 allow system_app system_app_data_file:dir create_dir_perms;
@@ -50,9 +53,29 @@ allow system_app anr_data_file:file create_file_perms;
 # Settings need to access app name and icon from asec
 allow system_app asec_apk_file:file r_file_perms;
 
+# Allow system apps to interact with incidentd
+binder_call(system_app, incidentd)
+
 allow system_app servicemanager:service_manager list;
 # TODO: scope this down? Too broad?
-allow system_app { service_manager_type -netd_service -dumpstate_service -installd_service }:service_manager find;
+allow system_app {
+  service_manager_type
+  -dumpstate_service
+  -installd_service
+  -netd_service
+  -virtual_touchpad_service
+  -vold_service
+  -vr_hwc_service
+}:service_manager find;
+# suppress denials for services system_app should not be accessing.
+dontaudit system_app {
+  dumpstate_service
+  installd_service
+  netd_service
+  virtual_touchpad_service
+  vold_service
+  vr_hwc_service
+}:service_manager find;
 
 allow system_app keystore:keystore_key {
     get_state
@@ -77,4 +100,18 @@ allow system_app keystore:keystore_key {
 # /sys access
 r_dir_file(system_app, sysfs_type)
 
+# settings app reads /proc/version and /proc/pagetypeinfo
+allow system_app {
+  proc
+  proc_version
+}:file r_file_perms;
+
 control_logd(system_app)
+read_runtime_log_tags(system_app)
+
+###
+### Neverallow rules
+###
+
+# app domains which access /dev/fuse should not run as system_app
+neverallow system_app fuse_device:chr_file *;

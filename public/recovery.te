@@ -2,13 +2,15 @@
 
 # Declare the domain unconditionally so we can always reference it
 # in neverallow rules.
-type recovery, domain, domain_deprecated;
+type recovery, domain;
 
 # But the allow rules are only included in the recovery policy.
 # Otherwise recovery is only allowed the domain rules.
 recovery_only(`
   # Allow recovery to perform an update as update_engine would do.
-  typeattribute recovery update_engine_common, boot_control_hal;
+  typeattribute recovery update_engine_common;
+  # Recovery can only use HALs in passthrough mode
+  passthrough_hal_client_domain(recovery, hal_bootctl)
 
   allow recovery self:capability { chown dac_override fowner fsetid setfcap setuid setgid sys_admin sys_tty_config };
 
@@ -16,6 +18,7 @@ recovery_only(`
   allow recovery self:capability2 mac_admin;
 
   # Run helpers from / or /system without changing domain.
+  r_dir_file(recovery, rootfs)
   allow recovery rootfs:file execute_no_trans;
   allow recovery system_file:file execute_no_trans;
   allow recovery toolbox_exec:file rx_file_perms;
@@ -28,13 +31,15 @@ recovery_only(`
 
   # Create and relabel files and directories under /system.
   allow recovery exec_type:{ file lnk_file } { create_file_perms relabelfrom relabelto };
-  allow recovery { system_file libart_file }:{ file lnk_file } { create_file_perms relabelfrom relabelto };
+  allow recovery { system_file }:{ file lnk_file } { create_file_perms relabelfrom relabelto };
   allow recovery system_file:dir { create_dir_perms relabelfrom relabelto };
 
   # We may be asked to set an SELinux label for a type not known to the
   # currently loaded policy. Allow it.
   allow recovery unlabeled:{ file lnk_file } { create_file_perms relabelfrom relabelto };
   allow recovery unlabeled:dir { create_dir_perms relabelfrom relabelto };
+  # Get file contexts
+  allow recovery file_contexts_file:file r_file_perms;
 
   # 0eb17d944704b3eb140bb9dded299d3be3aed77e in build/ added SELinux
   # support to OTAs. However, that code has a bug. When an update occurs,
@@ -47,21 +52,38 @@ recovery_only(`
   # Write to /proc/sys/vm/drop_caches
   allow recovery proc_drop_caches:file w_file_perms;
 
+  # Read /proc/swaps
+  allow recovery proc_swaps:file r_file_perms;
+
+  # Read kernel config through libvintf for OTA matching
+  allow recovery config_gz:file { open read getattr };
+
   # Write to /sys/class/android_usb/android0/enable.
-  # TODO: create more specific label?
-  allow recovery sysfs:file w_file_perms;
+  r_dir_file(recovery, sysfs_android_usb)
+  allow recovery sysfs_android_usb:file w_file_perms;
 
   # Write to /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq.
   allow recovery sysfs_devices_system_cpu:file w_file_perms;
 
   allow recovery sysfs_batteryinfo:file r_file_perms;
 
+  # Read /sysfs/fs/ext4/features
+  r_dir_file(recovery, sysfs_fs_ext4_features)
+
+  # Read from /sys/class/leds/lcd-backlight/max_brightness and write to /s/c/l/l/brightness to
+  # control backlight brightness.
+  allow recovery sysfs_leds:dir r_dir_perms;
+  allow recovery sysfs_leds:file rw_file_perms;
+  allow recovery sysfs_leds:lnk_file read;
+
   allow recovery kernel:system syslog_read;
 
-  # Access /dev/android_adb or /dev/usb-ffs/adb/ep0
-  allow recovery adb_device:chr_file rw_file_perms;
+  # Access /dev/usb-ffs/adb/ep0
   allow recovery functionfs:dir search;
   allow recovery functionfs:file rw_file_perms;
+
+  # Access to /sys/fs/selinux/policyvers for compatibility check
+  allow recovery selinuxfs:file r_file_perms;
 
   # Required to e.g. wipe userdata/cache.
   allow recovery device:dir r_dir_perms;
@@ -83,6 +105,9 @@ recovery_only(`
   allow recovery { cache_file cache_recovery_file }:dir create_dir_perms;
   allow recovery { cache_file cache_recovery_file }:file create_file_perms;
 
+  # Read /sys/class/thermal/*/temp for thermal info.
+  r_dir_file(recovery, sysfs_thermal)
+
   # Read files on /oem.
   r_dir_file(recovery, oemfs);
 
@@ -94,6 +119,12 @@ recovery_only(`
 
   # Read serial number of the device from system properties
   get_prop(recovery, serialno_prop)
+
+  # Set sys.usb.ffs.ready when starting minadbd for sideload.
+  set_prop(recovery, ffs_prop)
+
+  # Read ro.boot.bootreason
+  get_prop(recovery, bootloader_boot_reason_prop)
 
   # Use setfscreatecon() to label files for OTA updates.
   allow recovery self:process setfscreate;
@@ -124,5 +155,13 @@ recovery_only(`
 # domains, including recovery.
 #
 # TODO: tighten this up further.
-neverallow recovery data_file_type:file { no_w_file_perms no_x_file_perms };
-neverallow recovery data_file_type:dir no_w_dir_perms;
+neverallow recovery {
+   data_file_type
+   -cache_file
+   -cache_recovery_file
+}:file { no_w_file_perms no_x_file_perms };
+neverallow recovery {
+   data_file_type
+   -cache_file
+   -cache_recovery_file
+}:dir no_w_dir_perms;
