@@ -6,3 +6,7 @@ init_daemon_domain(hal_audio_default)
 
 hal_client_domain(hal_audio_default, hal_allocator)
 
+# TODO(b/36657258): Remove data_between_core_and_vendor_violators once
+# audiohal_data_file has been moved to /data/vendor and no longer has the
+# coredata_file_type attribute.
+typeattribute hal_audio_default data_between_core_and_vendor_violators;
