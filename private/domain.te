@@ -76,7 +76,7 @@ full_treble_only(`
   # tracefs
   neverallow {
     coredomain
-    -atrace
+    userdebug_or_eng(`-atrace')
     -dumpstate
     -init
     -perfprofd
