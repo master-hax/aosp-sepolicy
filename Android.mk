@@ -346,6 +346,8 @@ $(PLAT_PUBLIC_POLICY) $(PLAT_PRIVATE_POLICY))
 	$(transform-policy-to-conf)
 	$(hide) sed '/dontaudit/d' $@ > $@.dontaudit
 
+built_plat_sepolicy := $(intermediates)/built_plat_sepolicy
+$(LOCAL_BUILT_MODULE): PRIVATE_PLAT_SEPOLICY := $(built_plat_sepolicy)
 $(LOCAL_BUILT_MODULE): PRIVATE_ADDITIONAL_CIL_FILES := \
   $(call build_policy, $(sepolicy_build_cil_workaround_files), $(PLAT_PRIVATE_POLICY))
 $(LOCAL_BUILT_MODULE): $(plat_policy.conf) $(HOST_OUT_EXECUTABLES)/checkpolicy \
@@ -355,7 +357,7 @@ $(LOCAL_BUILT_MODULE): $(plat_policy.conf) $(HOST_OUT_EXECUTABLES)/checkpolicy \
 	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -C -c \
 		$(POLICYVERS) -o $@ $<
 	$(hide) cat $(PRIVATE_ADDITIONAL_CIL_FILES) >> $@
-	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -m -M true -G -c $(POLICYVERS) $@ -o /dev/null -f /dev/null
+	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -m -M true -G -c $(POLICYVERS) $@ -o $(PRIVATE_PLAT_SEPOLICY) -f /dev/null
 
 built_plat_cil := $(LOCAL_BUILT_MODULE)
 plat_policy.conf :=
@@ -1278,35 +1280,6 @@ $(26.0_mapping.combined.cil): $(26.0_mapping.cil) $(26.0_mapping.ignore.cil)
 	mkdir -p $(dir $@)
 	cat $^ > $@
 
-# plat_sepolicy - the current platform policy only, built into a policy binary.
-# TODO - this currently excludes partner extensions, but support should be added
-# to enable partners to add their own compatibility mapping
-BASE_PLAT_PUBLIC_POLICY := $(filter-out $(BOARD_PLAT_PUBLIC_SEPOLICY_DIR), $(PLAT_PUBLIC_POLICY))
-BASE_PLAT_PRIVATE_POLICY := $(filter-out $(BOARD_PLAT_PRIVATE_SEPOLICY_DIR), $(PLAT_PRIVATE_POLICY))
-base_plat_policy.conf := $(intermediates)/base_plat_policy.conf
-$(base_plat_policy.conf): PRIVATE_MLS_SENS := $(MLS_SENS)
-$(base_plat_policy.conf): PRIVATE_MLS_CATS := $(MLS_CATS)
-$(base_plat_policy.conf): PRIVATE_TGT_ARCH := $(my_target_arch)
-$(base_plat_policy.conf): PRIVATE_TGT_WITH_ASAN := $(with_asan)
-$(base_plat_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
-$(base_plat_policy.conf): PRIVATE_FULL_TREBLE := true
-$(base_plat_policy.conf): $(call build_policy, $(sepolicy_build_files), \
-$(BASE_PLAT_PUBLIC_POLICY) $(BASE_PLAT_PRIVATE_POLICY))
-	$(transform-policy-to-conf)
-	$(hide) sed '/dontaudit/d' $@ > $@.dontaudit
-
-built_plat_sepolicy := $(intermediates)/built_plat_sepolicy
-$(built_plat_sepolicy): PRIVATE_ADDITIONAL_CIL_FILES := \
-  $(call build_policy, $(sepolicy_build_cil_workaround_files), $(BASE_PLAT_PRIVATE_POLICY))
-$(built_plat_sepolicy): $(base_plat_policy.conf) $(HOST_OUT_EXECUTABLES)/checkpolicy \
-$(HOST_OUT_EXECUTABLES)/secilc \
-$(call build_policy, $(sepolicy_build_cil_workaround_files), $(BASE_PLAT_PRIVATE_POLICY))
-	@mkdir -p $(dir $@)
-	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -C -c \
-		$(POLICYVERS) -o $@ $<
-	$(hide) cat $(PRIVATE_ADDITIONAL_CIL_FILES) >> $@
-	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -m -M true -G -c $(POLICYVERS) $@ -o $@ -f /dev/null
-
 treble_sepolicy_tests := $(intermediates)/treble_sepolicy_tests
 $(treble_sepolicy_tests): PRIVATE_PLAT_FC := $(built_plat_fc)
 $(treble_sepolicy_tests): PRIVATE_NONPLAT_FC := $(built_nonplat_fc)
@@ -1320,7 +1293,7 @@ else
 $(treble_sepolicy_tests): PRIVATE_FAKE_TREBLE :=
 endif
 $(treble_sepolicy_tests): $(HOST_OUT_EXECUTABLES)/treble_sepolicy_tests \
-$(built_plat_fc) $(built_nonplat_fc) $(built_sepolicy) $(built_plat_sepolicy) \
+$(built_plat_fc) $(built_nonplat_fc) $(built_sepolicy) $(built_plat_cil) \
 $(built_26.0_plat_sepolicy) $(26.0_compat) $(26.0_mapping.combined.cil)
 	@mkdir -p $(dir $@)
 	$(hide) $(HOST_OUT_EXECUTABLES)/treble_sepolicy_tests -l \
@@ -1338,8 +1311,6 @@ $(built_26.0_plat_sepolicy) $(26.0_compat) $(26.0_mapping.combined.cil)
 26.0_mapping.combined.cil :=
 26.0_mapping.ignore.cil :=
 26.0_nonplat :=
-BASE_PLAT_PUBLIC_POLICY :=
-BASE_PLAT_PRIVATE_POLICY :=
 base_plat_policy.conf :=
 built_26.0_plat_sepolicy :=
 plat_sepolicy :=
@@ -1354,6 +1325,7 @@ built_plat_fc :=
 built_nonplat_fc :=
 built_nl :=
 built_plat_cil :=
+built_plat_sepolicy :=
 built_mapping_cil :=
 built_plat_pc :=
 built_nonplat_cil :=
