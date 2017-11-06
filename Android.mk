@@ -1279,10 +1279,6 @@ $(26.0_mapping.combined.cil): $(26.0_mapping.cil) $(26.0_mapping.ignore.cil)
 	cat $^ > $@
 
 # plat_sepolicy - the current platform policy only, built into a policy binary.
-# TODO - this currently excludes partner extensions, but support should be added
-# to enable partners to add their own compatibility mapping
-BASE_PLAT_PUBLIC_POLICY := $(filter-out $(BOARD_PLAT_PUBLIC_SEPOLICY_DIR), $(PLAT_PUBLIC_POLICY))
-BASE_PLAT_PRIVATE_POLICY := $(filter-out $(BOARD_PLAT_PRIVATE_SEPOLICY_DIR), $(PLAT_PRIVATE_POLICY))
 base_plat_policy.conf := $(intermediates)/base_plat_policy.conf
 $(base_plat_policy.conf): PRIVATE_MLS_SENS := $(MLS_SENS)
 $(base_plat_policy.conf): PRIVATE_MLS_CATS := $(MLS_CATS)
@@ -1291,16 +1287,16 @@ $(base_plat_policy.conf): PRIVATE_TGT_WITH_ASAN := $(with_asan)
 $(base_plat_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(base_plat_policy.conf): PRIVATE_FULL_TREBLE := true
 $(base_plat_policy.conf): $(call build_policy, $(sepolicy_build_files), \
-$(BASE_PLAT_PUBLIC_POLICY) $(BASE_PLAT_PRIVATE_POLICY))
+$(PLAT_PUBLIC_POLICY) $(PLAT_PRIVATE_POLICY))
 	$(transform-policy-to-conf)
 	$(hide) sed '/dontaudit/d' $@ > $@.dontaudit
 
 built_plat_sepolicy := $(intermediates)/built_plat_sepolicy
 $(built_plat_sepolicy): PRIVATE_ADDITIONAL_CIL_FILES := \
-  $(call build_policy, $(sepolicy_build_cil_workaround_files), $(BASE_PLAT_PRIVATE_POLICY))
+  $(call build_policy, $(sepolicy_build_cil_workaround_files), $(PLAT_PRIVATE_POLICY))
 $(built_plat_sepolicy): $(base_plat_policy.conf) $(HOST_OUT_EXECUTABLES)/checkpolicy \
 $(HOST_OUT_EXECUTABLES)/secilc \
-$(call build_policy, $(sepolicy_build_cil_workaround_files), $(BASE_PLAT_PRIVATE_POLICY))
+$(call build_policy, $(sepolicy_build_cil_workaround_files), $(PLAT_PRIVATE_POLICY))
 	@mkdir -p $(dir $@)
 	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -C -c \
 		$(POLICYVERS) -o $@ $<
@@ -1338,8 +1334,6 @@ $(built_26.0_plat_sepolicy) $(26.0_compat) $(26.0_mapping.combined.cil)
 26.0_mapping.combined.cil :=
 26.0_mapping.ignore.cil :=
 26.0_nonplat :=
-BASE_PLAT_PUBLIC_POLICY :=
-BASE_PLAT_PRIVATE_POLICY :=
 base_plat_policy.conf :=
 built_26.0_plat_sepolicy :=
 plat_sepolicy :=
