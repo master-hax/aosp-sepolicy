@@ -47,6 +47,8 @@ full_treble_only(`
     -vendor_init
   } sysfs:file no_rw_file_perms;
 
+  neverallow init sysfs:file { open read write };
+
   # /dev
   neverallow {
     coredomain
