@@ -1111,3 +1111,12 @@ neverallow ~coredomain coredomain_hwservice:hwservice_manager add;
 # be passthrough only (i.e., run in the process of their clients instead of a
 # separate server process).
 neverallow * same_process_hwservice:hwservice_manager add;
+
+# Apps cannot access proc_uid_time_in_state
+neverallow appdomain proc_uid_time_in_state:file *;
+
+# Apps cannot access proc_uid_concurrent_active_time
+neverallow appdomain proc_uid_concurrent_active_time:file *;
+
+# Apps cannot access proc_uid_concurrent_policy_time
+neverallow appdomain proc_uid_concurrent_policy_time:file *;
