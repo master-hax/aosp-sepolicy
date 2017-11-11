@@ -134,7 +134,8 @@
 (typeattributeset default_android_hwservice_26_0 (default_android_hwservice))
 (typeattributeset default_android_service_26_0 (default_android_service))
 (typeattributeset default_android_vndservice_26_0 (default_android_vndservice))
-(typeattributeset default_prop_26_0 (default_prop))
+(typeattributeset default_prop_26_0
+  ( default_prop pm_prop))
 (typeattributeset device_26_0 (device))
 (typeattributeset device_identifiers_service_26_0 (device_identifiers_service))
 (typeattributeset deviceidle_service_26_0 (deviceidle_service))
@@ -449,17 +450,28 @@
 (typeattributeset priv_app_26_0 (mediaprovider priv_app))
 (typeattributeset proc_26_0
   ( proc
+    proc_abi
     proc_asound
     proc_cmdline
+    proc_dirty
+    proc_diskstats
+    proc_extra_free_kbytes
     proc_filesystems
+    proc_hostname
+    proc_hung_task
     proc_kmsg
     proc_loadavg
+    proc_max_map_count
     proc_mounts
+    proc_overflowuid
     proc_page_cluster
     proc_pagetypeinfo
+    proc_panic
     proc_random
+    proc_sched
     proc_swaps
     proc_uid_time_in_state
+    proc_uptime
     proc_version
     proc_vmallocinfo))
 (typeattributeset proc_bluetooth_writable_26_0 (proc_bluetooth_writable))
