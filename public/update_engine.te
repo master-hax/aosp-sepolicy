@@ -11,7 +11,7 @@ allow update_engine qtaguid_device:chr_file r_file_perms;
 
 # Following permissions are needed for update_engine.
 allow update_engine self:process { setsched };
-allow update_engine self:capability { fowner sys_admin };
+allow update_engine self:capability { fowner fsetid sys_admin };
 allow update_engine kmsg_device:chr_file w_file_perms;
 allow update_engine update_engine_exec:file rx_file_perms;
 wakelock_use(update_engine);
