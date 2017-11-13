@@ -30,6 +30,9 @@ neverallow all_untrusted_apps service_manager_type:service_manager add;
 neverallow all_untrusted_apps vndbinder_device:chr_file *;
 neverallow all_untrusted_apps vndservice_manager_type:service_manager *;
 
+# Do not allow untrusted apps to access net ops service
+neverallow all_untrusted_apps net_ops_service:service_manager *;
+
 # Do not allow untrusted apps to connect to the property service
 # or set properties. b/10243159
 neverallow { all_untrusted_apps -mediaprovider } property_socket:sock_file write;
