@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b51195a9_7b86f13a",
+        "filename": "public/update_engine.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-11-14T21:48:28Z",
+      "side": 1,
+      "message": "I don\u0027t think this comment is correct. The cause is slightly different than netd. How about something like:\n\nNote: fsetid checks are triggered when creating a file in a directory with the setgid bit set to determine if the file should inherit setgid. In this case, setgid on the file is undesirable so we should just suppress the denial.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 12
+      },
+      "revId": "11ea195cea47d606f592020486685ea4de331eab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
