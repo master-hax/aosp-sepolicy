@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e169cec_84e957be",
+        "filename": "public/service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-11-14T16:44:01Z",
+      "side": 1,
+      "message": "we decided against this because it unnecessarily grants access to other processes (such as the bluetooth app). \n\nInstead, you can grant access to just the domain that needs access. Example:\n\nallow priv_app net_ops_service:service_manager find;",
+      "range": {
+        "startLine": 73,
+        "startChar": 22,
+        "endLine": 73,
+        "endChar": 40
+      },
+      "revId": "1b2117140a020e649b67970b5e5e68752baf8f8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
