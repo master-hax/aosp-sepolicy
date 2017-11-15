@@ -9,8 +9,8 @@ add_service(nfc, nfc_service)
 hal_client_domain(nfc, hal_nfc)
 
 # Data file accesses.
-allow nfc nfc_data_file:dir create_dir_perms;
-allow nfc nfc_data_file:notdevfile_class_set create_file_perms;
+allow nfc nfc_app_data_file:dir create_dir_perms;
+allow nfc nfc_app_data_file:notdevfile_class_set create_file_perms;
 
 # SoundPool loading and playback
 allow nfc audioserver_service:service_manager find;

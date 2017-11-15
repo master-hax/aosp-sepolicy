@@ -12,5 +12,5 @@ set_prop(hal_nfc, nfc_prop)
 allow hal_nfc nfc_device:chr_file rw_file_perms;
 
 # Data file accesses.
-allow hal_nfc nfc_data_file:dir create_dir_perms;
-allow hal_nfc nfc_data_file:{ file lnk_file fifo_file } create_file_perms;
+allow hal_nfc nfc_app_data_file:dir create_dir_perms;
+allow hal_nfc nfc_app_data_file:{ file lnk_file fifo_file } create_file_perms;
