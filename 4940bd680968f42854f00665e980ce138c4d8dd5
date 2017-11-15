@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8959b495_ee063d44",
+        "filename": "private/nfc.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2017-11-15T22:54:10Z",
+      "side": 1,
+      "message": "Do you think we should also include nfc_data_file here?\n\nWe don\u0027t actually define nfc_data_file to mean anything in the core SEPolicy, so I\u0027m thinking we don\u0027t need it.  Vendor code, which would be the only code referencing nfc_data_file wouldn\u0027t run in this domain.",
+      "revId": "4940bd680968f42854f00665e980ce138c4d8dd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "234d9c5d_f16aaeba",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2017-11-15T22:54:10Z",
+      "side": 1,
+      "message": "I keep this defined here as it does describe a /data/... directory for many vendors.",
+      "revId": "4940bd680968f42854f00665e980ce138c4d8dd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e6deae9_ee43ec3c",
+        "filename": "public/hal_nfc.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2017-11-15T22:54:10Z",
+      "side": 1,
+      "message": "Does this domain run vendor code?  If it does then, we would want to grant nfc_data_file access here.",
+      "revId": "4940bd680968f42854f00665e980ce138c4d8dd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
