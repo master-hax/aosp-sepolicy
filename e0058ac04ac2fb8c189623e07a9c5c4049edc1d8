@@ -22,6 +22,30 @@
       "revId": "e0058ac04ac2fb8c189623e07a9c5c4049edc1d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "190542ba_91143857",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-11-15T17:34:34Z",
+      "side": 1,
+      "message": "/proc/sys/fs/pipe-max-size is read by libdebuggerd_client:\nhttps://cs.corp.google.com/android/system/core/debuggerd/client/debuggerd_client.cpp?l\u003d124\nwhich is linked to by libandroid_runtime:\nhttps://cs.corp.google.com/android/frameworks/base/core/jni/Android.bp?l\u003d237\n\nIt seems like /proc/sys/fs/pipe-max-size read is performed when trying to dump traces:\nhttps://cs.corp.google.com/android/frameworks/base/core/jni/android_os_Debug.cpp?l\u003d1122",
+      "parentUuid": "94787375_d57d16c5",
+      "range": {
+        "startLine": 689,
+        "startChar": 2,
+        "endLine": 689,
+        "endChar": 11
+      },
+      "revId": "e0058ac04ac2fb8c189623e07a9c5c4049edc1d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
