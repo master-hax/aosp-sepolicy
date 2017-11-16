@@ -652,6 +652,10 @@ userdebug_or_eng(`
   allow system_server kernel:system syslog_read;
 ')
 
+# Allow writing window traces in /data/misc/wmtrace.
+allow system_server wm_trace_data_file:dir rw_dir_perms;
+allow system_server wm_trace_data_file:file { getattr create w_file_perms };
+
 # For AppFuse.
 allow system_server vold:fd use;
 allow system_server fuse_device:chr_file { read write ioctl getattr };
