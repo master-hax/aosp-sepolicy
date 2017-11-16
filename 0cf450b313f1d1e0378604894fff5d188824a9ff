@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "964839ca_f52ee788",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-11-16T18:26:03Z",
+      "side": 1,
+      "message": "debuggerd_test seems to an obvious one to run once.\n- https://cs.corp.google.com/android/system/core/debuggerd/debuggerd_test.cpp?q\u003dpipe-max-size\u0026sq\u003dpackage:android\u0026l\u003d115\u0026dr\u003dC",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 33
+      },
+      "revId": "0cf450b313f1d1e0378604894fff5d188824a9ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c8e85de_f2f160cc",
+        "filename": "private/compat/26.0/26.0.cil",
+        "patchSetId": 2
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-11-16T18:26:03Z",
+      "side": 1,
+      "message": "suggest, proc_pipe_conf/proc_pipe_limits or something else. \"proc_pipe\" is to generic",
+      "range": {
+        "startLine": 470,
+        "startChar": 4,
+        "endLine": 470,
+        "endChar": 13
+      },
+      "revId": "0cf450b313f1d1e0378604894fff5d188824a9ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bdc0e26_80a53a78",
         "filename": "private/system_server.te",
         "patchSetId": 2
@@ -36,6 +82,30 @@
       "writtenOn": "2017-11-15T00:53:36Z",
       "side": 1,
       "message": "We might have to label other /proc/sys/fs/pipe* with this, so keeping the name generic.",
+      "range": {
+        "startLine": 41,
+        "startChar": 5,
+        "endLine": 41,
+        "endChar": 14
+      },
+      "revId": "0cf450b313f1d1e0378604894fff5d188824a9ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75547d2a_f0899e7d",
+        "filename": "public/file.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-11-16T18:26:03Z",
+      "side": 1,
+      "message": "see other name suggestions. They are all there to configure individual/per-user/system pipe size limits - http://man7.org/linux/man-pages/man7/pipe.7.html.",
+      "parentUuid": "c67a35eb_b591c1ff",
       "range": {
         "startLine": 41,
         "startChar": 5,
