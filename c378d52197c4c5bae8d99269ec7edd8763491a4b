@@ -16,6 +16,24 @@
       "revId": "c378d52197c4c5bae8d99269ec7edd8763491a4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6563c05_ee33abcb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-11-17T00:52:44Z",
+      "side": 1,
+      "message": "lsof does work, but it triggers getattr denials on a number of files when it tries to scan /proc directory:\nhttps://cs.corp.google.com/android/external/toybox/toys/pending/lsof.c?l\u003d435\nGiven that it doesn\u0027t open/read/write those files, should be ok. There are no problems if lsof runs as root.",
+      "parentUuid": "ed49da77_64edf05a",
+      "revId": "c378d52197c4c5bae8d99269ec7edd8763491a4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
