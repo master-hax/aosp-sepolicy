@@ -88,6 +88,7 @@ get_prop(domain, core_property_type)
 get_prop(domain, log_property_type)
 dontaudit domain property_type:file audit_access;
 allow domain property_contexts_file:file r_file_perms;
+allow coredomain pm_prop:file r_file_perms;
 
 allow domain init:key search;
 allow domain vold:key search;
@@ -449,6 +450,10 @@ neverallow * hidl_base_hwservice:hwservice_manager find;
 # anyone but init to modify unknown properties.
 neverallow { domain -init } default_prop:property_service set;
 neverallow { domain -init } mmc_prop:property_service set;
+
+# Only core domains are allowed to access package_manager properties
+neverallow { domain -init -system_server } pm_prop: property_service set;
+neverallow { domain -coredomain } pm_prop:file r_file_perms;
 
 # Do not allow reading device's serial number from system properties except form
 # a few whitelisted domains.
