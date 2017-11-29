@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f045dfb_95cdb9f3",
+        "filename": "Android.mk",
+        "patchSetId": 16
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2017-11-29T10:45:04Z",
+      "side": 1,
+      "message": "I removed this in final PS.\n\nBecause some common projects are already using BOARD_SEPOLICY_DIRS (e.g.,                        packages/services/Car/*/Android.mk).\n\nWith this, if some device BoardConfig.mk starts to use BOARD_ODM_SEPOLICY_DIRS, it will force it to s/BOARD_SEPOLICY_DIRS/BOARD_VENDOR_SEPOLICY_DIRS. Which in turn will force all projects to do this switch.\n\nI think we should just treat BOARD_SEPLICY_DIRS as a synonym of BOARD_VENDOR_SEPOLICY_DIRS to prevent build breaks.",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 5
+      },
+      "revId": "acfa426f30418a58d04c2bd058e140a8d1e59726",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
