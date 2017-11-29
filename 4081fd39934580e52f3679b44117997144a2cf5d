@@ -22,6 +22,30 @@
       "revId": "4081fd39934580e52f3679b44117997144a2cf5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6986721_9cfa053f",
+        "filename": "public/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-11-29T18:59:21Z",
+      "side": 0,
+      "message": "vendor_init might need access to vendor-specific sysfs nodes, e.g. [1], so removing these access rules from vendor_init is going to be trickier.\n\nRemoving these rules from init doesn\u0027t trigger new denials on walleye (at least on boot). Reason being that a lot of sysfs access has migrated to vendor_init, and the rest are covered by rule on line 298 of PS1.\n \n[1] https://cs.corp.google.com/android/device/google/wahoo/init.power.sh?l\u003d34",
+      "parentUuid": "868af92e_a8926841",
+      "range": {
+        "startLine": 303,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 41
+      },
+      "revId": "4081fd39934580e52f3679b44117997144a2cf5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
