@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a0964389_b9dda75f",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2017-12-01T06:36:09Z",
+      "side": 1,
+      "message": "Yup, that was based on previous discussions.\n\nBut I found an issue when testing (b/64240127#comment10).\nThere will be build break if only moving \"device/google/wahoo/sepolicy/verizon\" to BOARD_ODM_SEPOLICY.\n\ndevice/google/wahoo/sepolicy/verizon/obdm_app.te:9:ERROR \u0027unknown type diag_device\u0027 at token \u0027;\u0027 \n\nBecause it has dependency on \"device/google/wahoo/sepolicy/vendor\", where \"type diag_device\" is defined.\n\nODM is an extension of vendor, so it should be legitimate to allow ODM depends on Vendor, but not vice versa.\n\nNote that the final odm_sepolicy.cil still doesn\u0027t contain duplicated content in vendor_sepolicy.cil. It will be stripped out at line 573.\n\nSound good?",
+      "parentUuid": "27dc1dce_d9fa967c",
+      "range": {
+        "startLine": 548,
+        "startChar": 44,
+        "endLine": 549,
+        "endChar": 31
+      },
+      "revId": "f016b82db2470e5f5c40e0ca684444c8c3b4566f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ce05c37c_10136e37",
         "filename": "Android.mk",
         "patchSetId": 2
