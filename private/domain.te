@@ -25,6 +25,7 @@ full_treble_only(`
   neverallow {
     coredomain
     -dumpstate
+    userdebug_or_eng(`-perfprofd')
     -platform_app
     -priv_app
     -system_app
@@ -39,6 +40,7 @@ full_treble_only(`
     -dumpstate
     -healthd
     -init
+    userdebug_or_eng(`-perfprofd')
     -priv_app
     -storaged
     -system_app
@@ -72,7 +74,7 @@ full_treble_only(`
     userdebug_or_eng(`-atrace')
     -dumpstate
     -init
-    -perfprofd
+    userdebug_or_eng(`-perfprofd')
     -shell
     -vendor_init
   } debugfs_tracing:file no_rw_file_perms;
