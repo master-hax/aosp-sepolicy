@@ -7,6 +7,12 @@ domain_trans(init, rootfs, charger)
 domain_trans(init, rootfs, healthd)
 domain_trans(init, rootfs, slideshow)
 domain_auto_trans(init, e2fs_exec, e2fs)
+
+# Backward compatibility support for non-A/B devices on Android 8.0.
+# Starting from Android 8.1, /sbin/adbd is moved to /system/bin/adbd.
+# TODO: remove this when no need to retain the compatibility.
+domain_trans(init, rootfs, adbd)
+
 recovery_only(`
   domain_trans(init, rootfs, adbd)
   domain_trans(init, rootfs, recovery)
