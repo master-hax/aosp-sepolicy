@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2dbbeb8d_1edfe087",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2017-12-06T16:32:26Z",
+      "side": 1,
+      "message": "This goes back to my comment#2 in b/64240127.\n\nIf we are allowing odm to depend on vendor policy, then this prevents vendor policy from being independently updated, in which case I think a huge amount of this complexity is unwarranted (why have separate odm policy at all when we could just build a new vendor policy that happens to live in /odm)?  There are two/three conceptual ways I view this as going:\n\nsystem -\u003e vendor -\u003e odm (odm depends on vendor which depends on system).  This is currently unsupported due to the absence of the compatibility structure that we added for the system -\u003e vendor split.\n\nAlternatively, there could also be system -\u003e vendor and system -\u003e odm, which allows for independent updates, but prevents interaction between the vendor and odm bits\u003e\n\nAlternatively as well, there could be  a system -\u003e [vendor -\u003e odm] where as soon as you add odm bits, vendor can no longer be updated or a vendor update requires odm update too.\n\nI just looked up the previous time this came up here: https://googleplex-android-review.googlesource.com/c/platform/system/sepolicy/+/2835429/2/Android.mk#604\n\nand realize I didn\u0027t see your second comment (which contradicts the first somewhat, but does clarify that we\u0027re in the 3rd scenario.  So, given that, why do we need any of this ODM stuff at all?  Why not just add the odm policy to the set of vendor sources and call it a day? (and yes, I realize this means that all the time spent on this large patch-set would be wasted \u003d/)",
+      "parentUuid": "a0964389_b9dda75f",
+      "range": {
+        "startLine": 548,
+        "startChar": 44,
+        "endLine": 549,
+        "endChar": 31
+      },
+      "revId": "f016b82db2470e5f5c40e0ca684444c8c3b4566f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ce05c37c_10136e37",
         "filename": "Android.mk",
         "patchSetId": 2
