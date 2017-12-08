@@ -22,6 +22,30 @@
       "revId": "4a60ca4f8d5c7bca94048501680c0a045d4e5aab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbf23cd8_40334e37",
+        "filename": "public/perfprofd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-08T21:57:40Z",
+      "side": 1,
+      "message": "The property is security.perf_harden, which is already tagged as shell_prop; and yes, it attempts to set it to 0 to enable perf_event_paranoid.\n\nNot sure what I should do. Seems putting it into its own prop might break other stuff? Or should I just try to change it and add it to shell.te?",
+      "parentUuid": "4fce38d8_6d8d6a31",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 50
+      },
+      "revId": "4a60ca4f8d5c7bca94048501680c0a045d4e5aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
