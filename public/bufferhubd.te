@@ -18,3 +18,6 @@ allow bufferhubd ion_device:chr_file r_file_perms;
 # those two: it talks to mediacodec via Binder and talks to bufferhubd via PDX.
 # Thus, there is no need to use pdx_client macro.
 allow bufferhubd mediacodec:fd use;
+
+# allow self to set SCHED_FIFO
+allow bufferhubd self:capability sys_nice;
