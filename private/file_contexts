@@ -276,6 +276,8 @@
 /system/bin/vr_hwc               u:object_r:vr_hwc_exec:s0
 /system/bin/adbd                 u:object_r:adbd_exec:s0
 /system/bin/vold_prepare_subdirs u:object_r:vold_prepare_subdirs_exec:s0
+/system/bin/stats                u:object_r:stats_exec:s0
+/system/bin/statsd               u:object_r:statsd_exec:s0
 
 #############################
 # Vendor files
@@ -409,6 +411,10 @@
 
 # Bootchart data
 /data/bootchart(/.*)?		u:object_r:bootchart_data_file:s0
+
+# Stats data
+/data/misc/stats-data(/.*)?          u:object_r:stats_data_file:s0
+/data/misc/stats-service(/.*)?       u:object_r:stats_data_file:s0
 
 #############################
 # Expanded data files
