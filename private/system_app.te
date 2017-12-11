@@ -56,6 +56,9 @@ allow system_app asec_apk_file:file r_file_perms;
 # Allow system apps to interact with incidentd
 binder_call(system_app, incidentd)
 
+# Allow system apps to interact with statsd
+binder_call(system_app, statsd)
+
 allow system_app servicemanager:service_manager list;
 # TODO: scope this down? Too broad?
 allow system_app {
