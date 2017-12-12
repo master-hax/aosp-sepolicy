@@ -31,6 +31,7 @@
 /sys                u:object_r:sysfs:s0
 
 # Symlinks
+/bin                u:object_r:rootfs:s0
 /bugreports         u:object_r:rootfs:s0
 /d                  u:object_r:rootfs:s0
 /etc                u:object_r:rootfs:s0
@@ -179,7 +180,8 @@
 /system/bin/mke2fs		u:object_r:e2fs_exec:s0
 /system/bin/e2fsck	--	u:object_r:fsck_exec:s0
 /system/bin/fsck\.f2fs	--	u:object_r:fsck_exec:s0
-/system/bin/make_f2fs	--	u:object_r:fsck_exec:s0
+/system/bin/sload_f2fs	--	u:object_r:e2fs_exec:s0
+/system/bin/make_f2fs	--	u:object_r:e2fs_exec:s0
 /system/bin/fsck_msdos	--	u:object_r:fsck_exec:s0
 /system/bin/tune2fs	--	u:object_r:fsck_exec:s0
 /system/bin/toolbox	--	u:object_r:toolbox_exec:s0
@@ -230,7 +232,7 @@
 /system/bin/pppd	u:object_r:ppp_exec:s0
 /system/bin/racoon	u:object_r:racoon_exec:s0
 /system/xbin/su		u:object_r:su_exec:s0
-/system/xbin/perfprofd  u:object_r:perfprofd_exec:s0
+/system/bin/perfprofd  u:object_r:perfprofd_exec:s0
 /system/bin/dnsmasq     u:object_r:dnsmasq_exec:s0
 /system/bin/healthd     u:object_r:healthd_exec:s0
 /system/bin/clatd	u:object_r:clatd_exec:s0
@@ -291,6 +293,7 @@
 /(vendor|system/vendor)/manifest.xml           u:object_r:vendor_configs_file:s0
 /(vendor|system/vendor)/compatibility_matrix.xml u:object_r:vendor_configs_file:s0
 /(vendor|system/vendor)/app(/.*)?              u:object_r:vendor_app_file:s0
+/(vendor|system/vendor)/priv-app(/.*)?         u:object_r:vendor_app_file:s0
 /(vendor|system/vendor)/overlay(/.*)?          u:object_r:vendor_overlay_file:s0
 /(vendor|system/vendor)/framework(/.*)?        u:object_r:vendor_framework_file:s0
 
@@ -311,7 +314,7 @@
 #############################
 # OEM and ODM files
 #
-/odm(/.*)?              u:object_r:system_file:s0
+/odm(/.*)?              u:object_r:vendor_file:s0
 /oem(/.*)?              u:object_r:oemfs:s0
 
 
@@ -390,6 +393,7 @@
 /data/misc/update_engine_log(/.*)?  u:object_r:update_engine_log_data_file:s0
 /data/system/heapdump(/.*)?     u:object_r:heapdump_data_file:s0
 /data/misc/trace(/.*)?          u:object_r:method_trace_data_file:s0
+/data/misc/wmtrace(/.*)?        u:object_r:wm_trace_data_file:s0
 # TODO(calin) label profile reference differently so that only
 # profman run as a special user can write to them
 /data/misc/profiles/cur(/.*)?       u:object_r:user_profile_data_file:s0

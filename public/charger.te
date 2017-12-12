@@ -10,15 +10,15 @@ r_dir_file(charger, sysfs_type)
 r_dir_file(charger, rootfs)
 r_dir_file(charger, cgroup)
 
-allow charger self:capability { sys_tty_config };
-allow charger self:capability sys_boot;
+allow charger self:global_capability_class_set { sys_tty_config };
+allow charger self:global_capability_class_set sys_boot;
 
 wakelock_use(charger)
 
 allow charger self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
 
-# Write to /sys/power/state
-allow charger sysfs_power:file write;
+# Read/write to /sys/power/state
+allow charger sysfs_power:file rw_file_perms;
 
 allow charger sysfs_batteryinfo:file r_file_perms;
 

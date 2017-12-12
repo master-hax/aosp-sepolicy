@@ -24,6 +24,7 @@ genfscon proc /stat u:object_r:proc_stat:s0
 genfscon proc /swaps u:object_r:proc_swaps:s0
 genfscon proc /sysrq-trigger u:object_r:proc_sysrq:s0
 genfscon proc /sys/abi/swp u:object_r:proc_abi:s0
+genfscon proc /sys/fs/pipe-max-size u:object_r:proc_pipe_conf:s0
 genfscon proc /sys/fs/protected_hardlinks u:object_r:proc_security:s0
 genfscon proc /sys/fs/protected_symlinks u:object_r:proc_security:s0
 genfscon proc /sys/fs/suid_dumpable u:object_r:proc_security:s0
@@ -41,6 +42,7 @@ genfscon proc /sys/kernel/overflowuid u:object_r:proc_overflowuid:s0
 genfscon proc /sys/kernel/panic_on_oops u:object_r:proc_panic:s0
 genfscon proc /sys/kernel/perf_event_max_sample_rate u:object_r:proc_perf:s0
 genfscon proc /sys/kernel/perf_event_paranoid u:object_r:proc_perf:s0
+genfscon proc /sys/kernel/pid_max u:object_r:proc_pid_max:s0
 genfscon proc /sys/kernel/poweroff_cmd u:object_r:usermodehelper:s0
 genfscon proc /sys/kernel/random u:object_r:proc_random:s0
 genfscon proc /sys/kernel/randomize_va_space u:object_r:proc_security:s0
@@ -66,6 +68,7 @@ genfscon proc /sys/vm/overcommit_memory u:object_r:proc_overcommit_memory:s0
 genfscon proc /timer_list u:object_r:proc_timer:s0
 genfscon proc /timer_stats u:object_r:proc_timer:s0
 genfscon proc /tty/drivers u:object_r:proc_tty_drivers:s0
+genfscon proc /uid/ u:object_r:proc_uid_time_in_state:s0
 genfscon proc /uid_cputime/show_uid_stat u:object_r:proc_uid_cputime_showstat:s0
 genfscon proc /uid_cputime/remove_uid_range u:object_r:proc_uid_cputime_removeuid:s0
 genfscon proc /uid_io/stats u:object_r:proc_uid_io_stats:s0
@@ -84,6 +87,7 @@ genfscon sysfs / u:object_r:sysfs:s0
 genfscon sysfs /devices/system/cpu u:object_r:sysfs_devices_system_cpu:s0
 genfscon sysfs /class/android_usb                 u:object_r:sysfs_android_usb:s0
 genfscon sysfs /class/leds                        u:object_r:sysfs_leds:s0
+genfscon sysfs /class/net                         u:object_r:sysfs_net:s0
 genfscon sysfs /class/rtc                         u:object_r:sysfs_rtc:s0
 genfscon sysfs /class/switch                      u:object_r:sysfs_switch:s0
 genfscon sysfs /devices/platform/nfc-power/nfc_power u:object_r:sysfs_nfc_power_writable:s0
@@ -98,11 +102,13 @@ genfscon sysfs /devices/virtual/net             u:object_r:sysfs_net:s0
 genfscon sysfs /devices/virtual/switch          u:object_r:sysfs_switch:s0
 genfscon sysfs /firmware/devicetree/base/firmware/android u:object_r:sysfs_dt_firmware_android:s0
 genfscon sysfs /fs/ext4/features                  u:object_r:sysfs_fs_ext4_features:s0
+genfscon sysfs /power/autosleep u:object_r:sysfs_power:s0
 genfscon sysfs /power/state u:object_r:sysfs_power:s0
 genfscon sysfs /power/wakeup_count u:object_r:sysfs_power:s0
 genfscon sysfs /power/wake_lock u:object_r:sysfs_wake_lock:s0
 genfscon sysfs /power/wake_unlock u:object_r:sysfs_wake_lock:s0
 genfscon sysfs /kernel/ipv4 u:object_r:sysfs_ipv4:s0
+genfscon sysfs /kernel/notes u:object_r:sysfs_kernel_notes:s0
 genfscon sysfs /kernel/uevent_helper u:object_r:sysfs_usermodehelper:s0
 genfscon sysfs /kernel/wakeup_reasons u:object_r:sysfs_wakeup_reasons:s0
 genfscon sysfs /module/lowmemorykiller u:object_r:sysfs_lowmemorykiller:s0
