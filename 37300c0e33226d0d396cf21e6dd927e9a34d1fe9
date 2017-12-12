@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf1cfb5_eef45246",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-12-12T04:50:00Z",
+      "side": 1,
+      "message": "/data/system is system_servers\u0027s data area. Let\u0027s find somewhere else to put this. e.g. /data/misc/",
+      "range": {
+        "startLine": 416,
+        "startChar": 6,
+        "endLine": 416,
+        "endChar": 12
+      },
+      "revId": "37300c0e33226d0d396cf21e6dd927e9a34d1fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bb4a2db_28e4b339",
+        "filename": "private/statsd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-12-12T04:50:00Z",
+      "side": 1,
+      "message": "why do you need wakelocks?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 20
+      },
+      "revId": "37300c0e33226d0d396cf21e6dd927e9a34d1fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "110dd4c6_2e2ecff5",
+        "filename": "private/statsd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-12-12T04:50:00Z",
+      "side": 1,
+      "message": "Why is this granted? (I shouldn\u0027t be).",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 2
+      },
+      "revId": "37300c0e33226d0d396cf21e6dd927e9a34d1fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e25af51_223cae61",
+        "filename": "private/statsd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-12-12T04:50:00Z",
+      "side": 1,
+      "message": "We\u0027re trying to deprecate the use of this attribute. Can you whitelist just the services you need to talk to?",
+      "range": {
+        "startLine": 28,
+        "startChar": 20,
+        "endLine": 28,
+        "endChar": 39
+      },
+      "revId": "37300c0e33226d0d396cf21e6dd927e9a34d1fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "325b5cc2_d79c98d9",
+        "filename": "private/statsd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-12-12T04:50:00Z",
+      "side": 1,
+      "message": "group with permission granted in lines 20-21.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 43
+      },
+      "revId": "37300c0e33226d0d396cf21e6dd927e9a34d1fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "133e0d4c_4717de09",
+        "filename": "private/statsd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-12-12T04:50:00Z",
+      "side": 1,
+      "message": "I was told this would not be reading from logd.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 20
+      },
+      "revId": "37300c0e33226d0d396cf21e6dd927e9a34d1fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f7cc08d_293848fe",
+        "filename": "private/statsd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-12-12T04:50:00Z",
+      "side": 1,
+      "message": "this attribute is not intended to grant find access, it\u0027s for granting system_server permission to register the service.",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 23
+      },
+      "revId": "37300c0e33226d0d396cf21e6dd927e9a34d1fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f55455f_1be40205",
+        "filename": "private/statsd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-12-12T04:50:00Z",
+      "side": 1,
+      "message": "This can (should?) be enforce by a neverallow rule.",
+      "range": {
+        "startLine": 49,
+        "startChar": 20,
+        "endLine": 49,
+        "endChar": 33
+      },
+      "revId": "37300c0e33226d0d396cf21e6dd927e9a34d1fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4effe0e5_d6586c41",
+        "filename": "private/system_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-12-12T04:50:00Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 31
+      },
+      "revId": "37300c0e33226d0d396cf21e6dd927e9a34d1fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcb3217d_d5e82c27",
+        "filename": "public/stats.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-12-12T04:50:00Z",
+      "side": 1,
+      "message": "should these be public? Should vendors be customizing this process?",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 19
+      },
+      "revId": "37300c0e33226d0d396cf21e6dd927e9a34d1fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ab2df23_56a3798f",
+        "filename": "public/statsd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-12-12T04:50:00Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "37300c0e33226d0d396cf21e6dd927e9a34d1fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
