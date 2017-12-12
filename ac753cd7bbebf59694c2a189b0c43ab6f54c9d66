@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64b415a6_623a1f9b",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-12-12T18:35:09Z",
+      "side": 1,
+      "message": "I agree that these have sensitive information, however, I don\u0027t see why access should be neverallowed to other platform components. For example, perhaps a future version (or an OEM\u0027s version) of the memtrack HAL might need access. Selinux is default deny so by not explicitly granting access to other components, you\u0027re already preventing them from having access. Neverallow rules  simply prevent us or partners from adding an allow rule.\n\nLet\u0027s limit these restrictions to just apps.\n\nneverallow appdomain proc_uid_time_in_state:file *;",
+      "range": {
+        "startLine": 1116,
+        "startChar": 43,
+        "endLine": 1116,
+        "endChar": 65
+      },
+      "revId": "ac753cd7bbebf59694c2a189b0c43ab6f54c9d66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
