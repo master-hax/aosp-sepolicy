@@ -118,6 +118,10 @@ dontaudit priv_app device:dir read;
 dontaudit priv_app proc_interrupts:file read;
 dontaudit priv_app proc_modules:file read;
 
+# allow privileged apps to use UDP sockets provided by the system server but not
+# modify them other than to connect
+allow priv_app system_server:udp_socket { connect getattr read recvfrom sendto write };
+
 ###
 ### neverallow rules
 ###
@@ -160,3 +164,7 @@ neverallow priv_app mlstrustedsubject:process fork;
 # bugs, so we want to ensure priv_app never has this
 # capability.
 neverallow priv_app file_type:file link;
+
+neverallow priv_app system_server:udp_socket {
+        accept append bind create getopt ioctl listen lock name_bind
+        relabelfrom relabelto setattr setopt shutdown };
