@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a9e5399_99447be3",
+        "filename": "private/statsd.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1258293
+      },
+      "writtenOn": "2017-12-15T00:38:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40e613b7_373e7222",
+      "range": {
+        "startLine": 19,
+        "startChar": 33,
+        "endLine": 19,
+        "endChar": 45
+      },
+      "revId": "954aef6bf8a78f8c2eafa5bca3176fc1985dc21c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b229837_12be8e91",
         "filename": "private/statsd.te",
         "patchSetId": 9
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "4e57b058_43e109ed",
+        "filename": "private/statsd.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1258293
+      },
+      "writtenOn": "2017-12-15T00:38:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1922ad47_92818428",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 20
+      },
+      "revId": "954aef6bf8a78f8c2eafa5bca3176fc1985dc21c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96c9bfd0_32a7ee8f",
         "filename": "private/statsd.te",
         "patchSetId": 9
@@ -83,6 +131,30 @@
       "writtenOn": "2017-12-14T18:26:39Z",
       "side": 1,
       "message": "This attribute is not intended to grant access to services like this. Do not use it here.",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 23
+      },
+      "revId": "954aef6bf8a78f8c2eafa5bca3176fc1985dc21c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9300d14_baf81618",
+        "filename": "private/statsd.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1258293
+      },
+      "writtenOn": "2017-12-15T00:38:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96c9bfd0_32a7ee8f",
       "range": {
         "startLine": 33,
         "startChar": 2,
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "c2d91f6d_90af5339",
+        "filename": "private/statsd.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1258293
+      },
+      "writtenOn": "2017-12-15T00:38:04Z",
+      "side": 1,
+      "message": "Doesn\u0027t system_app already have access to find service_manager?\nhttps://android.googlesource.com/platform/system/sepolicy/+/master/private/system_app.te\nRemoving system_app fails the build. Let me know if there\u0027s a better way to remove this exemption.",
+      "parentUuid": "d88221ed_42682ebf",
+      "range": {
+        "startLine": 59,
+        "startChar": 3,
+        "endLine": 59,
+        "endChar": 13
+      },
+      "revId": "954aef6bf8a78f8c2eafa5bca3176fc1985dc21c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "842feafa_855e31f5",
         "filename": "private/statsd.te",
         "patchSetId": 9
@@ -129,6 +225,30 @@
       "writtenOn": "2017-12-14T18:26:39Z",
       "side": 1,
       "message": "how does system_server read a file here if it\u0027s forbidden from entering the directory in line 81? Is it receiving an already open FD over binder?",
+      "range": {
+        "startLine": 78,
+        "startChar": 41,
+        "endLine": 78,
+        "endChar": 54
+      },
+      "revId": "954aef6bf8a78f8c2eafa5bca3176fc1985dc21c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e2f80c9_80d2dc60",
+        "filename": "private/statsd.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1258293
+      },
+      "writtenOn": "2017-12-15T00:38:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "842feafa_855e31f5",
       "range": {
         "startLine": 78,
         "startChar": 41,
@@ -164,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "57fbd42e_547bb700",
+        "filename": "public/service.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1258293
+      },
+      "writtenOn": "2017-12-15T00:38:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa3a39bb_8ea82593",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 18
+      },
+      "revId": "954aef6bf8a78f8c2eafa5bca3176fc1985dc21c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "756c2aa1_d83d38a0",
         "filename": "public/service.te",
         "patchSetId": 9
@@ -175,6 +319,30 @@
       "writtenOn": "2017-12-14T18:26:39Z",
       "side": 1,
       "message": "I don\u0027t see this being used anywhere.",
+      "range": {
+        "startLine": 132,
+        "startChar": 15,
+        "endLine": 132,
+        "endChar": 16
+      },
+      "revId": "954aef6bf8a78f8c2eafa5bca3176fc1985dc21c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9618b74a_656cad02",
+        "filename": "public/service.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1258293
+      },
+      "writtenOn": "2017-12-15T00:38:04Z",
+      "side": 1,
+      "message": "it\u0027s used in private/statsd.te. moving this line to private/service.te.",
+      "parentUuid": "756c2aa1_d83d38a0",
       "range": {
         "startLine": 132,
         "startChar": 15,
@@ -210,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "7f84054b_a5fc0adb",
+        "filename": "public/stats.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1258293
+      },
+      "writtenOn": "2017-12-15T00:38:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "728b48de_e5fa3078",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 19
+      },
+      "revId": "954aef6bf8a78f8c2eafa5bca3176fc1985dc21c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee6c2430_aa6a1699",
         "filename": "public/statsd.te",
         "patchSetId": 9
@@ -221,6 +413,30 @@
       "writtenOn": "2017-12-14T18:26:39Z",
       "side": 1,
       "message": "Can these be private? Should vendors be using these types?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "954aef6bf8a78f8c2eafa5bca3176fc1985dc21c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa37ae72_2728297d",
+        "filename": "public/statsd.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1258293
+      },
+      "writtenOn": "2017-12-15T00:38:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee6c2430_aa6a1699",
       "range": {
         "startLine": 1,
         "startChar": 0,
