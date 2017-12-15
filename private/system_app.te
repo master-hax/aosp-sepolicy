@@ -109,9 +109,17 @@ allow system_app {
 control_logd(system_app)
 read_runtime_log_tags(system_app)
 
+# allow system apps to use UDP sockets provided by the system server but not
+# modify them other than to connect
+allow system_app system_server:udp_socket { connect getattr read recvfrom sendto write };
+
 ###
 ### Neverallow rules
 ###
 
 # app domains which access /dev/fuse should not run as system_app
 neverallow system_app fuse_device:chr_file *;
+
+neverallow untrusted_app system_server:udp_socket {
+        accept append bind create getopt ioctl listen lock name_bind
+        relabelfrom relabelto setattr setopt shutdown };

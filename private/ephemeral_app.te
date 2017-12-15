@@ -35,6 +35,10 @@ allow ephemeral_app drmserver_service:service_manager find;
 allow ephemeral_app radio_service:service_manager find;
 allow ephemeral_app ephemeral_app_api_service:service_manager find;
 
+# allow untrusted apps to use UDP sockets provided by the system server but not
+# modify them other than to connect
+allow untrusted_app system_server:udp_socket { connect getattr read recvfrom sendto write };
+
 ###
 ### neverallow rules
 ###
@@ -68,3 +72,7 @@ neverallow ephemeral_app { sdcard_type media_rw_data_file }:dir search;
 # Avoid reads to proc_net, it contains too much device wide information about
 # ongoing connections.
 neverallow ephemeral_app proc_net:file no_rw_file_perms;
+
+neverallow untrusted_app system_server:udp_socket {
+        accept append bind create getopt ioctl listen lock name_bind
+        relabelfrom relabelto setattr setopt shutdown };
