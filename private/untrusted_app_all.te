@@ -105,3 +105,7 @@ allow untrusted_app_all preloads_data_file:dir search;
 allow untrusted_app_all vendor_app_file:dir { open getattr read search };
 allow untrusted_app_all vendor_app_file:file { open getattr read execute };
 allow untrusted_app_all vendor_app_file:lnk_file { open getattr read };
+
+# allow untrusted apps to use UDP sockets provided by the system server but not
+# modify them other than to connect
+allow untrusted_app system_server:udp_socket { connect getattr read recvfrom sendto write };
