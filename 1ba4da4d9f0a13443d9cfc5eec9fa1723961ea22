@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cfb914f5_45ef5941",
+        "filename": "private/exported_property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-12-19T20:14:10Z",
+      "side": 1,
+      "message": "It\u0027s not clear to me why these are declared in private policy, but exported via attributes. That seems to be re-inventing the purpose of \"public\" types. Why not just make these public and grant access to them directly?",
+      "revId": "1ba4da4d9f0a13443d9cfc5eec9fa1723961ea22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8ff8eed_ad88a330",
+        "filename": "private/exported_property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-12-19T20:14:10Z",
+      "side": 1,
+      "message": "Let\u0027s stick with a single naming scheme. Property names generally describe the property, not who has access to it, which can easily be looked up in policy or using a tool like sesearch.",
+      "range": {
+        "startLine": 6,
+        "startChar": 36,
+        "endLine": 6,
+        "endChar": 69
+      },
+      "revId": "1ba4da4d9f0a13443d9cfc5eec9fa1723961ea22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "151aa234_a13ce050",
+        "filename": "tools/fc_sort/fc_sort.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2017-12-19T20:14:10Z",
+      "side": 1,
+      "message": "I thought tomcherry was moving this out of libselinux and into bionic.",
+      "revId": "1ba4da4d9f0a13443d9cfc5eec9fa1723961ea22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
