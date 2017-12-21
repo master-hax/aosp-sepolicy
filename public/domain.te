@@ -1352,3 +1352,57 @@ userdebug_or_eng(`
   dontaudit domain proc_type:file create;
   dontaudit domain sysfs_type:file create;
 ')
+
+# Minimize the domains that can access the sdcard.
+# It is generally better to use /data, as that is wiped on factory reset.
+neverallow {
+  domain
+  -adbd
+  -appdomain
+  -audioserver
+  -drmserver
+  -dumpstate
+  -hal_telephony
+  -init
+  -installd
+  -kernel
+  -mediaserver
+  -recovery
+  -sdcardd
+  -system_server
+  -vendor_init
+  -vold
+  -zygote
+} { media_rw_data_file mnt_user_file sdcard_type storage_file }:dir search;
+neverallow {
+  domain
+  -adbd
+  -appdomain
+  -audioserver
+  -drmserver
+  -ephemeral_app
+  -init
+  -installd
+  -isolated_app
+  -kernel
+  -mediaextractor
+  -mediaserver
+  -recovery
+  -sdcardd
+  -system_server
+  -vendor_init
+  -vold
+} { media_rw_data_file mnt_user_file sdcard_type storage_file }:file create_file_perms;
+neverallow {
+  domain
+  -adbd
+  -appdomain
+  -audioserver
+  -drmserver
+  -init
+  -mediaserver
+  -system_server
+  -vendor_init
+  -vold
+  -zygote
+} { media_rw_data_file mnt_user_file sdcard_type storage_file }:lnk_file create_file_perms;
