@@ -548,6 +548,22 @@ unix_socket_connect($1, logd, logd)
 ')
 
 #####################################
+# write_traced(domain)
+# Ability to stream data to traced
+# via sockets
+define(`write_traced', `
+unix_socket_connect($1, traced_wr, traced)
+')
+
+#####################################
+# control_and_read_traced(domain)
+# Ability to control and read trace
+# data from traced via sockets
+define(`control_and_read_traced', `
+unix_socket_connect($1, traced_rd, traced)
+')
+
+#####################################
 # use_keystore(domain)
 # Ability to use keystore.
 # Keystore is requires the following permissions
