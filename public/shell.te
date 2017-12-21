@@ -12,6 +12,9 @@ control_logd(shell)
 allow shell pstorefs:dir search;
 allow shell pstorefs:file r_file_perms;
 
+# traced
+control_and_read_traced(shell)
+
 # Root fs.
 allow shell rootfs:dir r_dir_perms;
 

@@ -98,6 +98,9 @@ allow domain vold:key search;
 # logd access
 write_logd(domain)
 
+# traced access
+write_traced(domain)
+
 # System file accesses.
 allow domain system_file:dir { search getattr };
 allow domain system_file:file { execute read open getattr map };
@@ -613,6 +616,7 @@ full_treble_only(`
   }, {
     domain
     -coredomain
+    -traced  # This feels wrong but treble is driving me nuts
     -socket_between_core_and_vendor_violators
   });
   # Vendor domains are not permitted to initiate communications to core domain sockets
@@ -624,6 +628,7 @@ full_treble_only(`
   }, {
     coredomain
     -logd # Logging by writing to logd Unix domain socket is public API
+    -traced # Allow tracing by writing to traced Unix domain socket
     -netd # netdomain needs this
     -mdnsd # netdomain needs this
     userdebug_or_eng(`-su') # communications with su are permitted only on userdebug or eng builds
