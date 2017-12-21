@@ -1,0 +1,39 @@
+# Perfetto user-space tracing daemon (unprivileged)
+typeattribute traced coredomain;
+
+# Allow init to exec and transition to  the daemon domain.
+domain_trans(init, traced_exec, traced)
+
+# Define and allow access to a unique type for
+# this domain when creating tmpfs / shmem / ashmem files.
+type_transition traced tmpfs:file traced_tmpfs;
+allow traced traced_tmpfs:file { read write getattr map };
+allow traced tmpfs:dir { getattr search };
+
+# Allow traced to start with a higher scheduling class and then downgrade
+# itself.
+allow traced self:global_capability_class_set { sys_nice };
+
+###
+### Neverallow rules
+###
+### traced should NEVER do any of this
+
+# Block device access.
+neverallow traced dev_type:blk_file { read write };
+
+# ptrace any other app
+neverallow traced domain:process ptrace;
+
+# ... and nobody may ptrace me (except on userdebug or eng builds)
+neverallow { domain userdebug_or_eng(`-crash_dump') } traced:process ptrace;
+
+# Write to /system.
+neverallow traced system_file:dir_file_class_set write;
+
+# Write to files in /data/data or system files on /data
+neverallow traced { app_data_file system_data_file }:dir_file_class_set write;
+
+# Only init is allowed to enter the traced domain via exec()
+neverallow { domain -init } traced:process transition;
+neverallow * traced:process dyntransition;

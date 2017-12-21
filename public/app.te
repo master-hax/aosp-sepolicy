@@ -7,6 +7,9 @@
 ### zygote spawned apps should be added here.
 ###
 
+# Perfetto traced access
+write_traced(appdomain)
+
 # WebView and other application-specific JIT compilers
 allow appdomain self:process execmem;
 
