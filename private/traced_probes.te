@@ -1,0 +1,40 @@
+# Perfetto tracing probes, has tracefs access.
+type traced_probes, domain, coredomain;
+type traced_probes_exec, exec_type, file_type;
+
+# Allow init to exec the daemon.
+init_daemon_domain(traced_probes)
+
+ # Allow traced_probes to access tracefs.
+allow traced_probes debugfs_tracing:dir r_dir_perms;
+allow traced_probes debugfs_tracing:file rw_file_perms;
+allow traced_probes debugfs_tracing_debug:file rw_file_perms;
+allow traced_probes debugfs_trace_marker:file getattr;
+
+# Allow traced_probes to start with a higher scheduling class and then downgrade
+# itself.
+allow traced_probes self:global_capability_class_set { sys_nice };
+
+# Allow procfs access
+r_dir_file(traced_probes, domain)
+
+###
+### Neverallow rules
+###
+### traced_probes should NEVER do any of this
+
+# Block device access.
+neverallow traced_probes dev_type:blk_file { read write };
+
+# ptrace any other app
+neverallow traced_probes domain:process ptrace;
+
+# Write to files in /data/data or system files on /data
+neverallow traced_probes { app_data_file system_data_file }:dir_file_class_set write;
+
+# Only init is allowed to enter the traced_probes domain via exec()
+neverallow { domain -init } traced_probes:process transition;
+neverallow * traced_probes:process dyntransition;
+
+# TODO(primiano): make it so this can only exec() atrace.
+# TODO(primiano): make it so this cannot mmap(PROT_EXEC) anything.

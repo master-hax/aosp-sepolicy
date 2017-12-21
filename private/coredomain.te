@@ -1,1 +1,16 @@
 get_prop(coredomain, pm_prop)
+
+# Allow most* coredomain processes to access the write-only producer port
+# of Perfetto traced.
+# * Exclude domains that have conflicting neverallow rules on file access.
+
+allow coredomain traced:fd use;
+allow {
+  coredomain
+  -recovery_refresh
+  -recovery_persist
+  -logpersist
+  -logd
+}
+traced_tmpfs:file { read write getattr map };
+unix_socket_connect(coredomain, traced_producer, traced)
