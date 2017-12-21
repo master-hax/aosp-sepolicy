@@ -13,8 +13,11 @@ r_dir_file(statsd, domain)
 #   /system/bin/toolbox
 #   /system/bin/logcat
 #   /system/bin/dumpsys
+allow statsd devpts:chr_file { getattr ioctl read write };
 allow statsd shell_exec:file rx_file_perms;
+allow statsd su:fifo_file read;
 allow statsd system_file:file execute_no_trans;
+allow statsd system_server:binder call;
 allow statsd toolbox_exec:file rx_file_perms;
 
 # Create, read, and write into /data/misc/stats-data, /data/misc/stats-system.
