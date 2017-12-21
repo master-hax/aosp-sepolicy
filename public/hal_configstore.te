@@ -36,6 +36,7 @@ neverallow hal_configstore_server {
   domain
   -hal_configstore_server
   -logd
+  -traced
   userdebug_or_eng(`-su')
   -tombstoned
 }:{ unix_dgram_socket unix_stream_socket } *;
