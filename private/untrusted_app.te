@@ -24,6 +24,9 @@ untrusted_app_domain(untrusted_app)
 net_domain(untrusted_app)
 bluetooth_domain(untrusted_app)
 
+# Perfetto traced access
+write_traced(untrusted_app)
+
 # allow untrusted apps to use UDP sockets provided by the system server but not
 # modify them other than to connect
 allow untrusted_app system_server:udp_socket { connect getattr read recvfrom sendto write };
