@@ -26,3 +26,7 @@ binder_call(shell, storaged)
 # Perform SELinux access checks, needed for CTS
 selinux_check_access(shell)
 selinux_check_context(shell)
+
+# Control Perfetto traced and obtain traces from it.
+# Needed for Studio and debugging.
+control_and_read_traced(shell)
