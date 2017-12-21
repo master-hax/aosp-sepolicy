@@ -58,6 +58,9 @@ binder_call(incidentd, appdomain)
 # Reading /proc/PID/maps of other processes
 # TODO allow incidentd self:global_capability_class_set sys_ptrace;
 
+# Allows to pull metrics.
+allow incidentd self:capability dac_override;
+
 # Run a shell.
 allow incidentd shell_exec:file rx_file_perms;
 
