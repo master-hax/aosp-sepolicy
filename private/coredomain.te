@@ -1,1 +1,21 @@
 get_prop(coredomain, pm_prop)
+
+# sysfs_leds is the kernel interface which usually backs the the light and
+# vibrator hals.
+# neverallow { coredomain -init } sysfs_leds:dir *;
+# neverallow { coredomain -init } sysfs_leds:lnk_file *;
+
+full_treble_only(`
+neverallow {
+    coredomain
+    -init
+    -vendor_init
+
+    # generic access to sysfs_type
+    -ueventd
+    -vold
+    -priv_app
+    -storaged
+    -system_app
+} sysfs_leds:file *;
+')
