@@ -1211,3 +1211,55 @@ full_treble_only(`
     -perfprofd
   } vendor_file:file { create_file_perms x_file_perms };
 ')
+
+# Minimize the domains that can access the sdcard.
+# It is generally better to use /data, as that is wiped on factory reset.
+neverallow {
+  domain
+  -adbd
+  -appdomain
+  -audioserver
+  -drmserver
+  -dumpstate
+  -init
+  -installd
+  -kernel
+  -mediaserver
+  -rild
+  -sdcardd
+  -system_server
+  -vendor_init
+  -vold
+  -zygote
+} { media_rw_data_file mnt_user_file sdcardfs storage_file }:dir search;
+neverallow {
+  domain
+  -adbd
+  -appdomain
+  -audioserver
+  -drmserver
+  -ephemeral_app
+  -init
+  -installd
+  -isolated_app
+  -kernel
+  -mediaextractor
+  -mediaserver
+  -sdcardd
+  -system_server
+  -vendor_init
+  -vold
+} { media_rw_data_file mnt_user_file sdcardfs storage_file }:file create_file_perms;
+neverallow {
+  domain
+  -adbd
+  -appdomain
+  -audioserver
+  -drmserver
+  -init
+  -mediaserver
+  -system_server
+  -vendor_init
+  -vold
+  -zygote
+} { media_rw_data_file mnt_user_file sdcardfs storage_file }:lnk_file create_file_perms;
