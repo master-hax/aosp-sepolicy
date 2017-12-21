@@ -30,6 +30,9 @@ binder_call(statsd, statscompanion_service)
 read_logd(statsd)
 control_logd(statsd)
 
+# Allow Perfetto traced access.
+unix_socket_connect(statsd, traced_consumer, traced)
+
 # Grant statsd with permissions to register the services.
 allow statsd {
   statscompanion_service
@@ -70,4 +73,3 @@ neverallow { domain -statsd -init -vold -vendor_init } stats_data_file:file *;
 
 # Limited access to the directory itself.
 neverallow { domain -statsd -init -vold -vendor_init } stats_data_file:dir *;
-
