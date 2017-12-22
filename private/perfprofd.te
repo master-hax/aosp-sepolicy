@@ -1,4 +1,7 @@
 userdebug_or_eng(`
   typeattribute perfprofd coredomain;
   init_daemon_domain(perfprofd)
+
+  # Required for cmd support.
+  create_pty(perfprofd)
 ')
