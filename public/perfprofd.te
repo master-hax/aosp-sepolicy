@@ -96,4 +96,14 @@ userdebug_or_eng(`
   dontaudit perfprofd shell_data_file:dir *;
   dontaudit perfprofd shell_data_file:file *;
 
+  # Allow perfprofd to publish a binder service and make binder calls.
+  binder_use(perfprofd)
+  add_service(perfprofd, perfprofd_service)
+
+  # For cmd.
+  binder_call(surfaceflinger, shell)
+
+  # For now, only allow su to communicate with us.
+  neverallow domain perfprofd:binder call;
+  neverallow perfprofd { domain -servicemanager -su }:binder call;
 ')
