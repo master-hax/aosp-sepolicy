@@ -22,6 +22,30 @@
       "revId": "2a3f44d5dc613c44458a2bda0d694319ae7dcb1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c3f5017_e109154d",
+        "filename": "private/statsd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1261841
+      },
+      "writtenOn": "2017-12-22T00:44:20Z",
+      "side": 1,
+      "message": "This was generated from the audit2allow tool.\nThis was surfaced in cts testing. In cts, we run as shell user, and need to do something like this to statsd:\nshell# cat ${config_file_path} | cmd stats config update ${CONFIG_UID} ${CONFIG_NAME}",
+      "parentUuid": "9fdd3996_d70e6c60",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 58
+      },
+      "revId": "2a3f44d5dc613c44458a2bda0d694319ae7dcb1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
