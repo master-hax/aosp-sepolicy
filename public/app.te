@@ -545,3 +545,18 @@ neverallow appdomain proc_uid_concurrent_active_time:file *;
 
 # Apps cannot access proc_uid_concurrent_policy_time
 neverallow appdomain proc_uid_concurrent_policy_time:file *;
+
+# Apps cannot access file under sys/fs/bpf/
+neverallow appdomain fs_bpf:file write;
+
+# Apps cannot create or access bpf object
+neverallow appdomain {
+  self
+  netd
+}:bpf {
+  map_create
+  map_read
+  map_write
+  prog_load
+  prog_run
+};

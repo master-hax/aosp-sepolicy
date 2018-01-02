@@ -806,3 +806,5 @@ neverallow system_server { domain -system_server }:process ptrace;
 # file read access. However, that is now unnecessary (b/34951864)
 neverallow system_server system_server:global_capability_class_set sys_resource;
 
+#system server cannot create bpf object
+neverallow system_server self:bpf { map_create map_read map_write prog_load prog_run };
