@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb4561a6_4f74e2fc",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1026553
+      },
+      "writtenOn": "2018-01-02T11:47:04Z",
+      "side": 1,
+      "message": "Not sure how the namespacing works here but would traced_probes_tmpfs be more appropriate?",
+      "range": {
+        "startLine": 9,
+        "startChar": 41,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4a8845e_51d7e37d",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1026553
+      },
+      "writtenOn": "2018-01-02T11:47:04Z",
+      "side": 1,
+      "message": "I guess we wouldn\u0027t need this if we got write_traced() into some more general domain? Or maybe it\u0027s best just allow this for zygote-spawned stuff and then opt-in other daemons once they start producing trace data.\n\n(Just checked that write_logd is there for all domains but for this it might make sense to start smaller.)",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 7
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
