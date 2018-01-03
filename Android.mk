@@ -84,20 +84,36 @@ endif
 #    - compile output binary policy file
 
 PLAT_PUBLIC_POLICY := $(LOCAL_PATH)/public
+# TODO: Removes BOARD_PLAT_PUBLIC_SEPOLICY_DIR when no device is using it.
+# New device should switch to BOARD_PLAT_PUBLIC_SEPOLICY_DIRS, which allows
+# multiple directories.
 ifneq ( ,$(BOARD_PLAT_PUBLIC_SEPOLICY_DIR))
 ifneq (1, $(words $(BOARD_PLAT_PUBLIC_SEPOLICY_DIR)))
 $(error BOARD_PLAT_PUBLIC_SEPOLICY_DIR must only contain one directory)
 else
-PLAT_PUBLIC_POLICY += $(BOARD_PLAT_PUBLIC_SEPOLICY_DIR)
+BOARD_PLAT_PUBLIC_SEPOLICY_DIRS += $(BOARD_PLAT_PUBLIC_SEPOLICY_DIR)
 endif
 endif
+# BOARD_PLAT_PUBLIC_SEPOLICY_DIRS is to replace BOARD_PLAT_PUBLIC_SEPOLICY_DIR.
+ifneq ( ,$(BOARD_PLAT_PUBLIC_SEPOLICY_DIRS))
+PLAT_PUBLIC_POLICY += $(BOARD_PLAT_PUBLIC_SEPOLICY_DIRS)
+endif
+
+# TODO: Removes BOARD_PLAT_PRIVATE_SEPOLICY_DIR when no device is using it.
+# New device should switch to BOARD_PLAT_PRIVATE_SEPOLICY_DIRS, which allows
+# multiple directories.
 PLAT_PRIVATE_POLICY := $(LOCAL_PATH)/private
 ifneq ( ,$(BOARD_PLAT_PRIVATE_SEPOLICY_DIR))
 ifneq (1, $(words $(BOARD_PLAT_PRIVATE_SEPOLICY_DIR)))
 $(error BOARD_PLAT_PRIVATE_SEPOLICY_DIR must only contain one directory)
 else
-PLAT_PRIVATE_POLICY += $(BOARD_PLAT_PRIVATE_SEPOLICY_DIR)
+BOARD_PLAT_PRIVATE_SEPOLICY_DIRS += $(BOARD_PLAT_PRIVATE_SEPOLICY_DIR)
 endif
+endif
+# BOARD_PLAT_PRIVATE_SEPOLICY_DIRS is to replace
+# BOARD_PLAT_PRIVATE_SEPOLICY_DIR.
+ifneq ( ,$(BOARD_PLAT_PRIVATE_SEPOLICY_DIRS))
+PLAT_PRIVATE_POLICY += $(BOARD_PLAT_PRIVATE_SEPOLICY_DIRS)
 endif
 PLAT_VENDOR_POLICY := $(LOCAL_PATH)/vendor
 REQD_MASK_POLICY := $(LOCAL_PATH)/reqd_mask
@@ -1276,8 +1292,8 @@ $(26.0_mapping.combined.cil): $(26.0_mapping.cil) $(26.0_mapping.ignore.cil)
 # plat_sepolicy - the current platform policy only, built into a policy binary.
 # TODO - this currently excludes partner extensions, but support should be added
 # to enable partners to add their own compatibility mapping
-BASE_PLAT_PUBLIC_POLICY := $(filter-out $(BOARD_PLAT_PUBLIC_SEPOLICY_DIR), $(PLAT_PUBLIC_POLICY))
-BASE_PLAT_PRIVATE_POLICY := $(filter-out $(BOARD_PLAT_PRIVATE_SEPOLICY_DIR), $(PLAT_PRIVATE_POLICY))
+BASE_PLAT_PUBLIC_POLICY := $(filter-out $(BOARD_PLAT_PUBLIC_SEPOLICY_DIRS), $(PLAT_PUBLIC_POLICY))
+BASE_PLAT_PRIVATE_POLICY := $(filter-out $(BOARD_PLAT_PRIVATE_SEPOLICY_DIRS), $(PLAT_PRIVATE_POLICY))
 base_plat_policy.conf := $(intermediates)/base_plat_policy.conf
 $(base_plat_policy.conf): PRIVATE_MLS_SENS := $(MLS_SENS)
 $(base_plat_policy.conf): PRIVATE_MLS_CATS := $(MLS_CATS)
