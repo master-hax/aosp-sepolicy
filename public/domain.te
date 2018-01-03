@@ -1119,7 +1119,8 @@ neverallow * same_process_hwservice:hwservice_manager add;
 full_treble_only(`
   neverallow {
     coredomain
-    -halclientdomain
+    -appdomain
+    -bootanim
     -init
     -ueventd
     -crash_dump
