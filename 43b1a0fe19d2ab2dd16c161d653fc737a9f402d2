@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c4623be_81cd5d2d",
+        "filename": "public/attributes",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-03T22:20:15Z",
+      "side": 1,
+      "message": "Adding these is unnecessary since permissions are not granted across the platform/vendor boundary to hal_combined_{client,server}. Clients of the light HAL will still use hal_light_client, and the combined hal will have the hal_light_server attribute.",
+      "range": {
+        "startLine": 238,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 42
+      },
+      "revId": "43b1a0fe19d2ab2dd16c161d653fc737a9f402d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f72b486d_87fdd8f4",
+        "filename": "public/hal_combined.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-03T22:20:15Z",
+      "side": 1,
+      "message": "This should all be done in device specific policy. hal_combined should be it\u0027s own type e.g.\n\ntype hal_combined, domain;\n\nAnd instead you should do:\nhal_server_domain(hal_combined, hal_light)\nhal_server_domain(hal_combined, hal_health)\n...\netc.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 50
+      },
+      "revId": "43b1a0fe19d2ab2dd16c161d653fc737a9f402d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
