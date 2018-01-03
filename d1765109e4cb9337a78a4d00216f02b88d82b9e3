@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "d3239cff_19bedcc6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2018-01-03T22:09:24Z",
+      "side": 1,
+      "message": "Not sure if this gives us any warm and fuzzies. I think the only part architecturally similar is the use of sockets, and that commands or output data are on a separate socket from incoming data ;-\u003e (logd separates commands from incoming data, and have regretted many times that commands have no MAC protections).",
+      "range": {
+        "startLine": 14,
+        "startChar": 32,
+        "endLine": 14,
+        "endChar": 71
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c52dea08_3c5eeb9a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2018-01-03T22:09:24Z",
+      "side": 1,
+      "message": "I am a proponent of multi level security. DAC _and_ MAC controls, where one slips-up, the other might catch. shell is in some respects a gaping hole with regards to security, any/all executables run from that domain can do whatever they want.",
+      "range": {
+        "startLine": 20,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75d662e0_d424b837",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2018-01-03T22:09:24Z",
+      "side": 1,
+      "message": "the service names here do not match the names in traced.rc?",
+      "range": {
+        "startLine": 23,
+        "startChar": 3,
+        "endLine": 23,
+        "endChar": 16
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b01d7ce5_05267da0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2018-01-03T22:09:24Z",
+      "side": 1,
+      "message": "This is only accessible on userdebug and eng builds. Based on security review, you may need to ensure that the associated attack surface for this daemon is minimized on user builds.\n\nSelect selinux rules should be audited, and wrapped with userdebug_or_eng(`...\u0027) macro. Runtime should check if a debuggable build (liblog provides __android_log_is_debuggable()) to turn off features, rc files may need to be split, the debug versions/fragments landing under another name etc etc.",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 62
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bb4561a6_4f74e2fc",
         "filename": "private/traced_probes.te",
         "patchSetId": 6
