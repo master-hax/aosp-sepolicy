@@ -285,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "2bf9f9c6_5ee1e11c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-04T17:12:34Z",
+      "side": 1,
+      "message": "The (eventual) goal is to not mount debugfs at all, but that doesn\u0027t apply to tracefs which is generally useful, and not nearly as buggy. The upstream kernel separated tracing out of debugfs for the same reasons and paullawrence@ kindly backported that for Android kernels.",
+      "parentUuid": "ba395e0b_0e0ad26a",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 62
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bb996bc4_6918185a",
         "filename": "private/traced.te",
         "patchSetId": 6
@@ -484,6 +508,30 @@
       "side": 1,
       "message": "\u003e It would be much simpler (from a security standpoint)\nAlso from a design viewpoint :). I am not doing this to take shortcuts, but to save /system partition size.\n\nBoth services share a good amount of code*. The reason for sharing the same executable is to avoid doubling the cost in term of binary size on the system image (right now 350 KB). From a system health perspective, folks put lot of efforts platform-wide to make binary savings of the order of hundreds of KB, especially for Go devices. This can allow to save the equivalent of ~ a month of SWE work in terms of binary optimizations.\n\nIsn\u0027t this the same of putting explicit \"seclabel \" in the init .rc file?\n\n* mostly coming from protobuf and libc++ gen code and some other shared .cc files.",
       "parentUuid": "d6c41aa9_da690ebd",
+      "range": {
+        "startLine": 5,
+        "startChar": 19,
+        "endLine": 5,
+        "endChar": 30
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a8c6a9d_ce27018f",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-04T17:12:34Z",
+      "side": 1,
+      "message": "Putting shared code into a shared library is the typical way to address binary size and optimization.\n\nseclabel certainly works, but we\u0027ve been actively moving away from it.",
+      "parentUuid": "faab8ed3_c9be3fc3",
       "range": {
         "startLine": 5,
         "startChar": 19,
