@@ -117,6 +117,145 @@
     },
     {
       "key": {
+        "uuid": "d5be43df_d4ea96e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-04T06:56:40Z",
+      "side": 1,
+      "message": "\u003e This is only accessible on userdebug and eng builds.\n\nIs that true? Is this a debug-build-only feature?",
+      "parentUuid": "b01d7ce5_05267da0",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 62
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb996bc4_6918185a",
+        "filename": "private/traced.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-04T06:56:40Z",
+      "side": 1,
+      "message": "I believe this is all correctly handled by the \"init_daemon_domain()\" macro. So instead just use\ninit_daemon_domain(traced)",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 42
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8c1b1eb_6fc1ac3f",
+        "filename": "private/traced.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-04T06:56:40Z",
+      "side": 1,
+      "message": "This neverallow rules prevents ptracing any process, not just apps.",
+      "range": {
+        "startLine": 25,
+        "startChar": 19,
+        "endLine": 25,
+        "endChar": 22
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ea0c3c4_a72dc35b",
+        "filename": "private/traced.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-04T06:56:40Z",
+      "side": 1,
+      "message": "*",
+      "range": {
+        "startLine": 26,
+        "startChar": 18,
+        "endLine": 26,
+        "endChar": 24
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db7d858d_ad9cee33",
+        "filename": "private/traced.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-04T06:56:40Z",
+      "side": 1,
+      "message": "This is already covered by a neverallow rule for all processes: https://android.googlesource.com/platform/system/sepolicy/+/master/public/domain.te#406",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 55
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6c41aa9_da690ebd",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-04T06:56:40Z",
+      "side": 1,
+      "message": "It\u0027s unusual that traced and traced_probes have the same executable. Why is that?\n\nIt would be much simpler (from a security standpoint) if each of these domains had their own entrypoint i.e. their own executable.",
+      "range": {
+        "startLine": 5,
+        "startChar": 19,
+        "endLine": 5,
+        "endChar": 30
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb4561a6_4f74e2fc",
         "filename": "private/traced_probes.te",
         "patchSetId": 6
@@ -208,6 +347,75 @@
       "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38e67e0b_c6a1e2e5",
+        "filename": "private/untrusted_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-04T06:56:40Z",
+      "side": 1,
+      "message": "currently already covered by the rule for appdomain (which is a Treble violation)",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 27
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cf32c25_9332df71",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-04T06:56:40Z",
+      "side": 1,
+      "message": "I suspect that you\u0027re violating these neverallows due to:\nwrite_traced(appdomain)\n\nAll apps, including vendor provided apps (which are not coredomain) have the appdomain attribute. You can avoid this by only granting apps with the coredomain attribute access to these sockets.",
+      "range": {
+        "startLine": 616,
+        "startChar": 5,
+        "endLine": 616,
+        "endChar": 11
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d6b50c9_c299dd29",
+        "filename": "public/shell.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-04T06:56:40Z",
+      "side": 1,
+      "message": "shell?",
+      "range": {
+        "startLine": 16,
+        "startChar": 13,
+        "endLine": 16,
+        "endChar": 21
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
