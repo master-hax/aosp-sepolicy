@@ -309,6 +309,30 @@
     },
     {
       "key": {
+        "uuid": "90909d6f_ee963e20",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2018-01-04T18:21:58Z",
+      "side": 1,
+      "message": "Ok, maybe a bug should be filed to mount tracingfs somewhere else, I am sure it is going to be disruptive(tm) so maybe outside the scope of P. Where to mount it to is no-doubt a serious design decision in itself.\n\nAFAIK replacing the symbolic link at /d to /sys/kernel/debug with a directory tree on the root /d/tracing will work. When we mount /sys/kernel/debug, we also bind mount /d to /sys/kernel/debug overriding the /d directory tree. Then one can mount tracingfs to /d/tracing. If the bind mount is not created (and by implication debugfs is also not paired and mounted to /sys/kernel/debug), then the tracefs mount to /d/tracing will be directly to the root directory node instead of the indirect sysfs node. This will allow for _no_ code changes throughout the tracing code, but some work with regards to fs_mgr and friends. This may have a performance advantage w.r.t the tools.",
+      "parentUuid": "2bf9f9c6_5ee1e11c",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 62
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bb996bc4_6918185a",
         "filename": "private/traced.te",
         "patchSetId": 6
