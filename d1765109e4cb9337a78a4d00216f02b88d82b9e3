@@ -261,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "ba395e0b_0e0ad26a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2018-01-04T15:53:00Z",
+      "side": 1,
+      "message": "Hmmm, I appear to be mistaken ... I have not been watching carefully enough :-( or I am out of touch.\n\n/d -\u003e /sys/kernel/debug\n\nI remember a discussion (3 years ago) where we were supposed to _not_ mount debugfs on user builds as far too many dangerous attack surfaces reside there. I see in late model devices this has not been heeded (marlin spot check, in init.common.rc). The various HALs that used the interfaces there are _only_ to use these entries on userdebug and eng builds for automated triage and have been informed not to depend on /d being available.\n\n4/5thish of the security reviews I was part of were about removing debugfs code in the drivers that did put us into harms way, and I viewed it as security theatre because they acknowledged only root could access them, and that they were completely inaccessible in user builds. The security issues were reported against userdebug builds, where either crash or privilege escalation were possible through this ad-hoc interface. It is certainly a bone of contention.\n\ntracefs is then subsequently mounted to /sys/kernel/debug/tracing.\n\nHave we are painting ourselves into a corner?",
+      "parentUuid": "e20859a9_a135a69b",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 62
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bb996bc4_6918185a",
         "filename": "private/traced.te",
         "patchSetId": 6
