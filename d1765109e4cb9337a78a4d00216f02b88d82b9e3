@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "893a198d_48dd7410",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-04T11:03:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "73cdb5e4_fc8768f3",
+      "range": {
+        "startLine": 10,
+        "startChar": 5,
+        "endLine": 10,
+        "endChar": 23
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3239cff_19bedcc6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-03T22:09:24Z",
       "side": 1,
       "message": "Not sure if this gives us any warm and fuzzies. I think the only part architecturally similar is the use of sockets, and that commands or output data are on a separate socket from incoming data ;-\u003e (logd separates commands from incoming data, and have regretted many times that commands have no MAC protections).",
+      "range": {
+        "startLine": 14,
+        "startChar": 32,
+        "endLine": 14,
+        "endChar": 71
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64a5f23d_9b87b0f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-04T11:03:51Z",
+      "side": 1,
+      "message": "\u003e  I think the only part architecturally similar is the use of sockets, and that commands or output data are on a separate socket from incoming data\n\nFWIW. When I wrote this I was thinking more on the lines of \"it\u0027s a logging/tracing daemon that has a world-writable power for storing data and a privilege-readable port for reading back the data\".",
+      "parentUuid": "d3239cff_19bedcc6",
       "range": {
         "startLine": 14,
         "startChar": 32,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "87446b85_f6e3bb6e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-04T11:03:51Z",
+      "side": 1,
+      "message": "\u003e I am a proponent of multi level security. DAC _and_ MAC controls, where one slips-up, the other might catch\n\nMakes perfect sense. I\u0027ll try to figure out how to setup proper unix ACLs to further restrict this. My mental model is to make the consumer socket traced.traced rw-rw----  and add shell and statsd\u0027s users to the traced group. WDYT?\n\n\u003e shell is in some respects a gaping hole with regards to security, any/all executables run from that domain can do whatever they want.\n\nNot sure if this is avoidable though, I mean if we want to allow some debug-ability via the adb cable. In this case shell for me is actually \"commands run from the adb shell\". The concrete use case here is Android Studio who pushes and runs binaries via adb shell.",
+      "parentUuid": "c52dea08_3c5eeb9a",
+      "range": {
+        "startLine": 20,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "75d662e0_d424b837",
         "filename": "/COMMIT_MSG",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2018-01-03T22:09:24Z",
       "side": 1,
       "message": "the service names here do not match the names in traced.rc?",
+      "range": {
+        "startLine": 23,
+        "startChar": 3,
+        "endLine": 23,
+        "endChar": 16
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa749e3d_9fad87dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-04T11:03:51Z",
+      "side": 1,
+      "message": "I am missing something. It seems it does, by looking at line 10 of https://android-review.googlesource.com/c/platform/external/perfetto/+/575382/2/traced.rc#10 ?",
+      "parentUuid": "75d662e0_d424b837",
       "range": {
         "startLine": 23,
         "startChar": 3,
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "e20859a9_a135a69b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-04T11:03:51Z",
+      "side": 1,
+      "message": "\u003e This is only accessible on userdebug and eng builds\n\u003e Is that true? \nCan you expand? I just flashed a user image and can definitely access and poke at /d/tracing from the shell user, as well as using the atrace binary (which is a wrapper around /d/tracing files).\n\nIs this a debug-build-only feature?\nAFAIK Android systrace depend on this on user builds. We definitely want Perfetto to work on user builds, because Studio will need to be able to gather system traces on user devices.",
+      "parentUuid": "d5be43df_d4ea96e3",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 62
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bb996bc4_6918185a",
         "filename": "private/traced.te",
         "patchSetId": 6
@@ -164,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "f4fdcea7_1e55ac92",
+        "filename": "private/traced.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-04T11:03:51Z",
+      "side": 1,
+      "message": "So, the only reason why I didn\u0027t use the init_daemon_domain macro is because that also carries the domain_auto_trans(init, $1_exec, $1) rule, which prevents me to use the same executable for two services with two different domains (see reply to next question for why doing this)",
+      "parentUuid": "bb996bc4_6918185a",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 42
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8c1b1eb_6fc1ac3f",
         "filename": "private/traced.te",
         "patchSetId": 6
@@ -175,6 +319,30 @@
       "writtenOn": "2018-01-04T06:56:40Z",
       "side": 1,
       "message": "This neverallow rules prevents ptracing any process, not just apps.",
+      "range": {
+        "startLine": 25,
+        "startChar": 19,
+        "endLine": 25,
+        "endChar": 22
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c67ae62_2310c017",
+        "filename": "private/traced.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-04T11:03:51Z",
+      "side": 1,
+      "message": "Ah I just copied these lines blindly from logd. Will rename.",
+      "parentUuid": "c8c1b1eb_6fc1ac3f",
       "range": {
         "startLine": 25,
         "startChar": 19,
@@ -233,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "2ad639d0_bb81b1b3",
+        "filename": "private/traced.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-04T11:03:51Z",
+      "side": 1,
+      "message": "Okay will rip altogether (Again, just copied from logd)",
+      "parentUuid": "db7d858d_ad9cee33",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 55
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6c41aa9_da690ebd",
         "filename": "private/traced_probes.te",
         "patchSetId": 6
@@ -244,6 +436,30 @@
       "writtenOn": "2018-01-04T06:56:40Z",
       "side": 1,
       "message": "It\u0027s unusual that traced and traced_probes have the same executable. Why is that?\n\nIt would be much simpler (from a security standpoint) if each of these domains had their own entrypoint i.e. their own executable.",
+      "range": {
+        "startLine": 5,
+        "startChar": 19,
+        "endLine": 5,
+        "endChar": 30
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "faab8ed3_c9be3fc3",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-04T11:03:51Z",
+      "side": 1,
+      "message": "\u003e It would be much simpler (from a security standpoint)\nAlso from a design viewpoint :). I am not doing this to take shortcuts, but to save /system partition size.\n\nBoth services share a good amount of code*. The reason for sharing the same executable is to avoid doubling the cost in term of binary size on the system image (right now 350 KB). From a system health perspective, folks put lot of efforts platform-wide to make binary savings of the order of hundreds of KB, especially for Go devices. This can allow to save the equivalent of ~ a month of SWE work in terms of binary optimizations.\n\nIsn\u0027t this the same of putting explicit \"seclabel \" in the init .rc file?\n\n* mostly coming from protobuf and libc++ gen code and some other shared .cc files.",
+      "parentUuid": "d6c41aa9_da690ebd",
       "range": {
         "startLine": 5,
         "startChar": 19,
@@ -396,6 +612,30 @@
     },
     {
       "key": {
+        "uuid": "3797cde3_7f7bdcf0",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-04T11:03:51Z",
+      "side": 1,
+      "message": "\u003e You can avoid this by only granting apps with the coredomain attribute access to these sockets.\n\nYes I think this is the thing that I got wrong (see my top-level question about coredomain/treble)",
+      "parentUuid": "3cf32c25_9332df71",
+      "range": {
+        "startLine": 616,
+        "startChar": 5,
+        "endLine": 616,
+        "endChar": 11
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d6b50c9_c299dd29",
         "filename": "public/shell.te",
         "patchSetId": 6
@@ -407,6 +647,30 @@
       "writtenOn": "2018-01-04T06:56:40Z",
       "side": 1,
       "message": "shell?",
+      "range": {
+        "startLine": 16,
+        "startChar": 13,
+        "endLine": 16,
+        "endChar": 21
+      },
+      "revId": "d1765109e4cb9337a78a4d00216f02b88d82b9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b117f2bb_fb9105cb",
+        "filename": "public/shell.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-04T11:03:51Z",
+      "side": 1,
+      "message": "Oops yes.\nalthough, I feel I shouldn\u0027t be replicating this write_traced(...) everywhere (See my top-level comment in the reply)",
+      "parentUuid": "5d6b50c9_c299dd29",
       "range": {
         "startLine": 16,
         "startChar": 13,
