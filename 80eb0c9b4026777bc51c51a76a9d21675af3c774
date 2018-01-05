@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "faea5c5d_6b7ca0c6",
+        "filename": "private/exported_property_contexts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1019198
+      },
+      "writtenOn": "2018-01-05T13:15:50Z",
+      "side": 1,
+      "message": "On second thought, this file was \"system/sepolicy/public/property_contexts\" in my original design. And so moving this to public/property_contexts seems nice because partners can easily understand the purpose of this file.\n\nSo I will move this to public/property_contexts.",
+      "parentUuid": "7bca79e6_cd4acbed",
+      "revId": "80eb0c9b4026777bc51c51a76a9d21675af3c774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e2c3e16_94c9f256",
         "filename": "private/exported_property_contexts",
         "patchSetId": 10
@@ -119,6 +137,30 @@
       "side": 1,
       "message": "Without these attributes, modifying rules for some property types would be very complicated.\n\nFor example, to modify some rules of current config_prop, all of config_prop, exported_config_prop and exported2_config_prop should be updated together.\n\nSo I believe that using these attributes would be good for keeping clear rules.",
       "parentUuid": "6c038405_1baca37f",
+      "range": {
+        "startLine": 249,
+        "startChar": 1,
+        "endLine": 261,
+        "endChar": 29
+      },
+      "revId": "80eb0c9b4026777bc51c51a76a9d21675af3c774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee82a23a_78c3cae6",
+        "filename": "public/attributes",
+        "patchSetId": 10
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1019198
+      },
+      "writtenOn": "2018-01-05T13:15:50Z",
+      "side": 1,
+      "message": "I will follow your comments because using types would make rules more understandable.",
+      "parentUuid": "289061d2_79073eda",
       "range": {
         "startLine": 249,
         "startChar": 1,
