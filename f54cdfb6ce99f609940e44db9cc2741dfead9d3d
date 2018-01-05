@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0748cbf4_b3ce43da",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2018-01-05T18:12:59Z",
+      "side": 1,
+      "message": "it should be sufficient to just leave off the else statement entirely.  LOCAL_BUILT_MODULE is a build variable included when you loaded base_rules.mk, and previous one cleared using clear_vars.  Assigning like this would affect whatever previous recipe was last declared (who knows).",
+      "parentUuid": "3f2b0989_fb737df4",
+      "range": {
+        "startLine": 295,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 22
+      },
+      "revId": "f54cdfb6ce99f609940e44db9cc2741dfead9d3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b6464f51_8487f1c4",
         "filename": "Android.mk",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "You mean just name it PRIVATE_NEVERALLOW_ARG?  Does that have any special semantics or is it just a naming convention to aid readability?",
       "parentUuid": "b6464f51_8487f1c4",
+      "range": {
+        "startLine": 402,
+        "startChar": 73,
+        "endLine": 402,
+        "endChar": 87
+      },
+      "revId": "f54cdfb6ce99f609940e44db9cc2741dfead9d3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbdf5cde_e5e757da",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1026058
+      },
+      "writtenOn": "2018-01-05T18:12:59Z",
+      "side": 1,
+      "message": "Convention mostly, but using the PRIVATE_var with a target-specific variable actually has purpose: https://www.gnu.org/software/make/manual/html_node/Target_002dspecific.html#Target_002dspecific",
+      "parentUuid": "719a7b7a_81b0be72",
       "range": {
         "startLine": 402,
         "startChar": 73,
