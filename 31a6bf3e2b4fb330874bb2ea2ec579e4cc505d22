@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "75828429_ee5cd4e8",
+        "filename": "private/coredomain.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-05T18:44:04Z",
+      "side": 1,
+      "message": "\u003e logd could be declared as something that would never be involved in tracing?\n\nIn the P timeframe there are no plans to trace from logd.\n\n\u003e  What is the scope of perfetto\u0027s expected abilities?\nI care about apps (isolated, priviledged and untrusted) to be definitely able to write traced.\nI care about some system process to be able to write to traced, but not logd.\nThis (i.e. coredomain - the things above) seemed to me the least invasive subset that would fit our needs without causing too much maintenance pain.\n\nIf that doesn\u0027t LGTY feel free to suggest an alternative.",
+      "parentUuid": "c37e885a_344c2a1c",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 7
+      },
+      "revId": "31a6bf3e2b4fb330874bb2ea2ec579e4cc505d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1d0255c1_115cdf05",
         "filename": "private/traced.te",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-05T17:20:41Z",
       "side": 1,
       "message": "start at low?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 59
+      },
+      "revId": "31a6bf3e2b4fb330874bb2ea2ec579e4cc505d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa0703cb_820cc5a8",
+        "filename": "private/traced.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-05T18:44:04Z",
+      "side": 1,
+      "message": "Oops, yeah.",
+      "parentUuid": "1d0255c1_115cdf05",
       "range": {
         "startLine": 8,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "949b0427_6d3d4a78",
+        "filename": "private/traced.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-05T18:44:04Z",
+      "side": 1,
+      "message": "No if with \"access\" you mean open(). This service doesn\u0027t need any access to any file whatsoever other than:\n- tmpfs\n- file descriptors that can be passed over the consumer socket, to implement the \"please write the trace into this file\" service.\n\nIs there a way to make the traced domain stricter and disallow open() on anything other than its own tmpfs? Or maybe there is a way to make it so that the only files this can access are the ones passed by other domains maked with control_and_read_traced(X) (right now statsd and shell)",
+      "parentUuid": "a8fce120_e5ed0daf",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 78
+      },
+      "revId": "31a6bf3e2b4fb330874bb2ea2ec579e4cc505d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "593fa12a_b3218bad",
         "filename": "private/traced_probes.te",
         "patchSetId": 9
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f568ea7f_9821a454",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-05T18:44:04Z",
+      "side": 1,
+      "message": "This is to keep the door open to push a configuration from the cloud that tells the process to elevate its nice level, in case this becomes an issue for tracing on particular device classes (mostly thinking about Go low end devices), in essence a to control memory vs cpu invasiveness tradeoff.\nThere are good chances that we\u0027ll never use this, but if we end up in a situation where we need this I don\u0027t want to be in the situation where we have to wait other 2 years to fix that.",
+      "parentUuid": "593fa12a_b3218bad",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 66
+      },
+      "revId": "31a6bf3e2b4fb330874bb2ea2ec579e4cc505d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d920b503_d9f49f93",
         "filename": "private/traced_probes.te",
         "patchSetId": 9
@@ -105,6 +201,30 @@
       "writtenOn": "2018-01-05T17:20:41Z",
       "side": 1,
       "message": "I thought this exec did not require any access to /data? Can this be made broader?\n\njeffv@ would data_file_type cover all of /data (still learning selinux rules)",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 85
+      },
+      "revId": "31a6bf3e2b4fb330874bb2ea2ec579e4cc505d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "526ac56f_d66b0bca",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-05T18:44:04Z",
+      "side": 1,
+      "message": "\u003e I thought this exec did not require any access to /data? \nCorrect.\n\n\u003e Can this be made broader?\nDo you mean \"more restricted\" right?\nthink I was misinterpreting the meaning of this. Happy to make this stricter. As you say this doesn\u0027t need to write to /data, neither directly or indirectly (i.e. via a passed FD)",
+      "parentUuid": "d920b503_d9f49f93",
       "range": {
         "startLine": 32,
         "startChar": 0,
