@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "c8bd706a_7ff94133",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-01-05T23:48:31Z",
+      "side": 1,
+      "message": "This doesn\u0027t do anything. IIRC, it\u0027ll be parsed as adding 0 dependencies to the previously defined module (the phony module selinux_policy)",
+      "parentUuid": "71dc7411_f0c1481f",
+      "range": {
+        "startLine": 295,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 22
+      },
+      "revId": "f54cdfb6ce99f609940e44db9cc2741dfead9d3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c4fea5a3_afed401d",
         "filename": "Android.mk",
         "patchSetId": 1
@@ -156,6 +180,30 @@
       "writtenOn": "2018-01-05T19:34:44Z",
       "side": 1,
       "message": "continuing conversation from above box: I\u0027m not sure why it worked.  I would have thought that this is an expansion of an undefined make variable (sepolicy_neverallows), which would lead effectively to a no-op (in both the true and false case).  I would have expected a neverallow violation to then not have the pre-treble error reporting (to never do the check you added above).\n\n+dwillemsen@ who knows more than I do.",
+      "range": {
+        "startLine": 397,
+        "startChar": 4,
+        "endLine": 397,
+        "endChar": 24
+      },
+      "revId": "f54cdfb6ce99f609940e44db9cc2741dfead9d3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f1499ec_e015d8fa",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-01-05T23:48:31Z",
+      "side": 1,
+      "message": "This should always be empty, sepolicy_neverallows isn\u0027t a variable. You\u0027d need to save LOCAL_BUILT_MODULE above into sepolicy_neverallow.",
+      "parentUuid": "c4fea5a3_afed401d",
       "range": {
         "startLine": 397,
         "startChar": 4,
@@ -227,6 +275,30 @@
       "side": 1,
       "message": "Convention mostly, but using the PRIVATE_var with a target-specific variable actually has purpose: https://www.gnu.org/software/make/manual/html_node/Target_002dspecific.html#Target_002dspecific",
       "parentUuid": "719a7b7a_81b0be72",
+      "range": {
+        "startLine": 402,
+        "startChar": 73,
+        "endLine": 402,
+        "endChar": 87
+      },
+      "revId": "f54cdfb6ce99f609940e44db9cc2741dfead9d3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ffcb815_57329295",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-01-05T23:48:31Z",
+      "side": 1,
+      "message": "PRIVATE_ is convention, but the other half is actually defining the private variable:\n\n  $(LOCAL_BUILT_MODULE): PRIVATE_NEVERALLOW_ARG :\u003d $(NEVERALLOW_ARG)",
+      "parentUuid": "dbdf5cde_e5e757da",
       "range": {
         "startLine": 402,
         "startChar": 73,
