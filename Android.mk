@@ -211,6 +211,7 @@ LOCAL_REQUIRED_MODULES += \
     plat_and_mapping_sepolicy.cil.sha256 \
     secilc \
     plat_sepolicy_vers.txt \
+    vendor_service_contexts \
 
 # Include precompiled policy, unless told otherwise
 ifneq ($(PRODUCT_PRECOMPILED_SEPOLICY),false)
@@ -222,6 +223,7 @@ LOCAL_REQUIRED_MODULES += sepolicy
 endif
 
 LOCAL_REQUIRED_MODULES += \
+    build_sepolicy \
     vendor_file_contexts \
     vendor_mac_permissions.xml \
     vendor_property_contexts \
@@ -235,10 +237,6 @@ LOCAL_REQUIRED_MODULES += \
     plat_hwservice_contexts \
     searchpolicy \
     vndservice_contexts \
-
-ifneq ($(PRODUCT_SEPOLICY_SPLIT),true)
-LOCAL_REQUIRED_MODULES += vendor_service_contexts
-endif
 
 ifneq ($(TARGET_BUILD_VARIANT), user)
 LOCAL_REQUIRED_MODULES += \
@@ -478,44 +476,43 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/etc/selinux
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-vendor_policy.conf := $(intermediates)/vendor_policy.conf
-$(vendor_policy.conf): PRIVATE_MLS_SENS := $(MLS_SENS)
-$(vendor_policy.conf): PRIVATE_MLS_CATS := $(MLS_CATS)
-$(vendor_policy.conf): PRIVATE_TGT_ARCH := $(my_target_arch)
-$(vendor_policy.conf): PRIVATE_TGT_WITH_ASAN := $(with_asan)
-$(vendor_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
-$(vendor_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
-$(vendor_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
-$(vendor_policy.conf): $(call build_policy, $(sepolicy_build_files), \
-$(PLAT_PUBLIC_POLICY) $(REQD_MASK_POLICY) $(PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS))
-	$(transform-policy-to-conf)
-	$(hide) sed '/dontaudit/d' $@ > $@.dontaudit
-
-vendor_policy_raw := $(intermediates)/vendor_policy_raw.cil
-$(vendor_policy_raw): PRIVATE_POL_CONF := $(vendor_policy.conf)
-$(vendor_policy_raw): PRIVATE_REQD_MASK := $(reqd_policy_mask.cil)
-$(vendor_policy_raw): $(HOST_OUT_EXECUTABLES)/checkpolicy $(vendor_policy.conf) \
-$(reqd_policy_mask.cil)
+$(LOCAL_BUILT_MODULE): PRIVATE_SOURCE_FILES := $(call build_policy, \
+  $(sepolicy_build_files), $(PLAT_PUBLIC_POLICY) $(REQD_MASK_POLICY) \
+  $(PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS))
+$(LOCAL_BUILT_MODULE): PRIVATE_POL_CONF := $(intermediates)/vendor_policy.conf
+$(LOCAL_BUILT_MODULE): PRIVATE_MLS_SENS := $(MLS_SENS)
+$(LOCAL_BUILT_MODULE): PRIVATE_MLS_CATS := $(MLS_CATS)
+$(LOCAL_BUILT_MODULE): PRIVATE_TGT_ARCH := $(my_target_arch)
+$(LOCAL_BUILT_MODULE): PRIVATE_TGT_WITH_ASAN := $(with_asan)
+$(LOCAL_BUILT_MODULE): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
+$(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
+$(LOCAL_BUILT_MODULE): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
+$(LOCAL_BUILT_MODULE): PRIVATE_REQD_MASK := $(reqd_policy_mask.cil)
+$(LOCAL_BUILT_MODULE): PRIVATE_BASE_CIL := $(plat_pub_policy.cil)
+$(LOCAL_BUILT_MODULE): PRIVATE_VERS := $(BOARD_SEPOLICY_VERS)
+$(LOCAL_BUILT_MODULE): PRIVATE_DEP_CIL_FILES := $(built_plat_cil) $(built_plat_pub_vers_cil) $(built_mapping_cil)
+$(LOCAL_BUILT_MODULE): PRIVATE_FILTER_CIL := $(built_plat_pub_vers_cil)
+$(LOCAL_BUILT_MODULE): $(HOST_OUT_EXECUTABLES)/build_sepolicy \
+  $(vendor_policy.conf) $(reqd_policy_mask.cil) $(plat_pub_policy.cil) \
+  $(built_plat_cil) $(built_plat_pub_vers_cil) $(built_mapping_cil) \
+  $(call build_policy, $(sepolicy_build_files), $(PLAT_PUBLIC_POLICY) $(REQD_MASK_POLICY) \
+	$(PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS))
 	@mkdir -p $(dir $@)
-	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $< -C -M -c $(POLICYVERS) -o $@.tmp $(PRIVATE_POL_CONF)
-	$(hide) grep -Fxv -f $(PRIVATE_REQD_MASK) $@.tmp > $@
-
-$(LOCAL_BUILT_MODULE) : PRIVATE_VERS := $(BOARD_SEPOLICY_VERS)
-$(LOCAL_BUILT_MODULE) : PRIVATE_TGT_POL := $(vendor_policy_raw)
-$(LOCAL_BUILT_MODULE) : PRIVATE_DEP_CIL_FILES := $(built_plat_cil) $(built_plat_pub_vers_cil) $(built_mapping_cil)
-$(LOCAL_BUILT_MODULE) : PRIVATE_FILTER_CIL := $(built_plat_pub_vers_cil)
-$(LOCAL_BUILT_MODULE) : $(plat_pub_policy.cil) $(vendor_policy_raw) \
-  $(HOST_OUT_EXECUTABLES)/version_policy $(HOST_OUT_EXECUTABLES)/secilc \
-  $(built_plat_cil) $(built_plat_pub_vers_cil) $(built_mapping_cil)
-	@mkdir -p $(dir $@)
-	$(HOST_OUT_EXECUTABLES)/version_policy -b $< -t $(PRIVATE_TGT_POL) -n $(PRIVATE_VERS) -o $@.tmp
-	$(hide) grep -Fxv -f $(PRIVATE_FILTER_CIL) $@.tmp > $@
-	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -m -M true -G -N -c $(POLICYVERS) \
-		$(PRIVATE_DEP_CIL_FILES) $@ -o /dev/null -f /dev/null
+	$(hide) $(HOST_OUT_EXECUTABLES)/build_sepolicy -a $(HOST_OUT_EXECUTABLES) build_cil \
+		-s $(PRIVATE_SOURCE_FILES) --m4_additional_defs $(PRIVATE_ADDITIONAL_M4DEFS) \
+		--m4_mls_num_sens $(PRIVATE_MLS_SENS) --m4_mls_num_cats $(PRIVATE_MLS_CATS) \
+		--m4_target_build_variant $(TARGET_BUILD_VARIANT) \
+		--m4_target_with_dexpreopt $(WITH_DEXPREOPT) --m4_target_arch $(PRIVATE_TGT_ARCH) \
+		--m4_target_with_asan $(PRIVATE_TGT_WITH_ASAN) \
+		--m4_target_full_treble $(PRIVATE_SEPOLICY_SPLIT) \
+		--m4_target_compatible_property $(PRIVATE_COMPATIBLE_PROPERTY) \
+		--m4_target_recovery_defs $(PRIVATE_TGT_RECOVERY) \
+		-p $(PRIVATE_POL_CONF) -m $(PRIVATE_REQD_MASK) -c $(CHECKPOLICY_ASAN_OPTIONS) \
+		-b $(PRIVATE_BASE_CIL) -d $(PRIVATE_DEP_CIL_FILES) -f $(PRIVATE_FILTER_CIL) \
+		-t $(PRIVATE_VERS) -v $(POLICYVERS) -o $@
 
 built_vendor_cil := $(LOCAL_BUILT_MODULE)
 vendor_policy.conf :=
-vendor_policy_raw :=
 
 #################################
 include $(CLEAR_VARS)
