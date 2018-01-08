@@ -1,0 +1,53 @@
+# Perfetto command-line client. Can be used only from the domains that have the
+# control_and_read_traced(X) macro as it accesses the priviledged Consumer port
+# of the traced service.
+
+type perfetto_cli, domain, coredomain;
+typeattribute perfetto_cli coredomain;
+type perfetto_cli_exec, exec_type, file_type;
+
+tmpfs_domain(perfetto_cli);
+
+control_and_read_traced(perfetto_cli)
+
+# allow access to stdout from its parent shell.
+allow perfetto_cli shell:fd use;
+
+# allow to communicate use, read and write over the adb connection.
+allow perfetto_cli adbd:fd use;
+allow perfetto_cli adbd:unix_stream_socket { read write };
+
+# allow adbd to reap perfetto
+allow perfetto_cli adbd:process { sigchld };
+
+# Allow to access /dev/pts when launched in an adb shell.
+allow perfetto_cli devpts:chr_file rw_file_perms;
+
+allow perfetto_cli perfetto_traces_data_file:dir rw_dir_perms;
+allow perfetto_cli perfetto_traces_data_file:file create_file_perms;
+
+binder_use(perfetto_cli);
+
+###
+### Neverallow rules
+###
+### perfetto_cli should NEVER do any of this
+
+# Disallow mapping executable memory (execstack and exec are already disallowed
+# globally in domain.te).
+neverallow traced self:process execmem;
+
+# Block device access.
+neverallow traced dev_type:blk_file { read write };
+
+# ptrace any other process
+neverallow traced domain:process ptrace;
+
+# Disallows access to other /data files.
+neverallow traced { data_file_type -system_data_file -zoneinfo_data_file -perfetto_traces_data_file }:dir *;
+neverallow traced { system_data_file -perfetto_traces_data_file }:dir ~{ getattr search };
+neverallow traced zoneinfo_data_file:dir ~r_dir_perms;
+neverallow traced { data_file_type -zoneinfo_data_file -perfetto_traces_data_file }:lnk_file *;
+neverallow traced { data_file_type -zoneinfo_data_file -perfetto_traces_data_file }:file ~write;
+
+# TODO neverallow most things to exec this

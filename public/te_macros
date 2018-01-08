@@ -550,9 +550,11 @@ unix_socket_connect($1, logd, logd)
 #####################################
 # control_and_read_traced(domain)
 # Ability to control and read trace
-# data from traced via sockets
+# data from traced via sockets and via
+# /system/bin/perfetto.
 define(`control_and_read_traced', `
-unix_socket_connect($1, traced_consumer, traced)
+unix_socket_connect($1, traced_consumer, traced);
+domain_auto_trans($1, perfetto_cli_exec, perfetto_cli)
 ')
 
 #####################################
