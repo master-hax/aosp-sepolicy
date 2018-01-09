@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "4a3ef5d1_4d275ebf",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-01-09T00:26:49Z",
+      "side": 1,
+      "message": "This should still be NEVERALLOW_ARG -- PRIVATE_* is just a convention for rule-local variables (this is a global). In the rules you use it, you need to copy NEVERALLOW_ARG into PRIVATE_NEVERALLOW_ARG for the specific target:\n\n  $(LOCAL_BUILT_MODULE): PRIVATE_NEVERALLOW_ARG :\u003d $(NEVERALLOW_ARG)",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 22
+      },
+      "revId": "5b9fbfdb056a71d576f01810fc1089c17ca134a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e18d5e89_5092be26",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-01-09T00:26:49Z",
+      "side": 1,
+      "message": "mkdir of the parent directory is already implicit due to our use of ninja. Switch this to:\n\n  rm -f $@\n\nSo that we\u0027re guaranteed to produce a new file (the else case would have just used the last build, which could have been empty, or the previous build of IGNORE_NEVERALLOWS !\u003d true)",
+      "range": {
+        "startLine": 286,
+        "startChar": 1,
+        "endLine": 286,
+        "endChar": 20
+      },
+      "revId": "5b9fbfdb056a71d576f01810fc1089c17ca134a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9ed2d4c_1ff093e8",
         "filename": "Android.mk",
         "patchSetId": 2
