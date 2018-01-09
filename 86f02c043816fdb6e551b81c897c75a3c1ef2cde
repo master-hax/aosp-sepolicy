@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0c3107f_e86dbdaf",
+        "filename": "public/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T04:45:06Z",
+      "side": 1,
+      "message": "su needs to go inside a \"userdebug_or_eng()\" statement or it will break user builds.",
+      "range": {
+        "startLine": 93,
+        "startChar": 41,
+        "endLine": 93,
+        "endChar": 43
+      },
+      "revId": "86f02c043816fdb6e551b81c897c75a3c1ef2cde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54cc2eff_dbdf06fa",
+        "filename": "public/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T04:45:06Z",
+      "side": 1,
+      "message": "is this necessary? Can\u0027t we whitelist these instead of granting access to a default label?",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 66
+      },
+      "revId": "86f02c043816fdb6e551b81c897c75a3c1ef2cde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20fead19_ed2b67e4",
+        "filename": "public/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T04:45:06Z",
+      "side": 1,
+      "message": "why are these (here and below) granted to everyone?",
+      "range": {
+        "startLine": 102,
+        "startChar": 17,
+        "endLine": 102,
+        "endChar": 36
+      },
+      "revId": "86f02c043816fdb6e551b81c897c75a3c1ef2cde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40c0c859_dd00de57",
+        "filename": "public/property.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T04:45:06Z",
+      "side": 1,
+      "message": "What\u0027s the difference between exported_config_prop and exported2_config_prop? These names shouldn\u0027t be arbitrary.",
+      "range": {
+        "startLine": 68,
+        "startChar": 5,
+        "endLine": 68,
+        "endChar": 26
+      },
+      "revId": "86f02c043816fdb6e551b81c897c75a3c1ef2cde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99407f7e_1aa38cea",
+        "filename": "public/property.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T04:45:06Z",
+      "side": 1,
+      "message": "adding these exemptions appears to conflict with the comment above.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 24
+      },
+      "revId": "86f02c043816fdb6e551b81c897c75a3c1ef2cde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5382a5c_a012190d",
+        "filename": "public/property.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T04:45:06Z",
+      "side": 1,
+      "message": "Are you adding the exemptions above so that you can use this type for these neverallow rules?",
+      "range": {
+        "startLine": 149,
+        "startChar": 4,
+        "endLine": 149,
+        "endChar": 22
+      },
+      "revId": "86f02c043816fdb6e551b81c897c75a3c1ef2cde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
