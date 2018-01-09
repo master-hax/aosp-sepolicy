@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f96db497_42debc07",
+        "filename": "private/coredomain.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T19:05:45Z",
+      "side": 1,
+      "message": "I said \"apps with the coredomain attribute\", not all off coredomain which includes all processes that live on the system_partition, including many privilege processes which should not be included.\n\napp.te includes vendor processes. Sounds like you just want shell, priv_app, and untrusted_app_all. (which all include the coredomain attribute).",
+      "parentUuid": "1578b267_05103ccf",
+      "range": {
+        "startLine": 3,
+        "startChar": 8,
+        "endLine": 3,
+        "endChar": 24
+      },
+      "revId": "931d3a17e17a20e04deed3b483a995c4a4f0dca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2eaa2740_d07584e6",
         "filename": "private/shell.te",
         "patchSetId": 14
