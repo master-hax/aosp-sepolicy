@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c96582e9_971d6519",
+        "filename": "public/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1019198
+      },
+      "writtenOn": "2018-01-09T05:26:22Z",
+      "side": 1,
+      "message": "I will apply that.",
+      "parentUuid": "a0c3107f_e86dbdaf",
+      "range": {
+        "startLine": 93,
+        "startChar": 41,
+        "endLine": 93,
+        "endChar": 43
+      },
+      "revId": "86f02c043816fdb6e551b81c897c75a3c1ef2cde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54cc2eff_dbdf06fa",
         "filename": "public/domain.te",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-09T04:45:06Z",
       "side": 1,
       "message": "is this necessary? Can\u0027t we whitelist these instead of granting access to a default label?",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 66
+      },
+      "revId": "86f02c043816fdb6e551b81c897c75a3c1ef2cde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07c8e38a_d38671ca",
+        "filename": "public/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1019198
+      },
+      "writtenOn": "2018-01-09T05:26:22Z",
+      "side": 1,
+      "message": "This is to provide a replacement of default_prop, which is currently readable from all domains.\nSo I want to keep this for partners to easily apply this whitelist.",
+      "parentUuid": "54cc2eff_dbdf06fa",
       "range": {
         "startLine": 94,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "008e05ab_762c93a9",
+        "filename": "public/domain.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1019198
+      },
+      "writtenOn": "2018-01-09T05:26:22Z",
+      "side": 1,
+      "message": "Those are marked as public-readable properties in https://docs.google.com/spreadsheets/d/1fu38Hk7r-euzG7ETZDbq1Snm89V71Ms0EsdskXz--Yc/edit#gid\u003d272909645. So they should be able to be readable from any domains.",
+      "parentUuid": "20fead19_ed2b67e4",
+      "range": {
+        "startLine": 102,
+        "startChar": 17,
+        "endLine": 102,
+        "endChar": 36
+      },
+      "revId": "86f02c043816fdb6e551b81c897c75a3c1ef2cde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40c0c859_dd00de57",
         "filename": "public/property.te",
         "patchSetId": 13
@@ -82,6 +154,30 @@
       "writtenOn": "2018-01-09T04:45:06Z",
       "side": 1,
       "message": "What\u0027s the difference between exported_config_prop and exported2_config_prop? These names shouldn\u0027t be arbitrary.",
+      "range": {
+        "startLine": 68,
+        "startChar": 5,
+        "endLine": 68,
+        "endChar": 26
+      },
+      "revId": "86f02c043816fdb6e551b81c897c75a3c1ef2cde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b2d6af9_10018466",
+        "filename": "public/property.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1019198
+      },
+      "writtenOn": "2018-01-09T05:26:22Z",
+      "side": 1,
+      "message": "Both are variants of config_prop, but they have different accessibility as follows.\n- exported_config_prop: vendor-init-settable and public-readable\n- exported2_config_prop: vendor-init-settable\n\nYou asked me not to include any accessibility information in property names, and so I just used exported[2|3].\n\nDo you have any better idea for property names to express different accessibility?",
+      "parentUuid": "40c0c859_dd00de57",
       "range": {
         "startLine": 68,
         "startChar": 5,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "eefb4ba0_39ae7e6a",
+        "filename": "public/property.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1019198
+      },
+      "writtenOn": "2018-01-09T05:26:22Z",
+      "side": 1,
+      "message": "I see. Then I will remove core_property_type from exported types, and then apply the rules of core_property_type into each of them.",
+      "parentUuid": "99407f7e_1aa38cea",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 24
+      },
+      "revId": "86f02c043816fdb6e551b81c897c75a3c1ef2cde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5382a5c_a012190d",
         "filename": "public/property.te",
         "patchSetId": 13
@@ -128,6 +248,30 @@
       "writtenOn": "2018-01-09T04:45:06Z",
       "side": 1,
       "message": "Are you adding the exemptions above so that you can use this type for these neverallow rules?",
+      "range": {
+        "startLine": 149,
+        "startChar": 4,
+        "endLine": 149,
+        "endChar": 22
+      },
+      "revId": "86f02c043816fdb6e551b81c897c75a3c1ef2cde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adc9539b_ab79cfbe",
+        "filename": "public/property.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1019198
+      },
+      "writtenOn": "2018-01-09T05:26:22Z",
+      "side": 1,
+      "message": "Right. Anyway I will remove core_property_type from exported types.",
+      "parentUuid": "b5382a5c_a012190d",
       "range": {
         "startLine": 149,
         "startChar": 4,
