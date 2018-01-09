@@ -1,0 +1,18 @@
+# bpf program loader
+type bpfloader, domain;
+type bpfloader_exec, exec_type, file_type;
+
+net_domain(bpfloader)
+
+allow bpfloader self:global_capability_class_set { net_admin };
+
+r_dir_file(bpfloader, cgroup_bpf)
+
+allow bpfloader netd:fd use;
+
+allow bpfloader fs_bpf:dir  create_dir_perms;
+allow bpfloader fs_bpf:file create_file_perms;
+
+# Inherit and use open files from netd.
+allow bpfloader netd:bpf { map_read map_write };
+allow bpfloader self:bpf { prog_load prog_run };

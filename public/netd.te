@@ -7,7 +7,7 @@ net_domain(netd)
 allowxperm netd self:udp_socket ioctl priv_sock_ioctls;
 
 r_dir_file(netd, cgroup)
-r_dir_file(netd, cgroup_bpf)
+
 allow netd system_server:fd use;
 
 allow netd self:global_capability_class_set { net_admin net_raw kill };
