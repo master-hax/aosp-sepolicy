@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bd68c36_e66dd879",
+        "filename": "private/incidentd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T04:54:11Z",
+      "side": 1,
+      "message": "Granting dac_override is almost always wrong. See: https://source.android.com/security/selinux/device-policy#granting_the_dac_override_capability\n\nFix the unix permissions so that dac_override is not necessary.",
+      "range": {
+        "startLine": 62,
+        "startChar": 32,
+        "endLine": 62,
+        "endChar": 44
+      },
+      "revId": "918f9f1a430f4d529ba7b6713923174213baf478",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66268179_9ca5ae67",
+        "filename": "private/priv_app.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T04:54:11Z",
+      "side": 1,
+      "message": "why is this needed for adb interactive mode?\n\nNote, alphabetical order above by tcontext",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 37,
+        "endChar": 14
+      },
+      "revId": "918f9f1a430f4d529ba7b6713923174213baf478",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36ee893b_481a7bfc",
+        "filename": "private/statsd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T04:54:11Z",
+      "side": 1,
+      "message": "hal_client_domain(statsd, hal_power)",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 56
+      },
+      "revId": "918f9f1a430f4d529ba7b6713923174213baf478",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5549d493_6c1f7395",
+        "filename": "private/statsd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T04:54:11Z",
+      "side": 1,
+      "message": "granted by hal_client_domain()",
+      "range": {
+        "startLine": 52,
+        "startChar": 13,
+        "endLine": 52,
+        "endChar": 34
+      },
+      "revId": "918f9f1a430f4d529ba7b6713923174213baf478",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1f99197_2108f9a6",
+        "filename": "private/statsd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T04:54:11Z",
+      "side": 1,
+      "message": "fix unix permissions.",
+      "range": {
+        "startLine": 53,
+        "startChar": 29,
+        "endLine": 53,
+        "endChar": 41
+      },
+      "revId": "918f9f1a430f4d529ba7b6713923174213baf478",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
