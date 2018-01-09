@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9ed2d4c_1ff093e8",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2018-01-09T00:16:25Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem like the best way to do this, since we\u0027re doing more work than we need to when the flag is true.  But this is the best way I could find that works; many other things gave me errors because the intermediate output files did not exist.",
+      "range": {
+        "startLine": 290,
+        "startChar": 0,
+        "endLine": 290,
+        "endChar": 35
+      },
+      "revId": "5b9fbfdb056a71d576f01810fc1089c17ca134a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53e5b9ad_6a90872a",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2018-01-09T00:16:25Z",
+      "side": 1,
+      "message": "This isn\u0027t pretty (although not nearly as bad as I thought it would be), but I couldn\u0027t figure out any other way to do it.  We seem to need this target, and it uses checkpolicy, which can\u0027t ignore neverallows.  So I had to figure out a way to strip out neverallows, which can span multiple lines.  That\u0027s what this does, and the comment above briefly explains.",
+      "range": {
+        "startLine": 630,
+        "startChar": 1,
+        "endLine": 630,
+        "endChar": 65
+      },
+      "revId": "5b9fbfdb056a71d576f01810fc1089c17ca134a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
