@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1578b267_05103ccf",
+        "filename": "private/coredomain.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-09T18:33:18Z",
+      "side": 1,
+      "message": "Honestly I feel we are going around in circles here and this is not fun.\n\nIn the previous patchsets I was explicitly adding these permissions to individual domains.\nThen you wrote (in this same CL, just some days ago): \"You can avoid this by only granting apps with the coredomain attribute access to these sockets\". This is also aligned with the feedback I got in the various IM discussions. Now we are going back.\n\nAlright then, we are back to app.te, shell.te and statsd.te copy/pasting the same lines.\nI am also sure we\u0027ll find more stuff down the road (e.g. does app.te also include priv_app and isolated_app), in which case I\u0027ll follow-up with more copy paste, as this seems to be your preference.\n\nDone.",
+      "parentUuid": "127a5a59_a1329b8f",
+      "range": {
+        "startLine": 3,
+        "startChar": 8,
+        "endLine": 3,
+        "endChar": 24
+      },
+      "revId": "931d3a17e17a20e04deed3b483a995c4a4f0dca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2eaa2740_d07584e6",
         "filename": "private/shell.te",
         "patchSetId": 14
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-09T05:56:44Z",
       "side": 1,
       "message": "I would prefer we just grant the rules without introducing new macros, which make policy less readable. Instead use a comment describing the block of permissions being granted.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 23
+      },
+      "revId": "931d3a17e17a20e04deed3b483a995c4a4f0dca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d9d72b3_32324013",
+        "filename": "private/shell.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-09T18:33:18Z",
+      "side": 1,
+      "message": "I was trying to follow the precedent of logd, but... as you wish. Done.",
+      "parentUuid": "2eaa2740_d07584e6",
       "range": {
         "startLine": 32,
         "startChar": 0,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "a1809714_fe30309a",
+        "filename": "private/traced.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-09T18:33:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dee6243d_cfa98f97",
+      "revId": "931d3a17e17a20e04deed3b483a995c4a4f0dca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "316b8fe0_b79cc262",
         "filename": "private/traced_probes.te",
         "patchSetId": 14
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "c347a998_6bfc3cd7",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-09T18:33:18Z",
+      "side": 1,
+      "message": "As discussed in several occasions, we need this for user. Let\u0027s discuss this.",
+      "parentUuid": "316b8fe0_b79cc262",
+      "range": {
+        "startLine": 11,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "931d3a17e17a20e04deed3b483a995c4a4f0dca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea349c95_d064db65",
         "filename": "public/domain.te",
         "patchSetId": 14
@@ -99,6 +189,30 @@
       "writtenOn": "2018-01-09T05:56:44Z",
       "side": 1,
       "message": "exactly. Thanks!",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 48
+      },
+      "revId": "931d3a17e17a20e04deed3b483a995c4a4f0dca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b780bba4_8555eb61",
+        "filename": "public/domain.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-09T18:33:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ea349c95_d064db65",
       "range": {
         "startLine": 152,
         "startChar": 0,
