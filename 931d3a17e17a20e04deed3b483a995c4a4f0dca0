@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "127a5a59_a1329b8f",
+        "filename": "private/coredomain.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T05:56:44Z",
+      "side": 1,
+      "message": "this is too broad and will cause us future security hardening headaches. Please whitelist the domains that you actually want to trace instead of blacklisting the ones you\u0027re currently prevented from tracing.",
+      "range": {
+        "startLine": 3,
+        "startChar": 8,
+        "endLine": 3,
+        "endChar": 24
+      },
+      "revId": "931d3a17e17a20e04deed3b483a995c4a4f0dca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eaa2740_d07584e6",
+        "filename": "private/shell.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T05:56:44Z",
+      "side": 1,
+      "message": "I would prefer we just grant the rules without introducing new macros, which make policy less readable. Instead use a comment describing the block of permissions being granted.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 23
+      },
+      "revId": "931d3a17e17a20e04deed3b483a995c4a4f0dca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dee6243d_cfa98f97",
+        "filename": "private/traced.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T05:56:44Z",
+      "side": 1,
+      "message": "much cleaner, thanks!",
+      "revId": "931d3a17e17a20e04deed3b483a995c4a4f0dca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "316b8fe0_b79cc262",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T05:56:44Z",
+      "side": 1,
+      "message": "these files were intentionally only whitelisted for use on debug builds. Let\u0027s discuss these tomorrow.",
+      "range": {
+        "startLine": 11,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "931d3a17e17a20e04deed3b483a995c4a4f0dca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea349c95_d064db65",
+        "filename": "public/domain.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-09T05:56:44Z",
+      "side": 1,
+      "message": "exactly. Thanks!",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 48
+      },
+      "revId": "931d3a17e17a20e04deed3b483a995c4a4f0dca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
