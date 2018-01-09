@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "418e9ab1_77bc9c95",
+        "filename": "private/coredomain.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-09T19:52:36Z",
+      "side": 1,
+      "message": "untrusted_app.te says\n\n### This file defines the rules shared by all untrusted app domains except\n### apps which target the v2 security sandbox (ephemeral_app for instant apps,\n### untrusted_v2_app for fully installed v2 apps).\n\nDoes it mean I also need untrusted_v2_app and ephemeral_app?\nHow about services? are they covered by app.te and untrusted_app? Or do I need to explicitly list also service.te? How about isolated_app, system_app and platform_app? How can I reconstruct a venn diagram and understand what includes what?\n\nThis is what is really worrying me, getting in the state where thing seems to work and later, after the image has shipped, discover that we got a domain uncovered and have to wait another dessert to fix that. We can\u0027t let this happen.",
+      "parentUuid": "f96db497_42debc07",
+      "range": {
+        "startLine": 3,
+        "startChar": 8,
+        "endLine": 3,
+        "endChar": 24
+      },
+      "revId": "931d3a17e17a20e04deed3b483a995c4a4f0dca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2eaa2740_d07584e6",
         "filename": "private/shell.te",
         "patchSetId": 14
@@ -190,6 +214,30 @@
       "side": 1,
       "message": "As discussed in several occasions, we need this for user. Let\u0027s discuss this.",
       "parentUuid": "316b8fe0_b79cc262",
+      "range": {
+        "startLine": 11,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "931d3a17e17a20e04deed3b483a995c4a4f0dca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "563a97af_c90a682e",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-09T19:52:36Z",
+      "side": 1,
+      "message": "Removed this for the moment. we will re-evalute this after the discussion with PWG.",
+      "parentUuid": "c347a998_6bfc3cd7",
       "range": {
         "startLine": 11,
         "startChar": 20,
