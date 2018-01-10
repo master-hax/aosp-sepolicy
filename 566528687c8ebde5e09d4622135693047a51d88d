@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9f9e3a1_cc1bb7a2",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-10T17:40:27Z",
+      "side": 1,
+      "message": "spaces",
+      "range": {
+        "startLine": 282,
+        "startChar": 20,
+        "endLine": 282,
+        "endChar": 23
+      },
+      "revId": "566528687c8ebde5e09d4622135693047a51d88d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f036991_a9809690",
+        "filename": "private/netd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-10T17:40:27Z",
+      "side": 1,
+      "message": "bpfloader",
+      "range": {
+        "startLine": 11,
+        "startChar": 22,
+        "endLine": 11,
+        "endChar": 27
+      },
+      "revId": "566528687c8ebde5e09d4622135693047a51d88d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8127a72_cbdf8afe",
+        "filename": "public/bpfloader.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-10T17:40:27Z",
+      "side": 1,
+      "message": "what? why? This basically gives bpfloader network access, which we definitely do not want. Can we disallow access to all all sockets?",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 10
+      },
+      "revId": "566528687c8ebde5e09d4622135693047a51d88d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eed23319_13ed2c81",
+        "filename": "public/bpfloader.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-10T17:40:27Z",
+      "side": 1,
+      "message": "no need for brackets for single permissions.",
+      "range": {
+        "startLine": 7,
+        "startChar": 49,
+        "endLine": 7,
+        "endChar": 51
+      },
+      "revId": "566528687c8ebde5e09d4622135693047a51d88d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0cb7217e_0cdbc702",
+        "filename": "public/bpfloader.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-10T17:40:27Z",
+      "side": 1,
+      "message": "put this down with line 17",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 27
+      },
+      "revId": "566528687c8ebde5e09d4622135693047a51d88d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41ec8625_59b7e602",
+        "filename": "public/bpfloader.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-10T17:40:27Z",
+      "side": 1,
+      "message": "comment (e.g. # pin bpf programs for netd)",
+      "revId": "566528687c8ebde5e09d4622135693047a51d88d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fed7544c_e226662f",
+        "filename": "public/bpfloader.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-10T17:40:27Z",
+      "side": 1,
+      "message": "# only bpfloader may load and run bpf programs\nneverallow { domain -bpfloader } *:bpf { prog_load prog_run };\n\nneverallow { domain -netd } bpfloader_exec:file { execute execute_no_trans };",
+      "revId": "566528687c8ebde5e09d4622135693047a51d88d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
