@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb8ca242_19b35a6b",
+        "filename": "tests/sepolicy_tests.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-10T21:05:14Z",
+      "side": 1,
+      "message": "should we just fix labeling of selinux policy instead of exempting it?\n\nI\u0027d really like to see the following workflow:\n\n1. init combines policy\n2. it creates /dev/selinux/{file,service,etc}_contexts files which is what every other process actually uses.\n3. We can then leave these files as vendor_file with the vendor_file_type attribute.",
+      "range": {
+        "startLine": 24,
+        "startChar": 53,
+        "endLine": 24,
+        "endChar": 77
+      },
+      "revId": "166b9e2c63b5d1020b0f5c41323c3a122a11e165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
