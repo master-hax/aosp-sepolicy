@@ -99,6 +99,10 @@ allow mediaserver hidl_token_hwservice:hwservice_manager find;
 allow mediaserver oemfs:dir search;
 allow mediaserver oemfs:file r_file_perms;
 
+# /product access
+allow mediaserver productfs:dir search;
+allow mediaserver productfs:file r_file_perms;
+
 use_drmservice(mediaserver)
 allow mediaserver drmserver:drmservice {
     consumeRights

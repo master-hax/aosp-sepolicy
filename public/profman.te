@@ -8,6 +8,7 @@ allow profman user_profile_data_file:file { getattr read write lock };
 allow profman asec_apk_file:file { read };
 allow profman apk_data_file:file { read };
 allow profman oemfs:file { read };
+allow profman productfs:file { read };
 # Reading an APK opens a ZipArchive, which unpack to tmpfs.
 allow profman tmpfs:file { read };
 allow profman profman_dump_data_file:file { write };

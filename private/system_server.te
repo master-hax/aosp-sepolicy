@@ -629,6 +629,9 @@ allow system_server cgroup:dir { remove_name rmdir };
 # /oem access
 r_dir_file(system_server, oemfs)
 
+# /product access
+r_dir_file(system_server, productfs)
+
 # Allow resolving per-user storage symlinks
 allow system_server { mnt_user_file storage_file }:dir { getattr search };
 allow system_server { mnt_user_file storage_file }:lnk_file { getattr read };

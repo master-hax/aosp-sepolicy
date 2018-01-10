@@ -84,6 +84,10 @@ r_dir_file({ appdomain -isolated_app }, textclassifier_data_file)
 allow appdomain oemfs:dir r_dir_perms;
 allow appdomain oemfs:file rx_file_perms;
 
+# Access to Product provided data and apps
+allow appdomain productfs:dir r_dir_perms;
+allow appdomain productfs:file rx_file_perms;
+
 # Execute the shell or other system executables.
 allow { appdomain -ephemeral_app -untrusted_v2_app } shell_exec:file rx_file_perms;
 allow { appdomain -ephemeral_app -untrusted_v2_app } toolbox_exec:file rx_file_perms;
