@@ -104,6 +104,9 @@ recovery_only(`
   # Read files on /oem.
   r_dir_file(recovery, oemfs);
 
+  # Read files on /product.
+  r_dir_file(recovery, productfs);
+
   # Reboot the device
   set_prop(recovery, powerctl_prop)
 

@@ -319,7 +319,7 @@
 /vendor/etc/selinux/vndservice_contexts         u:object_r:vndservice_contexts_file:s0
 
 #############################
-# OEM and ODM files
+# OEM, ODM and Product files
 #
 /odm(/.*)?                                    u:object_r:vendor_file:s0
 /odm/lib(64)?/egl(/.*)?                       u:object_r:same_process_hal_file:s0
@@ -327,6 +327,7 @@
 /odm/lib(64)?/vndk-sp(/.*)?                   u:object_r:vndk_sp_file:s0
 
 /oem(/.*)?              u:object_r:oemfs:s0
+/product(/.*)?          u:object_r:productfs:s0
 
 
 #############################

@@ -49,6 +49,10 @@ allow drmserver radio_data_file:file { read getattr };
 allow drmserver oemfs:dir search;
 allow drmserver oemfs:file r_file_perms;
 
+# /product access
+allow drmserver productfs:dir search;
+allow drmserver productfs:file r_file_perms;
+
 add_service(drmserver, drmserver_service)
 allow drmserver permission_service:service_manager find;
 

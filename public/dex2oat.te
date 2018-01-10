@@ -27,6 +27,7 @@ allow dex2oat system_file:file lock;
 allow dex2oat asec_apk_file:file read;
 allow dex2oat unlabeled:file read;
 allow dex2oat oemfs:file read;
+allow dex2oat productfs:file read;
 allow dex2oat apk_tmp_file:dir search;
 allow dex2oat apk_tmp_file:file r_file_perms;
 allow dex2oat user_profile_data_file:file { getattr read lock };

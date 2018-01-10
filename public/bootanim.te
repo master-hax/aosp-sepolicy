@@ -18,6 +18,10 @@ allow bootanim gpu_device:chr_file rw_file_perms;
 allow bootanim oemfs:dir search;
 allow bootanim oemfs:file r_file_perms;
 
+# /product access
+allow bootanim productfs:dir search;
+allow bootanim productfs:file r_file_perms;
+
 allow bootanim audio_device:dir r_dir_perms;
 allow bootanim audio_device:chr_file rw_file_perms;
 
