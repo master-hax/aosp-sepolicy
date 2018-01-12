@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4895eaff_c832b827",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2018-01-12T08:54:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79064c3f_653a0c96",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 5
+      },
+      "revId": "4385fbbb3f130f026511bd5e3f53eb5258aee328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5ae17fba_0c04e6e1",
         "filename": "Android.mk",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-11T21:37:58Z",
       "side": 1,
       "message": "could we move this into the unconditional section above, rather than creating another?",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 73
+      },
+      "revId": "4385fbbb3f130f026511bd5e3f53eb5258aee328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5d8ea42_cdea9055",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2018-01-12T08:54:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ae17fba_0c04e6e1",
       "range": {
         "startLine": 256,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "830ff880_9ba79ab2",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2018-01-12T08:54:54Z",
+      "side": 1,
+      "message": "vendor_sepolicy.conf is an intermediate file, not the final .cil output.\n\nSwitching to python for vendor_sepolicy.conf doesn\u0027t simplify the logic here, because we already have $(call build_policy) and $(transform-policy-to-conf). Actually it makes it more complicated because we need to pass those PRIVATE_* variables to the python script.\n\nAnyway, I can upload a separate CL to use python for vendor_policy.conf. For now, I\u0027d like to keep each CL small so code review will be easier.",
+      "parentUuid": "e2d1c720_48d67845",
+      "range": {
+        "startLine": 496,
+        "startChar": 45,
+        "endLine": 496,
+        "endChar": 58
+      },
+      "revId": "4385fbbb3f130f026511bd5e3f53eb5258aee328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7410eaa7_0bf4e088",
         "filename": "build/build_sepolicy.py",
         "patchSetId": 5
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "7bc23a26_17348842",
+        "filename": "build/build_sepolicy.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2018-01-12T08:54:54Z",
+      "side": 1,
+      "message": "I can remove this if there is a downside for this.\n\nAdding this just give me the ability to run ./build_sepolicy.py directly when debugging.",
+      "parentUuid": "7410eaa7_0bf4e088",
+      "range": {
+        "startLine": 1,
+        "startChar": 15,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "4385fbbb3f130f026511bd5e3f53eb5258aee328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f7158d0_7089c1d5",
         "filename": "build/build_sepolicy.py",
         "patchSetId": 5
@@ -105,6 +201,30 @@
       "writtenOn": "2018-01-11T21:37:58Z",
       "side": 1,
       "message": "do we expect this to always be the dir of this executable? (is this necessary or desirable?)",
+      "range": {
+        "startLine": 123,
+        "startChar": 25,
+        "endLine": 123,
+        "endChar": 27
+      },
+      "revId": "4385fbbb3f130f026511bd5e3f53eb5258aee328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72852230_9c4b007d",
+        "filename": "build/build_sepolicy.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2018-01-12T08:54:54Z",
+      "side": 1,
+      "message": "This is to specify $(HOST_OUT_EXECUTABLES) for checkpolicy, secilc, etc.\n\nI tried the following here, \n  \nHOST_OUT_EXECUTABLES \u003d os.path.dirname(os.path.realpath(__file__)) \n\n\nbut the result is (in a lunch): /tmp/Soong.python_NiBlVL/runfiles/\n\nwhere, checkpolicy/secilc isn\u0027t there as they\u0027re not python.\n\nAnyway, I\u0027ll rename this to android_host_path to make it clearer.",
+      "parentUuid": "7f7158d0_7089c1d5",
       "range": {
         "startLine": 123,
         "startChar": 25,
