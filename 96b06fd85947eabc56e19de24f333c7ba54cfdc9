@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ec46e441_f289e814",
+        "filename": "private/usbd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1042384
+      },
+      "writtenOn": "2018-01-17T20:09:20Z",
+      "side": 1,
+      "message": "Both persist.sys.usb.config(https://cs.corp.google.com/search/?q\u003d%22persist.sys.usb.config%22\u0026sq\u003dpackage:%5Eandroid$\u0026type\u003dcs) and ctl.star(https://cs.corp.google.com/search/?q\u003d%22ctl.start%22\u0026sq\u003dpackage:%5Eandroid$\u0026type\u003dcs)t seems to be accessed in device/ and vendor/ directories. So, if I define a new type for them, wouldnt it break those devices ?\nHow to handle this ?",
+      "parentUuid": "74be1295_df637440",
+      "range": {
+        "startLine": 8,
+        "startChar": 9,
+        "endLine": 8,
+        "endChar": 31
+      },
+      "revId": "96b06fd85947eabc56e19de24f333c7ba54cfdc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "479c3efc_46c32ce8",
         "filename": "private/usbd.te",
         "patchSetId": 1
