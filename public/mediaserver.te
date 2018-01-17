@@ -28,6 +28,7 @@ binder_call(mediaserver, binderservicedomain)
 binder_call(mediaserver, appdomain)
 binder_service(mediaserver)
 
+allow mediaserver activity_service:service_manager find;
 allow mediaserver media_data_file:dir create_dir_perms;
 allow mediaserver media_data_file:file create_file_perms;
 allow mediaserver app_data_file:dir search;
@@ -73,7 +74,6 @@ unix_socket_connect(mediaserver, drmserver, drmserver)
 unix_socket_connect(mediaserver, bluetooth, bluetooth)
 
 add_service(mediaserver, mediaserver_service)
-allow mediaserver activity_service:service_manager find;
 allow mediaserver appops_service:service_manager find;
 allow mediaserver audioserver_service:service_manager find;
 allow mediaserver cameraserver_service:service_manager find;
