@@ -1,0 +1,5 @@
+# HwBinder IPC from client to server
+binder_call(hal_input_classifier_client, hal_input_classifier_server)
+
+add_hwservice(hal_input_classifier_server, hal_input_classifier_hwservice)
+allow hal_input_classifier_client hal_input_classifier_hwservice:hwservice_manager find;
