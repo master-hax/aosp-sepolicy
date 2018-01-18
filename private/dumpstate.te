@@ -24,8 +24,8 @@ userdebug_or_eng(`
   allow dumpstate wm_trace_data_file:file r_file_perms;
 ')
 
-# Allow dumpstate to make binder calls to storaged service
-binder_call(dumpstate, storaged)
+# Allow dumpstate to make binder calls to storaged, statsd service
+binder_call(dumpstate, { storaged statsd })
 
 # Collect metrics on boot time created by init
 get_prop(dumpstate, boottime_prop)
