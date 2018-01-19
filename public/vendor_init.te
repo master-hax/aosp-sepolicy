@@ -171,6 +171,9 @@ allow vendor_init {
   -proc_uid_time_in_state
   -proc_uid_concurrent_active_time
   -proc_uid_concurrent_policy_time
+  -proc_time_in_state
+  -proc_concurrent_active_time
+  -proc_concurrent_policy_time
 }:file { open read setattr };
 
 allow vendor_init {
@@ -181,6 +184,9 @@ allow vendor_init {
   -proc_uid_time_in_state
   -proc_uid_concurrent_active_time
   -proc_uid_concurrent_policy_time
+  -proc_time_in_state
+  -proc_concurrent_active_time
+  -proc_concurrent_policy_time
 }:dir  { open read setattr search };
 
 # chown/chmod on devices, e.g. /dev/ttyHS0
