@@ -1,0 +1,6 @@
+# HwBinder IPC from clients into server, and callbacks
+binder_call(hal_radio_config_client, hal_radio_config_server)
+binder_call(hal_radio_config_server, hal_radio_config_client)
+
+add_hwservice(hal_radio_config_server, hal_radio_config_hwservice)
+allow hal_radio_config_client hal_radio_config_hwservice:hwservice_manager find;
