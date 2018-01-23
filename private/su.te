@@ -20,4 +20,7 @@ userdebug_or_eng(`
   permissive su;
 
   app_domain(su)
+
+  # For SysV shm to work
+  allow { domain -recovery_refresh -recovery_persist -logpersist -logd } su_tmpfs:file { read write };
 ')

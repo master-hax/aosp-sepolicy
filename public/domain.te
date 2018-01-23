@@ -49,6 +49,12 @@ userdebug_or_eng(`
   # Allow writing coredumps to /cores/*
   allow domain coredump_file:file create_file_perms;
   allow domain coredump_file:dir ra_dir_perms;
+
+  # So everyone can log to /dev/kmsg_debug in non user build
+  allow domain kmsg_debug_device:chr_file { open append };
+
+  # So everyone can log using SYSV shared memory
+  allow domain { init su }:shm { associate read write unix_read unix_write };
 ')
 
 # Root fs.
@@ -1057,7 +1063,7 @@ neverallow { domain -dumpstate -system_server } tombstoned_intercept_socket:unix
 # that, even assuming only non-buggy and non-malicious code, it is very likely
 # that over time, the kernel global tables used to implement SysV IPCs will fill
 # up.
-neverallow * *:{ shm sem msg msgq } *;
+neverallow * *:{ sem msg msgq } *;
 
 # Do not mount on top of symlinks, fifos, or sockets.
 # Feature parity with Chromium LSM.
