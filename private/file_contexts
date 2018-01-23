@@ -38,6 +38,7 @@
 /sdcard             u:object_r:rootfs:s0
 
 # SELinux policy files
+/vendor_file_contexts   u:object_r:file_contexts_file:s0
 /nonplat_file_contexts  u:object_r:file_contexts_file:s0
 /plat_file_contexts     u:object_r:file_contexts_file:s0
 /mapping_sepolicy\.cil   u:object_r:sepolicy_file:s0
@@ -45,14 +46,20 @@
 /plat_sepolicy\.cil      u:object_r:sepolicy_file:s0
 /plat_property_contexts  u:object_r:property_contexts_file:s0
 /nonplat_property_contexts  u:object_r:property_contexts_file:s0
+/vendor_property_contexts   u:object_r:property_contexts_file:s0
 /seapp_contexts     u:object_r:seapp_contexts_file:s0
 /nonplat_seapp_contexts     u:object_r:seapp_contexts_file:s0
+/vendor_seapp_contexts      u:object_r:seapp_contexts_file:s0
 /plat_seapp_contexts     u:object_r:seapp_contexts_file:s0
 /sepolicy           u:object_r:sepolicy_file:s0
 /plat_service_contexts   u:object_r:service_contexts_file:s0
 /plat_hwservice_contexts   u:object_r:hwservice_contexts_file:s0
 /nonplat_service_contexts   u:object_r:nonplat_service_contexts_file:s0
+# Use nonplat_service_contexts_file to allow servicemanager to read it
+# on non full-treble devices.
+/vendor_service_contexts    u:object_r:nonplat_service_contexts_file:s0
 /nonplat_hwservice_contexts   u:object_r:hwservice_contexts_file:s0
+/vendor_hwservice_contexts    u:object_r:hwservice_contexts_file:s0
 /vndservice_contexts   u:object_r:vndservice_contexts_file:s0
 
 ##########################
@@ -166,6 +173,7 @@
 /dev/uio[0-9]*		u:object_r:uio_device:s0
 /dev/urandom		u:object_r:random_device:s0
 /dev/usb_accessory	u:object_r:usbaccessory_device:s0
+/dev/v4l-touch[0-9]*	u:object_r:input_device:s0
 /dev/vcs[0-9a-z]*	u:object_r:vcs_device:s0
 /dev/video[0-9]*	u:object_r:video_device:s0
 /dev/vndbinder		u:object_r:vndbinder_device:s0
@@ -179,6 +187,7 @@
 #
 /system(/.*)?		u:object_r:system_file:s0
 /system/bin/atrace	u:object_r:atrace_exec:s0
+/system/bin/blank_screen	u:object_r:blank_screen_exec:s0
 /system/bin/e2fsdroid		u:object_r:e2fs_exec:s0
 /system/bin/mke2fs		u:object_r:e2fs_exec:s0
 /system/bin/e2fsck	--	u:object_r:fsck_exec:s0
@@ -206,6 +215,7 @@
 /system/bin/dumpstate   u:object_r:dumpstate_exec:s0
 /system/bin/incident   u:object_r:incident_exec:s0
 /system/bin/incidentd   u:object_r:incidentd_exec:s0
+/system/bin/incident_helper  u:object_r:incident_helper_exec:s0
 /system/bin/netutils-wrapper-1\.0    u:object_r:netutils_wrapper_exec:s0
 /system/bin/vold	u:object_r:vold_exec:s0
 /system/bin/netd	u:object_r:netd_exec:s0
@@ -243,6 +253,7 @@
 /system/bin/usbd   u:object_r:usbd_exec:s0
 /system/bin/inputflinger u:object_r:inputflinger_exec:s0
 /system/bin/logd        u:object_r:logd_exec:s0
+/system/bin/perfetto        u:object_r:perfetto_exec:s0
 /system/bin/traced        u:object_r:traced_exec:s0
 /system/bin/traced_probes        u:object_r:traced_probes_exec:s0
 /system/bin/uncrypt     u:object_r:uncrypt_exec:s0
@@ -322,6 +333,11 @@
 
 
 #############################
+# Product files
+#
+/(product|system/product)(/.*)?               u:object_r:system_file:s0
+
+#############################
 # Data files
 #
 # NOTE: When modifying existing label rules, changes may also need to
@@ -349,6 +365,7 @@
 /data/tombstones(/.*)?	u:object_r:tombstone_data_file:s0
 /data/vendor/tombstones/wifi(/.*)? u:object_r:tombstone_wifi_data_file:s0
 /data/local/tmp(/.*)?	u:object_r:shell_data_file:s0
+/data/local/traces(/.*)?	u:object_r:trace_data_file:s0
 /data/media(/.*)?	u:object_r:media_rw_data_file:s0
 /data/mediadrm(/.*)?	u:object_r:media_data_file:s0
 /data/nativetest(/.*)?	u:object_r:nativetest_data_file:s0
@@ -382,6 +399,7 @@
 /data/misc/media(/.*)?          u:object_r:media_data_file:s0
 /data/misc/net(/.*)?            u:object_r:net_data_file:s0
 /data/misc/network_watchlist(/.*)? u:object_r:network_watchlist_data_file:s0
+/data/misc/perfetto-traces(/.*)? u:object_r:perfetto_traces_data_file:s0
 /data/misc/recovery(/.*)?       u:object_r:recovery_data_file:s0
 /data/misc/shared_relro(/.*)?   u:object_r:shared_relro_file:s0
 /data/misc/sms(/.*)?            u:object_r:radio_data_file:s0

@@ -135,6 +135,7 @@ allow system_server proc_sysrq:file rw_file_perms;
 
 # Read /sys/kernel/debug/wakeup_sources.
 allow system_server debugfs:file r_file_perms;
+allow system_server debugfs_wakeup_sources:file r_file_perms;
 
 # The DhcpClient and WifiWatchdog use packet_sockets
 allow system_server self:packet_socket create_socket_perms_no_ioctl;
@@ -238,6 +239,7 @@ allow system_server {
   mediaserver
   mediametrics
   sdcardd
+  statsd
   surfaceflinger
 
   # This list comes from HAL_INTERFACES_OF_INTEREST in
@@ -368,6 +370,11 @@ allow system_server dumpstate:fifo_file append;
 # Read /data/misc/incidents - only read. The fd will be sent over binder,
 # with no DAC access to it, for dropbox to read.
 allow system_server incident_data_file:file read;
+
+# Allow dropbox to read /data/misc/perfetto-traces. Only the fd is sent over
+# binder.
+allow system_server perfetto_traces_data_file:file read;
+allow system_server perfetto:fd use;
 
 # Manage /data/backup.
 allow system_server backup_data_file:dir create_dir_perms;
@@ -717,6 +724,7 @@ allow system_server {
 }:file r_file_perms;
 
 allow system_server proc_uid_time_in_state:dir r_dir_perms;
+allow system_server proc_uid_cpupower:file r_file_perms;
 
 r_dir_file(system_server, rootfs)
 
@@ -744,6 +752,11 @@ allow system_server netd:bpf { map_read map_write };
 # to privileged apps which acquire the permissions to inspect the profiles.
 allow system_server user_profile_data_file:dir { search };
 allow system_server user_profile_data_file:file { getattr open read };
+
+userdebug_or_eng(`
+  # Allow system server to notify mediaextractor of the plugin update.
+  allow system_server mediaextractor_update_service:service_manager find;
+')
 
 ###
 ### Neverallow rules
@@ -813,4 +826,3 @@ neverallow system_server { domain -system_server }:process ptrace;
 # CAP_SYS_RESOURCE was traditionally needed for sensitive /proc/PID
 # file read access. However, that is now unnecessary (b/34951864)
 neverallow system_server system_server:global_capability_class_set sys_resource;
-

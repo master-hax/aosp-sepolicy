@@ -11,7 +11,7 @@ allow vold cache_file:lnk_file r_file_perms;
 r_dir_file(vold, proc_net)
 r_dir_file(vold, sysfs_type)
 # XXX Label sysfs files with a specific type?
-allow vold sysfs:file w_file_perms;
+allow vold sysfs:file w_file_perms; # writing to /sys/*/uevent during coldboot.
 allow vold sysfs_dm:file w_file_perms;
 allow vold sysfs_usb:file w_file_perms;
 allow vold sysfs_zram_uevent:file w_file_perms;
@@ -88,9 +88,6 @@ allow vold domain:dir r_dir_perms;
 allow vold domain:{ file lnk_file } r_file_perms;
 allow vold domain:process { signal sigkill };
 allow vold self:global_capability_class_set { sys_ptrace kill };
-
-# XXX Label sysfs files with a specific type?
-allow vold sysfs:file rw_file_perms;
 
 allow vold kmsg_device:chr_file rw_file_perms;
 
@@ -175,6 +172,10 @@ allow vold proc_drop_caches:file w_file_perms;
 allow vold vold_data_file:dir create_dir_perms;
 allow vold vold_data_file:file create_file_perms;
 
+# And a similar place in the metadata partition
+allow vold vold_metadata_file:dir create_dir_perms;
+allow vold vold_metadata_file:file create_file_perms;
+
 # linux keyring configuration
 allow vold init:key { write search setattr };
 allow vold vold:key { write search setattr };
@@ -201,10 +202,48 @@ allow vold user_profile_data_file:dir create_dir_perms;
 # Raw writes to misc block device
 allow vold misc_block_device:blk_file w_file_perms;
 
-neverallow { domain -vold -vold_prepare_subdirs } vold_data_file:dir ~{ open create read getattr setattr search relabelto ioctl };
-neverallow { domain -vold -vold_prepare_subdirs -kernel } vold_data_file:notdevfile_class_set ~{ relabelto getattr };
-neverallow { domain -vold -init -vold_prepare_subdirs } vold_data_file:dir *;
-neverallow { domain -vold -init -vold_prepare_subdirs -kernel } vold_data_file:notdevfile_class_set *;
+neverallow {
+    domain
+    -vold
+    -vold_prepare_subdirs
+} vold_data_file:dir ~{ open create read getattr setattr search relabelto ioctl };
+
+neverallow {
+    domain
+    -init
+    -vold
+    -vold_prepare_subdirs
+} vold_data_file:dir *;
+
+neverallow {
+    domain
+    -init
+    -vendor_init
+    -vold
+} vold_metadata_file:dir *;
+
+neverallow {
+    domain
+    -kernel
+    -vold
+    -vold_prepare_subdirs
+} vold_data_file:notdevfile_class_set ~{ relabelto getattr };
+
+neverallow {
+    domain
+    -init
+    -vold
+    -vold_prepare_subdirs
+} vold_metadata_file:notdevfile_class_set ~{ relabelto getattr };
+
+neverallow {
+    domain
+    -init
+    -kernel
+    -vold
+    -vold_prepare_subdirs
+} { vold_data_file vold_metadata_file }:notdevfile_class_set *;
+
 neverallow { domain -vold -init } restorecon_prop:property_service set;
 
 # Only system_server and vdc can interact with vold over binder

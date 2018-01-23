@@ -183,6 +183,7 @@ neverallow all_untrusted_apps {
   hal_bluetooth_hwservice
   hal_bootctl_hwservice
   hal_camera_hwservice
+  hal_confirmationui_hwservice
   hal_contexthub_hwservice
   hal_drm_hwservice
   hal_dumpstate_hwservice
@@ -198,6 +199,7 @@ neverallow all_untrusted_apps {
   hal_nfc_hwservice
   hal_oemlock_hwservice
   hal_power_hwservice
+  hal_secure_element_hwservice
   hal_sensors_hwservice
   hal_telephony_hwservice
   hal_thermal_hwservice
@@ -243,3 +245,6 @@ full_treble_only(`
     -untrusted_app_visible_halserver
   }:binder { call transfer };
 ')
+
+# Untrusted apps are not allowed to find mediaextractor update service.
+neverallow all_untrusted_apps mediaextractor_update_service:service_manager find;

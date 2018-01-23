@@ -5,6 +5,9 @@
 (typeattributeset new_objects
   ( adbd_exec
     bootloader_boot_reason_prop
+    blank_screen
+    blank_screen_exec
+    blank_screen_tmpfs
     bpfloader
     bpfloader_exec
     broadcastradio_service
@@ -34,11 +37,15 @@
     fs_bpf
     hal_broadcastradio_hwservice
     hal_cas_hwservice
+    hal_confirmationui_hwservice
     hal_lowpan_hwservice
     hal_neuralnetworks_hwservice
+    hal_secure_element_hwservice
     hal_tetheroffload_hwservice
     hal_usb_gadget_hwservice
     hal_wifi_offload_hwservice
+    incident_helper
+    incident_helper_exec
     kmsg_debug_device
     last_boot_reason_prop
     mediaprovider_tmpfs
@@ -47,13 +54,21 @@
     lowpan_device
     lowpan_prop
     lowpan_service
+    mediaextractor_update_service
     mediaprovider_tmpfs
     netd_stable_secret_prop
     network_watchlist_data_file
     network_watchlist_service
     package_native_service
+    perfetto
+    perfetto_exec
+    perfetto_tmpfs
+    perfetto_traces_data_file
     perfprofd_service
     property_info
+    secure_element
+    secure_element_tmpfs
+    secure_element_service
     slice_service
     stats
     stats_data_file
@@ -76,6 +91,7 @@
     timezone_service
     tombstoned_java_trace_socket
     tombstone_wifi_data_file
+    trace_data_file
     traceur_app
     traceur_app_tmpfs
     traced
@@ -93,6 +109,7 @@
     usbd_tmpfs
     vendor_init
     vendor_shell
+    vold_metadata_file
     vold_prepare_subdirs
     vold_prepare_subdirs_exec
     vold_service
