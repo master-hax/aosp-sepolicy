@@ -22,6 +22,30 @@
       "revId": "3f75f05e6a7d629154e26a3d1577771442241564",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c905623_123ffb97",
+        "filename": "private/hwservice_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-24T19:16:52Z",
+      "side": 1,
+      "message": "That is, it could literally say:\nandroid.hardware.radio.config::IRadioConfig  u:object_r:hal_telephony_hwservice:s0\n\nNo need to introduce and differentiate a new type. Especially since hal_radio_config_hwservice needs to talk to the modem, and you can\u0027t guarantee all the required permissions are getting handed to it. It just happens that that process is also getting a bunch of other permissions because it\u0027s also tagged as hal_telephony_hwservice.",
+      "parentUuid": "34549a72_10dc52fe",
+      "range": {
+        "startLine": 35,
+        "startChar": 64,
+        "endLine": 35,
+        "endChar": 104
+      },
+      "revId": "3f75f05e6a7d629154e26a3d1577771442241564",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
