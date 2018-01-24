@@ -287,6 +287,7 @@ allow init {
   proc_extra_free_kbytes
   proc_net
   proc_max_map_count
+  proc_min_free_order_shift
   proc_overcommit_memory
   proc_panic
   proc_page_cluster
@@ -446,9 +447,6 @@ allow init init:key { write search setattr };
 
 # Allow init to create /data/unencrypted
 allow init unencrypted_data_file:dir create_dir_perms;
-
-# Allow init to write to /proc/sys/vm/overcommit_memory
-allow init proc_overcommit_memory:file { write };
 
 unix_socket_connect(init, vold, vold)
 
