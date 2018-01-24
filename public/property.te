@@ -129,30 +129,11 @@ compatible_property_only(`
     exported_dumpstate_prop
     exported_ffs_prop
     exported_fingerprint_prop
-    exported_radio_prop
     exported_system_prop
     exported_system_radio_prop
     exported_vold_prop
     exported2_config_prop
     exported2_default_prop
-    exported2_radio_prop
-    exported2_system_prop
-    exported2_vold_prop
-    exported3_default_prop
-    exported3_system_prop
-  }:file no_w_file_perms;
-
-  neverallow {
-    domain
-    -coredomain
-    -appdomain
-    -vendor_init
-  } {
-    core_property_type
-    exported_dalvik_prop
-    exported_ffs_prop
-    exported_system_radio_prop
-    exported2_config_prop
     exported2_system_prop
     exported2_vold_prop
     exported3_default_prop
@@ -163,5 +144,17 @@ compatible_property_only(`
     -nfc_prop
     -powerctl_prop
     -radio_prop
-  }:file no_rw_file_perms;
+  }:property_service set;
+
+  neverallow {
+    domain
+    -coredomain
+    -appdomain
+    -rild
+    -vendor_init
+  } {
+    exported_radio_prop
+    exported2_radio_prop
+    radio_prop
+  }:property_service set;
 ')
