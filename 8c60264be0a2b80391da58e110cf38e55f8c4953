@@ -175,6 +175,30 @@
       "revId": "8c60264be0a2b80391da58e110cf38e55f8c4953",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0f39614_532e3a82",
+        "filename": "private/perfetto.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-25T22:35:11Z",
+      "side": 1,
+      "message": "\u003e We really discourage the use of hard links. They have some very unfortunate (un)security properties.\n\u003e \n\u003e https://b.corp.google.com/issues/19953790 has some background\n\u003e TL;DR: On most Linux systems, hardlinks work across UIDs, even if the underlying resource \n\nAs we discussed offline given that\n1) this is a trusted non updatable app (b/19953790 is about a malicious app making use of hardlinks)\n2) we have selinux acls only to write into our own directory\n3) the alternative for us is to crate the file and keep it linked\n\nI think pragmatically we are just exposing the platform to the risk of leaking files around in the case of a crash. I was just trying to follow best practices (see O_TMPFILE in man 2 open)\n\nBut it seems that it seems preferable to you. I don\u0027t agree (in the sense that IMO, in terms of risk assessment, the risk of leaking files by crashing is more concrete than the security risk of using link in our directory, especially given that I couldn\u0027t find a concrete example on how it could be misused) but I am not going to argue.\nRemoved \"link\", will fall back on creating linked files.",
+      "parentUuid": "08ce63aa_03c8113a",
+      "range": {
+        "startLine": 17,
+        "startChar": 66,
+        "endLine": 17,
+        "endChar": 70
+      },
+      "revId": "8c60264be0a2b80391da58e110cf38e55f8c4953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
