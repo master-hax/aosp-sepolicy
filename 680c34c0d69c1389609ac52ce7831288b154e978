@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "79e48ec0_ea143cc5",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2018-01-25T18:40:33Z",
+      "side": 1,
+      "message": "I was just copying it from the read list.  Doesn\u0027t need to be, so removed.",
+      "parentUuid": "4650f6bb_a9fb84db",
+      "range": {
+        "startLine": 142,
+        "startChar": 5,
+        "endLine": 142,
+        "endChar": 15
+      },
+      "revId": "680c34c0d69c1389609ac52ce7831288b154e978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86a49294_13724a4b",
         "filename": "public/property.te",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "680c34c0d69c1389609ac52ce7831288b154e978",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cecbc71a_51fc817d",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2018-01-25T18:40:33Z",
+      "side": 1,
+      "message": "Same",
+      "parentUuid": "86a49294_13724a4b",
+      "range": {
+        "startLine": 144,
+        "startChar": 5,
+        "endLine": 144,
+        "endChar": 14
+      },
+      "revId": "680c34c0d69c1389609ac52ce7831288b154e978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -113,6 +161,24 @@
       "side": 1,
       "message": "RILD is a HAL.",
       "parentUuid": "168f1362_df069375",
+      "revId": "680c34c0d69c1389609ac52ce7831288b154e978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e4e18d1_60f44fcd",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2018-01-25T18:40:33Z",
+      "side": 1,
+      "message": "Okay, makes sense.  I did the same with hal_nfc.  \n\nThe powerctl proper is breaking due to thermal-engine which isn\u0027t a platform component so I didn\u0027t add the extra neverallow for it here.  jaekyun@ - shouldn\u0027t powerctl be an exported platform prop?  That\u0027s the communication mechanism to get the system to reboot; vendor components need to access it if they plan to reboot the system.",
+      "parentUuid": "345f8fe1_9b9546aa",
       "revId": "680c34c0d69c1389609ac52ce7831288b154e978",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
