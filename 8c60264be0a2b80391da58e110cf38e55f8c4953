@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "f10dd4f9_f0a55179",
+        "filename": "private/init.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-25T17:55:20Z",
+      "side": 1,
+      "message": "Hmm no you are right. I think I saw some denials before I realized I could have init doing this for me, and moved blidnly the line without re-checking.\nRemoved.",
+      "parentUuid": "3209d5f0_2fc9bfbe",
+      "revId": "8c60264be0a2b80391da58e110cf38e55f8c4953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f4749622_35787b21",
         "filename": "private/perfetto.te",
         "patchSetId": 3
@@ -65,6 +83,30 @@
     },
     {
       "key": {
+        "uuid": "06f2f43f_a2e5e218",
+        "filename": "private/perfetto.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-25T17:55:20Z",
+      "side": 1,
+      "message": "ah thanks, removed.",
+      "parentUuid": "f4749622_35787b21",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "8c60264be0a2b80391da58e110cf38e55f8c4953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "306f4988_40f572b2",
         "filename": "private/perfetto.te",
         "patchSetId": 3
@@ -76,6 +118,30 @@
       "writtenOn": "2018-01-25T16:58:49Z",
       "side": 1,
       "message": "why are you using hard links?",
+      "range": {
+        "startLine": 17,
+        "startChar": 66,
+        "endLine": 17,
+        "endChar": 70
+      },
+      "revId": "8c60264be0a2b80391da58e110cf38e55f8c4953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffaab6d6_59ee69dc",
+        "filename": "private/perfetto.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-01-25T17:55:20Z",
+      "side": 1,
+      "message": "What we are really doing is creating files in unlinked mode with open(O_TEMPFILE) and then linking them to the filesystem (with linkat()) only for the time necessary to pass the file to dropbox.\nin other words the code looks like:\n\n- fd \u003d open(...O_TEMPFILE)\n- start_trace_into(fd)\n- OnTraceDone():\n  linkat(fd, fname)\n  Dropbox::TakeFile(fname)\n  unlink(fname)\n\n(The real code is: https://android.googlesource.com/platform/external/perfetto/+/master/src/traced/perfetto_cmd/perfetto_cmd.cc#285) \n\nThis is to reduce the window when the file is linked on the filesystem to the narrowest as possible, so that if we crash we don\u0027t leave files around in the filesystem.\n\nTo be fully honest, this is mainly a limitation of the dropbox C++ API, that takes only a file by name, to just open() it and pass to the binder transaction as a FD and immediately close it.",
+      "parentUuid": "306f4988_40f572b2",
       "range": {
         "startLine": 17,
         "startChar": 66,
