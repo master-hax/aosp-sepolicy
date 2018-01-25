@@ -151,6 +151,30 @@
       "revId": "8c60264be0a2b80391da58e110cf38e55f8c4953",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08ce63aa_03c8113a",
+        "filename": "private/perfetto.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-01-25T21:51:19Z",
+      "side": 1,
+      "message": "We really discourage the use of hard links. They have some very unfortunate (un)security properties.\n\nhttps://b.corp.google.com/issues/19953790 has some background\nTL;DR: On most Linux systems, hardlinks work across UIDs, even if the underlying resource isn\u0027t readable to the other UID.\nSo I can hardlink your files, even if I can\u0027t read them. When your process is kill, the space is still allocated because I have a reference to the file.",
+      "parentUuid": "ffaab6d6_59ee69dc",
+      "range": {
+        "startLine": 17,
+        "startChar": 66,
+        "endLine": 17,
+        "endChar": 70
+      },
+      "revId": "8c60264be0a2b80391da58e110cf38e55f8c4953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
