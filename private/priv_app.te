@@ -25,6 +25,7 @@ allow priv_app app_api_service:service_manager find;
 allow priv_app audioserver_service:service_manager find;
 allow priv_app cameraserver_service:service_manager find;
 allow priv_app drmserver_service:service_manager find;
+allow priv_app incident_service:service_manager find;
 allow priv_app mediacodec_service:service_manager find;
 allow priv_app mediadrmserver_service:service_manager find;
 allow priv_app mediaextractor_service:service_manager find;
@@ -110,6 +111,9 @@ allow priv_app system_update_service:service_manager find;
 
 # Allow GMS core to communicate with statsd.
 binder_call(priv_app, statsd)
+
+# Allow GMS core to communicate with incidentd.
+binder_call(priv_app, incidentd)
 
 # Allow Phone to read/write cached ringtones (opened by system).
 allow priv_app ringtone_file:file { getattr read write };
