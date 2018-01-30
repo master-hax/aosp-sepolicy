@@ -144,15 +144,16 @@ compatible_property_only(`
     -radio_prop
   }:property_service set;
 
-  neverallow {
-    domain
-    -coredomain
-    -appdomain
-    -hal_nfc
-    -vendor_init
-  } {
-    nfc_prop
-  }:property_service set;
+# TODO(b/72678352): Revive after sepolicy-analyze is fixed to recognize expandable attributes.
+#  neverallow {
+#    domain
+#    -coredomain
+#    -appdomain
+#    -hal_nfc
+#    -vendor_init
+#  } {
+#    nfc_prop
+#  }:property_service set;
 
   neverallow {
     domain
