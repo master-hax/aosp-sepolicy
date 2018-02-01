@@ -200,8 +200,8 @@ allow vold misc_block_device:blk_file w_file_perms;
 
 neverallow { domain -vold -vold_prepare_subdirs } vold_data_file:dir ~{ open create read getattr setattr search relabelto ioctl };
 neverallow { domain -vold -vold_prepare_subdirs -kernel } vold_data_file:notdevfile_class_set ~{ relabelto getattr };
-neverallow { domain -vold -init -vold_prepare_subdirs } vold_data_file:dir *;
-neverallow { domain -vold -init -vold_prepare_subdirs -kernel } vold_data_file:notdevfile_class_set *;
+neverallow { domain -vold -vold_prepare_subdirs -init -vendor_init } vold_data_file:dir *;
+neverallow { domain -vold -vold_prepare_subdirs -init -kernel } vold_data_file:notdevfile_class_set *;
 neverallow { domain -vold -init } restorecon_prop:property_service set;
 
 # Only system_server and vdc can interact with vold over binder

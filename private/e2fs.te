@@ -1,3 +1,5 @@
-allow e2fs devpts:chr_file { read write };
+allow e2fs devpts:chr_file { read write getattr ioctl };
 allow e2fs metadata_block_device:blk_file rw_file_perms;
+allow e2fs dev_type:blk_file getattr;
+allow e2fs sysfs_fs_ext4_features:dir search;
 
