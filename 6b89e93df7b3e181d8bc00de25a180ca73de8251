@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "96078c9d_b63447ad",
+        "filename": "private/shell.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2018-02-02T23:34:26Z",
+      "side": 1,
+      "message": "Ah, yep, will move it out of the userdebug section. Nice catch.",
+      "parentUuid": "d2931846_c5b78009",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 52
+      },
+      "revId": "6b89e93df7b3e181d8bc00de25a180ca73de8251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0e2c0384_2262be8d",
         "filename": "private/shell.te",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-02T22:51:26Z",
       "side": 1,
       "message": "? why is this part of your change?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 40
+      },
+      "revId": "6b89e93df7b3e181d8bc00de25a180ca73de8251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b38a804c_d146ac64",
+        "filename": "private/shell.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2018-02-02T23:34:26Z",
+      "side": 1,
+      "message": "This is just a slight move - I moved this from in the middle of the \"systrace support\" section to below it so that it was easier to visually parse the debugfs_tracing_* stuff. Happy to move back if you feel like it\u0027s unnecessary churn.",
+      "parentUuid": "0e2c0384_2262be8d",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c0ce46ab_ee64d1ea",
+        "filename": "private/traceur_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2018-02-02T23:34:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "36b0a775_133f1f7c",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "6b89e93df7b3e181d8bc00de25a180ca73de8251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff7d0051_66fbd018",
         "filename": "private/traceur_app.te",
         "patchSetId": 6
@@ -82,6 +154,24 @@
       "writtenOn": "2018-02-02T22:51:26Z",
       "side": 1,
       "message": "should we add this to atrace to clean up the logs? (doesn\u0027t need to be part of this change).",
+      "revId": "6b89e93df7b3e181d8bc00de25a180ca73de8251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad829296_3d7e6b27",
+        "filename": "private/traceur_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2018-02-02T23:34:26Z",
+      "side": 1,
+      "message": "Ooh probably, I think I did notice it blowing up the logs when I tried to atrace on a user build. I\u0027ll do it in a subsequent change.",
+      "parentUuid": "ff7d0051_66fbd018",
       "revId": "6b89e93df7b3e181d8bc00de25a180ca73de8251",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
