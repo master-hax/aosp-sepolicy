@@ -26,6 +26,10 @@ PLATFORM_SEPOLICY_VERSION := $(join $(addsuffix .,$(sepolicy_major_vers)), $(sep
 sepolicy_major_vers :=
 sepolicy_minor_vers :=
 
+PLATFORM_SEPOLICY_COMPAT_VERSIONS := \
+	26.0 \
+	27.0
+
 include $(CLEAR_VARS)
 # SELinux policy version.
 # Must be <= /sys/fs/selinux/policyvers reported by the Android kernel.
