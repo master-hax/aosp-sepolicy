@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7fa88d24_e3c7e0e1",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-02-12T18:50:30Z",
+      "side": 1,
+      "message": "Is there a rationale for that? They don\u0027t disclose any more information than what /trace (two lines above) does, they just present the same data in a binary format avoiding to request  the kernel to printf",
+      "parentUuid": "1906e375_a4c6ec92",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 84
+      },
+      "revId": "c5393a2e729a90f5d7be1f4ef73ec22156ca3259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e8c0fee_774a78a8",
         "filename": "private/genfs_contexts",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-12T18:06:24Z",
       "side": 1,
       "message": "seems like we should switch all of these to prefix matching:\ni.e.:\n\t\ngenfscon tracefs /events/sched/sched_switch/                       u:object_r:debugfs_tracing:s0\n\nWhich covers both \"enable\" and \"format\". Looking though these files, I didn\u0027t see anything sensitive in the \"filter\", \"id\", or \"trigger\" files that would additionally be included.",
+      "range": {
+        "startLine": 229,
+        "startChar": 17,
+        "endLine": 229,
+        "endChar": 44
+      },
+      "revId": "c5393a2e729a90f5d7be1f4ef73ec22156ca3259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "451c9cb3_d9c03e6c",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-02-12T18:50:30Z",
+      "side": 1,
+      "message": "Oh that SGTM. \n\n\u003e , I didn\u0027t see anything sensitive in the \"filter\", \"id\", or \"trigger\" files that would additionally be included.\nAgree. I did this just because usually the feedback I get is \"allow strictly what you need\". But I agree with you that this makes this file just harder to maintain with no good reasons.",
+      "parentUuid": "3e8c0fee_774a78a8",
       "range": {
         "startLine": 229,
         "startChar": 17,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b735e81b_0ef0e036",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-02-12T18:50:30Z",
+      "side": 1,
+      "message": "Ah I missed that cgroup/ has subdirectories.\nMind if, according to the same pattern, I just whitelist /cgroup ?",
+      "parentUuid": "7aa15bd6_cebdd0e9",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 102
+      },
+      "revId": "c5393a2e729a90f5d7be1f4ef73ec22156ca3259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bf196628_754a7285",
         "filename": "private/genfs_contexts",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f8ac47ca_b6ad7381",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-02-12T18:50:30Z",
+      "side": 1,
+      "message": "ditto as above.",
+      "parentUuid": "bf196628_754a7285",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 102
+      },
+      "revId": "c5393a2e729a90f5d7be1f4ef73ec22156ca3259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c9730989_34a81069",
         "filename": "private/genfs_contexts",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2018-02-12T18:06:24Z",
       "side": 1,
       "message": "does not exist",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 102
+      },
+      "revId": "c5393a2e729a90f5d7be1f4ef73ec22156ca3259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "360f021f_f5e2cfd9",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-02-12T18:50:30Z",
+      "side": 1,
+      "message": "ditto. mind if I whitelist the full dir rather than listing the sub-events?",
+      "parentUuid": "c9730989_34a81069",
       "range": {
         "startLine": 267,
         "startChar": 0,
