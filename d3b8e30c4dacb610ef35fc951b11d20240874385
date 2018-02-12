@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "85bd0fdc_1212b5bf",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2018-02-12T23:07:12Z",
+      "side": 1,
+      "message": "Because it\u0027s now a child of the zygote. Before the process hierarchy was:\n\ninit \u003e webview_zygote \u003e isolated_app\n\nNow it\u0027ll be\n\ninit \u003e zygote \u003e webview_zygote \u003e isolated_app\n\nAnd since zygote opens those files for appdomain, I was getting avc errors without these and didn\u0027t think that was a good state to land things in.",
+      "parentUuid": "1cb759a5_7bed8737",
+      "range": {
+        "startLine": 906,
+        "startChar": 9,
+        "endLine": 906,
+        "endChar": 23
+      },
+      "revId": "d3b8e30c4dacb610ef35fc951b11d20240874385",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "87240068_f7be0524",
         "filename": "public/domain.te",
         "patchSetId": 1
