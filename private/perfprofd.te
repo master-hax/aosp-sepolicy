@@ -2,3 +2,7 @@ userdebug_or_eng(`
   typeattribute perfprofd coredomain;
   init_daemon_domain(perfprofd)
 ')
+
+# For collecting bugreports
+allow perfprofd dumpstate:fd use;
+allow perfprofd dumpstate:fifo_file rw_file_perms;

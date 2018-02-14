@@ -126,3 +126,6 @@ neverallow { domain -incidentd -init -vold -system_server } incident_data_file:f
 # limited access to the directory itself
 neverallow { domain -incidentd -init -vold } incident_data_file:dir create_dir_perms;
 
+# For collecting bugreports
+allow incidentd dumpstate:fd use;
+allow incidentd dumpstate:fifo_file write;
