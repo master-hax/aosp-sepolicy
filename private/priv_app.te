@@ -136,11 +136,11 @@ unix_socket_connect(priv_app, traced_producer, traced)
 
 # suppress denials for non-API accesses.
 dontaudit priv_app exec_type:file getattr;
-dontaudit priv_app device:dir read;
-dontaudit priv_app proc:file read;
-dontaudit priv_app proc_interrupts:file read;
-dontaudit priv_app proc_modules:file read;
-dontaudit priv_app proc_stat:file read;
+dontaudit priv_app device:dir { open read };
+dontaudit priv_app proc:file { getattr open read };
+dontaudit priv_app proc_interrupts:file { getattr open read };
+dontaudit priv_app proc_modules:file { getattr open read };
+dontaudit priv_app proc_stat:file { getattr open read };
 dontaudit priv_app proc_version:file read;
 dontaudit priv_app wifi_prop:file read;
 dontaudit priv_app net_dns_prop:file read;
@@ -191,3 +191,6 @@ neverallow priv_app mlstrustedsubject:process fork;
 # bugs, so we want to ensure priv_app never has this
 # capability.
 neverallow priv_app file_type:file link;
+
+# For collecting bugreports
+dontaudit priv_app sysfs:dir { open read };

@@ -58,3 +58,6 @@ dontaudit storaged self:global_capability_class_set dac_override;
 ###
 neverallow storaged domain:process ptrace;
 neverallow storaged self:capability_class_set *;
+
+# For collecting bugreports
+allow storaged dumpstate:fifo_file write;

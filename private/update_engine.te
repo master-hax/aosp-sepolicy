@@ -1,3 +1,7 @@
 typeattribute update_engine coredomain;
 
 init_daemon_domain(update_engine);
+
+# For collecting bugreports
+allow update_engine dumpstate:fd use;
+allow update_engine dumpstate:fifo_file write;
