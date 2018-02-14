@@ -38,3 +38,39 @@ get_prop(dumpstate, boottime_prop)
 allow dumpstate {
   statsd
 }:process signal;
+
+# For collecting bugreports
+allow dumpstate debugfs_wakeup_sources:file r_file_perms;
+# Neverallow violation.
+dontaudit dumpstate sysfs:file r_file_perms;
+allow dumpstate incidentd:binder call;
+# Neverallow violation.
+dontaudit dumpstate perfprofd:binder call;
+allow dumpstate update_engine:binder call;
+allow dumpstate vold:binder call;
+# For kmod="net-pf-16-proto-4-type-2-17"
+dontaudit dumpstate kernel:system module_request;
+
+# For collecting bugreports
+get_prop(dumpstate, bluetooth_prop)
+get_prop(dumpstate, ctl_bootanim_prop)
+get_prop(dumpstate, ctl_bugreport_prop)
+get_prop(dumpstate, ctl_console_prop)
+get_prop(dumpstate, ctl_default_prop)
+get_prop(dumpstate, ctl_dumpstate_prop)
+get_prop(dumpstate, ctl_fuse_prop)
+get_prop(dumpstate, ctl_mdnsd_prop)
+get_prop(dumpstate, ctl_rildaemon_prop)
+# Neverallow violation.
+dontaudit dumpstate firstboot_prop:file { getattr open };
+get_prop(dumpstate, logpersistd_logging_prop)
+get_prop(dumpstate, lowpan_prop)
+get_prop(dumpstate, mmc_prop)
+get_prop(dumpstate, net_dns_prop)
+# Neverallow violation.
+dontaudit dumpstate netd_stable_secret_prop:file { getattr open };
+get_prop(dumpstate, overlay_prop)
+get_prop(dumpstate, persistent_properties_ready_prop)
+get_prop(dumpstate, safemode_prop)
+get_prop(dumpstate, wifi_prop)
+allow dumpstate dev_type:blk_file getattr;
