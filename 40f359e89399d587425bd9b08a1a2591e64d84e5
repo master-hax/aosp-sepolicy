@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80a0acd3_c353ef27",
+        "filename": "private/dumpstate.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-02-16T22:06:37Z",
+      "side": 1,
+      "message": "what file is this accessing? can we relabel and grant?",
+      "range": {
+        "startLine": 45,
+        "startChar": 20,
+        "endLine": 45,
+        "endChar": 30
+      },
+      "revId": "40f359e89399d587425bd9b08a1a2591e64d84e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "263790db_1a6a3b07",
+        "filename": "private/dumpstate.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-02-16T22:06:37Z",
+      "side": 1,
+      "message": "dontaudit",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 5
+      },
+      "revId": "40f359e89399d587425bd9b08a1a2591e64d84e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1077b823_832ea0ad",
+        "filename": "private/dumpstate.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-02-16T22:06:37Z",
+      "side": 1,
+      "message": "dontaudit",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 5
+      },
+      "revId": "40f359e89399d587425bd9b08a1a2591e64d84e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4eb1adb4_acabb5cb",
+        "filename": "private/dumpstate.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-02-16T22:06:37Z",
+      "side": 1,
+      "message": "don\u0027t add these unless they occur in enforcing mode.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 30
+      },
+      "revId": "40f359e89399d587425bd9b08a1a2591e64d84e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28147188_3da72b1e",
+        "filename": "private/installd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-02-16T22:06:37Z",
+      "side": 1,
+      "message": "where is the \"binder call\" permission granted?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 48
+      },
+      "revId": "40f359e89399d587425bd9b08a1a2591e64d84e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d36feb06_c93266cc",
+        "filename": "private/perfprofd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-02-16T22:06:37Z",
+      "side": 1,
+      "message": "you shouldn\u0027t see this in enforcing mode.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 50
+      },
+      "revId": "40f359e89399d587425bd9b08a1a2591e64d84e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cfec50f_c56b972d",
+        "filename": "private/priv_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-02-16T22:06:37Z",
+      "side": 1,
+      "message": "let\u0027s not add this for now.",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 43
+      },
+      "revId": "40f359e89399d587425bd9b08a1a2591e64d84e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cceb1d74_4f05d271",
+        "filename": "private/storaged.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-02-16T22:06:37Z",
+      "side": 1,
+      "message": "allow rules go before neverallow rules.\n\nCan you verify that these occur in enforcing mode?",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 41
+      },
+      "revId": "40f359e89399d587425bd9b08a1a2591e64d84e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d149352_ec6d8b7a",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-02-16T22:06:37Z",
+      "side": 1,
+      "message": "these have a bug number on them right?",
+      "range": {
+        "startLine": 832,
+        "startChar": 0,
+        "endLine": 832,
+        "endChar": 9
+      },
+      "revId": "40f359e89399d587425bd9b08a1a2591e64d84e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "385e9bc9_614b3db1",
+        "filename": "private/update_engine.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-02-16T22:06:37Z",
+      "side": 1,
+      "message": "is the binder call allowed?",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 46
+      },
+      "revId": "40f359e89399d587425bd9b08a1a2591e64d84e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
