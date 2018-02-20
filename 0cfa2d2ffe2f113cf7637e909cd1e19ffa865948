@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4894b0a1_b0adb20f",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-02-20T21:01:41Z",
+      "side": 1,
+      "message": "does this really provide benefits above what\u0027s neverallowed in comment 1174?",
+      "revId": "0cfa2d2ffe2f113cf7637e909cd1e19ffa865948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "384cfbfa_00962877",
+        "filename": "public/kernel.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-02-20T21:01:41Z",
+      "side": 1,
+      "message": "The downside to re-using shell_data_file here is that shell_data_file is write-able to a number of processes, and this creates an unnecessary difference between user and userdebug builds that could potentially break functionality on user builds. That\u0027s why I suggested using a separate type which is only writeable by su, Then you know that it\u0027s only reachable by tests via \"adb root\" on all build variants.",
+      "range": {
+        "startLine": 77,
+        "startChar": 2,
+        "endLine": 77,
+        "endChar": 44
+      },
+      "revId": "0cfa2d2ffe2f113cf7637e909cd1e19ffa865948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
