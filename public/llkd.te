@@ -1,0 +1,29 @@
+# llkd low memory killer daemon
+type llkd, domain, mlstrustedsubject;
+type llkd_exec, exec_type, file_type;
+
+allow llkd self:global_capability_class_set kill;
+
+# llkd locks itself in memory, to prevent it from being
+# swapped out and unable to discover a kernel in live-lock.
+allow llkd self:global_capability_class_set ipc_lock;
+
+# Send kill signals
+allow llkd appdomain:process sigkill;
+
+# live lock watchdog process allowed to look through /proc/
+allow llkd domain:dir r_dir_perms;
+allow llkd domain:file r_file_perms;
+allow llkd domain:lnk_file read;
+# Set /proc/sys/kernel/hung_task_*
+allow llkd proc_hung_task:file rw_file_perms;
+
+# live lock watchdog process allowed to dump process trace and
+# reboot because orderly shutdown may not be possible.
+allow llkd proc_sysrq:file w_file_perms;
+allow llkd kmsg_device:chr_file w_file_perms;
+
+### neverallow rules
+
+# never honor LD_PRELOAD
+neverallow * llkd:process noatsecure;
