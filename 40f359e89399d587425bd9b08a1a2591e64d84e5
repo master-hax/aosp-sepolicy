@@ -188,6 +188,30 @@
     },
     {
       "key": {
+        "uuid": "4c6847c9_1293dbf2",
+        "filename": "private/perfprofd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2018-02-20T15:35:28Z",
+      "side": 1,
+      "message": "Probably because in another part of this CL I have the rule\n\ndontaudit dumpstate perfprofd:binder call;\n\nSince that isn\u0027t allowed, perfprofd won\u0027t get any files from dumpstate to use.\n\nI\u0027m actually going to redo this CL in enforcing mode to get rid of spurious warnings like this.",
+      "parentUuid": "abc1789b_6ef182b5",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 50
+      },
+      "revId": "40f359e89399d587425bd9b08a1a2591e64d84e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9cfec50f_c56b972d",
         "filename": "private/priv_app.te",
         "patchSetId": 2
