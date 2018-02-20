@@ -1180,6 +1180,27 @@ neverallow {
   userdebug_or_eng(`-uncrypt')
 } shell_data_file:file open;
 
+# We only allow specific domains to read shell files in /data/local/tmp.
+# TODO(b/73654859): Reduce the list of exceptions here.
+neverallow {
+  domain
+  -adbd
+  -bluetooth
+  -dumpstate
+  -installd
+  -nfc
+  -platform_app
+  -priv_app
+  -runas
+  -secure_element
+  -shell
+  -system_server
+  -untrusted_app_all
+  userdebug_or_eng(`
+    -kernel
+    -uncrypt
+  ')
+} shell_data_file:file read;
 
 # servicemanager and vndservicemanager are the only processes which handle the
 # service_manager list request
