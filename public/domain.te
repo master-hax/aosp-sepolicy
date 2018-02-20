@@ -1180,6 +1180,12 @@ neverallow {
   userdebug_or_eng(`-uncrypt')
 } shell_data_file:file open;
 
+# The /data/local/tmp/ltp directory is for kernel test files and executables
+# that MUST not be accessible to any domain
+neverallow {
+  domain
+  userdebug_or_eng(`-kernel')
+} kernel_test_data_file:file create_file_perms;
 
 # servicemanager and vndservicemanager are the only processes which handle the
 # service_manager list request
