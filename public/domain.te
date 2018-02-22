@@ -560,6 +560,7 @@ neverallow {
   -system_server
   -shell # Shell is further restricted in shell.te
   -ueventd # Further restricted in ueventd.te
+  -hal_oemlock
 } frp_block_device:blk_file no_rw_file_perms;
 
 # The metadata block device is set aside for device encryption and
