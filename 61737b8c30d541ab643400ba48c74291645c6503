@@ -68,6 +68,30 @@
       "revId": "61737b8c30d541ab643400ba48c74291645c6503",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72b8bd18_bb5884d2",
+        "filename": "public/init.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2018-02-22T00:14:48Z",
+      "side": 1,
+      "message": "init doesn\u0027t wipe the directory at boot as far as I can tell.\n(https://cs.corp.google.com/android/system/core/rootdir/init.rc?rcl\u003d11bd06a6fef88b1baa39453575fcc4935ad2a90d\u0026l\u003d463)\n\nAlso confirmed by the policy, that doesn\u0027t have any rule today to let allow init to delete \"shell_data_file\" today.\n\n$ sesearch --allow -s init -t shell_data_file -c dir,file  out/target/product/sailfish/vendor/etc/selinux/precompiled_sepolicy\n\nallow init shell_data_file:dir { search setattr read create getattr ioctl relabelto open };\nallow init shell_data_file:file { relabelto getattr };\n\n.. Also evident by the fact that \u0027shell_data_file\u0027 (label for /data/local/tmp) also existed in these list of exceptions before I split that label into 2.",
+      "parentUuid": "24e88efe_1d8c4966",
+      "range": {
+        "startLine": 150,
+        "startChar": 3,
+        "endLine": 150,
+        "endChar": 24
+      },
+      "revId": "61737b8c30d541ab643400ba48c74291645c6503",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
