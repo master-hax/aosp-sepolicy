@@ -320,6 +320,10 @@ allow init {
   sysfs_zram
 }:file rw_file_perms;
 
+# Allow init to create & write to vibrator/trigger
+allow init sysfs_vibrator:dir ra_dir_perms;
+allow init sysfs_vibrator:file create_file_perms;
+
 # init chmod/chown access to /sys files.
 allow init {
   sysfs_android_usb
