@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "becccf08_6ed5051e",
+        "filename": "public/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-02-26T17:22:50Z",
+      "side": 1,
+      "message": "selinux contexts are\nuser:role:type:\n\nso the object_r is the role. Ending roles with \"_r\" is a naming convention. See for example: https://wiki.gentoo.org/wiki/SELinux/Tutorials/The_purpose_of_SELinux_roles",
+      "parentUuid": "e66b351c_db43b702",
+      "range": {
+        "startLine": 3,
+        "startChar": 1,
+        "endLine": 6,
+        "endChar": 71
+      },
+      "revId": "c6dc2458c7c2ed31b53f2c81964d498d39529602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c6a9ce31_40c3e4bd",
         "filename": "public/property_contexts",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-26T17:02:49Z",
       "side": 1,
       "message": "I object to anything called \"read only\" being made writable.  Why does the vendor need to write this?",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 14
+      },
+      "revId": "c6dc2458c7c2ed31b53f2c81964d498d39529602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e491205_e6b4d495",
+        "filename": "public/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-02-26T17:22:50Z",
+      "side": 1,
+      "message": "This has always bothered me too. ro properties on Android really mean \"read-only after first set\". That has been the case since Android Cupcake.",
+      "parentUuid": "c6a9ce31_40c3e4bd",
       "range": {
         "startLine": 97,
         "startChar": 0,
