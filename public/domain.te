@@ -1284,12 +1284,11 @@ full_treble_only(`
     coredomain
     -appdomain
     -bootanim
-    -crash_dump
     -init
-    -kernel
-    -perfprofd
     -ueventd
-  } vendor_file:file { no_w_file_perms no_x_file_perms open };
+    -crash_dump
+    -perfprofd
+  } vendor_file:file { create_file_perms x_file_perms };
 ')
 
 # Minimize dac_override and dac_read_search.
