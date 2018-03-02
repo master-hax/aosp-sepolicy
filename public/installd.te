@@ -155,7 +155,8 @@ allow installd preloads_media_file:dir { r_dir_perms write remove_name rmdir };
 ### Neverallow rules
 ###
 
-# only system_server, installd and dumpstate may interact with installd over binder
-neverallow { domain -system_server -dumpstate -installd } installd_service:service_manager find;
+# only system_server, installd, dumpstate and atrace may interact with installd over binder.
+# atrace is required to get package manager events in systrace.
+neverallow { domain -system_server -dumpstate -installd -atrace } installd_service:service_manager find;
 neverallow { domain -system_server -dumpstate } installd:binder call;
 neverallow installd { domain -system_server -servicemanager userdebug_or_eng(`-su') }:binder call;

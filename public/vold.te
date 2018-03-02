@@ -249,8 +249,9 @@ neverallow {
 
 neverallow { domain -vold -init } restorecon_prop:property_service set;
 
-# Only system_server and vdc can interact with vold over binder
-neverallow { domain -system_server -vdc -vold } vold_service:service_manager find;
+# Only system_server, vdc and atrace can interact with vold over binder
+# atrace is required to get package manager events in systrace.
+neverallow { domain -system_server -vdc -vold -atrace } vold_service:service_manager find;
 neverallow vold {
   domain
   -hal_keymaster_server
