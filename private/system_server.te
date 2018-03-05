@@ -659,6 +659,9 @@ allow system_server fingerprintd_data_file:file { getattr unlink };
 # Allow system process to read network MAC address
 allow system_server sysfs_mac_address:file r_file_perms;
 
+# Allow system process to read kernel memory bandwidth stats for battery stats
+allow system_server sysfs_memory_stats:file r_file_perms;
+
 userdebug_or_eng(`
   # Allow system server to create and write method traces in /data/misc/trace.
   allow system_server method_trace_data_file:dir w_dir_perms;
