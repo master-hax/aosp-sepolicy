@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0922fc6c_63662879",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-03-06T17:13:46Z",
+      "side": 1,
+      "message": "\u003e (perhaps I\u0027m missing something here)\n\nyeah atrace is a bit confusing (more below).\n\n\u003e  this isn\u0027t sufficient to cause system/bin/atrace to run in it\u0027s own domain\n\nI know, I don\u0027t intend to run it into its own domain, because normally atrace does not have its own domain.\nIf you look at atrace.te there is a domain defined, but that is only for the peculiar use case of boot-tracing where atrace is ran by init. That\u0027s why that is behind a userdebug_or_eng() only. In all other cases atrace is just ran as part of the caller (usually shell). This is how it currently works on \"user\" builds for Studio (it runs in the shell context).\n\n\n\u003e domain_auto_trans(traced_probes, atrace_exec, atrace)\n\nThat was my original thought, but that won\u0027t work on user because that domain is defined, I believe, only on userdebug.\n\n\u003e However, clearly init is what is actually triggering atrace\n\nSee above, that happens only in one uncommon case, that is enabled only in some weird userdebug configurations. atrace in general is not a service/daemon.",
+      "parentUuid": "cddb6f91_9c13b556",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 51
+      },
+      "revId": "54a86e2b5cebb91e8f63e62059f5816119eb555c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7a324527_210f2527",
         "filename": "private/traced_probes.te",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ccd49be2_61244197",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-03-06T17:13:46Z",
+      "side": 1,
+      "message": "It\u0027s not, what we do here is just fork()+exec().\nIt seems it a hold of some linker file descriptor that bionic leaves around. I don\u0027t seem able to get rid of that, not even doing a mass close() of any possible fd (I think it\u0027s something within the exec() code in bionic). I saw this happening in the past whenever a exec() happens, we had the same issue between \"statsd\" and \"perfetto\"",
+      "parentUuid": "7a324527_210f2527",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 64
+      },
+      "revId": "54a86e2b5cebb91e8f63e62059f5816119eb555c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b54a5c8a_7fd68f2c",
         "filename": "private/traced_probes.te",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2018-03-06T16:04:02Z",
       "side": 1,
       "message": "Is this what\u0027s actually started atrace?",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 35
+      },
+      "revId": "54a86e2b5cebb91e8f63e62059f5816119eb555c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2aa66557_a5d137bd",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-03-06T17:13:46Z",
+      "side": 1,
+      "message": "No, everything set inside here is stuff that the \"atrace\" binary does. Specifically this is atrace setting \"debug.atrace.tags.enableflags\"",
+      "parentUuid": "b54a5c8a_7fd68f2c",
       "range": {
         "startLine": 50,
         "startChar": 0,
