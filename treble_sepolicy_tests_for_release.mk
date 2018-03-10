@@ -57,7 +57,7 @@ $($(version)_compat): PRIVATE_CIL_FILES := \
 $(built_plat_cil) $($(version)_mapping.cil) $($(version)_nonplat)
 $($(version)_compat): $(HOST_OUT_EXECUTABLES)/secilc \
 $(built_plat_cil) $($(version)_mapping.cil) $($(version)_nonplat)
-	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -m -M true -G -N -c $(POLICYVERS) \
+	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -R false -m -M true -G -N -c $(POLICYVERS) \
 		$(PRIVATE_CIL_FILES) -o $@ -f /dev/null
 
 # $(version)_mapping.combined.cil - a combination of the mapping file used when
