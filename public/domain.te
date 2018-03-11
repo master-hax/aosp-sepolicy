@@ -183,6 +183,13 @@ full_treble_only(`
     # Allow all domains to be able to follow /system/vendor symlink
     allow domain vendor_file:lnk_file { getattr open read };
 
+    # Allow all domains to be able to follow
+    # /vendor/odm/{etc, lib, lib64, ...} symlinks
+    allow domain same_process_hal_file:lnk_file { getattr open read };
+    allow domain vendor_configs_file:lnk_file { getattr open read };
+    allow domain vendor_hal_file:lnk_file { getattr open read };
+    allow domain vndk_sp_file:lnk_file { getattr open read };
+
     # This is required to be able to search & read /vendor/lib64
     # in order to lookup vendor libraries. The execute permission
     # for coredomains is granted *only* for same process HALs
