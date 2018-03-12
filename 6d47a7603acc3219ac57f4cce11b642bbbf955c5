@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1bf7f263_84dbba4d",
+        "filename": "vendor/hal_wifi_supplicant_default.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-03-12T16:10:33Z",
+      "side": 1,
+      "message": "Can we expand this note? Something like:\nDevices upgrading to P may grant this permission in device-specific policy along with the data_between_core_and_vendor_violators attribute needed for an exemption. However, devices that launch with P should use /data/vendor/wifi which is already granted in core policy. This is dontaudited here to avoid conditional device-specific behavior in wpa_supplicant.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 72
+      },
+      "revId": "6d47a7603acc3219ac57f4cce11b642bbbf955c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ebb58800_ec217930",
         "filename": "vendor/hal_wifi_supplicant_default.te",
         "patchSetId": 1
