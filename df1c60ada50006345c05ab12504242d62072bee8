@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9e9dfd41_3fcb68e9",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2018-03-12T05:16:12Z",
+      "side": 1,
+      "message": "Great, sounds a good idea so we don\u0027t have to list every vendor file labels.\n\nHowever, this breaks some neverallow rules for vendor_app_file, vendor_overlay_file.\n\nhttps://android.googlesource.com/platform/system/sepolicy/+/master/public/domain.te#904\n\n\nMaybe just:\n allow domain { vendor_file_type -vendor_app_file - vendor_overlay_file }:lnk_file { getattr open read };",
+      "parentUuid": "1b06d714_9bac630f",
+      "range": {
+        "startLine": 184,
+        "startChar": 17,
+        "endLine": 184,
+        "endChar": 28
+      },
+      "revId": "df1c60ada50006345c05ab12504242d62072bee8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6609802_21fd365a",
         "filename": "public/domain.te",
         "patchSetId": 2
