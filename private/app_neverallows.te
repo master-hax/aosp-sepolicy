@@ -102,6 +102,11 @@ neverallow { all_untrusted_apps -mediaprovider } {
 # No untrusted component should be touching /dev/fuse
 neverallow all_untrusted_apps fuse_device:chr_file *;
 
+# untrusted apps should not be able to open trace data files, they should depend
+# upon traceur to pass a file descriptor
+neverallow all_untrusted_apps trace_data_file:dir *;
+neverallow all_untrusted_apps trace_data_file:file { no_w_file_perms open };
+
 # Do not allow untrusted apps to directly open tun_device
 neverallow all_untrusted_apps tun_device:chr_file open;
 
