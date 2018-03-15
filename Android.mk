@@ -261,6 +261,12 @@ LOCAL_REQUIRED_MODULES += \
     odm_mac_permissions.xml
 endif
 
+ifneq ($(PLATFORM_SEPOLICY_VERSION),$(TOT_SEPOLICY_VERSION))
+LOCAL_REQUIRED_MODULES += \
+    sepolicy_freeze_test \
+
+endif # ($(PLATFORM_SEPOLICY_VERSION),$(TOT_SEPOLICY_VERSION))
+
 include $(BUILD_PHONY_PACKAGE)
 
 #################################
@@ -1613,7 +1619,45 @@ base_plat_policy.conf :=
 plat_sepolicy :=
 
 endif # ($(PRODUCT_SEPOLICY_SPLIT),true)
+
 #################################
+ifneq ($(PLATFORM_SEPOLICY_VERSION),$(TOT_SEPOLICY_VERSION))
+include $(CLEAR_VARS)
+LOCAL_MODULE := sepolicy_freeze_test
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := tests
+
+include $(BUILD_SYSTEM)/base_rules.mk
+
+base_plat_public := $(LOCAL_PATH)/public
+base_plat_private := $(LOCAL_PATH)/private
+base_plat_public_prebuilt := \
+  $(LOCAL_PATH)/prebuilts/api/$(PLATFORM_SEPOLICY_VERSION)/public
+base_plat_private_prebuilt := \
+  $(LOCAL_PATH)/prebuilts/api/$(PLATFORM_SEPOLICY_VERSION)/private
+
+all_frozen_files := $(call build_policy,$(sepolicy_build_files), \
+$(base_plat_public) $(base_plat_private) $(base_plat_public_prebuilt) $(base_plat_private_prebuilt))
+
+sepolicy_freeze_test := $(intermediates)/sepolicy_freeze_test
+$(sepolicy_freeze_test): PRIVATE_BASE_PLAT_PUBLIC := $(base_plat_public)
+$(sepolicy_freeze_test): PRIVATE_BASE_PLAT_PRIVATE := $(base_plat_private)
+$(sepolicy_freeze_test): PRIVATE_BASE_PLAT_PUBLIC_PREBUILT := $(base_plat_public_prebuilt)
+$(sepolicy_freeze_test): PRIVATE_BASE_PLAT_PRIVATE_PREBUILT := $(base_plat_private_prebuilt)
+$(sepolicy_freeze_test): $(all_frozen_files)
+	@diff -rq $(PRIVATE_BASE_PLAT_PUBLIC_PREBUILT) $(PRIVATE_BASE_PLAT_PUBLIC)
+	@diff -rq $(PRIVATE_BASE_PLAT_PRIVATE_PREBUILT) $(PRIVATE_BASE_PLAT_PRIVATE)
+	$(hide) touch $@
+
+base_plat_public :=
+base_plat_private :=
+base_plat_public_prebuilt :=
+base_plat_private_prebuilt :=
+all_frozen_files :=
+
+endif # ($(PLATFORM_SEPOLICY_VERSION),$(TOT_SEPOLICY_VERSION))
+#################################
+
 
 add_nl :=
 build_vendor_policy :=
