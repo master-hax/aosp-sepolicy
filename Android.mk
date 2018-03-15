@@ -242,6 +242,12 @@ LOCAL_REQUIRED_MODULES += \
 endif
 endif
 
+ifneq ($(PLATFORM_SEPOLICY_VERSION),10000.0)
+LOCAL_REQUIRED_MODULES += \
+    sepolicy_freeze_test \
+
+endif # ($(PLATFORM_SEPOLICY_VERSION),10000.0)
+
 include $(BUILD_PHONY_PACKAGE)
 
 #################################
@@ -1350,7 +1356,28 @@ base_plat_policy.conf :=
 plat_sepolicy :=
 
 endif # ($(PRODUCT_SEPOLICY_SPLIT),true)
+
 #################################
+ifneq ($(PLATFORM_SEPOLICY_VERSION),10000.0)
+include $(CLEAR_VARS)
+LOCAL_MODULE := sepolicy_freeze_test
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := tests
+
+include $(BUILD_SYSTEM)/base_rules.mk
+
+sepolicy_freeze_test := $(intermediates)/sepolicy_freeze_test
+$(sepolicy_freeze_test): PRIVATE_SEPOLICY_DIR := $(LOCAL_PATH)
+$(sepolicy_freeze_test): PRIVATE_SEPOLICY_PREBUILTS_DIR := \
+	$(LOCAL_PATH)/prebuilts/api/$(PLATFORM_SEPOLICY_VERSION)
+$(sepolicy_freeze_test):
+	@diff -rq $(PRIVATE_SEPOLICY_PREBUILTS_DIR)/public  $(PRIVATE_SEPOLICY_DIR)/public
+	@diff -rq $(PRIVATE_SEPOLICY_PREBUILTS_DIR)/private  $(PRIVATE_SEPOLICY_DIR)/private
+	$(hide) touch $@
+
+endif # ($(PLATFORM_SEPOLICY_VERSION),10000.0)
+#################################
+
 
 add_nl :=
 build_vendor_policy :=
