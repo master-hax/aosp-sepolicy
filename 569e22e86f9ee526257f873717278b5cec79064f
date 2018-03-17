@@ -93,6 +93,30 @@
       "revId": "569e22e86f9ee526257f873717278b5cec79064f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f714bf9_8213182b",
+        "filename": "public/netd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-03-17T03:39:37Z",
+      "side": 1,
+      "message": "153: Assert no rules are added which allow a process to add a file in /proc/net. These files are 100% kernel generated. Granting a userspace process permission to create files here is meaningless and wrong.\n154: Suppress the denials for adding files since they could potentially lead us or a partner to incorrectly assume they should grant the permissions.",
+      "parentUuid": "c680e75d_60fcaf12",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 34
+      },
+      "revId": "569e22e86f9ee526257f873717278b5cec79064f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
