@@ -22,6 +22,29 @@
       "revId": "569e22e86f9ee526257f873717278b5cec79064f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db188ca5_ece06e8a",
+        "filename": "public/netd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2018-03-17T02:05:10Z",
+      "side": 1,
+      "message": "What is the effect of this change? The first line seems to neverallow the following:\n\nadd_name create link relabelfrom remove_name rename reparent rmdir setattr write\n\nand the second seems to allow \"write\". Does that mean that all the above except for write are neverallowed?",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 34
+      },
+      "revId": "569e22e86f9ee526257f873717278b5cec79064f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
