@@ -18,6 +18,11 @@ allow netutils_wrapper self:netlink_xfrm_socket ~ioctl;
 allow netutils_wrapper netd_socket:sock_file { open getattr read write append };
 allow netutils_wrapper netd:unix_stream_socket { read getattr connectto };
 
+# For iptables to be able to setup xt_bpf rules
+allow netutils_wrapper fs_bpf:dir search;
+allow netutils_wrapper fs_bpf:file { read write };
+allow netutils_wrapper bpfloader:bpf prog_run;
+
 # For /data/misc/net access to ndc and ip
 r_dir_file(netutils_wrapper, net_data_file)
 
