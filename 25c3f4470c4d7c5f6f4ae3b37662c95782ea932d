@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f4a7e4c_2ad2feb0",
+        "filename": "public/modprobe.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2018-03-20T21:25:58Z",
+      "side": 1,
+      "message": "shouldn\u0027t we also be adding rules to allow this from vendor and odm? I don\u0027t see those rules in the policy today and I bet adding them will break the neverallow since modprobe is marked as coredomain in private/modprobe.te\n\nI think it works and we never noticed this so far because walleye uses insmod (\"soon\", modprobe will be used more often though)",
+      "revId": "25c3f4470c4d7c5f6f4ae3b37662c95782ea932d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
