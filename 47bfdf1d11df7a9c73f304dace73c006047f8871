@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "81943c5d_cef0342d",
+        "filename": "private/atrace.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-03-21T15:48:40Z",
+      "side": 1,
+      "message": "Those are deliberate. installd and vold contribute to packagemanager service events [1,2] .\n\n\n[1] https://cs/android/frameworks/native/cmds/installd/InstalldNativeService.cpp?type\u003dcs\u0026q\u003df:installd+TRACE+case:yes+package:%5Eandroid$\u0026l\u003d19\n[2] https://cs.corp.google.com/android/system/vold/main.cpp?type\u003dcs\u0026q\u003df:vold+TRACE+case:yes+package:%5Eandroid$\u0026l\u003d17",
+      "parentUuid": "e7e20b4e_5dddcfe5",
+      "revId": "47bfdf1d11df7a9c73f304dace73c006047f8871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "feb57b57_2e613f35",
         "filename": "private/atrace.te",
         "patchSetId": 4
@@ -88,6 +106,30 @@
     },
     {
       "key": {
+        "uuid": "983ea699_c5a9a2db",
+        "filename": "public/installd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-03-21T15:48:40Z",
+      "side": 1,
+      "message": "See previous comment, this is deliberate.\nAdded a comment in the code to make it explicit",
+      "parentUuid": "b754555f_6d4fd346",
+      "range": {
+        "startLine": 159,
+        "startChar": 56,
+        "endLine": 159,
+        "endChar": 63
+      },
+      "revId": "47bfdf1d11df7a9c73f304dace73c006047f8871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "14d7cebd_48eeaced",
         "filename": "public/vold.te",
         "patchSetId": 4
@@ -99,6 +141,30 @@
       "writtenOn": "2018-03-21T11:33:11Z",
       "side": 1,
       "message": "instead of exempting atrace here, please remove it in atrace\u0027s policy.",
+      "range": {
+        "startLine": 253,
+        "startChar": 46,
+        "endLine": 253,
+        "endChar": 53
+      },
+      "revId": "47bfdf1d11df7a9c73f304dace73c006047f8871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96d04f3b_7fac261e",
+        "filename": "public/vold.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-03-21T15:48:40Z",
+      "side": 1,
+      "message": "ditto, it\u0027s deliberate",
+      "parentUuid": "14d7cebd_48eeaced",
       "range": {
         "startLine": 253,
         "startChar": 46,
