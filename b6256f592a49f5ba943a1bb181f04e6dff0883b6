@@ -22,6 +22,30 @@
       "revId": "b6256f592a49f5ba943a1bb181f04e6dff0883b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49bd47eb_538110bc",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1121354
+      },
+      "writtenOn": "2018-03-21T18:07:07Z",
+      "side": 1,
+      "message": "running iptables from shell is okay since the context is su. I have also tried to set selinux to enforce mode and only allow netd to run the program, the xt_bpf rules can be correctly set up. But I keep seeing selinux denials to netutils_wrapper, it seems that netutils_wrapper will try to access fs_bpf and run the program but I don\u0027t know why.",
+      "parentUuid": "fe0cb879_c354da06",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 24,
+        "endChar": 54
+      },
+      "revId": "b6256f592a49f5ba943a1bb181f04e6dff0883b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
