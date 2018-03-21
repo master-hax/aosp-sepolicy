@@ -46,6 +46,30 @@
       "revId": "5c95c1684119604a8fccf0f264459b21ce214b9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e01c62c_536f4cd9",
+        "filename": "private/netd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1121354
+      },
+      "writtenOn": "2018-03-21T20:03:23Z",
+      "side": 1,
+      "message": "prog_load is to create a bpf program from userspace using syscall PROG_LOAD. Once the program is loaded, it exist in the kernel space and can be access from userspace either through a file descriptor or from the pinned location but the program loaded is not running yet. Prog_run means to actually use the program to do things such as filtering packet or packet accounting. But it cannot modify the loaded program content. In this specific situation, we use bpfloader to load the program we need at boot time and pinned them at sys/fs/bpf. Later when netd load iptables rules, it will load rules to xt_bpf module specifying program pinned path. And the xt_bpf module will take the program provided from the load position and run it on every packets pass the iptable hooks.",
+      "parentUuid": "2eaf2569_7cb9c63e",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 57
+      },
+      "revId": "5c95c1684119604a8fccf0f264459b21ce214b9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
