@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe0cb879_c354da06",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2018-03-21T09:02:47Z",
+      "side": 1,
+      "message": "I don\u0027t think netutils_wrapper should be allowed to do this. AIUI netutils_wrapper is used by vendor code only, and I don\u0027t think we want to expose this sort of thing to vendor code yet.\n\nOr is it the case that running /system/bin/iptables from the shell gets a context of netutils_wrapper? (That seems unfortunate.)",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 24,
+        "endChar": 54
+      },
+      "revId": "b6256f592a49f5ba943a1bb181f04e6dff0883b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
