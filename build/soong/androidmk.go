@@ -12,16 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-se_cil_compat_map {
-    name: "26.0.cil",
-    srcs: [
-        "private/compat/26.0/26.0.cil",
-    ],
-}
+package selinux
 
-se_cil_compat_map {
-    name: "27.0.cil",
-    srcs: [
-        "private/compat/27.0/27.0.cil",
-    ],
+import (
+	"android/soong/android"
+	"fmt"
+	"io"
+)
+
+func (c *cilCompatMap) AndroidMk() android.AndroidMkData {
+	ret := android.AndroidMkData{
+		OutputFile: c.properties.installSource,
+		Class:      "ETC",
+	}
+	ret.Extra = append(ret.Extra, func(w io.Writer, outputFile android.Path) {
+		fmt.Fprintln(w, "LOCAL_MODULE_PATH := $(TARGET_OUT)/etc/selinux/mapping")
+	})
+	return ret
 }
