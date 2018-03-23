@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3bd39f4_e94c4b87",
+        "filename": "private/perfprofd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-03-23T21:27:27Z",
+      "side": 1,
+      "message": "move neverallow outside of userdebug_or_eng() statement since these are intended to enforce the restriction on all builds. For example\n\nneverallow { domain userdebug_or_eng(`-statsd\u0027) } perfprofd:binder call;\nneverallow perfprofd { domain userdebug_or_eng(`-servicemanager -statsd -su -system_server\u0027) } ...",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 89
+      },
+      "revId": "3bbeeaf7e0f4107ef7ec122ee58649926091c433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
