@@ -41,7 +41,7 @@ func cilCompatMapFactory() android.Module {
 
 type cilCompatMapProperties struct {
 	// list of source (.cil) files used to build an sepolicy compatibility mapping
-	// file. 	srcs may reference the outputs of other modules that produce source
+	// file. srcs may reference the outputs of other modules that produce source
 	// files like genrule or filegroup using the syntax ":module". Srcs has to be
 	// non-empty.
 	Srcs []string

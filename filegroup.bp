@@ -12,18 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-bootstrap_go_package {
-    name: "soong-selinux",
-    pkgPath: "android/soong/selinux",
-    deps: [
-        "blueprint",
-        "soong",
-        "soong-android",
-        "soong-genrule",
-    ],
+se_filegroup {
+    name: "26.0.board.compat.map",
     srcs: [
-        "cil_compat_map.go",
-        "filegroup.go"
+        "compat/26.0/26.0.cil",
     ],
-    pluginFor: ["soong_build"],
+}
+
+se_filegroup {
+    name: "27.0.board.compat.map",
+    srcs: [
+        "compat/27.0/27.0.cil",
+    ],
 }
