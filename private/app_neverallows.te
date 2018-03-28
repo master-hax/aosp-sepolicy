@@ -58,7 +58,10 @@ neverallow all_untrusted_apps file_type:file link;
 neverallow all_untrusted_apps sysfs_mac_address:file no_rw_file_perms;
 
 # Do not allow any write access to files in /sys
-neverallow all_untrusted_apps sysfs_type:file no_w_file_perms;
+neverallow all_untrusted_apps sysfs_type:file { no_w_file_perms no_x_file_perms };
+
+# Apps may never access the default sysfs label.
+neverallow all_untrusted_apps sysfs:file no_rw_file_perms;
 
 # Restrict socket ioctls. Either 1. disallow privileged ioctls, 2. disallow the
 # ioctl permission, or 3. disallow the socket class.
@@ -119,9 +122,12 @@ neverallow all_untrusted_apps {
   proc_loadavg
   proc_mounts
   proc_pagetypeinfo
+  proc_stat
   proc_swaps
+  proc_uptime
   proc_version
   proc_vmallocinfo
+  proc_vmstat
 }:file { no_rw_file_perms no_x_file_perms };
 
 # Avoid all access to kernel configuration
