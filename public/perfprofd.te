@@ -81,11 +81,15 @@ userdebug_or_eng(`
   set_prop(perfprofd, shell_prop)
 
   # simpleperf examines debugfs on startup to collect tracepoint event types
-  r_dir_file(perfprofd, debugfs_tracing)
+  r_dir_file(perfprofd, debugfs_tracing_debug)
   allow perfprofd debugfs_tracing_debug:file r_file_perms;
+  allow perfprofd debugfs_tracing:file r_file_perms;
 
   # simpleperf is going to execute "sleep"
   allow perfprofd toolbox_exec:file rx_file_perms;
+  # simpleperf is going to execute "mv" on a temp file
+  allow perfprofd shell_exec:file execute;
+  allow perfprofd shell_exec:file execute_no_trans;
 
   # needed for simpleperf on some kernels
   allow perfprofd self:global_capability_class_set ipc_lock;
