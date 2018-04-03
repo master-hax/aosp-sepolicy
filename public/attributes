@@ -165,6 +165,13 @@ expandattribute data_between_core_and_vendor_violators false;
 attribute system_executes_vendor_violators;
 expandattribute system_executes_vendor_violators false;
 
+#All file on /vendor/persist which needs read/write violating
+# vendor_file_type RO restriction  will use this violater
+# basic file operation like  write create setattr append unlink rename
+# TODO b/74925484
+attribute persist_dir_file_write_violators;
+expandattribute persist_dir_file_write_violators false;
+
 # hwservices that are accessible from untrusted applications
 # WARNING: Use of this attribute should be avoided unless
 # absolutely necessary.  It is a temporary allowance to aid the

@@ -479,6 +479,7 @@ neverallow {
 } {
     system_file
     vendor_file_type
+    -persist_dir_file_write_violators
     exec_type
 }:dir_file_class_set { create write setattr relabelfrom append unlink link rename };
 
