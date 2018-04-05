@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "f372886f_300e155d",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2018-04-05T19:55:40Z",
+      "side": 1,
+      "message": "is this already handled somewhere else?\n\nsystem/sepolicy/public/hal_bluetooth.te does this:\n\n# The HAL toggles rfkill to power the chip off/on.\nallow hal_bluetooth self:global_capability_class_set net_admin;",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 88
+      },
+      "revId": "59530b701fba053aa6be812bf1134460d1359637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "835efe5f_5dd80bb0",
         "filename": "vendor/hal_bluetooth_btlinux.te",
         "patchSetId": 1
