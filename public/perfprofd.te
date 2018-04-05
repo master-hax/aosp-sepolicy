@@ -40,6 +40,7 @@ userdebug_or_eng(`
   allow perfprofd sysfs_thermal:dir r_dir_perms;
 
   # perfprofd checks power_supply.
+  allow perfprofd sysfs:dir r_dir_perms;
   r_dir_file(perfprofd, sysfs_batteryinfo)
 
   # simpleperf reads kernel notes.
