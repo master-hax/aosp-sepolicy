@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c078d4d5_60ebc119",
+        "filename": "build/soong/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-04-05T20:53:46Z",
+      "side": 1,
+      "message": "In this change, you\u0027re only using soong-android",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 24
+      },
+      "revId": "2f54bd78fbdcb1e7f8eccad0df45a3ca17849aeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10c06202_c101341c",
+        "filename": "build/soong/androidmk.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-04-05T20:53:46Z",
+      "side": 1,
+      "message": "I\u0027d keep this together with the actual module implementation, instead of splitting it into a different file.",
+      "revId": "2f54bd78fbdcb1e7f8eccad0df45a3ca17849aeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7999feb7_5314d988",
+        "filename": "build/soong/cil_compat_map.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-04-05T20:53:46Z",
+      "side": 1,
+      "message": "Could you add some documentation about what this module is for, and what it does?",
+      "revId": "2f54bd78fbdcb1e7f8eccad0df45a3ca17849aeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d620a584_69c9a4bb",
+        "filename": "build/soong/cil_compat_map.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-04-05T20:53:46Z",
+      "side": 1,
+      "message": "This should have documentation for the auto-generated documentation.",
+      "revId": "2f54bd78fbdcb1e7f8eccad0df45a3ca17849aeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d240cf7_7b40fe5e",
+        "filename": "build/soong/cil_compat_map.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-04-05T20:53:46Z",
+      "side": 1,
+      "message": "PropertyErrorf(\"srcs\", \"...\")\n\nThis should also include the source file that has the problem",
+      "range": {
+        "startLine": 52,
+        "startChar": 7,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "2f54bd78fbdcb1e7f8eccad0df45a3ca17849aeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "619e536d_f27b4f41",
+        "filename": "build/soong/cil_compat_map.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-04-05T20:53:46Z",
+      "side": 1,
+      "message": "Is this actually going to merge multiple files, or should we be forcing a single source file, and just installing that file directly instead of creating an intermediate?",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 19
+      },
+      "revId": "2f54bd78fbdcb1e7f8eccad0df45a3ca17849aeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18c6a071_a5d2d391",
+        "filename": "build/soong/cil_compat_map.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-04-05T20:53:46Z",
+      "side": 1,
+      "message": "Even though it\u0027s not used when embedded in Make, you should probably be calling ctx.InstallFile()",
+      "revId": "2f54bd78fbdcb1e7f8eccad0df45a3ca17849aeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
