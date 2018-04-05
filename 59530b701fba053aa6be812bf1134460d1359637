@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4d0e4fb_9000dfbc",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-04-05T19:52:32Z",
+      "side": 1,
+      "message": "genfs_contexts does not allow regexes. It only does prefix matching. You\u0027ll need to list these.\n\nJust do a reasonable number. e.g. if you\u0027re only expecting two interfaces use\ngenfscon sysfs /class/rfkill/rfkill0/state    u:object_r:sysfs_bluetooth_writable:s0\ngenfscon sysfs /class/rfkill/rfkill1/state    u:object_r:sysfs_bluetooth_writable:s0",
+      "range": {
+        "startLine": 99,
+        "startChar": 35,
+        "endLine": 99,
+        "endChar": 40
+      },
+      "revId": "59530b701fba053aa6be812bf1134460d1359637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "835efe5f_5dd80bb0",
+        "filename": "vendor/hal_bluetooth_btlinux.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-04-05T19:52:32Z",
+      "side": 1,
+      "message": "we already have a default implementation. This belongs in device specific policy.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 77
+      },
+      "revId": "59530b701fba053aa6be812bf1134460d1359637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
