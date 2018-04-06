@@ -1,5 +1,4 @@
 # storaged daemon
-type storaged, domain, coredomain, mlstrustedsubject;
 type storaged_exec, exec_type, file_type;
 
 init_daemon_domain(storaged)
@@ -49,15 +48,13 @@ allow storaged dumpstate:fd use;
 # use a subset of the package manager service
 allow storaged package_native_service:service_manager find;
 
-# Kernel does extra check on CAP_DAC_OVERRIDE for libbinder when storaged is
-# running as root. See b/35323867 #3.
-dontaudit storaged self:global_capability_class_set dac_override;
-
 # For collecting bugreports.
 allow storaged dumpstate:fifo_file write;
+
+# For reading /proc/uid_io
+allow storaged self:global_capability_class_set dac_override;
 
 ###
 ### neverallow
 ###
 neverallow storaged domain:process ptrace;
-neverallow storaged self:capability_class_set *;
