@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "da2f02ce_31b8518d",
+        "filename": "build/soong/filegroup.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-04-08T00:39:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bc5497a_9e2fbeb3",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 52
+      },
+      "revId": "e75bce82315457cacd849074f51209b2f4e10775",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a466da50_0cde0f31",
         "filename": "build/soong/filegroup.go",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "15ae3d88_fcf7eb6a",
+        "filename": "build/soong/filegroup.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-04-08T00:39:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a466da50_0cde0f31",
+      "revId": "e75bce82315457cacd849074f51209b2f4e10775",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9647a352_922b90ae",
         "filename": "build/soong/filegroup.go",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2018-04-05T21:03:59Z",
       "side": 1,
       "message": "I don\u0027t really like this. At least so far, these would be better off being chosen by the user of this module, rather than the definer (assuming that the compat cil will always want to use BoardPlatPrivateSepolicyDir). Without looking a lot deeper, it\u0027s unclear whether this will stay true in the future however.\n\nDid you ever make up that doc/drawing about how you\u0027re going to split all of these modules up?",
+      "range": {
+        "startLine": 56,
+        "startChar": 1,
+        "endLine": 63,
+        "endChar": 2
+      },
+      "revId": "e75bce82315457cacd849074f51209b2f4e10775",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d2003af_8ec26607",
+        "filename": "build/soong/filegroup.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-04-08T00:39:40Z",
+      "side": 1,
+      "message": "We want to keep the module declarations generic across different products, i.e the user of the module shouldn\u0027t be able to specify a path like device/google/wahoo/sepolicy/public/file.te as the module will become specific to wahoo. I\u0027d like the user to be able to specify someting like:\nBOARD_PLAT_PRIVATE_SEPOLICY_DIR/public/file.te, where BOARD_PLAT_PRIVATE_SEPOLICY_DIR is looked up by se_filegroup depending on the product being built (unless I\u0027m misunderstanding something)\n\nHere\u0027s doc/drawing: go/selinux-soong. It has a rough outline of what to do with .cil files in Soong. Binary policy and *_context files are not addressed in there yet.",
+      "parentUuid": "9647a352_922b90ae",
       "range": {
         "startLine": 56,
         "startChar": 1,
