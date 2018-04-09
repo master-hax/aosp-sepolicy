@@ -145,7 +145,7 @@ dontaudit priv_app proc_interrupts:file read;
 dontaudit priv_app proc_modules:file read;
 dontaudit priv_app proc_stat:file read;
 dontaudit priv_app proc_version:file read;
-dontaudit priv_app wifi_prop:file read;
+dontaudit priv_app { wifi_prop exported_wifi_prop }:file read;
 dontaudit priv_app net_dns_prop:file read;
 
 # allow privileged apps to use UDP sockets provided by the system server but not
