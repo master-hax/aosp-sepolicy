@@ -123,6 +123,10 @@ recovery_only(`
   # Use setfscreatecon() to label files for OTA updates.
   allow recovery self:process setfscreate;
 
+  # Access the pty created by android_fork_execvp_ext() for running mke2fs (via
+  # fs_mgr and logwrap).
+  allow recovery devpts:chr_file rw_file_perms;
+
   # Allow recovery to create a fuse filesystem, and read files from it.
   allow recovery fuse_device:chr_file rw_file_perms;
   allow recovery fuse:dir r_dir_perms;
