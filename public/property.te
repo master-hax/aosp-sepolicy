@@ -173,6 +173,30 @@ compatible_property_only(`
     radio_prop
   }:property_service set;
 
+  neverallow {
+    domain
+    -coredomain
+    -appdomain
+    -bluetooth
+    -hal_bluetooth
+    -vendor_init
+  } {
+    bluetooth_prop
+    exported_bluetooth_prop
+  }:property_service set;
+
+  neverallow {
+    domain
+    -coredomain
+    -appdomain
+    -hal_wifi
+    -wificond
+    -vendor_init
+  } {
+    exported_wifi_prop
+    wifi_prop
+  }:property_service set;
+
 # Prevent properties from being read
   neverallow {
     domain
@@ -214,5 +238,27 @@ compatible_property_only(`
     -vendor_init
   } {
     radio_prop
+  }:file no_rw_file_perms;
+
+  neverallow {
+    domain
+    -coredomain
+    -appdomain
+    -bluetooth
+    -hal_bluetooth
+    -vendor_init
+  } {
+    bluetooth_prop
+  }:file no_rw_file_perms;
+
+  neverallow {
+    domain
+    -coredomain
+    -appdomain
+    -hal_wifi
+    -wificond
+    -vendor_init
+  } {
+    wifi_prop
   }:file no_rw_file_perms;
 ')
