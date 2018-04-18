@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc184876_3c2edafa",
+        "filename": "public/property.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2018-04-18T13:55:09Z",
+      "side": 1,
+      "message": "Same questions as below.  Maybe split bluetooth_prop and exported_bluetooth_prop neverallow rules?",
+      "revId": "c314989c44b7d06a78078fcd8e78737370573565",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3045a827_16031d29",
+        "filename": "public/property.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2018-04-18T13:55:09Z",
+      "side": 1,
+      "message": "What in appdomain needs to read these?",
+      "revId": "c314989c44b7d06a78078fcd8e78737370573565",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8caa6ee8_3de90b71",
+        "filename": "public/property.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2018-04-18T13:55:09Z",
+      "side": 1,
+      "message": "Why can vendor_init read bluetooth_prop?  Shouldn\u0027t it only be able to read exported_bluetooth_prop?  Or is this since there is still work to be done converting over some of the properties?  Can we add a TODO with bug number if that is the case?",
+      "revId": "c314989c44b7d06a78078fcd8e78737370573565",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
