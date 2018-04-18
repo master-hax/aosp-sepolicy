@@ -42,6 +42,48 @@
     },
     {
       "key": {
+        "uuid": "a2b7ed04_42993cda",
+        "filename": "public/llkd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2018-04-18T15:25:36Z",
+      "side": 1,
+      "message": "\u003cgiggle\u003e",
+      "parentUuid": "7d4930c1_02903c4c",
+      "range": {
+        "startLine": 1,
+        "startChar": 7,
+        "endLine": 1,
+        "endChar": 31
+      },
+      "revId": "4e8d56d9fdc5c4eb229546920538b6394ba5b736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4706efd_c3aa20b3",
+        "filename": "public/llkd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2018-04-18T15:25:36Z",
+      "side": 1,
+      "message": "Will move it\n\n(probably need to do the same for lmkd?, separate CL)",
+      "parentUuid": "ed1ef381_c9d1d199",
+      "revId": "4e8d56d9fdc5c4eb229546920538b6394ba5b736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "347797a6_0bb32589",
         "filename": "public/llkd.te",
         "patchSetId": 7
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "d19557d1_3fb0cb4d",
+        "filename": "public/llkd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2018-04-18T15:25:36Z",
+      "side": 1,
+      "message": "true, we should be able to send kill signals to kernel daemons as well ...\n\nallow llkd { domain kernel }:process sigkill;",
+      "parentUuid": "347797a6_0bb32589",
+      "range": {
+        "startLine": 12,
+        "startChar": 11,
+        "endLine": 12,
+        "endChar": 28
+      },
+      "revId": "4e8d56d9fdc5c4eb229546920538b6394ba5b736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "174c3c1b_779ce58a",
         "filename": "public/llkd.te",
         "patchSetId": 7
@@ -76,6 +142,24 @@
       "writtenOn": "2018-04-18T14:41:15Z",
       "side": 1,
       "message": "neverallow { domain -init } llkd:process { dyntransition transition };",
+      "revId": "4e8d56d9fdc5c4eb229546920538b6394ba5b736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "180e3065_f717ecda",
+        "filename": "public/llkd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2018-04-18T15:25:36Z",
+      "side": 1,
+      "message": "Probably need to do the same for lmkd (separate CL)",
+      "parentUuid": "174c3c1b_779ce58a",
       "revId": "4e8d56d9fdc5c4eb229546920538b6394ba5b736",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
