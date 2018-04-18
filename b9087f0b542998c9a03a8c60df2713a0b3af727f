@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e314e646_5676c060",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1013508
+      },
+      "writtenOn": "2018-04-18T18:17:08Z",
+      "side": 1,
+      "message": "This could allow someone to write \"allow vendord dropbox_data_file r_file_perms\", which is something we\u0027d want to block?\n\nWould { * -getattr -read } work?  So that we block \"open\" if they guess filenames blindly?",
+      "revId": "b9087f0b542998c9a03a8c60df2713a0b3af727f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
