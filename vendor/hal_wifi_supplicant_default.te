@@ -23,3 +23,7 @@ get_prop(hal_wifi_supplicant_default, device_logging_prop)
 # policy.  This is dontaudited here to avoid conditional
 # device-specific behavior in wpa_supplicant.
 dontaudit hal_wifi_supplicant_default wifi_data_file:dir search;
+
+# Allow wpa_supplicant to write to
+#  /proc/sys/net/ipv4/conf/*/drop_unicast_in_l2_multicast
+allow hal_wifi_supplicant_default proc_net:file write;
