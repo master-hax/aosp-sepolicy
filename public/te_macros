@@ -558,6 +558,14 @@ unix_socket_connect($1, logd, logd)
 ')
 
 #####################################
+# write_statsd(domain)
+# Ability to write to android stats
+# daemon via sockets
+define(`write_statsd', `
+unix_socket_send($1, statsdw, statsd)
+')
+
+#####################################
 # use_keystore(domain)
 # Ability to use keystore.
 # Keystore is requires the following permissions
