@@ -66,6 +66,8 @@ set_prop(shell, debug_prop)
 set_prop(shell, powerctl_prop)
 set_prop(shell, log_tag_prop)
 set_prop(shell, wifi_log_prop)
+# Allow shell to write the traced property for CTS
+set_prop(shell, traced_enabled_prop)
 # adjust is_loggable properties
 userdebug_or_eng(`set_prop(shell, log_prop)')
 # logpersist script
