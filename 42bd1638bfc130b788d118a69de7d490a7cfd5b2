@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2c8dfaf8_ce1fd46b",
+        "filename": "public/file.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2018-04-24T17:28:30Z",
+      "side": 1,
+      "message": "This was public before this change - but also, this is mentioned in the device-specific sepolicy/vendor/file_contexts and sepolicy/vendor/vendor_init.te so I assume it has to be public - see ag/3921166",
+      "parentUuid": "ad117796_37cda26a",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 29
+      },
+      "revId": "42bd1638bfc130b788d118a69de7d490a7cfd5b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7d7cd5cd_17eb6f4e",
         "filename": "public/vold.te",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2018-04-24T15:36:11Z",
       "side": 1,
       "message": "is anything allowed to write here?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 10
+      },
+      "revId": "42bd1638bfc130b788d118a69de7d490a7cfd5b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fa71105_6907005b",
+        "filename": "public/vold.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2018-04-24T17:28:30Z",
+      "side": 1,
+      "message": "vendor_init can create the subdirectory vold uses, because metadata_file is file_type.",
+      "parentUuid": "7d7cd5cd_17eb6f4e",
       "range": {
         "startLine": 20,
         "startChar": 0,
