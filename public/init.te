@@ -471,7 +471,11 @@ unix_socket_connect(init, vold, vold)
 allow init misc_block_device:blk_file w_file_perms;
 
 r_dir_file(init, system_file)
-r_dir_file(init, vendor_file_type)
+allow init vendor_file_type:dir r_dir_perms;
+allow init {
+  vendor_file_type
+  -vendor_public_lib_file
+}:file r_file_perms;
 
 allow init system_data_file:file { getattr read };
 allow init system_data_file:lnk_file r_file_perms;

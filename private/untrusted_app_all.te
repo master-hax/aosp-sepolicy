@@ -115,6 +115,10 @@ allow untrusted_app_all vendor_app_file:dir { open getattr read search };
 allow untrusted_app_all vendor_app_file:file { open getattr read execute };
 allow untrusted_app_all vendor_app_file:lnk_file { open getattr read };
 
+# Allow untrusted apps read / execute access to vendor public libraries.
+allow untrusted_app_all vendor_public_lib_file:dir r_dir_perms;
+allow untrusted_app_all vendor_public_lib_file:file { execute read open getattr map };
+
 # Write app-specific trace data to the Perfetto traced damon. This requires
 # connecting to its producer socket and obtaining a (per-process) tmpfs fd.
 allow untrusted_app_all traced:fd use;
