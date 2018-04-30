@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "202d1282_5e0dec71",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-04-30T23:55:06Z",
+      "side": 1,
+      "message": "Does this mean that vendor_public_lib_file is not accessible from system-level apps? (like SystemUI, Settings) \n\nThis lib should be accessible to ANY app process.",
+      "range": {
+        "startLine": 1402,
+        "startChar": 0,
+        "endLine": 1407,
+        "endChar": 2
+      },
+      "revId": "f2eb40d31392244cfb6751dc09469ada622c94f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a37f1a2_7ed785a5",
+        "filename": "public/init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-04-30T23:55:06Z",
+      "side": 1,
+      "message": "I don\u0027t understand why vendor_public_lib_file is not allowed here or (why vendor_file_type which is not vendor_public_lib_file is allowed here) For init, all vendor lib can be treated as the same, aren\u0027t they?",
+      "range": {
+        "startLine": 476,
+        "startChar": 1,
+        "endLine": 477,
+        "endChar": 25
+      },
+      "revId": "f2eb40d31392244cfb6751dc09469ada622c94f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
