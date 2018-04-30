@@ -181,6 +181,10 @@ binder_call(system_server, wificond)
 binder_call(system_server, wpantund)
 binder_service(system_server)
 
+userdebug_or_eng(`
+  binder_call(system_server, perfprofd)
+')
+
 # Use HALs
 hal_client_domain(system_server, hal_allocator)
 hal_client_domain(system_server, hal_authsecret)
@@ -619,6 +623,10 @@ allow system_server storaged_service:service_manager find;
 allow system_server surfaceflinger_service:service_manager find;
 allow system_server vold_service:service_manager find;
 allow system_server wificond_service:service_manager find;
+
+userdebug_or_eng(`
+  allow system_server perfprofd_service:service_manager find;
+')
 
 allow system_server keystore:keystore_key {
 	get_state
