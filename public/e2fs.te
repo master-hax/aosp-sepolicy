@@ -8,9 +8,11 @@ allow e2fs block_device:dir search;
 allow e2fs userdata_block_device:blk_file rw_file_perms;
 allow e2fs metadata_block_device:blk_file rw_file_perms;
 
+# f2fs remains /proc/version to determine when /userdata was formatted.
 allow e2fs {
   proc_filesystems
   proc_mounts
+  proc_version
   proc_swaps
 }:file r_file_perms;
 
