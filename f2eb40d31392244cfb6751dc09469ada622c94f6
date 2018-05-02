@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "16b4ef38_f2b8935d",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-05-02T04:16:05Z",
+      "side": 1,
+      "message": "GSI of course won\u0027t use the vendor public libs. And that is achieved simply by not having dependency to the libs, not by having a neverallow rule like this. This rule affects all Android builds.\n\nMoving to product partition could be a solution, but not enough. AFAIK, selinuix does not distinguish apps in different partitions. What if some OEM has a dependency to a vendor public lib from their fork of SystemUI.apk? We don\u0027t supporting moving SystemUI.apk to other partition.",
+      "parentUuid": "98ea48cb_8d8d3908",
+      "range": {
+        "startLine": 1402,
+        "startChar": 0,
+        "endLine": 1407,
+        "endChar": 2
+      },
+      "revId": "f2eb40d31392244cfb6751dc09469ada622c94f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9a37f1a2_7ed785a5",
         "filename": "public/init.te",
         "patchSetId": 2
