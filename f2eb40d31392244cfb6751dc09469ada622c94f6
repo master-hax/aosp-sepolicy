@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "1745f543_bac33771",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-05-02T02:16:20Z",
+      "side": 1,
+      "message": "iiuc, in an ideal world vendor public libs wouldn\u0027t be exposed to outside of vendor partition. The reason we are exposing these libs to lesser-privileged 3p apps is because we don\u0027t want to break 3p apps which we don\u0027t own. OTOH, exposing these vendor libs to system components seems to contradict the direction we have taken with project Treble. GSI shouldn\u0027t have dependencies on soc-specific libs. We own system apps so we hopefully can change this behavior.",
+      "parentUuid": "e14a49ca_fa26a86a",
+      "range": {
+        "startLine": 1402,
+        "startChar": 0,
+        "endLine": 1407,
+        "endChar": 2
+      },
+      "revId": "f2eb40d31392244cfb6751dc09469ada622c94f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9a37f1a2_7ed785a5",
         "filename": "public/init.te",
         "patchSetId": 2
