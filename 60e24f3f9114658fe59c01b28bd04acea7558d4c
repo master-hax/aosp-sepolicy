@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "9b8fa573_206229f3",
+        "filename": "public/hwservicemanager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-07T21:27:46Z",
+      "side": 1,
+      "message": "Either way, we should remove the permissions given to this in private.\n\nhwservicemanager should be entirely private except for the type because vendors don\u0027t need to inherit or use the type for their own code, only refer to it. I\u0027ll send you the internal guide offline, but that\u0027s the basic idea.",
+      "parentUuid": "97b7f1fc_83502520",
+      "range": {
+        "startLine": 14,
+        "startChar": 27,
+        "endLine": 14,
+        "endChar": 51
+      },
+      "revId": "60e24f3f9114658fe59c01b28bd04acea7558d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "65e30e27_ee846885",
         "filename": "public/property.te",
         "patchSetId": 1
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "The new style is always checked in the CL if these fail, so essentially if someone does `setprop ctl.start some_service` and it fails, they\u0027ll only see the new style failure.",
       "parentUuid": "65e30e27_ee846885",
+      "range": {
+        "startLine": 140,
+        "startChar": 46,
+        "endLine": 141,
+        "endChar": 18
+      },
+      "revId": "60e24f3f9114658fe59c01b28bd04acea7558d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "515e4dcc_5bcf1209",
+        "filename": "public/property.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-07T21:27:46Z",
+      "side": 1,
+      "message": "I see. Smart :)",
+      "parentUuid": "41f11d59_6c81420e",
       "range": {
         "startLine": 140,
         "startChar": 46,
