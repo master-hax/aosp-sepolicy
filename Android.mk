@@ -1562,8 +1562,6 @@ $(sepolicy_tests): $(HOST_OUT_EXECUTABLES)/sepolicy_tests $(all_fc_files) $(buil
 	$(hide) touch $@
 
 ##################################
-ifeq ($(PRODUCT_SEPOLICY_SPLIT),true)
-
 intermediates := $(call intermediates-dir-for,ETC,built_plat_sepolicy,,,,)
 
 # plat_sepolicy - the current platform policy only, built into a policy binary.
@@ -1617,8 +1615,6 @@ BASE_PLAT_PUBLIC_POLICY :=
 BASE_PLAT_PRIVATE_POLICY :=
 base_plat_policy.conf :=
 plat_sepolicy :=
-
-endif # ($(PRODUCT_SEPOLICY_SPLIT),true)
 
 #################################
 include $(CLEAR_VARS)
