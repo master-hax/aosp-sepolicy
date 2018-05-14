@@ -27,8 +27,8 @@ allow lmkd appdomain:process sigkill;
 # Clean up old cgroups
 allow lmkd cgroup:dir { remove_name rmdir };
 
-# Allow to read memcg stats
-allow lmkd cgroup:file r_file_perms;
+# Allow to read/write memcg stats
+allow lmkd cgroup:file rw_file_perms;
 
 # Set self to SCHED_FIFO
 allow lmkd self:global_capability_class_set sys_nice;
