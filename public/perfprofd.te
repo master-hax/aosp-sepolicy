@@ -33,6 +33,9 @@ userdebug_or_eng(`
   read_logd(perfprofd);
   write_logd(perfprofd);
 
+  # perfprofd writes to cgroup files.
+  allow perfprofd cgroup:file w_file_perms;
+
   # perfprofd inspects /sys/power/wake_unlock
   wakelock_use(perfprofd);
 
