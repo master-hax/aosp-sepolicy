@@ -23,6 +23,7 @@ dontaudit mediaprovider cache_recovery_file:dir getattr;
 allow mediaprovider app_api_service:service_manager find;
 allow mediaprovider audioserver_service:service_manager find;
 allow mediaprovider drmserver_service:service_manager find;
+allow mediaprovider mediaextractor_service:service_manager find;
 allow mediaprovider mediaserver_service:service_manager find;
 
 # Allow MediaProvider to read/write cached ringtones (opened by system).
@@ -37,3 +38,4 @@ allow mediaprovider functionfs:file rw_file_perms;
 
 # MtpServer sets sys.usb.ffs.mtp.ready
 set_prop(mediaprovider, ffs_prop)
+set_prop(mediaprovider, exported_ffs_prop)
