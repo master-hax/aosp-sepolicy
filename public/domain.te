@@ -241,9 +241,13 @@ allow domain selinuxfs:file getattr;
 allow domain sysfs:dir search;
 allow domain selinuxfs:filesystem getattr;
 
-# For /acct/uid/*/tasks.
-allow domain cgroup:dir { search write };
-allow domain cgroup:file w_file_perms;
+# Path resolution access in cgroups.
+allow domain cgroup:dir search;
+# Cgroup access for non-system domains.
+allow {
+  domain
+  -coredomain
+} cgroup:file w_file_perms;
 
 # Almost all processes log tracing information to
 # /sys/kernel/debug/tracing/trace_marker
@@ -1412,4 +1416,23 @@ full_treble_only(`
     coredomain
     -appdomain
   } vendor_public_lib_file:file { execute execute_no_trans };
+')
+
+full_treble_only(`
+  neverallow {
+    coredomain
+    -appdomain
+    -dhcp
+    -drmserver
+    -init
+    -installd
+    -logd
+    -netd
+    userdebug_or_eng(`-perfprofd')
+    -sdcardd
+    -surfaceflinger
+    -system_app
+    -system_server
+    -zygote
+  } cgroup:dir_file_class_set write;
 ')
