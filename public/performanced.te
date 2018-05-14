@@ -28,3 +28,4 @@ userdebug_or_eng(`
 
 # Access /dev/cpuset/cpuset.cpus
 r_dir_file(performanced, cgroup)
+allow performanced cgroup:file w_file_perms;
