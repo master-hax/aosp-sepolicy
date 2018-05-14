@@ -11,6 +11,7 @@ allow update_verifier ota_package_file:file r_file_perms;
 
 # Read /sys/block to find all the DM directories like (/sys/block/dm-X).
 allow update_verifier sysfs:dir r_dir_perms;
+allow update_verifier sysfs:file r_file_perms;
 
 # Read /sys/block/dm-X/dm/name (which is a symlink to
 # /sys/devices/virtual/block/dm-X/dm/name) to identify the mapping between
