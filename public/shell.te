@@ -25,9 +25,13 @@ allow shell shell_data_file:file create_file_perms;
 allow shell shell_data_file:file rx_file_perms;
 allow shell shell_data_file:lnk_file create_file_perms;
 
+# Read and delete from /data/local/traces.
+allow shell trace_data_file:file { r_file_perms unlink };
+allow shell trace_data_file:dir { r_dir_perms remove_name write };
+
 # Access /data/misc/profman.
-allow shell profman_dump_data_file:dir { search getattr write remove_name };
-allow shell profman_dump_data_file:file { getattr unlink };
+allow shell profman_dump_data_file:dir { write remove_name r_dir_perms };
+allow shell profman_dump_data_file:file { unlink r_file_perms };
 
 # Read/execute files in /data/nativetest
 userdebug_or_eng(`
@@ -57,10 +61,14 @@ set_prop(shell, shell_prop)
 set_prop(shell, ctl_bugreport_prop)
 set_prop(shell, ctl_dumpstate_prop)
 set_prop(shell, dumpstate_prop)
+set_prop(shell, exported_dumpstate_prop)
 set_prop(shell, debug_prop)
 set_prop(shell, powerctl_prop)
 set_prop(shell, log_tag_prop)
 set_prop(shell, wifi_log_prop)
+# Allow shell to start/stop traced via the persist.traced.enable
+# property (which also takes care of /data/misc initialization).
+set_prop(shell, traced_enabled_prop)
 # adjust is_loggable properties
 userdebug_or_eng(`set_prop(shell, log_prop)')
 # logpersist script
@@ -75,6 +83,9 @@ userdebug_or_eng(`
 
 # Read device's serial number from system properties
 get_prop(shell, serialno_prop)
+
+# Allow shell to read the vendor security patch level for CTS
+get_prop(shell, vendor_security_patch_level_prop)
 
 # Read state of logging-related properties
 get_prop(shell, device_logging_prop)
@@ -107,7 +118,7 @@ hwbinder_use(shell)
 allow shell hwservicemanager:hwservice_manager list;
 
 # allow shell to look through /proc/ for lsmod, ps, top, netstat.
-r_dir_file(shell, proc_net)
+r_dir_file(shell, proc_net_type)
 
 allow shell {
   proc_asound
@@ -116,12 +127,16 @@ allow shell {
   proc_meminfo
   proc_modules
   proc_pid_max
+  proc_qtaguid_stat
   proc_stat
   proc_timer
   proc_uptime
   proc_version
   proc_zoneinfo
 }:file r_file_perms;
+
+# allow listing network interfaces under /sys/class/net.
+allow shell sysfs_net:dir r_dir_perms;
 
 r_dir_file(shell, cgroup)
 allow shell domain:dir { search open read getattr };
@@ -180,6 +195,9 @@ allow shell property_contexts_file:file r_file_perms;
 allow shell seapp_contexts_file:file r_file_perms;
 allow shell service_contexts_file:file r_file_perms;
 allow shell sepolicy_file:file r_file_perms;
+
+# Allow shell to start up vendor shell
+allow shell vendor_shell_exec:file rx_file_perms;
 
 ###
 ### Neverallow rules
