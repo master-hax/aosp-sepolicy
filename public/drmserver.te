@@ -55,4 +55,5 @@ allow drmserver permission_service:service_manager find;
 selinux_check_access(drmserver)
 
 r_dir_file(drmserver, cgroup)
+allow drmserver cgroup:file w_file_perms;
 r_dir_file(drmserver, system_file)
