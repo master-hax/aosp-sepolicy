@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f7544e95_32d51915",
+        "filename": "public/attributes",
+        "patchSetId": 5
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2018-05-15T18:03:41Z",
+      "side": 1,
+      "message": "Thanks.  I too was testing in internal and missed this as I copied it over.",
+      "parentUuid": "360ff837_b916bfe0",
+      "range": {
+        "startLine": 180,
+        "startChar": 63,
+        "endLine": 180,
+        "endChar": 64
+      },
+      "revId": "68dad31bfa8353fdef42aa3a544bf52778726a6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "624b9de4_de1ad6cb",
         "filename": "public/property.te",
         "patchSetId": 5
@@ -36,6 +60,24 @@
       "writtenOn": "2018-05-15T04:43:21Z",
       "side": 1,
       "message": "It\u0027s unclear to me why these are all considered to be vendor properties.\n\nCan you expand the comment here? Other folks will attempt to expand this list of exemptions. It\u0027s helpful to have a statement saying that these are current violations which have been grandfathered in, but that the list of exemptions should not be expanded.",
+      "revId": "68dad31bfa8353fdef42aa3a544bf52778726a6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d61cffd3_4a7c5a56",
+        "filename": "public/property.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2018-05-15T18:03:41Z",
+      "side": 1,
+      "message": "I think you\u0027re reading this backwards.  The neverallow is for coredomain, so these are the list of \u0027system\u0027 properties.  Since we don\u0027t have an attribute for that, it ends up being \n\n{ \n  property_type\n  -\u003cEvery system property type\u003e\n}\n\nI guess I can better phrase the comment \"Neverallow coredomain to set properties except for system properties\"",
+      "parentUuid": "624b9de4_de1ad6cb",
       "revId": "68dad31bfa8353fdef42aa3a544bf52778726a6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
