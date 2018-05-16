@@ -27,6 +27,7 @@ recovery_only(`
   allow recovery rootfs:file execute_no_trans;
   allow recovery system_file:file execute_no_trans;
   allow recovery toolbox_exec:file rx_file_perms;
+  allow recovery fsck_exec:file r_file_perms;
 
   # Mount filesystems.
   allow recovery rootfs:dir mounton;
