@@ -8,15 +8,20 @@ allow vold cache_file:file { getattr read };
 allow vold cache_file:lnk_file r_file_perms;
 
 # Read access to pseudo filesystems.
-r_dir_file(vold, proc_net)
+r_dir_file(vold, proc_net_type)
+userdebug_or_eng(`
+  auditallow vold proc_net_type:{ dir file lnk_file } { getattr open read };
+')
+
 r_dir_file(vold, sysfs_type)
 # XXX Label sysfs files with a specific type?
-allow vold sysfs:file w_file_perms;
+allow vold sysfs:file w_file_perms; # writing to /sys/*/uevent during coldboot.
 allow vold sysfs_dm:file w_file_perms;
 allow vold sysfs_usb:file w_file_perms;
 allow vold sysfs_zram_uevent:file w_file_perms;
 
 r_dir_file(vold, rootfs)
+r_dir_file(vold, metadata_file)
 allow vold {
   proc # b/67049235 processes /proc/<pid>/* files are mislabeled.
   proc_cmdline
@@ -24,7 +29,6 @@ allow vold {
   proc_filesystems
   proc_meminfo
   proc_mounts
-  proc_overflowuid
 }:file r_file_perms;
 
 #Get file contexts
@@ -90,9 +94,6 @@ allow vold domain:{ file lnk_file } r_file_perms;
 allow vold domain:process { signal sigkill };
 allow vold self:global_capability_class_set { sys_ptrace kill };
 
-# XXX Label sysfs files with a specific type?
-allow vold sysfs:file rw_file_perms;
-
 allow vold kmsg_device:chr_file rw_file_perms;
 
 # Run fsck in the fsck domain.
@@ -117,6 +118,9 @@ allow vold efs_file:file rw_file_perms;
 allow vold system_data_file:dir { create rw_dir_perms mounton setattr rmdir };
 allow vold system_data_file:lnk_file getattr;
 
+# Vold create users in /data/vendor_{ce,de}/[0-9]+
+allow vold vendor_data_file:dir create_dir_perms;
+
 # for secdiscard
 allow vold system_data_file:file read;
 
@@ -125,6 +129,8 @@ allow vold kernel:process setsched;
 
 # Property Service
 set_prop(vold, vold_prop)
+set_prop(vold, exported_vold_prop)
+set_prop(vold, exported2_vold_prop)
 set_prop(vold, powerctl_prop)
 set_prop(vold, ctl_fuse_prop)
 set_prop(vold, restorecon_prop)
@@ -174,6 +180,10 @@ allow vold proc_drop_caches:file w_file_perms;
 allow vold vold_data_file:dir create_dir_perms;
 allow vold vold_data_file:file create_file_perms;
 
+# And a similar place in the metadata partition
+allow vold vold_metadata_file:dir create_dir_perms;
+allow vold vold_metadata_file:file create_file_perms;
+
 # linux keyring configuration
 allow vold init:key { write search setattr };
 allow vold vold:key { write search setattr };
@@ -200,10 +210,49 @@ allow vold user_profile_data_file:dir create_dir_perms;
 # Raw writes to misc block device
 allow vold misc_block_device:blk_file w_file_perms;
 
-neverallow { domain -vold -vold_prepare_subdirs } vold_data_file:dir ~{ open create read getattr setattr search relabelto ioctl };
-neverallow { domain -vold -vold_prepare_subdirs -kernel } vold_data_file:notdevfile_class_set ~{ relabelto getattr };
-neverallow { domain -vold -init -vold_prepare_subdirs } vold_data_file:dir *;
-neverallow { domain -vold -init -vold_prepare_subdirs -kernel } vold_data_file:notdevfile_class_set *;
+neverallow {
+    domain
+    -vold
+    -vold_prepare_subdirs
+} vold_data_file:dir ~{ open create read getattr setattr search relabelto ioctl };
+
+neverallow {
+    domain
+    -init
+    -vold
+    -vold_prepare_subdirs
+} vold_data_file:dir *;
+
+neverallow {
+    domain
+    -init
+    -vendor_init
+    -vold
+} vold_metadata_file:dir *;
+
+neverallow {
+    domain
+    -kernel
+    -vold
+    -vold_prepare_subdirs
+} vold_data_file:notdevfile_class_set ~{ relabelto getattr };
+
+neverallow {
+    domain
+    -init
+    -vold
+    -vold_prepare_subdirs
+} vold_metadata_file:notdevfile_class_set ~{ relabelto getattr };
+
+neverallow {
+    domain
+    -init
+    -kernel
+    -vendor_init
+    -vold
+    -vold_prepare_subdirs
+} { vold_data_file vold_metadata_file }:notdevfile_class_set *;
+
 neverallow { domain -vold -init } restorecon_prop:property_service set;
 
 # Only system_server and vdc can interact with vold over binder
