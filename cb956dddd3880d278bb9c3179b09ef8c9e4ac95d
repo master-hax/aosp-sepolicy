@@ -70,6 +70,30 @@
       "revId": "cb956dddd3880d278bb9c3179b09ef8c9e4ac95d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ecfd178_93e593aa",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-05-18T20:08:27Z",
+      "side": 1,
+      "message": "I have the same concern as Tri about system_block_device. However, I\u0027m not convinced that there is any value in providing separate labels since very few processes should ever access the raw block partitions and any process that does need raw access likely needs access to them all for OTAs. If these block devices have separate security properties, then it makes sense to give them separate labels. Otherwise, they can stay the same, uless there\u0027s a Treble reason to give them separate labels.",
+      "parentUuid": "70cfa1e4_f1944749",
+      "range": {
+        "startLine": 542,
+        "startChar": 0,
+        "endLine": 545,
+        "endChar": 71
+      },
+      "revId": "cb956dddd3880d278bb9c3179b09ef8c9e4ac95d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
