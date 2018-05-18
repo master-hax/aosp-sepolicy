@@ -22,6 +22,30 @@
       "revId": "cb956dddd3880d278bb9c3179b09ef8c9e4ac95d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55c98e75_6df2138e",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-05-18T18:23:30Z",
+      "side": 1,
+      "message": "Is this an appropriate usage of system_block_device label? From this comment it seems like this label is just for system.img https://android.googlesource.com/platform/system/sepolicy/+/master/public/device.te#82\n\nAlso, if these are symlinks, you could use the default label.\nAll domains should already have access to symlinks in /dev.\nhttps://android.googlesource.com/platform/system/sepolicy/+/master/public/domain.te#60",
+      "parentUuid": "528e2bc1_2ebb45ac",
+      "range": {
+        "startLine": 542,
+        "startChar": 0,
+        "endLine": 545,
+        "endChar": 71
+      },
+      "revId": "cb956dddd3880d278bb9c3179b09ef8c9e4ac95d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
