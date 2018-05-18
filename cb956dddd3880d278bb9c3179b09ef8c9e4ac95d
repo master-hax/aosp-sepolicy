@@ -94,6 +94,30 @@
       "revId": "cb956dddd3880d278bb9c3179b09ef8c9e4ac95d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2eb0f82a_8240ee22",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2018-05-18T23:53:27Z",
+      "side": 1,
+      "message": "OK, understood.\nLet me drop this for now, as this seems not related to my current change.\n\nIIUC, for \u0027read\u0027 access, there is no need to set separate labels (the default value is good).\nFor \u0027write\u0027 (only update_engine and recovery needs this), we should still label those blk devices in the device-specific sepolicy (BOARD_SEPOLICY_DIRS). Is it correct?\n\nhttps://android.googlesource.com/platform/system/sepolicy/+/master/public/domain.te#594\nhttps://android.googlesource.com/platform/system/sepolicy/+/master/public/update_engine_common.te#7\nhttps://android.googlesource.com/device/google/wahoo/+/master/sepolicy/vendor/file_contexts#100",
+      "parentUuid": "0ecfd178_93e593aa",
+      "range": {
+        "startLine": 542,
+        "startChar": 0,
+        "endLine": 545,
+        "endChar": 71
+      },
+      "revId": "cb956dddd3880d278bb9c3179b09ef8c9e4ac95d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
