@@ -536,3 +536,11 @@
 #############################
 # mount point for read-write vendor partitions
 /mnt/vendor(/.*)?          u:object_r:mnt_vendor_file:s0
+
+#############################
+# generic by-name symlinks
+/dev/block/by-name/product(_[ab])?    u:object_r:system_block_device:s0
+/dev/block/by-name/system(_[ab])?     u:object_r:system_block_device:s0
+/dev/block/by-name/odm(_[ab])?        u:object_r:system_block_device:s0
+/dev/block/by-name/vendor(_[ab])?     u:object_r:system_block_device:s0
+/dev/block/by-name/userdata           u:object_r:userdata_block_device:s0
