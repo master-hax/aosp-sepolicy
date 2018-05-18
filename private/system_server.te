@@ -472,6 +472,9 @@ allow system_server media_rw_data_file:file { getattr read write append };
 allow system_server { apk_tmp_file apk_private_tmp_file }:{ dir file } { relabelfrom relabelto };
 allow system_server { apk_data_file apk_private_data_file }:{ dir file } { relabelfrom relabelto };
 
+# Relabel radio_data_file
+allow system_server radio_data_file:file relabelto;
+
 # Relabel wallpaper.
 allow system_server system_data_file:file relabelfrom;
 allow system_server wallpaper_file:file relabelto;
