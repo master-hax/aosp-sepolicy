@@ -24,6 +24,9 @@ allow system_app misc_user_data_file:file create_file_perms;
 # Access to vold-mounted storage for measuring free space
 allow system_app mnt_media_rw_file:dir search;
 
+# Read access to FDs from the DropboxManagerService.
+allow system_app dropbox_data_file:file { getattr read };
+
 # Read wallpaper file.
 allow system_app wallpaper_file:file r_file_perms;
 
@@ -31,16 +34,23 @@ allow system_app wallpaper_file:file r_file_perms;
 allow system_app icon_file:file r_file_perms;
 
 # Write to properties
+set_prop(system_app, bluetooth_a2dp_offload_prop)
 set_prop(system_app, bluetooth_prop)
 set_prop(system_app, debug_prop)
 set_prop(system_app, system_prop)
+set_prop(system_app, exported_bluetooth_prop)
+set_prop(system_app, exported_system_prop)
+set_prop(system_app, exported2_system_prop)
+set_prop(system_app, exported3_system_prop)
 set_prop(system_app, logd_prop)
 set_prop(system_app, net_radio_prop)
 set_prop(system_app, system_radio_prop)
+set_prop(system_app, exported_system_radio_prop)
 set_prop(system_app, log_tag_prop)
 userdebug_or_eng(`set_prop(system_app, logpersistd_logging_prop)')
 auditallow system_app net_radio_prop:property_service set;
 auditallow system_app system_radio_prop:property_service set;
+auditallow system_app exported_system_radio_prop:property_service set;
 
 # ctl interface
 set_prop(system_app, ctl_default_prop)
@@ -52,6 +62,9 @@ allow system_app anr_data_file:file create_file_perms;
 
 # Settings need to access app name and icon from asec
 allow system_app asec_apk_file:file r_file_perms;
+
+# Allow system apps (like Settings) to interact with statsd
+binder_call(system_app, statsd)
 
 # Allow system apps to interact with incidentd
 binder_call(system_app, incidentd)
@@ -97,17 +110,26 @@ allow system_app keystore:keystore_key {
     user_changed
 };
 
-# /sys access
-r_dir_file(system_app, sysfs_type)
+# /proc/net access.
+# TODO(b/9496886) Audit access for removal.
+r_dir_file(system_app, proc_net_type)
+userdebug_or_eng(`
+  auditallow system_app proc_net_type:{ dir file lnk_file } { getattr open read };
+')
 
-# settings app reads /proc/version and /proc/pagetypeinfo
+# settings app reads /proc/version
 allow system_app {
-  proc
   proc_version
 }:file r_file_perms;
 
 control_logd(system_app)
 read_runtime_log_tags(system_app)
+get_prop(system_app, device_logging_prop)
+
+# allow system apps to use UDP sockets provided by the system server but not
+# modify them other than to connect
+allow system_app system_server:udp_socket {
+        connect getattr read recvfrom sendto write getopt setopt };
 
 ###
 ### Neverallow rules

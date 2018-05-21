@@ -36,6 +36,7 @@ allow system_server zygote:process sigchld;
 # May kill zygote on crashes.
 allow system_server zygote:process sigkill;
 allow system_server crash_dump:process sigkill;
+allow system_server webview_zygote:process sigkill;
 
 # Read /system/bin/app_process.
 allow system_server zygote_exec:file r_file_perms;
@@ -104,6 +105,7 @@ allow system_server appdomain:process { getsched setsched };
 allow system_server audioserver:process { getsched setsched };
 allow system_server hal_audio:process { getsched setsched };
 allow system_server hal_bluetooth:process { getsched setsched };
+allow system_server mediacodec:process { getsched setsched };
 allow system_server cameraserver:process { getsched setsched };
 allow system_server hal_camera:process { getsched setsched };
 allow system_server mediaserver:process { getsched setsched };
@@ -112,17 +114,15 @@ allow system_server bootanim:process { getsched setsched };
 # Allow system_server to write to /proc/<pid>/timerslack_ns
 allow system_server appdomain:file w_file_perms;
 allow system_server audioserver:file w_file_perms;
+allow system_server mediacodec:file w_file_perms;
 allow system_server cameraserver:file w_file_perms;
+allow system_server hal_audio_server:file w_file_perms;
 
 # Read /proc/pid data for all domains. This is used by ProcessCpuTracker
 # within system_server to keep track of memory and CPU usage for
 # all processes on the device. In addition, /proc/pid files access is needed
 # for dumping stack traces of native processes.
 r_dir_file(system_server, domain)
-
-# Read/Write to /proc/net/xt_qtaguid/ctrl and and /dev/xt_qtaguid.
-allow system_server qtaguid_proc:file rw_file_perms;
-allow system_server qtaguid_device:chr_file rw_file_perms;
 
 # Write /proc/uid_cputime/remove_uid_range.
 allow system_server proc_uid_cputime_removeuid:file { w_file_perms getattr };
@@ -133,8 +133,14 @@ allow system_server proc_uid_procstat_set:file { w_file_perms getattr };
 # Write to /proc/sysrq-trigger.
 allow system_server proc_sysrq:file rw_file_perms;
 
+# Delete /data/misc/stats-data/ and /data/misc/stats-service/ directories.
+allow system_server stats_data_file:dir { open read remove_name search write };
+allow system_server stats_data_file:file unlink;
+
 # Read /sys/kernel/debug/wakeup_sources.
 allow system_server debugfs:file r_file_perms;
+auditallow system_server debugfs:file r_file_perms;
+allow system_server debugfs_wakeup_sources:file r_file_perms;
 
 # The DhcpClient and WifiWatchdog use packet_sockets
 allow system_server self:packet_socket create_socket_perms_no_ioctl;
@@ -151,13 +157,15 @@ unix_socket_connect(system_server, lmkd, lmkd)
 unix_socket_connect(system_server, mtpd, mtp)
 unix_socket_connect(system_server, netd, netd)
 unix_socket_connect(system_server, vold, vold)
-unix_socket_connect(system_server, webview_zygote, webview_zygote)
 unix_socket_connect(system_server, zygote, zygote)
 unix_socket_connect(system_server, racoon, racoon)
 unix_socket_connect(system_server, uncrypt, uncrypt)
 
 # Communicate over a socket created by surfaceflinger.
 allow system_server surfaceflinger:unix_stream_socket { read write setopt };
+
+# Communicate over a socket created by webview_zygote.
+allow system_server webview_zygote:unix_stream_socket { read write connectto setopt };
 
 # Perform Binder IPC.
 binder_use(system_server)
@@ -169,14 +177,19 @@ binder_call(system_server, gatekeeperd)
 binder_call(system_server, installd)
 binder_call(system_server, incidentd)
 binder_call(system_server, netd)
+binder_call(system_server, statsd)
 binder_call(system_server, storaged)
 binder_call(system_server, vold)
 binder_call(system_server, wificond)
 binder_call(system_server, wpantund)
+userdebug_or_eng(`
+  binder_call(system_server, perfprofd)
+')
 binder_service(system_server)
 
 # Use HALs
 hal_client_domain(system_server, hal_allocator)
+hal_client_domain(system_server, hal_authsecret)
 hal_client_domain(system_server, hal_broadcastradio)
 hal_client_domain(system_server, hal_configstore)
 hal_client_domain(system_server, hal_contexthub)
@@ -188,6 +201,7 @@ hal_client_domain(system_server, hal_light)
 hal_client_domain(system_server, hal_memtrack)
 hal_client_domain(system_server, hal_neuralnetworks)
 hal_client_domain(system_server, hal_oemlock)
+allow system_server hal_codec2_hwservice:hwservice_manager find;
 allow system_server hal_omx_hwservice:hwservice_manager find;
 allow system_server hidl_token_hwservice:hwservice_manager find;
 hal_client_domain(system_server, hal_power)
@@ -197,10 +211,12 @@ hal_client_domain(system_server, hal_thermal)
 hal_client_domain(system_server, hal_tv_cec)
 hal_client_domain(system_server, hal_tv_input)
 hal_client_domain(system_server, hal_usb)
+hal_client_domain(system_server, hal_usb_gadget)
 hal_client_domain(system_server, hal_vibrator)
 hal_client_domain(system_server, hal_vr)
 hal_client_domain(system_server, hal_weaver)
 hal_client_domain(system_server, hal_wifi)
+hal_client_domain(system_server, hal_wifi_hostapd)
 hal_client_domain(system_server, hal_wifi_offload)
 hal_client_domain(system_server, hal_wifi_supplicant)
 
@@ -236,6 +252,7 @@ allow system_server {
   mediaserver
   mediametrics
   sdcardd
+  statsd
   surfaceflinger
 
   # This list comes from HAL_INTERFACES_OF_INTEREST in
@@ -266,6 +283,8 @@ allow system_server mac_perms_file: file r_file_perms;
 # Check SELinux permissions.
 selinux_check_access(system_server)
 
+allow system_server sysfs_type:dir search;
+
 r_dir_file(system_server, sysfs_android_usb)
 allow system_server sysfs_android_usb:file w_file_perms;
 
@@ -277,7 +296,6 @@ r_dir_file(system_server, sysfs_switch)
 r_dir_file(system_server, sysfs_wakeup_reasons)
 
 allow system_server sysfs_nfc_power_writable:file rw_file_perms;
-allow system_server sysfs_devices_system_cpu:file w_file_perms;
 allow system_server sysfs_mac_address:file r_file_perms;
 allow system_server sysfs_power:dir search;
 allow system_server sysfs_power:file rw_file_perms;
@@ -326,10 +344,9 @@ allow system_server apk_data_file:{ file lnk_file } { create_file_perms link };
 allow system_server apk_tmp_file:dir create_dir_perms;
 allow system_server apk_tmp_file:file create_file_perms;
 
-# Access /vendor/app
+# Access /vendor/{app,framework,overlay}
 r_dir_file(system_server, vendor_app_file)
-
-# Access /vendor/app
+r_dir_file(system_server, vendor_framework_file)
 r_dir_file(system_server, vendor_overlay_file)
 
 # Manage /data/app-private.
@@ -357,18 +374,34 @@ allow system_server anr_data_file:file create_file_perms;
 #
 # Allow system_server to connect and write to the tombstoned java trace socket in
 # order to dump its traces. Also allow the system server to write its traces to
-# dumpstate during bugreport capture.
+# dumpstate during bugreport capture and incidentd during incident collection.
 unix_socket_connect(system_server, tombstoned_java_trace, tombstoned)
 allow system_server tombstoned:fd use;
 allow system_server dumpstate:fifo_file append;
+allow system_server incidentd:fifo_file append;
 
 # Read /data/misc/incidents - only read. The fd will be sent over binder,
 # with no DAC access to it, for dropbox to read.
 allow system_server incident_data_file:file read;
 
+# Allow dropbox to read /data/misc/perfetto-traces. Only the fd is sent over
+# binder.
+allow system_server perfetto_traces_data_file:file read;
+allow system_server perfetto:fd use;
+
+# Allow dropbox to read /data/misc/perfprofd. Only the fd is sent over binder.
+userdebug_or_eng(`
+  allow system_server perfprofd_data_file:file { getattr read };
+  allow system_server perfprofd:fd use;
+')
+
 # Manage /data/backup.
 allow system_server backup_data_file:dir create_dir_perms;
 allow system_server backup_data_file:file create_file_perms;
+
+# Write to /data/system/dropbox
+allow system_server dropbox_data_file:dir create_dir_perms;
+allow system_server dropbox_data_file:file create_file_perms;
 
 # Write to /data/system/heapdump
 allow system_server heapdump_data_file:dir rw_dir_perms;
@@ -377,6 +410,10 @@ allow system_server heapdump_data_file:file create_file_perms;
 # Manage /data/misc/adb.
 allow system_server adb_keys_file:dir create_dir_perms;
 allow system_server adb_keys_file:file create_file_perms;
+
+# Manage /data/misc/network_watchlist
+allow system_server network_watchlist_data_file:dir create_dir_perms;
+allow system_server network_watchlist_data_file:file create_file_perms;
 
 # Manage /data/misc/sms.
 # TODO:  Split into a separate type?
@@ -461,18 +498,25 @@ allow system_server system_data_file:dir relabelfrom;
 
 # Property Service write
 set_prop(system_server, system_prop)
+set_prop(system_server, exported_system_prop)
+set_prop(system_server, exported2_system_prop)
+set_prop(system_server, exported3_system_prop)
 set_prop(system_server, safemode_prop)
 set_prop(system_server, dhcp_prop)
 set_prop(system_server, net_radio_prop)
 set_prop(system_server, net_dns_prop)
 set_prop(system_server, system_radio_prop)
+set_prop(system_server, exported_system_radio_prop)
 set_prop(system_server, debug_prop)
 set_prop(system_server, powerctl_prop)
 set_prop(system_server, fingerprint_prop)
+set_prop(system_server, exported_fingerprint_prop)
 set_prop(system_server, device_logging_prop)
 set_prop(system_server, dumpstate_options_prop)
 set_prop(system_server, overlay_prop)
+set_prop(system_server, exported_overlay_prop)
 set_prop(system_server, pm_prop)
+set_prop(system_server, exported_pm_prop)
 userdebug_or_eng(`set_prop(system_server, wifi_log_prop)')
 
 # ctl interface
@@ -578,10 +622,14 @@ allow system_server mediadrmserver_service:service_manager find;
 allow system_server netd_service:service_manager find;
 allow system_server nfc_service:service_manager find;
 allow system_server radio_service:service_manager find;
+allow system_server stats_service:service_manager find;
 allow system_server storaged_service:service_manager find;
 allow system_server surfaceflinger_service:service_manager find;
 allow system_server vold_service:service_manager find;
 allow system_server wificond_service:service_manager find;
+userdebug_or_eng(`
+  allow system_server perfprofd_service:service_manager find;
+')
 
 allow system_server keystore:keystore_key {
 	get_state
@@ -655,7 +703,7 @@ allow system_server app_fuse_file:file { read write open getattr append };
 
 # For configuring sdcardfs
 allow system_server configfs:dir { create_dir_perms };
-allow system_server configfs:file { getattr open unlink write };
+allow system_server configfs:file { getattr open create unlink write };
 
 # Connect to adbd and use a socket transferred from it.
 # Used for e.g. jdwp.
@@ -685,7 +733,8 @@ r_dir_file(system_server, cgroup)
 allow system_server ion_device:chr_file r_file_perms;
 
 r_dir_file(system_server, proc_asound)
-r_dir_file(system_server, proc_net)
+r_dir_file(system_server, proc_net_type)
+r_dir_file(system_server, proc_qtaguid_stat)
 allow system_server {
   proc_loadavg
   proc_meminfo
@@ -694,20 +743,16 @@ allow system_server {
   proc_stat
   proc_uid_cputime_showstat
   proc_uid_time_in_state
+  proc_uid_concurrent_active_time
+  proc_uid_concurrent_policy_time
   proc_version
   proc_vmallocinfo
 }:file r_file_perms;
 
 allow system_server proc_uid_time_in_state:dir r_dir_perms;
+allow system_server proc_uid_cpupower:file r_file_perms;
 
 r_dir_file(system_server, rootfs)
-
-### Rules needed when Light HAL runs inside system_server process.
-### These rules should eventually be granted only when needed.
-allow system_server sysfs_leds:lnk_file read;
-allow system_server sysfs_leds:file rw_file_perms;
-allow system_server sysfs_leds:dir r_dir_perms;
-###
 
 # Allow WifiService to start, stop, and read wifi-specific trace events.
 allow system_server debugfs_tracing_instances:dir search;
@@ -722,12 +767,37 @@ with_asan(`
   allow system_server zygote_exec:file rx_file_perms;
 ')
 
+# allow system_server to read the eBPF maps that stores the traffic stats information amd clean up
+# the map after snapshot is recorded
+allow system_server fs_bpf:dir search;
+allow system_server fs_bpf:file read;
+allow system_server netd:bpf map_read;
+
 # ART Profiles.
 # Allow system_server to open profile snapshots for read.
 # System server never reads the actual content. It passes the descriptor to
 # to privileged apps which acquire the permissions to inspect the profiles.
-allow system_server user_profile_data_file:dir { search };
+allow system_server user_profile_data_file:dir { getattr search };
 allow system_server user_profile_data_file:file { getattr open read };
+
+# System server may dump profile data for debuggable apps in the /data/misc/profman.
+# As such it needs to be able create files but it should never read from them.
+allow system_server profman_dump_data_file:file { create getattr setattr w_file_perms};
+allow system_server profman_dump_data_file:dir w_dir_perms;
+
+# On userdebug build we may profile system server. Allow it to write and create its own profile.
+userdebug_or_eng(`
+  allow system_server user_profile_data_file:file create_file_perms;
+')
+
+userdebug_or_eng(`
+  # Allow system server to notify mediaextractor of the plugin update.
+  allow system_server mediaextractor_update_service:service_manager find;
+')
+
+# UsbDeviceManager uses /dev/usb-ffs
+allow system_server functionfs:dir search;
+allow system_server functionfs:file rw_file_perms;
 
 ###
 ### Neverallow rules
@@ -797,6 +867,3 @@ neverallow system_server { domain -system_server }:process ptrace;
 # CAP_SYS_RESOURCE was traditionally needed for sensitive /proc/PID
 # file read access. However, that is now unnecessary (b/34951864)
 neverallow system_server system_server:global_capability_class_set sys_resource;
-
-# TODO(b/67468181): Remove following lines upon resolution of this bug
-dontaudit system_server statscompanion_service:service_manager { add find };

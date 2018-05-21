@@ -7,6 +7,9 @@ userdebug_or_eng(`
   typeattribute perfprofd coredomain;
   typeattribute perfprofd mlstrustedsubject;
 
+  # perfprofd access to sysfs directory structure.
+  allow perfprofd sysfs_type:dir search;
+
   # perfprofd needs to control CPU hot-plug in order to avoid kernel
   # perfevents problems in cases where CPU goes on/off during measurement;
   # this means read access to /sys/devices/system/cpu/possible
@@ -79,10 +82,12 @@ userdebug_or_eng(`
 
   # simpleperf examines debugfs on startup to collect tracepoint event types
   r_dir_file(perfprofd, debugfs_tracing)
-  allow perfprofd debugfs_tracing_debug:file r_file_perms;
+  r_dir_file(perfprofd, debugfs_tracing_debug)
 
   # simpleperf is going to execute "sleep"
   allow perfprofd toolbox_exec:file rx_file_perms;
+  # simpleperf is going to execute "mv" on a temp file
+  allow perfprofd shell_exec:file rx_file_perms;
 
   # needed for simpleperf on some kernels
   allow perfprofd self:global_capability_class_set ipc_lock;
@@ -93,4 +98,22 @@ userdebug_or_eng(`
   dontaudit perfprofd shell_data_file:dir *;
   dontaudit perfprofd shell_data_file:file *;
 
+  # Allow perfprofd to publish a binder service and make binder calls.
+  binder_use(perfprofd)
+  add_service(perfprofd, perfprofd_service)
+
+  # Use devpts for streams from cmd.
+  #
+  # This is normally granted to binderservicedomain, but this service
+  # has tighter restrictions on the callers (see below), so must enable
+  # this manually.
+  allow perfprofd devpts:chr_file rw_file_perms;
+
+  # Use socket & pipe supplied by su, for cmd perfprofd dump.
+  allow perfprofd su:unix_stream_socket { read write getattr sendto };
+  allow perfprofd su:fifo_file r_file_perms;
+
+  # Allow perfprofd to submit to dropbox.
+  allow perfprofd dropbox_service:service_manager find;
+  binder_call(perfprofd, system_server)
 ')

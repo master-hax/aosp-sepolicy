@@ -3,6 +3,7 @@ import re
 import os
 import sys
 import platform
+import FcSort
 
 ###
 # Check whether the regex will match a file path starting with the provided
@@ -45,9 +46,41 @@ class Policy:
     __ExpandedRules = set()
     __Rules = set()
     __FcDict = None
+    __FcSorted = None
+    __GenfsDict = None
     __libsepolwrap = None
     __policydbP = None
     __BUFSIZE = 2048
+
+    def AssertPathTypesDoNotHaveAttr(self, MatchPrefix, DoNotMatchPrefix, Attr):
+        # Query policy for the types associated with Attr
+        TypesPol = self.QueryTypeAttribute(Attr, True)
+        # Search file_contexts to find types associated with input paths.
+        TypesFc = self.__GetTypesByFilePathPrefix(MatchPrefix, DoNotMatchPrefix)
+        violators = TypesFc.intersection(TypesPol)
+        ret = ""
+        if len(violators) > 0:
+            ret += "The following types on "
+            ret += " ".join(str(x) for x in sorted(MatchPrefix))
+            ret += " must not be associated with the "
+            ret += "\"" + Attr + "\" attribute: "
+            ret += " ".join(str(x) for x in sorted(violators)) + "\n"
+        return ret
+
+    # Check that all types for "filesystem" have "attribute" associated with them
+    # for types labeled in genfs_contexts.
+    def AssertGenfsFilesystemTypesHaveAttr(self, Filesystem, Attr):
+        TypesPol = self.QueryTypeAttribute(Attr, True)
+        TypesGenfs = self.__GenfsDict[Filesystem]
+        violators = TypesGenfs.difference(TypesPol)
+
+        ret = ""
+        if len(violators) > 0:
+            ret += "The following types in " + Filesystem
+            ret += " must be associated with the "
+            ret += "\"" + Attr + "\" attribute: "
+            ret += " ".join(str(x) for x in sorted(violators)) + "\n"
+        return ret
 
     # Check that path prefixes that match MatchPrefix, and do not Match
     # DoNotMatchPrefix have the attribute Attr.
@@ -198,17 +231,50 @@ class Policy:
         self.__libsepolwrap.destroy_type_iter(TypeIterP)
         return AllTypes
 
+    def __ExactMatchPathPrefix(self, pathregex, prefix):
+        pattern = re.compile('^' + pathregex + "$")
+        if pattern.match(prefix):
+            return True
+        return False
+
+    # Return a tuple (prefix, i) where i is the index of the most specific
+    # match of prefix in the sorted file_contexts. This is useful for limiting a
+    # file_contexts search to matches that are more specific and omitting less
+    # specific matches. For example, finding all matches to prefix /data/vendor
+    # should not include /data(/.*)? if /data/vendor(/.*)? is also specified.
+    def __FcSortedIndex(self, prefix):
+        index = 0
+        for i in range(0, len(self.__FcSorted)):
+            if self.__ExactMatchPathPrefix(self.__FcSorted[i].path, prefix):
+                index = i
+        return prefix, index
+
+    # Return a tuple of (path, Type) for all matching paths. Use the sorted
+    # file_contexts and index returned from __FcSortedIndex() to limit results
+    # to results that are more specific than the prefix.
+    def __MatchPathPrefixTypes(self, prefix, index):
+        PathType = []
+        for i in range(index, len(self.__FcSorted)):
+            if MatchPathPrefix(self.__FcSorted[i].path, prefix):
+                PathType.append((self.__FcSorted[i].path, self.__FcSorted[i].Type))
+        return PathType
+
+    # Return types that match MatchPrefixes but do not match
+    # DoNotMatchPrefixes
     def __GetTypesByFilePathPrefix(self, MatchPrefixes, DoNotMatchPrefixes):
         Types = set()
-        for Type in self.__FcDict:
-            for pathregex in self.__FcDict[Type]:
-                if not MatchPathPrefixes(pathregex, MatchPrefixes):
-                    continue
-                if MatchPathPrefixes(pathregex, DoNotMatchPrefixes):
-                    continue
-                Types.add(Type)
-        return Types
 
+        MatchPrefixesWithIndex = []
+        for MatchPrefix in MatchPrefixes:
+            MatchPrefixesWithIndex.append(self.__FcSortedIndex(MatchPrefix))
+
+        for MatchPrefixWithIndex in MatchPrefixesWithIndex:
+            PathTypes = self.__MatchPathPrefixTypes(*MatchPrefixWithIndex)
+            for PathType in PathTypes:
+                if MatchPathPrefixes(PathType[0], DoNotMatchPrefixes):
+                    continue
+                Types.add(PathType[1])
+        return Types
 
     def __GetTERules(self, policydbP, avtabIterP, Rules):
         if Rules is None:
@@ -287,9 +353,43 @@ class Policy:
         lib.init_type_iter.argtypes = [c_void_p, c_char_p, c_bool]
         # void destroy_type_iter(void *type_iterp);
         lib.destroy_type_iter.argtypes = [c_void_p]
+        # void *init_genfs_iter(void *policydbp)
+        lib.init_genfs_iter.restype = c_void_p
+        lib.init_genfs_iter.argtypes = [c_void_p]
+        # int get_genfs(char *out, size_t max_size, void *genfs_iterp);
+        lib.get_genfs.restype = c_int
+        lib.get_genfs.argtypes = [c_char_p, c_size_t, c_void_p, c_void_p]
+        # void destroy_genfs_iter(void *genfs_iterp)
+        lib.destroy_genfs_iter.argtypes = [c_void_p]
 
         self.__libsepolwrap = lib
 
+    def __GenfsDictAdd(self, Dict, buf):
+        fs, path, context = buf.split(" ")
+        Type = context.split(":")[2]
+        if not fs in Dict:
+            Dict[fs] = {Type}
+        else:
+            Dict[fs].add(Type)
+
+    def __InitGenfsCon(self):
+        self.__GenfsDict = {}
+        GenfsIterP = self.__libsepolwrap.init_genfs_iter(self.__policydbP)
+        if (GenfsIterP == None):
+            sys.exit("Failed to retreive genfs entries")
+        buf = create_string_buffer(self.__BUFSIZE)
+        while True:
+            ret = self.__libsepolwrap.get_genfs(buf, self.__BUFSIZE,
+                        self.__policydbP, GenfsIterP)
+            if ret == 0:
+                self.__GenfsDictAdd(self.__GenfsDict, buf.value)
+                continue
+            if ret == 1:
+                self.__GenfsDictAdd(self.__GenfsDict, buf.value)
+                break;
+            # We should never get here.
+            sys.exit("Failed to get genfs entries")
+        self.__libsepolwrap.destroy_genfs_iter(GenfsIterP)
 
     # load file_contexts
     def __InitFC(self, FcPaths):
@@ -313,6 +413,7 @@ class Policy:
                     self.__FcDict[t] = [rec[0]]
             except:
                 pass
+        self.__FcSorted = FcSort.FcSort(FcPaths)
 
     # load policy
     def __InitPolicy(self, PolicyPath):
@@ -325,6 +426,7 @@ class Policy:
         self.__InitLibsepolwrap(LibPath)
         self.__InitFC(FcPaths)
         self.__InitPolicy(PolicyPath)
+        self.__InitGenfsCon()
 
     def __del__(self):
         if self.__policydbP is not None:

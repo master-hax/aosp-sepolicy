@@ -21,22 +21,23 @@ allow priv_app self:process ptrace;
 # to their sandbox directory and then dlopen().
 allow priv_app app_data_file:file execute;
 
+allow priv_app app_api_service:service_manager find;
 allow priv_app audioserver_service:service_manager find;
 allow priv_app cameraserver_service:service_manager find;
 allow priv_app drmserver_service:service_manager find;
 allow priv_app mediacodec_service:service_manager find;
-allow priv_app mediametrics_service:service_manager find;
 allow priv_app mediadrmserver_service:service_manager find;
 allow priv_app mediaextractor_service:service_manager find;
+allow priv_app mediametrics_service:service_manager find;
 allow priv_app mediaserver_service:service_manager find;
 allow priv_app network_watchlist_service:service_manager find;
 allow priv_app nfc_service:service_manager find;
 allow priv_app oem_lock_service:service_manager find;
-allow priv_app radio_service:service_manager find;
-allow priv_app app_api_service:service_manager find;
-allow priv_app system_api_service:service_manager find;
 allow priv_app persistent_data_block_service:service_manager find;
+allow priv_app radio_service:service_manager find;
 allow priv_app recovery_service:service_manager find;
+allow priv_app stats_service:service_manager find;
+allow priv_app system_api_service:service_manager find;
 
 # Write to /cache.
 allow priv_app { cache_file cache_recovery_file }:dir create_dir_perms;
@@ -52,10 +53,16 @@ allow priv_app ota_package_file:file create_file_perms;
 allow priv_app media_rw_data_file:dir create_dir_perms;
 allow priv_app media_rw_data_file:file create_file_perms;
 
+# Read access to FDs from the DropboxManagerService.
+allow priv_app dropbox_data_file:file { getattr read };
+
 # Used by Finsky / Android "Verify Apps" functionality when
 # running "adb install foo.apk".
 allow priv_app shell_data_file:file r_file_perms;
 allow priv_app shell_data_file:dir r_dir_perms;
+
+# Allow traceur to pass file descriptors through a content provider to betterbug
+allow priv_app trace_data_file:file { getattr read };
 
 # Allow verifier to access staged apks.
 allow priv_app { apk_tmp_file apk_private_tmp_file }:dir r_dir_perms;
@@ -76,9 +83,39 @@ userdebug_or_eng(`
 allow priv_app vold:fd use;
 allow priv_app fuse_device:chr_file { read write };
 
-# /sys and /proc access
-r_dir_file(priv_app, sysfs_type)
-r_dir_file(priv_app, proc)
+# /proc access
+allow priv_app {
+  proc_vmstat
+}:file r_file_perms;
+
+# /proc/net access.
+# TODO(b/9496886) Audit access for removal.
+r_dir_file(priv_app, proc_net_type)
+userdebug_or_eng(`
+  auditallow priv_app proc_net_type:{ dir file lnk_file } { getattr open read };
+')
+# TODO(b/68774956) qtaguid access has been moved to netd. Access is deprecated. Audit for
+# removal.
+allow priv_app proc_qtaguid_ctrl:file rw_file_perms;
+userdebug_or_eng(`
+  auditallow priv_app proc_qtaguid_ctrl:file rw_file_perms;
+')
+r_dir_file(priv_app, proc_qtaguid_stat)
+userdebug_or_eng(`
+  auditallow priv_app proc_qtaguid_stat:dir r_dir_perms;
+  auditallow priv_app proc_qtaguid_stat:file r_file_perms;
+')
+allow priv_app qtaguid_device:chr_file r_file_perms;
+userdebug_or_eng(`
+  auditallow priv_app qtaguid_device:chr_file r_file_perms;
+')
+
+allow priv_app sysfs_type:dir search;
+# Read access to /sys/class/net/wlan*/address
+r_dir_file(priv_app, sysfs_net)
+# Read access to /sys/block/zram*/mm_stat
+r_dir_file(priv_app, sysfs_zram)
+
 r_dir_file(priv_app, rootfs)
 
 # Allow GMS core to open kernel config for OTA matching through libvintf
@@ -94,6 +131,13 @@ allow priv_app update_engine_service:service_manager find;
 # Allow GMS core to communicate with dumpsys storaged.
 binder_call(priv_app, storaged)
 allow priv_app storaged_service:service_manager find;
+
+# Allow GMS core to access system_update_service (e.g. to publish pending
+# system update info).
+allow priv_app system_update_service:service_manager find;
+
+# Allow GMS core to communicate with statsd.
+binder_call(priv_app, statsd)
 
 # Allow Phone to read/write cached ringtones (opened by system).
 allow priv_app ringtone_file:file { getattr read write };
@@ -112,11 +156,31 @@ allow priv_app selinuxfs:file r_file_perms;
 
 read_runtime_log_tags(priv_app)
 
-# suppress denials when safetynet scans /system
+# Write app-specific trace data to the Perfetto traced damon. This requires
+# connecting to its producer socket and obtaining a (per-process) tmpfs fd.
+allow priv_app traced:fd use;
+allow priv_app traced_tmpfs:file { read write getattr map };
+unix_socket_connect(priv_app, traced_producer, traced)
+
+# suppress denials for non-API accesses.
 dontaudit priv_app exec_type:file getattr;
 dontaudit priv_app device:dir read;
+dontaudit priv_app fs_bpf:dir search;
+dontaudit priv_app net_dns_prop:file read;
+dontaudit priv_app proc:file read;
 dontaudit priv_app proc_interrupts:file read;
 dontaudit priv_app proc_modules:file read;
+dontaudit priv_app proc_stat:file read;
+dontaudit priv_app proc_version:file read;
+dontaudit priv_app sysfs:dir read;
+dontaudit priv_app sysfs_android_usb:file read;
+dontaudit priv_app wifi_prop:file read;
+dontaudit priv_app { wifi_prop exported_wifi_prop }:file read;
+
+# allow privileged apps to use UDP sockets provided by the system server but not
+# modify them other than to connect
+allow priv_app system_server:udp_socket {
+        connect getattr read recvfrom sendto write getopt setopt };
 
 ###
 ### neverallow rules
@@ -160,3 +224,8 @@ neverallow priv_app mlstrustedsubject:process fork;
 # bugs, so we want to ensure priv_app never has this
 # capability.
 neverallow priv_app file_type:file link;
+
+# priv apps should not be able to open trace data files, they should depend
+# upon traceur to pass a file descriptor which they can then read
+neverallow priv_app trace_data_file:dir *;
+neverallow priv_app trace_data_file:file { no_w_file_perms open };
