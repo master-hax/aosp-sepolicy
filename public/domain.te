@@ -913,6 +913,7 @@ full_treble_only(`
     -vold_prepare_subdirs
     } {
       vendor_data_file # default label for files on /data. Covered below
+      unencrypted_vendor_data_file # default label for files on /data/vendor_unencrypted. Covered below
     }:dir ~{ getattr search };
 ')
 
@@ -924,6 +925,7 @@ full_treble_only(`
     -init
     } {
       vendor_data_file # default label for files on /data/vendor{,_ce,_de}.
+      unencrypted_vendor_data_file # default label for files on /data/vendor_unencrypted
     }:file_class_set ~{ append getattr ioctl read write };
 ')
 
