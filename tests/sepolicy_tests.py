@@ -32,7 +32,7 @@ def TestVendorTypeViolations(pol):
 
 def TestCoreDataTypeViolations(pol):
     return pol.AssertPathTypesHaveAttr(["/data/"], ["/data/vendor",
-            "/data/vendor_ce", "/data/vendor_de"], "core_data_file_type")
+            "/data/vendor_ce", "/data/vendor_de", "/data/vendor_log"], "core_data_file_type")
 
 ###
 # extend OptionParser to allow the same option flag to be used multiple times.
