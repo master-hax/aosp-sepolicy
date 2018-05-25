@@ -140,6 +140,30 @@
       "revId": "eed5e5d774159fdff2558ef2c30552c73e53e352",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da491192_653b389c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1129218
+      },
+      "writtenOn": "2018-05-25T03:22:29Z",
+      "side": 1,
+      "message": "Hi Bowgo,\n\n\u003e\u003e\u003e How long does it take for vold to decrypt completely? And do you use FBE or FDE?\nThe time consumption could be ignored in normal cases. We just follow Android P suggestion, use FBE encryption currently.\n\n\u003e\u003e\u003e If there is some error happens BEFORE vold completes, maybe checking serial log is possible?\nConsidering scenario of following case, it is necessary to set the directory of /data/vendor_log to non-encrypted.\n1. For occasional problems, the problem does not recur after reboot, so checking the abnormal logs could not be captured by the serial port.\n2. Considering performance, release version usually disables serial port printing. so it is not possible to get error log by serial port.\n3. Other service modules occasionally encounter exceptions with the vold fails to decrypt the log directory, such as WIFI/BT stack exception could not get valid log. Just similar to scenario 1.",
+      "parentUuid": "8a21f815_084f5e7b",
+      "range": {
+        "startLine": 16,
+        "startChar": 34,
+        "endLine": 17,
+        "endChar": 57
+      },
+      "revId": "eed5e5d774159fdff2558ef2c30552c73e53e352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
