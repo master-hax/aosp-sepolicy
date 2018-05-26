@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9d8ece62_cc3d099f",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-26T01:30:58Z",
+      "side": 1,
+      "message": "good catch, will do",
+      "parentUuid": "dd2178f0_f17f57f2",
+      "range": {
+        "startLine": 220,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 42
+      },
+      "revId": "f6cc7285a0e4c9ae0516dd20772ef87debc4d5ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3d0560a7_149c9e44",
         "filename": "public/app.te",
         "patchSetId": 2
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "98bdfc8d_febdfe2e",
+        "filename": "public/app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-26T01:30:58Z",
+      "side": 1,
+      "message": "That\u0027s what the above comment is for. I filed b/80319537 to do this cleanup (and a proposed way and rules to do it for consistency). I\u0027ll do it then.",
+      "parentUuid": "b07533f5_9a5325c4",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 61
+      },
+      "revId": "f6cc7285a0e4c9ae0516dd20772ef87debc4d5ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9b0b14a2_0c35fe8c",
         "filename": "public/hal_omx.te",
         "patchSetId": 2
@@ -82,6 +130,24 @@
       "writtenOn": "2018-05-26T00:39:12Z",
       "side": 1,
       "message": "binder_call(hal_omx_client, hal_omx_server)\nshould be also be around here",
+      "revId": "f6cc7285a0e4c9ae0516dd20772ef87debc4d5ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5aa51515_68c92bcf",
+        "filename": "public/hal_omx.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-26T01:30:58Z",
+      "side": 1,
+      "message": "Good call. Maybe I should also absorb this rule into hal_attribute in my cleanup, but I\u0027ll add it here and remove dupes.",
+      "parentUuid": "9b0b14a2_0c35fe8c",
       "revId": "f6cc7285a0e4c9ae0516dd20772ef87debc4d5ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -111,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "53be356d_fa3e1eba",
+        "filename": "public/mediadrmserver.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-26T01:30:58Z",
+      "side": 1,
+      "message": "This is actually a legacy rule. I don\u0027t think mediadrmserver is making a call over HIDL, but it used to make a call over binder.\n\nI filed b/80317992 to remove these as well.",
+      "parentUuid": "92e98425_93ec6c98",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 43
+      },
+      "revId": "f6cc7285a0e4c9ae0516dd20772ef87debc4d5ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ec6274f_fbb0bbe8",
         "filename": "public/mediaserver.te",
         "patchSetId": 2
@@ -122,6 +212,30 @@
       "writtenOn": "2018-05-26T00:39:12Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 40
+      },
+      "revId": "f6cc7285a0e4c9ae0516dd20772ef87debc4d5ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f61a084a_6b5c5d47",
+        "filename": "public/mediaserver.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-26T01:30:58Z",
+      "side": 1,
+      "message": "Yeah, this one I should remove, thanks",
+      "parentUuid": "9ec6274f_fbb0bbe8",
       "range": {
         "startLine": 132,
         "startChar": 0,
