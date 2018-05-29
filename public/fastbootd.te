@@ -1,0 +1,60 @@
+# fastbootd (used in recovery init.rc for /sbin/fastbootd)
+
+# Declare the domain unconditionally so we can always reference it
+# in neverallow rules.
+type fastbootd, domain;
+
+# But the allow rules are only included in the recovery policy.
+# Otherwise fastbootd is only allowed the domain rules.
+recovery_only(`
+  # fastbootd can only use HALs in passthrough mode
+  passthrough_hal_client_domain(fastbootd, hal_bootctl)
+
+  # Access /dev/usb-ffs/fastbootd/ep0
+  allow fastbootd functionfs:dir search;
+  allow fastbootd functionfs:file rw_file_perms;
+
+  # Log to serial
+  allow fastbootd kmsg_device:chr_file { open write relabelto };
+
+  # battery info
+  allow fastbootd sysfs_batteryinfo:file r_file_perms;
+  # Required to e.g. wipe userdata/cache.
+  allow fastbootd device:dir r_dir_perms;
+  allow fastbootd block_device:dir r_dir_perms;
+  allow fastbootd dev_type:blk_file rw_file_perms;
+
+  # Reboot the device
+  set_prop(fastbootd, powerctl_prop)
+
+  # Read serial number of the device from system properties
+  get_prop(fastbootd, serialno_prop)
+
+  # Set sys.usb.ffs.ready.
+  set_prop(fastbootd, ffs_prop)
+  set_prop(fastbootd, exported_ffs_prop)
+
+  allow fastbootd recovery_socket:sock_file rw_file_perms;
+  allow fastbootd recovery:unix_stream_socket connectto;
+')
+
+###
+### neverallow rules
+###
+
+# fastbootd should never touch /data.
+#
+# In particular, if /data is encrypted, it is not accessible
+# to fastbootd anyway.
+#
+# For now, we only enforce write/execute restrictions, as domain.te
+# contains a number of read-only rules that apply to all
+# domains, including fastbootd.
+#
+# TODO: tighten this up further.
+neverallow fastbootd {
+   data_file_type
+}:file { no_w_file_perms no_x_file_perms };
+neverallow fastbootd {
+   data_file_type
+}:dir no_w_dir_perms;
