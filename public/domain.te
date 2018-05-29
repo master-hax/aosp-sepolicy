@@ -406,7 +406,7 @@ neverallow * vendor_init:binder *;
 
 # Don't allow raw read/write/open access to block_device
 # Rather force a relabel to a more specific type
-neverallow { domain -kernel -init -recovery } block_device:blk_file { open read write };
+neverallow { domain -fastbootd -kernel -init -recovery } block_device:blk_file { open read write };
 
 # Do not allow renaming of block files or character files
 # Ability to do so can lead to possible use in an exploit chain
@@ -557,6 +557,7 @@ neverallow {
   domain
   -adbd
   -dumpstate
+  -fastbootd
   -hal_drm_server
   -hal_cas_server
   -init
@@ -572,6 +573,7 @@ neverallow { domain -init -system_server -dumpstate } firstboot_prop:file r_file
 
 neverallow {
   domain
+  -fastbootd
   -init
   -recovery
   -system_server
@@ -584,6 +586,7 @@ neverallow {
 # be used by other domains.
 neverallow {
   domain
+  -fastbootd
   -init
   -recovery
   -vold
@@ -592,10 +595,10 @@ neverallow {
 } metadata_block_device:blk_file { append link rename write open read ioctl lock };
 
 # No domain other than recovery and update_engine can write to system partition(s).
-neverallow { domain -recovery -update_engine } system_block_device:blk_file { write append };
+neverallow { domain -fastbootd -recovery -update_engine } system_block_device:blk_file { write append };
 
 # No domains other than install_recovery or recovery can write to recovery.
-neverallow { domain -install_recovery -recovery } recovery_block_device:blk_file { write append };
+neverallow { domain -fastbootd -install_recovery -recovery } recovery_block_device:blk_file { write append };
 
 # No domains other than a select few can access the misc_block_device. This
 # block device is reserved for OTA use.
@@ -604,6 +607,7 @@ neverallow { domain -install_recovery -recovery } recovery_block_device:blk_file
 neverallow {
   domain
   userdebug_or_eng(`-domain') # exclude debuggable builds
+  -fastbootd
   -hal_bootctl_server
   -init
   -uncrypt
@@ -1332,6 +1336,7 @@ neverallow {
   -init
   -installd
   -install_recovery
+  -fastbootd
   -lmkd
   -netd
   -perfprofd
