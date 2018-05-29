@@ -204,8 +204,8 @@ allow domain sysfs:lnk_file { getattr read };
 
 # libc references /data/misc/zoneinfo for timezone related information
 # This directory is considered to be a VNDK-stable
-allow domain zoneinfo_data_file:file r_file_perms;
-allow domain zoneinfo_data_file:dir r_dir_perms;
+allow { domain - fastbootd } zoneinfo_data_file:file r_file_perms;
+allow { domain - fastbootd } zoneinfo_data_file:dir r_dir_perms;
 
 # Lots of processes access current CPU information
 r_dir_file(domain, sysfs_devices_system_cpu)
@@ -214,14 +214,14 @@ r_dir_file(domain, sysfs_usb);
 
 # files under /data.
 not_full_treble(`
-  allow domain system_data_file:dir getattr;
+  allow { domain - fastbootd } system_data_file:dir getattr;
 ')
-allow { coredomain appdomain } system_data_file:dir getattr;
+allow { coredomain appdomain - fastbootd } system_data_file:dir getattr;
 # /data has the label system_data_file. Vendor components need the search
 # permission on system_data_file for path traversal to /data/vendor.
-allow domain system_data_file:dir search;
+allow { domain - fastbootd } system_data_file:dir search;
 # TODO restrict this to non-coredomain
-allow domain vendor_data_file:dir { getattr search };
+allow { domain - fastbootd } vendor_data_file:dir { getattr search };
 
 # required by the dynamic linker
 allow domain proc:lnk_file { getattr read };
@@ -282,7 +282,7 @@ allow { domain -domain } hwservice_manager_type:hwservice_manager { add find };
 allow { domain -domain } vndservice_manager_type:service_manager { add find };
 
 # Under ASAN, processes will try to read /data, as the sanitized libraries are there.
-with_asan(`allow domain system_data_file:dir getattr;')
+with_asan(`allow { domain - fastbootd } system_data_file:dir getattr;')
 
 ###
 ### neverallow rules
@@ -557,6 +557,7 @@ neverallow {
   domain
   -adbd
   -dumpstate
+  -fastbootd
   -hal_drm_server
   -hal_cas_server
   -init
@@ -592,10 +593,10 @@ neverallow {
 } metadata_block_device:blk_file { append link rename write open read ioctl lock };
 
 # No domain other than recovery and update_engine can write to system partition(s).
-neverallow { domain -recovery -update_engine } system_block_device:blk_file { write append };
+neverallow { domain -fastbootd -recovery -update_engine } system_block_device:blk_file { write append };
 
 # No domains other than install_recovery or recovery can write to recovery.
-neverallow { domain -install_recovery -recovery } recovery_block_device:blk_file { write append };
+neverallow { domain -fastbootd -install_recovery -recovery } recovery_block_device:blk_file { write append };
 
 # No domains other than a select few can access the misc_block_device. This
 # block device is reserved for OTA use.
