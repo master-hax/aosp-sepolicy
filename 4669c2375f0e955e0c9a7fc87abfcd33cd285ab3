@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cdf47cf4_37961674",
+        "filename": "public/hal_omx.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-30T17:51:35Z",
+      "side": 1,
+      "message": "This is not a regression but will fix",
+      "parentUuid": "78c5291a_bc835ed9",
+      "range": {
+        "startLine": 11,
+        "startChar": 28,
+        "endLine": 11,
+        "endChar": 37
+      },
+      "revId": "4669c2375f0e955e0c9a7fc87abfcd33cd285ab3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2fa432d0_00c2dc22",
         "filename": "vendor/mediacodec.te",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2018-05-30T17:40:22Z",
       "side": 1,
       "message": "why is this necessary? Even devices that are not fully Treble compliant should still have hwbinder and use it to access mediacodec right?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 65
+      },
+      "revId": "4669c2375f0e955e0c9a7fc87abfcd33cd285ab3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a418751_73693a49",
+        "filename": "vendor/mediacodec.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-30T17:51:35Z",
+      "side": 1,
+      "message": "See previous comment. I filed b/80317992 for this since it was never done (this is because b/36604251 was never actually fixed), but I don\u0027t want to start removing random policy in this CL. If legacy devices are still using it, it\u0027s not my concern in fixing this bug or in the scope of this CL.",
+      "parentUuid": "2fa432d0_00c2dc22",
       "range": {
         "startLine": 7,
         "startChar": 0,
