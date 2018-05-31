@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9a51fd9b_799d0dc2",
+        "filename": "public/hal_cas.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-31T00:31:57Z",
+      "side": 1,
+      "message": "The problem is that hal_cas_server doesn\u0027t have exclusive ownership of hidl_memory_hwservice. There are a couple of other examples of this too (e.x. hal_graphics_mapper_hwservice and hidl_token_hwservice, fwk_*_hwservice)\n\nWhat we should do, for hidl_memory_hwservice as an example is:\n- create \"hal_attribute(hidl_memory)\"\n- apply hal_attribute_hwservice_client(hal_hidl_memory, hidl_memory_hwservice)\n- then make all hal_cas_server items also be hal_hidl_memory_client objects.\n\nThis technically would also require more entries to technical_debt.cil since hal_cas_server is an attribute and we can\u0027t typeattributeset hal_cas_server hal_hidl_memory_client without updates to the compiler.\n\nSo, I considered doing this a long time ago, considered doing it in this CL as well, but I think it will have to be a separate effort.",
+      "parentUuid": "0f8d6f41_3326c7f3",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 0
+      },
+      "revId": "8fc79818854dffd133d2e40358a33cdd84f4d511",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f4ce4a96_926f93a1",
         "filename": "public/te_macros",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e26269b8_d2abb16b",
+        "filename": "public/te_macros",
+        "patchSetId": 1
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-31T00:31:57Z",
+      "side": 1,
+      "message": "Can\u0027t do this b/c it is used in a lot of places (on random devices, for instance). I could consider absorbing it and slowly deprecating it though.",
+      "parentUuid": "f4ce4a96_926f93a1",
+      "range": {
+        "startLine": 614,
+        "startChar": 8,
+        "endLine": 614,
+        "endChar": 38
+      },
+      "revId": "8fc79818854dffd133d2e40358a33cdd84f4d511",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d2e1de5e_d73ee838",
         "filename": "public/te_macros",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2018-05-31T00:20:49Z",
       "side": 1,
       "message": "This attribute has expandattribute true, i.e using it might break cts tests.\nJeff, is it reasonable to change the value of expandattribute to false here?\nhttps://android.googlesource.com/platform/system/sepolicy/+/master/public/te_macros#212",
+      "range": {
+        "startLine": 616,
+        "startChar": 24,
+        "endLine": 616,
+        "endChar": 32
+      },
+      "revId": "8fc79818854dffd133d2e40358a33cdd84f4d511",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33bb2bec_1336b3f8",
+        "filename": "public/te_macros",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-31T00:31:57Z",
+      "side": 1,
+      "message": "Oooooo.... I didn\u0027t consider this. It was originally set to false for performance reasons. I may have to re-think this CL.\n\nIs there a way to say \u0027neverallow rule which is compile-time only\u0027 or for the test to be smarter?",
+      "parentUuid": "d2e1de5e_d73ee838",
       "range": {
         "startLine": 616,
         "startChar": 24,
