@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f8d6f41_3326c7f3",
+        "filename": "public/hal_cas.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-05-31T00:20:49Z",
+      "side": 1,
+      "message": "can hal_attribute_hwservice_client be used here too?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 0
+      },
+      "revId": "8fc79818854dffd133d2e40358a33cdd84f4d511",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4ce4a96_926f93a1",
+        "filename": "public/te_macros",
+        "patchSetId": 1
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-05-31T00:20:49Z",
+      "side": 1,
+      "message": "You could also absorb add_hwservice into here (just for hal that follow our attribute hierarchy). And rename this macro into something like hal_attribute_hwservice_owner",
+      "range": {
+        "startLine": 614,
+        "startChar": 8,
+        "endLine": 614,
+        "endChar": 38
+      },
+      "revId": "8fc79818854dffd133d2e40358a33cdd84f4d511",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2e1de5e_d73ee838",
+        "filename": "public/te_macros",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-05-31T00:20:49Z",
+      "side": 1,
+      "message": "This attribute has expandattribute true, i.e using it might break cts tests.\nJeff, is it reasonable to change the value of expandattribute to false here?\nhttps://android.googlesource.com/platform/system/sepolicy/+/master/public/te_macros#212",
+      "range": {
+        "startLine": 616,
+        "startChar": 24,
+        "endLine": 616,
+        "endChar": 32
+      },
+      "revId": "8fc79818854dffd133d2e40358a33cdd84f4d511",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
