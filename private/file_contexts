@@ -537,3 +537,7 @@
 #############################
 # mount point for read-write vendor partitions
 /mnt/vendor(/.*)?          u:object_r:mnt_vendor_file:s0
+
+#############################
+# mount point for system.img in the recovery mode
+/mnt/system(/.*)?         u:object_r:system_file:s0

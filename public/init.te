@@ -130,7 +130,14 @@ allow init contextmount_type:notdevfile_class_set r_file_perms;
 
 # restorecon /adb_keys or any other rootfs files and directories to a more
 # specific type.
-allow init rootfs:{ dir file } relabelfrom;
+allow init rootfs:{ dir file recovery_only(`lnk_file') } relabelfrom;
+
+recovery_only(`
+    allow init system_file:{ file dir lnk_file } relabelto;
+    allow init adbd_exec:file relabelto;
+    allow init shell_exec:file relabelto;
+    allow init toolbox_exec:{ file lnk_file } relabelto;
+')
 
 # mkdir, symlink, write, rm/rmdir, chown/chmod, restorecon/restorecon_recursive from init.rc files.
 # chown/chmod require open+read+setattr required for open()+fchown/fchmod().
