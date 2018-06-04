@@ -1259,10 +1259,10 @@ neverallow * ~{
     vndservicemanager
     }:service_manager list;
 
-# hwservicemanager is the only process which handles hw list requests
+# hwservicemanager is the only process which handles hardware hal requests
 neverallow * ~{
     hwservicemanager
-    }:hwservice_manager list;
+    }:hwservice_manager { list broadcast_notify };
 
 # only service_manager_types can be added to service_manager
 # TODO - rework this: neverallow * ~service_manager_type:service_manager { add find };
