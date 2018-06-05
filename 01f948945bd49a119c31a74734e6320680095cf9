@@ -22,6 +22,30 @@
       "revId": "01f948945bd49a119c31a74734e6320680095cf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "026db554_4efd6878",
+        "filename": "private/access_vectors",
+        "patchSetId": 1
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-06-05T17:04:30Z",
+      "side": 1,
+      "message": "So, before, if you want to call another HAL and tell it to start tracing you need to have the find permission and then call notifySyspropsChanged on it. So, normally, atrace gets a list of all HALs and calls into each of them.\n\nHowever, since the perf team needs systrace to work even if the device is unrooted (e.x. to help app developers that don\u0027t have root on their dev phones) and we don\u0027t want to give shell the permission to talk to every hal (because it shouldn\u0027t be talking to a lot of the hals), I\u0027m adding a new permission so that hwservicemanager can just make this oneway call on every HAL on behalf of shell.",
+      "parentUuid": "f1632977_50044b6e",
+      "range": {
+        "startLine": 692,
+        "startChar": 0,
+        "endLine": 693,
+        "endChar": 0
+      },
+      "revId": "01f948945bd49a119c31a74734e6320680095cf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
