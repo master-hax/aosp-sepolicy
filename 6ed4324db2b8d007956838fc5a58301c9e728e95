@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "9af6ca28_2ffea435",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-06-06T20:37:07Z",
+      "side": 1,
+      "message": "seems like this should just be \"appdomain\" to cover all apps. Do you know why system_app is accessing cgroups?",
+      "revId": "6ed4324db2b8d007956838fc5a58301c9e728e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "52343de3_b74be6c5",
         "filename": "public/domain.te",
         "patchSetId": 5
@@ -37,6 +54,30 @@
       "side": 1,
       "message": "I don\u0027t think vendor code should be managing cgroups at runtime. The only thing that should be touching cgroups at runtime, IMO, is ActivityManagerService. Everything else should be done via init and handled statically.",
       "parentUuid": "52343de3_b74be6c5",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 0
+      },
+      "revId": "6ed4324db2b8d007956838fc5a58301c9e728e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "980168de_a9663a1d",
+        "filename": "public/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-06-06T20:37:07Z",
+      "side": 1,
+      "message": "This isn\u0027t necessary for Treble compliance. The whole point of public policy is that old vendor images will retain the previously granted permissions.\n\nTri, if you want to remove these permissions in a less fragile way, we could add some audit statements to see which vendor processes currently rely on them.",
+      "parentUuid": "3ef31f7a_a632632f",
       "range": {
         "startLine": 250,
         "startChar": 0,
