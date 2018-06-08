@@ -39,8 +39,8 @@ allow crash_dump dalvikcache_data_file:file r_file_perms;
 # Read APK files.
 r_dir_file(crash_dump, apk_data_file);
 
-# Read all /vendor
-r_dir_file(crash_dump, { vendor_file same_process_hal_file })
+# Read all /vendor, /data/local/tmp
+r_dir_file(crash_dump, { vendor_file same_process_hal_file shell_data_file })
 
 # Talk to tombstoned
 unix_socket_connect(crash_dump, tombstoned_crash, tombstoned)
