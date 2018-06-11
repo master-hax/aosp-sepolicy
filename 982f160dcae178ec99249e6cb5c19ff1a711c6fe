@@ -117,6 +117,30 @@
       "revId": "982f160dcae178ec99249e6cb5c19ff1a711c6fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4fec895_b15f5c73",
+        "filename": "public/recovery.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-06-11T21:51:22Z",
+      "side": 1,
+      "message": "It had been mounted to /system which is rootfs.\n\n/mnt itself is a mount point for the tmpfs and its selinux label is set to tmpfs.\n\nsystem/core/init/init.cpp\nmount(\"tmpfs\", \"/mnt\", \"tmpfs\", MS_NOEXEC | MS_NOSUID | MS_NODEV,",
+      "parentUuid": "86c2f3f4_29d1e71f",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 0
+      },
+      "revId": "982f160dcae178ec99249e6cb5c19ff1a711c6fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
