@@ -22,6 +22,30 @@
       "revId": "ca128f71ec7b340e346a43d0f50e59656a167956",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2f68170_a1b048d4",
+        "filename": "public/kernel.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-06-12T05:14:10Z",
+      "side": 1,
+      "message": "AFAIK, when execv(\"/init\") is called, the kernel(Linux in this case) reads the program header of /init to find the program interpreter, which is written as \u0027/system/bin/linker\u0027 for the executables built for Android. Then it executes the dynamic linker inside the process to actually load /init and its dependencies. After the dynamic linker finishes the loading and linking, the linker jumps to the main() of /init.\n\nI think the transition to \u0027init\u0027 domain happens when the process starts to execute an instruction from /init, which is after the dynamic linker.",
+      "parentUuid": "f469bfac_22d8ec51",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 2
+      },
+      "revId": "ca128f71ec7b340e346a43d0f50e59656a167956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
