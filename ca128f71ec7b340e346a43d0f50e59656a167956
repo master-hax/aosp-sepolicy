@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "82926567_b4e456b1",
+        "filename": "public/kernel.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-06-13T16:30:27Z",
+      "side": 1,
+      "message": "Let\u0027s get rid of \"not_recovery\" and just unconditionally grant this.",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 14
+      },
+      "revId": "ca128f71ec7b340e346a43d0f50e59656a167956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f469bfac_22d8ec51",
         "filename": "public/kernel.te",
         "patchSetId": 6
@@ -37,6 +60,30 @@
       "side": 1,
       "message": "AFAIK, when execv(\"/init\") is called, the kernel(Linux in this case) reads the program header of /init to find the program interpreter, which is written as \u0027/system/bin/linker\u0027 for the executables built for Android. Then it executes the dynamic linker inside the process to actually load /init and its dependencies. After the dynamic linker finishes the loading and linking, the linker jumps to the main() of /init.\n\nI think the transition to \u0027init\u0027 domain happens when the process starts to execute an instruction from /init, which is after the dynamic linker.",
       "parentUuid": "f469bfac_22d8ec51",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 2
+      },
+      "revId": "ca128f71ec7b340e346a43d0f50e59656a167956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cea2605f_2bfcce65",
+        "filename": "public/kernel.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-06-13T16:30:27Z",
+      "side": 1,
+      "message": "From https://marc.info/?l\u003dselinux\u0026m\u003d148094537311131\u0026w\u003d2 it looks like this may have been fixed in kernel version 4.8.\n\nCan you add a comment/TODO about that so we\u0027ll know this can be removed once we no longer support older kernels?",
+      "parentUuid": "e2f68170_a1b048d4",
       "range": {
         "startLine": 118,
         "startChar": 0,
