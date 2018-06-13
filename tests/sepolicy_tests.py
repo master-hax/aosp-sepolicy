@@ -9,7 +9,7 @@ import sys
 # Tests
 #############################################################
 def TestDataTypeViolations(pol):
-    return pol.AssertPathTypesHaveAttr(["/data/"], [], "data_file_type")
+    return pol.AssertPathTypesHaveAttr(["/data/"], ["/data/overlay"], "data_file_type")
 
 def TestProcTypeViolations(pol):
     return pol.AssertGenfsFilesystemTypesHaveAttr("proc", "proc_type")
@@ -32,7 +32,7 @@ def TestVendorTypeViolations(pol):
 
 def TestCoreDataTypeViolations(pol):
     return pol.AssertPathTypesHaveAttr(["/data/"], ["/data/vendor",
-            "/data/vendor_ce", "/data/vendor_de"], "core_data_file_type")
+            "/data/vendor_ce", "/data/vendor_de", "/data/overlay"], "core_data_file_type")
 
 ###
 # extend OptionParser to allow the same option flag to be used multiple times.
