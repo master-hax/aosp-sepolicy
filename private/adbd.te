@@ -10,6 +10,8 @@ domain_auto_trans(adbd, shell_exec, shell)
 userdebug_or_eng(`
   allow adbd self:process setcurrent;
   allow adbd su:process dyntransition;
+  # to allow adb to access sys.boot_completed
+  get_prop(adbd, exported3_system_prop)
 ')
 
 # When 'adb shell' is executed in recovery mode, adbd explicitly
