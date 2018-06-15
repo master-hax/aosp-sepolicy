@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7903f4b2_1e542873",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-06-15T23:31:25Z",
+      "side": 1,
+      "message": "Not sure where exactly that happens, but Settings app tries to write to /dev/stune/background/tasks.",
+      "parentUuid": "9af6ca28_2ffea435",
+      "revId": "6ed4324db2b8d007956838fc5a58301c9e728e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "52343de3_b74be6c5",
         "filename": "public/domain.te",
         "patchSetId": 5
@@ -78,6 +96,30 @@
       "side": 1,
       "message": "This isn\u0027t necessary for Treble compliance. The whole point of public policy is that old vendor images will retain the previously granted permissions.\n\nTri, if you want to remove these permissions in a less fragile way, we could add some audit statements to see which vendor processes currently rely on them.",
       "parentUuid": "3ef31f7a_a632632f",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 0
+      },
+      "revId": "6ed4324db2b8d007956838fc5a58301c9e728e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d248fd6b_614be9f5",
+        "filename": "public/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-06-15T23:31:25Z",
+      "side": 1,
+      "message": "libcutils exposes functions that write to /dev/{cpuset, stune}/* files.\nhttps://android.googlesource.com/platform/system/core/+/master/libcutils/include/cutils/sched_policy.h\nFiguring out/cleaning up all vendor code that uses cgroup is going to take some work, so leaving a TODO item.",
+      "parentUuid": "980168de_a9663a1d",
       "range": {
         "startLine": 250,
         "startChar": 0,
