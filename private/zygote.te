@@ -50,6 +50,7 @@ allow { zygote with_dexpreopt(`-zygote') } dalvikcache_data_file:file execute;
 # TODO:  Should either of these be transitioned to the same domain
 # used by installd or stay in-domain for zygote?
 allow zygote idmap_exec:file rx_file_perms;
+allow zygote idmap2_exec:file rx_file_perms;
 allow zygote dex2oat_exec:file rx_file_perms;
 
 # Allow apps access to /vendor/overlay
