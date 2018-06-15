@@ -855,6 +855,7 @@ full_treble_only(`
     -appdomain # TODO(b/34980020) remove exemption for appdomain
     -coredomain
     -data_between_core_and_vendor_violators # TODO(b/34980020) Remove once all violators have been cleaned up
+    -idmap2
     -vendor_init
   } {
     core_data_file_type
@@ -882,6 +883,7 @@ full_treble_only(`
     -appdomain # TODO(b/34980020) remove exemption for appdomain
     -coredomain
     -data_between_core_and_vendor_violators
+    -idmap2
     -vendor_init
   } {
     core_data_file_type
@@ -948,6 +950,7 @@ full_treble_only(`
         -appdomain
         -dex2oat
         -idmap
+        -idmap2
         -init
         -installd
         userdebug_or_eng(`-perfprofd')
@@ -962,6 +965,7 @@ full_treble_only(`
         -appdomain
         -dex2oat
         -idmap
+        -idmap2
         -init
         -installd
         userdebug_or_eng(`-perfprofd')
@@ -977,6 +981,8 @@ full_treble_only(`
         coredomain
         -appdomain
         -idmap
+        -idmap2
+        -idmap2d
         -init
         -installd
         -system_server
@@ -990,6 +996,8 @@ full_treble_only(`
         coredomain
         -appdomain
         -idmap
+        -idmap2
+        -idmap2d
         -init
         -installd
         -system_server
