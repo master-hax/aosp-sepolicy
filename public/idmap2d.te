@@ -1,0 +1,12 @@
+type idmap2d, domain;
+type idmap2d_exec, exec_type, file_type;
+
+binder_use(idmap2d)
+add_service(idmap2d, idmap2d_service)
+
+allow idmap2d resourcecache_data_file:file { create getattr open write unlink };
+allow idmap2d resourcecache_data_file:dir { add_name write remove_name search };
+allow idmap2d apk_data_file:file r_file_perms;
+allow idmap2d apk_data_file:dir { search };
+
+r_dir_file(idmap2d, vendor_overlay_file)

@@ -1,0 +1,19 @@
+# idmap2, when executed by zygote
+type idmap2, domain;
+type idmap2_exec, exec_type, file_type;
+
+# Access to /data/resource-cache
+allow idmap2 resourcecache_data_file:file { getattr read write };
+
+# Ignore reading /proc/<pid>/maps after a fork.
+dontaudit idmap2 installd:file read;
+
+# Open and read from target and overlay apk files passed by argument.
+allow idmap2 apk_data_file:file r_file_perms;
+allow idmap2 apk_data_file:dir search;
+
+# Allow apps access to /vendor/app
+r_dir_file(idmap2, vendor_app_file)
+
+# Allow apps access to /vendor/overlay
+r_dir_file(idmap2, vendor_overlay_file)
