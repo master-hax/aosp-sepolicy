@@ -45,6 +45,9 @@ recovery_only(`
   allow ueventd rootfs:file { r_file_perms execute };
 ')
 
+# Allow ueventd to resolve path /postinstall in ld.config.txt
+allow ueventd postinstall_mnt_dir:dir getattr;
+
 #####
 ##### neverallow rules
 #####
