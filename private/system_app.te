@@ -27,6 +27,8 @@ allow system_app mnt_media_rw_file:dir search;
 # Read access to FDs from the DropboxManagerService.
 allow system_app dropbox_data_file:file { getattr read };
 
+allow system_app system_server_tmpfs:file read;
+
 # Read wallpaper file.
 allow system_app wallpaper_file:file r_file_perms;
 
