@@ -22,6 +22,30 @@
       "revId": "0dd1b0130a2e11bcc88c6e98bb04613589c70ea1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b60340e3_0d48626e",
+        "filename": "public/recovery.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1056365
+      },
+      "writtenOn": "2018-06-25T22:16:39Z",
+      "side": 1,
+      "message": "I cannot think of other services that recovery starts/stops. Code search for SetProperty or \"ctl.\" seems to agree.\n\nNot sure if it has been tested under recovery, as the commit message only says \"adbd works\". If not, I think it would be sufficient to ensure sideloading keeps working (by choosing \"Apply update from ADB\" from recovery menu). It will start / stop adbd during that request (https://cs.corp.google.com/android/bootable/recovery/adb_install.cpp?q\u003dadb_install.cpp\u0026sq\u003dpackage:android\u0026dr\u0026l\u003d61). Also note that sideloading on aosp_bullhead or aosp_angler is broken due to other issue. Other targets are expected to work.",
+      "parentUuid": "a7a55169_ca1df6a1",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 0
+      },
+      "revId": "0dd1b0130a2e11bcc88c6e98bb04613589c70ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
