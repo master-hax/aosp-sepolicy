@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8cb0c955_c5a91b12",
+        "filename": "public/dumpstate.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-06-29T22:05:59Z",
+      "side": 1,
+      "message": "FWIW, this is a VERY permissive rule. Properties could be used by Android partners for lots of different things, and making the assumption that all properties should be exposed to the bug report service is inevitably going to leak some sensitive partner information.\n\nI would recommend removing this overly broad grant and, keeping with the principle of least privilege, reduce this to only the properties absolutely essential to showing up in a bug report.",
+      "range": {
+        "startLine": 236,
+        "startChar": 20,
+        "endLine": 236,
+        "endChar": 33
+      },
+      "revId": "4de238e9b999f91a86d130638a8b70d306363bf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
