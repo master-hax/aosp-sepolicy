@@ -46,6 +46,30 @@
       "revId": "09464811ca13db457579a78590a31aaa9b836c12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2f844b4_2ad2ef6a",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-07-02T21:19:20Z",
+      "side": 1,
+      "message": "I\u0027m fine with shell reading this, but why should apps be allowed? These files leak system-wide state which can be used as a side-channel by an app to obtain information about what\u0027s happening on the device. E.g. determine when another app has started. This is commonly used for click-jacking.",
+      "parentUuid": "12497a2d_55361bb8",
+      "range": {
+        "startLine": 49,
+        "startChar": 52,
+        "endLine": 49,
+        "endChar": 75
+      },
+      "revId": "09464811ca13db457579a78590a31aaa9b836c12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
