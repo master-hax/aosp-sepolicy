@@ -297,6 +297,18 @@ r_dir_file(init, proc_net_type)
 userdebug_or_eng(`
   # Overlayfs workdir write access check during mount to permit remount,rw
   allow init overlayfs_file:dir { relabelfrom mounton write };
+  # after sepolicy, before first stage exec, while still in kernel context
+  # all things required to inspect and mount overlayfs
+  allow kernel overlayfs_file:dir { relabelfrom create_dir_perms };
+  allow kernel labeledfs:filesystem { relabelfrom mount };
+  allow kernel unlabeled:dir { open read rmdir };
+  allow kernel { system_file vendor_file overlayfs_file }:dir mounton;
+  r_dir_file(kernel, sysfs_dt_firmware_android);
+  allow kernel tmpfs:dir search;
+  allow kernel cache_file:lnk_file r_file_perms;
+  allow kernel vendor_file:dir r_file_perms;
+  allow kernel self:global_capability_class_set sys_admin;
+  allow kernel tmpfs:chr_file r_file_perms;
 ')
 
 allow init {
