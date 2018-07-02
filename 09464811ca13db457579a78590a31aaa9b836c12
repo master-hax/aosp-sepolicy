@@ -70,6 +70,30 @@
       "revId": "09464811ca13db457579a78590a31aaa9b836c12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70c45f78_a75af1e2",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2018-07-02T21:59:19Z",
+      "side": 1,
+      "message": "We can\u0027t profile an app in shell\u0027s context, because they have different user ids. So simpleperf needs to run in app\u0027s context (through run-as) to profile an app.\nApps may read these values and know current profiling limitations. But these values won\u0027t be changed unless a profiling is going on, and profiling is disabled until enabled explicitly via adb. So I think it doesn\u0027t matter.",
+      "parentUuid": "d2f844b4_2ad2ef6a",
+      "range": {
+        "startLine": 49,
+        "startChar": 52,
+        "endLine": 49,
+        "endChar": 75
+      },
+      "revId": "09464811ca13db457579a78590a31aaa9b836c12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
