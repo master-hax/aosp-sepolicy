@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4bc73fc2_73a747de",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1424,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-07-12T18:41:25Z",
+      "side": 1,
+      "message": "Actually, I plan to remove this exception completely. b/110890430 to track. Also, I find it hard to write an exemption to a neverallow rule with userdebug_or_eng(); maybe it is easier to write a different macro not_debuggable()?\n\nnot_debuggable(`\n    neverallow perfprofd ...\n\u0027)\n\nStill, since this will go away soon, I don\u0027t think it is worth it. Can I keep this exemption for now?",
+      "parentUuid": "037d2940_2c5c495b",
+      "range": {
+        "startLine": 1424,
+        "startChar": 5,
+        "endLine": 1424,
+        "endChar": 14
+      },
+      "revId": "073c6862131c8e1ac6ab75b3dafd6c715f1e5e24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a283cd9a_936a3438",
         "filename": "public/domain.te",
         "patchSetId": 4
