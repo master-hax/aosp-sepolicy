@@ -126,6 +126,10 @@ unix_socket_connect(untrusted_app_all, traced_producer, traced)
 allow untrusted_app_all system_server:udp_socket {
         connect getattr read recvfrom sendto write getopt setopt };
 
+# Temporary auditing to get data on what apps use execmod.
+# TODO(b/111544476) Remove this and deny the permission if feasible.
+auditallow untrusted_app_all { apk_data_file app_data_file asec_public_file }:file execmod;
+
 # This is allowed for targetSdkVersion <= 25 but disallowed on newer versions.
 dontaudit untrusted_app_all net_dns_prop:file read;
 
