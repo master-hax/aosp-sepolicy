@@ -1,0 +1,8 @@
+# Android Heap Profiler Daemon go/heapprofd
+type heapprofd, domain, coredomain, mlstrustedsubject;
+type heapprofd_exec, exec_type, file_type;
+
+allow heapprofd domain:fd use;
+allow heapprofd domain:file { read open };
+
+init_daemon_domain(heapprofd)

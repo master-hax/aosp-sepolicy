@@ -162,6 +162,10 @@ allow priv_app traced:fd use;
 allow priv_app traced_tmpfs:file { read write getattr map };
 unix_socket_connect(priv_app, traced_producer, traced)
 
+# Write stack trace samples to heapprofd.
+unix_socket_connect(priv_app, heapprofd, traced)
+unix_socket_send(priv_app, heapprofd, traced)
+
 # suppress denials for non-API accesses.
 dontaudit priv_app exec_type:file getattr;
 dontaudit priv_app device:dir read;

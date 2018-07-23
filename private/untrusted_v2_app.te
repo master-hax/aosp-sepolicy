@@ -45,3 +45,7 @@ allow untrusted_v2_app self:process ptrace;
 allow untrusted_v2_app traced:fd use;
 allow untrusted_v2_app traced_tmpfs:file { read write getattr map };
 unix_socket_connect(untrusted_v2_app, traced_producer, traced)
+
+# Write stack trace samples to heapprofd.
+unix_socket_connect(untrusted_v2_app, heapprofd, traced)
+unix_socket_send(untrusted_v2_app, heapprofd, traced)
