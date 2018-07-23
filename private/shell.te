@@ -32,6 +32,10 @@ selinux_check_context(shell)
 # Needed for Studio and debugging.
 unix_socket_connect(shell, traced_consumer, traced)
 
+# Write stack trace samples to heapprofd.
+unix_socket_connect(shell, heapprofd, traced)
+unix_socket_send(shell, heapprofd, traced)
+
 # Allow shell binaries to write trace data to Perfetto. Used for testing and
 # cmdline utils.
 allow shell traced:fd use;
