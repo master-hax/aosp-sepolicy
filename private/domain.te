@@ -2,6 +2,7 @@
 # This occurs when the process crashes.
 domain_auto_trans(domain, crash_dump_exec, crash_dump);
 allow domain crash_dump:process sigchld;
+unix_socket_connect(domain, heapprofd, heapprofd);
 
 # Limit ability to ptrace or read sensitive /proc/pid files of processes
 # with other UIDs to these whitelisted domains.
@@ -13,6 +14,7 @@ neverallow {
   -storaged
   -system_server
   userdebug_or_eng(`-perfprofd')
+  -heapprofd
 } self:global_capability_class_set sys_ptrace;
 
 # Limit ability to generate hardware unique device ID attestations to priv_apps
