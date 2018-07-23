@@ -121,6 +121,10 @@ allow untrusted_app_all traced:fd use;
 allow untrusted_app_all traced_tmpfs:file { read write getattr map };
 unix_socket_connect(untrusted_app_all, traced_producer, traced)
 
+# Write stack trace samples to heapprofd.
+unix_socket_connect(untrusted_app_all, heapprofd, traced)
+unix_socket_send(untrusted_app_all, heapprofd, traced)
+
 # allow untrusted apps to use UDP sockets provided by the system server but not
 # modify them other than to connect
 allow untrusted_app_all system_server:udp_socket {
