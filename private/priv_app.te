@@ -173,6 +173,7 @@ dontaudit priv_app proc_modules:file read;
 dontaudit priv_app proc_stat:file read;
 dontaudit priv_app proc_version:file read;
 dontaudit priv_app sysfs:dir read;
+dontaudit priv_app sysfs:file read;
 dontaudit priv_app sysfs_android_usb:file read;
 dontaudit priv_app wifi_prop:file read;
 dontaudit priv_app { wifi_prop exported_wifi_prop }:file read;
@@ -181,6 +182,12 @@ dontaudit priv_app { wifi_prop exported_wifi_prop }:file read;
 # modify them other than to connect
 allow priv_app system_server:udp_socket {
         connect getattr read recvfrom sendto write getopt setopt };
+
+# Attempts to write to system_data_file is generally a sign
+# that apps are attempting to access encrypted storage before
+# the ACTION_USER_UNLOCKED intent is delivered. Suppress this
+# denial to prevent apps from spamming the logs.
+dontaudit priv_app system_data_file:dir write;
 
 ###
 ### neverallow rules
