@@ -81,6 +81,7 @@ get_prop(adbd, serialno_prop)
 # Read device's overlayfs related properties and files
 userdebug_or_eng(`
   get_prop(adbd, persistent_properties_ready_prop)
+  get_prop(adbd, overlayfs_prop)
   r_dir_file(adbd, sysfs_dt_firmware_android)
 ')
 
