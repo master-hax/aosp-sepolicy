@@ -75,6 +75,30 @@
       "revId": "63b42989503f531ada18c0216ecd2f0db423c4f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3191b8d_4ec9ef6c",
+        "filename": "public/ueventd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2018-08-01T20:02:10Z",
+      "side": 1,
+      "message": "ugh .. looks like we were shortsighted :). I think the modules at the time were only considered to be coming from vendors / ODMs and not\nfrom us (in platform). That may change though, but for now, I can confirm what nnk@ said is true. There are no modules in /system.\n\nAlthough, there can be modules in /odm for example, which if it has its own label, should be added here. I would go further and probably label\neverything under {/lib/modules, /vendor/lib/modules, /odm/lib/modules} (and may be in the future /system/lib/modules) and only allow loading from\nthere.",
+      "parentUuid": "28286654_f6ba0d46",
+      "range": {
+        "startLine": 54,
+        "startChar": 15,
+        "endLine": 54,
+        "endChar": 26
+      },
+      "revId": "63b42989503f531ada18c0216ecd2f0db423c4f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
