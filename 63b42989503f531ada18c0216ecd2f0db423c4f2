@@ -34,6 +34,47 @@
       "revId": "63b42989503f531ada18c0216ecd2f0db423c4f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f85b51c_b8c6378f",
+        "filename": "public/ueventd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-01T19:26:47Z",
+      "side": 1,
+      "message": "The only difference is that Joel\u0027s suggestion allows running ueventd in a container. There should be no functional difference. I\u0027d prefer we change it.",
+      "parentUuid": "5b7681d6_9284b34b",
+      "revId": "63b42989503f531ada18c0216ecd2f0db423c4f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28286654_f6ba0d46",
+        "filename": "public/ueventd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-01T19:26:47Z",
+      "side": 1,
+      "message": "My understanding is that loading kernel modules from the /system partition is a Treble violation. See https://android-review.googlesource.com/c/platform/system/sepolicy/+/644760 .\n\ntrong, can you comment here?",
+      "range": {
+        "startLine": 54,
+        "startChar": 15,
+        "endLine": 54,
+        "endChar": 26
+      },
+      "revId": "63b42989503f531ada18c0216ecd2f0db423c4f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
