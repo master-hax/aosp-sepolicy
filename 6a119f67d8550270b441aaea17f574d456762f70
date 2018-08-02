@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c28b4fc0_6e97b941",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-02T18:22:54Z",
+      "side": 1,
+      "message": "Is there a reason why the order here is important?\n\nAt first glance, it feels like this would be cleaner to write as:\n\n  local_fc_files +\u003d local_fc_files :\u003d $(wildcard $(addsuffix /file_contexts_asan, $(PLAT_PRIVATE_POLICY))) $(local_fc_files)\n\nwhich is exactly what we do on line 921. However, that appends the results, not prepends the results.\n\nIf feasible, I\u0027d prefer the use of \"+\u003d\" instead of \":\u003d\" when adding elements to this string.\n\n(same comment for lines 835 and 924)",
+      "range": {
+        "startLine": 832,
+        "startChar": 89,
+        "endLine": 832,
+        "endChar": 106
+      },
+      "revId": "6a119f67d8550270b441aaea17f574d456762f70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
