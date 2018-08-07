@@ -6,8 +6,12 @@ allow crash_dump {
   -init
   -crash_dump
   -keystore
+  -llkd
   -logd
 }:process { ptrace signal sigchld sigstop sigkill };
+userdebug_or_eng(`
+  allow crash_dump { llkd logd }:process { ptrace signal sigchld sigstop sigkill };
+')
 
 # crash_dump might inherit CAP_SYS_PTRACE from a privileged process,
 # which will result in an audit log even when it's allowed to trace.
