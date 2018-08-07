@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc641dde_c2d76303",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-07T21:04:50Z",
+      "side": 1,
+      "message": "negation here. This disallows everything EXCEPT FOR the elements contained in the set.\n\n  ~{ append getattr ioctl read write map }\n\nis equivalent to:\n\n  { create\n    setattr\n    lock\n    relabelfrom\n    relabelto\n    unlink\n    link\n    rename\n    execute\n    quotaon\n    mounton\n    execute_no_trans\n    entrypoint\n    execmod\n    open\n    audit_access }",
+      "range": {
+        "startLine": 822,
+        "startChar": 19,
+        "endLine": 822,
+        "endChar": 20
+      },
+      "revId": "bd3e300a1309323e02c7144202acb48f40f11946",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
