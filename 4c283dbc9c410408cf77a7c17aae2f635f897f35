@@ -49,6 +49,40 @@
     },
     {
       "key": {
+        "uuid": "aaa52ae4_eaa61c98",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-07T19:44:21Z",
+      "side": 1,
+      "message": "this should be fixed by specifying exactly what block devices fastbootd is going to access. See comments in fastbootd.",
+      "revId": "4c283dbc9c410408cf77a7c17aae2f635f897f35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94494034_4fc15bd3",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-07T19:44:21Z",
+      "side": 1,
+      "message": "On production devices, the only process which should be editing the factory reset partition is system_server. Many of our bypasses in factory reset protection have occurred in the fastboot implementation. I really don\u0027t want to support erasing the factory reset protection partition on production builds from fastbootd.\n\nCan we avoid granting fastbootd access to this partition?",
+      "revId": "4c283dbc9c410408cf77a7c17aae2f635f897f35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "db56bf96_476db0b6",
         "filename": "public/fastbootd.te",
         "patchSetId": 6
