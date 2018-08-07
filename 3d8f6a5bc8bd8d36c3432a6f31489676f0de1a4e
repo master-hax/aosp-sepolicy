@@ -60,6 +60,24 @@
     },
     {
       "key": {
+        "uuid": "8df5af0f_0a889dff",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-07T20:01:39Z",
+      "side": 1,
+      "message": "For /dev/device-mapper and /dev/block/dm-*, they were explicitly listed in PS6. I would prefer we keep it that way.\n\nFor the other block devices, we should be explicit about what is allowed, rather than having an allow-all rule (as is here). What specific block devices are we talking about?",
+      "parentUuid": "9a62a62e_e9ec1db3",
+      "revId": "3d8f6a5bc8bd8d36c3432a6f31489676f0de1a4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e8a53880_f32f484e",
         "filename": "public/fastbootd.te",
         "patchSetId": 7
