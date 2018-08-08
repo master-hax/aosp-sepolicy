@@ -2,7 +2,7 @@
 
 from xml.sax import saxutils, handler, make_parser
 from optparse import OptionParser
-import ConfigParser
+import configparser
 import logging
 import base64
 import sys
@@ -15,7 +15,7 @@ This tool reads a mac_permissions.xml and replaces keywords in the signature
 clause with keys provided by pem files.
 '''
 
-class GenerateKeys(object):
+class GenerateKeys:
     def __init__(self, path):
         '''
         Generates an object with Base16 and Base64 encoded versions of the keys
@@ -32,7 +32,7 @@ class GenerateKeys(object):
         if not os.path.isfile(path):
             sys.exit("Path " + path + " does not exist or is not a file!")
 
-        pkFile = open(path, 'rb').readlines()
+        pkFile = open(path).readlines()
         base64Key = ""
         lineNo = 1
         certNo = 1
@@ -79,7 +79,7 @@ class GenerateKeys(object):
 
             # If we haven't started the certificate, then we should not encounter any data
             elif not inCert:
-                if line is not "":
+                if line != "":
                     sys.exit("Detected erroneous line \""+ line + "\" on " + str(lineNo)
                         + " in pem file: " + path)
 
@@ -107,7 +107,7 @@ class GenerateKeys(object):
     def getBase64Keys(self):
         return self._base64Key
 
-class ParseConfig(ConfigParser.ConfigParser):
+class ParseConfig(configparser.ConfigParser):
 
     # This must be lowercase
     OPTION_WILDCARD_TAG = "all"
@@ -181,8 +181,9 @@ class ReplaceTags(handler.ContentHandler):
 
             if name == ReplaceTags.SIGNATURE_TAG and value in self._keyMap:
                 for key in self._keyMap[value].getBase16Keys():
-                    logging.info("Replacing " + name + " " + value + " with " + key)
-                    self._out.write(' %s="%s"' % (name, saxutils.escape(key)))
+                    logging.info("Replacing %s %s with %s", name, value, key)
+                    self._out.write(
+                        ' %s="%s"' % (name, saxutils.escape(str(key))))
             else:
                 self._out.write(' %s="%s"' % (name, saxutils.escape(value)))
 
@@ -208,8 +209,8 @@ class ReplaceTags(handler.ContentHandler):
     def processingInstruction(self, target, data):
         self._out.write('<?%s %s?>' % (target, data))
 
-if __name__ == "__main__":
 
+def main():
     # Intentional double space to line up equls signs and opening " for
     # readability.
     usage  = "usage: %prog [options] CONFIG_FILE MAC_PERMISSIONS_FILE [MAC_PERMISSIONS_FILE...]\n"
@@ -265,3 +266,7 @@ if __name__ == "__main__":
     parser.setContentHandler(ReplaceTags(key_map, output_file))
     for f in args[1:]:
         parser.parse(f)
+
+
+if __name__ == "__main__":
+    main()
