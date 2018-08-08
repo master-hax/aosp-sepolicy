@@ -51,8 +51,17 @@ cc_binary_host {
     srcs: ["version_policy.c"],
 }
 
-cc_prebuilt_binary {
+python_binary_host {
     name: "insertkeys.py",
+    main: "insertkeys.py",
     srcs: ["insertkeys.py"],
-    host_supported: true,
+
+    version: {
+        py2: {
+            enabled: true,
+        },
+        py3: {
+            enabled: false,
+        },
+    },
 }
