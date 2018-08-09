@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "8b0aad7c_b499f47b",
+        "filename": "tools/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-08-09T02:40:04Z",
+      "side": 1,
+      "message": "Will this change the install location of insertkeys.py? If so, the parts that use this script need to be changed too.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 18
+      },
+      "revId": "e59966ad43b4a8ebcb90743bb10edb379953350e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ea04fef9_e5d25882",
         "filename": "tools/Android.bp",
         "patchSetId": 1
@@ -25,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "d26d20f1_a9d98aec",
+        "filename": "tools/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-08-09T02:40:04Z",
+      "side": 1,
+      "message": "main defaults to whatever\u0027s in the name field, so you don\u0027t need this line.",
+      "parentUuid": "ea04fef9_e5d25882",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 8
+      },
+      "revId": "e59966ad43b4a8ebcb90743bb10edb379953350e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e4775f79_5a0799eb",
         "filename": "tools/Android.bp",
         "patchSetId": 1
@@ -36,6 +83,30 @@
       "writtenOn": "2018-08-09T00:39:57Z",
       "side": 1,
       "message": "I\u0027m assuming the default is python3? Can sepolicy team move it over trivially?",
+      "range": {
+        "startLine": 63,
+        "startChar": 8,
+        "endLine": 65,
+        "endChar": 10
+      },
+      "revId": "e59966ad43b4a8ebcb90743bb10edb379953350e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7edb9d2c_e65c8398",
+        "filename": "tools/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-08-09T02:40:04Z",
+      "side": 1,
+      "message": "Default is python3. You might want to reuse this https://cs.corp.google.com/android/system/sepolicy/tests/Android.bp?g\u003d0\u0026l\u003d21\nMoving from 2 to 3 probably would require rewriting some bits, so probably not trivial.\nBut that\u0027s outside the scope of this change.",
+      "parentUuid": "e4775f79_5a0799eb",
       "range": {
         "startLine": 63,
         "startChar": 8,
