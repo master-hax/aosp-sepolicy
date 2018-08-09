@@ -1,0 +1,8 @@
+# HwBinder IPC from client to server, and callbacks
+binder_call(hal_health_filesystem_client, hal_health_filesystem_server)
+binder_call(hal_health_filesystem_server, hal_health_filesystem_client)
+
+hal_attribute_hwservice(hal_health_filesystem, hal_health_filesystem_hwservice)
+
+# TODO: remove
+r_dir_file(hal_health_filesystem_server, sysfs_type)
