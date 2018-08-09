@@ -138,6 +138,24 @@
     },
     {
       "key": {
+        "uuid": "4491ebf8_9d6b1ed7",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-09T18:24:43Z",
+      "side": 1,
+      "message": "I don\u0027t feel comfortable with allowing access to all of /dev/block/by-name. I already mentioned the factory reset partition (/dev/block/by-name/frp) as being particularly problematic (https://www.google.com/search?q\u003dfastboot+factory+reset+bypass). Other partitions, such as the /persist partition (/dev/block/by-name/persist) shouldn\u0027t be modified directly otherwise important device calibration and unique identifiers could be deleted.",
+      "parentUuid": "1a0ee799_69edbf81",
+      "revId": "3d8f6a5bc8bd8d36c3432a6f31489676f0de1a4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e8a53880_f32f484e",
         "filename": "public/fastbootd.te",
         "patchSetId": 7

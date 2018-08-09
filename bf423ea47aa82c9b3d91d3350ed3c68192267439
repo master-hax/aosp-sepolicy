@@ -1,0 +1,209 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ffe8044_823f8a2a",
+        "filename": "public/domain.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-09T18:24:43Z",
+      "side": 1,
+      "message": "The SELinux policy compiler produces inefficient rules when negations are used on widely used attributes. Instead of having one policy statement which is:\n\n  allow domain ...;\n\nIt ends up producing multiple statements, exploding the rule to:\n\n  allow 1st_thing ...;\n  allow 2nd_thing ...;\n  allow 3rd_thing ...;\n  ...\n  allow 70th_thing ...;\n\nI recognize that fastbootd is trying to prove it can\u0027t access the /data partition, which is a great thing! However, I\u0027m hoping we can avoid the negation for now to avoid policy size explosion and fix it when we fix the remainder of the domains.\n\nCan we avoid the allow negations here and restore lines 207, 208, 217, 219, 222, 224, and 285? This will involve relaxing your neverallow assertion in fastbootd.te slightly, but it will make the policy much more efficient. And all the things being allowed are fairly benign.\n\nI agree this needs to be fixed for all of the domains which don\u0027t have a need to touch /data, but I\u0027d like to defer that problem for now.",
+      "range": {
+        "startLine": 207,
+        "startChar": 6,
+        "endLine": 207,
+        "endChar": 28
+      },
+      "revId": "bf423ea47aa82c9b3d91d3350ed3c68192267439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d560b013_c3974576",
+        "filename": "public/domain.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-09T18:24:43Z",
+      "side": 1,
+      "message": "update comment please.",
+      "revId": "bf423ea47aa82c9b3d91d3350ed3c68192267439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "286be248_c4f414d9",
+        "filename": "public/domain.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-09T18:24:43Z",
+      "side": 1,
+      "message": "This line is getting long enough that we should split it into multiple lines for readability. Can you rewrite this as:\n\n  neverallow {\n    domain\n    -fastbootd\n    ...\n  } ...\n\nSee line 586 for an example.",
+      "revId": "bf423ea47aa82c9b3d91d3350ed3c68192267439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8415f5de_f8c7b273",
+        "filename": "public/domain.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-09T18:24:43Z",
+      "side": 1,
+      "message": "Update comment please.",
+      "revId": "bf423ea47aa82c9b3d91d3350ed3c68192267439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f50f107c_b5aaaf1f",
+        "filename": "public/domain.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-09T18:24:43Z",
+      "side": 1,
+      "message": "can you please split this across multiple lines?",
+      "revId": "bf423ea47aa82c9b3d91d3350ed3c68192267439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be4e0b90_cd3317ea",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-09T18:24:43Z",
+      "side": 1,
+      "message": "/dev/kmsg should already be getting correctly labeled by init. This line shouldn\u0027t be necessary... Are you seeing denials here trying to write to /dev/kmsg?",
+      "range": {
+        "startLine": 18,
+        "startChar": 52,
+        "endLine": 18,
+        "endChar": 61
+      },
+      "revId": "bf423ea47aa82c9b3d91d3350ed3c68192267439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e972ac84_d110e331",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-09T18:24:43Z",
+      "side": 1,
+      "message": "I\u0027m not sure this comment is accurate anymore. I don\u0027t see any access to userdata_block_device or cache_block_device. I think you still need line 23, but the comment here seems wrong.",
+      "revId": "bf423ea47aa82c9b3d91d3350ed3c68192267439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9e83c2e_28917e64",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-09T18:24:43Z",
+      "side": 1,
+      "message": "system_block_device is a block device, not a character device. (eg, the first column when you run \"ls -la\" on the block device for the /system partition is \"b\", not \"c\"). \n\nThis line shouldn\u0027t be necessary because no character devices exist with this label.",
+      "range": {
+        "startLine": 41,
+        "startChar": 38,
+        "endLine": 41,
+        "endChar": 46
+      },
+      "revId": "bf423ea47aa82c9b3d91d3350ed3c68192267439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c53e5d46_03b74a8f",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-09T18:24:43Z",
+      "side": 1,
+      "message": "likely can be deleted too. See comment on line 41.",
+      "revId": "bf423ea47aa82c9b3d91d3350ed3c68192267439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2be0d5e1_5ce38175",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-09T18:24:43Z",
+      "side": 1,
+      "message": "I appreciate the motivation here, but see comments in domain.te. This will result in the SELinux compiler causing an explosion of rules. Can we relax this slightly and try to address this better in the future?",
+      "revId": "bf423ea47aa82c9b3d91d3350ed3c68192267439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b164e60_d2e96caf",
+        "filename": "public/recovery.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-09T18:24:43Z",
+      "side": 1,
+      "message": "This line shouldn\u0027t be necessary. When there\u0027s a socket statement in a *.rc file, init labels the endpoint of the socket with the destination domain (in this case, recovery), so that the recovery process has the ability to write to the endpoint.\n\nI think this is https://android.googlesource.com/platform/system/core/+/075c351af2b17030cbe064455f31765254e4bc6e/init/util.cpp#84\n\nSo this line can be deleted.\n\nThe clients who use this socket are granted access by virtue of the unix_socket_connect() macro you added in other parts of the code.\n\nThis line would only be needed if you\u0027re attempting to open /dev/socket/recovery directly from recovery, rather than relying on the FD passed to you by init. (which you\u0027re getting at https://android-review.googlesource.com/c/platform/bootable/recovery/+/707890/13/recovery_main.cpp line 171)\n\nTL;DR: can be deleted.",
+      "revId": "bf423ea47aa82c9b3d91d3350ed3c68192267439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
