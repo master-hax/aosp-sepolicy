@@ -22,6 +22,30 @@
       "revId": "08725fa1641a5a19ac75428be6c5f49b6ea6116a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f081404_89ac5ba9",
+        "filename": "private/property_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2018-08-10T17:12:12Z",
+      "side": 1,
+      "message": "Good to know, I do not want \u0027adb shell su root setprop\u0027, I would actually prefer \u0027adb shell setprop\u0027 as a convenience :-)\n\nBut if I do not do so (make it a shell_prop readable option), then adb remount and adb disable-verity when run as a shell (not as root) comes up with bogus error messages, responses and decisions because they need to be able to read this property. What is the alternative (being able to read the property, but not set it)?\n\nlog_tag_prop is readable by all, but only settable by su, can I overload on that? We could in the future make this adjustable in Developer Options as a result, which may be good too. To make us immune to changes in what log_tag_prop means, we could add comments around it stating it is an _everyone_ read-only property.\n\nIdeally I would want this defined _only_ for userdebug builds, is there a way to do that (I could put it into /private/file_contexts_overlayfs which is only read while constructing userdebug/eng builds and is related to this feature)?\n\nThis property is _only_ of use on userdebug builds. Being able to set it in shell is a convenience because it has an effect on how adb remount functions for deploying overlayfs. But the operation of adb remount (only on userdebug) operations which requires adb root first to do their deed. The action is protected. It would appear as a problem _only_ if this was deployed on \"user\" (but the code is actually ifdef\u0027d out on user), so can we be allowed to be sloppy for this?\n\n(I am expecting no to be the answer to lazy, but just making sure that it is clear this property is meaningless on \"user\" builds).",
+      "parentUuid": "9051a90c_93ad27c8",
+      "range": {
+        "startLine": 43,
+        "startChar": 40,
+        "endLine": 43,
+        "endChar": 64
+      },
+      "revId": "08725fa1641a5a19ac75428be6c5f49b6ea6116a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
