@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9051a90c_93ad27c8",
+        "filename": "private/property_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-10T16:20:12Z",
+      "side": 1,
+      "message": "This makes this property writable to the UNPRIVILEGED shell user on production builds. The use case described in the companion CL has this property being set by \"su\", so the unprivileged shell doesn\u0027t need access.\n\n  $ adb shell su root setprop persist.adb.remount.overlayfs.minfree 100\n\nSo this should DEFINITELY NOT be a shell_prop.",
+      "range": {
+        "startLine": 43,
+        "startChar": 40,
+        "endLine": 43,
+        "endChar": 64
+      },
+      "revId": "08725fa1641a5a19ac75428be6c5f49b6ea6116a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
