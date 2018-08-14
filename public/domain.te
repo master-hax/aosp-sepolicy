@@ -795,6 +795,11 @@ full_treble_only(`
     -init
     -tombstoned # TODO(b/36604251): Remove tombstoned from this list once mediacodec (OMX HAL) no longer declares Binder services
   });
+
+  neverallow { domain -coredomain -appdomain -socket_between_core_and_vendor_violators }
+             { coredomain -logd userdebug_or_eng(`-su') -init }:
+             { base_sockets } { connect sendto };
+
 ')
 
   # Vendor domains (except netdomain) are not permitted to initiate communications to netd sockets
