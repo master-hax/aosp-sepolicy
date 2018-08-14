@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "677f5be1_b8467c25",
+        "filename": "private/llkd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-14T19:06:02Z",
+      "side": 1,
+      "message": "Please use:\n\n  allow llkd domain:process sigkill;\n\nExcluding llkd itself in this line doesn\u0027t have any effect. The ability for a process to kill itself is allowed to all domains in domain.te:\n\n  # Intra-domain accesses.\n  allow domain self:process {\n    fork\n    sigchld\n    sigkill\n    sigstop\n    signull\n    signal\n    getsched\n    setsched\n    getsession\n    getpgid\n    setpgid\n    getcap\n    setcap\n    getattr\n    setrlimit\n  };\n\nThe use of a negation here causes the SELinux compiler to create one allow rule for each domain, which leads to policy size explosion.",
+      "revId": "227a3d061a5e600d0bebdff4165b8f86ac055030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
