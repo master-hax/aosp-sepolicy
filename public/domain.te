@@ -736,9 +736,9 @@ full_treble_only(`
     -logd # Logging by writing to logd Unix domain socket is public API
     -netd # netdomain needs this
     -mdnsd # netdomain needs this
+    -tombstoned # seccomp restricted processes need this to dump themselves (crash_dump_fallback)
     userdebug_or_eng(`-su') # communications with su are permitted only on userdebug or eng builds
     -init
-    -tombstoned # TODO(b/36604251): Remove tombstoned from this list once mediacodec (OMX HAL) no longer declares Binder services
   });
 ')
 
