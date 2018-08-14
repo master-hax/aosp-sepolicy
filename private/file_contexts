@@ -16,6 +16,7 @@
 # Executables
 /charger            u:object_r:rootfs:s0
 /init               u:object_r:init_exec:s0
+/system/bin/init    u:object_r:init_exec:s0
 /sbin(/.*)?         u:object_r:rootfs:s0
 
 # For kernel modules
@@ -125,7 +126,6 @@
 /dev/snd/audio_seq_device	u:object_r:audio_seq_device:s0
 /dev/socket(/.*)?	u:object_r:socket_device:s0
 /dev/socket/adbd	u:object_r:adbd_socket:s0
-/dev/socket/cryptd	u:object_r:vold_socket:s0
 /dev/socket/dnsproxyd	u:object_r:dnsproxyd_socket:s0
 /dev/socket/dumpstate	u:object_r:dumpstate_socket:s0
 /dev/socket/fwmarkd	u:object_r:fwmarkd_socket:s0
@@ -157,7 +157,6 @@
 /dev/socket/traced_producer	u:object_r:traced_producer_socket:s0
 /dev/socket/traced_consumer	u:object_r:traced_consumer_socket:s0
 /dev/socket/uncrypt	u:object_r:uncrypt_socket:s0
-/dev/socket/vold	u:object_r:vold_socket:s0
 /dev/socket/wpa_eth[0-9] u:object_r:wpa_socket:s0
 /dev/socket/wpa_wlan[0-9] u:object_r:wpa_socket:s0
 /dev/socket/zygote	u:object_r:zygote_socket:s0
@@ -280,6 +279,7 @@
 /system/bin/wpantund             u:object_r:wpantund_exec:s0
 /system/bin/virtual_touchpad     u:object_r:virtual_touchpad_exec:s0
 /system/bin/hw/android\.hidl\.allocator@1\.0-service          u:object_r:hal_allocator_default_exec:s0
+/system/bin/hw/android\.system\.suspend@1\.0-service          u:object_r:hal_system_suspend_default_exec:s0
 /system/etc/selinux/mapping/[0-9]+\.[0-9]+\.cil       u:object_r:sepolicy_file:s0
 /system/etc/selinux/plat_mac_permissions\.xml u:object_r:mac_perms_file:s0
 /system/etc/selinux/plat_property_contexts  u:object_r:property_contexts_file:s0
@@ -519,12 +519,23 @@
 # LocalTransport (backup) uses this subtree
 /cache/backup(/.*)?		u:object_r:cache_private_backup_file:s0
 
+#############################
+# Overlayfs support directories
+#
+/cache/overlay(/.*)?            u:object_r:overlayfs_file:s0
+
 /data/cache(/.*)?		u:object_r:cache_file:s0
 /data/cache/recovery(/.*)?	u:object_r:cache_recovery_file:s0
 # General backup/restore interchange with apps
 /data/cache/backup_stage(/.*)?	u:object_r:cache_backup_file:s0
 # LocalTransport (backup) uses this subtree
 /data/cache/backup(/.*)?	u:object_r:cache_private_backup_file:s0
+
+#############################
+# Metadata files
+#
+/metadata(/.*)?           u:object_r:metadata_file:s0
+/metadata/vold(/.*)?      u:object_r:vold_metadata_file:s0
 
 #############################
 # asec containers
