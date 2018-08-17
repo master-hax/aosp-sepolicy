@@ -1,0 +1,7 @@
+# apexd -- manager for APEX packages
+type apexd, domain;
+type apexd_exec, exec_type, file_type;
+
+binder_use(apexd)
+binder_service(apexd)
+add_service(apexd, apex_service)
