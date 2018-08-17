@@ -142,6 +142,8 @@ type system_linker_config_file, file_type;
 type system_seccomp_policy_file, file_type;
 # Default type for cacerts in /system/etc/security/cacerts/*.
 type system_security_cacerts_file, file_type;
+# Default type for APEX keys in /system/etc/security/apex/*
+type apex_key_file, file_type;
 
 # Default type for directories search for
 # HAL implementations
@@ -195,6 +197,8 @@ type anr_data_file, file_type, data_file_type, core_data_file_type, mlstrustedob
 type tombstone_data_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
 # /data/vendor/tombstones/wifi - vendor wifi dumps
 type tombstone_wifi_data_file, file_type, data_file_type;
+# /data/apex - APEX data files
+type apex_data_file, file_type, data_file_type, core_data_file_type;
 # /data/app - user-installed apps
 type apk_data_file, file_type, data_file_type, core_data_file_type;
 type apk_tmp_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
