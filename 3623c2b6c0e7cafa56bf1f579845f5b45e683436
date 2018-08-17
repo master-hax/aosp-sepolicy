@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "259d7a71_cba2a548",
+        "filename": "public/mediaserver.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-17T22:59:06Z",
+      "side": 1,
+      "message": "This is too permissive. In this case, mediaserver is receiving a file passed as a file descriptor. So the permissions here should be:\n\n  { read map }\n\nIn particular, \"open\" shouldn\u0027t be allowed, since mediaserver isn\u0027t opening anything by path.",
+      "range": {
+        "startLine": 99,
+        "startChar": 39,
+        "endLine": 99,
+        "endChar": 51
+      },
+      "revId": "3623c2b6c0e7cafa56bf1f579845f5b45e683436",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
