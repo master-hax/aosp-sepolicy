@@ -1,0 +1,33 @@
+typeattribute apexd coredomain;
+
+init_daemon_domain(apexd)
+
+# Read /system/etc/security/apex_debug_key
+allow apexd apex_key_file:dir search;
+allow apexd apex_key_file:file r_file_perms;
+
+# Allow reading APEX files
+allow apexd apex_data_file:dir r_dir_perms;
+allow apexd apex_data_file:file r_file_perms;
+
+# allow apexd to create loop devices with /dev/loop-control
+allow apexd loop_control_device:chr_file rw_file_perms;
+# allow apexd to access loop devices
+allow apexd loop_device:blk_file rw_file_perms;
+# allow apexd to access /dev/block
+allow apexd block_device:dir r_dir_perms;
+
+# allow apexd to access /dev/block/dm-* (device-mapper entries)
+allow apexd dm_device:chr_file rw_file_perms;
+allow apexd dm_device:blk_file rw_file_perms;
+
+# sys_admin is required to access the device-mapper and mount
+allow apexd self:global_capability_class_set sys_admin;
+
+# allow apexd to create a mount point
+allow apexd tmpfs:dir create_dir_perms;
+# allow apexd to mount in /mnt
+allow apexd tmpfs:filesystem { mount unmount };
+allow apexd tmpfs:dir mounton;
+# Unmount and mount filesystems
+allow apexd labeledfs:filesystem { mount unmount };
