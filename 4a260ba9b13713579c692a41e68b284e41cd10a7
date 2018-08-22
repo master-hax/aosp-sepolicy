@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "545adcf9_26383cbe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-22T21:47:54Z",
+      "side": 1,
+      "message": "this description is no longer accurate. This is not a revert of that commit. It\u0027s a relaxation of neverallow rules.\n\nCan you please update the commit message to read something like:\n\nReason for rule relaxation: Samsung devices continue to ship using a file based OTA mechanism. This mechanism was removed from SELinux policy in commit 7388575591ff2f55afa887851f5d593963b4552f. Devices which support file based OTA are unable to use dm-verity protections, and as a result, are more vulnerable to persistence attacks where filesystem metadata or layout is attacked.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "4a260ba9b13713579c692a41e68b284e41cd10a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
