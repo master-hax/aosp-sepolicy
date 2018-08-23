@@ -51,3 +51,12 @@ allow update_engine proc_misc:file r_file_perms;
 
 # read directories on /system and /vendor
 allow update_engine system_file:dir r_dir_perms;
+
+# read / write on /dev/device-mapper to map / unmap devices
+allow update_engine dm_device:chr_file rw_file_perms;
+
+# apply / verify updates on devices mapped via device mapper
+allow update_engine dm_device:blk_file rw_file_perms;
+
+# read / write metadata on super device to resize partitions
+allow update_engine super_block_device:blk_file rw_file_perms;
