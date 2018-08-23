@@ -70,6 +70,24 @@
       "revId": "3543ff060adab7a61175d97684929b501f6441dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "678fab34_436b015c",
+        "filename": "private/statsd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-23T20:16:35Z",
+      "side": 1,
+      "message": "Can you send me the SELinux violation?\n\nbluetooth has the \"appdomain\" attribute. See line 5 at https://android.googlesource.com/platform/system/sepolicy/+/00f28f6d09719911d2abbf9e85eefde6dccaa363/private/bluetooth.te#5\n\nSo explicitly adding bluetooth shouldn\u0027t be necessary, as it should be implicitly covered by the appdomain rule in app.te",
+      "parentUuid": "282344b0_39fe9a00",
+      "revId": "3543ff060adab7a61175d97684929b501f6441dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
