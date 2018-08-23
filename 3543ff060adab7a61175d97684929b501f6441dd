@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4feebe44_4777d44b",
+        "filename": "private/statsd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-23T16:23:51Z",
+      "side": 1,
+      "message": "Delete lines 88, 90, 91, 93, 94, 95, 97, 99, and 100. Instead, add the following line to public/app.te:\n\n  unix_socket_connect(appdomain, statsdw, statsd)\n\nThis grants permission to all app domains, instead of having to list them out individually.",
+      "revId": "3543ff060adab7a61175d97684929b501f6441dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
