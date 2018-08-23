@@ -106,6 +106,24 @@
       "revId": "3543ff060adab7a61175d97684929b501f6441dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae86094d_2c65e9c1",
+        "filename": "private/statsd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-08-23T20:27:08Z",
+      "side": 1,
+      "message": "When I cherrypick your patch and run the following command, the rule is there for me:\n\nnnk@nick:/work/android/master$ sesearch --allow -s bluetooth -p sendto -t statsd -c unix_dgram_socket out/./target/product/hikey960/obj/ETC/sepolicy_intermediates/sepolicy\n\nallow bluetooth statsd:unix_dgram_socket sendto;\n\nCan you try:\n\n  1) adb root\n  2) adb pull /sys/fs/selinux/policy\n  3) sesearch --allow -s bluetooth -p sendto -t statsd -c unix_dgram_socket ./policy\n\nor check the build artifact in your tree.",
+      "parentUuid": "57fd698e_88c051d5",
+      "revId": "3543ff060adab7a61175d97684929b501f6441dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
