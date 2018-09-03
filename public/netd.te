@@ -91,6 +91,8 @@ allow netd permission_service:service_manager find;
 
 # Allow netd to talk to the framework service which collects netd events.
 allow netd netd_listener_service:service_manager find;
+allow netd netd_ulistener_service:service_manager find;
+
 
 # Allow netd to operate on sockets that are passed to it.
 allow netd netdomain:{
