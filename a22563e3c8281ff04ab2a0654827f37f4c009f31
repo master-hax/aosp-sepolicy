@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59376618_b29c9cbc",
+        "filename": "public/init.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-09-04T07:44:13Z",
+      "side": 1,
+      "message": "This will emit\n\nallow init servicemanager:binder { call transfer };\n...\n\nSo, this itself does not conflict with the (original) neverallow rule.\n\nIn order for servicemanager to give reference back to init, don\u0027t we need\n\nallow servicemanager init:binder { transfer }; \n\nin addition to this?",
+      "range": {
+        "startLine": 516,
+        "startChar": 0,
+        "endLine": 516,
+        "endChar": 10
+      },
+      "revId": "a22563e3c8281ff04ab2a0654827f37f4c009f31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
