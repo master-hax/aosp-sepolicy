@@ -22,6 +22,30 @@
       "revId": "b16602766e18ab3f973723e01809b4b5f186295b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "937de45c_4872a81a",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-09-04T05:24:48Z",
+      "side": 1,
+      "message": "Yeah, actually servicemanager also shouldn\u0027t make binder calls, but it should be allowed to \"transfer\" references back to init, which this rule allowed. I guess I can rewrite this to something like:\n\nneverallow {domain -servicemanager} init:binder { transfer }\nneverallow * init:binder { * - transfer } (need to lookup syntax).\n\nto scope it down more.",
+      "parentUuid": "7223711b_1d6077b7",
+      "range": {
+        "startLine": 400,
+        "startChar": 2,
+        "endLine": 400,
+        "endChar": 73
+      },
+      "revId": "b16602766e18ab3f973723e01809b4b5f186295b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
