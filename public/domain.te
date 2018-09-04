@@ -1064,6 +1064,7 @@ full_treble_only(`
         -crash_dump_exec
         -netutils_wrapper_exec
         userdebug_or_eng(`-tcpdump_exec')
+        userdebug_or_eng(`-logcat_exec')
     }:file { entrypoint execute execute_no_trans };
 ')
 
