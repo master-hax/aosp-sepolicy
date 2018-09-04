@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7223711b_1d6077b7",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-09-04T05:12:01Z",
+      "side": 1,
+      "message": "Could you explain more about why servicemanager makes a binder call into init?\n\nIn the other CL, you wrote\n\n    // init\u0027s use of binder is very limited. init cannot:\n    //   - have any binder threads\n    //   - receive incoming binder calls\n\nSo, it looks like init shouldn\u0027t receive binder calls from anyone.. including servicemanager, which seems to be contradictory to this neverallow rule.",
+      "range": {
+        "startLine": 400,
+        "startChar": 2,
+        "endLine": 400,
+        "endChar": 73
+      },
+      "revId": "b16602766e18ab3f973723e01809b4b5f186295b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
