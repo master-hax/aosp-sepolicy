@@ -22,6 +22,30 @@
       "revId": "399ac4057b209575f08eeec684eb3754707131af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fa03a3c_d37f86f9",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2018-09-05T03:08:34Z",
+      "side": 1,
+      "message": "+1, if its only calling wipe_block_device() as in https://cs.corp.google.com/android/system/core/fastboot/device/commands.cpp?rcl\u003d324529889498e71abb5fc8c6acfb8c6361db8e67\u0026l\u003d128, then I guess O_WRONLY is what is used and w_file_perms should suffice.\n\nIt is not clear to me however if userdata formatting with ext4 / f2fs will need the rw_file_perms yet. hridya@?",
+      "parentUuid": "f686367a_184b8c5e",
+      "range": {
+        "startLine": 48,
+        "startChar": 49,
+        "endLine": 48,
+        "endChar": 50
+      },
+      "revId": "399ac4057b209575f08eeec684eb3754707131af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
