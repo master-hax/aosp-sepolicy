@@ -301,6 +301,8 @@ allow system_server sysfs_power:dir search;
 allow system_server sysfs_power:file rw_file_perms;
 allow system_server sysfs_thermal:dir search;
 allow system_server sysfs_thermal:file r_file_perms;
+allow system_server sysfs_board_properties:dir search;
+allow system_server sysfs_board_properties:file r_file_perms;
 
 # TODO: Remove when HALs are forced into separate processes
 allow system_server sysfs_vibrator:file { write append };
