@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "befe7fef_801fc696",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-09-05T15:34:09Z",
+      "side": 1,
+      "message": "Per the comment in https://android-review.googlesource.com/c/platform/system/sepolicy/+/736611/1/public/domain.te#477 , can you please add the following:\n\n  # Nobody should be doing writes to /system \u0026 vendor\n  # These partitions are intended to be read-only and should never be\n  # modified. Doing so violates important Android security guarantees\n  # and invalidates dm-verity signatures.\n  # Samsung devices violate these security guarantees for now, so we\n  # continue to have to allow this for recovery, but this will go away\n  # in the future.",
+      "revId": "9b58d335b54435d3f8f2169f17afab36c0af0d5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
