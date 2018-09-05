@@ -20,3 +20,6 @@ auditallow tombstoned anr_data_file:file { append write };
 # separate file, and these files are managed by tombstoned.
 allow tombstoned anr_data_file:dir rw_dir_perms;
 allow tombstoned anr_data_file:file { create getattr open link unlink };
+
+# Write to /proc/sysrq-trigger
+allow tombstoned proc_sysrq:file { write open getattr };
