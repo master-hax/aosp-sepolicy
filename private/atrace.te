@@ -43,4 +43,12 @@ userdebug_or_eng(`
 
   allow atrace debugfs_tracing_debug:dir r_dir_perms;
   allow atrace debugfs_tracing_debug:file rw_file_perms;
+
+  allow atrace radio:binder call;
+  allow atrace nfc:binder call;
+  allow atrace secure_element:binder call;
+  allow atrace cameraserver:binder call;
+  allow atrace system_server:binder call;
+  allow atrace dataservice_app:binder call;
+
 ')
