@@ -20,8 +20,8 @@ set_prop(atrace, debug_prop)
 # SYSPROPS_TRANSACTION, to tell them to reload the debug.atrace.* properties.
 
 binder_use(atrace)
-allow atrace healthd:binder call;
-allow atrace surfaceflinger:binder call;
+binder_call(atrace, healthd)
+binder_call(atrace, surfaceflinger)
 get_prop(atrace, hwservicemanager_prop)
 
 allow atrace {
@@ -43,4 +43,6 @@ userdebug_or_eng(`
 
   allow atrace debugfs_tracing_debug:dir r_dir_perms;
   allow atrace debugfs_tracing_debug:file rw_file_perms;
+
+  binder_call(atrace, system_server)
 ')
