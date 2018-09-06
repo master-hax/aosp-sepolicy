@@ -119,6 +119,9 @@ allow system_app {
   proc_version
 }:file r_file_perms;
 
+# settings app gets battery stats from system_server via ashmem.
+allow system_app system_server_tmpfs:file { read };
+
 control_logd(system_app)
 read_runtime_log_tags(system_app)
 get_prop(system_app, device_logging_prop)
