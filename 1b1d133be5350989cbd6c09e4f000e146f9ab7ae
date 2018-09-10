@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0623e5f_7072903c",
+        "filename": "private/policy_capabilities",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2018-09-10T16:29:58Z",
+      "side": 1,
+      "message": "In the refpolicy this line is commented out, which seems an important difference.\n\nIIUC the overall effect of this CL is that policies (given a new enough kernel) can now allow transitions that would have been blocked by nnp or nosuid.\n\nShould we also add neverallow rules to restrict this in some/all cases? Particularly for nnp, given the known issues with it and seccomp.",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 31
+      },
+      "revId": "1b1d133be5350989cbd6c09e4f000e146f9ab7ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
