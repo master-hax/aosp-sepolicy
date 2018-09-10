@@ -22,6 +22,30 @@
       "revId": "1b1d133be5350989cbd6c09e4f000e146f9ab7ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "132258c8_8a5ecc41",
+        "filename": "private/policy_capabilities",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-09-10T16:43:06Z",
+      "side": 1,
+      "message": "While there could be misuses of transitions when NNP or nosuid is enabled, there could also be changes which are beneficial to security. I\u0027m hesitant to upfront declare that all uses of this are bad, which is what a neverallow assertion would do. Perhaps it makes sense to watch how people use this feature and address concerns when they become more concrete? Since SELinux is a default deny system, none of this functionality would be allowed unless explicitly granted in policy.",
+      "parentUuid": "a0623e5f_7072903c",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 31
+      },
+      "revId": "1b1d133be5350989cbd6c09e4f000e146f9ab7ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
