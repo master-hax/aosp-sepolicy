@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac33f991_1b582180",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-09-12T20:12:11Z",
+      "side": 1,
+      "message": "Nit: To avoid repetition and to promote clarity, it might be easier to delete lines 42, 46, 52, and 56, and replace it with:\n\n  allow fastbootd {\n    system_block_device\n    boot_block_device\n    userdata_block_device\n    metadata_block_device\n  }:blk_file { w_file_perms getattr ioctl };\n\nSimilarly, you can do the same thing with the allowxperm line below:\n\n  allowxperm fastbootd {\n    ...\n  } ...;",
+      "revId": "94a9e35d67845e823251cc3f02e39d5df82ccd53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
