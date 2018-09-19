@@ -46,6 +46,30 @@
       "revId": "562c0a6a44fb8ec38a45be7b90c205c9dd6b1c82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b60b9c5_b1bbfff8",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1427,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-09-19T18:54:34Z",
+      "side": 1,
+      "message": "See system/sepolicy/private/app_neverallows.te for an example.\n\nsomething like:\n\n  define(`dac_exceptions\u0027, `{\n    dnsmasq\n    dumpstate\n    ...\n  \u0027)\n\n  neverallow { domain -dac_exceptions } self:global_capability_class_set dac_override;\n  neverallow { domain -dac_exceptions -traced_probes } self:global_capability_class_set dac_read_search;\n\nThen it\u0027s much clearer that -traced_probes is an additional exception to the dac_read_search rule. Otherwise one has to compare the list manually.",
+      "parentUuid": "c89a6977_5f949ca6",
+      "range": {
+        "startLine": 1407,
+        "startChar": 0,
+        "endLine": 1427,
+        "endChar": 9
+      },
+      "revId": "562c0a6a44fb8ec38a45be7b90c205c9dd6b1c82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
