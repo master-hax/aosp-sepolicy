@@ -4,3 +4,6 @@ hal_server_domain(hal_health_storage_default, hal_health_storage)
 type hal_health_storage_default_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(hal_health_storage_default)
 
+# Write to /manual_gc
+# allow hal_health_storage_default sysfs_type:dir r_dir_perms;
+allow hal_health_storage_default sysfs_manualgc:file rw_file_perms;
