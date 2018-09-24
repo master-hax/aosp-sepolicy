@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1046d89_9d96b1c6",
+        "filename": "public/vold.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1013508
+      },
+      "writtenOn": "2018-09-24T16:45:58Z",
+      "side": 0,
+      "message": "Did you run these:\n\n$ atest android.os.storage.cts.StorageManagerTest\n\nTechnically private OBB files may still be passed down as paths to vold via createObb().  :(  We could probably fix that by having the app pass through an already-opened FD, but you\u0027d have to file a bug to make that work happen.",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 66
+      },
+      "revId": "7087bf125612187bf22d552339b16e0a1b8e749c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
