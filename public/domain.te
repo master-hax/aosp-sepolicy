@@ -159,7 +159,10 @@ allow domain {
     system_seccomp_policy_file
     system_security_cacerts_file
 }:dir r_dir_perms;
-allow domain system_file:lnk_file { getattr read };
+allow domain {
+    system_file
+    system_linker_exec
+}:lnk_file { getattr read };
 
 # Global access to /system/etc/security/cacerts/*, /system/etc/seccomp_policy/*, /system/lib[64]/*,
 # linker and its config.
