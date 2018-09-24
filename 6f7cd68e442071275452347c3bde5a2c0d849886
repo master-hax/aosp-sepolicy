@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63fad120_93ed18ad",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-09-24T16:54:03Z",
+      "side": 1,
+      "message": "You can avoid the temporary file, and the I/O associated with it, by using pipes:\n\n  $(hide) sed \u0027/^\\s*dontaudit.*;/d\u0027 $@ | sed \u0027/^\\s*dontaudit/,/;/d\u0027 \u003e $@.dontaudit",
+      "range": {
+        "startLine": 315,
+        "startChar": 0,
+        "endLine": 319,
+        "endChar": 0
+      },
+      "revId": "6f7cd68e442071275452347c3bde5a2c0d849886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
