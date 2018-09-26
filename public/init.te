@@ -148,6 +148,11 @@ allow init {
   -privapp_data_file
   -system_app_data_file
   -system_file
+  -system_lib_file
+  -system_linker_exec
+  -system_linker_config_file
+  -system_seccomp_policy_file
+  -system_security_cacerts_file
   -vendor_file_type
 }:dir { create search getattr open read setattr ioctl };
 
@@ -162,6 +167,11 @@ allow init {
   -shell_data_file
   -system_app_data_file
   -system_file
+  -system_lib_file
+  -system_linker_exec
+  -system_linker_config_file
+  -system_seccomp_policy_file
+  -system_security_cacerts_file
   -vendor_file_type
   -vold_data_file
 }:dir { write add_name remove_name rmdir relabelfrom };
@@ -178,6 +188,11 @@ allow init {
   -shell_data_file
   -system_app_data_file
   -system_file
+  -system_lib_file
+  -system_linker_exec
+  -system_linker_config_file
+  -system_seccomp_policy_file
+  -system_security_cacerts_file
   -vendor_file_type
   -vold_data_file
 }:file { create getattr open read write setattr relabelfrom unlink map };
@@ -193,6 +208,11 @@ allow init {
   -shell_data_file
   -system_app_data_file
   -system_file
+  -system_lib_file
+  -system_linker_exec
+  -system_linker_config_file
+  -system_seccomp_policy_file
+  -system_security_cacerts_file
   -vendor_file_type
   -vold_data_file
 }:{ sock_file fifo_file } { create getattr open read setattr relabelfrom unlink };
@@ -208,13 +228,28 @@ allow init {
   -shell_data_file
   -system_app_data_file
   -system_file
+  -system_lib_file
+  -system_linker_exec
+  -system_linker_config_file
+  -system_seccomp_policy_file
+  -system_security_cacerts_file
   -vendor_file_type
   -vold_data_file
 }:lnk_file { create getattr setattr relabelfrom unlink };
 
 allow init cache_file:lnk_file r_file_perms;
 
-allow init { file_type -system_file -vendor_file_type -exec_type }:dir_file_class_set relabelto;
+allow init {
+  file_type
+  -system_file
+  -system_lib_file
+  -system_linker_exec
+  -system_linker_config_file
+  -system_seccomp_policy_file
+  -system_security_cacerts_file
+  -vendor_file_type -exec_type
+}:dir_file_class_set relabelto;
+
 # does init really need to relabel app data?
 userdebug_or_eng(`auditallow init { app_data_file privapp_data_file }:dir_file_class_set relabelto;')
 allow init { sysfs debugfs debugfs_tracing debugfs_tracing_debug }:{ dir file lnk_file } { getattr relabelfrom };

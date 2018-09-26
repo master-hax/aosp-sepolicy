@@ -503,16 +503,38 @@ neverallow {
     domain
     with_asan(`-asan_extract')
 } {
-    system_file
-    vendor_file_type
-    exec_type
+  system_file
+  system_lib_file
+  system_linker_exec
+  system_linker_config_file
+  system_seccomp_policy_file
+  system_security_cacerts_file
+  vendor_file_type
+  exec_type
 }:dir_file_class_set { create write setattr relabelfrom append unlink link rename };
 
-neverallow { domain -kernel with_asan(`-asan_extract') } { system_file vendor_file_type exec_type }:dir_file_class_set relabelto;
+neverallow { domain -kernel with_asan(`-asan_extract') } {
+  system_file
+  system_lib_file
+  system_linker_exec
+  system_linker_config_file
+  system_seccomp_policy_file
+  system_security_cacerts_file
+  vendor_file_type
+  exec_type
+}:dir_file_class_set relabelto;
 
 # Don't allow mounting on top of /system files or directories
 neverallow * exec_type:dir_file_class_set mounton;
-neverallow { domain -init } { system_file vendor_file_type }:dir_file_class_set mounton;
+neverallow { domain -init } {
+  system_file
+  system_lib_file
+  system_linker_exec
+  system_linker_config_file
+  system_seccomp_policy_file
+  system_security_cacerts_file
+  vendor_file_type
+}:dir_file_class_set mounton;
 
 # Nothing should be writing to files in the rootfs.
 neverallow * rootfs:file { create write setattr relabelto append unlink link rename };
