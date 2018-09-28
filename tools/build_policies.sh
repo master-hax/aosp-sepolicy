@@ -75,7 +75,7 @@ compile_target () {
   my_out_file="$out_dir/log.$target"
   rm -f $my_out_file
   # Build the policy.
-  OUT_DIR=$out_dir/out.$target mmma -j$mmma_jobs system/sepolicy &>> $my_out_file
+  OUT_DIR=$out_dir/out.$target make -j$mmma_jobs selinux_policy &>> $my_out_file
   if [ $? -ne 0 ]; then
     echo "$target failed to build"
     return 2
