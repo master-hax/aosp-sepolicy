@@ -54,3 +54,6 @@ allow shell perfetto_traces_data_file:file r_file_perms;
 
 # Allow shell-based "dumpsys" to call into bufferhubd.
 binder_call(shell, bufferhubd);
+
+# For hostside tests such as CTS listening ports test.
+allow shell proc_net_tcp_udp:file r_file_perms;
