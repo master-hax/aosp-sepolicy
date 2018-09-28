@@ -16,6 +16,24 @@
       "revId": "8d6ea9f104ab850fb60e386f05d1ccfc3c36bc08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a60bf37_939fb432",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1371,
+      "author": {
+        "id": 1249497
+      },
+      "writtenOn": "2018-09-28T21:50:09Z",
+      "side": 1,
+      "message": "I ran this against my device both with and without the cherry-picked version of this patch and it passes both ways.  My understanding is that sepolicy-analyze complains about loosened neverallow rules, but additional rules are ok (which is effectively the scenario of running CTS with this patch against a device without it).  Is that not the right way to confirm that this change is backwards-compatible?",
+      "parentUuid": "b54776be_29059761",
+      "revId": "8d6ea9f104ab850fb60e386f05d1ccfc3c36bc08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
