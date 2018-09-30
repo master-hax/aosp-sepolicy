@@ -243,6 +243,7 @@ def TestNoUnmappedNewTypes():
         ret += "found in private/compat/" + compatMapping.apiLevel + "/"
         ret +=  compatMapping.apiLevel + "[.ignore].cil\n"
         ret += " ".join(str(x) for x in sorted(violators)) + "\n"
+        ret += "Add them to the latest the compatibility mapping file(s).\n"
     return ret
 
 ###
