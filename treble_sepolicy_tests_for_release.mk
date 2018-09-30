@@ -51,8 +51,8 @@ $(version)_plat_policy.conf :=
 # targeting the $(version) SELinux release.  This ensures that our policy will build
 # when used on a device that has non-platform policy targetting the $(version) release.
 $(version)_compat := $(intermediates)/$(version)_compat
-$(version)_mapping.cil := $(LOCAL_PATH)/private/compat/$(version)/$(version).cil
-$(version)_mapping.ignore.cil := $(LOCAL_PATH)/private/compat/$(version)/$(version).ignore.cil
+$(version)_mapping.cil := $(TARGET_OUT)/etc/selinux/mapping/$(version).cil
+$(version)_mapping.ignore.cil := $(TARGET_OUT)/etc/selinux/mapping/$(version).ignore.cil
 $(version)_prebuilts_dir := $(LOCAL_PATH)/prebuilts/api/$(version)
 
 # vendor_sepolicy.cil and plat_pub_versioned.cil are the new design to replace
