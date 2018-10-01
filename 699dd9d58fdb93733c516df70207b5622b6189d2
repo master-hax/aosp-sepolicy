@@ -1,0 +1,250 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "38ea8c99_41f19021",
+        "filename": "private/apexd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-01T16:44:22Z",
+      "side": 1,
+      "message": "r_dir_perms",
+      "range": {
+        "startLine": 10,
+        "startChar": 31,
+        "endLine": 10,
+        "endChar": 59
+      },
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a17d70e1_e6b07f71",
+        "filename": "private/apexd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-01T16:44:22Z",
+      "side": 1,
+      "message": "\"create_file_perms\" (defined in system/sepolicy/public/global_macros) should be used here instead of listing out individual permissions.",
+      "range": {
+        "startLine": 16,
+        "startChar": 33,
+        "endLine": 16,
+        "endChar": 72
+      },
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ef49aa3_82630977",
+        "filename": "private/apexd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-01T16:44:22Z",
+      "side": 1,
+      "message": "r_dir_perms",
+      "range": {
+        "startLine": 18,
+        "startChar": 29,
+        "endLine": 18,
+        "endChar": 58
+      },
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9cd757d_a6567c71",
+        "filename": "private/apexd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-01T16:44:22Z",
+      "side": 1,
+      "message": "by convention, brackets are not used when there is only one permission.",
+      "range": {
+        "startLine": 25,
+        "startChar": 45,
+        "endLine": 25,
+        "endChar": 47
+      },
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "531e5757_8117172b",
+        "filename": "private/apexd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-01T16:44:22Z",
+      "side": 1,
+      "message": "/mnt is used for lots of other things, including the sdcard. It\u0027s probably better if we create a dedicated mount point for apex related stuff, /apex perhaps?\n\nAlong with this, it probably makes sense to create a dedicated label for /apex, something like u:object_r:apex_mount_dir:s0\", so that we\u0027re not referring to the overly broad tmpfs label below.",
+      "range": {
+        "startLine": 29,
+        "startChar": 26,
+        "endLine": 29,
+        "endChar": 30
+      },
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66184ab4_27eabd06",
+        "filename": "public/apexd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-01T16:44:22Z",
+      "side": 1,
+      "message": "type apexd_exec, exec_type, file_type, system_file_type;\n\n(since this file is on the /system partition)",
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f91c5945_ff4b1b6b",
+        "filename": "public/apexd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-01T16:44:22Z",
+      "side": 1,
+      "message": "This macro grants quite a bit of permissions, permissions which may be excessive given the powerful nature of what apexd can do.\n\nInstead, I\u0027d like to be very explicit about who may talk to apexd. This can be enforced via SELinux neverallow assertions, something like:\n\n  # only someoneelse may lookup the apexd service from service_manager\n  neverallow { domain -apexd -someoneelse } apexd_service:service_manager find;\n\n  # Only someoneelse may make binder calls to apexd\n  neverallow { domain -apexd -someoneelse } apexd:binder call;\n\nand adding specific allow rules as necessary to determine who may talk to apexd.",
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b6d6dd2_0218ba58",
+        "filename": "public/apexd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-01T16:44:22Z",
+      "side": 1,
+      "message": "Additionally, because of the powerful nature of apexd, I would like to enforce some additional restrictions:\n\n  # do not allow ptrace(PTRACE_ATTACH) to this process\n  neverallow domain apexd:process ptrace;",
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e5d8bcf_4aead506",
+        "filename": "public/file.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-01T16:44:22Z",
+      "side": 1,
+      "message": "type apex_key_file, system_file_type, file_type;\n\n(since it\u0027s located on the /system partition)\n\nAlso, please be aware that, because this is distributed on the /system partition and common to all devices, there is no confidentiality of these files.",
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53875199_1996653d",
+        "filename": "public/init.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-01T16:44:22Z",
+      "side": 1,
+      "message": "by convention, brackets are not used when there\u0027s only one element in the permission set.",
+      "range": {
+        "startLine": 519,
+        "startChar": 33,
+        "endLine": 519,
+        "endChar": 35
+      },
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a62119b_fc14840a",
+        "filename": "public/init.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-01T16:44:22Z",
+      "side": 1,
+      "message": "by convention, brackets are not used when there\u0027s only one element in the permission set.",
+      "range": {
+        "startLine": 521,
+        "startChar": 24,
+        "endLine": 521,
+        "endChar": 25
+      },
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78282f30_286e4cd0",
+        "filename": "public/init.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-01T16:44:22Z",
+      "side": 1,
+      "message": "This is a big relaxation of the neverallow rules. Instead, this can be written as:\n\n  neverallow init { service_manager_type -apex_service }:service_manager find;\n  neverallow init service_manager_type:service_manager { add list };\n\nwhich will disallow init from finding anything *but* the apex_service.",
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
