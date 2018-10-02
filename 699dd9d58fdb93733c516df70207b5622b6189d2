@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d93861d2_b4eac3f6",
+        "filename": "private/apexd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-02T13:46:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38ea8c99_41f19021",
+      "range": {
+        "startLine": 10,
+        "startChar": 31,
+        "endLine": 10,
+        "endChar": 59
+      },
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a17d70e1_e6b07f71",
         "filename": "private/apexd.te",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddc253eb_8e498bca",
+        "filename": "private/apexd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-02T13:46:45Z",
+      "side": 1,
+      "message": "Changed to rw_file_perms only.",
+      "parentUuid": "a17d70e1_e6b07f71",
+      "range": {
+        "startLine": 16,
+        "startChar": 33,
+        "endLine": 16,
+        "endChar": 72
+      },
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "48bb5594_80afe346",
+        "filename": "private/apexd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-02T13:46:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ef49aa3_82630977",
+      "range": {
+        "startLine": 18,
+        "startChar": 29,
+        "endLine": 18,
+        "endChar": 58
+      },
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9cd757d_a6567c71",
         "filename": "private/apexd.te",
         "patchSetId": 5
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "bb9184e0_36b5f8c0",
+        "filename": "private/apexd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-02T13:46:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9cd757d_a6567c71",
+      "range": {
+        "startLine": 25,
+        "startChar": 45,
+        "endLine": 25,
+        "endChar": 47
+      },
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "531e5757_8117172b",
         "filename": "private/apexd.te",
         "patchSetId": 5
@@ -105,6 +201,30 @@
       "writtenOn": "2018-10-01T16:44:22Z",
       "side": 1,
       "message": "/mnt is used for lots of other things, including the sdcard. It\u0027s probably better if we create a dedicated mount point for apex related stuff, /apex perhaps?\n\nAlong with this, it probably makes sense to create a dedicated label for /apex, something like u:object_r:apex_mount_dir:s0\", so that we\u0027re not referring to the overly broad tmpfs label below.",
+      "range": {
+        "startLine": 29,
+        "startChar": 26,
+        "endLine": 29,
+        "endChar": 30
+      },
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ff82a7b_be40afd1",
+        "filename": "private/apexd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-02T13:46:45Z",
+      "side": 1,
+      "message": "Looking into how to make this work, will follow up.",
+      "parentUuid": "531e5757_8117172b",
       "range": {
         "startLine": 29,
         "startChar": 26,
@@ -134,6 +254,24 @@
     },
     {
       "key": {
+        "uuid": "84b44a9a_8787eba8",
+        "filename": "public/apexd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-02T13:46:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66184ab4_27eabd06",
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91c5945_ff4b1b6b",
         "filename": "public/apexd.te",
         "patchSetId": 5
@@ -148,6 +286,24 @@
       "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b41fe5bf_59dd9b05",
+        "filename": "public/apexd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-02T13:46:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f91c5945_ff4b1b6b",
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -168,6 +324,24 @@
     },
     {
       "key": {
+        "uuid": "f455f739_1a97d53f",
+        "filename": "public/apexd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-02T13:46:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b6d6dd2_0218ba58",
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e5d8bcf_4aead506",
         "filename": "public/file.te",
         "patchSetId": 5
@@ -182,6 +356,24 @@
       "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba52af02_654ee5cb",
+        "filename": "public/file.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-02T13:46:45Z",
+      "side": 1,
+      "message": "Ack; that\u0027s fine since they are just public keys.",
+      "parentUuid": "6e5d8bcf_4aead506",
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -208,6 +400,30 @@
     },
     {
       "key": {
+        "uuid": "11411427_55963ff2",
+        "filename": "public/init.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-02T13:46:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53875199_1996653d",
+      "range": {
+        "startLine": 519,
+        "startChar": 33,
+        "endLine": 519,
+        "endChar": 35
+      },
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a62119b_fc14840a",
         "filename": "public/init.te",
         "patchSetId": 5
@@ -231,6 +447,30 @@
     },
     {
       "key": {
+        "uuid": "eadcb49b_1c05cd02",
+        "filename": "public/init.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-02T13:46:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a62119b_fc14840a",
+      "range": {
+        "startLine": 521,
+        "startChar": 24,
+        "endLine": 521,
+        "endChar": 25
+      },
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78282f30_286e4cd0",
         "filename": "public/init.te",
         "patchSetId": 5
@@ -245,6 +485,24 @@
       "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4922ecf8_2356fdda",
+        "filename": "public/init.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-02T13:46:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78282f30_286e4cd0",
+      "revId": "699dd9d58fdb93733c516df70207b5622b6189d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
