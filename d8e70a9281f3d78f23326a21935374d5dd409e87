@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3867af80_847ae333",
+        "filename": "build/soong/cil_compat_map.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-10-02T22:11:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13365954_18509694",
+      "range": {
+        "startLine": 62,
+        "startChar": 64,
+        "endLine": 62,
+        "endChar": 67
+      },
+      "revId": "d8e70a9281f3d78f23326a21935374d5dd409e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8625844b_8b8888b6",
         "filename": "build/soong/cil_compat_map.go",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2018-10-02T17:39:38Z",
       "side": 1,
       "message": "Instead of these two halves, is there a reason we can\u0027t just take the sources in order (pay attention to the order of the sources) and then compose all of them?\n\nI would imagine if we had a \u0027Composes\u0027 field that could point to another se_cil_compat_map field, it would be more extensible. Right now, how do we express multiple things composing on top of each other?",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 69,
+        "endChar": 21
+      },
+      "revId": "d8e70a9281f3d78f23326a21935374d5dd409e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81d48279_8b2e468f",
+        "filename": "build/soong/cil_compat_map.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-10-02T22:11:01Z",
+      "side": 1,
+      "message": "\"Composes\" field you\u0027re describing is essentially what \"top half\" does. You can only specify 1 thing as \"top half\", but that 1 thing can be a se_cil_compat_map, i.e another composition of top and bottom halves. E.g. in Android.bp, 26.0.cil has top half 27.0.cil, which is itself a composition with 28.0.cil as its top half.\n\nI don\u0027t think we should supply list of maps to combine since \"combine\" operation is non-commutative. Say, \"@\" denotes \"combine\" operation, I\u0027d like Android.bp to reflect the exact order of operations:\n((...) @ 26+2) @ 26+1) @ 26\nAlso, this way we don\u0027t have to edit build rules for all mapping files on a new release.",
+      "parentUuid": "8625844b_8b8888b6",
       "range": {
         "startLine": 64,
         "startChar": 1,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "24f98eb2_c478a3cc",
+        "filename": "tests/combine_maps.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-10-02T22:11:01Z",
+      "side": 1,
+      "message": "combine_maps implements expanding one map inline into another maps. We can have build system make sure that input mappings have desired versions.",
+      "parentUuid": "1e10cfe0_0ece06cc",
+      "range": {
+        "startLine": 42,
+        "startChar": 29,
+        "endLine": 42,
+        "endChar": 36
+      },
+      "revId": "d8e70a9281f3d78f23326a21935374d5dd409e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b5c50d2_8645277b",
         "filename": "tests/combine_maps.py",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2018-10-02T17:39:38Z",
       "side": 1,
       "message": "nit: take multiple of these?",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 59
+      },
+      "revId": "d8e70a9281f3d78f23326a21935374d5dd409e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f4caab4_a8b5e8d4",
+        "filename": "tests/combine_maps.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-10-02T22:11:01Z",
+      "side": 1,
+      "message": "\"combine_maps\" binary operation is not commutative, so if this flag takes multiple maps, it would be sensitive to the order of inputs. I think it\u0027s cleaner to keep \"combine_maps\" with only 2 inputs and have soong stuff figure out all the inputs and the order of operations.",
+      "parentUuid": "2b5c50d2_8645277b",
       "range": {
         "startLine": 53,
         "startChar": 0,
