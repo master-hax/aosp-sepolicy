@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "712a829d_b9b39603",
+        "filename": "private/apexd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-02T14:07:06Z",
+      "side": 1,
+      "message": "Good point; eventually the flow will be like this:\n1) PackageManager gets a new APK, verifies it, then tells apexd about the enclosed APEX file\n2) apexd verifies the APEX files, and if ok, copies it /data/apex/\n3) apexd uses it on the next boot\n\nThe first step is still under development, and right now apexd only works when you manually push a file to /data/apex. But this does need rw perms for step 2) eventually, so modified it.",
+      "parentUuid": "a5e208cb_bdf08465",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 45
+      },
+      "revId": "d4e57d8c2378aea568874ec99736a6de0771eebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c78ebf8_84bf389e",
         "filename": "public/apexd.te",
         "patchSetId": 7
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4cef98c8_193d8044",
+        "filename": "public/apexd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-02T14:07:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c78ebf8_84bf389e",
+      "range": {
+        "startLine": 8,
+        "startChar": 32,
+        "endLine": 8,
+        "endChar": 33
+      },
+      "revId": "d4e57d8c2378aea568874ec99736a6de0771eebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51bb4a93_e73879d9",
         "filename": "public/apexd.te",
         "patchSetId": 7
@@ -68,6 +116,30 @@
       "revId": "d4e57d8c2378aea568874ec99736a6de0771eebf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc8ac2eb_d088b58c",
+        "filename": "public/apexd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-02T14:07:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51bb4a93_e73879d9",
+      "range": {
+        "startLine": 9,
+        "startChar": 32,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "d4e57d8c2378aea568874ec99736a6de0771eebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
