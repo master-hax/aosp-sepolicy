@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ece14d4d_c00cab7d",
+        "filename": "private/apexd.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-02T14:19:02Z",
+      "side": 1,
+      "message": "Adjust comment to correspond to lines 10 and 11.",
+      "revId": "4301d04a5554cf926251777ee507adfce8f5a1b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61e65dec_bb1c5cb2",
+        "filename": "private/apexd.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-02T14:19:02Z",
+      "side": 1,
+      "message": "given the sensitive nature of what these directories will hold, let\u0027s add some neverallow assertions to prevent security regressions. Something like:\n\n  neverallow { domain -apexd -init } apex_data_file:dir no_w_dir_perms;\n  neverallow { domain -apexd } apex_data_file:file no_rw_file_perms;\n\nthis will ensure that nobody outside of apexd can add rules which allow modification of these files / directories. Neverallow assertions are automatically CTS tests so this will also prevent regressions on partner devices.\n\nBy convention, neverallow assertions are added to the end of the file, below all the allow rules.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 46
+      },
+      "revId": "4301d04a5554cf926251777ee507adfce8f5a1b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
