@@ -421,7 +421,7 @@ allow init self:process { setexec setfscreate setsockcreate };
 allow init file_contexts_file:file r_file_perms;
 
 # sepolicy access
-allow init sepolicy_file:file r_file_perms;
+allow { init kernel } sepolicy_file:file r_file_perms;
 
 # Perform SELinux access checks on setting properties.
 selinux_check_access(init)
