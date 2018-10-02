@@ -32,7 +32,7 @@ not_full_treble(`allow netd vendor_file:file x_file_perms;')
 allow netd devpts:chr_file rw_file_perms;
 
 # Acquire advisory lock on /system/etc/xtables.lock
-allow netd system_file:file lock;
+allow netd system_xtables_lock_file:file r_file_perms;
 
 # Allow netd to write to qtaguid ctrl file.
 # TODO: Add proper rules to prevent other process to access qtaguid_proc file
@@ -67,9 +67,6 @@ allow netd self:global_capability_class_set { dac_override dac_read_search chown
 allow netd net_data_file:file create_file_perms;
 allow netd net_data_file:dir rw_dir_perms;
 allow netd self:global_capability_class_set fowner;
-
-# Needed to lock the iptables lock.
-allow netd system_file:file lock;
 
 # Allow netd to spawn dnsmasq in it's own domain
 allow netd dnsmasq:process signal;
