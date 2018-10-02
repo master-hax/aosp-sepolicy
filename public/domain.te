@@ -1109,7 +1109,23 @@ full_treble_only(`
 #    -appdomain
 #    -coredomain
 #    -vendor_executes_system_violators
-#  } system_file_type:file *;
+#    # vendor_init needs access to init_exec for domain transition. vendor_init
+#    # neverallows are covered in public/vendor_init.te
+#    -vendor_init
+#  } {
+#    system_file_type
+#    -crash_dump_exec
+#    -file_contexts_file
+#    -netutils_wrapper_exec
+#    -property_contexts_file
+#    -system_lib_file
+#    -system_linker_exec
+#    -system_linker_config_file
+#    -system_seccomp_policy_file
+#    -system_security_cacerts_file
+#    -system_xtables_lock_file
+#    -system_zoneinfo_file
+#  }:file *;
 #')
 
 # Only authorized processes should be writing to files in /data/dalvik-cache
