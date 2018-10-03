@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5669947_cf1fd2f2",
+        "filename": "private/apexd.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-03T17:41:36Z",
+      "side": 1,
+      "message": "I believe the reason for the TH failure is new deny entries because we don\u0027t have dac_override:\n\n10-03 15:11:49.360 W/apexd   ( 2943): type\u003d1400 audit(0.0:17): avc: denied { dac_override } for capability\u003d1 scontext\u003du:r:apexd:s0 tcontext\u003du:r:apexd:s0 tclass\u003dcapability permissive\u003d0\n\nI\u0027m having a hard time tracking these down; it appears to be the result of a call to ProcessState::startThreadPool(), but I don\u0027t know exactly what file it\u0027s trying to access, and atrace also hasn\u0027t been very helpful - I don\u0027t see any open()\u0027s to unexpected files.\n\nNick, do you know of a good way to track this down?\n\n(Other root daemons like vold/init/postinstall already have dac_override, I was hoping to avoid it for apexd).",
+      "range": {
+        "startLine": 25,
+        "startChar": 45,
+        "endLine": 25,
+        "endChar": 55
+      },
+      "revId": "64c514cfdeeb0d380216dd80b952f9c72191a683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
