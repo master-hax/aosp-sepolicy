@@ -70,6 +70,30 @@
       "revId": "64c514cfdeeb0d380216dd80b952f9c72191a683",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f181155_66654e32",
+        "filename": "private/apexd.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-03T19:44:05Z",
+      "side": 1,
+      "message": "Thanks to Joel\u0027s help, tracked this down to b/35323867#comment3 . Since we can deal with the priority in the .rc file as well, and this is the only dac_override denial, added a dontaudit. This prevents us from having to add apexd to group system or adding the dac_override cap.",
+      "parentUuid": "02bab0ea_9d545490",
+      "range": {
+        "startLine": 25,
+        "startChar": 45,
+        "endLine": 25,
+        "endChar": 55
+      },
+      "revId": "64c514cfdeeb0d380216dd80b952f9c72191a683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
