@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc88a86f_8819c512",
+        "filename": "private/apexd.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-03T21:56:44Z",
+      "side": 1,
+      "message": "can you please try https://android-review.googlesource.com/c/platform/system/sepolicy/+/777176 instead? SELinux by default generates denials for access() related calls (not just open() related calls). However, we can suppress access() denials without suppressing open() denials.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 82
+      },
+      "revId": "bda186a9f59a95f6360b7ba731e01260116d3145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
