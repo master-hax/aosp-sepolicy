@@ -22,6 +22,30 @@
       "revId": "bda186a9f59a95f6360b7ba731e01260116d3145",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76ad3d27_977481c2",
+        "filename": "private/apexd.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-03T23:03:14Z",
+      "side": 1,
+      "message": "That doesn\u0027t seem to fix it, but haven\u0027t had a chance to look into it deeper. When removing these lines again and applying your CL, I get the old denial back:\n\n10-03 23:00:02.506 W/apexd   ( 2588): type\u003d1400 audit(0.0:11): avc: denied { dac_override } for capability\u003d1 scontext\u003du:r:apexd:s0 tcontext\u003du:r:apexd:s0 tclass\u003dcapability permissive\u003d0",
+      "parentUuid": "fc88a86f_8819c512",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 82
+      },
+      "revId": "bda186a9f59a95f6360b7ba731e01260116d3145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
