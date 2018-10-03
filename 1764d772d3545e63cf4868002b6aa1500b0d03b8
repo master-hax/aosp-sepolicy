@@ -70,6 +70,30 @@
       "revId": "1764d772d3545e63cf4868002b6aa1500b0d03b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9998bc95_b26b01a0",
+        "filename": "private/netutils_wrapper.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-10-03T00:17:17Z",
+      "side": 1,
+      "message": "Is netmgrd access to /system/etc/xtables.lock always go through /system/bin/netutils-wrapper? If that\u0027s the case, then xtables.lock access is always in netutils_wrapper domain, i.e we don\u0027t need this change.",
+      "parentUuid": "02f20684_69b56fa7",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 66
+      },
+      "revId": "1764d772d3545e63cf4868002b6aa1500b0d03b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
