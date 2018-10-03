@@ -46,6 +46,30 @@
       "revId": "1764d772d3545e63cf4868002b6aa1500b0d03b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02f20684_69b56fa7",
+        "filename": "private/netutils_wrapper.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2018-10-03T00:09:01Z",
+      "side": 1,
+      "message": "AIUI what needs to work is vendor code (e.g., netmgrd) execing /system/bin/iptables-wrapper-1.0, which is a symlink to /system/bin/netutils-wrapper. That then execs /system/bin/iptables, which needs to flock /system/etc/xtables.lock.",
+      "parentUuid": "fd87fa82_08f9ab08",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 66
+      },
+      "revId": "1764d772d3545e63cf4868002b6aa1500b0d03b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
