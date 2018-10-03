@@ -118,6 +118,30 @@
       "revId": "1764d772d3545e63cf4868002b6aa1500b0d03b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b9807e8_5fe3c98a",
+        "filename": "private/netutils_wrapper.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-10-03T00:30:40Z",
+      "side": 1,
+      "message": "I think it makes sense to force vendor code to go to netutils_wrapper for iptables then (via neverallows). That way we don\u0027t need expose this lock and potentially other shared resources moving forward.",
+      "parentUuid": "8cee66d0_94f502f7",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 66
+      },
+      "revId": "1764d772d3545e63cf4868002b6aa1500b0d03b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
