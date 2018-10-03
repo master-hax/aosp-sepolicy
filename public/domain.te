@@ -1038,9 +1038,9 @@ full_treble_only(`
         -vendor_executes_system_violators
         -vendor_init
     } {
-        exec_type
+        system_file_type
+        -system_lib_file
         -system_linker_exec
-        -vendor_file_type
         -crash_dump_exec
         -netutils_wrapper_exec
     }:file { entrypoint execute execute_no_trans };
