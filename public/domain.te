@@ -262,6 +262,13 @@ allow domain selinuxfs:filesystem getattr;
 allow domain cgroup:dir { search write };
 allow domain cgroup:file w_file_perms;
 
+# libcutils sched_policy.cpp runs access("/dev/cpuset/tasks", W_OK)
+# to see if this file is writable. This library is linked into lots
+# of processes. Do not trigger SELinux denials when access() is
+# called on this file. This has no impact on other calls such
+# as stat() or open(), which will continue to generate SELinux denials.
+dontaudit domain cgroup:file audit_access;
+
 # Almost all processes log tracing information to
 # /sys/kernel/debug/tracing/trace_marker
 # The reason behind this is documented in b/6513400
