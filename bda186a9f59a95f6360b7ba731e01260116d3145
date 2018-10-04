@@ -94,6 +94,30 @@
       "revId": "bda186a9f59a95f6360b7ba731e01260116d3145",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6599a530_30e07bb2",
+        "filename": "private/apexd.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-10-04T00:52:53Z",
+      "side": 1,
+      "message": "yeah, on-device policy is the same, and adding dir doesn\u0027t help.\n\nI wonder whether the audit_access merely helps if we don\u0027t actually have SELinux permission to read the file. In this case we give that permission to everyone:\n\nallow domain cgroup:file w_file_perms;\n\nso I wonder if what happens is:\n1) filesystem looks up ACL of /dev/cpuset/tasks; it sees that the ACL doesn\u0027t match (0644 system:system and we\u0027re root trying to see if we can write)\n2) It checks for dac_override cap, and fails, because the process doesn\u0027t have it\n3) This check is what logs the audit\n4) We don\u0027t even try to do selinux checks on the file itself anymore\n\nThe article goes on to say that if you *did* allow dac_override because the process needs it, you can still get denials, because there may be files that SELinux policy doesn\u0027t allow you to read - even if you have dac_override. But if you don\u0027t care about those denials, because they are access() calls that are ok to fail, you can use audit_access to suppress them.",
+      "parentUuid": "a666769a_182e7929",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 82
+      },
+      "revId": "bda186a9f59a95f6360b7ba731e01260116d3145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
