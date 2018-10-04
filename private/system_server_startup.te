@@ -1,0 +1,10 @@
+type system_server_startup, domain, coredomain;
+
+# Create JIT memory
+allow system_server_startup self:process execmem;
+allow system_server_startup tmpfs:file { execute read write open map };
+
+# Allow system_server_startup to run setcon() and enter the
+# system_server domain
+allow system_server_startup self:process setcurrent;
+allow system_server_startup system_server:process dyntransition;
