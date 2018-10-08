@@ -349,6 +349,9 @@ allow system_server apk_data_file:{ file lnk_file } { create_file_perms link };
 allow system_server apk_tmp_file:dir create_dir_perms;
 allow system_server apk_tmp_file:file create_file_perms;
 
+# Read /vendor for input configuration .kl, .idc files
+allow system_server vendor_file:file r_file_perms;
+
 # Access /vendor/{app,framework,overlay}
 r_dir_file(system_server, vendor_app_file)
 r_dir_file(system_server, vendor_framework_file)
