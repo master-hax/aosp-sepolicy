@@ -46,6 +46,30 @@
       "revId": "5c8507b1f77b14ffd2e77db5bee74fdad6db7734",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7fa8dae_9b76621c",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2018-10-09T22:30:37Z",
+      "side": 1,
+      "message": "Sorry for the confusion.  Actually fs-verity ioctls[1] are not filesystem specific.  So for fs-verity, we won\u0027t need the f2fs logic here (but still good to have to have well defined attack surface on f2fs).\n\nI think most devices in the ecosystem are using ext4 instead of f2fs (including Pixel 2 and older).\n\n[1] FS_IOC_ENABLE_VERITY and FS_IOC_MEASURE_VERITY. See https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/diff/include/uapi/linux/fsverity.h?h\u003dfsverity\u0026id\u003d5802c9b02251a4c6f8549fba399ac74f3448c183",
+      "parentUuid": "efc2c4fc_7da823a4",
+      "range": {
+        "startLine": 298,
+        "startChar": 17,
+        "endLine": 298,
+        "endChar": 30
+      },
+      "revId": "5c8507b1f77b14ffd2e77db5bee74fdad6db7734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
