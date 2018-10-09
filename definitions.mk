@@ -5,6 +5,7 @@ define transform-policy-to-conf
 $(hide) m4 --fatal-warnings $(PRIVATE_ADDITIONAL_M4DEFS) \
 	-D mls_num_sens=$(PRIVATE_MLS_SENS) -D mls_num_cats=$(PRIVATE_MLS_CATS) \
 	-D target_build_variant=$(PRIVATE_TARGET_BUILD_VARIANT) \
+	-D target_userimage_f2fs=$(PRIVATE_TARGET_USERIMAGES_USE_F2FS) \
 	-D target_with_dexpreopt=$(WITH_DEXPREOPT) \
 	-D target_arch=$(PRIVATE_TGT_ARCH) \
 	-D target_with_asan=$(PRIVATE_TGT_WITH_ASAN) \
