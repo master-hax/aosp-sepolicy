@@ -170,7 +170,13 @@ allow domain system_linker_exec:file { execute read open getattr map };
 allow domain system_linker_config_file:file r_file_perms;
 allow domain system_lib_file:file { execute read open getattr map };
 
-allow { appdomain coredomain } system_file:file { execute read open getattr map };
+allow {
+    appdomain
+    coredomain
+} {
+    system_file
+    system_tcpdump_exec
+}:file { execute read open getattr map };
 
 # Make sure system/vendor split doesn not affect non-treble
 # devices
