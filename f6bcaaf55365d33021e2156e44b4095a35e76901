@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3d1392f_971fd2d8",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-12T21:24:13Z",
+      "side": 1,
+      "message": "not domain?",
+      "range": {
+        "startLine": 196,
+        "startChar": 4,
+        "endLine": 196,
+        "endChar": 14
+      },
+      "revId": "f6bcaaf55365d33021e2156e44b4095a35e76901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8ace735_4018056a",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-12T21:24:13Z",
+      "side": 1,
+      "message": "This should only be the case if the server is a hal_graphics_allocator_client. The implementations using this (the mapper hal) is adding this in device-specific policy:\nhal_client_domain(hal_graphics_composer_default, hal_graphics_allocator);\n\nIf you remove this line here, do you actually see anymore audits?",
+      "range": {
+        "startLine": 201,
+        "startChar": 5,
+        "endLine": 201,
+        "endChar": 33
+      },
+      "revId": "f6bcaaf55365d33021e2156e44b4095a35e76901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
