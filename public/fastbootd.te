@@ -13,6 +13,9 @@ recovery_only(`
   # Access /dev/usb-ffs/fastbootd/ep0
   allow fastbootd functionfs:dir search;
   allow fastbootd functionfs:file rw_file_perms;
+  allowxperm fastbootd functionfs:file ioctl {
+    FUNCTIONFS_ENDPOINT_DESC
+  };
 
   allowxperm fastbootd functionfs:file ioctl { FUNCTIONFS_ENDPOINT_DESC };
   # Log to serial
