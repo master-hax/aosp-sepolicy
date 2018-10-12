@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1cb0c224_ec9d3719",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-10-12T18:21:21Z",
+      "side": 1,
+      "message": "Here\u0027s the neverallow aosp/777294. It\u0027s still in progress and blocked on some cleanup.",
+      "parentUuid": "a04dd2d5_e66703c9",
+      "range": {
+        "startLine": 9,
+        "startChar": 17,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "158a401fa7345d38eb5d76d76e0a440192c16228",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8596fc06_2086aa06",
         "filename": "private/file_contexts",
         "patchSetId": 2
@@ -168,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "f9803347_dffc0056",
+        "filename": "private/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-10-12T18:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0df161a_ce2c45b0",
+      "range": {
+        "startLine": 201,
+        "startChar": 34,
+        "endLine": 201,
+        "endChar": 41
+      },
+      "revId": "158a401fa7345d38eb5d76d76e0a440192c16228",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ecbd784_ad43bce4",
         "filename": "public/domain.te",
         "patchSetId": 2
@@ -179,6 +227,30 @@
       "writtenOn": "2018-10-12T01:32:52Z",
       "side": 1,
       "message": "the \"execute\" verb is used for things like loading as a shared library, or for allowing execution with a domain transition. If tcpdump will be callable from vendor code, it might be better to keep the original statement, and add the line:\n\n  allow { appdomain coredomain } system_tcpdump_exec:file rx_file_perms;\n\nwhich includes \"execute_no_trans\" in addition to execute.",
+      "range": {
+        "startLine": 179,
+        "startChar": 9,
+        "endLine": 179,
+        "endChar": 16
+      },
+      "revId": "158a401fa7345d38eb5d76d76e0a440192c16228",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "027583ea_c8ee914d",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-10-12T18:21:21Z",
+      "side": 1,
+      "message": "Thanks for clarifying the difference for \"execute\" and \"execute_no_trans\". I was somewhat confused myself. Unfortunately, the above blanket rule doesn\u0027t build since some coredomain are neverallow\u0027ed to execute_no_trans, e.g. https://android.googlesource.com/platform/system/sepolicy/+/master/private/system_server.te#869\n\nInstead of restoring previously existing permissions to /system/bin/tcpdump, I manually tested that device operates without violations to /system/bin/tcpdump.",
+      "parentUuid": "3ecbd784_ad43bce4",
       "range": {
         "startLine": 179,
         "startChar": 9,
