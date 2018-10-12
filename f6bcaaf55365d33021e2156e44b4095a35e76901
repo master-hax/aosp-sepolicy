@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "485570f8_92bca8b2",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-12T23:03:23Z",
+      "side": 1,
+      "message": "please avoid the use of single quotes in *.te files. Single quotes are delimiters in the m4 macro language, and have caused problems compiling SELinux policy before.\n\nwe\u0027re -\u003e we are",
+      "range": {
+        "startLine": 194,
+        "startChar": 47,
+        "endLine": 194,
+        "endChar": 48
+      },
+      "revId": "f6bcaaf55365d33021e2156e44b4095a35e76901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8704d091_4b81a091",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-12T23:03:23Z",
+      "side": 1,
+      "message": "To avoid this audit statement from shipping on production devices, please wrap this in a userdebug_or_eng block. See https://android-review.googlesource.com/c/platform/system/sepolicy/+/788342 for an example and explanation.",
+      "revId": "f6bcaaf55365d33021e2156e44b4095a35e76901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3d1392f_971fd2d8",
         "filename": "public/domain.te",
         "patchSetId": 2
@@ -42,6 +82,23 @@
         "endLine": 201,
         "endChar": 33
       },
+      "revId": "f6bcaaf55365d33021e2156e44b4095a35e76901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cf6e6a9_5d1c540f",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-12T23:03:23Z",
+      "side": 1,
+      "message": "By convention, we try to put auditallow rules for specific domains in their own .te file. In this case, it would be better to place this auditallow rule in isolated_app.te\n\nAdditionally, to ensure these audit statements don\u0027t ship on production devices, please wrap this in a userdebug_or_eng() statement.\n\n  userdebug_or_eng(`\n    auditallow ...\n  \u0027)",
       "revId": "f6bcaaf55365d33021e2156e44b4095a35e76901",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
