@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e859a761_8e1ea078",
+        "filename": "public/file.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-12T18:44:20Z",
+      "side": 1,
+      "message": "You may also want to include \"exec_type\" here, otherwise it wouldn\u0027t be permitted to perform an SELinux domain transition when executing tcpdump. Specifically, without exec_type, you could never use tcpdump as an SELinux domain entrypoint due to the following neverallow rule:\n\n  # Ensure that all entrypoint executables are in exec_type or postinstall_file.\n  neverallow * { file_type -exec_type -postinstall_file }:file entrypoint;\n\nThis is what\u0027s done for other executables, such as /system/bin/logcat (line 184).",
+      "revId": "f86d87b74f7c2e4518934127a1fb791622a235ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
