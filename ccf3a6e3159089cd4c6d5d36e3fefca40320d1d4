@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3efe3df2_4d6785d3",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-15T17:29:41Z",
+      "side": 1,
+      "message": "mlstrustedsubject indicates that this process has the ability to access data between different Android accounts (eg, enterprise accounts vs normal user account, or two different human users on the same Android device). This could allow the mixing of data across user separation boundaries.\n\nCan we defer adding this until it\u0027s actually needed?",
+      "range": {
+        "startLine": 2,
+        "startChar": 36,
+        "endLine": 2,
+        "endChar": 53
+      },
+      "revId": "ccf3a6e3159089cd4c6d5d36e3fefca40320d1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7d45765_4cf59bc6",
+        "filename": "public/file.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-15T17:29:41Z",
+      "side": 1,
+      "message": "means that this object can be connected to by processes running in different Android accounts. See other comment in this change. Can we omit this for now, since we\u0027re just checking in boilerplate?",
+      "range": {
+        "startLine": 389,
+        "startChar": 53,
+        "endLine": 389,
+        "endChar": 69
+      },
+      "revId": "ccf3a6e3159089cd4c6d5d36e3fefca40320d1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
