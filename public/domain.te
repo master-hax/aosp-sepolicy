@@ -371,6 +371,9 @@ with_asan(`allow domain system_data_file:dir getattr;')
 # Under ASAN, /system/asan.options needs to be globally accessible.
 with_asan(`allow domain system_asan_options_file:file r_file_perms;')
 
+# read and stat any symlink pointing to APEXs.
+allow domain apex_mnt_dir:lnk_file read;
+
 ###
 ### neverallow rules
 ###
