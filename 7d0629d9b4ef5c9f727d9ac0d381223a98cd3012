@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8144f9c_fc765fc0",
+        "filename": "private/apexd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-16T21:21:55Z",
+      "side": 1,
+      "message": "For robustness, I recommend using the macro:\n\n  allow apexd apex_mnt_dir:lnk_file create_file_perms;\n\nwhich adds slightly more permissions to make this more robust.",
+      "revId": "7d0629d9b4ef5c9f727d9ac0d381223a98cd3012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60691b1b_2a3ac09d",
+        "filename": "private/apexd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-16T21:21:55Z",
+      "side": 1,
+      "message": "by convention, neverallow rules are placed in their own section at the bottom of the file, not intermixed with allow rules. Can you please move this to near line 46?",
+      "revId": "7d0629d9b4ef5c9f727d9ac0d381223a98cd3012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d816d0c0_9acfb85b",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-16T21:21:55Z",
+      "side": 1,
+      "message": "Only \"read\" is granted below. If you want to grant stat, you need the \"getattr\" selinux permission.\n\n  allow domain apex_mnt_dir:lnk_file { read getattr };\n\nor for robustness, use the r_file_perm macro defined in system/sepolicy/public/global_macros\n\n  allow domain apex_mnt_dir:lnk_file r_file_perms;",
+      "range": {
+        "startLine": 346,
+        "startChar": 7,
+        "endLine": 346,
+        "endChar": 15
+      },
+      "revId": "7d0629d9b4ef5c9f727d9ac0d381223a98cd3012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3500bb9_c6fd141d",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-16T21:21:55Z",
+      "side": 1,
+      "message": "Treble uses SELinux to enforce a strict separation between vendor and non-vendor code. These restrictions are currently in place for files and directories.\n\nThis rule allows all domains, including coredomains and vendor domains, to read this symlink.\n\nBecause these symlinks will be readable to vendor code, vendor code may come to rely on this. These links seem to me to be part of the VNDK API that we expose to partners.\n\nsmoreland, trong: Do we need to consider Treble implications for these symlinks? Are symlinks subject to the same Treble separation rules that files and directories are?",
+      "range": {
+        "startLine": 347,
+        "startChar": 6,
+        "endLine": 347,
+        "endChar": 12
+      },
+      "revId": "7d0629d9b4ef5c9f727d9ac0d381223a98cd3012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
