@@ -52,6 +52,24 @@
       "revId": "5b96fe0b50ad795140eb7dbe7589babcd14c64af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c15ed6ee_06f0d5d4",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2018-10-16T17:48:01Z",
+      "side": 1,
+      "message": "So I couldn\u0027t find any file explorer that would allow me to do a search for a directory, so I just used su from the shell to act as the app itself:\n\n# su u0_a161   \n/ $ id\nuid\u003d10161(u0_a161) gid\u003d10161(u0_a161) groups\u003d10161(u0_a161),1004(input),1007(log),1011(adb),1015(sdcard_rw),1028(sdcard_r),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats),3009(readproc),3011(uhid) context\u003du:r:su:s0\n\n$ ls -l /apex\ntotal 8\nlrwxrwxrwx 1 root   root     32 2018-10-16 13:20 com.android.example.apex -\u003e /apex/com.android.example.apex@1\ndrw-r--r-- 4 system system 4096 1969-12-31 19:00 com.android.example.apex@1\n\n$ ls -l /apex/com.android.example.apex\nlrwxrwxrwx 1 root root 32 2018-10-16 13:20 /apex/com.android.example.apex -\u003e /apex/com.android.example.apex@1\n\n$ ls -l /apex/com.android.example.apex/\nls: /apex/com.android.example.apex//manifest.json: Permission denied\nls: /apex/com.android.example.apex//lost+found: Permission denied\nls: /apex/com.android.example.apex//sub: Permission denied\nls: /apex/com.android.example.apex//file2: Permission denied\nls: /apex/com.android.example.apex//file1: Permission denied\ntotal 0\n$ \n\n\n\n\nis this what you had in mind?",
+      "parentUuid": "11180e6b_7c4d2784",
+      "revId": "5b96fe0b50ad795140eb7dbe7589babcd14c64af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
