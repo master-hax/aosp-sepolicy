@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4d921343_4e7b6aef",
+        "filename": "private/file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2018-10-16T10:21:24Z",
+      "side": 1,
+      "message": "Yup, not heard of this yet.\nWe can add that when needed in the future.\n\nps: vendor.img was mandated since Oreo.",
+      "parentUuid": "fe85895f_033c6ec1",
+      "range": {
+        "startLine": 350,
+        "startChar": 16,
+        "endLine": 350,
+        "endChar": 17
+      },
+      "revId": "3639f57960811d6a41ca1968dea70a4315d5bbec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09f6162c_29beb3f9",
         "filename": "private/file_contexts",
         "patchSetId": 5
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "From https://source.android.com/devices/input/input-device-configuration-files , we only look at /odm and /vendor for these.\nDo we really need to allow /vendor/odm? I feel like this just complicates the situation.",
       "parentUuid": "09f6162c_29beb3f9",
+      "range": {
+        "startLine": 353,
+        "startChar": 6,
+        "endLine": 353,
+        "endChar": 12
+      },
+      "revId": "3639f57960811d6a41ca1968dea70a4315d5bbec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf7ca92e_20cbc89c",
+        "filename": "private/file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2018-10-16T10:21:24Z",
+      "side": 1,
+      "message": "Having the fallback path of /odm -\u003e /vendor/odm is necessary (uploaded go/oag/790140 to fix it).\n\nBecause we can just simply set \"LOCAL_ODM_MODULE :\u003d true\" in an Android.mk or \"device-specific: true\" in an Android.bp, without need to worry about if a device has /odm partition or not.\n\nhttps://android.googlesource.com/platform/build/soong/+/pie-dev/androidmk/cmd/androidmk/android.go#171\n  \n  \nUsually, we won\u0027t require all device to have /odm partition.\nWithout \"/odm -\u003e /vendor/odm\" symlink, we\u0027ll have to write complex logic in an Android.mk:\n\nifeq ($(BOARD_USES_ODMIMAGE),true)\n  LOCAL_ODM_MODULE :\u003d true\nelse\n  LOCAL_VENDOR_MODULE :\u003d true   # if no /odm partition, put this file in /vendor instead.\nendif\n\n\nThis is similar to /product -\u003e /system/product on a device without a /product partition.\nWhere we can just set LOCAL_PRODUCT_MODULE :\u003d true for a module.\nhttps://android.googlesource.com/platform/build/+/pie-dev/core/envsetup.mk#290\n\n/product_services -\u003e /system/product_services also has similar logic\nhttps://android.googlesource.com/platform/build/+/master/core/envsetup.mk#192",
+      "parentUuid": "97deb9a7_1196441b",
       "range": {
         "startLine": 353,
         "startChar": 6,
