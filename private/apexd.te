@@ -29,6 +29,9 @@ allow apexd apex_mnt_dir:dir create_dir_perms;
 # allow apexd to mount in /apex
 allow apexd apex_mnt_dir:filesystem { mount unmount };
 allow apexd apex_mnt_dir:dir mounton;
+# allow apexd to create symlinks in /apex
+allow apexd apex_mnt_dir:lnk_file create;
+neverallow { domain -apexd } apex_mnt_dir:lnk_file no_w_file_perms;
 # Unmount and mount filesystems
 allow apexd labeledfs:filesystem { mount unmount };
 
