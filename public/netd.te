@@ -134,7 +134,6 @@ neverallow netd { app_data_file privapp_data_file system_data_file }:dir_file_cl
 neverallow { domain -system_server -dumpstate -netd } netd_service:service_manager find;
 
 # only netd can create the bpf maps
-neverallow { domain -netd } netd:bpf { map_create };
 
 # apps may not interact with netd over binder.
 neverallow appdomain netd:binder call;
