@@ -283,6 +283,30 @@
       "revId": "7d0629d9b4ef5c9f727d9ac0d381223a98cd3012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cfb8285_44317cef",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-10-17T13:57:38Z",
+      "side": 1,
+      "message": "I now understand what you meant and you are right. Those symlinks on the tmpfs (/apex) are basically mutable (but only by apexd). \n\nBut important thing here is that the partition is volatile (on ram). One can\u0027t modify its content by forcibly editing the flash disk -- unless we swap it out to the persistent storage. So, I think they are safe from unwanted modifications although it isn\u0027t cryptographically signed.",
+      "parentUuid": "b28bcad8_7cb9fa56",
+      "range": {
+        "startLine": 347,
+        "startChar": 6,
+        "endLine": 347,
+        "endChar": 12
+      },
+      "revId": "7d0629d9b4ef5c9f727d9ac0d381223a98cd3012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
