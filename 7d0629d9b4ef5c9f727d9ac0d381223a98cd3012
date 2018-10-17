@@ -187,6 +187,30 @@
       "revId": "7d0629d9b4ef5c9f727d9ac0d381223a98cd3012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e54bf104_49d2f6a5",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-10-17T10:39:51Z",
+      "side": 1,
+      "message": "IMO, this doesn\u0027t break the system / vendor separation. APEXs are updated fragments of system.img. Since the existence of the path /system is known to vendors, so should the path where its updates (APEXs) are mounted at.\n\nIn addition, this is required since system libs (VNDK and LLNDK) can be loaded into vendor processes. The libs of course should be allowed to read the symlink.",
+      "parentUuid": "3176849e_f33229eb",
+      "range": {
+        "startLine": 347,
+        "startChar": 6,
+        "endLine": 347,
+        "endChar": 12
+      },
+      "revId": "7d0629d9b4ef5c9f727d9ac0d381223a98cd3012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
