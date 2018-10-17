@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b50f16e4_6fed6bd4",
+        "filename": "private/apexd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2018-10-17T10:25:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8144f9c_fc765fc0",
+      "revId": "7d0629d9b4ef5c9f727d9ac0d381223a98cd3012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60691b1b_2a3ac09d",
         "filename": "private/apexd.te",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "7d0629d9b4ef5c9f727d9ac0d381223a98cd3012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "991ef311_58eb797f",
+        "filename": "private/apexd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2018-10-17T10:25:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60691b1b_2a3ac09d",
+      "revId": "7d0629d9b4ef5c9f727d9ac0d381223a98cd3012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -56,6 +92,30 @@
       "revId": "7d0629d9b4ef5c9f727d9ac0d381223a98cd3012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03349a74_aaef9f4c",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2018-10-17T10:25:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d816d0c0_9acfb85b",
+      "range": {
+        "startLine": 346,
+        "startChar": 7,
+        "endLine": 346,
+        "endChar": 15
+      },
+      "revId": "7d0629d9b4ef5c9f727d9ac0d381223a98cd3012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +154,30 @@
       "side": 1,
       "message": "For Treble it\u0027s OK to have globally accessible symlinks if:\n- the underling file/dir adheres to Treble requirement\n- symlink location doesn\u0027t change (ever)\n\nWe already do something like that with sysfs. We allow global access to sysfs symlinks [1], but we tightly control what can be done to underlying files [2]. \n[1] https://android.googlesource.com/platform/system/sepolicy/+/master/public/domain.te#234\n[2] https://android.googlesource.com/platform/system/sepolicy/+/master/private/coredomain.te#4",
       "parentUuid": "e3500bb9_c6fd141d",
+      "range": {
+        "startLine": 347,
+        "startChar": 6,
+        "endLine": 347,
+        "endChar": 12
+      },
+      "revId": "7d0629d9b4ef5c9f727d9ac0d381223a98cd3012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3176849e_f33229eb",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2018-10-17T10:25:35Z",
+      "side": 1,
+      "message": "I *think* this is the case for APEX. Jiyong, can you comment?",
+      "parentUuid": "37e8c9b6_82995919",
       "range": {
         "startLine": 347,
         "startChar": 6,
