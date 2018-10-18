@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78556d08_98f61dcc",
+        "filename": "private/system_server.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-18T15:51:31Z",
+      "side": 1,
+      "message": "Once mmap()ed into memory, are you closing the memfd file descriptors? This shouldn\u0027t be needed if the file descriptors are closed before the setcon() call is made. My understanding is that we only want to pass the JITed pages to system_server, not the file descriptor backing the JITed pages.",
+      "range": {
+        "startLine": 915,
+        "startChar": 0,
+        "endLine": 916,
+        "endChar": 68
+      },
+      "revId": "0251d343dd2ba7b0a118420be74428935b81a473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f15da26_ac0ef501",
+        "filename": "private/system_server.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-18T15:51:31Z",
+      "side": 1,
+      "message": "If this file descriptor really needs to carry over from system_server_startup to system_server, then you should also add the \"map\" permission, in addition to \"read write\". This is to support newer kernels where there\u0027s a new SELinux mmap permission.",
+      "range": {
+        "startLine": 916,
+        "startChar": 55,
+        "endLine": 916,
+        "endChar": 65
+      },
+      "revId": "0251d343dd2ba7b0a118420be74428935b81a473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3199871e_48aaa994",
+        "filename": "private/zygote.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-18T15:51:31Z",
+      "side": 1,
+      "message": "by convention, we don\u0027t use brackets when only one element exists in the list.",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 15
+      },
+      "revId": "0251d343dd2ba7b0a118420be74428935b81a473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc06ea6d_f64686f7",
+        "filename": "private/zygote.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-18T15:51:31Z",
+      "side": 1,
+      "message": "This line should be deleted, due to the change at line 17.",
+      "revId": "0251d343dd2ba7b0a118420be74428935b81a473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
