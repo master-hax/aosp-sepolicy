@@ -10,6 +10,10 @@ allow apexd apex_key_file:file r_file_perms;
 allow apexd apex_data_file:dir rw_dir_perms;
 allow apexd apex_data_file:file rw_file_perms;
 
+allow apexd apk_data_file:dir search;
+allow apexd apk_tmp_file:dir { remove_name search write };
+allow apexd apk_tmp_file:file { open read rename unlink };
+
 # allow apexd to create loop devices with /dev/loop-control
 allow apexd loop_control_device:chr_file rw_file_perms;
 # allow apexd to access loop devices
