@@ -10,6 +10,10 @@ allow apexd apex_key_file:file r_file_perms;
 allow apexd apex_data_file:dir rw_dir_perms;
 allow apexd apex_data_file:file rw_file_perms;
 
+allow apexd apk_data_file:dir search;
+allow apexd apk_tmp_file:dir { remove_name search write };
+allow apexd apk_tmp_file:file { open read rename unlink };
+
 # allow apexd to create loop devices with /dev/loop-control
 allow apexd loop_control_device:chr_file rw_file_perms;
 # allow apexd to access loop devices
@@ -36,11 +40,13 @@ allow apexd apex_mnt_dir:lnk_file create_file_perms;
 # Unmount and mount filesystems
 allow apexd labeledfs:filesystem { mount unmount };
 
+#allow apexd self:capability dac_override;
+
 # Spawning a libbinder thread results in a dac_override deny,
 # /dev/cpuset/tasks is owned by system.
 #
 # See b/35323867#comment3
-dontaudit apexd self:global_capability_class_set { dac_override dac_read_search };
+#dontaudit apexd self:global_capability_class_set { dac_override dac_read_search };
 
 neverallow { domain -apexd -init } apex_data_file:dir no_w_dir_perms;
 neverallow { domain -apexd -init } apex_data_file:file no_rw_file_perms;
