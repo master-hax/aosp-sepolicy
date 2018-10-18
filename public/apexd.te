@@ -5,6 +5,19 @@ type apexd_exec, exec_type, file_type, system_file_type;
 binder_use(apexd)
 add_service(apexd, apex_service)
 
+userdebug_or_eng(`
+  # Use devpts for streams from cmd.
+  #
+  # This is normally granted to binderservicedomain, but this service
+  # has tighter restrictions on the callers (see below), so must enable
+  # this manually.
+  allow apexd devpts:chr_file rw_file_perms;
+
+  # Use socket & pipe supplied by su, for cmd perfprofd dump.
+  allow apexd su:unix_stream_socket { read write getattr sendto };
+  allow apexd su:fifo_file r_file_perms;
+')
+
 neverallow { domain -init -apexd } apex_service:service_manager find;
 neverallow { domain -init -apexd } apexd:binder call;
 
