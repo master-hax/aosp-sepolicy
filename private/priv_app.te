@@ -5,6 +5,10 @@
 typeattribute priv_app coredomain;
 app_domain(priv_app)
 
+# Some apps may need to access info provided by priv_app
+# through ashmem.
+typeattribute priv_app_tmpfs mlstrustedobject;
+
 # Access the network.
 net_domain(priv_app)
 # Access bluetooth.
