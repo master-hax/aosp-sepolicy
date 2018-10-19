@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "c8317265_5c31bc3e",
+        "filename": "private/system_server.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-19T12:47:43Z",
+      "side": 1,
+      "message": "I\u0027ll investigate this later. It still feels wrong to me that this is needed, but in the grand scheme of things, probably harmless.",
+      "parentUuid": "4499f56b_3622d3c7",
+      "range": {
+        "startLine": 915,
+        "startChar": 0,
+        "endLine": 916,
+        "endChar": 68
+      },
+      "revId": "0251d343dd2ba7b0a118420be74428935b81a473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3199871e_48aaa994",
         "filename": "private/zygote.te",
         "patchSetId": 11
@@ -154,6 +178,30 @@
       "writtenOn": "2018-10-19T12:16:49Z",
       "side": 1,
       "message": "Last reference to system_server here?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 35
+      },
+      "revId": "0251d343dd2ba7b0a118420be74428935b81a473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8c32c75_e652201f",
+        "filename": "private/zygote.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-19T12:47:43Z",
+      "side": 1,
+      "message": "ya, at first glance, changing this to system_server_startup seems right. Good catch.",
+      "parentUuid": "2606da32_749f2aec",
       "range": {
         "startLine": 26,
         "startChar": 0,

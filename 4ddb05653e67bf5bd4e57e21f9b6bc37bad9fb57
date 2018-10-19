@@ -22,6 +22,30 @@
       "revId": "4ddb05653e67bf5bd4e57e21f9b6bc37bad9fb57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a204b38_5f1493db",
+        "filename": "private/system_server.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-19T12:47:43Z",
+      "side": 1,
+      "message": "A unix_dgram_socket is a socket(AF_UNIX, SOCK_DGRAM) socket. A logging socket makes sense here. Yes it would be better to avoid leaking it across security boundaries, but even if leaked, it\u0027s pretty harmless. I personally would avoid special casing this for development vs production, as it would introduce a code path which doesn\u0027t get a lot of testing.\n\nIf you wanted to special case this (which I don\u0027t recommend), you could wrap this in a userdebug_or_eng() block:\n\n  userdebug_or_eng(`\n    allow system_server system_server_startup...;\n  \u0027)\n\nwhich would only allow this FD leakage on debuggable builds.\n\nI\u0027m fine as-is.",
+      "parentUuid": "9bbf0d1f_a07ae8db",
+      "range": {
+        "startLine": 917,
+        "startChar": 0,
+        "endLine": 917,
+        "endChar": 66
+      },
+      "revId": "4ddb05653e67bf5bd4e57e21f9b6bc37bad9fb57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
