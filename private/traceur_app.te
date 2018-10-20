@@ -12,4 +12,25 @@ allow traceur_app trace_data_file:file create_file_perms;
 allow traceur_app trace_data_file:dir rw_dir_perms;
 allow traceur_app atrace_exec:file rx_file_perms;
 
+# To exec the perfetto cmdline client and pass it the trace config on
+# stdint through a pipe.
+allow traceur_app perfetto_exec:file rx_file_perms;
+
+# Allows statsd to capture traces and hand them
+# to Android dropbox.
+# (Not sure if I need this one for Traceur)
+#domain_auto_trans(traceur_app, perfetto_exec, perfetto)
+
+# Allow to access traced's privileged consumer socket.
+unix_socket_connect(traceur_app, traced_consumer, traced)
+allow traceur_app traced_consumer_socket:sock_file write;
+
+# To pass the Perfetto config via stdin:
+allow perfetto traceur_app:fd use;
+allow perfetto traceur_app:fifo_file { getattr read write };
+
+# Allow to write and unlink traces into /data/misc/perfetto-traces.
+allow traceur_app perfetto_traces_data_file:dir rw_dir_perms;
+allow traceur_app perfetto_traces_data_file:file { create_file_perms rw_file_perms };
+
 dontaudit traceur_app debugfs_tracing_debug:file audit_access;
