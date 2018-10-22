@@ -2,7 +2,11 @@
 binder_call(hal_bootctl_client, hal_bootctl_server)
 binder_call(hal_bootctl_server, hal_bootctl_client)
 
+<<<<<<< HEAD   (faf1e9 ODM updates the recovery partition through vendor's material)
 add_hwservice(hal_bootctl_server, hal_bootctl_hwservice)
 allow hal_bootctl_client hal_bootctl_hwservice:hwservice_manager find;
 
 dontaudit hal_bootctl self:capability sys_rawio;
+=======
+hal_attribute_hwservice(hal_bootctl, hal_bootctl_hwservice)
+>>>>>>> CHANGE (30c77c add hal_bootctl to white-list of sys_rawio)
