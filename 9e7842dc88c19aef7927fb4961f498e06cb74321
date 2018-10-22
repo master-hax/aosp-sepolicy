@@ -116,6 +116,24 @@
       "revId": "9e7842dc88c19aef7927fb4961f498e06cb74321",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb9d130e_5d667987",
+        "filename": "private/priv_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-22T21:53:58Z",
+      "side": 1,
+      "message": "Ah, ok. Then this file should be treated by the MLS system the same as we\u0027d treat privapp_data_files.\n\nCan you update system/sepolicy/private/mls and change the MLS rules to have priv_app_tmpfs treated like privapp_data_file? You need to edit lines 59-60, 71-72, and 79-80 of:\n\nhttps://android.googlesource.com/platform/system/sepolicy/+/eacbcc980f0b6b9bab7f9b45223e32ca0e78d887/private/mls",
+      "parentUuid": "9ac798e0_f498c1d9",
+      "revId": "9e7842dc88c19aef7927fb4961f498e06cb74321",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
