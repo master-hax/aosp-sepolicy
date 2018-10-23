@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "d9626657_0f242377",
+        "filename": "private/zygote.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-10-23T16:23:01Z",
+      "side": 1,
+      "message": "Backed out in 16 as it hits avc denied per the failed boot test:\n\nhttps://sponge.corp.google.com/target?id\u003d45fd77f3-e9ff-4ee4-848b-e7508f265323\u0026target\u003dDeviceBootTest\u0026searchFor\u003d\u0026show\u003dFAILED\u0026sortBy\u003dSTATUS\n\n10-23 14:59:37.959   767   767 I auditd  : type\u003d1400 audit(0.0:7): avc: denied { getpgid } for comm\u003d\"main\" scontext\u003du:r:zygote:s0 tcontext\u003du:r:system_server:s0 tclass\u003dprocess permissive\u003d0",
+      "parentUuid": "e6f263dc_f60fc213",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 35
+      },
+      "revId": "0251d343dd2ba7b0a118420be74428935b81a473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc06ea6d_f64686f7",
         "filename": "private/zygote.te",
         "patchSetId": 11
