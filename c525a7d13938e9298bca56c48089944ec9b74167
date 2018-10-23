@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afb554ae_77aef9ef",
+        "filename": "private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-23T21:07:07Z",
+      "side": 1,
+      "message": "This has the effect of opening up all of these properties to all domains, because read access to these properties is granted to everyone in https://android.googlesource.com/platform/system/sepolicy/+/787fc8d0e67f63cb386f0b5754c22ade455839d1/public/domain.te#140 line 140\n\nThis is overly permissive and, in essence, exports large chunks of the kernel command line to all processes. We have no idea what others may put in the kernel command line, and exposing all these options is overly broad.",
+      "revId": "c525a7d13938e9298bca56c48089944ec9b74167",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
