@@ -1,5 +1,32 @@
+typeattribute heapprofd nonprofilable;
+
 # Android Heap Profiler Daemon go/heapprofd
-type heapprofd, domain, coredomain;
 type heapprofd_exec, exec_type, file_type, system_file_type;
 
-init_daemon_domain(heapprofd)
+userdebug_or_eng(`
+  # To receive file descriptor.
+  allow heapprofd profilable:fd use;
+
+  # To read from the received socket.
+  # /proc/[pid]/maps and /proc/[pid]/mem have the same SELinux label as the
+  # process they relate to.
+  allow heapprofd profilable:file read;
+  allow nonprofilable nonprofilable:file read;
+
+  # Allow to send signal to arbitrary process.
+  # This excludes SIGKILL, SIGSTOP and SIGCHLD,
+  # which are controlled by separate permissions.
+  allow heapprofd self:capability kill;
+  allow heapprofd profilable:process signal;
+
+  # Executables
+  r_dir_file(heapprofd, exec_type);
+  r_dir_file(heapprofd, apk_data_file);
+  r_dir_file(heapprofd, dalvikcache_data_file);
+  # Vendor libraries.
+  r_dir_file(heapprofd, vendor_file);
+  # Vendor apps.
+  r_dir_file(heapprofd, vendor_app_file);
+')
+
+init_daemon_domain(heapprofd);

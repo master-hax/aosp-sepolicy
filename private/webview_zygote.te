@@ -2,6 +2,7 @@
 # isolated_app processes for rendering untrusted web content.
 
 typeattribute webview_zygote coredomain;
+typeattribute webview_zygote nonprofilable;
 
 # The webview_zygote needs to be able to transition domains.
 typeattribute webview_zygote mlstrustedsubject;

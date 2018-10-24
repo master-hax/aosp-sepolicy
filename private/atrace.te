@@ -4,6 +4,8 @@
 type atrace, domain, coredomain;
 type atrace_exec, exec_type, file_type, system_file_type;
 
+typeattribute atrace nonprofilable;
+
 # boottrace services uses /data/misc/boottrace/categories
 allow atrace boottrace_data_file:dir search;
 allow atrace boottrace_data_file:file r_file_perms;

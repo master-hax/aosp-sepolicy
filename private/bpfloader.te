@@ -2,6 +2,7 @@
 type bpfloader, domain;
 type bpfloader_exec, system_file_type, exec_type, file_type;
 typeattribute bpfloader coredomain;
+typeattribute bpfloader nonprofilable;
 
 # Process need CAP_NET_ADMIN to run bpf programs as cgroup filter
 allow bpfloader self:global_capability_class_set net_admin;
