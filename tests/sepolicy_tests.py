@@ -37,6 +37,20 @@ def TestCoreDataTypeViolations(pol):
     return pol.AssertPathTypesHaveAttr(["/data/"], ["/data/vendor",
             "/data/vendor_ce", "/data/vendor_de"], "core_data_file_type")
 
+# Every coredomain type should be either profilable or nonprofilable.
+def TestProfilable(pol):
+    attributes = pol.GetAllTypes(True)
+    violators = pol.QueryTypeAttribute("coredomain", True)
+    violators -= pol.QueryTypeAttribute("profilable", True)
+    violators -= pol.QueryTypeAttribute("nonprofilable", True)
+
+    ret = ""
+    if violators:
+      ret += "The following types in coredomain must either be associated with"
+      ret += " the profilable or nonprofilable attribute: "
+      ret += " ".join(str(x) for x in sorted(violators)) + "\n"
+    return ret
+
 ###
 # extend OptionParser to allow the same option flag to be used multiple times.
 # This is used to allow multiple file_contexts files and tests to be
@@ -62,6 +76,7 @@ Tests = [
     "TestDebugfsTypeViolations",
     "TestVendorTypeViolations",
     "TestCoreDataTypeViolations",
+    "TestProfilable",
 ]
 
 if __name__ == '__main__':
@@ -115,6 +130,8 @@ if __name__ == '__main__':
         results += TestVendorTypeViolations(pol)
     if options.test is None or "TestCoreDataTypeViolations" in options.test:
         results += TestCoreDataTypeViolations(pol)
+    if options.test is None or "TestProfilable" in options.test:
+        results += TestProfilable(pol)
 
     if len(results) > 0:
         sys.exit(results)

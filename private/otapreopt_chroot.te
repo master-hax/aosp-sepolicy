@@ -1,4 +1,5 @@
 typeattribute otapreopt_chroot coredomain;
+typeattribute otapreopt_chroot nonprofilable;
 
 # Allow to transition to postinstall_ota, to run otapreopt in its own sandbox.
 domain_auto_trans(otapreopt_chroot, postinstall_file, postinstall_dexopt)

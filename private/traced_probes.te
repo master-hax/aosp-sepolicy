@@ -1,4 +1,6 @@
 # Perfetto tracing probes, has tracefs access.
+typeattribute traced_probes nonprofilable;
+
 type traced_probes_exec, system_file_type, exec_type, file_type;
 
 # Allow init to exec the daemon.
