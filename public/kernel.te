@@ -17,6 +17,17 @@ allow kernel file_contexts_file:file r_file_perms;
 # Allow init relabel itself.
 allow kernel rootfs:file relabelfrom;
 allow kernel init_exec:file relabelto;
+
+# Setup the minimum environment required by the ucontainer
+allow kernel ucontainer_exec:file relabelto;
+allow kernel device:dir mounton;
+allow kernel self:capability { mknod sys_admin };
+allow kernel tmpfs:chr_file create;
+allow kernel tmpfs:dir { add_name create search write };
+allow kernel tmpfs:filesystem mount;
+allow kernel tmpfs:blk_file create;
+allow kernel rootfs:chr_file write;
+
 # TODO: investigate why we need this.
 allow kernel init:process share;
 

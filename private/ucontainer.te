@@ -1,0 +1,9 @@
+typeattribute ucontainer coredomain;
+
+allow ucontainer rootfs:chr_file { getattr ioctl read write };
+allow ucontainer self:capability { dac_override mknod };
+allow ucontainer selinuxfs:file { open read write };
+allow ucontainer kernel:security setenforce;
+allow ucontainer kernel:fd use;
+allow ucontainer tmpfs:dir search;
+allow ucontainer tmpfs:chr_file { open read write };
