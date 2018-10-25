@@ -372,6 +372,7 @@ neverallow {
   domain
   -kernel
   -init
+  -ucontainer
   -ueventd
   -vold
 } self:global_capability_class_set mknod;
@@ -408,7 +409,7 @@ neverallow * kernel:security load_policy;
 # init starts in kernel domain and switches to init domain via setcon in
 # the init.rc, so the setenforce occurs while still in kernel. After
 # switching domains, there is never any need to setenforce again by init.
-neverallow * kernel:security setenforce;
+neverallow { domain -ucontainer} kernel:security setenforce;
 neverallow { domain -kernel } kernel:security setcheckreqprot;
 
 # No booleans in AOSP policy, so no need to ever set them.
@@ -1475,6 +1476,7 @@ define(`dac_override_allowed', `{
   recovery
   sdcardd
   tee
+  ucontainer
   ueventd
   uncrypt
   vendor_init
