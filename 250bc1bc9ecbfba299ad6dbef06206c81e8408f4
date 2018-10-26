@@ -116,6 +116,24 @@
       "revId": "250bc1bc9ecbfba299ad6dbef06206c81e8408f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb1d5d78_273f4733",
+        "filename": "public/shell.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-26T23:13:17Z",
+      "side": 1,
+      "message": "\u003e I\u0027m planning to add some CTS tests for the binary. What the CTS tests do is: setting some properties --\u003e running the cmd: ./system/bin/flags_health_check --\u003e assert if properties have the expected changes. That\u0027s why I add this line here -- to allow shell execute this binary.\n\u003e But please let me know if it\u0027s not the right way to achieve it or you have other security concerns.\n\nAs currently written, when the shell user executes /system/bin/flags_health_check, the executable will be run in the shell domain. And the shell domain, per the neverallow assertion you added, cannot set these properties. Only the domain flags_health_check, which is entered when init executes /system/bin/flags_health_check, can set these flags.\n\nIf the intention is that this property (and future properties) are going to be exposed to the untrusted shell user, then we have to assume that someone can inject invalid or illegal values here, which raises the security requirements quite a bit.\n\nI would recommend you delete this line until you have the tests written.",
+      "parentUuid": "4dc272bb_553e1ddd",
+      "revId": "250bc1bc9ecbfba299ad6dbef06206c81e8408f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
