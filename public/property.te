@@ -25,6 +25,7 @@ type dalvik_prop, property_type, core_property_type;
 type debuggerd_prop, property_type, core_property_type;
 type debug_prop, property_type, core_property_type;
 type default_prop, property_type, core_property_type;
+type device_config_boot_count_prop, property_type;
 type device_logging_prop, property_type;
 type dhcp_prop, property_type, core_property_type;
 type dumpstate_options_prop, property_type;
@@ -260,6 +261,14 @@ compatible_property_only(`
     exported_wifi_prop
   }:property_service set;
 
+  neverallow {
+    domain
+    -init
+    -flags_health_check
+  } {
+    device_config_boot_count_prop
+  }:property_service set;
+
 # Prevent properties from being read
   neverallow {
     domain
@@ -387,6 +396,7 @@ compatible_property_only(`
     -ffs_prop
     -fingerprint_prop
     -firstboot_prop
+    -device_config_boot_count_prop
     -hwservicemanager_prop
     -last_boot_reason_prop
     -system_lmk_prop
