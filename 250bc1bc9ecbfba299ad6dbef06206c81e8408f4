@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ae139e3_47fdc8f6",
+        "filename": "private/flags_health_check.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-26T03:31:47Z",
+      "side": 1,
+      "message": "This indicates that the binary is executed by init, usually via a *.rc file. I don\u0027t see a *.rc file as part of the changes associated with this topic. Is it in a different change or something coming later?",
+      "revId": "250bc1bc9ecbfba299ad6dbef06206c81e8408f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e61bc50_4388dede",
+        "filename": "public/property.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-26T03:31:47Z",
+      "side": 1,
+      "message": "since the intended purpose of this neverallow rule is to protect the flags_health_check domain, we normally try to keep it close to flags_health_check.te file. Can you move it there and perhaps document why it\u0027s important that nobody other than flags_health_check be able to set this flag?",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 25
+      },
+      "revId": "250bc1bc9ecbfba299ad6dbef06206c81e8408f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "152eb808_f9ca5e0f",
+        "filename": "public/shell.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-26T03:31:47Z",
+      "side": 1,
+      "message": "What\u0027s the expected behavior when the adb shell user executes /system/bin/flags_health_check ? When this binary is executed by the shell user, it will run in the \"shell\" SELinux domain (not the \"flags_health_check\" domain). I\u0027m not sure this is going to do anything useful.",
+      "revId": "250bc1bc9ecbfba299ad6dbef06206c81e8408f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
