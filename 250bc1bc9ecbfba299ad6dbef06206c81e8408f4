@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "372e6e55_81b16858",
+        "filename": "private/flags_health_check.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1367962
+      },
+      "writtenOn": "2018-10-26T23:03:51Z",
+      "side": 1,
+      "message": "Yes, this binary is going to be executed in rootdir/init.rc. It\u0027s going to be included in a cl coming later.",
+      "parentUuid": "5ae139e3_47fdc8f6",
+      "revId": "250bc1bc9ecbfba299ad6dbef06206c81e8408f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e61bc50_4388dede",
         "filename": "public/property.te",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "f27ec411_79c9cf57",
+        "filename": "public/property.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1367962
+      },
+      "writtenOn": "2018-10-26T23:03:51Z",
+      "side": 1,
+      "message": "Got it, I\u0027ll move it.",
+      "parentUuid": "1e61bc50_4388dede",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 25
+      },
+      "revId": "250bc1bc9ecbfba299ad6dbef06206c81e8408f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "152eb808_f9ca5e0f",
         "filename": "public/shell.te",
         "patchSetId": 1
@@ -53,6 +95,24 @@
       "writtenOn": "2018-10-26T03:31:47Z",
       "side": 1,
       "message": "What\u0027s the expected behavior when the adb shell user executes /system/bin/flags_health_check ? When this binary is executed by the shell user, it will run in the \"shell\" SELinux domain (not the \"flags_health_check\" domain). I\u0027m not sure this is going to do anything useful.",
+      "revId": "250bc1bc9ecbfba299ad6dbef06206c81e8408f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dc272bb_553e1ddd",
+        "filename": "public/shell.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1367962
+      },
+      "writtenOn": "2018-10-26T23:03:51Z",
+      "side": 1,
+      "message": "I\u0027m planning to add some CTS tests for the binary. What the CTS tests do is: setting some properties --\u003e running the cmd: ./system/bin/flags_health_check --\u003e assert if properties have the expected changes. That\u0027s why I add this line here -- to allow shell execute this binary.\nBut please let me know if it\u0027s not the right way to achieve it or you have other security concerns.",
+      "parentUuid": "152eb808_f9ca5e0f",
       "revId": "250bc1bc9ecbfba299ad6dbef06206c81e8408f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
