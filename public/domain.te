@@ -1543,13 +1543,16 @@ userdebug_or_eng(`
 ')
 
 # Platform must not have access to /mnt/vendor.
-neverallow {
-  coredomain
-  -init
-  -ueventd
-  -vold
-  -system_writes_mnt_vendor_violators
-} mnt_vendor_file:dir *;
+# This neverallow will be enforced in Q as part of CTS (not just build test).
+build_test_only(`
+  neverallow {
+    coredomain
+    -init
+    -ueventd
+    -vold
+    -system_writes_mnt_vendor_violators
+  } mnt_vendor_file:dir *;
+')
 
 # Only apps are allowed access to vendor public libraries.
 full_treble_only(`
