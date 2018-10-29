@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ecc56dac_5f6fd9ea",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2018-10-29T16:10:08Z",
+      "side": 1,
+      "message": "I\u0027m slightly confused by this.\nBefore the change an app targeting 27 or 28 would have a different label to one targeting 26.\nAfter they will all have the same label. (..._27)\nWon\u0027t that cause change in behavior?",
+      "range": {
+        "startLine": 117,
+        "startChar": 89,
+        "endLine": 118,
+        "endChar": 0
+      },
+      "revId": "bfdcb1a6ab11da8f30d6b931b5f0d700444e8bb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "422b8552_671662cd",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2018-10-29T16:10:08Z",
+      "side": 1,
+      "message": "\u003c\u003d 25 ?\n(The overall effect is to allow up to 28, but the line below specifically allows it only up to 25, so the comment is a bit confusing. There should probably be an xref to the untrusted_app_27 file.)",
+      "revId": "bfdcb1a6ab11da8f30d6b931b5f0d700444e8bb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
