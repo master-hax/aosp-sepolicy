@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "97465f43_26b6e0ee",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T16:25:15Z",
+      "side": 1,
+      "message": "Before this change, apps running with API level 26 or 27 were running in the untrusted_app_27 SELinux domain. Apps with API level 28 were running in the untrusted_app domain.\n\nHowever, if you compare the rules granted in untrusted_app vs untrusted_app_27, they were identical. So, until this change, there was no functional difference between running in untrusted_app and untrusted_app_27. Putting API level 28 apps into untrusted_app_27 doesn\u0027t result in any changes.\n\nThis change introduces a difference between untrusted_app and untrusted_app_27. To preserve compatibility, only targetSDKVersion \u003e 28 apps are placed into untrusted_app now.",
+      "parentUuid": "ecc56dac_5f6fd9ea",
+      "range": {
+        "startLine": 117,
+        "startChar": 89,
+        "endLine": 118,
+        "endChar": 0
+      },
+      "revId": "bfdcb1a6ab11da8f30d6b931b5f0d700444e8bb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "422b8552_671662cd",
         "filename": "private/untrusted_app_25.te",
         "patchSetId": 4
@@ -39,6 +63,24 @@
       "revId": "bfdcb1a6ab11da8f30d6b931b5f0d700444e8bb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e29528b5_4d324f27",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T16:25:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "422b8552_671662cd",
+      "revId": "bfdcb1a6ab11da8f30d6b931b5f0d700444e8bb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
