@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c2068e8_5c23c1bf",
+        "filename": "public/flags_heatlh_check.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1367962
+      },
+      "writtenOn": "2018-10-29T04:39:26Z",
+      "side": 1,
+      "message": "+nnk@google.com Nick, the weird thing is, if I put \"neverallow\" here, then I have to also whitelist \"vendor_init\", or else building will fail with: libsepol.report_failure: neverallow on line 17 of system/sepolicy/public/flags_heatlh_check.te (or line 14595 of policy.conf) violated by allow vendor_init device_config_boot_count_prop:property_service { set };\n\nIs it expected? Or do I need to add something else?",
+      "revId": "8e1b9dd0acaa924312f0198381940976fd6372ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
