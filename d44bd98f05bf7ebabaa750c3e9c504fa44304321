@@ -1,0 +1,249 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bc1c7a7_e1a63995",
+        "filename": "private/file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T21:36:07Z",
+      "side": 1,
+      "message": "please see my comment in idmap2.te. If you wanted this to share the same domain as idmap, you\u0027d just write this as:\n\n  /system/bin/idmap2 u:object_r:idmap_exec:s0\n\nBy analogy, see lines 278 (patchoat and patchoatd have similar security properties), line 279 (profman and profmand have similar security properties), 275 (dex2oat and dex2oatd have similar security properties), 257 (linker and linker64 have similar security properties), 211-212 (zygote32 and zygote64 have similar security properties), etc...",
+      "range": {
+        "startLine": 285,
+        "startChar": 33,
+        "endLine": 285,
+        "endChar": 58
+      },
+      "revId": "d44bd98f05bf7ebabaa750c3e9c504fa44304321",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1be6b9a6_922cdc2e",
+        "filename": "private/file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T21:36:07Z",
+      "side": 1,
+      "message": "Looking at idmap2 vs idmap2d, I\u0027m not sure it makes sense to create a separate idmap2d domain for this. Perhaps also consider reusing the idmap domain? The rules are so similar and overlap so much I\u0027m not sure we gain anything by further decomposition. Rather, the creation of multiple domains likely increases complexity.",
+      "revId": "d44bd98f05bf7ebabaa750c3e9c504fa44304321",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b88c93eb_29463532",
+        "filename": "public/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T21:36:07Z",
+      "side": 1,
+      "message": "If you add the attribute \"coredomain\" to the idmap2 type declaration, you can avoid this change. Please see comment in idmap2.te.",
+      "revId": "d44bd98f05bf7ebabaa750c3e9c504fa44304321",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa96a964_a1cdddc0",
+        "filename": "public/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T21:36:07Z",
+      "side": 1,
+      "message": "If you add the attribute \"coredomain\" to the idmap2 type declaration, you can avoid this change. Please see comment in idmap2.te.",
+      "revId": "d44bd98f05bf7ebabaa750c3e9c504fa44304321",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c93a21db_9af07ce1",
+        "filename": "public/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T21:36:07Z",
+      "side": 1,
+      "message": "This goes away if you consolidate /system/bin/idmap2 into the idmap SELinux domain, and don\u0027t create the idmap2 SELinux domain.",
+      "revId": "d44bd98f05bf7ebabaa750c3e9c504fa44304321",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22988c57_fa4e7dba",
+        "filename": "public/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T21:36:07Z",
+      "side": 1,
+      "message": "This goes away if you consolidate /system/bin/idmap2 into the idmap SELinux domain, and don\u0027t create the idmap2 SELinux domain.",
+      "revId": "d44bd98f05bf7ebabaa750c3e9c504fa44304321",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c56d551_5b6a77ea",
+        "filename": "public/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T21:36:07Z",
+      "side": 1,
+      "message": "This goes away if you consolidate /system/bin/idmap2 into the idmap SELinux domain, and don\u0027t create the idmap2 SELinux domain.",
+      "revId": "d44bd98f05bf7ebabaa750c3e9c504fa44304321",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d08318c_1654add3",
+        "filename": "public/idmap2.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T21:36:07Z",
+      "side": 1,
+      "message": "the domain idmap and idmap2 have identical rules. Can you explain why you choose to have a two separate domains vs just reusing the idmap domain? It feels like idmap2 will have almost identical security properties as idmap.\n\nBy analogy, we reused the zygote SELinux domain for 32 bit zygote and zygote64, because the fundamental rules are expected to be approximately the same.\n\nThe purpose of the domains is to segment major parts of the system. While there may be a clear code difference, from the security perspective, idmap2 feels like an evolution of idmap.",
+      "revId": "d44bd98f05bf7ebabaa750c3e9c504fa44304321",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce99e1ab_2d77a7ee",
+        "filename": "public/idmap2d.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T21:36:07Z",
+      "side": 1,
+      "message": "This is a \"coredomain\", a domain defined by AOSP.\n\n  type idmap2d, domain, coredomain;",
+      "revId": "d44bd98f05bf7ebabaa750c3e9c504fa44304321",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b6c16a1_dd5e6951",
+        "filename": "public/idmap2d.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T21:36:07Z",
+      "side": 1,
+      "message": "Since this is on the /system partition, this needs to be:\n\n  type idmap2d_exec, exec_type, file_type, system_file_type;",
+      "revId": "d44bd98f05bf7ebabaa750c3e9c504fa44304321",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a64a92f_fca7cfb8",
+        "filename": "public/idmap2d.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T21:36:07Z",
+      "side": 1,
+      "message": "Please use the macro create_file_perms, defined in system/sepolicy/public/global_macros. That macro adds additional permissions you may need to make the code more robust.",
+      "range": {
+        "startLine": 7,
+        "startChar": 43,
+        "endLine": 7,
+        "endChar": 84
+      },
+      "revId": "d44bd98f05bf7ebabaa750c3e9c504fa44304321",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7cb5d45_72da9a6a",
+        "filename": "public/idmap2d.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T21:36:07Z",
+      "side": 1,
+      "message": "Please use the macro rw_dir_perms, which adds a few more permissions you may need to make your code more robust.",
+      "range": {
+        "startLine": 8,
+        "startChar": 42,
+        "endLine": 8,
+        "endChar": 79
+      },
+      "revId": "d44bd98f05bf7ebabaa750c3e9c504fa44304321",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e148023c_dc44a771",
+        "filename": "public/idmap2d.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T21:36:07Z",
+      "side": 1,
+      "message": "by convention, when only one permission exists, we omit the use of brackets. See, for example, line 9.",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "d44bd98f05bf7ebabaa750c3e9c504fa44304321",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
