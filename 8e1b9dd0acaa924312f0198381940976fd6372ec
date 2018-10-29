@@ -57,6 +57,24 @@
       "revId": "8e1b9dd0acaa924312f0198381940976fd6372ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "723da9db_00aeef4c",
+        "filename": "public/flags_heatlh_check.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2018-10-29T16:20:11Z",
+      "side": 1,
+      "message": "Which device are you building that fails that check?  Just curious, since it looks like that check is for non-compatible property devices which we shouldn\u0027t have any of in AOSP or internal master.\n\nI agree with nnk@ to make the change to vendor_init.te to prevent it from writing the property.  If it\u0027s only for non-compatible property configurations, it\u0027s not anything that we\u0027re working to restrict any further.",
+      "parentUuid": "587cee0d_45521adb",
+      "revId": "8e1b9dd0acaa924312f0198381940976fd6372ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
