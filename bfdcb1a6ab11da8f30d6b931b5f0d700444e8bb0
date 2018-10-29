@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "6caab0ca_a303bbc6",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T16:40:01Z",
+      "side": 1,
+      "message": "You can verify that there\u0027s no functional differences by running:\n\n  $ adb pull /sys/fs/selinux/policy\n  $ sesearch --allow -s untrusted_app ./policy | sort \u003e untrusted_app.allow\n  $ sesearch --allow -s untrusted_app_27 ./policy | perl -pe \u0027s/untrusted_app_27/untrusted_app/g;\u0027 | sort \u003e untrusted_app_27.allow\n  $ diff -u untrusted_app_27.allow untrusted_app.allow  | less -i",
+      "parentUuid": "00655cf6_81150032",
+      "range": {
+        "startLine": 117,
+        "startChar": 89,
+        "endLine": 118,
+        "endChar": 0
+      },
+      "revId": "bfdcb1a6ab11da8f30d6b931b5f0d700444e8bb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "422b8552_671662cd",
         "filename": "private/untrusted_app_25.te",
         "patchSetId": 4
