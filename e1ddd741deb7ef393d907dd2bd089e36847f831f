@@ -70,6 +70,30 @@
       "revId": "e1ddd741deb7ef393d907dd2bd089e36847f831f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1583ddd1_934ae11d",
+        "filename": "private/priv_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2018-10-29T19:49:50Z",
+      "side": 1,
+      "message": "FWIW, there are two known cases of priv apps loading code (dex, not .so to my knowledge) from non-priv apps.\n1) crrev/777858: some priv apps do load dex via webview (since chromium webview is not a priv app) to show license, etc.\n2) b/63539837: gcore loads from PlayGames",
+      "parentUuid": "141706c9_4fc47d32",
+      "range": {
+        "startLine": 29,
+        "startChar": 46,
+        "endLine": 30,
+        "endChar": 0
+      },
+      "revId": "e1ddd741deb7ef393d907dd2bd089e36847f831f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
