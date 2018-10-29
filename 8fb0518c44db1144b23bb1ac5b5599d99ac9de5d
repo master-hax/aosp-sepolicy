@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0915c884_ca10da45",
+        "filename": "public/flags_heatlh_check.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T18:41:09Z",
+      "side": 1,
+      "message": "Because this is checked into core AOSP code, this should be a coredomain, and thus:\n\n  type flags_health_check, domain, coredomain;",
+      "revId": "8fb0518c44db1144b23bb1ac5b5599d99ac9de5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4b3fe95_14bdad62",
+        "filename": "public/flags_heatlh_check.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T18:41:09Z",
+      "side": 1,
+      "message": "The SELinux policy files are parsed by the m4 macro language, which considers single quotes and backticks to be delimiters. The use of single quotes and backticks, even in comments, have caused weird compile time failures. As a result, we avoid the use of them.\n\nCan you please rewrite this avoiding single quotes and backticks?",
+      "range": {
+        "startLine": 9,
+        "startChar": 49,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "8fb0518c44db1144b23bb1ac5b5599d99ac9de5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "279decb0_3b4ab877",
+        "filename": "public/flags_heatlh_check.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T18:41:09Z",
+      "side": 1,
+      "message": "same single quote concern.",
+      "range": {
+        "startLine": 9,
+        "startChar": 99,
+        "endLine": 9,
+        "endChar": 100
+      },
+      "revId": "8fb0518c44db1144b23bb1ac5b5599d99ac9de5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
