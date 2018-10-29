@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "20588db1_d46e69f1",
+        "filename": "public/flags_heatlh_check.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T04:58:34Z",
+      "side": 1,
+      "message": "Can you please rephrase so it\u0027s a bit clearer?",
+      "range": {
+        "startLine": 8,
+        "startChar": 90,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "8e1b9dd0acaa924312f0198381940976fd6372ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8c2068e8_5c23c1bf",
         "filename": "public/flags_heatlh_check.te",
         "patchSetId": 2
@@ -13,6 +36,24 @@
       "writtenOn": "2018-10-29T04:39:26Z",
       "side": 1,
       "message": "+nnk@google.com Nick, the weird thing is, if I put \"neverallow\" here, then I have to also whitelist \"vendor_init\", or else building will fail with: libsepol.report_failure: neverallow on line 17 of system/sepolicy/public/flags_heatlh_check.te (or line 14595 of policy.conf) violated by allow vendor_init device_config_boot_count_prop:property_service { set };\n\nIs it expected? Or do I need to add something else?",
+      "revId": "8e1b9dd0acaa924312f0198381940976fd6372ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "587cee0d_45521adb",
+        "filename": "public/flags_heatlh_check.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-29T04:58:34Z",
+      "side": 1,
+      "message": "this is due to line 175 at https://android.googlesource.com/platform/system/sepolicy/+/f2cad2d92b848f6dcae4706a92043214c162a305/public/vendor_init.te#175\n\n+tomcherry@google.com who is tightening down what properties vendors can set in b/62875318.\n\nMy recommendation would be to edit vendor_init.te (near line 175) and add your property to the list of properties which cannot be set by vendor_init.",
+      "parentUuid": "8c2068e8_5c23c1bf",
       "revId": "8e1b9dd0acaa924312f0198381940976fd6372ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
