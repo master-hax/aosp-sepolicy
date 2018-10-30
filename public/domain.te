@@ -1024,6 +1024,7 @@ full_treble_only(`
         -init
         -installd
         userdebug_or_eng(`-perfprofd')
+        userdebug_or_eng(`-heapprofd')
         -postinstall_dexopt
         -system_server
     } vendor_app_file:dir { open read getattr search };
@@ -1038,6 +1039,7 @@ full_treble_only(`
         -init
         -installd
         userdebug_or_eng(`-perfprofd')
+        userdebug_or_eng(`-heapprofd')
         -postinstall_dexopt
         -system_server
         -mediaserver
@@ -1139,6 +1141,7 @@ full_treble_only(`
     -init # starts vendor executables
     -kernel # loads /vendor/firmware
     userdebug_or_eng(`-perfprofd')
+    userdebug_or_eng(`-heapprofd')
     -shell
     -system_executes_vendor_violators
     -ueventd # reads /vendor/ueventd.rc
@@ -1477,6 +1480,7 @@ full_treble_only(`
     -init
     -kernel
     -perfprofd
+    -heapprofd
     -ueventd
   } vendor_file:file { no_w_file_perms no_x_file_perms open };
 ')

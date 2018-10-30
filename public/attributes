@@ -2,6 +2,11 @@
 # Attribute declarations
 #
 
+# This is used for heapprofd.te.
+# Every service in coredomain should be labeled as either one of those two.
+attribute nonprofilable;
+attribute profilable;
+
 # All types used for devices.
 # On change, update CHECK_FC_ASSERT_ATTRS
 # in tools/checkfc.c
