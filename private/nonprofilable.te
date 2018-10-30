@@ -1,0 +1,4 @@
+# Add a useless permission so we can use this attribute in a test that asserts
+# every domain is either profilable or nonprofilable. Otherwise, this gets
+# optimized away.
+allow nonprofilable heapprofd_exec:file getattr;
