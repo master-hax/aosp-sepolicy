@@ -2,6 +2,16 @@
 # Attribute declarations
 #
 
+# These attributes are to opt in or out of profiling. Currently, this entails
+# heap profiling by go/heapprofd, but will include CPU profiling in the
+# future. This will allow a heap profiling / CPU profiling daemon to read this
+# process' address space in order to support unwinding.
+#
+# Every service in coredomain should be labeled as either one of these two.
+# TODO(fmayer): Add assertion for that.
+attribute nonprofilable;
+attribute profilable;
+
 # All types used for devices.
 # On change, update CHECK_FC_ASSERT_ATTRS
 # in tools/checkfc.c
