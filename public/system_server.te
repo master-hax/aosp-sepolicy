@@ -3,3 +3,6 @@
 # Most of the framework services run in this process.
 #
 type system_server, domain;
+
+allow system_server apex_service:service_manager find;
+allow system_server apexd:binder call;
