@@ -1406,8 +1406,9 @@ userdebug_or_eng(`
 ')
 
 # Platform must not have access to /mnt/vendor.
-neverallow {
-  coredomain
-  -init
-  -ueventd
-} mnt_vendor_file:dir *;
+# This neverallow will be enforced in Q.
+#neverallow {
+#  coredomain
+#  -init
+#  -ueventd
+#} mnt_vendor_file:dir *;
