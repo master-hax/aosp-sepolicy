@@ -122,8 +122,11 @@ neverallow { all_untrusted_apps -mediaprovider } {
 # No untrusted component should be touching /dev/fuse
 neverallow all_untrusted_apps fuse_device:chr_file *;
 
-# Do not allow untrusted apps to directly open tun_device
-neverallow all_untrusted_apps tun_device:chr_file open;
+# Do not allow untrusted apps to directly open or
+# issue ioctls to the tun_device
+neverallow all_untrusted_apps tun_device:chr_file { open ioctl };
+# nor allow them to directly issue the TUNGETIFF ioctl.
+neverallowxperm all_untrusted_apps tun_device:chr_file ioctl TUNGETIFF;
 
 # Only allow appending to /data/anr/traces.txt (b/27853304, b/18340553)
 neverallow all_untrusted_apps anr_data_file:file ~{ open append };
