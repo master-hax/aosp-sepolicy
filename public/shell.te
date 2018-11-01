@@ -96,6 +96,9 @@ get_prop(shell, device_logging_prop)
 get_prop(shell, bootloader_boot_reason_prop)
 get_prop(shell, last_boot_reason_prop)
 get_prop(shell, system_boot_reason_prop)
+userdebug_or_eng(`
+  get_prop(shell, apexd_prop)
+')
 
 # allow shell access to services
 allow shell servicemanager:service_manager list;
