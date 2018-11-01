@@ -1,0 +1,38 @@
+# gpu service
+type gpuservice, domain, coredomain;
+type gpuservice_exec, system_file_type, exec_type, file_type;
+
+init_daemon_domain(gpuservice)
+
+# Perform Binder IPC.
+binder_use(gpuservice)
+binder_call(gpuservice, binderservicedomain)
+binder_service(gpuservice)
+
+# Binder IPC to bu, presently runs in adbd domain.
+binder_call(gpuservice, adbd)
+binder_call(gpuservice, shell)
+
+# Read /proc/pid files for Binder clients.
+r_dir_file(gpuservice, binderservicedomain)
+
+# Access the GPU.
+allow gpuservice gpu_device:chr_file rw_file_perms;
+
+allow gpuservice same_process_hal_file:file { open read getattr execute };
+allow gpuservice ion_device:chr_file r_file_perms;
+allow gpuservice hwservicemanager_prop:file { open read getattr };
+allow gpuservice hwservicemanager:binder call;
+allow gpuservice vendor_default_prop:file { open read getattr };
+
+# Access /dev/graphics/fb0.
+allow gpuservice graphics_device:dir search;
+allow gpuservice graphics_device:chr_file rw_file_perms;
+
+# Use socket supplied by adbd, for cmd gpu vkjson etc.
+allow gpuservice adbd:unix_stream_socket { read write getattr };
+
+add_service(gpuservice, gpu_service)
+
+# Only uncomment below line when in development
+# userdebug_or_eng(`permissive gpuservice;')
