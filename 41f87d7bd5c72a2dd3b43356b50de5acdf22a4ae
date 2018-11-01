@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "a39aa7ac_258e9984",
+        "filename": "prebuilts/api/26.0/public/property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2018-11-01T16:38:29Z",
+      "side": 1,
+      "message": "Is this the right way to do it?  I thought there\u0027s supposed to be a line in the compat folder, something like how pm_prop is here: https://cs.corp.google.com/android/system/sepolicy/private/compat/26.0/26.0.cil?l\u003d148",
+      "revId": "41f87d7bd5c72a2dd3b43356b50de5acdf22a4ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0b484df2_f7bba4be",
         "filename": "public/apexd.te",
         "patchSetId": 2
@@ -70,6 +87,29 @@
       "revId": "41f87d7bd5c72a2dd3b43356b50de5acdf22a4ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a466a6c_3db06327",
+        "filename": "public/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2018-11-01T16:38:29Z",
+      "side": 1,
+      "message": "exported_apexd_prop maybe?  Anything set by the system that the vendor can read tends to have \u0027exported_\u0027 prefixing its label.",
+      "range": {
+        "startLine": 153,
+        "startChar": 24,
+        "endLine": 153,
+        "endChar": 34
+      },
+      "revId": "41f87d7bd5c72a2dd3b43356b50de5acdf22a4ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
