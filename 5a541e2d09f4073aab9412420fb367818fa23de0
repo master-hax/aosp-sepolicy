@@ -1,0 +1,158 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2fc0ffc_7784f7be",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2018-11-01T14:05:11Z",
+      "side": 1,
+      "message": "I don\u0027t think this comment is right.",
+      "revId": "5a541e2d09f4073aab9412420fb367818fa23de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7899aced_5e318bb5",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2018-11-01T14:05:11Z",
+      "side": 1,
+      "message": "s/arbitrary/profilable/\n\n(Also: process -\u003e processes.)",
+      "revId": "5a541e2d09f4073aab9412420fb367818fa23de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d185ba9_1677f438",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2018-11-01T14:05:11Z",
+      "side": 1,
+      "message": "That seems overly broad. Why do you need it?\nCould you mark the file as nonprofilable or nonprofilable_exec instead?\n\nAlso: exec_type only applies to individual files not directories, so you should probably only apply an allow to exec_type:file.\nCan you restrict it to a minimal subset of r_file_perms?",
+      "range": {
+        "startLine": 22,
+        "startChar": 24,
+        "endLine": 22,
+        "endChar": 33
+      },
+      "revId": "5a541e2d09f4073aab9412420fb367818fa23de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ccd47a4_5a5be895",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2018-11-01T14:05:11Z",
+      "side": 1,
+      "message": "Any neverallow rules we should have?\nEg it should never have access to domains in the TCB.",
+      "revId": "5a541e2d09f4073aab9412420fb367818fa23de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e3ee596_529dce9f",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2018-11-01T14:05:11Z",
+      "side": 1,
+      "message": "Can you move this back to the top?\nnit: Here and above the ; after a macro call isn\u0027t needed, and we generally don\u0027t have it.",
+      "range": {
+        "startLine": 31,
+        "startChar": 30,
+        "endLine": 32,
+        "endChar": 0
+      },
+      "revId": "5a541e2d09f4073aab9412420fb367818fa23de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "768ff203_0fe7b57c",
+        "filename": "private/nonprofilable.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2018-11-01T14:05:11Z",
+      "side": 1,
+      "message": "Hmm.\nAre you still planning such a test - it isn\u0027t in this CL?",
+      "revId": "5a541e2d09f4073aab9412420fb367818fa23de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f4ac266_cb761c29",
+        "filename": "public/attributes",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2018-11-01T14:05:11Z",
+      "side": 1,
+      "message": "A comment here pointing to heapprofd.te would be good",
+      "revId": "5a541e2d09f4073aab9412420fb367818fa23de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d9693d4_e5f8bea0",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1484,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2018-11-01T14:05:11Z",
+      "side": 1,
+      "message": "No quotes needed.\nYou only need open I guess? Would be good to keep as many restrictions as possible.",
+      "range": {
+        "startLine": 1483,
+        "startChar": 16,
+        "endLine": 1484,
+        "endChar": 0
+      },
+      "revId": "5a541e2d09f4073aab9412420fb367818fa23de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
