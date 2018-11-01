@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c9046842_52a20354",
+        "filename": "prebuilts/api/26.0/public/property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-01T16:44:09Z",
+      "side": 1,
+      "message": "yes, the prebuilts are locked down, and aren\u0027t intended to be changed. They are needed to ensure we have compatible rules in place for old vendor partitions.",
+      "parentUuid": "a39aa7ac_258e9984",
+      "revId": "41f87d7bd5c72a2dd3b43356b50de5acdf22a4ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0b484df2_f7bba4be",
         "filename": "public/apexd.te",
         "patchSetId": 2
@@ -90,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "9bc77bf0_615cbda6",
+        "filename": "public/apexd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-01T16:44:09Z",
+      "side": 1,
+      "message": "To clarify on this further: init manages the property space. To manage it, it needs visibility into all the properties. It\u0027s technically impossible to block init from touching these properties, and the SELinux rules reflect that.",
+      "parentUuid": "4f017cab_c0a98b60",
+      "range": {
+        "startLine": 15,
+        "startChar": 27,
+        "endLine": 15,
+        "endChar": 32
+      },
+      "revId": "41f87d7bd5c72a2dd3b43356b50de5acdf22a4ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a466a6c_3db06327",
         "filename": "public/property_contexts",
         "patchSetId": 2
@@ -107,6 +149,47 @@
         "endLine": 153,
         "endChar": 34
       },
+      "revId": "41f87d7bd5c72a2dd3b43356b50de5acdf22a4ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4239f2ce_cade6116",
+        "filename": "public/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-01T16:44:09Z",
+      "side": 1,
+      "message": "I sorta like the name as is.  But ... bike-shedding. :-)  I\u0027m fine either way.",
+      "parentUuid": "1a466a6c_3db06327",
+      "range": {
+        "startLine": 153,
+        "startChar": 24,
+        "endLine": 153,
+        "endChar": 34
+      },
+      "revId": "41f87d7bd5c72a2dd3b43356b50de5acdf22a4ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d721a2d8_95903702",
+        "filename": "public/shell.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-01T16:44:09Z",
+      "side": 1,
+      "message": "can you clarify why it needs to be exposed to the shell user? This isn\u0027t in the commit message nor any comments...",
       "revId": "41f87d7bd5c72a2dd3b43356b50de5acdf22a4ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
