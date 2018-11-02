@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "377bec52_db3e4e10",
+        "filename": "prebuilts/api/26.0/public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-02T02:17:01Z",
+      "side": 1,
+      "message": "please revert this entire file. These are prebuilts and shouldn\u0027t be modified.",
+      "revId": "f0f42bd8a150c61aa6b2d6185b67d4dfbe2c4a95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66c06697_1212a25f",
+        "filename": "prebuilts/api/27.0/public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-02T02:17:01Z",
+      "side": 1,
+      "message": "please revert to original",
+      "revId": "f0f42bd8a150c61aa6b2d6185b67d4dfbe2c4a95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abea7286_d8681f24",
+        "filename": "prebuilts/api/28.0/public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-02T02:17:01Z",
+      "side": 1,
+      "message": "please revert to original",
+      "revId": "f0f42bd8a150c61aa6b2d6185b67d4dfbe2c4a95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42bc4775_ad0b3703",
+        "filename": "public/apexd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-02T02:17:01Z",
+      "side": 1,
+      "message": "by convention, allow rules always go before neverallow assertions. Can you please move lines 13-14 to near line 7?",
+      "revId": "f0f42bd8a150c61aa6b2d6185b67d4dfbe2c4a95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7701460_6ed7420c",
+        "filename": "public/shell.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-02T02:17:01Z",
+      "side": 1,
+      "message": "generally speaking, we try to minimize the differences between userdebug and user builds, because we want to ensure that what we ship (user builds) is as close as possible to what we test (userdebug builds).\n\nIn this case, you really don\u0027t need to expose this. Instead, you can just call \"su getprop apexd.status\" to get the status as the shell user on debug builds.\n\nNot exposing this keeps user and userdebug builds more consistent without impacting functionality.\n\nI\u0027d prefer you delete these 3 lines.",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 2
+      },
+      "revId": "f0f42bd8a150c61aa6b2d6185b67d4dfbe2c4a95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
