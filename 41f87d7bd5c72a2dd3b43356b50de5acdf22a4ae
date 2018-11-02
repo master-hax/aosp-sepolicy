@@ -132,6 +132,30 @@
     },
     {
       "key": {
+        "uuid": "0e53560d_05be28ef",
+        "filename": "public/apexd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-11-02T01:44:00Z",
+      "side": 1,
+      "message": "Thanks for the clarification :)",
+      "parentUuid": "9bc77bf0_615cbda6",
+      "range": {
+        "startLine": 15,
+        "startChar": 27,
+        "endLine": 15,
+        "endChar": 32
+      },
+      "revId": "41f87d7bd5c72a2dd3b43356b50de5acdf22a4ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a466a6c_3db06327",
         "filename": "public/property_contexts",
         "patchSetId": 2
@@ -227,6 +251,30 @@
     },
     {
       "key": {
+        "uuid": "eeda0220_0e380f4e",
+        "filename": "public/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-11-02T01:44:00Z",
+      "side": 1,
+      "message": "We have \u0027some\u0027 types without exported* prefix: bluetooth_a2dp_offload_prop, vendor_security_patch_level_prop. \nI see these exported[|1|2|3] very confusing.\n\n\u003e what do we call apex properties that are not vendor readable?\n\nWell, then we could name them as apexd_private_prop or private_apexd_prop :)",
+      "parentUuid": "2fadaf26_10241b6b",
+      "range": {
+        "startLine": 153,
+        "startChar": 24,
+        "endLine": 153,
+        "endChar": 34
+      },
+      "revId": "41f87d7bd5c72a2dd3b43356b50de5acdf22a4ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d721a2d8_95903702",
         "filename": "public/shell.te",
         "patchSetId": 2
@@ -238,6 +286,24 @@
       "writtenOn": "2018-11-01T16:44:09Z",
       "side": 1,
       "message": "can you clarify why it needs to be exposed to the shell user? This isn\u0027t in the commit message nor any comments...",
+      "revId": "41f87d7bd5c72a2dd3b43356b50de5acdf22a4ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96b0fef6_b958cbf8",
+        "filename": "public/shell.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-11-02T01:44:00Z",
+      "side": 1,
+      "message": "Oh sorry, this was for debugging. Wrapped with userdebug_or_eng.",
+      "parentUuid": "d721a2d8_95903702",
       "revId": "41f87d7bd5c72a2dd3b43356b50de5acdf22a4ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
