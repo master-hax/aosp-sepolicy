@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd5b3d51_aa043bdb",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-03T02:34:32Z",
+      "side": 1,
+      "message": "Can you please help me understand who, specifically, the gpuservice is intended to talk to? This is a very broad rule allowing lots of outbound communication, and at first glance feels excessively broad.",
+      "revId": "d7949c7a6c4e5218245d7fd97d4fd4d11ed62e2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbbac0b2_fc481fd7",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-03T02:34:32Z",
+      "side": 1,
+      "message": "This rule allows you to read lots of /proc/PID entries for people who may connect to the gpuservice process. At first glance this feels overly broad, but I don\u0027t understand who is intended to connect to this service. Can you help me understand this more?",
+      "revId": "d7949c7a6c4e5218245d7fd97d4fd4d11ed62e2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1ab5ff6_d72d8751",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-03T02:34:32Z",
+      "side": 1,
+      "message": "To support newer kernels, you also need the \"map\" permission.\n\nHave you talked to the Treble team about this? They are trying to get rid of same process HAL files, so I\u0027m not sure they\u0027ll want to support this.",
+      "range": {
+        "startLine": 22,
+        "startChar": 44,
+        "endLine": 22,
+        "endChar": 73
+      },
+      "revId": "d7949c7a6c4e5218245d7fd97d4fd4d11ed62e2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f440b482_d2553393",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-03T02:34:32Z",
+      "side": 1,
+      "message": "please use the macro provided for reading properties:\n\n  get_prop(gpuservice, hwservicemanager_prop)",
+      "revId": "d7949c7a6c4e5218245d7fd97d4fd4d11ed62e2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f89f9d5_b0c1ff38",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-03T02:34:32Z",
+      "side": 1,
+      "message": "This line allows gpuservice to make binder calls to the hwsevicemanager, usually to talk to a vendor component. Can you help me understand why this line is needed?\n\nThe macro that we provide for this purpose should probably be used instead:\n\n  hwbinder_use(gpuservice)",
+      "revId": "d7949c7a6c4e5218245d7fd97d4fd4d11ed62e2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08760d9b_64a6283d",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-03T02:34:32Z",
+      "side": 1,
+      "message": "Please use the macro provided for reading properties:\n\n  get_prop(gpuservice, vendor_default_prop)",
+      "revId": "d7949c7a6c4e5218245d7fd97d4fd4d11ed62e2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
