@@ -1,0 +1,216 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "770400e3_15340da5",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-05T17:42:53Z",
+      "side": 1,
+      "message": "spelling: receive",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 14
+      },
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5621833a_b94ee003",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-05T17:42:53Z",
+      "side": 1,
+      "message": "Please use the macro r_file_perms, defined in system/sepolicy/public/global_macros, instead of listing out individual permissions. In particular, \"r_file_perms\" includes \"map\", which you\u0027ll need to mmap() files in future kernel versions.\n\n(same comment on line 24-27)\n\nHaving said that, it feels odd that the the relevant file descriptors aren\u0027t being passed over the IPC call. Shouldn\u0027t these FDs be passed when the profilable process makes the IPC call to heapprofd? Then you wouldn\u0027t need \"open\" here.",
+      "range": {
+        "startLine": 23,
+        "startChar": 33,
+        "endLine": 23,
+        "endChar": 46
+      },
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb0b0ca2_0fbd039d",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-05T17:42:53Z",
+      "side": 1,
+      "message": "Have you talked with the treble team about this? At first glance, this is a treble violation, as a core component is directly opening a vendor component.\n\n(same comment line 27)\n\nTo be clear, the treble concern here is \"open\", not \"read\". Passing file descriptors across a treble / core boundary is fine, but doing direct opens across the treble boundary is problematic.",
+      "range": {
+        "startLine": 26,
+        "startChar": 18,
+        "endLine": 26,
+        "endChar": 29
+      },
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d575103f_6f853154",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-05T17:42:53Z",
+      "side": 1,
+      "message": "if we have the attribute (or the macro), wouldn\u0027t it be better to modify the relevant *.te files and assign the attribute to / use the macro for these domains?\n\n(same comment on lines 51-59)",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 0
+      },
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa843b52_9ae61856",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-05T17:42:53Z",
+      "side": 1,
+      "message": "Use \"no_rw_file_perms\" instead? no_rw_file_perms is defined in system/sepolicy/public/neverallow_macros",
+      "range": {
+        "startLine": 47,
+        "startChar": 7,
+        "endLine": 47,
+        "endChar": 11
+      },
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5eb15364_dc49dba3",
+        "filename": "private/profilable.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-05T17:42:53Z",
+      "side": 1,
+      "message": "surround by userdebug_or_eng()?\n\n  userdebug_or_eng(`\n    unix_socket_connect(profilable, heapprofd, heapprofd)\n  \u0027)",
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "840807cd_b55580c2",
+        "filename": "public/attributes",
+        "patchSetId": 7
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-05T17:42:53Z",
+      "side": 1,
+      "message": "Can you please expand in the comments on the effects of using profilable or nonprofilable? Currently one needs to read through the rules to determine what effect setting this attribute has.\n\n(Yes, I realize we do a bad job at documenting our other attributes. Hopefully we can get those fixed too!)",
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed0cbe4f_1e6f0490",
+        "filename": "public/attributes",
+        "patchSetId": 7
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-05T17:42:53Z",
+      "side": 1,
+      "message": "If this is a requirement, then it might be good to add a compile time assertion asserting this, either now or in a future commit.\n\n  # Every coredomain service must have a profilable or nonprofilable attribute.\n  # As there is no direct way to specify neverallow rules on attribute assignments,\n  # this relies on the fact that the fork permission only makes sense within a domain,\n  # and is granted to all domains in domain.te\n  neverallow { coredomain -profilable -nonprofilable } domain:process fork;",
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8da8720_08b80ecb",
+        "filename": "public/attributes",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-05T17:42:53Z",
+      "side": 1,
+      "message": "To me, profilable means lots of different things. I wonder if \"heap_profilable\" might be a better name for this?",
+      "range": {
+        "startLine": 8,
+        "startChar": 10,
+        "endLine": 8,
+        "endChar": 20
+      },
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4f8b4ea_fa11ee82",
+        "filename": "public/attributes",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-05T17:42:53Z",
+      "side": 1,
+      "message": "Rather than introducing attributes, have you considered defining a macro for this? For example:\n\n  system/sepolicy/public/te_macros:\n\n  define(`can_profile_heap\u0027, `\n    userdebug_or_eng(`\n      unix_socket_connect($1, heapprofd, heapprofd)\n      allow heapprofd $1:file { read getattr };\n      allow heapprofd $1:process signal;\n    \u0027)\n  \u0027)\n\n  define(`never_profile_heap\u0027, `\n    neverallow heapprofd $1:file read;\n    neverallow heapprofd $1:process signal;\n  \u0027)\n\n\nIn a treble world, attributes are APIs that we need to unconditionally support for all of eternity. Using a macro avoids the use of an attribute and is more upgrade friendly.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 21
+      },
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
