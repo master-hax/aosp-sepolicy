@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a049b3b_bdcc9002",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-06T01:54:23Z",
+      "side": 1,
+      "message": "But currently, CTS and benchmark apps can just talk directly to the GPU? So I guess I\u0027m confused why there\u0027s an intermediary?\n\nWhat is this service doing that an app couldn\u0027t do directly?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 78
+      },
+      "revId": "90bb455da54d97e804aa065d1edf102ca2d251f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "362748f0_fde62779",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-06T01:54:23Z",
+      "side": 1,
+      "message": "this is equivalent to the binder_use macro you originally had in PS1.\n\nReplace with:\n\n  binder_use(gpuservice)\n\n(defined in system/sepolicy/public/te_macros)",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 52
+      },
+      "revId": "90bb455da54d97e804aa065d1edf102ca2d251f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
