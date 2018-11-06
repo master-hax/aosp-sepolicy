@@ -127,6 +127,9 @@ allow init fs_type:filesystem ~relabelto;
 allow init unlabeled:filesystem ~relabelto;
 allow init contextmount_type:filesystem relabelto;
 
+# Mounting vendor overlay on /vendor/etc
+allow init vendor_configs_file:dir mounton;
+
 # Allow read-only access to context= mounted filesystems.
 allow init contextmount_type:dir r_dir_perms;
 allow init contextmount_type:notdevfile_class_set r_file_perms;
