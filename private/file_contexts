@@ -320,10 +320,11 @@
 # Vendor files
 #
 /(vendor|system/vendor)(/.*)?                  u:object_r:vendor_file:s0
+/system/vendor_overlay/[0-9]+/.*               u:object_r:vendor_file:s0
 /(vendor|system/vendor)/bin/sh                 u:object_r:vendor_shell_exec:s0
 /(vendor|system/vendor)/bin/toybox_vendor      u:object_r:vendor_toolbox_exec:s0
 /(vendor|system/vendor)/bin/toolbox            u:object_r:vendor_toolbox_exec:s0
-/(vendor|system/vendor)/etc(/.*)?              u:object_r:vendor_configs_file:s0
+/(vendor|system/vendor|system/vendor_overlay/[0-9]+)/etc(/.*)? u:object_r:vendor_configs_file:s0
 
 /(vendor|system/vendor)/lib(64)?/egl(/.*)?     u:object_r:same_process_hal_file:s0
 

@@ -12,7 +12,8 @@ def TestDataTypeViolations(pol):
     return pol.AssertPathTypesHaveAttr(["/data/"], [], "data_file_type")
 
 def TestSystemTypeViolations(pol):
-    return pol.AssertPathTypesHaveAttr(["/system/"], [], "system_file_type")
+    return pol.AssertPathTypesHaveAttr(["/system/"], ["/system/vendor/",
+                                "/system/vendor_overlay/"], "system_file_type")
 
 def TestProcTypeViolations(pol):
     return pol.AssertGenfsFilesystemTypesHaveAttr("proc", "proc_type")
