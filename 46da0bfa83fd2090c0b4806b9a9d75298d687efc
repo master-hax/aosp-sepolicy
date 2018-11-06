@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0e305117_97677337",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2018-11-06T12:47:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "770400e3_15340da5",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 14
+      },
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5621833a_b94ee003",
         "filename": "private/heapprofd.te",
         "patchSetId": 7
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a86288ec_4a395a9d",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2018-11-06T12:47:24Z",
+      "side": 1,
+      "message": "Then it would have to send FDs for each of the libraries mapped into its memory, even if they do not ever show up in a malloc callstack.",
+      "parentUuid": "5621833a_b94ee003",
+      "range": {
+        "startLine": 23,
+        "startChar": 33,
+        "endLine": 23,
+        "endChar": 46
+      },
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb0b0ca2_0fbd039d",
         "filename": "private/heapprofd.te",
         "patchSetId": 7
@@ -59,6 +107,30 @@
       "writtenOn": "2018-11-05T17:42:53Z",
       "side": 1,
       "message": "Have you talked with the treble team about this? At first glance, this is a treble violation, as a core component is directly opening a vendor component.\n\n(same comment line 27)\n\nTo be clear, the treble concern here is \"open\", not \"read\". Passing file descriptors across a treble / core boundary is fine, but doing direct opens across the treble boundary is problematic.",
+      "range": {
+        "startLine": 26,
+        "startChar": 18,
+        "endLine": 26,
+        "endChar": 29
+      },
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1170bcdf_c0b5d133",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2018-11-06T12:47:24Z",
+      "side": 1,
+      "message": "I will follow up with the Treble folks.  I see how this looks like it violates the Treble barrier, but I do not think it actually does. This open only happens in response to the target processes\u0027 /proc/self/maps and current program counter, so we do not bake in any assumptions about vendor code into heapprofd.",
+      "parentUuid": "eb0b0ca2_0fbd039d",
       "range": {
         "startLine": 26,
         "startChar": 18,
@@ -117,6 +189,54 @@
     },
     {
       "key": {
+        "uuid": "d03c53b3_a1a18124",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2018-11-06T12:47:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa843b52_9ae61856",
+      "range": {
+        "startLine": 47,
+        "startChar": 7,
+        "endLine": 47,
+        "endChar": 11
+      },
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c951d4e_0f513e76",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2018-11-06T12:47:24Z",
+      "side": 1,
+      "message": "I wanted to add this list explicitly here because Alan said these components are particularly sensitive. This essentially asserts that these are always nonprofilable.\n\nCan move to their .te files though. What do you you think?",
+      "parentUuid": "d575103f_6f853154",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 0
+      },
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5eb15364_dc49dba3",
         "filename": "private/profilable.te",
         "patchSetId": 7
@@ -131,6 +251,24 @@
       "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "685ddcd2_c73a6334",
+        "filename": "private/profilable.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2018-11-06T12:47:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5eb15364_dc49dba3",
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -151,6 +289,24 @@
     },
     {
       "key": {
+        "uuid": "22281009_0b764108",
+        "filename": "public/attributes",
+        "patchSetId": 7
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2018-11-06T12:47:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "840807cd_b55580c2",
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed0cbe4f_1e6f0490",
         "filename": "public/attributes",
         "patchSetId": 7
@@ -165,6 +321,24 @@
       "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "189d7f65_9da27ee7",
+        "filename": "public/attributes",
+        "patchSetId": 7
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2018-11-06T12:47:24Z",
+      "side": 1,
+      "message": "Yes, I plan to add an assertion in a future commit. This commit is to add the rules for heapprofd and make adbd profilable (just for testing purposes), the rest will follow in a followup.",
+      "parentUuid": "ed0cbe4f_1e6f0490",
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -202,6 +376,54 @@
       "writtenOn": "2018-11-05T17:42:53Z",
       "side": 1,
       "message": "Rather than introducing attributes, have you considered defining a macro for this? For example:\n\n  system/sepolicy/public/te_macros:\n\n  define(`can_profile_heap\u0027, `\n    userdebug_or_eng(`\n      unix_socket_connect($1, heapprofd, heapprofd)\n      allow heapprofd $1:file { read getattr };\n      allow heapprofd $1:process signal;\n    \u0027)\n  \u0027)\n\n  define(`never_profile_heap\u0027, `\n    neverallow heapprofd $1:file read;\n    neverallow heapprofd $1:process signal;\n  \u0027)\n\n\nIn a treble world, attributes are APIs that we need to unconditionally support for all of eternity. Using a macro avoids the use of an attribute and is more upgrade friendly.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 21
+      },
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dcc4e3b_9a876038",
+        "filename": "public/attributes",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2018-11-06T12:47:24Z",
+      "side": 1,
+      "message": "This was purposely so we can also use it for CPU sampling in the future. This is to mirror the isProfilable manifest flag that we added for Java apps. What do you think?",
+      "parentUuid": "a8da8720_08b80ecb",
+      "range": {
+        "startLine": 8,
+        "startChar": 10,
+        "endLine": 8,
+        "endChar": 20
+      },
+      "revId": "46da0bfa83fd2090c0b4806b9a9d75298d687efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11dd949d_cdf55111",
+        "filename": "public/attributes",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2018-11-06T12:47:24Z",
+      "side": 1,
+      "message": "Can you elaborate on \"unconditionally support\"? Does that mean the attribute must never go away? Can we turn it into a no-op in the future? \n\nHaving this an attribute makes the aforementioned assertion easier, correct?",
+      "parentUuid": "d4f8b4ea_fa11ee82",
       "range": {
         "startLine": 7,
         "startChar": 0,
