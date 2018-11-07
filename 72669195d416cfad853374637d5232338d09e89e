@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2289f6af_28185681",
+        "filename": "private/compat/26.0/26.0.ignore.cil",
+        "patchSetId": 8
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-11-07T23:49:07Z",
+      "side": 1,
+      "message": "You only need to make changes to 28.0.ignore.cil. Revert changes to 27.0.ignore.cil and 26.0.ignore.cil.",
+      "range": {
+        "startLine": 125,
+        "startChar": 4,
+        "endLine": 125,
+        "endChar": 17
+      },
+      "revId": "72669195d416cfad853374637d5232338d09e89e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f97d70f9_1ec61355",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-11-07T23:49:07Z",
+      "side": 1,
+      "message": "fyi, not all executables have exec_type attribute, e.g. /system/bin/iptables",
+      "range": {
+        "startLine": 23,
+        "startChar": 18,
+        "endLine": 23,
+        "endChar": 27
+      },
+      "revId": "72669195d416cfad853374637d5232338d09e89e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0efd7fad_3caf1580",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-11-07T23:49:07Z",
+      "side": 1,
+      "message": "You might want to use vendor_file_type instead.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 52
+      },
+      "revId": "72669195d416cfad853374637d5232338d09e89e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7664e5f4_97967280",
+        "filename": "public/domain.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-11-07T23:49:07Z",
+      "side": 1,
+      "message": "Two main concerns I have:\n1. We talked offline: you brought up the possibility of doing more work in the security context of heapprofd\u0027s client. So, for example, heapprofd needs to look at /vendor/lib/libfoo, which is used by vendor process foo. Can foo get what\u0027s needed from the lib and pass it to heapprofd? That way these neverallow exemptions are not needed. \n\n2. If you commit to a design that\u0027s userdebug only, it\u0027ll be extremely difficult to scale to user builds without architectural changes. So if you want to run heapprofd in the wild eventually, you might as well get that to work now.",
+      "range": {
+        "startLine": 998,
+        "startChar": 0,
+        "endLine": 998,
+        "endChar": 38
+      },
+      "revId": "72669195d416cfad853374637d5232338d09e89e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef3ab6ed_839d57a3",
+        "filename": "public/domain.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 1460,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-11-07T23:49:07Z",
+      "side": 1,
+      "message": "Put this in heapprofd.te with the rest of heapprofd neverallows.",
+      "range": {
+        "startLine": 1458,
+        "startChar": 0,
+        "endLine": 1460,
+        "endChar": 2
+      },
+      "revId": "72669195d416cfad853374637d5232338d09e89e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
