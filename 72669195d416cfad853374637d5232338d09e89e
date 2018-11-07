@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "4d9746df_c9815c14",
+        "filename": "public/domain.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2018-11-07T23:59:37Z",
+      "side": 1,
+      "message": "1. No, that\u0027s only for the fork model which we will use for user builds. We cannot use that for userdebug as it does not scale to profile multiple processes at once, which people like EngProd or platform developers will want to do.\n\nReinterating and summarizing the discussion for posterity here, on userdebug libheapprofd_client.so (part of the platform) is loaded by libc.so (platform the platform), which communicates to heapprofd (part of the platform). heapprofd reads the process\u0027 /proc/self/maps that it gets passed over the socket, and then libunwindstack uses information in the ELF files of the executable itself and the libraries it might have mounted.\n\nWhat is the reason that it accessing the files for that reason is a concern? I do not see any API here which might be a problem for updatability.\n\n2. The separate daemon is userdebug only. On user, we will fork and use the target processes\u0027 security domain. This is worse for many reasons, but the best we can do while maintaining the  necessary security on user builds. So these rules are inherently userdebug only.",
+      "parentUuid": "7664e5f4_97967280",
+      "range": {
+        "startLine": 998,
+        "startChar": 0,
+        "endLine": 998,
+        "endChar": 38
+      },
+      "revId": "72669195d416cfad853374637d5232338d09e89e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef3ab6ed_839d57a3",
         "filename": "public/domain.te",
         "patchSetId": 8
