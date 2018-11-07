@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b6b3171a_ac0baff6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1097853
+      },
+      "writtenOn": "2018-11-07T19:01:58Z",
+      "side": 1,
+      "message": "OK, a bit more context then.\n\nThe first use case for the GPU service is convenient querying of Vulkan capabilities _from the host_. You\u0027re correct in that everything we do here can be done by installing some device-side code on the device to collect the data -- it\u0027s just a bunch of work.\n\nThis (and the GL equivalent) have been persistent requests from external tool developers. They don\u0027t want to have to write device-side code and manage its lifetime just to figure out what else they want to do to the device.\n\nEventually we want to do some more interesting things that can\u0027t live in the app -- this service should end up being the central place for managing system-wide GPU perf / debugging capabilities, etc.",
+      "parentUuid": "e85966e4_e2d50835",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 78
+      },
+      "revId": "90bb455da54d97e804aa065d1edf102ca2d251f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "362748f0_fde62779",
         "filename": "private/gpuservice.te",
         "patchSetId": 6
