@@ -161,6 +161,9 @@ r_dir_file(adbd, apk_data_file)
 
 allow adbd rootfs:dir r_dir_perms;
 
+# Allow to pull Perfetto traces.
+r_dir_file(adbd, perfetto_traces_data_file);
+
 ###
 ### Neverallow rules
 ###
