@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "17bf0331_7fdf53ae",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2018-11-08T00:28:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0871f6ba_b9c6f687",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 18
+      },
+      "revId": "1fdc6392219c7eeb2442595237fe8c8a43f5a319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1373d4f7_7a1711f6",
         "filename": "private/gpuservice.te",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2018-11-07T19:18:41Z",
       "side": 1,
       "message": "Why are these needed? It doesn\u0027t seem like your service needs to talk to hwservicemanager.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "1fdc6392219c7eeb2442595237fe8c8a43f5a319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10522c7c_944de223",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2018-11-08T00:28:29Z",
+      "side": 1,
+      "message": "Binder:855_1: type\u003d1400 audit(0.0:19): avc: denied { read } for name\u003d\"u:object_r:hwservicemanager_prop:s0\" dev\u003d\"tmpfs\" ino\u003d19738 scontext\u003du:r:gpuservice:s0 tcontext\u003du:object_r:hwservicemanager_prop:s0 tclass\u003dfile permissive\u003d0\n\nI received the above error if I remove this line",
+      "parentUuid": "1373d4f7_7a1711f6",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "66fe894d_02de488b",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2018-11-08T00:28:29Z",
+      "side": 1,
+      "message": "Done\nmaybe, looks like I can remove this line",
+      "parentUuid": "34c80b0d_bdf6f9d3",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 41
+      },
+      "revId": "1fdc6392219c7eeb2442595237fe8c8a43f5a319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5abeb20f_7b5ec5fe",
         "filename": "private/gpuservice.te",
         "patchSetId": 9
@@ -91,6 +163,30 @@
       "revId": "1fdc6392219c7eeb2442595237fe8c8a43f5a319",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e0d353c_5d96f71b",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2018-11-08T00:28:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5abeb20f_7b5ec5fe",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 44
+      },
+      "revId": "1fdc6392219c7eeb2442595237fe8c8a43f5a319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
