@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ade7f213_dd5f163f",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-11-09T01:08:19Z",
+      "side": 1,
+      "message": "heapprofd is owned by platform, i.e. we control its behavior entirely. The limits of heapprofd are already defined by the whitelist of permissions we give it. These neverallow rules seem unnecessary.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 24
+      },
+      "revId": "8e10c63667a8fb8bf24727490e45dcb10baca06e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72163b02_2af865fa",
+        "filename": "public/attributes",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-11-09T01:08:19Z",
+      "side": 1,
+      "message": "What\u0027s the rationale behind this requirement? Why not maintain a whitelist only?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 75
+      },
+      "revId": "8e10c63667a8fb8bf24727490e45dcb10baca06e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a140a262_40d77c4b",
+        "filename": "public/attributes",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-11-09T01:08:19Z",
+      "side": 1,
+      "message": "Could you replace these with macros (see Nick\u0027s suggestion)? They are more upgrade-friendly. Macros are also easier to use since you can\u0027t apply attributes to other attributes.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 21
+      },
+      "revId": "8e10c63667a8fb8bf24727490e45dcb10baca06e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

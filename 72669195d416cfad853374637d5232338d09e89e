@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "97444d30_c469b2d6",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-11-09T01:08:19Z",
+      "side": 1,
+      "message": "\"exec_type\" is used for domain entry points. \nhttps://android.googlesource.com/platform/system/sepolicy/+/master/public/attributes#27\nIf a binary is not used for domain transitions, it doesn\u0027t have to have \"exec_type\" attribute. \n\nIt seems to me the only foolproof way to have access to all binaries on the device is to use \"file_type\" attribute (if security team is OK with that).",
+      "parentUuid": "3d5b5a84_d5a7ca95",
+      "range": {
+        "startLine": 23,
+        "startChar": 18,
+        "endLine": 23,
+        "endChar": 27
+      },
+      "revId": "72669195d416cfad853374637d5232338d09e89e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0efd7fad_3caf1580",
         "filename": "private/heapprofd.te",
         "patchSetId": 8
