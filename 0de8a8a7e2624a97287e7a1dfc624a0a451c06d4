@@ -111,6 +111,30 @@
       "revId": "0de8a8a7e2624a97287e7a1dfc624a0a451c06d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12a36e39_5bef5f42",
+        "filename": "private/apexd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-11T15:29:47Z",
+      "side": 1,
+      "message": "APK files are really sensitive files because they contain downloadable executable code, and the install process for APKs is already complicated enough without having to worry about other processes tweaking with the /data/app directory. \n\nAs a general rule, every directory should be owned by exactly one process, and the owner of /data/app is installd.",
+      "parentUuid": "00e52b41_ade8ad58",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 0
+      },
+      "revId": "0de8a8a7e2624a97287e7a1dfc624a0a451c06d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
