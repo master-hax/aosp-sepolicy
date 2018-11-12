@@ -183,6 +183,30 @@
       "revId": "0de8a8a7e2624a97287e7a1dfc624a0a451c06d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c79c550_df183799",
+        "filename": "private/apexd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-12T20:23:07Z",
+      "side": 1,
+      "message": "Package manager should pass a file descriptor to apexd so that apexd could copy the file itself. It seems like the code is passing files by name, not by file descriptor.  If you have the file descriptor then it\u0027s straight forward to copy the contents of the file.",
+      "parentUuid": "b4f41fa7_c06a9f16",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 0
+      },
+      "revId": "0de8a8a7e2624a97287e7a1dfc624a0a451c06d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
