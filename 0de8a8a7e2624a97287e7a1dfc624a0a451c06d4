@@ -159,6 +159,30 @@
       "revId": "0de8a8a7e2624a97287e7a1dfc624a0a451c06d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4f41fa7_c06a9f16",
+        "filename": "private/apexd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2018-11-12T19:42:19Z",
+      "side": 1,
+      "message": "it turns out the write/remove permission in apk_data_file wasn\u0027t needed (I got the suggestion from audit2allow, sorry for not trying to restrict further).\n\nI left only the search permission on apk_data_file, since that seems to be needed. The write permission on apk_tmp_file is to allow apexd to move files to its own directory instead of copying, to avoid waste of space. I could hardlink instead, and let PackageInstaller clear apk_tmp_file:dir at the end of the session, but the problem would then be that the package file owner would be system:system, whereas apexd is running as root:system.\n\nNote that we\u0027re trying to avoid granting dac_override, so apexd won\u0027t likely be able to change owner of the file.",
+      "parentUuid": "655d35f2_acb20616",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 0
+      },
+      "revId": "0de8a8a7e2624a97287e7a1dfc624a0a451c06d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
