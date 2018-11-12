@@ -231,6 +231,30 @@
       "revId": "0de8a8a7e2624a97287e7a1dfc624a0a451c06d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3092e87_e1c82e5c",
+        "filename": "private/apexd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2018-11-12T21:34:27Z",
+      "side": 1,
+      "message": "What Andreas said :) We have a slight preference for moving or to the very least hardlinking (see my remark above about hardlinks), to avoid unnecessary waste of space. This is the reason why this is not a copy. What are the security concerns with this approach? I guess if the \"write\" permission on apk_tmp_file:dir is a problem I could test the hardlink approach, which would only require read.",
+      "parentUuid": "4b5994b0_3fd17a0a",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 0
+      },
+      "revId": "0de8a8a7e2624a97287e7a1dfc624a0a451c06d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
