@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "e9865619_ef8d0a92",
+        "filename": "public/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-12T20:31:53Z",
+      "side": 1,
+      "message": "This feels overly broad. If this is only used by ART related processes, it feels like it should be limited to ART using processes.",
+      "revId": "aff18ad512e1c9ecf063359ca0822eabb5492c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd5927fb_690d20b7",
         "filename": "public/property_contexts",
         "patchSetId": 5
@@ -13,6 +30,23 @@
       "writtenOn": "2018-11-12T18:48:01Z",
       "side": 1,
       "message": "This list is meant to be alphabetized.",
+      "revId": "aff18ad512e1c9ecf063359ca0822eabb5492c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8457980a_331eac8a",
+        "filename": "public/property_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-12T20:31:53Z",
+      "side": 1,
+      "message": "exported_default_prop is exported to every processes, which feels overly broad. Why was the decision made to reuse this label vs creating a new label?\n\nIn particular, are the properties considered the source of truth, or is the /dev//dev/cpu_variant: files the source of truth? Why export it to both locations?",
       "revId": "aff18ad512e1c9ecf063359ca0822eabb5492c4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
