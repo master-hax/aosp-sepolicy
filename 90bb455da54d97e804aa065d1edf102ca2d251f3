@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "24457142_f899a02b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-13T23:26:19Z",
+      "side": 1,
+      "message": "1) Can you please make sure you talk to the system health team? Running a persistent service all the time takes away RAM which could be used by other processes. Keeping the service around purely for the incredibly rare host-side request feels like a poor use of RAM. Keeping this functionality within client-side APKs would avoid the persistent RAM usage.\n\n2) system wide GPU debugging on production builds has security implications. In particular, it has the potential of compromising the confidentiality or integrity of graphics data between the user and the application. When these plans progress further, please make sure to contact your local security reviewer.",
+      "parentUuid": "f35613fe_bacfecbe",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 78
+      },
+      "revId": "90bb455da54d97e804aa065d1edf102ca2d251f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "362748f0_fde62779",
         "filename": "private/gpuservice.te",
         "patchSetId": 6
