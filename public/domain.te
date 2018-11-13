@@ -1488,6 +1488,7 @@ neverallow ~dac_override_allowed self:global_capability_class_set dac_override;
 neverallow ~{
   dac_override_allowed
   traced_probes
+  userdebug_or_eng(`heapprofd')
 } self:global_capability_class_set dac_read_search;
 
 # If an already existing file is opened with O_CREAT, the kernel might generate

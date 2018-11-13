@@ -7,7 +7,9 @@ userdebug_or_eng(`
   # Allow to send signal to processes.
   # This excludes SIGKILL, SIGSTOP and SIGCHLD,
   # which are controlled by separate permissions.
-  allow heapprofd self:capability kill;
+  #
+  # We need DAC_READ_SEARCH.
+  allow heapprofd self:capability { kill dac_read_search };
 
   # Executables and libraries.
   # These are needed to read the ELF binary data needed for unwinding.
