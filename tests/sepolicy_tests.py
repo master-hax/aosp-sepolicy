@@ -20,7 +20,8 @@ def TestProcTypeViolations(pol):
 def TestSysfsTypeViolations(pol):
     ret = pol.AssertGenfsFilesystemTypesHaveAttr("sysfs", "sysfs_type")
     ret += pol.AssertPathTypesHaveAttr(["/sys/"], ["/sys/kernel/debug/",
-                                    "/sys/kernel/tracing"], "sysfs_type")
+                                    "/sys/kernel/tracing",
+                                    "/sys/ucontainer"], "sysfs_type")
     return ret
 
 def TestDebugfsTypeViolations(pol):

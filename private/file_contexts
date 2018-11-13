@@ -18,6 +18,7 @@
 /init               u:object_r:init_exec:s0
 /system/bin/init    u:object_r:init_exec:s0
 /sbin(/.*)?         u:object_r:rootfs:s0
+/sys/ucontainer     u:object_r:rootfs:s0
 
 # For kernel modules
 /lib(/.*)?          u:object_r:rootfs:s0
