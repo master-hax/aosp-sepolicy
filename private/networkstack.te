@@ -1,0 +1,23 @@
+# Networking service app
+typeattribute networkstack coredomain;
+typeattribute networkstack mlstrustedobject;
+
+app_domain(networkstack);
+net_domain(networkstack);
+
+allow networkstack self:global_capability_class_set {
+    net_admin
+    net_bind_service
+    net_raw
+};
+
+# Allow access to net_admin ioctl, DHCP server uses SIOCSARP
+allowxperm networkstack self:udp_socket ioctl priv_sock_ioctls;
+
+allow networkstack self:packet_socket create_socket_perms_no_ioctl;
+allow networkstack activity_service:service_manager find;
+allow networkstack netd_service:service_manager find;
+allow networkstack wifi_service:service_manager find;
+allow networkstack connmetrics_service:service_manager find;
+
+binder_call(networkstack, { netd });
