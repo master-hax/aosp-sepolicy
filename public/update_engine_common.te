@@ -64,3 +64,7 @@ allow update_engine_common dm_device:blk_file rw_file_perms;
 
 # read / write metadata on super device to resize partitions
 allow update_engine_common super_block_device:blk_file rw_file_perms;
+
+# read / write metadata on system device to resize partitions for
+# devices retrofitting dynamic partitions
+allow update_engine_common system_block_device:blk_file rw_file_perms;
