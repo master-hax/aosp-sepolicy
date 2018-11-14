@@ -1,0 +1,22 @@
+# ConnectivityService app
+typeattribute connectivityservice coredomain;
+typeattribute connectivityservice mlstrustedobject;
+
+app_domain(connectivityservice);
+net_domain(connectivityservice);
+
+#add_service(connectivityservice, connservice_service);
+
+allow connectivityservice self:global_capability_class_set {
+    net_admin
+    net_bind_service
+    net_raw
+};
+
+allow connectivityservice self:packet_socket create_socket_perms_no_ioctl;
+allow connectivityservice activity_service:service_manager find;
+allow connectivityservice netd_service:service_manager find;
+allow connectivityservice wifi_service:service_manager find;
+allow connectivityservice connmetrics_service:service_manager find;
+
+binder_call(connectivityservice, { netd });
