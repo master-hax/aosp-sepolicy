@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d84d2721_1d0b8af1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-14T22:59:57Z",
+      "side": 1,
+      "message": "rw was already allowed, so no need to mention.\n\nupdate_engine: allow ioctl on system_block_device / super_block_device",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "6187945e4e91d0a6f4d214957a5ad6cc490aa981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c33afcb_bbc62c34",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-14T22:59:57Z",
+      "side": 1,
+      "message": "can you please expand on the commit message, and indicate what exactly BLKIOMIN and BLKALIGNOFF do and why they\u0027re needed?",
+      "revId": "6187945e4e91d0a6f4d214957a5ad6cc490aa981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "837ec58d_73d375e2",
+        "filename": "public/update_engine_common.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-14T22:59:57Z",
+      "side": 1,
+      "message": "BLKIOMIN appears to set a minimum IO size, so this is more than just querying device information.\n\nSimilarly, BLKALIGNOFF seems to turn off alignment on block devices, which is a mutate operation.\n\nCan you update the comment to be more accurate?",
+      "range": {
+        "startLine": 68,
+        "startChar": 24,
+        "endLine": 68,
+        "endChar": 55
+      },
+      "revId": "6187945e4e91d0a6f4d214957a5ad6cc490aa981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
