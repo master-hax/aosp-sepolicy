@@ -1,0 +1,20 @@
+# Networking service app
+typeattribute networking_service coredomain;
+typeattribute networking_service mlstrustedobject;
+
+app_domain(networking_service);
+net_domain(networking_service);
+
+allow networking_service self:global_capability_class_set {
+    net_admin
+    net_bind_service
+    net_raw
+};
+
+allow networking_service self:packet_socket create_socket_perms_no_ioctl;
+allow networking_service activity_service:service_manager find;
+allow networking_service netd_service:service_manager find;
+allow networking_service wifi_service:service_manager find;
+allow networking_service connmetrics_service:service_manager find;
+
+binder_call(networking_service, { netd });
