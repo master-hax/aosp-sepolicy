@@ -22,6 +22,30 @@
       "revId": "631955649f41108ea3f5f959f18358662589b1d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1f1f69f_9575152b",
+        "filename": "public/property.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2018-11-15T12:18:28Z",
+      "side": 1,
+      "message": "Yes, this is only to communicate from heapprofd to libc upon startup.\n\nWe need multiple properties, see also the other CL in this topic. We set\n\nheapprofd.enable 1\nheapprofd.enable.ls 1\n\nto enable startup profiling of ls. This is to deal with the very limited property value limit, so we need one property per program we want to profile from startup.",
+      "parentUuid": "f692c7a6_ebff7757",
+      "range": {
+        "startLine": 397,
+        "startChar": 5,
+        "endLine": 397,
+        "endChar": 19
+      },
+      "revId": "631955649f41108ea3f5f959f18358662589b1d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
