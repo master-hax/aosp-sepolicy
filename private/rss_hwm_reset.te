@@ -1,0 +1,9 @@
+type rss_hwm_reset_exec, system_file_type, exec_type, file_type;
+
+init_daemon_domain(rss_hwm_reset)
+
+r_dir_file(rss_hwm_reset, domain)
+
+allow rss_hwm_reset self:global_capability_class_set { dac_override };
+
+allow rss_hwm_reset domain:file write;
