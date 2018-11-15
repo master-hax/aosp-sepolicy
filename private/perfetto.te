@@ -20,12 +20,18 @@ binder_use(perfetto)
 binder_call(perfetto, system_server)
 allow perfetto dropbox_service:service_manager find;
 
-# Allow statsd and shell to pipe the trace config to perfetto on stdin and to
-# print out on stdout/stderr.
+# Allow statsd, traceur, shell (both root and non-root) to pipe the
+# trace config to perfetto on stdin and to print out on stdout/stderr.
 allow perfetto statsd:fd use;
 allow perfetto statsd:fifo_file { getattr read write };
 allow perfetto shell:fd use;
 allow perfetto shell:fifo_file { getattr read write };
+allow perfetto su:fd use;
+allow perfetto su:fifo_file { getattr read write };
+allow perfetto su:fd use;
+allow perfetto su:fifo_file { getattr read write };
+allow perfetto traceur_app:fd use;
+allow perfetto traceur_app:fifo_file { getattr read write };
 
 # Allow to communicate use, read and write over the adb connection.
 allow perfetto adbd:fd use;
