@@ -22,6 +22,30 @@
       "revId": "f18baca41f542d921fd31fb91fade8295b22b3ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0497dc95_983eeeda",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-11-16T10:11:09Z",
+      "side": 1,
+      "message": "Hmm, let me check again.\n\nThe selinux denial that I got was this:\n\n[   15.727557] c0    579 type\u003d1400 audit(1542353378.691:8): avc: denied { getattr } for comm\u003d\"surfaceflinger\" path\u003d\"/apex\" dev\u003d\"tmpfs\" ino\u003d10104 scontext\u003du:r:surfaceflinger:s0 tcontext\u003du:object_r:apex_mnt_dir:s0 tclass\u003ddir permissive\u003d0",
+      "parentUuid": "97f2bbc1_a238113c",
+      "range": {
+        "startLine": 331,
+        "startChar": 26,
+        "endLine": 331,
+        "endChar": 29
+      },
+      "revId": "f18baca41f542d921fd31fb91fade8295b22b3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
