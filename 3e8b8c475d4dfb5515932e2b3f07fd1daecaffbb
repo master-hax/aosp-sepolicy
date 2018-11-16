@@ -46,6 +46,30 @@
       "revId": "3e8b8c475d4dfb5515932e2b3f07fd1daecaffbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73b39cdb_49f9f49b",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-16T15:12:43Z",
+      "side": 1,
+      "message": "SELinux labels are attached to individual file descriptors, as well as the object the object the file descriptor points to. The file descriptor label is determined by the label of the process creating the file descriptor, eg, if a process labeled traced_probes creates file descriptors, then the file descriptor label is also traced_probes.\n\nWhen a process execve()s another process, file descriptors are transferred from parent to child at execve() time, before the child process ever starts running. Two permission checks are performed:\n\n1) Does the child have permission to use file descriptors created by the process?\n2) Does the child have permission to access the object pointed to by the file descriptor?\n\nIf the child isn\u0027t authorized to handle the file descriptor, the file descriptor is replaced by a file descriptor to /sys/fs/selinux/null (same as /dev/null).\n\nIn the above case, path\u003d\"/system/bin/linker64\" is technically correct. At the time the file descriptor is transferred, the child process isn\u0027t yet running, and the entrypoint for the process is the dynamic linker.",
+      "parentUuid": "91d3c98d_60436f3a",
+      "range": {
+        "startLine": 59,
+        "startChar": 49,
+        "endLine": 60,
+        "endChar": 0
+      },
+      "revId": "3e8b8c475d4dfb5515932e2b3f07fd1daecaffbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
