@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85b99f2f_e66b3848",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2018-11-16T14:05:58Z",
+      "side": 1,
+      "message": "I don\u0027t think this comment is right, since linker64 won\u0027t have the traced_probes label. And you don\u0027t need to include the denial in the comment anyway.\nI\u0027m not sure what it was needed for before, but I believe you now need it to allow atrace to inherit the fd for stderr.\nAlso: This rule should be in atrace.te not traced_probes.te, probably next to the one you\u0027re just adding.",
+      "range": {
+        "startLine": 59,
+        "startChar": 49,
+        "endLine": 60,
+        "endChar": 0
+      },
+      "revId": "3e8b8c475d4dfb5515932e2b3f07fd1daecaffbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
