@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97f2bbc1_a238113c",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-16T09:58:48Z",
+      "side": 1,
+      "message": "wait, is this right?\n\nhttps://android.googlesource.com/platform/bionic/+/3de3a5faaf34bd3a1b6469988eb2975038074ec2/linker/linker.cpp#3743 uses file_exists(). The function file_exists() checks explicitly that the entry IS NOT a directory (see https://android.googlesource.com/platform/bionic/+/3de3a5faaf34bd3a1b6469988eb2975038074ec2/linker/linker.cpp#144).\n\nSo it seems like allowing this stat operation on a directory is always an error, no?",
+      "range": {
+        "startLine": 331,
+        "startChar": 26,
+        "endLine": 331,
+        "endChar": 29
+      },
+      "revId": "f18baca41f542d921fd31fb91fade8295b22b3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
