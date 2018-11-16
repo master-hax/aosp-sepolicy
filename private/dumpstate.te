@@ -29,7 +29,7 @@ binder_call(dumpstate, storaged)
 binder_call(dumpstate, statsd)
 
 # Allow dumpstate to talk to gpuservice over binder
-binder_call(dumpstate, gpuservice);
+binder_call(dumpstate, gpu);
 
 # Collect metrics on boot time created by init
 get_prop(dumpstate, boottime_prop)

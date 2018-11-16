@@ -174,7 +174,7 @@ unix_socket_send(system_server, statsdw, statsd)
 # Communicate over a socket created by surfaceflinger.
 allow system_server surfaceflinger:unix_stream_socket { read write setopt };
 
-allow system_server gpuservice:unix_stream_socket { read write setopt };
+allow system_server gpu:unix_stream_socket { read write setopt };
 
 # Communicate over a socket created by webview_zygote.
 allow system_server webview_zygote:unix_stream_socket { read write connectto setopt };
@@ -258,7 +258,7 @@ allow system_server {
   audioserver
   cameraserver
   drmserver
-  gpuservice
+  gpu
   inputflinger
   mediadrmserver
   mediaextractor

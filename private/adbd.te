@@ -98,7 +98,7 @@ allow adbd system_file:file rx_file_perms;
 # XXX Run screencap in a separate domain?
 binder_use(adbd)
 binder_call(adbd, surfaceflinger)
-binder_call(adbd, gpuservice)
+binder_call(adbd, gpu)
 # b/13188914
 allow adbd gpu_device:chr_file rw_file_perms;
 allow adbd ion_device:chr_file rw_file_perms;
