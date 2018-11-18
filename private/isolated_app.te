@@ -23,6 +23,8 @@ allow isolated_app webviewupdate_service:service_manager find;
 # b/20150694
 # https://code.google.com/p/chromium/issues/detail?id=475270
 allow isolated_app self:process ptrace;
+# Evaluate for removal (b/119729365)
+userdebug_or_eng(`auditallow isolated_app self:process ptrace;')
 
 # b/32896414: Allow accessing sdcard file descriptors passed to isolated_apps
 # by other processes. Open should never be allowed, and is blocked by
