@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49ddcbfa_78845af3",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-19T23:32:34Z",
+      "side": 1,
+      "message": "auditallow doesn\u0027t do what you think it does. An auditallow statement just says, IF the operation is allowed, then audit it. It doesn\u0027t allow the operation.\n\nYou need to have both an allow rule and an auditallow rule. The allow rule grants access, and the auditallow rule logs the granted access.\n\n  allow untrusted_app_25 dex2oat_exec:file rx_file_perms;\n  auditallow untrusted_app_25 dex2oat_exec:file rx_file_perms;",
+      "revId": "b7d4fd9dff28fa0b14b374694e77465d1564289d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fafbba7_9cbf874f",
+        "filename": "private/untrusted_app_27.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-19T23:32:34Z",
+      "side": 1,
+      "message": "see comment in untrusted_app_25",
+      "revId": "b7d4fd9dff28fa0b14b374694e77465d1564289d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
