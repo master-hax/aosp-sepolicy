@@ -279,6 +279,30 @@
       "revId": "0de8a8a7e2624a97287e7a1dfc624a0a451c06d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61f51581_b57eeeed",
+        "filename": "private/apexd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-19T16:11:10Z",
+      "side": 1,
+      "message": "I\u0027d prefer the hardlinking approach too. Even if you do this, directory access isn\u0027t necessary. You\u0027d still pass the file descriptor, then use linkat(AT_EMPTY_PATH) to link the file descriptor into whatever directory you need. (https://lwn.net/Articles/562488/, https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id\u003dbb2314b47996491bbc5add73633905c3120b6268). Directory search access isn\u0027t required.",
+      "parentUuid": "5583e8bb_01924859",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 0
+      },
+      "revId": "0de8a8a7e2624a97287e7a1dfc624a0a451c06d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
