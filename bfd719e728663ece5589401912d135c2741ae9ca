@@ -46,6 +46,30 @@
       "revId": "bfd719e728663ece5589401912d135c2741ae9ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "177d8725_11f4b124",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-19T22:42:51Z",
+      "side": 1,
+      "message": "Can you share more details about this (either here or on the bug)? We should make sure to find the best solution, and we are actively trying to trim this list down. An exception for userdebug/eng only is also especially dangerous because it could introduce failures on user devices if someone accidentally relies on this behavior.\n\nSpecifically, I don\u0027t understand: can this debug tool be run as root? if the service is being added as domain, then shouldn\u0027t this be \u0027domain can run logcat\u0027 as a test? what command are you sending to logcat, what is aplog (https://www.symantec.com/security-center/writeup/2012-100911-1023-99?), where on the filesystem is it being put (system or vendor), and what needs to read it from the filesystem?",
+      "parentUuid": "7385b7a8_a41782b0",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 32
+      },
+      "revId": "bfd719e728663ece5589401912d135c2741ae9ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
