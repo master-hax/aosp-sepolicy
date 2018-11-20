@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b881b2f3_13e57cd0",
+        "filename": "public/flags_heatlh_check.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-20T19:31:25Z",
+      "side": 1,
+      "message": "for robustness, you probably want:\n\n  rw_dir_perms\n\nrw_dir_perms, defined in system/sepolicy/public/global_macros, allows you to add *and delete* entries into the directory, as well as other common directory operations such as being able to run stat() on the directory, or perform advisory locking on the directory. \n\nIn particular, the rules you have only allow adding files to the directory, not deleting files.",
+      "range": {
+        "startLine": 12,
+        "startChar": 65,
+        "endLine": 12,
+        "endChar": 90
+      },
+      "revId": "b5edd81adc3eff4da4f5f1e9f62b3b5302e15ff0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
