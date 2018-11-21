@@ -13,3 +13,6 @@ domain_auto_trans(netd, bpfloader_exec, bpfloader)
 
 # give netd permission to setup iptables rule with xt_bpf
 allow netd bpfloader:bpf prog_run;
+
+# Allow netd to write to statsd.
+unix_socket_send(netd, statsdw, statsd)
