@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "642771fa_f539e1a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1059499
+      },
+      "writtenOn": "2018-11-21T18:31:04Z",
+      "side": 1,
+      "message": "SELinux policy for new managed system update APIs\n\nWe introduced a new API to allow Device Owner to install an OTA file on disk.\nThis in turn requires system_server to be able to copy the OTA file to a known\nOTA file location, call into update_engine to start the installation and let\nupdate_engine to call back to the system_server to deliver any error conditions\nasynchronously. This CL modifies the SELinux policy to allow these interaction.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 22
+      },
+      "revId": "92a481cd1c2fb8ba7501db68e25f5a60cc6b91fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
