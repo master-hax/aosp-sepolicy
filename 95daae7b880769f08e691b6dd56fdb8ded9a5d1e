@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "0a802cb9_c68697f1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-21T23:18:51Z",
+      "side": 1,
+      "message": "We probably don\u0027t want to do this. OTAs can be very large, and instead, it would be better to pass this data via file descriptors instead of creating multiple copies.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "95daae7b880769f08e691b6dd56fdb8ded9a5d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e268391_6af54301",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-21T23:18:51Z",
+      "side": 1,
+      "message": "I don\u0027t see a security review associated with that bug. Can you please point to the security review bug?",
+      "revId": "95daae7b880769f08e691b6dd56fdb8ded9a5d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8eac013d_d7fb314a",
         "filename": "private/system_server.te",
         "patchSetId": 2
@@ -13,6 +53,29 @@
       "writtenOn": "2018-11-21T22:53:11Z",
       "side": 1,
       "message": "Can you put thus in public/update_engine.te insteaad of here?  You can also add a comment to it like the one for the binder_call(update_engine, priv_app) rule.",
+      "revId": "95daae7b880769f08e691b6dd56fdb8ded9a5d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19775ca6_62cbb72e",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-21T23:18:51Z",
+      "side": 1,
+      "message": "currently only priv-apps are allowed to write directly to this location. As a general rule, each directory should have exactly one owner, to avoid multiple writers clobbering each file.\n\nIf system_server is going to be the exclusive manager of this directory, how do you plan on updating the API we make available to priv-apps to avoid this conflict?",
+      "range": {
+        "startLine": 349,
+        "startChar": 0,
+        "endLine": 352,
+        "endChar": 0
+      },
       "revId": "95daae7b880769f08e691b6dd56fdb8ded9a5d1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
