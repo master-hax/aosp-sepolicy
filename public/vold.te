@@ -12,6 +12,7 @@ r_dir_file(vold, { sysfs_type -sysfs_batteryinfo })
 allow vold sysfs:file w_file_perms; # writing to /sys/*/uevent during coldboot.
 allow vold sysfs_dm:file w_file_perms;
 allow vold sysfs_usb:file w_file_perms;
+allow vold sysfs_zram:file w_file_perms;
 allow vold sysfs_zram_uevent:file w_file_perms;
 
 r_dir_file(vold, rootfs)
