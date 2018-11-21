@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c5d77d0f_faa51e07",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1059499
+      },
+      "writtenOn": "2018-11-21T23:50:09Z",
+      "side": 1,
+      "message": "This is needed because for non-AB devices, the recovery system responsible for applying the OTA will expect the OTA to live inside a particular location (that\u0027s mountable by recovery). And since this happens after a reboot, passing a fd isn\u0027t really an option.",
+      "parentUuid": "0a802cb9_c68697f1",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "95daae7b880769f08e691b6dd56fdb8ded9a5d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0e268391_6af54301",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2018-11-21T23:18:51Z",
       "side": 1,
       "message": "I don\u0027t see a security review associated with that bug. Can you please point to the security review bug?",
+      "revId": "95daae7b880769f08e691b6dd56fdb8ded9a5d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7653e0c5_544005a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1059499
+      },
+      "writtenOn": "2018-11-21T23:50:09Z",
+      "side": 1,
+      "message": "Looks like this is the wrong bug. The real feature bug is b/111173669 and the corresponding security review bug is b/117492208.",
+      "parentUuid": "0e268391_6af54301",
       "revId": "95daae7b880769f08e691b6dd56fdb8ded9a5d1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
