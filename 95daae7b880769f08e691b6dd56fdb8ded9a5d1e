@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b47e2849_3e844f63",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1399318
+      },
+      "writtenOn": "2018-11-21T23:55:42Z",
+      "side": 1,
+      "message": "OTA file needs to be in data/ota_package which is not accesible by user. We\u0027re doing copying and installing an update in separate thread we don\u0027t block the caller.",
+      "parentUuid": "0a802cb9_c68697f1",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "95daae7b880769f08e691b6dd56fdb8ded9a5d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0e268391_6af54301",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -84,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "db518559_965997b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1399318
+      },
+      "writtenOn": "2018-11-21T23:55:42Z",
+      "side": 1,
+      "message": "https://b.corp.google.com/issues/111173669 it\u0027s been confirmed here and this is official one: https://buganizer.corp.google.com/issues/117492208",
+      "parentUuid": "0e268391_6af54301",
+      "revId": "95daae7b880769f08e691b6dd56fdb8ded9a5d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8eac013d_d7fb314a",
         "filename": "private/system_server.te",
         "patchSetId": 2
@@ -101,6 +143,24 @@
     },
     {
       "key": {
+        "uuid": "4c79ad51_5e0685ba",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1399318
+      },
+      "writtenOn": "2018-11-21T23:55:42Z",
+      "side": 1,
+      "message": "I can do it tomorrow frm my workstation.",
+      "parentUuid": "8eac013d_d7fb314a",
+      "revId": "95daae7b880769f08e691b6dd56fdb8ded9a5d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "19775ca6_62cbb72e",
         "filename": "private/system_server.te",
         "patchSetId": 2
@@ -112,6 +172,30 @@
       "writtenOn": "2018-11-21T23:18:51Z",
       "side": 1,
       "message": "currently only priv-apps are allowed to write directly to this location. As a general rule, each directory should have exactly one owner, to avoid multiple writers clobbering each file.\n\nIf system_server is going to be the exclusive manager of this directory, how do you plan on updating the API we make available to priv-apps to avoid this conflict?",
+      "range": {
+        "startLine": 349,
+        "startChar": 0,
+        "endLine": 352,
+        "endChar": 0
+      },
+      "revId": "95daae7b880769f08e691b6dd56fdb8ded9a5d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9f591b4_eec350b1",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1399318
+      },
+      "writtenOn": "2018-11-21T23:55:42Z",
+      "side": 1,
+      "message": "I\u0027m not quite understand your question. But our API for installing an update from file will be called only from device owner (we have a check for that). These permissions are because system server has to be able to copy file from internal app storage to ota_package where it needs to be because of update APIs.",
+      "parentUuid": "19775ca6_62cbb72e",
       "range": {
         "startLine": 349,
         "startChar": 0,
