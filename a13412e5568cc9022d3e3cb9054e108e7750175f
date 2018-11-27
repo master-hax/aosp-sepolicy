@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ff6df686_0c23d26c",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-27T23:47:57Z",
+      "side": 1,
+      "message": "Can you elaborate on this more? Line 336 atomically moves this file into it\u0027s final location if all the preceding steps in the build succeed. There should never be a scenario where this block succeeds and $@ isn\u0027t populated.\n\nI have tested this change with a clean build and no obvious problems.",
+      "parentUuid": "b6b57085_32059e36",
+      "range": {
+        "startLine": 332,
+        "startChar": 19,
+        "endLine": 332,
+        "endChar": 25
+      },
+      "revId": "a13412e5568cc9022d3e3cb9054e108e7750175f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "27f06346_b9fd3014",
         "filename": "Android.mk",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "a13412e5568cc9022d3e3cb9054e108e7750175f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c121dacb_ef797b5d",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-27T23:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27f06346_b9fd3014",
+      "range": {
+        "startLine": 333,
+        "startChar": 1,
+        "endLine": 333,
+        "endChar": 95
+      },
+      "revId": "a13412e5568cc9022d3e3cb9054e108e7750175f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
