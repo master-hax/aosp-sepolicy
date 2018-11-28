@@ -16,7 +16,7 @@ allow bpfloader netd:fd use;
 # Use pinned bpf map files from netd.
 allow bpfloader self:bpf { prog_load prog_run map_read map_write map_create };
 
-dontaudit bpfloader self:global_capability_class_set sys_admin;
+allow bpfloader self:global_capability_class_set sys_admin;
 
 ###
 ### Neverallow rules
