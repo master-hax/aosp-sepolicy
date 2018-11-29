@@ -34,6 +34,24 @@
       "revId": "3dad3ccb80d2fb43840d7f13607a1a98355a7fa5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3f8d552_6acb2695",
+        "filename": "prebuilts/api/28.0/public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2018-11-29T05:38:24Z",
+      "side": 1,
+      "message": "We need to change this, otherwise, it leads to build failure. (because it files under prebuilts/* will be different).\n\nThere is probably no \"single prebuilt sepolicy files\" for 28.0.\nThe version might be different per branch. (not ideal but seems no better solution now).\n\nOr maybe the change in CTS branch suffice now?\nhttps://android-review.googlesource.com/c/platform/system/sepolicy/+/735889",
+      "parentUuid": "c95b5fc0_3075f7dc",
+      "revId": "3dad3ccb80d2fb43840d7f13607a1a98355a7fa5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
