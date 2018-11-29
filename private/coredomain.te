@@ -169,12 +169,10 @@ full_treble_only(`
   }{ usbfs binfmt_miscfs }:file no_rw_file_perms;
 ')
 
-# Following /dev nodes must not be directly accessed by coredomain after Treble,
-# but should instead be wrapped by HALs.
-full_treble_only(`
-  neverallow coredomain {
-    iio_device
-    radio_device
-    tee_device
-  }:chr_file { open read append write ioctl };
-')
+# Following /dev nodes must not be directly accessed by coredomain, but should
+# instead be wrapped by HALs.
+neverallow coredomain {
+  iio_device
+  radio_device
+  tee_device
+}:chr_file { open read append write ioctl };
