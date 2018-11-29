@@ -16,6 +16,24 @@
       "revId": "3dad3ccb80d2fb43840d7f13607a1a98355a7fa5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15c0a15a_d2ba0a9f",
+        "filename": "prebuilts/api/28.0/public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-11-29T05:34:19Z",
+      "side": 1,
+      "message": "No, this is not good. Changing sepolicy (not just the prebuilts) is undesirable since it fragments sepolicy across different P branches in a manner that might make GSI boot on some devices but not others.\n\nI introduced the whole prebuilts and sepolicy-freezing mechanism to make sure that no sepolicy change is made after some freeze point (and consequently, no GSI or CTS breaking change can be made). However, in practice we backport a lot of changes for partners, so the whole prebuilt thing is not very useful. In this particular case, a change to a neverallow rule can\u0027t affect runtime behavior of GSI, and CTS already has the change. Assuming we only care about GSI and CTS, I think this change is \"safe\".\n\nI imagine that moving forward we should get rid of these prebuilts that freeze the whole sepolicy and instead introduce a more clever freezing policy (e.g. only disallow adding new types) since we really only need to guard against GSI and CTS breaking changes.",
+      "parentUuid": "c95b5fc0_3075f7dc",
+      "revId": "3dad3ccb80d2fb43840d7f13607a1a98355a7fa5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
