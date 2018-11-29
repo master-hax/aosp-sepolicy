@@ -581,3 +581,7 @@
 #############################
 # mount point for read-write product partitions
 /mnt/product(/.*)?          u:object_r:mnt_product_file:s0
+
+#############################
+# kernel coverage guided fuzzing in userdebug
+/sys/kernel/debug/kcov	    u:object_r:debugfs_kcov:s0
