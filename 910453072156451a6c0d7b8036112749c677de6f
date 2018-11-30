@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcc8370e_7276a2cc",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-30T01:05:53Z",
+      "side": 1,
+      "message": "I\u0027d recommend writing this as:\n\n  neverallow all_untrusted_apps { debugfs_type -debugfs_kcov }:file read;\n  neverallow { all_untrusted_apps userdebug_or_eng(`-domain\u0027) } debugfs_kcov:file read;\n\nThis continues to enforce the debugfs rule for all build type, but excludes the particular file you care about.",
+      "revId": "910453072156451a6c0d7b8036112749c677de6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1df01414_2bb832ef",
+        "filename": "private/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-30T01:05:53Z",
+      "side": 1,
+      "message": "data_file_type is for files on the /data partition. This file does not exist on the /data partition so the data_file_type attribute should be removed.",
+      "range": {
+        "startLine": 14,
+        "startChar": 30,
+        "endLine": 14,
+        "endChar": 44
+      },
+      "revId": "910453072156451a6c0d7b8036112749c677de6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55368c1e_d70e8bce",
+        "filename": "private/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-30T01:05:53Z",
+      "side": 1,
+      "message": "for files on debugfs, we use fs_type instead of file_type.",
+      "range": {
+        "startLine": 14,
+        "startChar": 19,
+        "endLine": 14,
+        "endChar": 28
+      },
+      "revId": "910453072156451a6c0d7b8036112749c677de6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b345274_2deaf49b",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-30T01:05:53Z",
+      "side": 1,
+      "message": "Please use genfs for labeling this file, rather than file_contexts labeling. See the debugfs entries in https://android.googlesource.com/platform/system/sepolicy/+/master/private/genfs_contexts",
+      "revId": "910453072156451a6c0d7b8036112749c677de6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01dfc9c5_85f2edd8",
+        "filename": "private/untrusted_app_all.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-11-30T01:05:53Z",
+      "side": 1,
+      "message": "This macro is only used in one place, here. \n\nI would just inline this:\n\n  allowxperm untrusted_app_all debugfs_kcov:file ioctl { KCOV_INIT_TRACE KCOV_ENABLE KCOV_DISABLE };",
+      "range": {
+        "startLine": 148,
+        "startChar": 55,
+        "endLine": 148,
+        "endChar": 66
+      },
+      "revId": "910453072156451a6c0d7b8036112749c677de6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
