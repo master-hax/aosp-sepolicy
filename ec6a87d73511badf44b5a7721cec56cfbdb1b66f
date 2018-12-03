@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f2562f87_90b7f104",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-12-03T13:33:14Z",
+      "side": 1,
+      "message": "Ah you are right seems to work even without. I copy/paste this from some other .te that seemed to do something similar to what I did (can\u0027t remember which one)",
+      "parentUuid": "be3d4fd5_babb83bb",
+      "range": {
+        "startLine": 71,
+        "startChar": 55,
+        "endLine": 71,
+        "endChar": 59
+      },
+      "revId": "ec6a87d73511badf44b5a7721cec56cfbdb1b66f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b9562e3c_cbfe60e9",
         "filename": "private/traced_probes.te",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2018-12-03T12:15:32Z",
       "side": 1,
       "message": "If you have this you don\u0027t need several of the others:\nhwbinder_use\nget_prop\nhidl_manager_hwservice\n\n(Because you get them for free: See system/sepolicy/private/halclientdomain.te)",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 17
+      },
+      "revId": "ec6a87d73511badf44b5a7721cec56cfbdb1b66f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "197bb52e_98bff905",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-12-03T13:33:14Z",
+      "side": 1,
+      "message": "Ah you are right. I counter-bisected the lines the end turns out I need only\nhal_client_domain(traced_probes, hal_health)\n\nHere\u0027s what happened: I started copy/pasting lines from other services that did something similar until the selinux denials went away. By the tim I got to hal_client_domain I didn\u0027t realize that it was a superset of everthing else.",
+      "parentUuid": "b9562e3c_cbfe60e9",
       "range": {
         "startLine": 75,
         "startChar": 0,
