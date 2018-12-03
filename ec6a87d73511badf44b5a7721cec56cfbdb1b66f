@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "be3d4fd5_babb83bb",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2018-12-03T12:15:32Z",
+      "side": 1,
+      "message": "Why do you need list? Don\u0027t you just need find for the services you use?",
+      "range": {
+        "startLine": 71,
+        "startChar": 55,
+        "endLine": 71,
+        "endChar": 59
+      },
+      "revId": "ec6a87d73511badf44b5a7721cec56cfbdb1b66f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9562e3c_cbfe60e9",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2018-12-03T12:15:32Z",
+      "side": 1,
+      "message": "If you have this you don\u0027t need several of the others:\nhwbinder_use\nget_prop\nhidl_manager_hwservice\n\n(Because you get them for free: See system/sepolicy/private/halclientdomain.te)",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 17
+      },
+      "revId": "ec6a87d73511badf44b5a7721cec56cfbdb1b66f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
