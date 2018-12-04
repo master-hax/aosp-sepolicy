@@ -375,6 +375,30 @@
       "revId": "0de8a8a7e2624a97287e7a1dfc624a0a451c06d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40ffae46_89a2925d",
+        "filename": "private/apexd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2018-12-04T10:37:29Z",
+      "side": 1,
+      "message": "in PackageInstallerSession:\n\n\n            Slog.d(TAG, \"commitApexLocked of \" + mResolvedBaseFile.toString());\n            IApexService apex \u003d IApexService.Stub.asInterface(\n                    ServiceManager.getService(\"apexservice\"));\n            ParcelFileDescriptor pfd \u003d ParcelFileDescriptor.open(new File(mResolvedBaseFile.toString()),\n                    ParcelFileDescriptor.MODE_READ_ONLY);\n            apex.stagePackage(pfd);\n\nfor apexd, WIP CL is https://android-review.googlesource.com/c/platform/system/apex/+/840609",
+      "parentUuid": "54845f83_cdc930b3",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 0
+      },
+      "revId": "0de8a8a7e2624a97287e7a1dfc624a0a451c06d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
