@@ -351,6 +351,30 @@
       "revId": "0de8a8a7e2624a97287e7a1dfc624a0a451c06d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54845f83_cdc930b3",
+        "filename": "private/apexd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-12-04T02:21:29Z",
+      "side": 1,
+      "message": "How are you reading fd:16? Is it via /proc/self/fd/16? I think you shouldn\u0027t. The path is a symlink, so you are reading /data/app/vmdl... directly, which is why you see the second denial.\n\nFor the first denial, I think we need something like `allow apexd system_server:fd usd;`.",
+      "parentUuid": "9f0055ca_4188cd2e",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 0
+      },
+      "revId": "0de8a8a7e2624a97287e7a1dfc624a0a451c06d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
