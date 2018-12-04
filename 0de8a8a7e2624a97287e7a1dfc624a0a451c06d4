@@ -327,6 +327,30 @@
       "revId": "0de8a8a7e2624a97287e7a1dfc624a0a451c06d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f0055ca_4188cd2e",
+        "filename": "private/apexd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2018-12-04T00:04:02Z",
+      "side": 1,
+      "message": "Nick, I have the following error when trying linkat(AT_EMPTY_PATH) and passing the open file descriptor from PM to apexd:\n\n\n12-03 17:58:10.002  1265  1382 D PackageInstaller: commitApexLocked of /data/app/vmdl1271575215.tmp/base.apex\n12-03 17:58:10.003  1265  1265 I PackageInstalle: type\u003d1400 audit(0.0:13): avc: denied { use } for path\u003d\"/data/app/vmdl1271575215.tmp/base.apex\" dev\u003d\"dm-4\" ino\u003d3549 scontext\u003du:r:apexd:s0 tcontext\u003du:r:system_server:s0 tclass\u003dfd permissive\u003d1\n12-03 17:58:10.003  1265  1265 I PackageInstalle: type\u003d1400 audit(0.0:14): avc: denied { read } for path\u003d\"/data/app/vmdl1271575215.tmp/base.apex\" dev\u003d\"dm-4\" ino\u003d3549 scontext\u003du:r:apexd:s0 tcontext\u003du:object_r:apk_tmp_file:s0 tclass\u003dfile permissive\u003d1\n12-03 17:58:10.005   722   749 D apexd   : stagePackage() received by ApexService (fd: 16)\n12-03 17:58:10.006   722   749 E apexd   : Failed to stage package: Unable to rename incoming package (fd :16) to /data/apex/com.android.apex.test@1.apex: Cross-device link\n12-03 17:58:10.009  1265  1382 E PackageInstaller: Commit of session 1271575215 failed: java.lang.IllegalArgumentException: Unable to rename incoming package (fd :16) to /data/apex/com.android.apex.test@1.apex: Cross-device link: Unable to rename incoming package (fd :16) to /data/apex/com.android.apex.test@1.apex: Cross-device link\n\nSELinux is disabled so ignore the audit line.\n\nI don\u0027t understand why this is considered Cross-device link tbh.\n\nI might opt for having package installer write to /data/apex/some_tmp_dir and passing the file path to apexd, as you suggested in another thread. WDYT?",
+      "parentUuid": "94a7c8ea_72ea3813",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 0
+      },
+      "revId": "0de8a8a7e2624a97287e7a1dfc624a0a451c06d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
