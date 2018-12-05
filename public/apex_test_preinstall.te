@@ -1,0 +1,19 @@
+# APEX pre-install test.
+
+userdebug_or_eng(`
+
+type apex_test_preinstall, domain, coredomain;
+type apex_test_preinstall_exec, system_file_type, exec_type, file_type;
+
+# /dev/zero
+allow apex_test_preinstall apexd:fd use;
+# Logwrapper.
+allow apex_test_preinstall devpts:chr_file { open read write };
+# Logwrapper executing sh.
+allow apex_test_preinstall shell_exec:file { execute execute_no_trans open getattr read };
+# Logwrapper exec.
+allow apex_test_preinstall system_file:file execute_no_trans;
+# Ls.
+allow apex_test_preinstall toolbox_exec:file rx_file_perms;
+
+')
