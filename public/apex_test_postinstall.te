@@ -1,0 +1,19 @@
+# APEX post-install test.
+
+userdebug_or_eng(`
+
+type apex_test_postinstall, domain, coredomain;
+type apex_test_postinstall_exec, system_file_type, exec_type, file_type;
+
+# /dev/zero
+allow apex_test_postinstall apexd:fd use;
+# Logwrapper.
+allow apex_test_postinstall devpts:chr_file rw_file_perms;
+# Logwrapper executing sh.
+allow apex_test_postinstall shell_exec:file rx_file_perms;
+# Logwrapper exec.
+allow apex_test_postinstall system_file:file execute_no_trans;
+# Ls.
+allow apex_test_postinstall toolbox_exec:file rx_file_perms;
+
+')
