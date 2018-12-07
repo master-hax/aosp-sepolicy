@@ -54,3 +54,6 @@ allow update_engine proc_misc:file r_file_perms;
 
 # read directories on /system and /vendor
 allow update_engine system_file:dir r_dir_perms;
+
+# Allow update_engine to write to statsd socket.
+unix_socket_send(update_engine, statsdw, statsd)
