@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f6acfa75_a9cf3ae1",
+        "filename": "private/compat/28.0/28.0.ignore.cil",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1010211
+      },
+      "writtenOn": "2018-12-07T00:30:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33b83b3b_6b0c699b",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 11,
+        "endChar": 26
+      },
+      "revId": "b7bb9c0a77de25a8516aa83afe23bc572509561a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a330c65e_48ba9fe9",
         "filename": "public/service.te",
         "patchSetId": 3
@@ -54,6 +78,24 @@
       "side": 1,
       "message": "That\u0027s a good point. Sunny, does app_prediction_service need to expose a stable API? If so, could you justify that in the commit msg? If not, please add the type declaration on line 47 to private/service.te instead.",
       "parentUuid": "a330c65e_48ba9fe9",
+      "revId": "b7bb9c0a77de25a8516aa83afe23bc572509561a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99acfcfe_bec01d0e",
+        "filename": "public/service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1010211
+      },
+      "writtenOn": "2018-12-07T00:30:29Z",
+      "side": 1,
+      "message": "It\u0027s currently @systemapi and the client of the service will be sysui/launcher, so I think it should be stable?  (Let me know if we need to clarify more)",
+      "parentUuid": "1305bae6_46a9dc8f",
       "revId": "b7bb9c0a77de25a8516aa83afe23bc572509561a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
