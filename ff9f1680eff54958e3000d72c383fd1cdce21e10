@@ -140,6 +140,30 @@
       "revId": "ff9f1680eff54958e3000d72c383fd1cdce21e10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d12bccb_b48c77bd",
+        "filename": "tests/sepolicy_tests.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2018-12-08T02:30:44Z",
+      "side": 1,
+      "message": "/system/vendor is usually symlink to /vendor. So we define vendor file context as\n\n/(vendor|system/vendor)(/.*)?                  u:object_r:vendor_file:s0\n\nThe test for `system/vendor` was not failed here because the test does not check the regex format.\n\nIn case of vendor_overlay, /system/vendor_overlay/ is sources of overlayfs mount for the vendor partition. The files in vendor_overlay will be overlaid on the vendor partition. We may not install these files on /vendor or /odm because this is for updating some vendor files using independent system update. (go/vendor_overlay_design)",
+      "parentUuid": "a1e79ad8_114cb8dd",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 79
+      },
+      "revId": "ff9f1680eff54958e3000d72c383fd1cdce21e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
