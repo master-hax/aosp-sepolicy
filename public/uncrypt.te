@@ -15,9 +15,15 @@ allow uncrypt cache_file:dir search;
 allow uncrypt cache_recovery_file:dir rw_dir_perms;
 allow uncrypt cache_recovery_file:file create_file_perms;
 
-# Read OTA zip file at /data/ota_package/.
+# Read and write OTA zip file at /data/ota_package/.
 allow uncrypt ota_package_file:dir r_dir_perms;
-allow uncrypt ota_package_file:file r_file_perms;
+allow uncrypt ota_package_file:file rw_file_perms;
+
+# Execute IOCTLs on zip file at /data/ota_package/.
+allo uncrypt ota_package_file:file ioctl {
+  F2FS_IOC_GET_PIN_FILE
+  F2FS_IOC_SET_PIN_FILE
+};
 
 # Write to /dev/socket/uncrypt
 unix_socket_connect(uncrypt, uncrypt, uncrypt)
