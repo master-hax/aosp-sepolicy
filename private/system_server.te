@@ -708,6 +708,7 @@ userdebug_or_eng(`
 ')
 
 add_service(system_server, batteryproperties_service)
+add_service(system_server, incidentcompanion_service)
 
 allow system_server keystore:keystore_key {
 	get_state
