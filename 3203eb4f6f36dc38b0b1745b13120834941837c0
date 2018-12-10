@@ -22,6 +22,30 @@
       "revId": "3203eb4f6f36dc38b0b1745b13120834941837c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e676ec0_d8d1567a",
+        "filename": "private/traceur_app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2018-12-10T18:27:51Z",
+      "side": 1,
+      "message": "Copy/pasting from an email carmen sent me:\n\n\nperfetto: type\u003d1400 audit(0.0:4565): avc: denied { write } for name\u003d\"traced_consumer\" dev\u003d\"tmpfs\" ino\u003d7696 scontext\u003du:r:traceur_app:s0:c41,c256,c512,c768 tcontext\u003du:object_r:traced_consumer_socket:s0 tclass\u003dsock_file permissive\u003d1 app\u003dcom.android.traceur         \n\n\nI *think* that what\u0027s happening is that traceur is an app and has those UID tags (s0:c41,c256,c512,c768), and it\u0027s trying to talk to a service (traced) which doesn\u0027t have those UID tags.\n\n\nAhhh I think the right thing to do here might be marking traced_producer_socket\ntraced_consumer_socket in public/file.te as a mlstrustedobject.\n\nSo that line becomes:\ntype traced_consumer_socket, file_type, coredomain_socket, mlstrustedobject;\n\n\nWe did that for the traced_producer_socket in the past for similar reasons, but now Traceur is trying to connect to the other socket (the one that allows to control tracing)\n\n\n(sorry carmen, I didn\u0027t think to this before)",
+      "parentUuid": "4a6f4c04_16ce370a",
+      "range": {
+        "startLine": 2,
+        "startChar": 44,
+        "endLine": 3,
+        "endChar": 0
+      },
+      "revId": "3203eb4f6f36dc38b0b1745b13120834941837c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
