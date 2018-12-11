@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4cbd3245_57af0d54",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-11T18:17:05Z",
+      "side": 1,
+      "message": "Can you please update the commit message to include the analysis from bug 118011561. Specifically the following section:\n\n----- Begin -----\nVtsHalBootV1_0Target#BootHidlTest.setActiveBootSlot_64bit always fail because hal_bootctl needs sys_rawio permission to do emmc ioctl (CMD6) to switch slot(A/B).              \n\nAnalysis:\nThe test case is doing the slot switch by following emmc ioctl commamd:\n    fd \u003d open(\"/dev/block/mmcblk0\", O_RDWR);\n    ioctl(fd, MMC_IOC_CMD, \u0026mmc_ioc_cmd);\nBut the bootctl has no permission to do sys_rawio:\n    bootctrlHAL: emmc_set_active_boot_part\n    bootctrlHAL: ioctl error, mmc_read_extcsd fail, ret \u003d -1\n    bootctrlHAL: Could not read EXT_CSD, error\u003d-1\n    bootctrlHAL: emmc set boot_part fail\n\nRoot cause:\nIn kernel-4.4/drivers/mmc/card/block.c\n                mmc_blk_ioctl_cmd -\u003e \n                if (!capable(CAP_SYS_RAWIO)) -\u003e \n                return -EPERM;\n----- End -----",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "0647ef06dfb856ccdf11a2b8385800e4d309810b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "006cc9f8_cda1c937",
+        "filename": "prebuilts/api/28.0/public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-11T18:17:05Z",
+      "side": 1,
+      "message": "This file should not be modified. It represents the snapshot from API 28.",
+      "revId": "0647ef06dfb856ccdf11a2b8385800e4d309810b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
