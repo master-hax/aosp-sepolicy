@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9499c490_2995650e",
+        "filename": "private/networkstack.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1288034
+      },
+      "writtenOn": "2018-12-12T09:12:15Z",
+      "side": 1,
+      "message": "I don\u0027t think so since this only focuses on UDP sockets. Should we add these extra permissions now ?",
+      "parentUuid": "798c7ea9_062248f9",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 63
+      },
+      "revId": "a413533256b519a6fa81d804f93340257ad7b46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "536b1a95_f96918b8",
         "filename": "private/networkstack.te",
         "patchSetId": 4
@@ -83,6 +107,30 @@
       "writtenOn": "2018-12-10T13:56:19Z",
       "side": 1,
       "message": "Does the network stack really need to find the wifi service? Shouldn\u0027t it be the other way around?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 53
+      },
+      "revId": "a413533256b519a6fa81d804f93340257ad7b46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3e8334d_f0641328",
+        "filename": "private/networkstack.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1288034
+      },
+      "writtenOn": "2018-12-12T09:12:15Z",
+      "side": 1,
+      "message": "This is used in NetworkMonitor:365, to put the SSID/BSSID in the latency broadcast",
+      "parentUuid": "536b1a95_f96918b8",
       "range": {
         "startLine": 20,
         "startChar": 0,
