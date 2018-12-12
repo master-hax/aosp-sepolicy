@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7814b5c1_06a43fbe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-12T17:21:21Z",
+      "side": 1,
+      "message": "Sorry, I should have mentioned the renderscript tests I\u0027ve already ran. Additionally, I\u0027ll be submitting a CTS test which asserts that dlopen() fails for app created shared libraries. I\u0027m not including that test for now because it\u0027s not written.",
+      "parentUuid": "d1e0116d_70287f81",
+      "revId": "8dc75adf9a0ad0be39dd3947ac681bdc9e3defeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1df53259_e2694c20",
         "filename": "private/app_neverallows.te",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "8dc75adf9a0ad0be39dd3947ac681bdc9e3defeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b105588e_5ffc3e63",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-12T17:21:21Z",
+      "side": 1,
+      "message": "By convention, we avoid the use of single quotes in *.te files. These files are parsed by the m4 macro language, and single quotes / backticks are delimiters in that language. We\u0027ve seen weird errors when including single quotes.\n\nI rephrased this to avoid the use of single quotes but still get the meaning across.",
+      "parentUuid": "1df53259_e2694c20",
+      "range": {
+        "startLine": 61,
+        "startChar": 40,
+        "endLine": 61,
+        "endChar": 44
+      },
+      "revId": "8dc75adf9a0ad0be39dd3947ac681bdc9e3defeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
