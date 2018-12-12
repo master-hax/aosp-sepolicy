@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "029da689_1794c10e",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-12T19:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f51e2c33_9a4cb7d4",
+      "range": {
+        "startLine": 179,
+        "startChar": 15,
+        "endLine": 179,
+        "endChar": 16
+      },
+      "revId": "47e72a6be7505ed58c498092accfb0a80716c977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26c9af6b_8bc34883",
         "filename": "private/rs.te",
         "patchSetId": 1
@@ -39,6 +63,24 @@
       "revId": "47e72a6be7505ed58c498092accfb0a80716c977",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f4e6cb3_0ae51645",
+        "filename": "private/rs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-12T19:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26c9af6b_8bc34883",
+      "revId": "47e72a6be7505ed58c498092accfb0a80716c977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "30c2e049_68985fd2",
+        "filename": "private/rs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-12T19:42:49Z",
+      "side": 1,
+      "message": "No, this is due to the fact that bcc loads a shared library from the vendor partition, at least on my crosshatch device. Removing this permission generates the following denial:\n\n  [  124.250371] type\u003d1400 audit(1544643261.321:1044): avc: denied { read } for comm\u003d\"bcc\" name\u003d\"libbccQTI.so\" dev\u003d\"dm-5\" ino\u003d250 scontext\u003du:r:rs:s0:c180,c256,c512,c768 tcontext\u003du:object_r:same_process_hal_file:s0 tclass\u003dfile permissive\u003d0 app\u003dandroid.renderscript.cts\n\n  crosshatch:/ # ls -laZ /vendor/lib64/libbccQTI.so /vendor/lib/libbccQTI.so                                                                        \n  -rw-r--r-- 1 root root u:object_r:same_process_hal_file:s0 15540 2018-12-11 13:46 /vendor/lib/libbccQTI.so\n  -rw-r--r-- 1 root root u:object_r:same_process_hal_file:s0 67992 2018-12-11 13:46 /vendor/lib64/libbccQTI.so\n\nI haven\u0027t figured out exactly why bcc has this dependency. The renderscript team (cc\u0027d on this change) may provide more insight.",
+      "parentUuid": "8f085044_6c7dade2",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 35
+      },
+      "revId": "47e72a6be7505ed58c498092accfb0a80716c977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f11ed6b9_6430ee2a",
         "filename": "private/rs.te",
         "patchSetId": 1
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "b1edc7b2_b1143583",
+        "filename": "private/rs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-12T19:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f11ed6b9_6430ee2a",
+      "revId": "47e72a6be7505ed58c498092accfb0a80716c977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "131b4cf2_33decb1a",
         "filename": "private/rs.te",
         "patchSetId": 1
@@ -96,6 +180,24 @@
       "revId": "47e72a6be7505ed58c498092accfb0a80716c977",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc13337d_7d278f47",
+        "filename": "private/rs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-12T19:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "131b4cf2_33decb1a",
+      "revId": "47e72a6be7505ed58c498092accfb0a80716c977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
