@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74dc8433_f6306992",
+        "filename": "private/rss_hwm_reset.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-14T16:40:13Z",
+      "side": 1,
+      "message": "From looking at the source code, you really don\u0027t need all of these permissions. IMHO, this would be better written as:\n\n  allow rss_hwm_reset domain:dir search;",
+      "revId": "dd8c6592f9dd6896059c2a241dd82658d6c7b32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "332fe01f_8c222639",
+        "filename": "private/rss_hwm_reset.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-14T16:40:13Z",
+      "side": 1,
+      "message": "Please use \"w_file_perms\". This macro, defined in system/sepolicy/public/global_macros, includes write as well as other permissions which will make your policy more robust. In particular, w_file_perms readds \"open\", which is needed to support the suggestion on line 7.",
+      "range": {
+        "startLine": 14,
+        "startChar": 32,
+        "endLine": 14,
+        "endChar": 37
+      },
+      "revId": "dd8c6592f9dd6896059c2a241dd82658d6c7b32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "104ec3d8_d4b8409e",
+        "filename": "public/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1453,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-14T16:40:13Z",
+      "side": 1,
+      "message": "For future reviewers: IMHO, this makes sense, as we are writing to various /proc/PID files which have different UIDs. The only other solution would be to grant CAP_SETUID, but that feels worse as it would 1) make the code more complex, and 2) allow changing UIDs which has other trust implications to other parts of the system.\n\nNo action required on this comment.",
+      "revId": "dd8c6592f9dd6896059c2a241dd82658d6c7b32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
