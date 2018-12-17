@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "487d2c92_b4083b5e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2018-12-17T13:19:06Z",
+      "side": 1,
+      "message": "I verified it\u0027s a noop on the other sepolicy files on crosshatch too",
+      "revId": "ccd45ac77969e5ef9e9ba32974b0f091e30e6511",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "189b43f4_98d644b1",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2018-12-17T13:19:06Z",
+      "side": 1,
+      "message": "maybe ifneq (,$(PRODUCT_PUBLIC_POLICY)$(PRODUCT_PRIVATE_POLICY)) ?",
+      "revId": "ccd45ac77969e5ef9e9ba32974b0f091e30e6511",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9d99313_0c5c8765",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2018-12-17T13:19:06Z",
+      "side": 1,
+      "message": "this needs to be moved to selinux_policy_nonsystem, as-is it will break products that enforce path requirements (and build_test)",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 26
+      },
+      "revId": "ccd45ac77969e5ef9e9ba32974b0f091e30e6511",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3106d985_9c6e8b72",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2018-12-17T13:19:06Z",
+      "side": 1,
+      "message": "there\u0027s a pretty significant amount of duplication over and over in this file. Not a new problem of course.. Not sure if it\u0027s worth spending time cleaning up given it has to be soong-ified at some point?\n\nSpeaking of which, I don\u0027t suppose any of the stuff you\u0027re adding now could be soong\u0027d from the start?",
+      "revId": "ccd45ac77969e5ef9e9ba32974b0f091e30e6511",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6591cbdc_a1f40675",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2018-12-17T13:19:06Z",
+      "side": 1,
+      "message": "random q.. don\u0027t know how these tools work, but is it infeasible to have checkpolicy just keep the two separate in the first place? this feels a bit brittle.",
+      "revId": "ccd45ac77969e5ef9e9ba32974b0f091e30e6511",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
