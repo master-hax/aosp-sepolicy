@@ -112,6 +112,24 @@
     },
     {
       "key": {
+        "uuid": "4deebd17_97d82b42",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-12-17T22:01:32Z",
+      "side": 1,
+      "message": "Soong can\u0027t build sepolicy out of the box, so we\u0027d need to make changes to soong backend and make our own soong modules. The problem there is there are small deltas in the way we build everything here, e.g. line 516 here. So it\u0027s difficult to, say, make general soong module that can build plat_sepolicy.cil and vendor_sepolicy.cil. So yes, it still would be nice to clean things up before things can move to soong fully. There\u0027s probably simple stuff like some of the _contexts files that can be moved to soong more easily. fyi, go/selinux-soong has some diagrams that illustrate how soong setup might look like.",
+      "parentUuid": "4b1ddc95_dbf37111",
+      "revId": "ccd45ac77969e5ef9e9ba32974b0f091e30e6511",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6591cbdc_a1f40675",
         "filename": "Android.mk",
         "patchSetId": 2
@@ -141,6 +159,24 @@
       "side": 1,
       "message": "Oh, wait, I recalled that grep in MacOS will have out-of-memory error, if the pattern file is too large.\n\nb/70273082#comment5\n\nFinally I switched this part to python files.\n\nhttps://android-review.googlesource.com/c/platform/system/sepolicy/+/608258/1/build/file_utils.py#33",
       "parentUuid": "6591cbdc_a1f40675",
+      "revId": "ccd45ac77969e5ef9e9ba32974b0f091e30e6511",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a35bcc3_765126cc",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-12-17T22:01:32Z",
+      "side": 1,
+      "message": "Re#1: System sepolicy contains necessary type and attribute declaration (and other important stuff), so checkpolicy can\u0027t build product policy by itself.\n\nRe#2: Thanks for the heads-up. Python sounds good.",
+      "parentUuid": "fbdf88af_fe3bc383",
       "revId": "ccd45ac77969e5ef9e9ba32974b0f091e30e6511",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
