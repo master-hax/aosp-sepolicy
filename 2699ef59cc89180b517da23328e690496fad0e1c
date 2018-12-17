@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f27c49b_facb26b8",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2018-12-17T03:26:36Z",
+      "side": 1,
+      "message": "We should mention in the commit description that this change also allows the system server to create PF_KEY sockets.\n\nWe should also add a comment here explaining that we only need to create PF_KEY sockets so we can force a synchronize_rcu, and that this should be removed when 4.9 is deprecated (or whenever it is that we can remove it).",
+      "range": {
+        "startLine": 844,
+        "startChar": 0,
+        "endLine": 844,
+        "endChar": 43
+      },
+      "revId": "2699ef59cc89180b517da23328e690496fad0e1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
