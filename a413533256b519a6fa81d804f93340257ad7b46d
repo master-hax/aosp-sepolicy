@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "5b462492_44d79ac8",
+        "filename": "private/networkstack.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2018-12-18T09:38:40Z",
+      "side": 1,
+      "message": "Up to you whether you want to do it in this CL or in a future CL. We certainly need them before Q sepolicy freezes.",
+      "parentUuid": "9499c490_2995650e",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 63
+      },
+      "revId": "a413533256b519a6fa81d804f93340257ad7b46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "536b1a95_f96918b8",
         "filename": "private/networkstack.te",
         "patchSetId": 4
@@ -188,6 +212,30 @@
       "revId": "a413533256b519a6fa81d804f93340257ad7b46d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4acd8f1f_e3587787",
+        "filename": "private/networkstack.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2018-12-18T09:38:40Z",
+      "side": 1,
+      "message": "Ack, makes sense.\n\nWhat other system services should the network stack be able to access? Should we, for example, ensure that it has access to all the services that an app (either priv-app or even an unprivileged app) has access to?\n\nI don\u0027t know if there is a concept of inheritance in sepolicy, but if there is, perhaps we should \"inherit\" from untrusted_app or priv_app or...?",
+      "parentUuid": "b3e8334d_f0641328",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 53
+      },
+      "revId": "a413533256b519a6fa81d804f93340257ad7b46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
