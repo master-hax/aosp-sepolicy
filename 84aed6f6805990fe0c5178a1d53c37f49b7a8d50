@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdcebecf_173ffb09",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2018-12-18T13:57:57Z",
+      "side": 1,
+      "message": "How about try to combine product_sepolicy.cil and plat_sepolicy.cil here.\nIt seems better to catch the error at build time, other than run time (when the device boots).\n\n\nodm_sepolicy.cil has the same problem but we tried to merge it with other dependent .cil files during the build.\n\nhttps://android-review.googlesource.com/c/platform/system/sepolicy/+/608258/1/build/build_sepolicy.py#83\n\nhttps://android-review.googlesource.com/c/platform/system/sepolicy/+/550619/6/Android.mk#597\n\nPRIVATE_DEP_CIL_FILES :\u003d $(built_plat_cil) $(built_plat_pub_vers_cil) \\\n  $(built_mapping_cil) $(built_vendor_cil)",
+      "range": {
+        "startLine": 517,
+        "startChar": 0,
+        "endLine": 519,
+        "endChar": 29
+      },
+      "revId": "84aed6f6805990fe0c5178a1d53c37f49b7a8d50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
