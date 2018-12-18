@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbf0e1dc_9f26d083",
+        "filename": "private/compat/26.0/26.0.ignore.cil",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-18T17:06:50Z",
+      "side": 1,
+      "message": "The *.ignore.cil file is for new labels which have no analog in older policy, which isn\u0027t the case here. In older releases, these files would have been labeled \"sysfs\". As a result, you need to modify system/sepolicy/private/compat/26.0.cil and add \"sysfs_loop\" to the \"typeattributeset sysfs_26_0\" entry. That way, for older Treble images, the policy will work with either \"sysfs\" or \"sysfs_loop\".\n\n(same comment for 27.0 and 28.0)",
+      "revId": "19605392dd5b55b4a84d2a84a9e8908eecac07b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
