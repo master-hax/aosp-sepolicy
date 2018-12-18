@@ -18,6 +18,49 @@ allowxperm network_stack self:udp_socket ioctl priv_sock_ioctls;
 # The DhcpClient uses packet_sockets
 allow network_stack self:packet_socket create_socket_perms_no_ioctl;
 
+# Create and share netlink_netfilter_sockets for tetheroffload.
+allow network_stack self:netlink_netfilter_socket create_socket_perms_no_ioctl;
+
+# Create/use netlink_tcpdiag_socket for looking up connection UIDs for VPN apps.
+allow network_stack self:netlink_tcpdiag_socket { create_socket_perms_no_ioctl nlmsg_read };
+
+# Use netlink uevent sockets.
+allow network_stack self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+
+# Use generic netlink sockets.
+allow network_stack self:netlink_socket create_socket_perms_no_ioctl;
+allow network_stack self:netlink_generic_socket create_socket_perms_no_ioctl;
+
+# NetworkDiagnostics requires explicit bind() calls to ping sockets. These aren't actually the same
+# as raw sockets, but the kernel doesn't yet distinguish between the two.
+allow network_stack node:rawip_socket node_bind;
+
+# 3rd party VPN clients require a tun_socket to be created
+allow network_stack self:tun_socket create_socket_perms_no_ioctl;
+
+# Sysfs access
+allow network_stack sysfs_type:dir search;
+
+r_dir_file(network_stack, sysfs_ipv4)
+allow network_stack sysfs_ipv4:file w_file_perms;
+allow network_stack sysfs_mac_address:file r_file_perms;
+
+r_dir_file(network_stack, proc_net_type)
+r_dir_file(network_stack, proc_qtaguid_stat)
+
+allow network_stack device:dir r_dir_perms;
+
+# allow reading the eBPF maps that stores the traffic stats information and cleaning up
+# the map after snapshot is recorded
+allow system_server fs_bpf:dir search;
+allow system_server fs_bpf:file read;
+allow system_server netd:bpf map_read;
+
+# tun device used for 3rd party vpn apps
+allow network_stack tun_device:chr_file rw_file_perms;
+allowxperm network_stack tun_device:chr_file ioctl { TUNGETIFF TUNSETIFF };
+
+# Allow access to other services
 allow network_stack self:packet_socket create_socket_perms_no_ioctl;
 allow network_stack activity_service:service_manager find;
 allow network_stack netd_service:service_manager find;
