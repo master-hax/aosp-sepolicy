@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d71d722_9ef846d1",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-19T18:06:33Z",
+      "side": 1,
+      "message": "Because you\u0027re changing the label of this file from sysfs to sysfs_loop, anyone who was accessing it under the old label may break.\n\nIn reviewing the policy, the only SELinux domain which uses loop devices and has sysfs write is vold. See https://android.googlesource.com/platform/system/sepolicy/+/9ee4e3aeaae9935b30a6f90d4216983561c08215/public/vold.te#12 .\n\n+jsharkey for awareness in case something comes up.",
+      "revId": "d992f4acf1d08f6e36837c76fd8eb13ee2a24392",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
