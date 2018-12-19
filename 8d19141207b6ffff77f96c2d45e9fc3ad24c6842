@@ -46,6 +46,30 @@
       "revId": "8d19141207b6ffff77f96c2d45e9fc3ad24c6842",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d54a270b_2167fdbd",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1124848
+      },
+      "writtenOn": "2018-12-19T21:20:54Z",
+      "side": 1,
+      "message": "Hi Lorenzo,\nThe issue this is not the occurrence of netd in bpfloader.te. There are clean ups that need to be made. I will let the netd team take care of this clean up after properly testing that it doesn\u0027t break netd. This clean up is slightly out of scope of this patch.\n\nHere is a grep of netd on bpfloader.te\n$ grep netd private/bpfloader.te\n\n# These permission is required for pin bpf program for netd.\nallow bpfloader netd:fd use;\n# Use pinned bpf map files from netd.\nallow bpfloader netd:bpf { map_read map_write map_create };\nneverallow { domain -bpfloader -netd -netutils_wrapper} *:bpf prog_run;\nneverallow { domain -netd -bpfloader -init } bpfloader_exec:file { execute execute_no_trans };\n# only system_server, netd and bpfloader can read/write the bpf maps\nneverallow { domain -system_server -netd -bpfloader} netd:bpf { map_read map_write };",
+      "parentUuid": "ff5de399_1ea95b0b",
+      "range": {
+        "startLine": 29,
+        "startChar": 20,
+        "endLine": 29,
+        "endChar": 25
+      },
+      "revId": "8d19141207b6ffff77f96c2d45e9fc3ad24c6842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
