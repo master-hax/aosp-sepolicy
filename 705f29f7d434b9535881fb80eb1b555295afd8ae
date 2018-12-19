@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fe18734_5ec6e444",
+        "filename": "private/network_stack.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-19T21:23:50Z",
+      "side": 1,
+      "message": "I don\u0027t think this is necessary. \"mlstrustedobject\" is used to bypass MLS restrictions. Android uses MLS to separate apps into different compartments based on the human user using the app. Is there a particular SELinux denial you see that is addressed by this?",
+      "revId": "705f29f7d434b9535881fb80eb1b555295afd8ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7833d88_7bc762b9",
+        "filename": "private/network_stack.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-19T21:23:50Z",
+      "side": 1,
+      "message": "duplicate of line 19",
+      "revId": "705f29f7d434b9535881fb80eb1b555295afd8ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d3dfe91_ed617c81",
+        "filename": "private/network_stack.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-19T21:23:50Z",
+      "side": 1,
+      "message": "by convention, we don\u0027t place braces around elements with only one entry. Should be written as:\n\n  binder_call(network_stack, netd);",
+      "range": {
+        "startLine": 27,
+        "startChar": 27,
+        "endLine": 27,
+        "endChar": 28
+      },
+      "revId": "705f29f7d434b9535881fb80eb1b555295afd8ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7277cc72_4206decd",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 7
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-19T21:23:50Z",
+      "side": 1,
+      "message": "Is it possible to add\n\n  levelFrom\u003dall\n\nat the end of this line? This guarantees application isolation across multiple human users which may be using the same Android device, so that an instance of network_stack running as one human user cannot interfere with a network_stack instance running as a second user.\n\n(I\u0027m not entirely sure this will work, as I\u0027m not sure how fixed UID apps and multi-user interact. It\u0027s inconsistently applied in this file, eg, lines 107, 108, and 110 don\u0027t do it, and line 111 does it).",
+      "revId": "705f29f7d434b9535881fb80eb1b555295afd8ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba5e4891_d2a0cf48",
+        "filename": "private/system_server.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-12-19T21:23:50Z",
+      "side": 1,
+      "message": "The label \"network_stack\" isn\u0027t assigned to a service registered in system/sepolicy/private/service_contexts, nor are any SELinux domains allowed to register a service labeled \"network_stack\". This line doesn\u0027t make any sense. \"network_stack\" is a label which is used for the app process.",
+      "revId": "705f29f7d434b9535881fb80eb1b555295afd8ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
