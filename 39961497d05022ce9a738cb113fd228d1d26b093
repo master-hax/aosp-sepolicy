@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e09ccdf_b513b495",
+        "filename": "private/file_contexts",
+        "patchSetId": 7
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-12-20T22:48:38Z",
+      "side": 1,
+      "message": "What happens to these labels after overlay is applied? Are they preserved? Can this be system_file instead?",
+      "range": {
+        "startLine": 384,
+        "startChar": 66,
+        "endLine": 384,
+        "endChar": 77
+      },
+      "revId": "39961497d05022ce9a738cb113fd228d1d26b093",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3de072f3_3f2643bc",
+        "filename": "tests/sepolicy_tests.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-12-20T22:48:38Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem like this is needed. You didn\u0027t change any labels there.",
+      "range": {
+        "startLine": 15,
+        "startChar": 54,
+        "endLine": 15,
+        "endChar": 72
+      },
+      "revId": "39961497d05022ce9a738cb113fd228d1d26b093",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d9532ac_5c35a9c6",
+        "filename": "tests/sepolicy_tests.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2018-12-20T22:48:38Z",
+      "side": 1,
+      "message": "If /system/vendor_overlay/ is now considered part of vendor, it should have vendor_file_type on it. See line 34.\n\nAnother question: Aren\u0027t we trying to get system.img to be generic? i.e. shouldn\u0027t the vendor_overlay be in /product instead?",
+      "range": {
+        "startLine": 16,
+        "startChar": 32,
+        "endLine": 16,
+        "endChar": 57
+      },
+      "revId": "39961497d05022ce9a738cb113fd228d1d26b093",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
