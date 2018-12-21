@@ -22,6 +22,30 @@
       "revId": "dd87163631ab00a7878d80ef9d0193a29c74df69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "251e7591_82d9320c",
+        "filename": "public/file.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2018-12-21T15:08:21Z",
+      "side": 1,
+      "message": "I hadn\u0027t disabled audit log truncation, so I lost that bit. This shows up as \n\n12-21 14:40:30.338  1988  5618 E perfetto: client.cc:64 Failed to connect to /dev/socket/heapprofd (errno: 13, Permission denied)\n\nin the log.\n\ncom.google.android.inputmethod.latin needs to connect to heapprofd via this socket to send samples (via the heapprofd_client.so library).",
+      "parentUuid": "a4575551_a8d1559d",
+      "range": {
+        "startLine": 398,
+        "startChar": 53,
+        "endLine": 398,
+        "endChar": 69
+      },
+      "revId": "dd87163631ab00a7878d80ef9d0193a29c74df69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
