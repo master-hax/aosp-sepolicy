@@ -164,6 +164,30 @@
       "revId": "39961497d05022ce9a738cb113fd228d1d26b093",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fb87d69_10dd64f6",
+        "filename": "tests/sepolicy_tests.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2018-12-26T03:09:29Z",
+      "side": 1,
+      "message": "In the view of mainline core, we may not add vendor overlay to system partition. I added this because mainline core is not mandatory for all devices. However, without mainline core system+product must be updated in package and \u0027system without product update\u0027 is not allowed. That means we may use product partition in any cases. I will update to CL for this.",
+      "parentUuid": "339463c4_fc1ef2cb",
+      "range": {
+        "startLine": 16,
+        "startChar": 32,
+        "endLine": 16,
+        "endChar": 57
+      },
+      "revId": "39961497d05022ce9a738cb113fd228d1d26b093",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
