@@ -112,7 +112,7 @@ allow netd self:bpf { map_create map_read map_write };
 add_hwservice(netd, system_net_netd_hwservice)
 hwbinder_use(netd)
 get_prop(netd, hwservicemanager_prop)
-
+get_prop(netd, device_config_resolv_prop)
 ###
 ### Neverallow rules
 ###
