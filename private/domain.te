@@ -138,6 +138,9 @@ neverallow {
   -installd
 } { privapp_data_file app_data_file }:dir_file_class_set { relabelfrom relabelto };
 
+neverallow { domain -init -system_server -apexd } staging_data_file:dir *;
+neverallow { domain -init -system_server -apexd } staging_data_file:file *;
+
 neverallow {
     domain
     -appdomain # for oemfs
