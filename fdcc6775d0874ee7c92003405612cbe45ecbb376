@@ -45,6 +45,30 @@
       "revId": "fdcc6775d0874ee7c92003405612cbe45ecbb376",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb83b5aa_a186fbae",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1124848
+      },
+      "writtenOn": "2019-01-03T19:31:52Z",
+      "side": 1,
+      "message": "The BPF loader for Q loads a self contained ELF object and creates maps and pins them. The information about the maps are encoded in the ELF object itself. This way the user of the BPF program does not need to worry about creating a map. The loader loads all ELF objects from system/etc/bpf. I chose this path because it is similar to what other projects do, and reduces the complexity for new users. Also the name of the program is derived from the filename, and the names of the maps are mentioned in the eBPF C program being compiled to ELF. So essentially the ELF is self-contained and contains all the information needed to do everything. The user can then directly read maps\n\nActually it does not read/write maps either. So probably I can just reduce the permissions to \u0027map_create\u0027.",
+      "parentUuid": "bb3f97ab_fbf09e75",
+      "range": {
+        "startLine": 20,
+        "startChar": 46,
+        "endLine": 20,
+        "endChar": 75
+      },
+      "revId": "fdcc6775d0874ee7c92003405612cbe45ecbb376",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
