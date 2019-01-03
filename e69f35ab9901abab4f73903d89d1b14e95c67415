@@ -16,6 +16,24 @@
       "revId": "e69f35ab9901abab4f73903d89d1b14e95c67415",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "654bdbd3_ae2b5857",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-01-03T22:56:00Z",
+      "side": 1,
+      "message": "Vendor-specific apps in product might need access to vendor-specific HAL interfaces. For example, dataservice_app type is declared in public product policy \nhttps://android.googlesource.com/device/google/crosshatch-sepolicy/+/master/public/dataservice_app.te\nbut dataservice_app\u0027s access to vendor HALs is in vendor sepolicy\nhttps://android.googlesource.com/device/google/crosshatch-sepolicy/+/master/vendor/qcom/common/dataservice_app.te#11\n\nAbstractly, we have /vendor (and /odm) sepolicy depending on /system (and /product) sepolicy so that we can write permissions that reference entities on both sides.\n\nIn this particular case, vendor_seapp_contexts is being checked against neverallow rules found in /product. It is not strictly necessary, but is still a good thing to check.",
+      "parentUuid": "89ef5978_1c1646c0",
+      "revId": "e69f35ab9901abab4f73903d89d1b14e95c67415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
