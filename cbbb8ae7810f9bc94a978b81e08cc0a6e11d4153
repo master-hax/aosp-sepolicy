@@ -22,6 +22,30 @@
       "revId": "cbbb8ae7810f9bc94a978b81e08cc0a6e11d4153",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03d776ac_71eca7e8",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1124848
+      },
+      "writtenOn": "2019-01-03T19:35:36Z",
+      "side": 1,
+      "message": "I wanted to remove the \u0027netd\u0027 at a later time in the sepolicy because Chenbo is still working on transitioning netd to use this new model. If we remove it now, then things will break, so I wanted to take it one step at a time and merge these, and remove it after the transition. Or, if you can suggest some idea on how to tackle the transition, we can do that.\nAlso there are other places where the \u0027netd\u0027 has to be removed in the sepolicy sources, so I thought all that can be tackled at once at a later time instead of doing it now.",
+      "parentUuid": "429ac060_5f92f71a",
+      "range": {
+        "startLine": 29,
+        "startChar": 21,
+        "endLine": 29,
+        "endChar": 25
+      },
+      "revId": "cbbb8ae7810f9bc94a978b81e08cc0a6e11d4153",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
