@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "357e6534_dc631334",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1121354
+      },
+      "writtenOn": "2019-01-04T19:01:01Z",
+      "side": 1,
+      "message": "This is required for retrieving maps from a pinned location when netd crashes and restarts. We don\u0027t create new maps in that case and just reuse the existing ones. I think getting bpf objects from a pinned location need both read \u0026 write permission.",
+      "parentUuid": "c99ff75a_f6fbbb28",
+      "range": {
+        "startLine": 17,
+        "startChar": 46,
+        "endLine": 17,
+        "endChar": 64
+      },
+      "revId": "f1afa98ed6ee6ce383333cdb24e4ea55f18c5573",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "093e8dc3_fe4e64d1",
         "filename": "private/system_server.te",
         "patchSetId": 4
@@ -117,6 +141,30 @@
       "revId": "f1afa98ed6ee6ce383333cdb24e4ea55f18c5573",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3a20456_d51763d9",
+        "filename": "private/system_server.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1121354
+      },
+      "writtenOn": "2019-01-04T19:01:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b01908a2_123067d9",
+      "range": {
+        "startLine": 846,
+        "startChar": 0,
+        "endLine": 846,
+        "endChar": 38
+      },
+      "revId": "f1afa98ed6ee6ce383333cdb24e4ea55f18c5573",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
