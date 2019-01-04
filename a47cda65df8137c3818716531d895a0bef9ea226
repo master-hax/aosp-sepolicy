@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bdcc2c0f_72a3b057",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2019-01-04T21:36:39Z",
+      "side": 1,
+      "message": "I don\u0027t understand how this is sufficient?  The fs-verity keyring is also searched when a verity file is opened, so similar to the fscrypt keys I think you\u0027ll have to give search permission to everyone in domain.te (or at least almost everyone)...",
+      "range": {
+        "startLine": 791,
+        "startChar": 0,
+        "endLine": 794,
+        "endChar": 34
+      },
+      "revId": "a47cda65df8137c3818716531d895a0bef9ea226",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

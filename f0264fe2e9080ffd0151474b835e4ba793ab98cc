@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ca480c8_d392903f",
+        "filename": "public/ioctl_defines",
+        "patchSetId": 1
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2019-01-04T21:36:39Z",
+      "side": 0,
+      "message": "How is this working?  The ioctl number of FS_IOC_SET_VERITY_MEASUREMENT is 0x40206686, not 0x6686.  Does SELinux really only look at the bottom 16 bits?\n\nAlso FS_IOC_MEASURE_VERITY is 0xc0046686, so it did indeed change, though only in the top 16 bits.  IOW it was not \"renamed\".",
+      "range": {
+        "startLine": 811,
+        "startChar": 40,
+        "endLine": 811,
+        "endChar": 48
+      },
+      "revId": "f0264fe2e9080ffd0151474b835e4ba793ab98cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
