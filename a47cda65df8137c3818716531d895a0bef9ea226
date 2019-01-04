@@ -22,6 +22,30 @@
       "revId": "a47cda65df8137c3818716531d895a0bef9ea226",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfb6fde1_16559c1b",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2019-01-04T23:00:53Z",
+      "side": 1,
+      "message": "I don\u0027t see any error by reading the file or launching the app, even when the file is accessed for the first time after reboot.\n\nBTW, it seems like we could specify the security label for a key, so su:key is probably not necessary.  We could remove this once +xzhou confirms later, if it\u0027s ok.",
+      "parentUuid": "bdcc2c0f_72a3b057",
+      "range": {
+        "startLine": 791,
+        "startChar": 0,
+        "endLine": 794,
+        "endChar": 34
+      },
+      "revId": "a47cda65df8137c3818716531d895a0bef9ea226",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
