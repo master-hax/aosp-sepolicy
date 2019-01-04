@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "6f139785_c9ce7ac4",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1124848
+      },
+      "writtenOn": "2019-01-04T19:09:30Z",
+      "side": 1,
+      "message": "This rule is for \u0027bpfloader\u0027, not for \u0027netd\u0027. Its \"allow bpfloader\". So did you mean bpfloader crashing?\n\nThe scenario I was thinking of is if the bpfloader crashes while loading the program. In this case its possible maps were created and pinned but the program was not loaded yet. Then on a restart, bpfloader needs to reuse the pinned maps (but not create them), and then load the program. If opening a pinned map needs read/write, then we need the permissions.\n\nIf netd is accessing pinned maps, then you need a similar rule to \"allow netd\", no?",
+      "parentUuid": "357e6534_dc631334",
+      "range": {
+        "startLine": 17,
+        "startChar": 46,
+        "endLine": 17,
+        "endChar": 64
+      },
+      "revId": "f1afa98ed6ee6ce383333cdb24e4ea55f18c5573",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "093e8dc3_fe4e64d1",
         "filename": "private/system_server.te",
         "patchSetId": 4
