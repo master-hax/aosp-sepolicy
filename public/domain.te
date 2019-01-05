@@ -641,6 +641,7 @@ full_treble_only(`
     -coredomain
     -appdomain # restrictions for vendor apps are declared lower down
     -binder_in_vendor_violators # TODO(b/35870313): Remove once all violations are gone
+    -binder_in_vendor_violators_fake
   } service_manager_type:service_manager find;
 ')
 full_treble_only(`
@@ -649,6 +650,7 @@ full_treble_only(`
   neverallow {
     appdomain
     -coredomain
+    -binder_in_vendor_violators_fake
   } {
     service_manager_type
     -app_api_service
@@ -674,6 +676,7 @@ full_treble_only(`
     -coredomain
     -appdomain
     -binder_in_vendor_violators # TODO(b/35870313): Remove once all violations are gone
+    -binder_in_vendor_violators_fake
   } servicemanager:binder { call transfer };
 ')
 

@@ -524,12 +524,14 @@ full_treble_only(`
     -coredomain
     -appdomain # restrictions for vendor apps are declared lower down
     -binder_in_vendor_violators # TODO(b/35870313): Remove once all violations are gone
+    -binder_in_vendor_violators_fake
   } service_manager_type:service_manager find;
   # Vendor apps are permited to use only stable public services. If they were to use arbitrary
   # services which can change any time framework/core is updated, breakage is likely.
   neverallow {
     appdomain
     -coredomain
+    -binder_in_vendor_violators_fake
   } {
     service_manager_type
     -app_api_service
@@ -555,6 +557,7 @@ full_treble_only(`
     -coredomain
     -appdomain
     -binder_in_vendor_violators # TODO(b/35870313): Remove once all violations are gone
+    -binder_in_vendor_violators_fake
   } servicemanager:binder { call transfer };
   neverallow binder_in_vendor_violators unlabeled:service_manager list ; #TODO: b/62658302
 ')

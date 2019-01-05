@@ -134,6 +134,10 @@ attribute coredomain_socket;
 # TODO(b/35870313): Remove this once there are no violations
 attribute binder_in_vendor_violators;
 
+# Fake attribute to trick the build system
+attribute binder_in_vendor_violators_fake;
+expandattribute binder_in_vendor_violators_fake false;
+
 # All vendor domains which violate the requirement of not using sockets for
 # communicating with core components
 # TODO(b/36577153): Remove this once there are no violations
