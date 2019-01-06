@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c75792ec_b96ee118",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2019-01-06T17:57:58Z",
+      "side": 1,
+      "message": "the StagingManager code (in system_server) will also run SELinux.restorecon on /data/staging. I don\u0027t see any denials when that happens, but Narayan has encountered them while working on an unrelated change, and at some point while trying to repro he couldn\u0027t find them either.\n\nNick, should we add a relabelto permission here? Any idea why the denials don\u0027t normally trigger? StagingManager creates new directories in /data/staging (in the form /data/staging/session_* )",
+      "range": {
+        "startLine": 476,
+        "startChar": 1,
+        "endLine": 476,
+        "endChar": 19
+      },
+      "revId": "adffee8192237fd087ebd84029654cd4ba1f3406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
