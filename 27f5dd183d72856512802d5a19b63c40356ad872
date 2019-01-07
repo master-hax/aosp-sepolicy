@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8515ce2_b6513cda",
+        "filename": "private/apexd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-01-07T20:20:25Z",
+      "side": 1,
+      "message": "Is this necessary? Hardlinks can cause some awkwardness for file ownership. For example, does system_server have permission to delete hardlinks created by apexd?",
+      "range": {
+        "startLine": 51,
+        "startChar": 50,
+        "endLine": 51,
+        "endChar": 54
+      },
+      "revId": "27f5dd183d72856512802d5a19b63c40356ad872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b07110cf_3cbc34b0",
+        "filename": "private/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-01-07T20:20:25Z",
+      "side": 1,
+      "message": "Why exempt init? Seems like init should not be touching these files.",
+      "range": {
+        "startLine": 142,
+        "startChar": 20,
+        "endLine": 142,
+        "endChar": 25
+      },
+      "revId": "27f5dd183d72856512802d5a19b63c40356ad872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c2b2a27_83f4e602",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-01-07T20:20:25Z",
+      "side": 1,
+      "message": "create_dir_perms (rw_dir_perms is included in create_dir_perms)",
+      "range": {
+        "startLine": 475,
+        "startChar": 42,
+        "endLine": 475,
+        "endChar": 75
+      },
+      "revId": "27f5dd183d72856512802d5a19b63c40356ad872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42678fc1_b05f08c9",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-01-07T20:20:25Z",
+      "side": 1,
+      "message": "create_file_perms",
+      "range": {
+        "startLine": 476,
+        "startChar": 43,
+        "endLine": 476,
+        "endChar": 78
+      },
+      "revId": "27f5dd183d72856512802d5a19b63c40356ad872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
