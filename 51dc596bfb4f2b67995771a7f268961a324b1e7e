@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd80423e_ed0fd1c0",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2019-01-07T08:27:35Z",
+      "side": 1,
+      "message": "I think the kernel only needs read access, and perhaps so does init? So perhaps we could have separate neverallows for read and write, or just remove init and kernel here (since writing is what we\u0027re worried about anyway)?",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 79
+      },
+      "revId": "51dc596bfb4f2b67995771a7f268961a324b1e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
