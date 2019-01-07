@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f971eea_232de8dd",
+        "filename": "private/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-07T22:28:52Z",
+      "side": 1,
+      "message": "Can you add a comment explaining the goal of the neverallow rules? Perhaps something like:\n\n  # The staging directory contains APEX files. It is important to ensure that these\n  # files cannot be accessed by other domains to ensure that the files do not change\n  # between system_server staging the files and apexd processing the files.\n\nor something like that....",
+      "revId": "2b9776636bb8e98b4efb03492a35fd21da27536a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63a73b10_710f56f7",
+        "filename": "private/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-07T22:28:52Z",
+      "side": 1,
+      "message": "by convention, brackets aren\u0027t used when only a single element exists in the permission group.\n\n  neverallow { domain -init -system_server } staging_data_file:dir no_w_dir_perms;",
+      "range": {
+        "startLine": 143,
+        "startChar": 65,
+        "endLine": 143,
+        "endChar": 66
+      },
+      "revId": "2b9776636bb8e98b4efb03492a35fd21da27536a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8aac82d0_29a7e779",
+        "filename": "private/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-07T22:28:52Z",
+      "side": 1,
+      "message": "can you move this to its own line?\n\n  neverallow { domain -init -system_server } staging_data_file:file \n    { append create unlink relabelfrom rename setattr write no_x_file_perms };",
+      "range": {
+        "startLine": 145,
+        "startChar": 66,
+        "endLine": 145,
+        "endChar": 140
+      },
+      "revId": "2b9776636bb8e98b4efb03492a35fd21da27536a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

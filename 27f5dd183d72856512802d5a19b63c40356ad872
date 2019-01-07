@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "a2620e30_066a0518",
+        "filename": "private/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-07T22:28:52Z",
+      "side": 1,
+      "message": "init has wide latitude to touch almost every file on the filesystem, due to it\u0027s role in setting up and maintaining the /data partition.\n\nIn particular, init has access via the following SELinux rules:\n\ninit.te line 157 for directories:\nhttps://android.googlesource.com/platform/system/sepolicy/+/34bd20fbdd76f11d05aff58c5acdf6e24293b638/public/init.te#157\n\ninit.te line 173 for files\nhttps://android.googlesource.com/platform/system/sepolicy/+/34bd20fbdd76f11d05aff58c5acdf6e24293b638/public/init.te#173\n\nIf you want to exclude init having access to staging_data_file, you need to exclude it from these rules. See, for example, the handling of \"keystore_data_file\" or \"vold_data_file\".\n\nI\u0027m not sure it\u0027s worth it in this particular case but I\u0027m fine either way.",
+      "parentUuid": "863c2c73_ab0edb96",
+      "range": {
+        "startLine": 142,
+        "startChar": 20,
+        "endLine": 142,
+        "endChar": 25
+      },
+      "revId": "27f5dd183d72856512802d5a19b63c40356ad872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c2b2a27_83f4e602",
         "filename": "private/system_server.te",
         "patchSetId": 3
