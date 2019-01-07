@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "64aaa602_3c8e2887",
+        "filename": "private/apexd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2019-01-07T21:50:47Z",
+      "side": 1,
+      "message": "we want to avoid negative affecting system health by wasting space hence the link.\n\nI tagged you in the design doc with the final direction of this. The idea is that files in /data/staging/session_XXX/*.apex will be tagged as apex_data_file by StagingManager, but we\u0027ll also change the policy so that apex_data_file files are effectively immutable for apexd.\n\nThis is a larger change that would break some current tests, and I prefer to do it when the feature is complete.",
+      "parentUuid": "e8515ce2_b6513cda",
+      "range": {
+        "startLine": 51,
+        "startChar": 50,
+        "endLine": 51,
+        "endChar": 54
+      },
+      "revId": "27f5dd183d72856512802d5a19b63c40356ad872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b07110cf_3cbc34b0",
         "filename": "private/domain.te",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "27f5dd183d72856512802d5a19b63c40356ad872",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "863c2c73_ab0edb96",
+        "filename": "private/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2019-01-07T21:50:47Z",
+      "side": 1,
+      "message": "Something else is giving init access, not sure what.\n\n\nFAILED: out/target/product/blueline/obj/ETC/sepolicy.recovery_intermediates/sepolicy\n/bin/bash -c \"(ASAN_OPTIONS\u003ddetect_leaks\u003d0 out/host/linux-x86/bin/checkpolicy -M -c             30 -o out/target/product/blueline/obj/ETC/sepolicy.recovery_intermediates/sepolicy.tmp out/target/product/blueline/obj/ETC/sepolicy.recovery_intermediates/sepolicy.recovery.conf ) \u0026\u0026 (out/host/linux-x86/bin/sepolicy-analyze out/target/product/blueline/obj/ETC/sepolicy.recovery_intermediates/sepolicy.tmp permissive \u003e out/target/product/blueline/obj/ETC/sepolicy.recovery_intermediates/sepolicy.permissivedomains ) \u0026\u0026 (if [ \\\"eng\\\" \u003d \\\"user\\\" -a -s out/target/product/blueline/obj/ETC/sepolicy.recovery_intermediates/sepolicy.permissivedomains ]; then             echo \\\"\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\\\" 1\u003e\u00262;               echo \\\"ERROR: permissive domains not allowed in user builds\\\" 1\u003e\u00262;           echo \\\"List of invalid domains:\\\" 1\u003e\u00262;                 cat out/target/product/blueline/obj/ETC/sepolicy.recovery_intermediates/sepolicy.permissivedomains 1\u003e\u00262;             exit 1;          fi ) \u0026\u0026 (mv out/target/product/blueline/obj/ETC/sepolicy.recovery_intermediates/sepolicy.tmp out/target/product/blueline/obj/ETC/sepolicy.recovery_intermediates/sepolicy )\"\nlibsepol.report_failure: neverallow on line 142 of system/sepolicy/private/domain.te (or line 33274 of policy.conf) violated by allow init staging_data_file:file { read write create getattr setattr relabelfrom relabelto map unlink open };\nlibsepol.report_failure: neverallow on line 141 of system/sepolicy/private/domain.te (or line 33273 of policy.conf) violated by allow init staging_data_file:dir { ioctl read write create getattr setattr relabelfrom relabelto add_name remove_name search rmdir open };\nlibsepol.check_assertions: 2 neverallow failures occurred\nError while expanding policy",
+      "parentUuid": "b07110cf_3cbc34b0",
+      "range": {
+        "startLine": 142,
+        "startChar": 20,
+        "endLine": 142,
+        "endChar": 25
+      },
+      "revId": "27f5dd183d72856512802d5a19b63c40356ad872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "947c2093_3bf3aa4f",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2019-01-07T21:50:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c2b2a27_83f4e602",
+      "range": {
+        "startLine": 475,
+        "startChar": 42,
+        "endLine": 475,
+        "endChar": 75
+      },
+      "revId": "27f5dd183d72856512802d5a19b63c40356ad872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42678fc1_b05f08c9",
         "filename": "private/system_server.te",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "27f5dd183d72856512802d5a19b63c40356ad872",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da24d27f_63e50bbb",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2019-01-07T21:50:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42678fc1_b05f08c9",
+      "range": {
+        "startLine": 476,
+        "startChar": 43,
+        "endLine": 476,
+        "endChar": 78
+      },
+      "revId": "27f5dd183d72856512802d5a19b63c40356ad872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
