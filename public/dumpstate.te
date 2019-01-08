@@ -40,6 +40,8 @@ allow dumpstate anr_data_file:file create_file_perms;
 # Allow reading /data/system/uiderrors.txt
 # TODO: scope this down.
 allow dumpstate system_data_file:file r_file_perms;
+# Allow writing to open file descriptors in priv app data directories
+allow dumpstate privapp_data_file:file write;
 
 # Read dmesg
 allow dumpstate self:global_capability2_class_set syslog;
