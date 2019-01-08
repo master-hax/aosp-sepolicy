@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebfedc6_ac22bfcc",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2019-01-08T02:35:15Z",
+      "side": 1,
+      "message": "Do we still need this? Or are the programs attached to cgroups by netd now?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 59
+      },
+      "revId": "8947d9c84ac0b6d8be0af0a1897c34b3327e8110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "119db5e7_f53249f3",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2019-01-08T02:35:15Z",
+      "side": 1,
+      "message": "Remove this, since aosp/863689 removes the fork/exec of bpfloader from netd.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 28
+      },
+      "revId": "8947d9c84ac0b6d8be0af0a1897c34b3327e8110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99f947c3_be145146",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2019-01-08T02:35:15Z",
+      "side": 1,
+      "message": "bpfloader is used for more than netd now, right? If so, remove this?",
+      "range": {
+        "startLine": 16,
+        "startChar": 25,
+        "endLine": 16,
+        "endChar": 36
+      },
+      "revId": "8947d9c84ac0b6d8be0af0a1897c34b3327e8110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d402e92_61e3ff8e",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2019-01-08T02:35:15Z",
+      "side": 1,
+      "message": "Out of curiosity, why does bpfloader need map_read and map_write? Can we remove it? Or add a comment explaining why it needs each of these? Particularly map_read is not obvious, since bpfloader only creates maps, and doesn\u0027t read values.",
+      "range": {
+        "startLine": 17,
+        "startChar": 46,
+        "endLine": 17,
+        "endChar": 54
+      },
+      "revId": "8947d9c84ac0b6d8be0af0a1897c34b3327e8110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16ed79a2_46c92f7c",
+        "filename": "private/netd.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2019-01-08T02:35:15Z",
+      "side": 1,
+      "message": "Remove this, since aosp/863689 removes the fork/exec of bpfloader from netd.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 50
+      },
+      "revId": "8947d9c84ac0b6d8be0af0a1897c34b3327e8110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e2171bb_47263727",
+        "filename": "private/netd.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2019-01-08T02:35:15Z",
+      "side": 1,
+      "message": "Update comment to cover the fact that this rule also allows netd to read and write BPF maps.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 57
+      },
+      "revId": "8947d9c84ac0b6d8be0af0a1897c34b3327e8110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
