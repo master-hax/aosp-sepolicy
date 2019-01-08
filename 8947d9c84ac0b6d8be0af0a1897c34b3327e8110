@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f10cb1c3_8551cc21",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1124848
+      },
+      "writtenOn": "2019-01-08T02:54:28Z",
+      "side": 1,
+      "message": "I removed it in my other patch",
+      "parentUuid": "6dfca2ef_a21c85e2",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 28
+      },
+      "revId": "8947d9c84ac0b6d8be0af0a1897c34b3327e8110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99f947c3_be145146",
         "filename": "private/bpfloader.te",
         "patchSetId": 9
@@ -130,6 +154,30 @@
       "writtenOn": "2019-01-08T02:35:15Z",
       "side": 1,
       "message": "Out of curiosity, why does bpfloader need map_read and map_write? Can we remove it? Or add a comment explaining why it needs each of these? Particularly map_read is not obvious, since bpfloader only creates maps, and doesn\u0027t read values.",
+      "range": {
+        "startLine": 17,
+        "startChar": 46,
+        "endLine": 17,
+        "endChar": 54
+      },
+      "revId": "8947d9c84ac0b6d8be0af0a1897c34b3327e8110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cffa1a28_c527829f",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1124848
+      },
+      "writtenOn": "2019-01-08T02:54:28Z",
+      "side": 1,
+      "message": "It needs it for map pinning and retrieval to work. Agreed on adding of the comment. I\u0027ll add it in tomorrow, unless Chenbo beats me to it :)",
+      "parentUuid": "6d402e92_61e3ff8e",
       "range": {
         "startLine": 17,
         "startChar": 46,
