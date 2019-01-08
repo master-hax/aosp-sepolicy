@@ -46,6 +46,30 @@
       "revId": "67685ff36c5b14afb7c85ce06f0928f60da40bb4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34289c38_f636d2c0",
+        "filename": "public/app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-01-08T22:00:53Z",
+      "side": 1,
+      "message": "ah, you\u0027ll have to move it to technical_debt.so:\n(typeattributeset hal_bufferhub_client ((and (appdomain) ((not (isolated_app))))))\n\nThe important thing is that all of these apps are marked as clients and these clients should have permission to talk to hal_bufferhub_server (and the client attribute should also have the service-find permissions as well).",
+      "parentUuid": "dcffedd8_2385fc17",
+      "range": {
+        "startLine": 310,
+        "startChar": 0,
+        "endLine": 311,
+        "endChar": 81
+      },
+      "revId": "67685ff36c5b14afb7c85ce06f0928f60da40bb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
