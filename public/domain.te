@@ -476,7 +476,23 @@ neverallow {
     exec_type
 }:dir_file_class_set { create write setattr relabelfrom append unlink link rename };
 
-neverallow { domain -kernel with_asan(`-asan_extract') } { system_file_type vendor_file_type exec_type }:dir_file_class_set relabelto;
+neverallow {
+    domain
+    -kernel with_asan(`-asan_extract')
+} {
+    system_file_type
+    vendor_file_type
+    exec_type
+    # To preserve behavior where init relabels sepolicy files in "/".
+    -file_contexts_file
+    -hwservice_contexts_file
+    -nonplat_service_contexts_file
+    -property_contexts_file
+    -seapp_contexts_file
+    -sepolicy_file
+    -service_contexts_file
+    -vndservice_contexts_file
+}:dir_file_class_set relabelto;
 
 # Don't allow mounting on top of /system files or directories
 neverallow * exec_type:dir_file_class_set mounton;

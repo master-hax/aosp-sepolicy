@@ -44,6 +44,17 @@ allow init {
   recovery_block_device
   system_block_device
 }:{ blk_file lnk_file } relabelto;
+# restorecon for sepolicy files in root directory
+allow init {
+  file_contexts_file
+  hwservice_contexts_file
+  nonplat_service_contexts_file
+  property_contexts_file
+  seapp_contexts_file
+  sepolicy_file
+  service_contexts_file
+  vndservice_contexts_file
+}:file relabelto;
 
 # setrlimit
 allow init self:global_capability_class_set sys_resource;
