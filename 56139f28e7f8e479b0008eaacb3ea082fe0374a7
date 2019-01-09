@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f0c5e94_2b61ec37",
+        "filename": "public/init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1056365
+      },
+      "writtenOn": "2019-01-09T20:50:12Z",
+      "side": 1,
+      "message": "Since we will only do these in second-stage init (https://android.googlesource.com/platform/system/core/+/master/init/init.cpp#649), all these files should be from the system.img while under normal boot (i.e. already labeled properly when creating the image). Shall we restrict the rules to recovery only?",
+      "range": {
+        "startLine": 48,
+        "startChar": 35,
+        "endLine": 48,
+        "endChar": 39
+      },
+      "revId": "56139f28e7f8e479b0008eaacb3ea082fe0374a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
