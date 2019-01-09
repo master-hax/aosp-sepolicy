@@ -187,7 +187,7 @@ full_treble_only(`hal_client_domain(vold, hal_bootctl)')
 
 # Access userdata block device.
 allow vold userdata_block_device:blk_file rw_file_perms;
-allowxperm vold userdata_block_device:blk_file ioctl BLKSECDISCARD;
+allowxperm vold userdata_block_device:blk_file ioctl { BLKALIGNOFF BLKBSZGET BLKIOMIN BLKSECDISCARD };
 
 # Access metadata block device used for encryption meta-data.
 allow vold metadata_block_device:blk_file rw_file_perms;
@@ -195,6 +195,7 @@ allow vold metadata_block_device:blk_file rw_file_perms;
 # Allow vold to manipulate /data/unencrypted
 allow vold unencrypted_data_file:{ file } create_file_perms;
 allow vold unencrypted_data_file:dir create_dir_perms;
+allowxperm vold unencrypted_data_file:file ioctl { FS_IOC_FIEMAP };
 
 # Write to /proc/sys/vm/drop_caches
 allow vold proc_drop_caches:file w_file_perms;
