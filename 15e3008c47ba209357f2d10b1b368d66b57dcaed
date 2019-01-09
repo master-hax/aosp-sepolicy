@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc9c5394_baab8e99",
+        "filename": "public/service.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-01-09T18:55:21Z",
+      "side": 1,
+      "message": "since this is not intended to be accessible to apps, can you create a neverallow rule to prevent it from being added e.g. by partners?\n\nSomething like (in system/sepolicy/private/app.te\n\nneverallow appdomain ipmemorystore_service:service_manager *;\n\nYou\u0027ll likely need to add a negation (-ipmemorystore_service)to system_app here: https://android.googlesource.com/platform/system/sepolicy/+/master/private/system_app.te#71",
+      "range": {
+        "startLine": 104,
+        "startChar": 28,
+        "endLine": 104,
+        "endChar": 49
+      },
+      "revId": "15e3008c47ba209357f2d10b1b368d66b57dcaed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
