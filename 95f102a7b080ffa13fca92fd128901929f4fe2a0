@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f27fc2c0_4a5d9ada",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-10T19:30:09Z",
+      "side": 1,
+      "message": "The \"su\" domain (used for processes which run from \"su\" and/or \"adb root\"), does not exist on user builds. Were you doing some manual testing and loading a key that way?",
+      "range": {
+        "startLine": 794,
+        "startChar": 20,
+        "endLine": 794,
+        "endChar": 22
+      },
+      "revId": "95f102a7b080ffa13fca92fd128901929f4fe2a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b54e6d9_ea0a5806",
+        "filename": "public/installd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-10T19:30:09Z",
+      "side": 1,
+      "message": "nit: I\u0027d delete this comment and just use FS_IOC_MEASURE_VERITY everywhere (including in the comment on line 16). I don\u0027t see any need to retain the version history in the comments.",
+      "range": {
+        "startLine": 17,
+        "startChar": 34,
+        "endLine": 18,
+        "endChar": 47
+      },
+      "revId": "95f102a7b080ffa13fca92fd128901929f4fe2a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "572cca93_0a05b525",
+        "filename": "public/ioctl_defines",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-10T19:30:09Z",
+      "side": 1,
+      "message": "Please keep this list alphabetized.",
+      "revId": "95f102a7b080ffa13fca92fd128901929f4fe2a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
