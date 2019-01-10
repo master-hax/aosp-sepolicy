@@ -19,6 +19,7 @@ allow network_stack self:packet_socket create_socket_perms_no_ioctl;
 
 allow network_stack activity_service:service_manager find;
 allow network_stack netd_service:service_manager find;
+allow network_stack surfaceflinger_service:service_manager find;
 allow network_stack wifi_service:service_manager find;
 allow network_stack connmetrics_service:service_manager find;
 
