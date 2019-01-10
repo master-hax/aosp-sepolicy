@@ -28,6 +28,9 @@ allow crash_dump exec_type:file r_file_perms;
 allow crash_dump dalvikcache_data_file:dir { search getattr };
 allow crash_dump dalvikcache_data_file:file r_file_perms;
 
+# Read resource idmaps
+allow crash_dump resourcecache_data_file:file read;
+
 # Read APK files.
 r_dir_file(crash_dump, apk_data_file);
 
