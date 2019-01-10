@@ -54,6 +54,9 @@ selinux_check_context(webview_zygote)
 # Check SELinux permissions.
 selinux_check_access(webview_zygote)
 
+# Disallow communication with parent
+dontaudit webview_zygote zygote:unix_dgram_socket write;
+
 #####
 ##### Neverallow
 #####

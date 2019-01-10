@@ -66,6 +66,8 @@ allow webview_zygote zygote_tmpfs:file read;
 # Child of zygote.
 allow webview_zygote zygote:fd use;
 allow webview_zygote zygote:process sigchld;
+# Disallow communication with parent
+dontaudit webview_zygote zygote:unix_dgram_socket write;
 
 # Allow apps access to /vendor/overlay
 r_dir_file(webview_zygote, vendor_overlay_file)
