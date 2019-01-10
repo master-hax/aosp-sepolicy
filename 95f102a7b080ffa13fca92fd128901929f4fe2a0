@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "03f55983_7c7b0714",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2019-01-10T21:52:40Z",
+      "side": 1,
+      "message": "Removed for now.  We might need to made this userdebug_or_eng.  More context:\n\nI\u0027m asking Xiaoyong to see if he can set the key\u0027s context when his tool (think of it as a \"mini-keyctl\" WIP) loads a key.  The tool will load keys from system partition during boot (exec from init).  The tool will also be used in CTS to load testing key.",
+      "parentUuid": "f27fc2c0_4a5d9ada",
+      "range": {
+        "startLine": 794,
+        "startChar": 20,
+        "endLine": 794,
+        "endChar": 22
+      },
+      "revId": "95f102a7b080ffa13fca92fd128901929f4fe2a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b54e6d9_ea0a5806",
         "filename": "public/installd.te",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "387ec6ec_466c727a",
+        "filename": "public/installd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2019-01-10T21:52:40Z",
+      "side": 1,
+      "message": "Done/rephrased.  The name is still used in installd, so I\u0027d still mention it.",
+      "parentUuid": "9b54e6d9_ea0a5806",
+      "range": {
+        "startLine": 17,
+        "startChar": 34,
+        "endLine": 18,
+        "endChar": 47
+      },
+      "revId": "95f102a7b080ffa13fca92fd128901929f4fe2a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "572cca93_0a05b525",
         "filename": "public/ioctl_defines",
         "patchSetId": 2
@@ -62,6 +110,24 @@
       "revId": "95f102a7b080ffa13fca92fd128901929f4fe2a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f01bb9a_48cff41a",
+        "filename": "public/ioctl_defines",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2019-01-10T21:52:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "572cca93_0a05b525",
+      "revId": "95f102a7b080ffa13fca92fd128901929f4fe2a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
