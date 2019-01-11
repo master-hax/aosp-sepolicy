@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "904de767_e869f07e",
+        "filename": "public/fwk_bufferhub.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-01-11T00:52:01Z",
+      "side": 1,
+      "message": "can you replace both of these with this:\n\nhal_attribute_hwservice(hal_bufferhub, fwk_bufferhub_hwservice)\n\n\nIt will also ensure that other things (which aren\u0027t marked as clients) won\u0027t be able to access the server.",
+      "revId": "7fcd552702d4fcfb1665cc00fffeb001bf9e7b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
