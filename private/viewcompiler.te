@@ -1,0 +1,30 @@
+# viewcompiler
+type viewcompiler, domain, coredomain, mlstrustedsubject;
+type viewcompiler_exec, system_file_type, exec_type, file_type;
+
+# Reading an APK opens a ZipArchive, which unpack to tmpfs.
+# Use tmpfs_domain() which will give tmpfs files created by viewcompiler their
+# own label, which differs from other labels created by other processes.
+# This allows to distinguish in policy files created by viewcompiler vs other
+#processes.
+tmpfs_domain(viewcompiler)
+
+# Read symlinks in /data/dalvik-cache. This is required for PIC mode boot
+# app_data_file the oat file is symlinked to the original file in /system.
+allow viewcompiler dalvikcache_data_file:dir { getattr search };
+allow viewcompiler dalvikcache_data_file:file r_file_perms;
+allow viewcompiler dalvikcache_data_file:lnk_file read;
+
+allow viewcompiler installd:fd use;
+
+# Allow reading secondary dex files that were reported by the app to the
+# package manager.
+allow viewcompiler { privapp_data_file app_data_file }:dir { getattr search };
+allow viewcompiler { privapp_data_file app_data_file }:file { getattr read };
+# viewcompiler calls access(2) with W_OK flag on app data. We can use the
+# "dontaudit...audit_access" policy line to suppress the audit access without
+# suppressing denial on actual access.
+dontaudit viewcompiler { privapp_data_file app_data_file }:dir audit_access;
+
+# Allow testing /data/user/0 which symlinks to /data/data
+allow viewcompiler system_data_file:lnk_file { getattr };
