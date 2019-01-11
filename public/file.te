@@ -190,6 +190,8 @@ type dev_cpu_variant, file_type;
 type runtime_event_log_tags_file, file_type;
 # Type for /system/bin/logcat.
 type logcat_exec, system_file_type, exec_type, file_type;
+# Speedup access to cgroup map file
+type cgroup_rc_file, file_type;
 # /cores for coredumps on userdebug / eng builds
 type coredump_file, file_type;
 # Default type for anything under /data.
@@ -444,6 +446,7 @@ type vndservice_contexts_file, file_type;
 allow fs_type self:filesystem associate;
 allow cgroup tmpfs:filesystem associate;
 allow cgroup_bpf tmpfs:filesystem associate;
+allow cgroup_rc_file tmpfs:filesystem associate;
 allow sysfs_type sysfs:filesystem associate;
 allow debugfs_type { debugfs debugfs_tracing debugfs_tracing_debug }:filesystem associate;
 allow file_type labeledfs:filesystem associate;
