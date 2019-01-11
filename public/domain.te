@@ -1036,6 +1036,7 @@ full_treble_only(`
     -vendor_init
   } {
     system_file_type
+    -cgroup_desc_file
     -crash_dump_exec
     -file_contexts_file
     -netutils_wrapper_exec
@@ -1048,6 +1049,7 @@ full_treble_only(`
     -system_seccomp_policy_file
     -system_security_cacerts_file
     -system_zoneinfo_file
+    -task_profiles_file
     userdebug_or_eng(`-tcpdump_exec')
   }:file *;
 ')
