@@ -162,6 +162,9 @@ allow vold asec_public_file:file { relabelto setattr };
 allow vold unlabeled:dir { r_dir_perms setattr relabelfrom };
 allow vold unlabeled:file { r_file_perms setattr relabelfrom };
 
+# Allow read/write access to cgroup map file
+allow vold cgroup_rc_file:file rw_file_perms;
+
 # Handle wake locks (used for device encryption)
 wakelock_use(vold)
 
