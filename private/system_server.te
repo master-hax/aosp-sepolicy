@@ -578,9 +578,10 @@ set_prop(system_server, ctl_bugreport_prop)
 set_prop(system_server, cppreopt_prop)
 
 # server configurable flags properties
-# STOPSHIP: Remove the ability for system_server to set property
-# device_config_flags_health_check_prop before release. (b/119627143)
+# STOPSHIP: Remove the ability for system_server
+# to set device_config_* properties before release (b/119627143)
 set_prop(system_server, device_config_flags_health_check_prop)
+set_prop(system_server, device_config_input_native_boot_prop)
 
 # BootReceiver to read ro.boot.bootreason
 get_prop(system_server, bootloader_boot_reason_prop)
@@ -931,6 +932,7 @@ neverallow {
   -flags_health_check
 } {
   device_config_flags_health_check_prop
+  device_config_input_native_boot_prop
 }:property_service set;
 
 # system_server should never be executing dex2oat. This is either
