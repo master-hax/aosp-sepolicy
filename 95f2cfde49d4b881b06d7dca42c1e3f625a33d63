@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74497f9a_2ade845f",
+        "filename": "public/flags_heatlh_check.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-14T23:02:35Z",
+      "side": 1,
+      "message": "should we put these into a userdebug_or_eng block?\n\n  userdebug_or_eng(`\n    # device_config_* properties before release. (b/119627143)\n    set_prop(flags_health_check, device_config_flags_health_check_prop)\n    set_prop(flags_health_check, device_config_input_native_boot_prop)\n  \u0027)\n\nthat way, these flags will only be settable on debuggable builds, and not on final user builds.",
+      "revId": "95f2cfde49d4b881b06d7dca42c1e3f625a33d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
