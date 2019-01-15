@@ -36,7 +36,7 @@ type proc_misc, fs_type, proc_type;
 type proc_modules, fs_type, proc_type;
 type proc_mounts, fs_type, proc_type;
 type proc_net, fs_type, proc_type, proc_net_type;
-type proc_net_vpn, fs_type, proc_type, proc_net_type;
+type proc_net_tcp_udp, fs_type, proc_type;
 type proc_page_cluster, fs_type, proc_type;
 type proc_pagetypeinfo, fs_type, proc_type;
 type proc_panic, fs_type, proc_type;
@@ -77,6 +77,7 @@ type sysfs_dt_firmware_android, fs_type, sysfs_type;
 type sysfs_ipv4, fs_type, sysfs_type;
 type sysfs_kernel_notes, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_leds, fs_type, sysfs_type;
+type sysfs_loop, fs_type, sysfs_type;
 type sysfs_hwrandom, fs_type, sysfs_type;
 type sysfs_nfc_power_writable, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_wake_lock, fs_type, sysfs_type;
@@ -131,7 +132,27 @@ type app_fusefs, fs_type, contextmount_type;
 type unlabeled, file_type;
 
 # Default type for anything under /system.
-type system_file, file_type;
+type system_file, system_file_type, file_type;
+# Default type for /system/asan.options
+type system_asan_options_file, system_file_type, file_type;
+# Type for /system/etc/event-log-tags (liblog implementation detail)
+type system_event_log_tags_file, system_file_type, file_type;
+# Default type for anything under /system/lib[64].
+type system_lib_file, system_file_type, file_type;
+# Default type for linker executable /system/bin/linker[64].
+type system_linker_exec, system_file_type, file_type;
+# Default type for linker config /system/etc/ld.config.*.
+type system_linker_config_file, system_file_type, file_type;
+# Default type for linker config /system/etc/seccomp_policy/*.
+type system_seccomp_policy_file, system_file_type, file_type;
+# Default type for APEX keys in /system/etc/security/apex/*
+type apex_key_file, system_file_type, file_type;
+# Default type for cacerts in /system/etc/security/cacerts/*.
+type system_security_cacerts_file, system_file_type, file_type;
+# Default type for /system/bin/tcpdump.
+type tcpdump_exec, system_file_type, exec_type, file_type;
+# Default type for zoneinfo files in /system/usr/share/zoneinfo/*.
+type system_zoneinfo_file, system_file_type, file_type;
 
 # Default type for directories search for
 # HAL implementations
@@ -155,15 +176,22 @@ type vendor_overlay_file, vendor_file_type, file_type;
 # apps. ABI stability of these libs is vendor's responsibility.
 type vendor_public_lib_file, vendor_file_type, file_type;
 
+# Input configuration
+type vendor_keylayout_file, vendor_file_type, file_type;
+type vendor_keychars_file, vendor_file_type, file_type;
+type vendor_idc_file, vendor_file_type, file_type;
+
 # /metadata partition itself
 type metadata_file, file_type;
 # Vold files within /metadata
 type vold_metadata_file, file_type;
 
+# Type for /dev/cpu_variant:.*.
+type dev_cpu_variant, file_type;
 # Speedup access for trusted applications to the runtime event tags
 type runtime_event_log_tags_file, file_type;
 # Type for /system/bin/logcat.
-type logcat_exec, exec_type, file_type;
+type logcat_exec, system_file_type, exec_type, file_type;
 # /cores for coredumps on userdebug / eng builds
 type coredump_file, file_type;
 # Default type for anything under /data.
@@ -185,6 +213,8 @@ type anr_data_file, file_type, data_file_type, core_data_file_type, mlstrustedob
 type tombstone_data_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
 # /data/vendor/tombstones/wifi - vendor wifi dumps
 type tombstone_wifi_data_file, file_type, data_file_type;
+# /data/apex - APEX data files
+type apex_data_file, file_type, data_file_type, core_data_file_type;
 # /data/app - user-installed apps
 type apk_data_file, file_type, data_file_type, core_data_file_type;
 type apk_tmp_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
@@ -223,6 +253,10 @@ type preloads_data_file, file_type, data_file_type, core_data_file_type;
 type preloads_media_file, file_type, data_file_type, core_data_file_type;
 # /data/misc/dhcp and /data/misc/dhcp-6.8.2
 type dhcp_data_file, file_type, data_file_type, core_data_file_type;
+# /data/server_configurable_flags
+type server_configurable_flags_data_file, file_type, data_file_type, core_data_file_type;
+# /data/staging
+type staging_data_file, file_type, data_file_type, core_data_file_type;
 
 # Mount locations managed by vold
 type mnt_media_rw_file, file_type;
@@ -239,6 +273,9 @@ type mnt_vendor_file, file_type;
 
 # Mount location for read-write product partitions.
 type mnt_product_file, file_type;
+
+# Mount point used for APEX images
+type apex_mnt_dir, file_type;
 
 # /postinstall: Mount point used by update_engine to run postinstall.
 type postinstall_mnt_dir, file_type;
@@ -267,6 +304,7 @@ type nfc_data_file, file_type, data_file_type, core_data_file_type;
 type radio_data_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
 type recovery_data_file, file_type, data_file_type, core_data_file_type;
 type shared_relro_file, file_type, data_file_type, core_data_file_type;
+type stats_data_file, file_type, data_file_type, core_data_file_type;
 type systemkeys_data_file, file_type, data_file_type, core_data_file_type;
 type textclassifier_data_file, file_type, data_file_type, core_data_file_type;
 type trace_data_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
@@ -274,6 +312,7 @@ type vpn_data_file, file_type, data_file_type, core_data_file_type;
 type wifi_data_file, file_type, data_file_type, core_data_file_type;
 type zoneinfo_data_file, file_type, data_file_type, core_data_file_type;
 type vold_data_file, file_type, data_file_type, core_data_file_type;
+type iorapd_data_file, file_type, data_file_type, core_data_file_type;
 type perfprofd_data_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
 type tee_data_file, file_type, data_file_type;
 type update_engine_data_file, file_type, data_file_type, core_data_file_type;
@@ -290,7 +329,7 @@ type system_app_data_file, file_type, data_file_type, core_data_file_type, mlstr
 # Compatibility with type name used in Android 4.3 and 4.4.
 # Default type for anything under /cache
 type cache_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
-# Type for /cache/overlay
+# Type for /cache/overlay /mnt/scratch/overlay
 type overlayfs_file, file_type, data_file_type, core_data_file_type;
 # Type for /cache/backup_stage/* (fd interchange with apps)
 type cache_backup_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
@@ -324,6 +363,10 @@ type fingerprintd_data_file, file_type, data_file_type, core_data_file_type;
 type fingerprint_vendor_data_file, file_type, data_file_type;
 # Type for appfuse file.
 type app_fuse_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
+# Type for face template file
+type face_vendor_data_file, file_type, data_file_type;
+# Type for iris template file
+type iris_vendor_data_file, file_type, data_file_type;
 
 # Socket types
 type adbd_socket, file_type, coredomain_socket;
@@ -345,16 +388,18 @@ type racoon_socket, file_type, coredomain_socket;
 type recovery_socket, file_type, coredomain_socket;
 type rild_socket, file_type;
 type rild_debug_socket, file_type;
+type statsdw_socket, file_type, coredomain_socket, mlstrustedobject;
 type system_wpa_socket, file_type, data_file_type, core_data_file_type, coredomain_socket;
 type system_ndebug_socket, file_type, data_file_type, core_data_file_type, coredomain_socket, mlstrustedobject;
 type tombstoned_crash_socket, file_type, coredomain_socket, mlstrustedobject;
 type tombstoned_java_trace_socket, file_type, mlstrustedobject;
 type tombstoned_intercept_socket, file_type, coredomain_socket;
 type traced_producer_socket, file_type, coredomain_socket, mlstrustedobject;
-type traced_consumer_socket, file_type, coredomain_socket;
+type traced_consumer_socket, file_type, coredomain_socket, mlstrustedobject;
 type uncrypt_socket, file_type, coredomain_socket;
 type wpa_socket, file_type, data_file_type, core_data_file_type;
 type zygote_socket, file_type, coredomain_socket;
+type heapprofd_socket, file_type, coredomain_socket, mlstrustedobject;
 # UART (for GPS) control proc file
 type gps_control, file_type;
 
@@ -371,28 +416,28 @@ pdx_service_socket_types(performance_client, pdx_performance_dir)
 pdx_service_socket_types(bufferhub_client, pdx_bufferhub_dir)
 
 # file_contexts files
-type file_contexts_file, file_type;
+type file_contexts_file, system_file_type, file_type;
 
 # mac_permissions file
-type mac_perms_file, file_type;
+type mac_perms_file, system_file_type, file_type;
 
 # property_contexts file
-type property_contexts_file, file_type;
+type property_contexts_file, system_file_type, file_type;
 
 # seapp_contexts file
-type seapp_contexts_file, file_type;
+type seapp_contexts_file, system_file_type, file_type;
 
 # sepolicy files binary and others
-type sepolicy_file, file_type;
+type sepolicy_file, system_file_type, file_type;
 
 # service_contexts file
-type service_contexts_file, file_type;
+type service_contexts_file, system_file_type, file_type;
 
 # nonplat service_contexts file (only accessible on non full-treble devices)
 type nonplat_service_contexts_file, file_type;
 
 # hwservice_contexts file
-type hwservice_contexts_file, file_type;
+type hwservice_contexts_file, system_file_type, file_type;
 
 # vndservice_contexts file
 type vndservice_contexts_file, file_type;

@@ -2,7 +2,7 @@
 
 typeattribute audioserver coredomain;
 
-type audioserver_exec, exec_type, file_type;
+type audioserver_exec, exec_type, file_type, system_file_type;
 init_daemon_domain(audioserver)
 
 r_dir_file(audioserver, sdcard_type)
@@ -66,6 +66,9 @@ userdebug_or_eng(`
   allow audioserver su:fifo_file { read write };
   allow audioserver su:unix_stream_socket { read write };
 ')
+
+# Allow write access to log tag property
+set_prop(audioserver, log_tag_prop);
 
 ###
 ### neverallow rules

@@ -1,27 +1,97 @@
 ;; new_objects - a collection of types that have been introduced that have no
 ;;   analogue in older policy.  Thus, we do not need to map these types to
 ;;   previous ones.  Add here to pass checkapi tests.
+(type new_objects)
 (typeattribute new_objects)
 (typeattributeset new_objects
-  ( activity_task_service
+  ( new_objects
+    activity_task_service
     adb_service
+    app_binding_service
+    app_prediction_service
+    apex_data_file
+    apex_mnt_dir
+    apex_key_file
+    apex_service
+    apexd
+    apexd_exec
+    apexd_prop
+    apexd_tmpfs
+    biometric_service
+    bpf_progs_loaded_prop
+    content_capture_service
+    content_suggestions_service
+    cpu_variant_prop
+    dev_cpu_variant
+    device_config_boot_count_prop
+    device_config_flags_health_check_prop
+    device_config_netd_native_prop
+    device_config_reset_performed_prop
+    device_config_service
+    face_service
+    face_vendor_data_file
     fastbootd
-    hal_health_filesystem_hwservice
+    flags_health_check
+    flags_health_check_exec
+    fwk_bufferhub_hwservice
+    fwk_stats_hwservice
+    color_display_service
+    hal_atrace_hwservice
+    hal_face_hwservice
+    hal_health_storage_hwservice
+    hal_input_classifier_hwservice
+    hal_power_stats_hwservice
     hal_system_suspend_default
     hal_system_suspend_default_exec
     hal_system_suspend_default_tmpfs
+    heapprofd
+    heapprofd_enabled_prop
+    heapprofd_exec
+    heapprofd_prop
+    heapprofd_socket
+    idmap_service
+    ipmemorystore_service
+    iris_service
+    iris_vendor_data_file
     llkd
     llkd_exec
+    llkd_prop
     llkd_tmpfs
+    looper_stats_service
+    iorapd
+    iorapd_exec
+    iorapd_data_file
+    iorapd_service
+    iorapd_tmpfs
+    mediaswcodec
+    mediaswcodec_exec
+    mediaswcodec_tmpfs
     mnt_product_file
+    network_stack
+    network_stack_service
     overlayfs_file
+    permissionmgr_service
     recovery_socket
+    role_service
+    rs
+    rs_exec
+    rss_hwm_reset
+    rss_hwm_reset_exec
+    runas_app
+    runtime_service
+    sensor_privacy_service
+    server_configurable_flags_data_file
     super_block_device
+    system_event_log_tags_file
     system_lmk_prop
     system_suspend_hwservice
+    staging_data_file
     time_prop
     timedetector_service
     timezonedetector_service
     uri_grants_service
+    vendor_idc_file
+    vendor_keychars_file
+    vendor_keylayout_file
     vrflinger_vsync_service
     watchdogd_tmpfs))

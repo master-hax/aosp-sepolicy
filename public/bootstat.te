@@ -1,6 +1,6 @@
 # bootstat command
 type bootstat, domain;
-type bootstat_exec, exec_type, file_type;
+type bootstat_exec, system_file_type, exec_type, file_type;
 
 read_runtime_log_tags(bootstat)
 
@@ -25,6 +25,9 @@ allow bootstat kernel:system syslog_read;
 
 # Allow access to reading the logs to read aspects of system health
 read_logd(bootstat)
+
+# Allow bootstat write to statsd.
+unix_socket_send(bootstat, statsdw, statsd)
 
 # ToDo: end
 

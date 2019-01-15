@@ -1,13 +1,25 @@
 ;; new_objects - a collection of types that have been introduced that have no
 ;;   analogue in older policy.  Thus, we do not need to map these types to
 ;;   previous ones.  Add here to pass checkapi tests.
+(type new_objects)
 (typeattribute new_objects)
 (typeattributeset new_objects
-  ( activity_task_service
+  ( new_objects
+    activity_task_service
     adb_service
     adbd_exec
+    app_binding_service
+    apex_data_file
+    apex_mnt_dir
+    apex_key_file
+    apex_service
+    apexd
+    apexd_exec
+    apexd_prop
+    apexd_tmpfs
     atrace
     binder_calls_stats_service
+    biometric_service
     bootloader_boot_reason_prop
     blank_screen
     blank_screen_exec
@@ -17,11 +29,17 @@
     bpfloader_exec
     broadcastradio_service
     cgroup_bpf
+    color_display_service
+    content_capture_service
     crossprofileapps_service
     ctl_interface_restart_prop
     ctl_interface_start_prop
     ctl_interface_stop_prop
     ctl_sigstop_prop
+    device_config_boot_count_prop
+    device_config_reset_performed_prop
+    device_config_flags_health_check_prop
+    device_config_netd_native_prop
     e2fs
     e2fs_exec
     exfat
@@ -51,7 +69,11 @@
     exported3_system_prop
     fastbootd
     fingerprint_vendor_data_file
+    flags_health_check
+    flags_health_check_exec
     fs_bpf
+    fwk_stats_hwservice
+    hal_atrace_hwservice
     hal_audiocontrol_hwservice
     hal_authsecret_hwservice
     hal_broadcastradio_hwservice
@@ -59,7 +81,7 @@
     hal_codec2_hwservice
     hal_confirmationui_hwservice
     hal_evs_hwservice
-    hal_health_filesystem_hwservice
+    hal_health_storage_hwservice
     hal_lowpan_hwservice
     hal_neuralnetworks_hwservice
     hal_secure_element_hwservice
@@ -71,22 +93,38 @@
     hal_usb_gadget_hwservice
     hal_vehicle_hwservice
     hal_wifi_offload_hwservice
+    heapprofd
+    heapprofd_exec
+    heapprofd_socket
     incident_helper
     incident_helper_exec
+    iorapd
+    iorapd_data_file
+    iorapd_exec
+    iorapd_service
+    iorapd_tmpfs
+    ipmemorystore_service
     kmsg_debug_device
+    last_boot_reason_prop
     llkd
     llkd_exec
+    llkd_prop
     llkd_tmpfs
-    last_boot_reason_prop
+    looper_stats_service
     lowpan_device
     lowpan_prop
     lowpan_service
+    mediaswcodec
+    mediaswcodec_exec
+    mediaswcodec_tmpfs
     mediaextractor_update_service
     mediaprovider_tmpfs
     metadata_file
     mnt_product_file
     mnt_vendor_file
     netd_stable_secret_prop
+    network_stack
+    network_stack_service
     network_watchlist_data_file
     network_watchlist_service
     overlayfs_file
@@ -98,11 +136,16 @@
     perfprofd_service
     property_info
     recovery_socket
+    role_service
+    runas_app
+    runtime_service
     secure_element
     secure_element_device
     secure_element_tmpfs
     secure_element_service
+    server_configurable_flags_data_file
     slice_service
+    staging_data_file
     stats
     stats_data_file
     stats_exec
@@ -173,8 +216,9 @@
 ;; private_objects - a collection of types that were labeled differently in
 ;;     older policy, but that should not remain accessible to vendor policy.
 ;;     Thus, these types are also not mapped, but recorded for checkapi tests
+(type priv_objects)
 (typeattribute priv_objects)
 (typeattributeset priv_objects
-     ( adbd_tmpfs
-       untrusted_app_27_tmpfs
-     ))
+  ( priv_objects
+    adbd_tmpfs
+    untrusted_app_27_tmpfs))

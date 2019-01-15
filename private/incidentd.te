@@ -2,7 +2,7 @@ typeattribute incidentd coredomain;
 typeattribute incidentd mlstrustedsubject;
 
 init_daemon_domain(incidentd)
-type incidentd_exec, exec_type, file_type;
+type incidentd_exec, system_file_type, exec_type, file_type;
 binder_use(incidentd)
 wakelock_use(incidentd)
 
@@ -45,6 +45,10 @@ allow incidentd sysfs_batteryinfo:file r_file_perms;
 userdebug_or_eng(`allow incidentd pstorefs:dir search');
 userdebug_or_eng(`allow incidentd pstorefs:file r_file_perms');
 
+# section id 3023, allow obtaining stats report
+allow incidentd stats_service:service_manager find;
+binder_call(incidentd, statsd)
+
 # Create and write into /data/misc/incidents
 allow incidentd incident_data_file:dir rw_dir_perms;
 allow incidentd incident_data_file:file create_file_perms;
@@ -86,7 +90,9 @@ allow incidentd {
   hal_audio_server
   hal_bluetooth_server
   hal_camera_server
+  hal_graphics_allocator_server
   hal_graphics_composer_server
+  hal_health_server
   hal_omx_server
   hal_sensors_server
   hal_vr_server
@@ -128,9 +134,9 @@ allow incidentd {
 # Only incidentd can publish the binder service
 add_service(incidentd, incident_service)
 
-# Allow pipes from (and only from) incident
-allow incidentd incident:fd use;
-allow incidentd incident:fifo_file write;
+# Allow pipes only from dumpstate and incident
+allow incidentd { dumpstate incident }:fd use;
+allow incidentd { dumpstate incident }:fifo_file write;
 
 # Allow incident to call back to incident with status updates.
 binder_call(incidentd, incident)
@@ -139,9 +145,10 @@ binder_call(incidentd, incident)
 ### neverallow rules
 ###
 
-# only system_server, system_app and incident command can find the incident service
+# only dumpstate, system_server, system_app and incident command can find the incident service
 neverallow {
   domain
+  -dumpstate
   -incident
   -incidentd
   -statsd

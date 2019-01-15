@@ -1,6 +1,6 @@
 # Domain for shell processes spawned by ADB or console service.
 type shell, domain, mlstrustedsubject;
-type shell_exec, exec_type, file_type;
+type shell_exec, system_file_type, exec_type, file_type;
 
 # Create and use network sockets.
 net_domain(shell)
@@ -45,8 +45,10 @@ unix_socket_connect(shell, dumpstate, dumpstate)
 allow shell devpts:chr_file rw_file_perms;
 allow shell tty_device:chr_file rw_file_perms;
 allow shell console_device:chr_file rw_file_perms;
+
 allow shell input_device:dir r_dir_perms;
-allow shell input_device:chr_file rw_file_perms;
+allow shell input_device:chr_file r_file_perms;
+
 r_dir_file(shell, system_file)
 allow shell system_file:file x_file_perms;
 allow shell toolbox_exec:file rx_file_perms;
@@ -73,6 +75,9 @@ set_prop(shell, traced_enabled_prop)
 userdebug_or_eng(`set_prop(shell, log_prop)')
 # logpersist script
 userdebug_or_eng(`set_prop(shell, logpersistd_logging_prop)')
+# Allow shell to start/stop heapprofd via the persist.heapprofd.enable
+# property.
+set_prop(shell, heapprofd_enabled_prop)
 
 userdebug_or_eng(`
   # "systrace --boot" support - allow boottrace service to run
@@ -102,9 +107,11 @@ allow shell servicemanager:service_manager list;
 # - dumpstate_service (so it can receive dumpstate progress updates)
 allow shell {
   service_manager_type
+  -apex_service
   -gatekeeper_service
   -incident_service
   -installd_service
+  -iorapd_service
   -netd_service
   -virtual_touchpad_service
   -vold_service
@@ -127,7 +134,6 @@ allow shell {
   proc_meminfo
   proc_modules
   proc_pid_max
-  proc_qtaguid_stat
   proc_slabinfo
   proc_stat
   proc_timer
@@ -226,9 +232,17 @@ neverallowxperm shell domain:{ rawip_socket tcp_socket udp_socket } ioctl priv_s
 neverallow shell {
   fuse_device
   hw_random_device
-  kmem_device
   port_device
 }:chr_file ~getattr;
 
 # Limit shell to only getattr on blk devices for host side tests.
 neverallow shell dev_type:blk_file ~getattr;
+
+# b/30861057: Shell access to existing input devices is an abuse
+# vector. The shell user can inject events that look like they
+# originate from the touchscreen etc.
+# Everyone should have already moved to UiAutomation#injectInputEvent
+# if they are running instrumentation tests (i.e. CTS), Monkey for
+# their stress tests, and the input command (adb shell input ...) for
+# injecting swipes and things.
+neverallow shell input_device:chr_file no_w_file_perms;

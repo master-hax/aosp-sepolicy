@@ -1,10 +1,13 @@
+type apexd_prop, property_type;
 type audio_prop, property_type, core_property_type;
 type boottime_prop, property_type;
 type bluetooth_a2dp_offload_prop, property_type;
 type bluetooth_prop, property_type;
+type bpf_progs_loaded_prop, property_type;
 type bootloader_boot_reason_prop, property_type;
 type config_prop, property_type, core_property_type;
 type cppreopt_prop, property_type, core_property_type;
+type cpu_variant_prop, property_type;
 type ctl_adbd_prop, property_type;
 type ctl_bootanim_prop, property_type;
 type ctl_bugreport_prop, property_type;
@@ -25,6 +28,10 @@ type dalvik_prop, property_type, core_property_type;
 type debuggerd_prop, property_type, core_property_type;
 type debug_prop, property_type, core_property_type;
 type default_prop, property_type, core_property_type;
+type device_config_boot_count_prop, property_type;
+type device_config_reset_performed_prop, property_type;
+type device_config_flags_health_check_prop, property_type;
+type device_config_netd_native_prop, property_type;
 type device_logging_prop, property_type;
 type dhcp_prop, property_type, core_property_type;
 type dumpstate_options_prop, property_type;
@@ -33,9 +40,12 @@ type exported_secure_prop, property_type;
 type ffs_prop, property_type, core_property_type;
 type fingerprint_prop, property_type, core_property_type;
 type firstboot_prop, property_type;
+type heapprofd_enabled_prop, property_type;
+type heapprofd_prop, property_type;
 type hwservicemanager_prop, property_type;
 type last_boot_reason_prop, property_type;
 type system_lmk_prop, property_type;
+type llkd_prop, property_type;
 type logd_prop, property_type, core_property_type;
 type logpersistd_logging_prop, property_type;
 type log_prop, property_type, log_property_type;
@@ -99,6 +109,12 @@ allow property_type tmpfs:filesystem associate;
 ###
 ### Neverallow rules
 ###
+
+# There is no need to perform ioctl or advisory locking operations on
+# property files. If this neverallow is being triggered, it is
+# likely that the policy is using r_file_perms directly instead of
+# the get_prop() macro.
+neverallow domain property_type:file { ioctl lock };
 
 # core_property_type should not be used for new properties or
 # device specific properties. Properties with this attribute
@@ -322,11 +338,13 @@ compatible_property_only(`
     -system_writes_vendor_properties_violators
   } {
     property_type
+    -apexd_prop
     -audio_prop
     -bluetooth_a2dp_offload_prop
     -bluetooth_prop
     -bootloader_boot_reason_prop
     -boottime_prop
+    -bpf_progs_loaded_prop
     -config_prop
     -cppreopt_prop
     -ctl_adbd_prop
@@ -380,6 +398,12 @@ compatible_property_only(`
     -ffs_prop
     -fingerprint_prop
     -firstboot_prop
+    -device_config_reset_performed_prop
+    -device_config_boot_count_prop
+    -device_config_flags_health_check_prop
+    -device_config_netd_native_prop
+    -heapprofd_enabled_prop
+    -heapprofd_prop
     -hwservicemanager_prop
     -last_boot_reason_prop
     -system_lmk_prop

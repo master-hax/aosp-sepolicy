@@ -1,6 +1,6 @@
 # IKE key management daemon
 type racoon, domain;
-type racoon_exec, exec_type, file_type;
+type racoon_exec, system_file_type, exec_type, file_type;
 
 typeattribute racoon mlstrustedsubject;
 
@@ -10,6 +10,7 @@ allowxperm racoon self:udp_socket ioctl { SIOCSIFFLAGS SIOCSIFADDR SIOCSIFNETMAS
 binder_use(racoon)
 
 allow racoon tun_device:chr_file r_file_perms;
+allowxperm racoon tun_device:chr_file ioctl TUNSETIFF;
 allow racoon cgroup:dir { add_name create };
 allow racoon kernel:system module_request;
 

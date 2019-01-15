@@ -15,6 +15,7 @@ allow vendor_init rootfs:lnk_file { create unlink };
 
 # Create cgroups mount points in tmpfs and mount cgroups on them.
 allow vendor_init cgroup:dir create_dir_perms;
+allow vendor_init cgroup:file w_file_perms;
 
 # /config
 allow vendor_init configfs:dir mounton;
@@ -22,7 +23,7 @@ allow vendor_init configfs:dir create_dir_perms;
 allow vendor_init configfs:{ file lnk_file } create_file_perms;
 
 # Create directories under /dev/cpuctl after chowning it to system.
-allow vendor_init self:global_capability_class_set dac_override;
+allow vendor_init self:global_capability_class_set { dac_override dac_read_search };
 
 # mkdir, symlink, write, rm/rmdir, chown/chmod, restorecon/restorecon_recursive from init.rc files.
 # chown/chmod require open+read+setattr required for open()+fchown/fchmod().
@@ -35,25 +36,33 @@ allow vendor_init self:global_capability_class_set { chown fowner fsetid };
 allow vendor_init unencrypted_data_file:dir search;
 allow vendor_init unencrypted_data_file:file r_file_perms;
 
+# Set encryption policy on dirs in /data
+allowxperm vendor_init data_file_type:dir ioctl {
+  FS_IOC_GET_ENCRYPTION_POLICY
+  FS_IOC_SET_ENCRYPTION_POLICY
+};
+
 allow vendor_init system_data_file:dir getattr;
 
 allow vendor_init {
   file_type
   -core_data_file_type
   -exec_type
-  -system_file
+  -system_file_type
   -mnt_product_file
   -unlabeled
   -vendor_file_type
   -vold_metadata_file
 }:dir { create search getattr open read setattr ioctl write add_name remove_name rmdir relabelfrom };
 
+allow vendor_init unlabeled:{ dir notdevfile_class_set } { getattr relabelfrom };
+
 allow vendor_init {
   file_type
   -core_data_file_type
   -exec_type
   -runtime_event_log_tags_file
-  -system_file
+  -system_file_type
   -unlabeled
   -vendor_file_type
   -vold_metadata_file
@@ -63,7 +72,7 @@ allow vendor_init {
   file_type
   -core_data_file_type
   -exec_type
-  -system_file
+  -system_file_type
   -unlabeled
   -vendor_file_type
   -vold_metadata_file
@@ -71,9 +80,10 @@ allow vendor_init {
 
 allow vendor_init {
   file_type
+  -apex_mnt_dir
   -core_data_file_type
   -exec_type
-  -system_file
+  -system_file_type
   -unlabeled
   -vendor_file_type
   -vold_metadata_file
@@ -84,7 +94,7 @@ allow vendor_init {
   -core_data_file_type
   -exec_type
   -mnt_product_file
-  -system_file
+  -system_file_type
   -vendor_file_type
   -vold_metadata_file
 }:dir_file_class_set relabelto;
@@ -99,6 +109,7 @@ allow vendor_init debugfs_tracing:file w_file_perms;
 allow vendor_init {
   fs_type
   -contextmount_type
+  -keychord_device
   -sdcard_type
   -rootfs
   -proc_uid_time_in_state
@@ -119,7 +130,7 @@ allow vendor_init {
 # chown/chmod on devices, e.g. /dev/ttyHS0
 allow vendor_init {
   dev_type
-  -kmem_device
+  -keychord_device
   -port_device
   -lowpan_device
   -hw_random_device
@@ -163,6 +174,10 @@ recovery_only(`
 not_compatible_property(`
     set_prop(vendor_init, {
       property_type
+      -device_config_boot_count_prop
+      -device_config_reset_performed_prop
+      -device_config_flags_health_check_prop
+      -device_config_netd_native_prop
       -restorecon_prop
       -netd_stable_secret_prop
       -firstboot_prop
@@ -170,10 +185,15 @@ not_compatible_property(`
       -system_boot_reason_prop
       -bootloader_boot_reason_prop
       -last_boot_reason_prop
+      -apexd_prop
     })
 ')
 
+# Get file context
+allow vendor_init file_contexts_file:file r_file_perms;
+
 set_prop(vendor_init, bluetooth_a2dp_offload_prop)
+set_prop(vendor_init, cpu_variant_prop)
 set_prop(vendor_init, debug_prop)
 set_prop(vendor_init, exported_audio_prop)
 set_prop(vendor_init, exported_bluetooth_prop)
@@ -227,3 +247,6 @@ neverallow vendor_init { file_type fs_type }:file execute_no_trans;
 # Init never adds or uses services via service_manager.
 neverallow vendor_init service_manager_type:service_manager { add find };
 neverallow vendor_init servicemanager:service_manager list;
+
+# vendor_init should never be ptraced
+neverallow * vendor_init:process ptrace;

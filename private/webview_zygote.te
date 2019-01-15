@@ -32,6 +32,9 @@ allow webview_zygote dalvikcache_data_file:dir r_dir_perms;
 allow webview_zygote dalvikcache_data_file:lnk_file r_file_perms;
 allow webview_zygote dalvikcache_data_file:file { r_file_perms execute };
 
+# Allow webview_zygote to create JIT memory.
+allow webview_zygote self:process execmem;
+
 # Allow webview_zygote to stat the files that it opens. It must
 # be able to inspect them so that it can reopen them on fork
 # if necessary: b/30963384.
@@ -69,6 +72,8 @@ allow webview_zygote zygote:process sigchld;
 
 # Allow apps access to /vendor/overlay
 r_dir_file(webview_zygote, vendor_overlay_file)
+
+allow webview_zygote same_process_hal_file:file { execute read open getattr map };
 
 #####
 ##### Neverallow
@@ -130,6 +135,7 @@ neverallow webview_zygote domain:{
   pppox_socket llc_socket can_socket tipc_socket bluetooth_socket iucv_socket
   rxrpc_socket isdn_socket phonet_socket ieee802154_socket caif_socket
   alg_socket nfc_socket vsock_socket kcm_socket qipcrtr_socket smc_socket
+  xdp_socket
 } *;
 
 # Do not allow access to Bluetooth-related system properties.

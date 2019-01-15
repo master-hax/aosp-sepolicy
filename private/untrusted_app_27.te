@@ -2,7 +2,7 @@
 ### Untrusted_27.
 ###
 ### This file defines the rules for untrusted apps running with
-### 25 < targetSdkVersion <= 27.
+### 25 < targetSdkVersion <= 28.
 ###
 ### This file defines the rules for untrusted apps.
 ### Apps are labeled based on mac_permissions.xml (maps signer and
@@ -27,8 +27,12 @@ untrusted_app_domain(untrusted_app_27)
 net_domain(untrusted_app_27)
 bluetooth_domain(untrusted_app_27)
 
-# qtaguid access. This is not a public API. Access will be removed in a
-# future version of Android.
-allow untrusted_app_27 proc_qtaguid_ctrl:file rw_file_perms;
-r_dir_file(untrusted_app_27, proc_qtaguid_stat)
-allow untrusted_app_27 qtaguid_device:chr_file r_file_perms;
+# The ability to call exec() on files in the apps home directories
+# for targetApi 26, 27, and 28.
+allow untrusted_app_27 app_data_file:file execute_no_trans;
+userdebug_or_eng(`auditallow untrusted_app_27 app_data_file:file { execute execute_no_trans };')
+
+# The ability to invoke dex2oat. Historically required by ART, now only
+# allowed for targetApi<=28 for compat reasons.
+allow untrusted_app_27 dex2oat_exec:file rx_file_perms;
+userdebug_or_eng(`auditallow untrusted_app_27 dex2oat_exec:file rx_file_perms;')

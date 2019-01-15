@@ -75,57 +75,12 @@ allow {
 not_full_treble(`allow { domain -hwservicemanager -vndservicemanager } binder_device:chr_file rw_file_perms;')
 allow { domain -servicemanager -vndservicemanager -isolated_app } hwbinder_device:chr_file rw_file_perms;
 allow domain ptmx_device:chr_file rw_file_perms;
-allow domain alarm_device:chr_file r_file_perms;
 allow domain random_device:chr_file rw_file_perms;
 allow domain proc_random:dir r_dir_perms;
 allow domain proc_random:file r_file_perms;
 allow domain properties_device:dir { search getattr };
 allow domain properties_serial:file r_file_perms;
 allow domain property_info:file r_file_perms;
-
-# For now, everyone can access core property files
-# Device specific properties are not granted by default
-not_compatible_property(`
-    get_prop(domain, core_property_type)
-    get_prop(domain, exported_dalvik_prop)
-    get_prop(domain, exported_ffs_prop)
-    get_prop(domain, exported_system_radio_prop)
-    get_prop(domain, exported2_config_prop)
-    get_prop(domain, exported2_radio_prop)
-    get_prop(domain, exported2_system_prop)
-    get_prop(domain, exported2_vold_prop)
-    get_prop(domain, exported3_default_prop)
-    get_prop(domain, exported3_radio_prop)
-    get_prop(domain, exported3_system_prop)
-    get_prop(domain, vendor_default_prop)
-')
-compatible_property_only(`
-    get_prop({coredomain appdomain shell}, core_property_type)
-    get_prop({coredomain appdomain shell}, exported_dalvik_prop)
-    get_prop({coredomain appdomain shell}, exported_ffs_prop)
-    get_prop({coredomain appdomain shell}, exported_system_radio_prop)
-    get_prop({coredomain appdomain shell}, exported2_config_prop)
-    get_prop({coredomain appdomain shell}, exported2_radio_prop)
-    get_prop({coredomain appdomain shell}, exported2_system_prop)
-    get_prop({coredomain appdomain shell}, exported2_vold_prop)
-    get_prop({coredomain appdomain shell}, exported3_default_prop)
-    get_prop({coredomain appdomain shell}, exported3_radio_prop)
-    get_prop({coredomain appdomain shell}, exported3_system_prop)
-    userdebug_or_eng(`
-        get_prop(su, core_property_type)
-        get_prop(su, exported_dalvik_prop)
-        get_prop(su, exported_ffs_prop)
-        get_prop(su, exported_system_radio_prop)
-        get_prop(su, exported2_config_prop)
-        get_prop(su, exported2_radio_prop)
-        get_prop(su, exported2_system_prop)
-        get_prop(su, exported2_vold_prop)
-        get_prop(su, exported3_default_prop)
-        get_prop(su, exported3_radio_prop)
-        get_prop(su, exported3_system_prop)
-    ')
-    get_prop({domain -coredomain -appdomain}, vendor_default_prop)
-')
 
 # Public readable properties
 get_prop(domain, debug_prop)
@@ -152,14 +107,32 @@ allow domain vold:key search;
 # logd access
 write_logd(domain)
 
-# System file accesses.
-allow domain system_file:dir { search getattr };
-allow domain system_file:file { execute read open getattr map };
+# Directory/link file access for path resolution.
+allow domain {
+    system_file
+    system_lib_file
+    system_seccomp_policy_file
+    system_security_cacerts_file
+}:dir r_dir_perms;
 allow domain system_file:lnk_file { getattr read };
+
+# Global access to /system/etc/security/cacerts/*, /system/etc/seccomp_policy/*, /system/lib[64]/*,
+# linker and its config.
+allow domain system_seccomp_policy_file:file r_file_perms;
+# cacerts are accessible from public Java API.
+allow domain system_security_cacerts_file:file r_file_perms;
+allow domain system_linker_exec:file { execute read open getattr map };
+allow domain system_linker_config_file:file r_file_perms;
+allow domain system_lib_file:file { execute read open getattr map };
+
+allow domain system_event_log_tags_file:file r_file_perms;
+
+allow { appdomain coredomain } system_file:file { execute read open getattr map };
 
 # Make sure system/vendor split doesn not affect non-treble
 # devices
 not_full_treble(`
+    allow domain system_file:file { execute read open getattr map };
     allow domain vendor_file_type:dir { search getattr };
     allow domain vendor_file_type:file { execute read open getattr map };
     allow domain vendor_file_type:lnk_file { getattr read };
@@ -172,7 +145,10 @@ allow domain vendor_hal_file:dir r_dir_perms;
 
 # Everyone can read and execute all same process HALs
 allow domain same_process_hal_file:dir r_dir_perms;
-allow domain same_process_hal_file:file { execute read open getattr map };
+allow {
+    domain
+    -coredomain # access is explicitly granted to individual coredomains
+} same_process_hal_file:file { execute read open getattr map };
 
 # Any process can load vndk-sp libraries, which are system libraries
 # used by same process HALs
@@ -202,10 +178,11 @@ full_treble_only(`
 # read and stat any sysfs symlinks
 allow domain sysfs:lnk_file { getattr read };
 
-# libc references /data/misc/zoneinfo for timezone related information
+# libc references /data/misc/zoneinfo and /system/usr/share/zoneinfo for
+# timezone related information.
 # This directory is considered to be a VNDK-stable
-allow domain zoneinfo_data_file:file r_file_perms;
-allow domain zoneinfo_data_file:dir r_dir_perms;
+allow domain { system_zoneinfo_file zoneinfo_data_file }:file r_file_perms;
+allow domain { system_zoneinfo_file zoneinfo_data_file }:dir r_dir_perms;
 
 # Lots of processes access current CPU information
 r_dir_file(domain, sysfs_devices_system_cpu)
@@ -229,6 +206,9 @@ allow domain proc:lnk_file { getattr read };
 # /proc/cpuinfo
 allow domain proc_cpuinfo:file r_file_perms;
 
+# /dev/cpu_variant:.*
+allow domain dev_cpu_variant:file r_file_perms;
+
 # jemalloc needs to read /proc/sys/vm/overcommit_memory
 allow domain proc_overcommit_memory:file r_file_perms;
 
@@ -240,10 +220,6 @@ allow domain selinuxfs:dir search;
 allow domain selinuxfs:file getattr;
 allow domain sysfs:dir search;
 allow domain selinuxfs:filesystem getattr;
-
-# For /acct/uid/*/tasks.
-allow domain cgroup:dir { search write };
-allow domain cgroup:file w_file_perms;
 
 # Almost all processes log tracing information to
 # /sys/kernel/debug/tracing/trace_marker
@@ -265,7 +241,7 @@ allow domain fs_type:dir getattr;
 allowxperm domain domain:{ icmp_socket rawip_socket tcp_socket udp_socket }
   ioctl { unpriv_sock_ioctls unpriv_tty_ioctls };
 # default whitelist for unix sockets.
-allowxperm domain domain:{ unix_dgram_socket unix_stream_socket }
+allowxperm domain { domain pdx_channel_socket_type }:{ unix_dgram_socket unix_stream_socket }
   ioctl unpriv_unix_sock_ioctls;
 
 # Restrict PTYs to only whitelisted ioctls.
@@ -273,6 +249,39 @@ allowxperm domain domain:{ unix_dgram_socket unix_stream_socket }
 # not grant the wider ioctl permission. That must be granted
 # separately.
 allowxperm domain devpts:chr_file ioctl unpriv_tty_ioctls;
+
+# All domains must clearly enumerate what ioctls they use
+# on filesystem objects (plain files, directories, symbolic links,
+# named pipes, and named sockets). We start off with a safe set.
+allowxperm domain { file_type fs_type domain dev_type }:{ dir notdevfile_class_set blk_file } ioctl { FIOCLEX FIONCLEX };
+
+# If a domain has ioctl access to tun_device, it must clearly enumerate the
+# ioctls used. Safe defaults are listed below.
+allowxperm domain tun_device:chr_file ioctl { FIOCLEX FIONCLEX };
+
+# Allow a process to make a determination whether a file descriptor
+# for a plain file or pipe (fifo_file) is a tty. Note that granting
+# this whitelist to domain does not grant the ioctl permission to
+# these files. That must be granted separately.
+allowxperm domain { file_type fs_type }:file ioctl { TCGETS };
+allowxperm domain domain:fifo_file ioctl { TCGETS };
+
+# If a domain has access to perform an ioctl on a block device, allow these
+# very common, benign ioctls
+allowxperm domain dev_type:blk_file ioctl { BLKGETSIZE64 BLKSSZGET };
+
+# Support sqlite F2FS specific optimizations
+# ioctl permission on the specific file type is still required
+# TODO: consider only compiling these rules if we know the
+# /data partition is F2FS
+allowxperm domain { file_type sdcard_type }:file ioctl {
+  F2FS_IOC_ABORT_VOLATILE_WRITE
+  F2FS_IOC_COMMIT_ATOMIC_WRITE
+  F2FS_IOC_GET_FEATURES
+  F2FS_IOC_GET_PIN_FILE
+  F2FS_IOC_SET_PIN_FILE
+  F2FS_IOC_START_ATOMIC_WRITE
+};
 
 # Workaround for policy compiler being too aggressive and removing hwservice_manager_type
 # when it's not explicitly used in allow rules
@@ -283,13 +292,20 @@ allow { domain -domain } vndservice_manager_type:service_manager { add find };
 
 # Under ASAN, processes will try to read /data, as the sanitized libraries are there.
 with_asan(`allow domain system_data_file:dir getattr;')
+# Under ASAN, /system/asan.options needs to be globally accessible.
+with_asan(`allow domain system_asan_options_file:file r_file_perms;')
+
+# read APEX dir and stat any symlink pointing to APEXs.
+allow domain apex_mnt_dir:dir { getattr search };
+allow domain apex_mnt_dir:lnk_file r_file_perms;
 
 ###
 ### neverallow rules
 ###
 
-# All socket ioctls must be restricted to a whitelist.
-neverallowxperm domain domain:socket_class_set ioctl { 0 };
+# All ioctls on file-like objects (except chr_file and blk_file) and
+# sockets must be restricted to a whitelist.
+neverallowxperm * *:{ dir notdevfile_class_set socket_class_set blk_file } ioctl { 0 };
 
 # b/68014825 and https://android-review.googlesource.com/516535
 # rfc6093 says that processes should not use the TCP urgent mechanism
@@ -366,22 +382,12 @@ neverallow {
 # b/78174219 b/64114943
 neverallow {
   domain
-  -init
   -shell # stat of /dev, getattr only
-  -vendor_init
   -ueventd
 } keychord_device:chr_file *;
 
 # Ensure that all entrypoint executables are in exec_type or postinstall_file.
 neverallow * { file_type -exec_type -postinstall_file }:file entrypoint;
-
-# Ensure that nothing in userspace can access /dev/mem or /dev/kmem
-neverallow {
-  domain
-  -shell # For CTS and is restricted to getattr in shell.te
-  -ueventd # Further restricted in ueventd.te
-} kmem_device:chr_file *;
-neverallow * kmem_device:chr_file ~{ create relabelto unlink setattr getattr };
 
 #Ensure that nothing in userspace can access /dev/port
 neverallow {
@@ -396,12 +402,11 @@ neverallow { domain -init } usermodehelper:file { append write };
 neverallow { domain -init -ueventd } sysfs_usermodehelper:file { append write };
 neverallow { domain -init -vendor_init } proc_security:file { append open read write };
 
-# No domain should be allowed to ptrace init.
-neverallow * init:process ptrace;
-
-# Init can't do anything with binder calls. If this neverallow rule is being
-# triggered, it's probably due to a service with no SELinux domain.
-neverallow * init:binder *;
+# Nobody is allowed to make binder calls into init.
+# Only servicemanager may transfer binder references to init
+# vendor_init shouldn't use binder at all.
+neverallow * init:binder ~{ transfer };
+neverallow { domain -servicemanager } init:binder { transfer };
 neverallow * vendor_init:binder *;
 
 # Don't allow raw read/write/open access to block_device
@@ -420,36 +425,18 @@ neverallow domain device:chr_file { open read write };
 # Limit what domains can mount filesystems or change their mount flags.
 # sdcard_type / vfat is exempt as a larger set of domains need
 # this capability, including device-specific domains.
-neverallow { domain -kernel -init -recovery -vold -zygote -update_engine -otapreopt_chroot } { fs_type -sdcard_type }:filesystem { mount remount relabelfrom relabelto };
-
-#
-# Assert that, to the extent possible, we're not loading executable content from
-# outside the rootfs or /system partition except for a few whitelisted domains.
-#
 neverallow {
     domain
-    -appdomain
-    with_asan(`-asan_extract')
-    -dumpstate
-    -shell
-    userdebug_or_eng(`-su')
-    -webview_zygote
+    -apexd
+    recovery_only(`userdebug_or_eng(`-fastbootd')')
+    -init
+    -kernel
+    -otapreopt_chroot
+    -recovery
+    -update_engine
+    -vold
     -zygote
-    userdebug_or_eng(`-mediaextractor')
-} {
-    file_type
-    -system_file
-    -vendor_file_type
-    -exec_type
-    -postinstall_file
-}:file execute;
-
-neverallow {
-    domain
-    -appdomain # for oemfs
-    -bootanim # for oemfs
-    -recovery # for /tmp/update_binary in tmpfs
-} { fs_type -rootfs }:file execute;
+} { fs_type -sdcard_type }:filesystem { mount remount relabelfrom relabelto };
 
 # Files from cache should never be executed
 neverallow domain { cache_file cache_backup_file cache_private_backup_file cache_recovery_file }:file execute;
@@ -484,17 +471,18 @@ neverallow { domain -init } properties_serial:file { no_w_file_perms no_x_file_p
 neverallow {
     domain
     with_asan(`-asan_extract')
+    recovery_only(`userdebug_or_eng(`-fastbootd')')
 } {
-    system_file
+    system_file_type
     vendor_file_type
     exec_type
 }:dir_file_class_set { create write setattr relabelfrom append unlink link rename };
 
-neverallow { domain -kernel with_asan(`-asan_extract') } { system_file vendor_file_type exec_type }:dir_file_class_set relabelto;
+neverallow { domain -kernel with_asan(`-asan_extract') } { system_file_type vendor_file_type exec_type }:dir_file_class_set relabelto;
 
 # Don't allow mounting on top of /system files or directories
 neverallow * exec_type:dir_file_class_set mounton;
-neverallow { domain -init } { system_file vendor_file_type }:dir_file_class_set mounton;
+neverallow { domain -init } { system_file_type vendor_file_type }:dir_file_class_set mounton;
 
 # Nothing should be writing to files in the rootfs.
 neverallow * rootfs:file { create write setattr relabelto append unlink link rename };
@@ -507,7 +495,8 @@ neverallow * {fs_type -contextmount_type}:filesystem relabelto;
 # the write to /system restriction above is not bypassed via context=
 # mount to another type.
 neverallow * contextmount_type:dir_file_class_set
-    { create write setattr relabelfrom relabelto append unlink link rename };
+    { create setattr relabelfrom relabelto append link rename };
+neverallow { domain recovery_only(`userdebug_or_eng(`-fastbootd')') } contextmount_type:dir_file_class_set { write unlink };
 
 # Do not allow service_manager add for default service labels.
 # Instead domains should use a more specific type such as
@@ -590,6 +579,7 @@ neverallow {
   -vold
   -e2fs
   -fsck
+  -fastbootd
 } metadata_block_device:blk_file { append link rename write open read ioctl lock };
 
 # No domain other than recovery, update_engine and fastbootd can write to system partition(s).
@@ -751,6 +741,7 @@ full_treble_only(`
     userdebug_or_eng(`-su') # communications with su are permitted only on userdebug or eng builds
     -init
     -tombstoned # TODO(b/36604251): Remove tombstoned from this list once mediacodec (OMX HAL) no longer declares Binder services
+    userdebug_or_eng('-heapprofd`)
   });
 ')
 
@@ -859,8 +850,9 @@ full_treble_only(`
   } {
     core_data_file_type
     # libc includes functions like mktime and localtime which attempt to access
-    # files in /data/misc/zoneinfo/tzdata file. These functions are considered
-    # vndk-stable and thus must be allowed for all processes.
+    # files in /data/misc/zoneinfo/tzdata and /system/usr/share/zoneinfo/tzdata.
+    # These functions are considered vndk-stable and thus must be allowed for
+    # all processes.
     -zoneinfo_data_file
   }:file_class_set ~{ append getattr ioctl read write map };
   neverallow {
@@ -939,65 +931,6 @@ full_treble_only(`
     }:file_class_set ~{ append getattr ioctl read write map };
 ')
 
-# On TREBLE devices, a limited set of files in /vendor are accessible to
-# only a few whitelisted coredomains to keep system/vendor separation.
-full_treble_only(`
-    # Limit access to /vendor/app
-    neverallow {
-        coredomain
-        -appdomain
-        -dex2oat
-        -idmap
-        -init
-        -installd
-        userdebug_or_eng(`-perfprofd')
-        -postinstall_dexopt
-        -system_server
-    } vendor_app_file:dir { open read getattr search };
-')
-
-full_treble_only(`
-    neverallow {
-        coredomain
-        -appdomain
-        -dex2oat
-        -idmap
-        -init
-        -installd
-        userdebug_or_eng(`-perfprofd')
-        -postinstall_dexopt
-        -system_server
-        -mediaserver
-    } vendor_app_file:file r_file_perms;
-')
-
-full_treble_only(`
-    # Limit access to /vendor/overlay
-    neverallow {
-        coredomain
-        -appdomain
-        -idmap
-        -init
-        -installd
-        -system_server
-        -webview_zygote
-        -zygote
-    } vendor_overlay_file:dir { getattr open read search };
-')
-
-full_treble_only(`
-    neverallow {
-        coredomain
-        -appdomain
-        -idmap
-        -init
-        -installd
-        -system_server
-        -webview_zygote
-        -zygote
-    } vendor_overlay_file:file r_file_perms;
-')
-
 full_treble_only(`
     # Non-vendor domains are not allowed to file execute shell
     # from vendor
@@ -1018,10 +951,12 @@ full_treble_only(`
         -vendor_executes_system_violators
         -vendor_init
     } {
-        exec_type
-        -vendor_file_type
+        system_file_type
+        -system_lib_file
+        -system_linker_exec
         -crash_dump_exec
         -netutils_wrapper_exec
+        userdebug_or_eng(`-tcpdump_exec')
     }:file { entrypoint execute execute_no_trans };
 ')
 
@@ -1063,9 +998,9 @@ full_treble_only(`
     -init # starts vendor executables
     -kernel # loads /vendor/firmware
     userdebug_or_eng(`-perfprofd')
+    userdebug_or_eng(`-heapprofd')
     -shell
     -system_executes_vendor_violators
-    -system_server # reads vendor input files
     -ueventd # reads /vendor/ueventd.rc
   } {
     vendor_file_type
@@ -1073,9 +1008,41 @@ full_treble_only(`
     -vendor_app_file
     -vendor_configs_file
     -vendor_framework_file
+    -vendor_idc_file
+    -vendor_keychars_file
+    -vendor_keylayout_file
     -vendor_overlay_file
     -vendor_public_lib_file
     -vndk_sp_file
+  }:file *;
+')
+
+full_treble_only(`
+  # Do not allow vendor components access to /system files except for the
+  # ones whitelisted here.
+  neverallow {
+    domain
+    -appdomain
+    -coredomain
+    -vendor_executes_system_violators
+    # vendor_init needs access to init_exec for domain transition. vendor_init
+    # neverallows are covered in public/vendor_init.te
+    -vendor_init
+  } {
+    system_file_type
+    -crash_dump_exec
+    -file_contexts_file
+    -netutils_wrapper_exec
+    -property_contexts_file
+    -system_event_log_tags_file
+    -system_lib_file
+    with_asan(`-system_asan_options_file')
+    -system_linker_exec
+    -system_linker_config_file
+    -system_seccomp_policy_file
+    -system_security_cacerts_file
+    -system_zoneinfo_file
+    userdebug_or_eng(`-tcpdump_exec')
   }:file *;
 ')
 
@@ -1119,6 +1086,7 @@ neverallow {
 
   # Processes that can't exec crash_dump
   -hal_omx_server
+  -mediaswcodec_server
   -mediaextractor
 } tombstoned_crash_socket:unix_stream_socket connectto;
 
@@ -1247,7 +1215,6 @@ neverallow {
   domain
   -appdomain
   -installd
-  -uncrypt  # TODO: see if we can remove
 } { app_data_file privapp_data_file }:lnk_file read;
 
 neverallow {
@@ -1327,8 +1294,8 @@ neverallow * domain:file { execute execute_no_trans entrypoint };
 # Do not allow access to the generic debugfs label. This is too broad.
 # Instead, if access to part of debugfs is desired, it should have a
 # more specific label.
-# TODO: fix system_server and dumpstate
-neverallow { domain -init -vendor_init -system_server -dumpstate } debugfs:file no_rw_file_perms;
+# TODO: fix dumpstate
+neverallow { domain -init -vendor_init -dumpstate } debugfs:file no_rw_file_perms;
 
 # Profiles contain untrusted data and profman parses that. We should only run
 # in from installd forked processes.
@@ -1370,6 +1337,7 @@ full_treble_only(`
     -init
     -kernel
     -perfprofd
+    -heapprofd
     -ueventd
   } vendor_file:file { no_w_file_perms no_x_file_perms open };
 ')
@@ -1377,28 +1345,37 @@ full_treble_only(`
 # Minimize dac_override and dac_read_search.
 # Instead of granting them it is usually better to add the domain to
 # a Unix group or change the permissions of a file.
-neverallow {
-  domain
-  -dnsmasq
-  -dumpstate
-  -init
-  -installd
-  -install_recovery
-  -lmkd
-  -netd
-  -perfprofd
-  -postinstall_dexopt
-  -recovery
-  -sdcardd
-  -tee
-  -ueventd
-  -uncrypt
-  -vendor_init
-  -vold
-  -vold_prepare_subdirs
-  -zygote
-} self:capability dac_override;
-neverallow { domain -traced_probes } self:capability dac_read_search;
+define(`dac_override_allowed', `{
+  dnsmasq
+  dumpstate
+  init
+  installd
+  install_recovery
+  userdebug_or_eng(`llkd')
+  lmkd
+  netd
+  perfprofd
+  postinstall_dexopt
+  recovery
+  rss_hwm_reset
+  sdcardd
+  tee
+  ueventd
+  uncrypt
+  vendor_init
+  vold
+  vold_prepare_subdirs
+  zygote
+}')
+neverallow ~dac_override_allowed self:global_capability_class_set dac_override;
+# Since the kernel checks dac_read_search before dac_override, domains that
+# have dac_override should also have dac_read_search to eliminate spurious
+# denials.  Some domains have dac_read_search without having dac_override, so
+# this list should be a superset of the one above.
+neverallow ~{
+  dac_override_allowed
+  traced_probes
+} self:global_capability_class_set dac_read_search;
 
 # If an already existing file is opened with O_CREAT, the kernel might generate
 # a false report of a create denial. Silence these denials and make sure that
@@ -1433,6 +1410,7 @@ neverallow {
   -init
   -ueventd
   -vold
+  -system_writes_mnt_vendor_violators
 } mnt_vendor_file:dir *;
 
 # Only apps are allowed access to vendor public libraries.
@@ -1465,3 +1443,16 @@ full_treble_only(`
     -incidentd
   } sysfs_batteryinfo:file { open read };
 ')
+
+neverallow {
+  domain
+  -mediaswcodec_server
+  -hal_omx_server
+} hal_codec2_hwservice:hwservice_manager add;
+
+neverallow {
+  domain
+  userdebug_or_eng(`-mediaextractor')
+  userdebug_or_eng(`-mediaswcodec')
+} mediaextractor_update_service:service_manager add;
+

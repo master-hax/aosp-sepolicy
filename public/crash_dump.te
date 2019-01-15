@@ -1,13 +1,5 @@
 type crash_dump, domain;
-type crash_dump_exec, exec_type, file_type;
-
-allow crash_dump {
-  domain
-  -init
-  -crash_dump
-  -keystore
-  -logd
-}:process { ptrace signal sigchld sigstop sigkill };
+type crash_dump_exec, system_file_type, exec_type, file_type;
 
 # crash_dump might inherit CAP_SYS_PTRACE from a privileged process,
 # which will result in an audit log even when it's allowed to trace.
@@ -54,7 +46,9 @@ allow crash_dump anr_data_file:file { append getattr };
 # Append to tombstone files.
 allow crash_dump tombstone_data_file:file { append getattr };
 
-read_logd(crash_dump)
+# crash_dump writes out logcat logs at the bottom of tombstones,
+# which is super useful in some cases.
+unix_socket_connect(crash_dump, logdr, logd)
 
 # Crash dump is not intended to access the following data types. Since these
 # are WAI, suppress the denials to clean up the logs.

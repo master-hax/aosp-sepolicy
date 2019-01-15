@@ -33,6 +33,10 @@ expandattribute data_file_type false;
 # All types in /data, not in /data/vendor
 attribute core_data_file_type;
 expandattribute core_data_file_type false;
+
+# All types in /system
+attribute system_file_type;
+
 # All types in /vendor
 attribute vendor_file_type;
 
@@ -184,6 +188,11 @@ expandattribute system_executes_vendor_violators false;
 attribute system_writes_vendor_properties_violators;
 expandattribute system_writes_vendor_properties_violators false;
 
+# All system domains which violate the requirement of not writing to
+# /mnt/vendor/*. Must not be used on devices launched with P or later.
+attribute system_writes_mnt_vendor_violators;
+expandattribute system_writes_mnt_vendor_violators false;
+
 # hwservices that are accessible from untrusted applications
 # WARNING: Use of this attribute should be avoided unless
 # absolutely necessary.  It is a temporary allowance to aid the
@@ -191,19 +200,19 @@ expandattribute system_writes_vendor_properties_violators false;
 # version, requiring all hwservices that are labeled with this
 # attribute to be submitted to AOSP in order to maintain their
 # app-visibility.
-attribute untrusted_app_visible_hwservice;
-expandattribute untrusted_app_visible_hwservice false;
+attribute untrusted_app_visible_hwservice_violators;
+expandattribute untrusted_app_visible_hwservice_violators false;
 
 # halserver domains that are accessible to untrusted applications.  These
 # domains are typically those hosting  hwservices attributed by the
-# untrusted_app_visible_hwservice.
+# untrusted_app_visible_hwservice_violators.
 # WARNING: Use of this attribute should be avoided unless absolutely necessary.
 # It is a temporary allowance to aid the transition to treble and will be
 # removed in the future platform version, requiring all halserver domains that
 # are labeled with this attribute to be submitted to AOSP in order to maintain
 # their app-visibility.
-attribute untrusted_app_visible_halserver;
-expandattribute untrusted_app_visible_halserver false;
+attribute untrusted_app_visible_halserver_violators;
+expandattribute untrusted_app_visible_halserver_violators false;
 
 # PDX services
 attribute pdx_endpoint_dir_type;
@@ -233,11 +242,13 @@ attribute hal_automotive_socket_exemption;
 
 # HALs
 hal_attribute(allocator);
+hal_attribute(atrace);
 hal_attribute(audio);
 hal_attribute(audiocontrol);
 hal_attribute(authsecret);
 hal_attribute(bluetooth);
 hal_attribute(bootctl);
+hal_attribute(bufferhub);
 hal_attribute(broadcastradio);
 hal_attribute(camera);
 hal_attribute(cas);
@@ -247,13 +258,15 @@ hal_attribute(contexthub);
 hal_attribute(drm);
 hal_attribute(dumpstate);
 hal_attribute(evs);
+hal_attribute(face);
 hal_attribute(fingerprint);
 hal_attribute(gatekeeper);
 hal_attribute(gnss);
 hal_attribute(graphics_allocator);
 hal_attribute(graphics_composer);
 hal_attribute(health);
-hal_attribute(health_filesystem);
+hal_attribute(health_storage);
+hal_attribute(input_classifier);
 hal_attribute(ir);
 hal_attribute(keymaster);
 hal_attribute(light);
@@ -264,6 +277,7 @@ hal_attribute(nfc);
 hal_attribute(oemlock);
 hal_attribute(omx);
 hal_attribute(power);
+hal_attribute(power_stats);
 hal_attribute(secure_element);
 hal_attribute(sensors);
 hal_attribute(system_suspend);
@@ -292,3 +306,4 @@ hal_attribute(wifi_supplicant);
 
 attribute display_service_server;
 attribute wifi_keystore_service_server;
+attribute mediaswcodec_server;

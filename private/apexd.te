@@ -1,0 +1,72 @@
+typeattribute apexd coredomain;
+
+init_daemon_domain(apexd)
+
+# Read /system/etc/security/apex_debug_key
+allow apexd apex_key_file:dir { search getattr };
+allow apexd apex_key_file:file r_file_perms;
+
+# Allow creating, reading and writing of APEX files/dirs in the APEX data dir
+allow apexd apex_data_file:dir create_dir_perms;
+allow apexd apex_data_file:file create_file_perms;
+
+# allow apexd to create loop devices with /dev/loop-control
+allow apexd loop_control_device:chr_file rw_file_perms;
+# allow apexd to access loop devices
+allow apexd loop_device:blk_file rw_file_perms;
+allowxperm apexd loop_device:blk_file ioctl {
+  LOOP_GET_STATUS64
+  LOOP_SET_STATUS64
+  LOOP_SET_FD
+  LOOP_SET_BLOCK_SIZE
+  LOOP_SET_DIRECT_IO
+  LOOP_CLR_FD
+  BLKFLSBUF
+};
+# allow apexd to access /dev/block
+allow apexd block_device:dir r_dir_perms;
+
+# allow apexd to access /dev/block/dm-* (device-mapper entries)
+allow apexd dm_device:chr_file rw_file_perms;
+allow apexd dm_device:blk_file rw_file_perms;
+
+# sys_admin is required to access the device-mapper and mount
+allow apexd self:global_capability_class_set sys_admin;
+
+# allow apexd to create a mount point in /apex
+allow apexd apex_mnt_dir:dir create_dir_perms;
+# allow apexd to mount in /apex
+allow apexd apex_mnt_dir:filesystem { mount unmount };
+allow apexd apex_mnt_dir:dir mounton;
+# allow apexd to create symlinks in /apex
+allow apexd apex_mnt_dir:lnk_file create_file_perms;
+
+# allow apexd to relabel apk_tmp_file to apex_data_file.
+# TODO(b/112669193) remove this when APEXes are staged via file descriptor
+allow apexd apk_tmp_file:file relabelfrom;
+allow apexd apex_data_file:file relabelto;
+
+# allow apexd to read files from /data/staging and hardlink them to /data/apex.
+allow apexd staging_data_file:dir r_dir_perms;
+allow apexd staging_data_file:file { r_file_perms link };
+
+# Unmount and mount filesystems
+allow apexd labeledfs:filesystem { mount unmount };
+
+# Configure read-ahead of dm-verity and loop devices
+# for dm-X
+allow apexd sysfs_dm:dir r_dir_perms;
+allow apexd sysfs_dm:file rw_file_perms;
+# for loopX
+allow apexd sysfs_loop:dir r_dir_perms;
+allow apexd sysfs_loop:file rw_file_perms;
+
+# Spawning a libbinder thread results in a dac_override deny,
+# /dev/cpuset/tasks is owned by system.
+#
+# See b/35323867#comment3
+dontaudit apexd self:global_capability_class_set { dac_override dac_read_search };
+
+neverallow { domain -apexd -init } apex_data_file:dir no_w_dir_perms;
+neverallow { domain -apexd -init -kernel } apex_data_file:file no_w_file_perms;
+neverallow { domain -apexd } apex_mnt_dir:lnk_file no_w_file_perms;

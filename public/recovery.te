@@ -15,6 +15,7 @@ recovery_only(`
   allow recovery self:global_capability_class_set {
     chown
     dac_override
+    dac_read_search
     fowner
     setuid
     setgid
@@ -75,6 +76,7 @@ recovery_only(`
   # Access /dev/usb-ffs/adb/ep0
   allow recovery functionfs:dir search;
   allow recovery functionfs:file rw_file_perms;
+  allowxperm recovery functionfs:file ioctl FUNCTIONFS_ENDPOINT_DESC;
 
   # Access to /sys/fs/selinux/policyvers for compatibility check
   allow recovery selinuxfs:file r_file_perms;
@@ -107,9 +109,6 @@ recovery_only(`
 
   # Reboot the device
   set_prop(recovery, powerctl_prop)
-
-  # Start/stop adbd via ctl.start adbd
-  set_prop(recovery, ctl_adbd_prop)
 
   # Read serial number of the device from system properties
   get_prop(recovery, serialno_prop)
