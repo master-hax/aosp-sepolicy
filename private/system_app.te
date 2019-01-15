@@ -53,6 +53,9 @@ auditallow system_app exported_system_radio_prop:property_service set;
 set_prop(system_app, ctl_default_prop)
 set_prop(system_app, ctl_bugreport_prop)
 
+# Read whether or not Test Harness Mode is enabled
+get_prop(adbd, test_harness_prop)
+
 # Create /data/anr/traces.txt.
 allow system_app anr_data_file:dir ra_dir_perms;
 allow system_app anr_data_file:file create_file_perms;
