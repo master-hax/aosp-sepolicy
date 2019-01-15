@@ -13,6 +13,21 @@ allow otapreopt_chroot labeledfs:filesystem mount;
 # Mounting /vendor can have this side-effect. Ignore denial.
 dontaudit otapreopt_chroot kernel:process setsched;
 
+# This is required to mount a tmpfs filesystem in /postinstall/apex.
+allow otapreopt_chroot tmpfs:filesystem mount;
+# This is required to change permissions (chmod) of /postinstall/apex.
+allow otapreopt_chroot tmpfs:dir setattr;
+# This is required to restore the security context (restorecon) of /postinstall/apex.
+allow otapreopt_chroot file_contexts_file:file r_file_perms;
+allow otapreopt_chroot postinstall_file:dir getattr;
+
+# This is required to read the `persist.apexd.verity_on_system"`
+# system property in portions using apexd code.
+allow otapreopt_chroot apexd_prop:file read;
+# This is required to open /postinstall/system/apex in portions using
+# apexd code.
+allow otapreopt_chroot postinstall_file:dir read;
+
 # Allow otapreopt to use file descriptors from update-engine. It will
 # close them immediately.
 allow otapreopt_chroot postinstall:fd use;
