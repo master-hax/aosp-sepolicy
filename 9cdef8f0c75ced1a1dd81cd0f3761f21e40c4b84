@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89515b0d_0bfb4aa2",
+        "filename": "private/app_zygote.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-15T18:40:27Z",
+      "side": 1,
+      "message": "can you please write this as:\n\n  r_dir_file(app_zygote, dalvikcache_data_file)\n  allow app_zygote dalvikcache_data_file:file execute;\n\nThe r_dir_file macro, defined in system/sepolicy/public/te_macros, allows the reading of all files, directories, and symlinks of the provided type, and is equivalent to the above.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 69
+      },
+      "revId": "9cdef8f0c75ced1a1dd81cd0f3761f21e40c4b84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d946da6_51c14bab",
+        "filename": "private/app_zygote.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-15T18:40:27Z",
+      "side": 1,
+      "message": "The SELinux code uses the m4 macro language as a preprocessor. The single quote and backtick are delimiters, and we\u0027ve seen errors when they are used as part of comments. Can you write this as \"should not\" instead of \"shouldn\u0027t\"?",
+      "range": {
+        "startLine": 107,
+        "startChar": 23,
+        "endLine": 107,
+        "endChar": 24
+      },
+      "revId": "9cdef8f0c75ced1a1dd81cd0f3761f21e40c4b84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cc29ee4_0fa5c241",
+        "filename": "private/coredomain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-15T18:40:27Z",
+      "side": 1,
+      "message": "What vendor/overlay files does the app zygote need to access? Allowing this exception feels like a treble layering violation. +trong\n\n(same comment line 79)",
+      "revId": "9cdef8f0c75ced1a1dd81cd0f3761f21e40c4b84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd849228_22721411",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-15T18:40:27Z",
+      "side": 1,
+      "message": "Can we do the stronger \"levelFrom\u003dall\"",
+      "range": {
+        "startLine": 116,
+        "startChar": 56,
+        "endLine": 116,
+        "endChar": 60
+      },
+      "revId": "9cdef8f0c75ced1a1dd81cd0f3761f21e40c4b84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
