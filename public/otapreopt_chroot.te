@@ -13,6 +13,9 @@ allow otapreopt_chroot labeledfs:filesystem mount;
 # Mounting /vendor can have this side-effect. Ignore denial.
 dontaudit otapreopt_chroot kernel:process setsched;
 
+# This is required to mount a tmpfs filesystem in /postinstall/apex.
+allow otapreopt_chroot tmpfs:filesystem mount;
+
 # Allow otapreopt to use file descriptors from update-engine. It will
 # close them immediately.
 allow otapreopt_chroot postinstall:fd use;
