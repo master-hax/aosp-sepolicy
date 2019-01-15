@@ -26,3 +26,6 @@ neverallow { appdomain -shell userdebug_or_eng(`-su') }
 
 # Disallow apps from using IP memory store
 neverallow { appdomain -shell } ipmemorystore_service:service_manager *;
+
+# Allow apps to read the Test Harness Mode property
+get_prop(appdomain, test_harness_prop)
