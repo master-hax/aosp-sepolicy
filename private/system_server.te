@@ -51,6 +51,10 @@ net_domain(system_server)
 allowxperm system_server self:udp_socket ioctl priv_sock_ioctls;
 bluetooth_domain(system_server)
 
+# Need to setup tcp keepalive offload. Allow that system_server has ioctl permission
+# on all domain's tcp socket. Each ioctls commands still need to be granted individually.
+allow system_server domain:tcp_socket ioctl;
+
 # These are the capabilities assigned by the zygote to the
 # system server.
 allow system_server self:global_capability_class_set {
