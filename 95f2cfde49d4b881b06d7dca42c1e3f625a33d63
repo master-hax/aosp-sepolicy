@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "2d71557d_4a2bc534",
+        "filename": "private/system_server.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1367962
+      },
+      "writtenOn": "2019-01-16T21:16:22Z",
+      "side": 1,
+      "message": "It doesn\u0027t need to be changed to device_config_*, this comment is only for device_config_flags_health_check_prop.\nPlease leave a separate comment on top of your own set_prop if you also plan to remove it before release.",
+      "revId": "95f2cfde49d4b881b06d7dca42c1e3f625a33d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "74497f9a_2ade845f",
         "filename": "public/flags_heatlh_check.te",
         "patchSetId": 4
@@ -13,6 +30,41 @@
       "writtenOn": "2019-01-14T23:02:35Z",
       "side": 1,
       "message": "should we put these into a userdebug_or_eng block?\n\n  userdebug_or_eng(`\n    # device_config_* properties before release. (b/119627143)\n    set_prop(flags_health_check, device_config_flags_health_check_prop)\n    set_prop(flags_health_check, device_config_input_native_boot_prop)\n  \u0027)\n\nthat way, these flags will only be settable on debuggable builds, and not on final user builds.",
+      "revId": "95f2cfde49d4b881b06d7dca42c1e3f625a33d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e28a3aa_92bf50bc",
+        "filename": "public/flags_heatlh_check.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1367962
+      },
+      "writtenOn": "2019-01-16T21:16:22Z",
+      "side": 1,
+      "message": "Hi Nick, \n1. as the comment I left below, it shouldn\u0027t be device_config_* ---- it\u0027s only for device_config_flags_health_check_prop\n2. as for device_config_flags_health_check_prop and this STOPSHIP comment, I\u0027ll try to remove it ASAP this week(as soon as my workstation gets fixed... https://gutsv3.corp.google.com/#ticket/37322182)\nPlease let me know if you have further questions.",
+      "parentUuid": "74497f9a_2ade845f",
+      "revId": "95f2cfde49d4b881b06d7dca42c1e3f625a33d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e244755_fe267b55",
+        "filename": "public/flags_heatlh_check.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1367962
+      },
+      "writtenOn": "2019-01-16T21:16:22Z",
+      "side": 1,
+      "message": "It doesn\u0027t need to be changed to device_config_*, this comment is only for device_config_flags_health_check_prop.\nPlease leave a separate comment on top of your own set_prop if you also plan to remove it before release.",
       "revId": "95f2cfde49d4b881b06d7dca42c1e3f625a33d63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
