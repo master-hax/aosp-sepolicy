@@ -94,6 +94,30 @@
       "revId": "63a4a344c774da73afdab30238fa8b09b9c7db2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1f9f2bf_3aebe27a",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2019-01-17T05:14:54Z",
+      "side": 1,
+      "message": "And it sounds like Jeff has already stated in an email thread that:\n\nYou need both rules\n\n# allow system_server to call ioctl() on this system_app created socket.\nallow system_server system_app:tcp_socket ioctl;\n# allow system_server to use the ioctl command TIOCOUTQ on this system_app created socket.\nallowxperm system_server system_app:tcp_socket ioctl 0x5411;",
+      "parentUuid": "9c15a7c7_cf58121e",
+      "range": {
+        "startLine": 55,
+        "startChar": 20,
+        "endLine": 55,
+        "endChar": 30
+      },
+      "revId": "63a4a344c774da73afdab30238fa8b09b9c7db2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
