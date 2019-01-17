@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "125ec937_0338bd7d",
+        "filename": "private/installd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-17T19:59:53Z",
+      "side": 1,
+      "message": "From an architecture perspective, it would really be better if the app ran the compiler itself, rather than relying on installd to do it. For example, that\u0027s what we do with the renderscript compiler. \n\nhttps://android.googlesource.com/platform/system/sepolicy/+/4c3d11c018724af5a7f2405ca72e3407f78a1ad4/private/untrusted_app_all.te#131\n\n(app executes /system/bin/bcc or /system/bin/ld.mc and places the files in the app\u0027s home directory, rather than installd doing it)\n\nAndroid hasn\u0027t been consistent about how we handle this, as evidenced by the different behavior of dex2oat / dexoptanalyzer (lines 6 and 9) and renderscript.\n\nCan you help me understand more about why installd should be tasked with this responsibility compared to having the app execute /system/bin/viewcompiler itself?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 0
+      },
+      "revId": "0cfa1ade48af3802b7e39f85a3406a0279003bb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "31c35879_8a462c0a",
         "filename": "private/viewcompiler.te",
         "patchSetId": 4
@@ -41,6 +64,29 @@
         "startChar": 21,
         "endLine": 16,
         "endChar": 38
+      },
+      "revId": "0cfa1ade48af3802b7e39f85a3406a0279003bb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "423ea86d_8d19a990",
+        "filename": "private/viewcompiler.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-17T19:59:53Z",
+      "side": 1,
+      "message": "by convention, brackets are not used when only one element is in the list. Should be written as:\n\n  allow viewcompiler apk_data_file:file read;",
+      "range": {
+        "startLine": 19,
+        "startChar": 19,
+        "endLine": 19,
+        "endChar": 20
       },
       "revId": "0cfa1ade48af3802b7e39f85a3406a0279003bb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
