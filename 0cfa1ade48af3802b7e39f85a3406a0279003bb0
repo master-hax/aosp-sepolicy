@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "45deb517_44c257a4",
+        "filename": "private/viewcompiler.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-17T21:46:39Z",
+      "side": 1,
+      "message": "Since we\u0027re making an explicit decision to exclude privapp_data_file, can we add a neverallow compile time assertion, to enforce that this security invariant cannot be changed.\n\n  neverallow viewcompiler privapp_data_file:file no_w_file_perms;\n\n(placed at the bottom of this file, after all the allow rules)",
+      "parentUuid": "69d85c2d_e778a658",
+      "range": {
+        "startLine": 16,
+        "startChar": 21,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "0cfa1ade48af3802b7e39f85a3406a0279003bb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "423ea86d_8d19a990",
         "filename": "private/viewcompiler.te",
         "patchSetId": 4
