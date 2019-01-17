@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6024a04a_8fced258",
+        "filename": "private/viewcompiler.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-17T21:37:31Z",
+      "side": 1,
+      "message": "The SELinux compiler uses the m4 macro language as a pre-processor. Single quotes and backticks are delimitors in the m4 language. We\u0027ve seen weird compile errors due to single quotes or backticks in comments. Can you change this to:\n\n  from the app APK",
+      "range": {
+        "startLine": 18,
+        "startChar": 56,
+        "endLine": 18,
+        "endChar": 57
+      },
+      "revId": "af6c812a4996ce96f7ccbaf43a5d2a91c100e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9941d0b2_8b7b9732",
+        "filename": "private/viewcompiler.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-17T21:37:31Z",
+      "side": 1,
+      "message": "by convention, brackets are not used when only one element exists in the list. Can you change this to:\n\n  allow viewcompiler apk_data_file:file read;",
+      "range": {
+        "startLine": 19,
+        "startChar": 38,
+        "endLine": 19,
+        "endChar": 39
+      },
+      "revId": "af6c812a4996ce96f7ccbaf43a5d2a91c100e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
