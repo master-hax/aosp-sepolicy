@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83e679d9_18899da6",
+        "filename": "private/installd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-17T14:39:14Z",
+      "side": 1,
+      "message": "Is this sufficient? In particular, \"create\" is missing, which means you can\u0027t create files within this directory. You can only read/write existing files.\n\n rw_file_perms -\u003e create_file_perms  ?\n\n(macros defined in system/sepolicy/public/global_macros)",
+      "range": {
+        "startLine": 30,
+        "startChar": 39,
+        "endLine": 30,
+        "endChar": 52
+      },
+      "revId": "630d17e8add3d8d3bc3205aa3112ae22c09a8e51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
