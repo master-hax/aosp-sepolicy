@@ -118,6 +118,30 @@
       "revId": "63a4a344c774da73afdab30238fa8b09b9c7db2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "104b1298_62632b38",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2019-01-17T05:20:51Z",
+      "side": 1,
+      "message": "based on discussion sounds like all we need is:\n\nallow system_server domain:tcp_socket ioctl;\n\n(domain means * / all)\n\nAnd it\u0027ll have desired effect of:\nallowing system server to issue the specific small set of ioctls on all sockets (regardless of domain) is fine... but allowing it to issue *all* ioctls doesn\u0027t feel so good.",
+      "parentUuid": "d1f9f2bf_3aebe27a",
+      "range": {
+        "startLine": 55,
+        "startChar": 20,
+        "endLine": 55,
+        "endChar": 30
+      },
+      "revId": "63a4a344c774da73afdab30238fa8b09b9c7db2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
