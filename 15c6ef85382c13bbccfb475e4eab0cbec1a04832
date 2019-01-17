@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c444d140_97992278",
+        "filename": "private/app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-17T21:07:34Z",
+      "side": 1,
+      "message": "by convention, \"allow\" rules go before neverallow compile time assertions. \n\nCan you please move this to near line 12?\n\nAlso, can you expand on the comment, and specifically indicate the exact API calls which use this property. Something like:\n\n  # Allow apps to read the Test Harness Mode property. This property\n  # is used in the implementation of the following API calls\n  # * ActivityManager.getTestMode()\n  # * ActivityManager.isUserAMonkey()\n  # * ActivityManager.isRunningInTestHarness()\n\nor something like that.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 38
+      },
+      "revId": "15c6ef85382c13bbccfb475e4eab0cbec1a04832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
