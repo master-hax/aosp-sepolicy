@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "aeb43266_f331842d",
+        "filename": "private/viewcompiler.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-17T21:47:55Z",
+      "side": 1,
+      "message": "# priv-apps are moving to a world where they can only execute\n  # signed code. Make sure viewcompiler never can write to privapp\n  # directories to avoid introducing unsigned executable code\n  neverallow viewcompiler ....",
+      "parentUuid": "45deb517_44c257a4",
+      "range": {
+        "startLine": 16,
+        "startChar": 21,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "0cfa1ade48af3802b7e39f85a3406a0279003bb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "423ea86d_8d19a990",
         "filename": "private/viewcompiler.te",
         "patchSetId": 4
