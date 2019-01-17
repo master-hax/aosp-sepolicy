@@ -70,6 +70,30 @@
       "revId": "63a4a344c774da73afdab30238fa8b09b9c7db2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c15a7c7_cf58121e",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2019-01-17T05:11:23Z",
+      "side": 1,
+      "message": "looks like domain should probably be generic, but ioctl no\n\nallowxperm system_server domain:tcp_socket ioctl { 0xSSSS 0xTTTT };\n\nPer https://selinuxproject.org/page/XpermRules#ioctl_Operation_Rules\nyou may also need:\n\nAs the ioctl(2) function requires a file descriptor, its context must match the process context otherwise the fd { use } class/permission is required.",
+      "parentUuid": "dc4e89e7_4df5487d",
+      "range": {
+        "startLine": 55,
+        "startChar": 20,
+        "endLine": 55,
+        "endChar": 30
+      },
+      "revId": "63a4a344c774da73afdab30238fa8b09b9c7db2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
