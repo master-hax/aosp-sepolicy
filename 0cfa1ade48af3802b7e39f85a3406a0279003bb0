@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0d98113_b671b055",
+        "filename": "private/installd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2019-01-17T21:14:55Z",
+      "side": 1,
+      "message": "The goal of this feature is to improve app startup time by precompiling layout resources so they can be inflated faster. Because of this, we\u0027d like to compile the layouts at app install time, so we can use the fast path right after the application starts up.\n\nWe did consider having the app launch this on-demand. Basically, when trying to inflate a layout, if the precompiled one wasn\u0027t available, we\u0027d launch viewcompiler so it\u0027d be available the next time. There are two main downsides to this: first app startup would be slower, and running the viewcompiler could put more pressure on the system when we\u0027re already trying to start an app as fast as possible.",
+      "parentUuid": "125ec937_0338bd7d",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 0
+      },
+      "revId": "0cfa1ade48af3802b7e39f85a3406a0279003bb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "31c35879_8a462c0a",
         "filename": "private/viewcompiler.te",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "0cfa1ade48af3802b7e39f85a3406a0279003bb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9bbeb7d_41ee90d4",
+        "filename": "private/viewcompiler.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2019-01-17T21:14:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31c35879_8a462c0a",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 1
+      },
+      "revId": "0cfa1ade48af3802b7e39f85a3406a0279003bb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "69d85c2d_e778a658",
+        "filename": "private/viewcompiler.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2019-01-17T21:14:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec3f72db_c4024ff6",
+      "range": {
+        "startLine": 16,
+        "startChar": 21,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "0cfa1ade48af3802b7e39f85a3406a0279003bb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "423ea86d_8d19a990",
         "filename": "private/viewcompiler.te",
         "patchSetId": 4
@@ -91,6 +163,30 @@
       "revId": "0cfa1ade48af3802b7e39f85a3406a0279003bb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4871423_f8a96ad3",
+        "filename": "private/viewcompiler.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2019-01-17T21:14:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "423ea86d_8d19a990",
+      "range": {
+        "startLine": 19,
+        "startChar": 19,
+        "endLine": 19,
+        "endChar": 20
+      },
+      "revId": "0cfa1ade48af3802b7e39f85a3406a0279003bb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
