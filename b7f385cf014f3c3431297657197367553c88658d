@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f76b51e_22206d2c",
+        "filename": "private/compat/26.0/26.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2019-01-17T22:17:18Z",
+      "side": 1,
+      "message": "You shouldn\u0027t need this.",
+      "revId": "b7f385cf014f3c3431297657197367553c88658d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e2d3034_12945084",
+        "filename": "private/compat/27.0/27.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2019-01-17T22:17:18Z",
+      "side": 1,
+      "message": "You shouldn\u0027t need this.",
+      "revId": "b7f385cf014f3c3431297657197367553c88658d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52c296b2_08f8f41e",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2019-01-17T22:17:18Z",
+      "side": 1,
+      "message": "You don\u0027t need an exception for vold here?\n\nAlso, why do you need the vendor_init exception?  You don\u0027t actually add that rule.",
+      "revId": "b7f385cf014f3c3431297657197367553c88658d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ba4dfbf_1388fa10",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2019-01-17T22:17:18Z",
+      "side": 1,
+      "message": "You want the actual filename \"cgroup.rc\", right?  If so, you should escape the period (e.g., \"/dev/cgroup\\.rc\").  This file uses regular expressions, so it treats the period as a wildcard.",
+      "revId": "b7f385cf014f3c3431297657197367553c88658d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
