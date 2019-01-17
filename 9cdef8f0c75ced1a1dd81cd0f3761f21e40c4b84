@@ -131,6 +131,24 @@
     },
     {
       "key": {
+        "uuid": "2f4e22ef_4feef471",
+        "filename": "private/coredomain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2019-01-17T15:40:33Z",
+      "side": 1,
+      "message": "It looks like the existing zygote has these files open:\n\nlr-x------ 1 root root 64 2019-01-17 16:28 24 -\u003e /system/product/overlay/GoogleConfigOverlay.apk\nlr-x------ 1 root root 64 2019-01-17 16:28 25 -\u003e /system/product/overlay/PixelConfigOverlayCommon.apk\n\nand the child zygote tries to stat them.\n\n-rw-r--r--  1 root root u:object_r:vendor_overlay_file:s0 29247 2019-01-17 14:58 GoogleConfigOverlay.apk\n\nit\u0027s kinda weird these are in /system but marked vendor_overlay_file...\n\nEither way, the app_zygote doesn\u0027t seem special in this regard compared to other zygotes.",
+      "parentUuid": "e658ad42_6cf8d260",
+      "revId": "9cdef8f0c75ced1a1dd81cd0f3761f21e40c4b84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd849228_22721411",
         "filename": "private/seapp_contexts",
         "patchSetId": 2
@@ -151,6 +169,30 @@
       "revId": "9cdef8f0c75ced1a1dd81cd0f3761f21e40c4b84",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73394c98_ca6c8db5",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2019-01-17T15:40:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd849228_22721411",
+      "range": {
+        "startLine": 116,
+        "startChar": 56,
+        "endLine": 116,
+        "endChar": 60
+      },
+      "revId": "9cdef8f0c75ced1a1dd81cd0f3761f21e40c4b84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
