@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed64a97f_260e9226",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-18T01:59:05Z",
+      "side": 1,
+      "message": "The SELinux build uses the m4 macro language for preprocessing, which treats single quotes and backticks as delimiters. We\u0027ve had problems in the past using such delimiters in comments. Can you change this to:\n\n  ... for entries that we can not access.",
+      "range": {
+        "startLine": 27,
+        "startChar": 52,
+        "endLine": 27,
+        "endChar": 53
+      },
+      "revId": "2c500ea357c5eb6109ab42e49c705cbb6586c91e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d62ef29_d9a1caf7",
+        "filename": "private/isolated_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-18T01:59:05Z",
+      "side": 1,
+      "message": "An isolated app isn\u0027t a standalone app and doesn\u0027t have a standalone manifest. Rather, a service of the app is spawned as an isolated component.\n\nhttps://developer.android.com/guide/topics/manifest/service-element#isolated\n\nDid you mean to say \"if the main app has been marked as profilable / debuggable\"\n\nAdditionally, the only user of isolated_app is effectively the Chrome sandbox. I believe they have their own mechanism for doing profiling.\n\nI wonder if it makes sense to even support profiling for isolated apps....",
+      "range": {
+        "startLine": 56,
+        "startChar": 34,
+        "endLine": 56,
+        "endChar": 57
+      },
+      "revId": "2c500ea357c5eb6109ab42e49c705cbb6586c91e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
