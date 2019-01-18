@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0e337dc3_329e1d51",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2019-01-18T02:46:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed64a97f_260e9226",
+      "range": {
+        "startLine": 27,
+        "startChar": 52,
+        "endLine": 27,
+        "endChar": 53
+      },
+      "revId": "2c500ea357c5eb6109ab42e49c705cbb6586c91e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d62ef29_d9a1caf7",
         "filename": "private/isolated_app.te",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-01-18T01:59:05Z",
       "side": 1,
       "message": "An isolated app isn\u0027t a standalone app and doesn\u0027t have a standalone manifest. Rather, a service of the app is spawned as an isolated component.\n\nhttps://developer.android.com/guide/topics/manifest/service-element#isolated\n\nDid you mean to say \"if the main app has been marked as profilable / debuggable\"\n\nAdditionally, the only user of isolated_app is effectively the Chrome sandbox. I believe they have their own mechanism for doing profiling.\n\nI wonder if it makes sense to even support profiling for isolated apps....",
+      "range": {
+        "startLine": 56,
+        "startChar": 34,
+        "endLine": 56,
+        "endChar": 57
+      },
+      "revId": "2c500ea357c5eb6109ab42e49c705cbb6586c91e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93e803bb_3325b977",
+        "filename": "private/isolated_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2019-01-18T02:46:26Z",
+      "side": 1,
+      "message": "Thanks for the pointer. Acknowledged, let me discuss with the team whether the current opt-in mechanism makes sense for the domain. Leaving comment unresolved for now.",
+      "parentUuid": "4d62ef29_d9a1caf7",
       "range": {
         "startLine": 56,
         "startChar": 34,
