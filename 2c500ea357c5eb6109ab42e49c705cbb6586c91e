@@ -93,6 +93,30 @@
       "revId": "2c500ea357c5eb6109ab42e49c705cbb6586c91e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a14ec0c_8f3c331e",
+        "filename": "private/isolated_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2019-01-18T20:26:58Z",
+      "side": 1,
+      "message": "\u003e Additionally, the only user of isolated_app is effectively the Chrome sandbox. I believe they have their own mechanism for doing profiling.\n\nI wrote back in the days the heap profiler for Chrome (go/memory-infra). The main limitation of that is that it can only observe allocations made within chrome, but not allocations made by the framework (i.e. when chrome calls java code).\nIt would be quite helpful to have visibility of memory allocations made by the framework, it has been one of the driving use cases for building this platform profiler in the first place :D",
+      "parentUuid": "93e803bb_3325b977",
+      "range": {
+        "startLine": 56,
+        "startChar": 34,
+        "endLine": 56,
+        "endChar": 57
+      },
+      "revId": "2c500ea357c5eb6109ab42e49c705cbb6586c91e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
