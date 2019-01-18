@@ -22,6 +22,30 @@
       "revId": "2f85cd60add3523be5a03a3359be40ab2af49afc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "937e6392_c6909a1d",
+        "filename": "public/cameraserver.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2019-01-18T02:22:10Z",
+      "side": 1,
+      "message": "When testing cameraserver creating MediaCodec, I found out that I also need hal_allocator domain for mediacodec to allocate buffers.\n\nI still need to keep mediametrics entry because logcat would complain about selinux denial even though the denial doesn\u0027t impact my test yet.",
+      "parentUuid": "21b50f3c_a9b1246d",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 46
+      },
+      "revId": "2f85cd60add3523be5a03a3359be40ab2af49afc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
