@@ -46,6 +46,30 @@
       "revId": "bec634768511ba6196a0da91d8e055e296d63d3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c033fed_397701ae",
+        "filename": "public/postinstall_dexopt.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-20T21:33:26Z",
+      "side": 1,
+      "message": "Let\u0027s not add something without understanding why it\u0027s needed please. In theory, every SELinux change should be traceable back to a CL which induced the behavior.\n\nMy understanding is that, as part of the postinstall_dexopt stage, the dex2oat on the postinstall_file mounted partition is suppose to be used, not the version from the /system or /apex directories.\n\nThis is one of my fears with the APEX work. We now have so many different ways to generate oat files (pre-ota, post-ota) from so many different dex2oats (/system/bin/dex2oat, /apex/bin, the post-install file mounted prior to OTAs, etc), that the complexity is going through the roof.",
+      "parentUuid": "16cb1ddb_95172f9d",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 57
+      },
+      "revId": "bec634768511ba6196a0da91d8e055e296d63d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
