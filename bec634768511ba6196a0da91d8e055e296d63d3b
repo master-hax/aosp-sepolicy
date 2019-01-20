@@ -22,6 +22,30 @@
       "revId": "bec634768511ba6196a0da91d8e055e296d63d3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16cb1ddb_95172f9d",
+        "filename": "public/postinstall_dexopt.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-20T21:09:48Z",
+      "side": 1,
+      "message": "I\u0027m not sure why it\u0027s needed.\n\nI initially faced a denial regarding the execution of dex2oat from the APEX:\n\n  01-18 16:55:44.885 11022 11022 V installd: DexInv: --- BEGIN \u0027/system/priv-app/GoogleExtServices/GoogleExtServices.apk\u0027 ---\n  01-18 16:55:44.883 11036 11036 W otapreopt: type\u003d1400 audit(0.0:8): avc: denied { execute } for name\u003d\"dex2oat\" dev\u003d\"loop8\" ino\u003d131 scontext\u003du:r:postinstall_dexopt:s0 tcontext\u003du:object_r:dex2oat_exec:s0 tclass\u003dfile permissive\u003d0\n  01-18 16:55:44.889 11036 11036 E installd: execv(/apex/com.android.runtime/bin/dex2oat) failed: Permission denied\n  01-18 16:55:44.890 11022 11022 V installd: DexInv: --- END \u0027/system/priv-app/GoogleExtServices/GoogleExtServices.apk\u0027 --- status\u003d0x4800, process failed\n  01-18 16:55:44.891 11022 11022 W otapreopt: Downgrading compiler filter in an attempt to progress compilation\n  01-18 16:55:44.892 11022 11022 V installd: DexInv: --- BEGIN \u0027/system/priv-app/GoogleExtServices/GoogleExtServices.apk\u0027 ---\n  01-18 16:55:44.890 11037 11037 W otapreopt: type\u003d1400 audit(0.0:9): avc: denied { execute } for name\u003d\"dex2oat\" dev\u003d\"loop8\" ino\u003d131 scontext\u003du:r:postinstall_dexopt:s0 tcontext\u003du:object_r:dex2oat_exec:s0 tclass\u003dfile permissive\u003d0\n  01-18 16:55:44.895 11037 11037 E installd: execv(/apex/com.android.runtime/bin/dex2oat) failed: Permission denied\n  01-18 16:55:44.896 11022 11022 V installd: DexInv: --- END \u0027/system/priv-app/GoogleExtServices/GoogleExtServices.apk\u0027 --- status\u003d0x4800, process failed\n\n`audit2allow` suggested to add this policy:\n\n  allow postinstall_dexopt dex2oat_exec:file execute;\n\nwhich I did. After that, I had other read \u0026 open denials on dex2oat from the APEX:\n\n  01-18 19:48:50.151 10243 10243 V installd: DexInv: --- BEGIN \u0027/system/priv-app/GoogleExtServices/GoogleExtServices.apk\u0027 ---\n  01-18 19:48:50.150 10257 10257 W otapreopt: type\u003d1400 audit(0.0:9): avc: denied { read open } for path\u003d\"/apex/com.android.runtime/bin/dex2oat\" dev\u003d\"loop7\" ino\u003d101 scontext\u003du:r:postinstall_dexopt:s0 tcontext\u003du:object_r:dex2oat_exec:s0 tclass\u003dfile permissive\u003d0\n  01-18 19:48:50.154 10257 10257 E installd: execv(/apex/com.android.runtime/bin/dex2oat) failed: Permission denied\n  01-18 19:48:50.155 10243 10243 V installd: DexInv: --- END \u0027/system/priv-app/GoogleExtServices/GoogleExtServices.apk\u0027 --- status\u003d0x4800, process failed\n  01-18 19:48:50.155 10243 10243 W otapreopt: Downgrading compiler filter in an attempt to progress compilation\n  01-18 19:48:50.156 10243 10243 V installd: DexInv: --- BEGIN \u0027/system/priv-app/GoogleExtServices/GoogleExtServices.apk\u0027 ---\n  01-18 19:48:50.157 10258 10258 E installd: execv(/apex/com.android.runtime/bin/dex2oat) failed: Permission denied\n  01-18 19:48:50.153 10258 10258 W otapreopt: type\u003d1400 audit(0.0:10): avc: denied { read open } for path\u003d\"/apex/com.android.runtime/bin/dex2oat\" dev\u003d\"loop7\" ino\u003d101 scontext\u003du:r:postinstall_dexopt:s0 tcontext\u003du:object_r:dex2oat_exec:s0 tclass\u003dfile permissive\u003d0\n  01-18 19:48:50.158 10243 10243 V installd: DexInv: --- END \u0027/system/priv-app/GoogleExtServices/GoogleExtServices.apk\u0027 --- status\u003d0x4800, process failed\n\n`audit2allow` suggested to add this policy:\n\n  allow postinstall_dexopt dex2oat_exec:file { open read };\n\nSo I added the following policy, which combines read + execute permissions:\n\n  allow postinstall_dexopt dex2oat_exec:file rx_file_perms;",
+      "parentUuid": "9b304dcb_5db0229a",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 57
+      },
+      "revId": "bec634768511ba6196a0da91d8e055e296d63d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
