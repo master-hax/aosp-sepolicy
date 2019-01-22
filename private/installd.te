@@ -20,6 +20,10 @@ domain_auto_trans(installd, idmap_exec, idmap)
 # Create /data/.layout_version.* file
 type_transition installd system_data_file:file install_data_file;
 
+# Relabel oat file for secondary dex. It is created as app_data_file, relabelled
+# to app_exec_data_file and then may be relabelled back after an OTA or app update.
+allow installd app_exec_data_file:file { relabelfrom relabelto lock setattr };
+
 # For collecting bugreports.
 allow installd dumpstate:fd use;
 allow installd dumpstate:fifo_file r_file_perms;
