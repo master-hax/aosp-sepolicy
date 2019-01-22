@@ -92,3 +92,7 @@ neverallow audioserver domain:{ tcp_socket udp_socket rawip_socket } *;
 
 # Allow using wake locks
 wakelock_use(audioserver)
+
+# Allow this to access the external vibrator service so that we can play back vibration effects
+# encoded in audio files.
+allow audioserver external_vibrator_service:service_manager find;
