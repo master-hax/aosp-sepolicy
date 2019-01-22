@@ -1,1 +1,4 @@
 typeattribute dex2oat coredomain;
+
+# allow dex2oat app_exec_data_file:file { read write };
+allow dex2oat app_exec_data_file:file { getattr read write lock map };
