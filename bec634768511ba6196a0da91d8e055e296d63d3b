@@ -118,6 +118,30 @@
       "revId": "bec634768511ba6196a0da91d8e055e296d63d3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06cf0c44_5edecdf9",
+        "filename": "public/postinstall_dexopt.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-22T16:31:34Z",
+      "side": 1,
+      "message": "Roland\u0027s comment is correct. /postinstall has a single file label, while now the APEX out of /postinstall is mounted.\n\n(Note that this implies that A/B OTA upgrading releases might break otadexopt if the label changes.)",
+      "parentUuid": "647d0f8b_053b3747",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 57
+      },
+      "revId": "bec634768511ba6196a0da91d8e055e296d63d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
