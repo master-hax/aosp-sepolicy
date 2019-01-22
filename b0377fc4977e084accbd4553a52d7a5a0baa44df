@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d02bb675_8a628772",
+        "filename": "private/traced.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-22T18:23:51Z",
+      "side": 1,
+      "message": "just \n\n  write\n\nor possibly\n\n  { read write }\n\nThese are passed as file descriptors, not file paths. So rw_file_perm, which includes \"open\", is overly permissive.",
+      "range": {
+        "startLine": 22,
+        "startChar": 29,
+        "endLine": 22,
+        "endChar": 42
+      },
+      "revId": "b0377fc4977e084accbd4553a52d7a5a0baa44df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
