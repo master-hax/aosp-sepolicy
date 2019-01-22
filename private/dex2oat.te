@@ -1,1 +1,4 @@
 typeattribute dex2oat coredomain;
+
+# Allow access to oat for secondary dex.
+allow dex2oat app_exec_data_file:file { map read write };

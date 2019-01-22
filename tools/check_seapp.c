@@ -216,6 +216,7 @@ key_map rules[] = {
                 /*Outputs*/
                 { .name = "domain",         .dir = dir_out, .fn_validate = validate_selinux_type  },
                 { .name = "type",           .dir = dir_out, .fn_validate = validate_selinux_type  },
+                { .name = "execType",       .dir = dir_out, .fn_validate = validate_selinux_type  },
                 { .name = "levelFromUid",   .dir = dir_out, .fn_validate = validate_bool          },
                 { .name = "levelFrom",      .dir = dir_out, .fn_validate = validate_levelFrom     },
                 { .name = "level",          .dir = dir_out, .fn_validate = validate_selinux_level },
