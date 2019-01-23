@@ -16,6 +16,24 @@
       "revId": "c0c915558995ae9163151d3be5ad87fd27e8d97e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6abc39ed_5fede8ea",
+        "filename": "private/system_server.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1367962
+      },
+      "writtenOn": "2019-01-23T18:47:51Z",
+      "side": 1,
+      "message": "vendor_init shouldn\u0027t be able to change those props.\nfor init, I added it because if I didn\u0027t, build will fail with \"libsepol.report_failure: neverallow on line 943 of system/sepolicy/private/system_server.te (or line 45914 of policy.conf) violated by allow init device_config_netd_native_prop:property_service { set };\n\" even though I didn\u0027t grant write permission to init myself. So I\u0027m assuming this is something by default. No?",
+      "parentUuid": "e94ec432_c95a0888",
+      "revId": "c0c915558995ae9163151d3be5ad87fd27e8d97e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
