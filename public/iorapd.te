@@ -31,6 +31,9 @@ binder_call(iorapd, healthd)
 # iorapd temporarily changes its priority when running benchmarks
 allow iorapd self:global_capability_class_set sys_nice;
 
+# Allow to access Perfetto traced's privileged consumer socket to start/stop
+# tracing sessions and read trace data.
+unix_socket_connect(iorapd, traced_consumer, traced)
 
 ###
 ### neverallow rules
@@ -51,6 +54,7 @@ neverallow {
     domain
     -kernel
     -iorapd
+    -traced
 } iorapd_data_file:notdevfile_class_set ~{ relabelto getattr };
 
 neverallow {
@@ -59,6 +63,7 @@ neverallow {
     -kernel
     -vendor_init
     -iorapd
+    -traced
 } { iorapd_data_file }:notdevfile_class_set *;
 
 # Only system_server can interact with iorapd over binder
