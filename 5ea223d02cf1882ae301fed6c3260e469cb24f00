@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e95975b4_79c07c8a",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2019-01-23T18:12:37Z",
+      "side": 1,
+      "message": "ah, I think I understand:\n- precompiled_sepolicy is all partitions compiled together, and it\u0027s on /vendor\n- /vendor stores the hash of the data on the other partitions at precompile-time\n- the hash of each partition is also stored on each partition, and when any mismatch, they all get re-compiled together (at runtime)",
+      "parentUuid": "6378d267_1a6b5c22",
+      "revId": "5ea223d02cf1882ae301fed6c3260e469cb24f00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fc44acb_4eebf171",
         "filename": "Android.mk",
         "patchSetId": 1
