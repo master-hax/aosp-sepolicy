@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30ac3d3c_65d546fd",
+        "filename": "private/apexd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-23T23:24:31Z",
+      "side": 1,
+      "message": "elements in a userdebug_or_eng block should be indented 2 spaces.",
+      "revId": "ef0414e771e71a3040f15b09aa77148ef7628eeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b47ea5a7_cf9a2261",
+        "filename": "public/apex_test_postinstall.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-23T23:24:31Z",
+      "side": 1,
+      "message": "By convention, we indent 2 spaces for elements in a userdebug_or_eng block. Can you please indent 2 spaces for lines 4-18?",
+      "revId": "ef0414e771e71a3040f15b09aa77148ef7628eeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e983c269_6254a2fc",
+        "filename": "public/apex_test_postinstall.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-23T23:24:31Z",
+      "side": 1,
+      "message": "The SELinux domains \"apex_test_postinstall\" and \"apex_test_preinstall\" have identical allow and transition rules, making them part of the same security equivalence class. Is there any reason to keep them separate?\n\nCan we just create one \"apex_test\" domain instead of two separate domains? That will reduce complexity. This should just be a matter of replacing:\n\n  apex_test_preinstall -\u003e apex_test\n  apex_test_postinstall -\u003e apex_test\n  apex_test_preinstall_exec -\u003e apex_test_exec\n  apex_test_postinstall_exec -\u003e apex_test_exec",
+      "range": {
+        "startLine": 5,
+        "startChar": 5,
+        "endLine": 5,
+        "endChar": 26
+      },
+      "revId": "ef0414e771e71a3040f15b09aa77148ef7628eeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8fd547d_8e33a020",
+        "filename": "public/apex_test_postinstall.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-23T23:24:31Z",
+      "side": 1,
+      "message": "replace with:\n\n  create_pty(apex_test_postinstall)\n\nwhich has the effect of creating a unique label for ptys created by this shell script, allowing us to differentiate in policy between these ptys and other ptys on the system.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 57
+      },
+      "revId": "ef0414e771e71a3040f15b09aa77148ef7628eeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
