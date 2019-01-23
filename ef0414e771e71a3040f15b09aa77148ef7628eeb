@@ -59,6 +59,23 @@
     },
     {
       "key": {
+        "uuid": "66e96574_38c4ccdb",
+        "filename": "public/apex_test_postinstall.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-23T23:40:20Z",
+      "side": 1,
+      "message": "Can you move line 5 and 6 outside the userdebug_or_eng() block? This will ensure that the types exist on all build types, avoiding problems with the file_contexts entries.\n\nA type which has no rule associated with it is useless. SELinux is default-deny, so nothing would be allowed. Keeping the labels defined unconditionally avoids the file_contexts problems. We do something similar for the su domain (lines 3 and 6 at https://android.googlesource.com/platform/system/sepolicy/+/b1f34ddaf7a817d6cf17d3f2e2f69e05f56efb7f/public/su.te)",
+      "revId": "ef0414e771e71a3040f15b09aa77148ef7628eeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d8fd547d_8e33a020",
         "filename": "public/apex_test_postinstall.te",
         "patchSetId": 4
