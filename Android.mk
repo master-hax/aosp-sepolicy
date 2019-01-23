@@ -1047,7 +1047,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := selinux_denial_metadata
 LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_PATH := $(TARGET_OUT)/etc/selinux
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/etc/selinux
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
