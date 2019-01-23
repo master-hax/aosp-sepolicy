@@ -67,6 +67,12 @@ allow apexd sysfs_loop:file rw_file_perms;
 # See b/35323867#comment3
 dontaudit apexd self:global_capability_class_set { dac_override dac_read_search };
 
+# Allow apexd to log to the kernel in userdebug.
+# TODO(b/123343550): Replace with logging to kmsg_debug.
+userdebug_or_eng(`
+  allow apexd kmsg_device:chr_file w_file_perms;
+')
+
 # Apex pre- & post-install permission.
 
 # Allow self-execute for the fork mount helper.
