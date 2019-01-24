@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "396666b7_3cbe382e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2019-01-24T20:29:26Z",
+      "side": 1,
+      "message": "Ack, fixed.",
+      "parentUuid": "010c9339_1fde67f6",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 7
+      },
+      "revId": "e756957a0a28b9b62c2848f54e6361c3ba33ad12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6851fd3d_93fb963b",
         "filename": "private/app_zygote.te",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2019-01-24T19:48:28Z",
       "side": 1,
       "message": "Interesting. It never occurred to me that one could use SCM_CREDENTIALS to forge the UID received by logd. This would allow someone to forge log entries.\n\nNo action required. I was just interested to learn this.  :-)",
+      "revId": "e756957a0a28b9b62c2848f54e6361c3ba33ad12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ff245f8_7f691755",
+        "filename": "private/app_zygote.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2019-01-24T20:29:26Z",
+      "side": 1,
+      "message": "Yes I didn\u0027t expect this either, found it when I was looking at the kernel usage of CAP_SETUID (as you suggested a while back).",
+      "parentUuid": "6851fd3d_93fb963b",
       "revId": "e756957a0a28b9b62c2848f54e6361c3ba33ad12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
