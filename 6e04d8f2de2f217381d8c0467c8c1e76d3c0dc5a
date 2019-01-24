@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f030fc28_a569a365",
+        "filename": "private/apexd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-24T16:21:33Z",
+      "side": 1,
+      "message": "after having thought about this patch more last night, I wonder if we shouldn\u0027t just remove the userdebug_or_eng block entirely? That decreases the differences between build types (reducing complexity). And who cares if apexd spams the kernel logs - there\u0027s no security consequence to it... I\u0027m not sure restricting this to debuggable builds accomplishes any security goals, but it does increase complexity.\n\nAnyway, I\u0027m fine either way.",
+      "revId": "6e04d8f2de2f217381d8c0467c8c1e76d3c0dc5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
