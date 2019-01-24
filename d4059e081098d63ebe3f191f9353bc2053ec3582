@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4389961c_5ac1760c",
+        "filename": "private/gsid.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-01-24T21:00:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa0203e9_797e4ac9",
+      "range": {
+        "startLine": 13,
+        "startChar": 30,
+        "endLine": 13,
+        "endChar": 32
+      },
+      "revId": "d4059e081098d63ebe3f191f9353bc2053ec3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2eacbfb_e363406c",
         "filename": "private/gsid.te",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2019-01-24T18:27:50Z",
       "side": 1,
       "message": "Has this gone through a security review? You\u0027re touching some very sensitive things here. We need to ensure you\u0027re not undermining some of the security requirements of the device, such as the requirement to wipe userdata when a different system image is loaded.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 58
+      },
+      "revId": "d4059e081098d63ebe3f191f9353bc2053ec3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69619626_e71d4d67",
+        "filename": "private/gsid.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-01-24T21:00:04Z",
+      "side": 1,
+      "message": "I don\u0027t know if the v2 design [1] has yet (sspatil@, do you know?)\n\nNote the new system image cannot access the existing userdata, we create a temporary partition and wipe it. The old userdata is not exposed in the GSI\u0027s fstab.\n\n[1] https://docs.google.com/document/d/19PzzqfWtzRXt4m7GNiNkidpWh5HfEfLFGZmfWyJeryk/edit#",
+      "parentUuid": "d2eacbfb_e363406c",
       "range": {
         "startLine": 13,
         "startChar": 0,
@@ -68,6 +116,30 @@
       "revId": "d4059e081098d63ebe3f191f9353bc2053ec3582",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91ef4d07_d49219a4",
+        "filename": "private/gsid.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-01-24T21:00:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77a3fac8_f7f143b6",
+      "range": {
+        "startLine": 18,
+        "startChar": 24,
+        "endLine": 18,
+        "endChar": 44
+      },
+      "revId": "d4059e081098d63ebe3f191f9353bc2053ec3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -142,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "1af42a8d_4e56203e",
+        "filename": "private/gsid.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-01-24T21:00:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1862cd49_1b814b91",
+      "range": {
+        "startLine": 24,
+        "startChar": 17,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "d4059e081098d63ebe3f191f9353bc2053ec3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86137d28_195c81be",
         "filename": "private/gsid.te",
         "patchSetId": 7
@@ -153,6 +249,30 @@
       "writtenOn": "2019-01-24T18:27:50Z",
       "side": 1,
       "message": "Yikes.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 60
+      },
+      "revId": "d4059e081098d63ebe3f191f9353bc2053ec3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e1a67b5_4835f083",
+        "filename": "private/gsid.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-01-24T21:00:04Z",
+      "side": 1,
+      "message": "Yikes, indeed :)\n\nMaybe it\u0027s easier to discuss offline. The reason we needed a service with this permission is that we couldn\u0027t see how to use normal file I/O in /data. If we did, its blocks would be encrypted, and we couldn\u0027t mount the GSI image in first-stage init. So instead of directly writing to /data, we:\n\n 1. fallocate a file large enough to hold the signed GSI\n 2. extract its block layout with FIEMAP\n 3. create a dm-linear device using the FIEMAP, targeting /dev/block/by-name/userdata\n 4. write system_gsi into that dm device\n\nThis service was initially going to go into vold which already has these permissions, but we decided to split it out for better isolation.",
+      "parentUuid": "86137d28_195c81be",
       "range": {
         "startLine": 34,
         "startChar": 0,
