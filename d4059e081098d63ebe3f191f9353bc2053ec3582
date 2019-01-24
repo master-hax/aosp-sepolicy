@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "e09313ce_4aa15fa6",
+        "filename": "private/gsid.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2019-01-24T21:02:50Z",
+      "side": 1,
+      "message": "Yes, technically sec reviewed. cbrubaker@ is waiting for me to update the doc to do s/vold/gsid and may be resolve anything pending there.\nFeel free to go through it though and tell me if something stands out.",
+      "parentUuid": "69619626_e71d4d67",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 58
+      },
+      "revId": "d4059e081098d63ebe3f191f9353bc2053ec3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "77a3fac8_f7f143b6",
         "filename": "private/gsid.te",
         "patchSetId": 7
@@ -272,6 +296,30 @@
       "writtenOn": "2019-01-24T21:00:04Z",
       "side": 1,
       "message": "Yikes, indeed :)\n\nMaybe it\u0027s easier to discuss offline. The reason we needed a service with this permission is that we couldn\u0027t see how to use normal file I/O in /data. If we did, its blocks would be encrypted, and we couldn\u0027t mount the GSI image in first-stage init. So instead of directly writing to /data, we:\n\n 1. fallocate a file large enough to hold the signed GSI\n 2. extract its block layout with FIEMAP\n 3. create a dm-linear device using the FIEMAP, targeting /dev/block/by-name/userdata\n 4. write system_gsi into that dm device\n\nThis service was initially going to go into vold which already has these permissions, but we decided to split it out for better isolation.",
+      "parentUuid": "86137d28_195c81be",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 60
+      },
+      "revId": "d4059e081098d63ebe3f191f9353bc2053ec3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef915fd9_518d38d1",
+        "filename": "private/gsid.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2019-01-24T21:02:50Z",
+      "side": 1,
+      "message": "I don\u0027t like this either.\n\nDavid, do we need fiemapwriter:write anymore if we are only doing block device write? we can relable the dm-device to something else and grant permission for that here?",
       "parentUuid": "86137d28_195c81be",
       "range": {
         "startLine": 34,
