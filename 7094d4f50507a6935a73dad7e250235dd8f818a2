@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb1ba778_1e15aa6d",
+        "filename": "private/otapreopt_chroot.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-24T16:39:35Z",
+      "side": 1,
+      "message": "I didn\u0027t realize the previous mounting policy was checked in. It might be worth discussing why we believe otapreopt_chroot is the right entity to be mounting and unmounting these filesystems. At first glance, apexd feels like a more natural place. And it avoids spreading APEX code throughout different processes, reducing complexity. However, that discussion shouldn\u0027t block this change from going in.\n\nCan you move these lines to system/sepolicy/PUBLIC/otapreopt_chroot.te , specifically to near or on line 12?\n\nhttps://android.googlesource.com/platform/system/sepolicy/+/b6388fe75361acae92bc8c21b86e0ad345ea4949/public/otapreopt_chroot.te#12\n\nHaving the labeledfs:filesystem \"mount\" permission be in one file, and the \"unmount\" permission be in another file, is confusing.\n\nYou could modify line 12 to read:\n\n  allow otapreopt_chroot labeledfs:filesystem { mount unmount };\n\nThis can be done in a future change if you want to land these changes now.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 52
+      },
+      "revId": "7094d4f50507a6935a73dad7e250235dd8f818a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
