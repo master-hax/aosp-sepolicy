@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "010c9339_1fde67f6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-24T19:48:28Z",
+      "side": 1,
+      "message": "nit:\n\nTechnically, this doesn\u0027t \"tighten\" the security policy. This just adds a compile time assertion which:\n\n1) States the security invariants you expect\n2) Prevents regressions.\n3) Indirectly adds a CTS test\n\nThe domain didn\u0027t have these permissions to start with, so you are not further constraining what\u0027s possible.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 7
+      },
+      "revId": "e756957a0a28b9b62c2848f54e6361c3ba33ad12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6851fd3d_93fb963b",
+        "filename": "private/app_zygote.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-24T19:48:28Z",
+      "side": 1,
+      "message": "Interesting. It never occurred to me that one could use SCM_CREDENTIALS to forge the UID received by logd. This would allow someone to forge log entries.\n\nNo action required. I was just interested to learn this.  :-)",
+      "revId": "e756957a0a28b9b62c2848f54e6361c3ba33ad12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
