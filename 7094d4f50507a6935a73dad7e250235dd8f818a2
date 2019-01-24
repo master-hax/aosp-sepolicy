@@ -22,6 +22,30 @@
       "revId": "7094d4f50507a6935a73dad7e250235dd8f818a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e876a946_d69d08dd",
+        "filename": "private/otapreopt_chroot.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-24T16:53:33Z",
+      "side": 1,
+      "message": "\u003e I didn\u0027t realize the previous mounting policy was checked in.\n\nIt is not: https://android-review.googlesource.com/c/platform/frameworks/native/+/853529 is yet to be merged.\n\n\u003e It might be worth discussing why we believe otapreopt_chroot is the right entity to be mounting and unmounting these filesystems. At first glance, apexd feels like a more natural place. And it avoids spreading APEX code throughout different processes, reducing complexity. However, that discussion shouldn\u0027t block this change from going in.\n\nI agree. This is a short-term solution to get us moving (this set of changes is a blocker for other Runtime APEX changes). See this sentence in the commit message of https://android-review.googlesource.com/c/platform/frameworks/native/+/853529:\n\n  This is a temporary change. The final design will integrate A/B OTA\n  updates and `apexd`.\n\n\u003e Can you move these lines to system/sepolicy/PUBLIC/otapreopt_chroot.te , specifically to near or on line 12?\n\u003e https://android.googlesource.com/platform/system/sepolicy/+/b6388fe75361acae92bc8c21b86e0ad345ea4949/public/otapreopt_chroot.te#12\n\u003e \n\u003e Having the labeledfs:filesystem \"mount\" permission be in one file, and the \"unmount\" permission be in another file, is confusing.\n\u003e \n\u003e You could modify line 12 to read:\n\u003e \n\u003e   allow otapreopt_chroot labeledfs:filesystem { mount unmount };\n\u003e \n\u003e This can be done in a future change if you want to land these changes now.\n\nMakes sense; will do in a follow-up CL.",
+      "parentUuid": "cb1ba778_1e15aa6d",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 52
+      },
+      "revId": "7094d4f50507a6935a73dad7e250235dd8f818a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
