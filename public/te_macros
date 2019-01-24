@@ -220,6 +220,8 @@ attribute hal_$1_client;
 expandattribute hal_$1_client true;
 attribute hal_$1_server;
 expandattribute hal_$1_server false;
+attribute hal_$1_client_tmpfs;
+expandattribute hal_$1_client_tmpfs true;
 
 neverallow { hal_$1_server -halserverdomain } domain:process fork;
 # hal_*_client and halclientdomain attributes are always expanded for
@@ -257,6 +259,7 @@ typeattribute $1 $2;
 define(`hal_client_domain', `
 typeattribute $1 halclientdomain;
 typeattribute $1 $2_client;
+typeattribute $1_tmpfs $2_client_tmpfs;
 
 # TODO(b/34170079): Make the inclusion of the rules below conditional also on
 # non-Treble devices. For now, on non-Treble device, always grant clients of a
