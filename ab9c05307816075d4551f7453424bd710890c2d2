@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70f7c983_62bd434e",
+        "filename": "public/dex2oat.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-24T16:39:48Z",
+      "side": 1,
+      "message": "Line 50 can be merged into line 53 as:\n\n  allow dex2oat postinstall_file:file { execute getattr open read };\n\nHowever, this TODO makes me think that this separation is deliberate, so I\u0027m fine leaving as-is. Having said that, I\u0027m skeptical you could get rid of \"open\" on line 53.\n\nno action required.",
+      "revId": "ab9c05307816075d4551f7453424bd710890c2d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
