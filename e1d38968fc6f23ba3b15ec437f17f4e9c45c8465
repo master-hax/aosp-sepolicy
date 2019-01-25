@@ -22,6 +22,30 @@
       "revId": "e1d38968fc6f23ba3b15ec437f17f4e9c45c8465",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65eb6233_19e73204",
+        "filename": "private/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2019-01-25T17:51:03Z",
+      "side": 1,
+      "message": "I am storing camera output image here, because MediaMuxer can only output to a file now, not directly to RAM. \n\nFor every HEIF capture, MediaMuxer will output to a file here, and cameraserver will read it into memory, and delete the file.\n\nThis change will be reverted once b/123094535 is in.",
+      "parentUuid": "2466e846_8d32f7a8",
+      "range": {
+        "startLine": 459,
+        "startChar": 0,
+        "endLine": 459,
+        "endChar": 23
+      },
+      "revId": "e1d38968fc6f23ba3b15ec437f17f4e9c45c8465",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
