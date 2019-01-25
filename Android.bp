@@ -68,3 +68,21 @@ se_cil_compat_map {
     bottom_half: ["private/compat/28.0/28.0.ignore.cil"],
     // top_half: "29.0.ignore.cil",
 }
+
+se_cil_compat_map_ext {
+    name: "26.0.cil.ext",
+    stem: "26.0.cil",
+    srcs: [":26.0.board.compat.map"],
+}
+
+se_cil_compat_map_ext {
+    name: "27.0.cil.ext",
+    stem: "27.0.cil",
+    srcs: [":27.0.board.compat.map"],
+}
+
+se_cil_compat_map_ext {
+    name: "28.0.cil.ext",
+    stem: "28.0.cil",
+    srcs: [":28.0.board.compat.map"],
+}

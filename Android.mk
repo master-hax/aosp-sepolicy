@@ -193,6 +193,7 @@ LOCAL_MODULE := selinux_policy_system
 LOCAL_REQUIRED_MODULES += \
     plat_mapping_file \
     $(addsuffix .cil,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS)) \
+    $(addsuffix .cil.ext,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS)) \
     plat_sepolicy.cil \
     plat_sepolicy_and_mapping.sha256 \
     secilc \

@@ -109,9 +109,6 @@ func expandSeSources(ctx android.ModuleContext, srcFiles []string) android.Paths
 			if fg, ok := module.(*fileGroup); ok {
 				// Core compatibility mapping files are under system/sepolicy/private.
 				expandedSrcFiles = append(expandedSrcFiles, fg.SystemPrivateSrcs()...)
-				// Partner extensions to the compatibility mapping in must be located in
-				// BOARD_PLAT_PRIVATE_SEPOLICY_DIR
-				expandedSrcFiles = append(expandedSrcFiles, fg.SystemExtPrivateSrcs()...)
 			} else {
 				ctx.ModuleErrorf("srcs dependency %q is not an selinux filegroup", m)
 			}
