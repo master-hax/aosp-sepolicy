@@ -298,6 +298,7 @@ LOCAL_REQUIRED_MODULES += \
     product_mac_permissions.xml \
     product_mapping_file \
     product_sepolicy_and_mapping.sha256 \
+    $(addsuffix .cil.ext,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS)) \
 
 endif
 
