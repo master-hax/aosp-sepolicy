@@ -707,3 +707,11 @@ define(`never_profile_heap', `
   neverallow heapprofd $1:file read;
   neverallow heapprofd $1:process signal;
 ')
+
+###################################
+# ashmemd_call(domain)
+# Allow access to ashmemd to request /dev/ashmem fds.
+define(`ashmemd_call', `
+  allow $1 ashmem_device_service:service_manager find;
+  binder_call($1, ashmemd)
+')
