@@ -69,6 +69,7 @@ neverallow {
 neverallow { domain -system_server -iorapd } iorapd_service:service_manager find;
 neverallow iorapd {
   domain
+  -ashmemd
   -healthd
   -servicemanager
   -system_server
