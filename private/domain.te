@@ -188,3 +188,6 @@ neverallow {
     -exec_type
     -postinstall_file
 }:file execute;
+
+# Allow using fds to /dev/ashmem.
+allow domain ashmemd:fd use;
