@@ -172,3 +172,14 @@ userdebug_or_eng(`
   allow untrusted_app_all debugfs_kcov:file rw_file_perms;
   allowxperm untrusted_app_all debugfs_kcov:file ioctl { KCOV_INIT_TRACE KCOV_ENABLE KCOV_DISABLE };
 ')
+
+# Allow access to ashmemd to request /dev/ashmem fds.
+allow untrusted_app_all ashmem_device_service:service_manager find;
+binder_call(untrusted_app_all, ashmemd)
+
+# Untrusted apps targetting >= Q are not allowed to open /dev/ashmem directly.
+neverallow {
+  untrusted_app_all
+  -untrusted_app_25
+  -untrusted_app_27
+}ashmem_device:chr_file open;
