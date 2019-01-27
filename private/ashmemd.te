@@ -1,0 +1,13 @@
+type ashmemd, domain, coredomain;
+type ashmemd_exec, exec_type, file_type, system_file_type;
+
+init_daemon_domain(ashmemd)
+
+binder_use(ashmemd)
+add_service(ashmemd, ashmem_device_service)
+
+# Spawning a libbinder thread results in a dac_override deny.
+# See b/35323867#comment3
+dontaudit ashmemd self:global_capability_class_set { dac_override dac_read_search };
+
+allow ashmemd ashmem_device:chr_file open;
