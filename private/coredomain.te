@@ -187,3 +187,20 @@ neverallow coredomain {
 full_treble_only(`
   neverallow coredomain tee_device:chr_file { open read append write ioctl };
 ')
+
+# Allow access to ashmemd to request /dev/ashmem fds.
+allow {
+  coredomain
+  -init
+  -installd
+  -iorapd
+  -perfprofd
+} ashmem_device_service:service_manager find;
+
+binder_call({
+  coredomain
+  -init
+  -installd
+  -iorapd
+  -perfprofd
+}, ashmemd)
