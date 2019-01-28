@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "374e84b3_0b98c146",
+        "filename": "private/installd.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-01-28T21:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7449f9c2_b257a829",
+      "range": {
+        "startLine": 25,
+        "startChar": 34,
+        "endLine": 25,
+        "endChar": 54
+      },
+      "revId": "bd8db1a8b920ff43db220d4c0b9a357e903aae3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e2e1700_c3fbf87a",
         "filename": "private/mls",
         "patchSetId": 11
@@ -60,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "ab9fa48d_48dbe0af",
+        "filename": "private/mls",
+        "patchSetId": 11
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-01-28T21:25:05Z",
+      "side": 1,
+      "message": "That\u0027s comment #19 on the bug. I get the following when dex2oat tries to write to the fd created by installd:\n\ndex2oat : type\u003d1400 audit(0.0:83): avc: denied { read write } for path\u003d\"/data/data/com.android.frameworks.dexloggertest/app_jars/oat/arm64/copied.odex\" dev\u003d\"sda13\" ino\u003d1638984 scontext\u003du:r:dex2oat:s0 tcontext\u003du:object_r:app_exec_data_file:s0:c170,c256,c512,c768 tclass\u003dfile permissive\u003d1 app\u003dcom.android.frameworks.dexloggertest\n\nThat matches the policy I wrote, except for the categories:\nallow dex2oat app_exec_data_file:file { read write };\n\nJeff suggested addressing it here.",
+      "parentUuid": "91ab443c_2ec73a92",
+      "revId": "bd8db1a8b920ff43db220d4c0b9a357e903aae3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d6081cf6_5203864f",
         "filename": "private/seapp_contexts",
         "patchSetId": 11
@@ -80,6 +122,30 @@
       "revId": "bd8db1a8b920ff43db220d4c0b9a357e903aae3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0cf5a19_357b79c1",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 11
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-01-28T21:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6081cf6_5203864f",
+      "range": {
+        "startLine": 124,
+        "startChar": 85,
+        "endLine": 124,
+        "endChar": 98
+      },
+      "revId": "bd8db1a8b920ff43db220d4c0b9a357e903aae3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
