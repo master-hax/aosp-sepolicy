@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7449f9c2_b257a829",
+        "filename": "private/installd.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-28T21:16:53Z",
+      "side": 1,
+      "message": "This seems overly permissive. \"notdevfile_class_set\", defined in system/sepolicy/public/global_macros, includes normal files, symbolic links, socket files, and fifo files. Only normal files should ever be executable. It doesn\u0027t make any sense to consider socket files or fifo files executable, and symlinks here feels like something we shouldn\u0027t support.\n\nIMHO, this should just be:\n\n  allow installd app_exec_data_file:file { relabelfrom relabelto lock setattr };",
+      "range": {
+        "startLine": 25,
+        "startChar": 34,
+        "endLine": 25,
+        "endChar": 54
+      },
+      "revId": "bd8db1a8b920ff43db220d4c0b9a357e903aae3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e2e1700_c3fbf87a",
         "filename": "private/mls",
         "patchSetId": 11
@@ -13,6 +36,47 @@
       "writtenOn": "2019-01-28T20:31:56Z",
       "side": 1,
       "message": "Jeff, would you mind having a look at this? I had to rebase after a change which split lnk_file away from this. installd never creates links for oat files so this should do.",
+      "revId": "bd8db1a8b920ff43db220d4c0b9a357e903aae3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91ab443c_2ec73a92",
+        "filename": "private/mls",
+        "patchSetId": 11
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-28T21:16:53Z",
+      "side": 1,
+      "message": "I\u0027m not sure that any of these MLS changes are needed. Exactly what error are you seeing if you don\u0027t include these MLS rules?",
+      "parentUuid": "2e2e1700_c3fbf87a",
+      "revId": "bd8db1a8b920ff43db220d4c0b9a357e903aae3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6081cf6_5203864f",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 11
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-28T21:16:53Z",
+      "side": 1,
+      "message": "why not be consistent and use app_exec_data_file on this line (and lines 125-126) too? On older API versions, app_data_file and app_exec_data_file are essentially equivalent.",
+      "range": {
+        "startLine": 124,
+        "startChar": 85,
+        "endLine": 124,
+        "endChar": 98
+      },
       "revId": "bd8db1a8b920ff43db220d4c0b9a357e903aae3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
