@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b280b9e9_78c5d65d",
+        "filename": "private/domain.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T20:51:40Z",
+      "side": 1,
+      "message": "By convention, neverallow lines go after all allow rules. Can you please move this to somewhere on or after line 76?",
+      "revId": "d3562fc1c3c7a7b8837fd0fe0f79a99af0547503",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a6d9361_06f14f90",
+        "filename": "private/domain.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T20:51:40Z",
+      "side": 1,
+      "message": "This causes the build to not compile, with the following error:\n\n  libsepol.report_failure: neverallow on line 43 of system/sepolicy/private/domain.te (or line 33716 of policy.conf) violated by allow \n  fastbootd task_profiles_file:file { unlink };\n  libsepol.check_assertions: 1 neverallow failures occurred\n  Error while expanding policy\n  12:05:59 ninja failed with: exit status 1\n\nwhich makes sense, as on debuggable builds, fastbootd is allowed to delete /system files.\n\nhttps://android.googlesource.com/platform/system/sepolicy/+/a42ebf412832ee2d21cf9b7e53574bc0a7b85310/public/fastbootd.te#86\n\nThis change, as is, doesn\u0027t even compile. This is the problem treehugger has been complaining about.\n\nHowever, this line can be deleted. task_profiles_file is a system_file_type, and there\u0027s already a neverallow rule blocking writes to system_file_type. See https://android.googlesource.com/platform/system/sepolicy/+/a42ebf412832ee2d21cf9b7e53574bc0a7b85310/public/domain.te#482 lines 473-485. Having a special case here isn\u0027t needed IMHO.",
+      "revId": "d3562fc1c3c7a7b8837fd0fe0f79a99af0547503",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b446677c_29067baf",
+        "filename": "public/domain.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T20:51:40Z",
+      "side": 1,
+      "message": "Delete. Read access to cgrpu_desc_file is only granted to init and vendor_init, both of which are already excluded from this assertion (line 1032 and 1036). This exception is not needed.\n\nHaving said that, this file is being exposed to vendor_init, so in a very limited way, it\u0027s a Treble API. Tri, can you look at this file\u0027s exposure to vendor_init?",
+      "revId": "d3562fc1c3c7a7b8837fd0fe0f79a99af0547503",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6216351a_592239f8",
+        "filename": "public/domain.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T20:51:40Z",
+      "side": 1,
+      "message": "Tri: can you please look at this line, and line 1052, and evaluate it for Treble compliance? This is exposing a new file across the system / vendor split, so it\u0027s conceptually introducing a new API that vendors may depend on.\n\n  * /system/etc/task_profiles.json\n\nIIUC, the way we evaluate whether this is acceptable from a Treble perspective is to determine whether the library referencing this config file is part of the VNDK. If it is, then this exception is acceptable.",
+      "revId": "d3562fc1c3c7a7b8837fd0fe0f79a99af0547503",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4dba8e1_43801be6",
+        "filename": "public/vendor_init.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T20:51:40Z",
+      "side": 1,
+      "message": "it seems error prone to have two different processes touching this file. Can we limit this to just init, and exclude vendor_init?\n\nGenerally speaking, architecturally, it\u0027s desirable for all files should be \"owned\" (writable) by exactly one process, to avoid race conditions and help isolate the file structure.",
+      "revId": "d3562fc1c3c7a7b8837fd0fe0f79a99af0547503",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
