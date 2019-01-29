@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcdc8146_fd0f5f2f",
+        "filename": "private/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-01-29T23:59:00Z",
+      "side": 1,
+      "message": "This needs to go into public policy. That will allow us to remove it in a future release without breaking Treble compat.",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 28
+      },
+      "revId": "cd9d083f77fed62b3350a2a8b02fa1782d109106",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "085c1d46_6abae97c",
+        "filename": "private/untrusted_app_all.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-01-29T23:59:00Z",
+      "side": 1,
+      "message": "Take a look at all_untrusted_apps. What else should be excluded?",
+      "revId": "cd9d083f77fed62b3350a2a8b02fa1782d109106",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29429cc9_ba04ede7",
+        "filename": "public/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-01-29T23:59:00Z",
+      "side": 1,
+      "message": "Also for ephemeral_app\nAlso, do we need to fix isolated_app, or should we assume that fixing the main app, developers will also fix their isolated process?",
+      "range": {
+        "startLine": 69,
+        "startChar": 3,
+        "endLine": 69,
+        "endChar": 20
+      },
+      "revId": "cd9d083f77fed62b3350a2a8b02fa1782d109106",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
