@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4ef2157_fccd25d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T23:49:45Z",
+      "side": 1,
+      "message": "Can you please add more details about what mini-keyctl is and why it\u0027s needed?\n\nAdditionally, there\u0027s no bug number, and the topic \"fsverity-selinux\" only contains this change. I\u0027d like to see this change in context with the other changes to better understand why this is needed.",
+      "revId": "284993371e1cc3a7a247f2b9293e2046c100a059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27262da1_97eb3fb6",
+        "filename": "private/compat/26.0/26.0.cil",
+        "patchSetId": 2
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T23:49:45Z",
+      "side": 1,
+      "message": "IIRC, changing 26.0 should no longer be necessary due to https://android-review.googlesource.com/c/platform/system/sepolicy/+/772716 . This change is unnecessary.",
+      "revId": "284993371e1cc3a7a247f2b9293e2046c100a059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f617b6af_25fd18f8",
+        "filename": "private/compat/27.0/27.0.cil",
+        "patchSetId": 2
+      },
+      "lineNbr": 1189,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T23:49:45Z",
+      "side": 1,
+      "message": "IIRC, changing 27.0 should no longer be necessary due to https://android-review.googlesource.com/c/platform/system/sepolicy/+/772716 . This change is unnecessary.",
+      "revId": "284993371e1cc3a7a247f2b9293e2046c100a059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27b501ff_be0ab080",
+        "filename": "private/coredomain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T23:49:45Z",
+      "side": 1,
+      "message": "Can be deleted. mini-keyctl does not access generically labeled /proc files, so there\u0027s no need to exclude it here.",
+      "revId": "284993371e1cc3a7a247f2b9293e2046c100a059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e0ca6d8_d97137a6",
+        "filename": "private/mini_keyctl.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T23:49:45Z",
+      "side": 1,
+      "message": "IIRC, the init and vold keys represent disk encryption keys.\n\nWhy is the code even attempting to view these keys? Can we modify the code to not probe these keys?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "284993371e1cc3a7a247f2b9293e2046c100a059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0768a2ca_f9908de6",
+        "filename": "private/mini_keyctl.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T23:49:45Z",
+      "side": 1,
+      "message": "by convention, when an element only contains a single entry, the surrounding brackets are omitted.",
+      "range": {
+        "startLine": 17,
+        "startChar": 36,
+        "endLine": 17,
+        "endChar": 38
+      },
+      "revId": "284993371e1cc3a7a247f2b9293e2046c100a059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
