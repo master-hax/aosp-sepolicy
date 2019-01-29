@@ -1,0 +1,221 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d5c4496_6c674037",
+        "filename": "private/file_contexts",
+        "patchSetId": 14
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T21:58:15Z",
+      "side": 1,
+      "message": "I can\u0027t find a *.rc mkdir statement for this directory anywhere. Is this part of a different change? And if so, can you tell me where that change is?",
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5c8f856_2f099815",
+        "filename": "private/file_contexts",
+        "patchSetId": 14
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T21:58:15Z",
+      "side": 1,
+      "message": "Can you help me understand how this directory is used? \n\nThe /metadata directory is not reset across factory resets, so we want to ensure its use is very limited. Additionally, it\u0027s a fairly small partition, so if the process needs to be bounded in the amount of data it writes here (few tens of kilobytes, per paulcrowley).\n\nCan you add documentation on the expected use of this directory within this change somewhere? Possibly in gsid.te or fastboot.te?",
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05f32361_424cb36f",
+        "filename": "private/gsid.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T21:58:15Z",
+      "side": 1,
+      "message": "This is an odd rule. You are allow read access to the directory, but there is no rule allowing read access to the files within the directory. Are you sure this is really needed / used? Or is this just used to scan the directory looking at file names?",
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efef0ead_ff3bd2e2",
+        "filename": "private/gsid.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T21:58:15Z",
+      "side": 1,
+      "message": "by convention, brackets are not used when only a single element exists.\n\n  allow gsid sysfs_dm:dir r_dir_perms;",
+      "range": {
+        "startLine": 19,
+        "startChar": 24,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66ba5e08_41ffa177",
+        "filename": "private/gsid.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T21:58:15Z",
+      "side": 1,
+      "message": "by convention, brackets are not used when only one element exists in the list. Should be:\n\n  allow gsid sysfs_dm:dir r_dir_perms;",
+      "range": {
+        "startLine": 22,
+        "startChar": 28,
+        "endLine": 22,
+        "endChar": 30
+      },
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72dd73de_51311bb4",
+        "filename": "private/gsid.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T21:58:15Z",
+      "side": 1,
+      "message": "Can you expand on the comments about what this directory contains and why the access is needed?\n\nAlso, I\u0027d group lines 24-25 with lines 37-38, since the only reason this line is needed is to allow access through /metadata",
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5c8c0c3_e97a2a43",
+        "filename": "private/gsid.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T21:58:15Z",
+      "side": 1,
+      "message": "comment is no longer accurate.",
+      "range": {
+        "startLine": 33,
+        "startChar": 16,
+        "endLine": 33,
+        "endChar": 22
+      },
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c1d67f5_1759d71b",
+        "filename": "private/gsid.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T21:58:15Z",
+      "side": 1,
+      "message": "it looks like you don\u0027t create subdirectories within /metadata/gsi. If so, this should be changed from create_dir_perms to rw_dir_perms.",
+      "range": {
+        "startLine": 37,
+        "startChar": 33,
+        "endLine": 37,
+        "endChar": 49
+      },
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c66f03e_ed2e1a25",
+        "filename": "private/gsid.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T21:58:15Z",
+      "side": 1,
+      "message": "It looks like you don\u0027t create subdirectories within /data/gsi. If so, this should be changed to rw_dir_perms.",
+      "range": {
+        "startLine": 40,
+        "startChar": 29,
+        "endLine": 40,
+        "endChar": 45
+      },
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d790f5bc_e186c356",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T21:58:15Z",
+      "side": 1,
+      "message": "Can you expand on the comments more and explain how disabling / wiping GSI works? From line 55, it appears you don\u0027t actually delete the metadata file, but just scribble on top of it?",
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f91fdf27_4df56e8f",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-29T21:58:15Z",
+      "side": 1,
+      "message": "delete extra whitespace.",
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
