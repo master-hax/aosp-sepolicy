@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2b920070_a7e828fe",
+        "filename": "private/domain.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2019-01-29T21:54:45Z",
+      "side": 1,
+      "message": "Will move.",
+      "parentUuid": "b280b9e9_78c5d65d",
+      "revId": "d3562fc1c3c7a7b8837fd0fe0f79a99af0547503",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a6d9361_06f14f90",
         "filename": "private/domain.te",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2019-01-29T20:51:40Z",
       "side": 1,
       "message": "This causes the build to not compile, with the following error:\n\n  libsepol.report_failure: neverallow on line 43 of system/sepolicy/private/domain.te (or line 33716 of policy.conf) violated by allow \n  fastbootd task_profiles_file:file { unlink };\n  libsepol.check_assertions: 1 neverallow failures occurred\n  Error while expanding policy\n  12:05:59 ninja failed with: exit status 1\n\nwhich makes sense, as on debuggable builds, fastbootd is allowed to delete /system files.\n\nhttps://android.googlesource.com/platform/system/sepolicy/+/a42ebf412832ee2d21cf9b7e53574bc0a7b85310/public/fastbootd.te#86\n\nThis change, as is, doesn\u0027t even compile. This is the problem treehugger has been complaining about.\n\nHowever, this line can be deleted. task_profiles_file is a system_file_type, and there\u0027s already a neverallow rule blocking writes to system_file_type. See https://android.googlesource.com/platform/system/sepolicy/+/a42ebf412832ee2d21cf9b7e53574bc0a7b85310/public/domain.te#482 lines 473-485. Having a special case here isn\u0027t needed IMHO.",
+      "revId": "d3562fc1c3c7a7b8837fd0fe0f79a99af0547503",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b3e05ba_d924ef78",
+        "filename": "private/domain.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2019-01-29T21:54:45Z",
+      "side": 1,
+      "message": "Will remove. Wondering why my local version is building fine though...",
+      "parentUuid": "5a6d9361_06f14f90",
       "revId": "d3562fc1c3c7a7b8837fd0fe0f79a99af0547503",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "e685f7a6_d72ebf2e",
+        "filename": "public/domain.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2019-01-29T21:54:45Z",
+      "side": 1,
+      "message": "Will remove.",
+      "parentUuid": "b446677c_29067baf",
+      "revId": "d3562fc1c3c7a7b8837fd0fe0f79a99af0547503",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6216351a_592239f8",
         "filename": "public/domain.te",
         "patchSetId": 7
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "6d74a28d_da4ede8d",
+        "filename": "public/domain.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2019-01-29T21:54:45Z",
+      "side": 1,
+      "message": "libprocessgroup which is using this file is a part of VNDK.",
+      "parentUuid": "6216351a_592239f8",
+      "revId": "d3562fc1c3c7a7b8837fd0fe0f79a99af0547503",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d4dba8e1_43801be6",
         "filename": "public/vendor_init.te",
         "patchSetId": 7
@@ -81,6 +153,24 @@
       "writtenOn": "2019-01-29T20:51:40Z",
       "side": 1,
       "message": "it seems error prone to have two different processes touching this file. Can we limit this to just init, and exclude vendor_init?\n\nGenerally speaking, architecturally, it\u0027s desirable for all files should be \"owned\" (writable) by exactly one process, to avoid race conditions and help isolate the file structure.",
+      "revId": "d3562fc1c3c7a7b8837fd0fe0f79a99af0547503",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0301305_4d3bf50d",
+        "filename": "public/vendor_init.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2019-01-29T21:54:45Z",
+      "side": 1,
+      "message": "Will try to remove.",
+      "parentUuid": "d4dba8e1_43801be6",
       "revId": "d3562fc1c3c7a7b8837fd0fe0f79a99af0547503",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
