@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d39f01ef_5c040c95",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2019-01-30T19:12:35Z",
+      "side": 1,
+      "message": "yes, do you know why? \n\nJeff, We may have to fix this later after talking to them though.",
+      "parentUuid": "acc774e1_9106529f",
+      "range": {
+        "startLine": 341,
+        "startChar": 3,
+        "endLine": 341,
+        "endChar": 16
+      },
+      "revId": "ffe9afef5ad53b0b6473e54fac824cb3d1265d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "233eb27b_bad430ea",
         "filename": "private/perfprofd.te",
         "patchSetId": 10
@@ -41,6 +65,53 @@
         "startChar": 0,
         "endLine": 8,
         "endChar": 10
+      },
+      "revId": "ffe9afef5ad53b0b6473e54fac824cb3d1265d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae5838f2_afd19bcb",
+        "filename": "private/perfprofd.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2019-01-30T19:12:35Z",
+      "side": 1,
+      "message": "how so? (I mean that rule is to allow coredomain to make binder_calls to ashmemd, these negations are for other *limited* services to make call into perprofd.)",
+      "parentUuid": "233eb27b_bad430ea",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 10
+      },
+      "revId": "ffe9afef5ad53b0b6473e54fac824cb3d1265d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dd184c4_13f8a067",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2019-01-30T19:12:35Z",
+      "side": 1,
+      "message": "ASharedMemory instead - https://developer.android.com/ndk/reference/group/memory\n\n(libcutils is not in NDK)",
+      "range": {
+        "startLine": 60,
+        "startChar": 46,
+        "endLine": 60,
+        "endChar": 79
       },
       "revId": "ffe9afef5ad53b0b6473e54fac824cb3d1265d2d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -71,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "7ad793c0_9d0fc5ee",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2019-01-30T19:12:35Z",
+      "side": 1,
+      "message": "but that will break the apps now?",
+      "parentUuid": "ad00e475_db78ec46",
+      "range": {
+        "startLine": 62,
+        "startChar": 46,
+        "endLine": 62,
+        "endChar": 59
+      },
+      "revId": "ffe9afef5ad53b0b6473e54fac824cb3d1265d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "caa800b5_04a6e861",
         "filename": "private/untrusted_app_25.te",
         "patchSetId": 10
@@ -82,6 +177,24 @@
       "writtenOn": "2019-01-30T18:28:42Z",
       "side": 1,
       "message": "We really need some form of shaming for direct uses of ashmem. However, it needs to come from the kernel. Idea:\nAdd an auditallow for \"open\"\nintercept/augment that in logd to provide some useful info pointing developers to correctly use the ndk.",
+      "revId": "ffe9afef5ad53b0b6473e54fac824cb3d1265d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3009ad42_4fb87030",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2019-01-30T19:12:35Z",
+      "side": 1,
+      "message": "/me likes (Ok with a TODO though)",
+      "parentUuid": "caa800b5_04a6e861",
       "revId": "ffe9afef5ad53b0b6473e54fac824cb3d1265d2d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
