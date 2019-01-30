@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cd306ee4_8e8cb157",
+        "filename": "private/file_contexts",
+        "patchSetId": 14
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-01-30T00:03:15Z",
+      "side": 1,
+      "message": "Thanks, I forgot to make this change. It\u0027s aosp/889813 now.",
+      "parentUuid": "5d5c4496_6c674037",
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d5c8f856_2f099815",
         "filename": "private/file_contexts",
         "patchSetId": 14
@@ -30,6 +48,24 @@
       "writtenOn": "2019-01-29T21:58:15Z",
       "side": 1,
       "message": "Can you help me understand how this directory is used? \n\nThe /metadata directory is not reset across factory resets, so we want to ensure its use is very limited. Additionally, it\u0027s a fairly small partition, so if the process needs to be bounded in the amount of data it writes here (few tens of kilobytes, per paulcrowley).\n\nCan you add documentation on the expected use of this directory within this change somewhere? Possibly in gsid.te or fastboot.te?",
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d24ef092_d61dcd56",
+        "filename": "private/file_contexts",
+        "patchSetId": 14
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-01-30T00:03:15Z",
+      "side": 1,
+      "message": "The data we\u0027re storing is indeed very small - a few bytes for install_status, and a list of block ranges on userdata (stored as a blob in /metadata/gsi/lp_metadata). On average lp_metadata is 4-8KiB, we cap it to 128KiB but I think we could lower it to 32KiB or possibly lower with no loss of functionality.\n\nI added some comments to gsid.te about how /metadata/gsi is used. There\u0027s also an explanation in the design doc [1].\n\nre: factory resets, is that still true? I just tested by using \"Wipe data\" from the recovery menu and lost everything in /metadata.\n\n[1] https://docs.google.com/document/d/19PzzqfWtzRXt4m7GNiNkidpWh5HfEfLFGZmfWyJeryk/edit#heading\u003dh.kbcax7dj9x4s",
+      "parentUuid": "d5c8f856_2f099815",
       "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -76,6 +112,48 @@
     },
     {
       "key": {
+        "uuid": "ee3978d3_6e318be6",
+        "filename": "private/gsid.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-01-30T00:03:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efef0ead_ff3bd2e2",
+      "range": {
+        "startLine": 19,
+        "startChar": 24,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8c7d47d_c1f031fd",
+        "filename": "private/gsid.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-01-30T00:03:15Z",
+      "side": 1,
+      "message": "Yes, that\u0027s exactly it - I will clarify in the file.",
+      "parentUuid": "05f32361_424cb36f",
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66ba5e08_41ffa177",
         "filename": "private/gsid.te",
         "patchSetId": 14
@@ -99,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "5fcffec1_b49e38f8",
+        "filename": "private/gsid.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-01-30T00:03:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66ba5e08_41ffa177",
+      "range": {
+        "startLine": 22,
+        "startChar": 28,
+        "endLine": 22,
+        "endChar": 30
+      },
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72dd73de_51311bb4",
         "filename": "private/gsid.te",
         "patchSetId": 14
@@ -113,6 +215,24 @@
       "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18eeb8c8_76d5f80b",
+        "filename": "private/gsid.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-01-30T00:03:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72dd73de_51311bb4",
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -139,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "d404a72d_5000bdc5",
+        "filename": "private/gsid.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-01-30T00:03:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5c8c0c3_e97a2a43",
+      "range": {
+        "startLine": 33,
+        "startChar": 16,
+        "endLine": 33,
+        "endChar": 22
+      },
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c1d67f5_1759d71b",
         "filename": "private/gsid.te",
         "patchSetId": 14
@@ -159,6 +303,30 @@
       "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e3caffc_2d062329",
+        "filename": "private/gsid.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-01-30T00:03:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c1d67f5_1759d71b",
+      "range": {
+        "startLine": 37,
+        "startChar": 33,
+        "endLine": 37,
+        "endChar": 49
+      },
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -185,6 +353,30 @@
     },
     {
       "key": {
+        "uuid": "1b300a0a_9152927e",
+        "filename": "private/gsid.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-01-30T00:03:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c66f03e_ed2e1a25",
+      "range": {
+        "startLine": 40,
+        "startChar": 29,
+        "endLine": 40,
+        "endChar": 45
+      },
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d790f5bc_e186c356",
         "filename": "public/fastbootd.te",
         "patchSetId": 14
@@ -196,6 +388,23 @@
       "writtenOn": "2019-01-29T21:58:15Z",
       "side": 1,
       "message": "Can you expand on the comments more and explain how disabling / wiping GSI works? From line 55, it appears you don\u0027t actually delete the metadata file, but just scribble on top of it?",
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8277e844_bcfafc70",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-01-30T00:03:15Z",
+      "side": 1,
+      "message": "For disabling, we write \"disabled\" to /metadata/gsi/install_status, which will cause first-stage init to boot normally rather than use the installed GSI.\n\nFor wiping, it depends which system you\u0027re running. If you\u0027re currently running the normal system (not GSI), then we can just immediately unlink everything in /metadata/gsi/ and /data/gsi/.\n\nIf you\u0027re running GSI, we have no access whatsoever to the previous userdata, so instead we write \"wipe\" to /metadata/gsi/install_status. When the user reboots back to the normal system, gsid will see the \"wipe\" status on startup and proceed to unlink everything.",
       "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -216,6 +425,24 @@
       "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3244902_04528f3c",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-01-30T00:03:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f91fdf27_4df56e8f",
+      "revId": "bec42fc16a64dcb82973d8e0cea312a5b786371c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
