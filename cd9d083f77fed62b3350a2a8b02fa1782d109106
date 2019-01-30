@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cc50cda4_867f3524",
+        "filename": "private/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-01-30T02:49:24Z",
+      "side": 1,
+      "message": "Good catch!",
+      "parentUuid": "dcdc8146_fd0f5f2f",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 28
+      },
+      "revId": "cd9d083f77fed62b3350a2a8b02fa1782d109106",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "085c1d46_6abae97c",
         "filename": "private/untrusted_app_all.te",
         "patchSetId": 5
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "6565d44b_b6d23715",
+        "filename": "private/untrusted_app_all.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-01-30T02:49:24Z",
+      "side": 1,
+      "message": "We want to exclude all domains for pre-Q apps. I\u0027m not familiar with the setup. Are untrusted_app_25/27 the only such domains? If so, only untrusted_app_25/27 should be excluded.",
+      "parentUuid": "085c1d46_6abae97c",
+      "revId": "cd9d083f77fed62b3350a2a8b02fa1782d109106",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "29429cc9_ba04ede7",
         "filename": "public/domain.te",
         "patchSetId": 5
@@ -53,6 +95,30 @@
       "writtenOn": "2019-01-29T23:59:00Z",
       "side": 1,
       "message": "Also for ephemeral_app\nAlso, do we need to fix isolated_app, or should we assume that fixing the main app, developers will also fix their isolated process?",
+      "range": {
+        "startLine": 69,
+        "startChar": 3,
+        "endLine": 69,
+        "endChar": 20
+      },
+      "revId": "cd9d083f77fed62b3350a2a8b02fa1782d109106",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7995365a_e14b8563",
+        "filename": "public/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-01-30T02:49:24Z",
+      "side": 1,
+      "message": "added both isolated_app and ephemeral_app",
+      "parentUuid": "29429cc9_ba04ede7",
       "range": {
         "startLine": 69,
         "startChar": 3,
