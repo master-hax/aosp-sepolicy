@@ -2,6 +2,178 @@
   "comments": [
     {
       "key": {
+        "uuid": "acc774e1_9106529f",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-01-30T18:28:42Z",
+      "side": 1,
+      "message": "why is mediaprovide exempt? It should definitely be using libcutils right?",
+      "range": {
+        "startLine": 341,
+        "startChar": 3,
+        "endLine": 341,
+        "endChar": 16
+      },
+      "revId": "ffe9afef5ad53b0b6473e54fac824cb3d1265d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "233eb27b_bad430ea",
+        "filename": "private/perfprofd.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-01-30T18:28:42Z",
+      "side": 1,
+      "message": "Do we know that perfprofd actually uses ashmem? I\u0027d rather we negate these processes from the \"allow coredomain -init\" rule.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 10
+      },
+      "revId": "ffe9afef5ad53b0b6473e54fac824cb3d1265d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad00e475_db78ec46",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-01-30T18:28:42Z",
+      "side": 1,
+      "message": "should we just do open here?",
+      "range": {
+        "startLine": 62,
+        "startChar": 46,
+        "endLine": 62,
+        "endChar": 59
+      },
+      "revId": "ffe9afef5ad53b0b6473e54fac824cb3d1265d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "caa800b5_04a6e861",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-01-30T18:28:42Z",
+      "side": 1,
+      "message": "We really need some form of shaming for direct uses of ashmem. However, it needs to come from the kernel. Idea:\nAdd an auditallow for \"open\"\nintercept/augment that in logd to provide some useful info pointing developers to correctly use the ndk.",
+      "revId": "ffe9afef5ad53b0b6473e54fac824cb3d1265d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f5d3f4e_182fa84a",
+        "filename": "public/ashmemd.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-01-30T18:28:42Z",
+      "side": 1,
+      "message": "coredomain should only be assigned in private policy.\n\nin private/ashmemd.te add\n\ntypeattribute ashmemd coredomain;",
+      "range": {
+        "startLine": 1,
+        "startChar": 22,
+        "endLine": 1,
+        "endChar": 32
+      },
+      "revId": "ffe9afef5ad53b0b6473e54fac824cb3d1265d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce805502_3220cda8",
+        "filename": "public/domain.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-01-30T18:28:42Z",
+      "side": 1,
+      "message": "should this now be \"-coredomain\" so that all core processes are using ashmemd?",
+      "revId": "ffe9afef5ad53b0b6473e54fac824cb3d1265d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "157e307f_6d5e8952",
+        "filename": "public/installd.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-01-30T18:28:42Z",
+      "side": 1,
+      "message": "does installd actually need this? I\u0027d rather not exempt it if so.",
+      "range": {
+        "startLine": 171,
+        "startChar": 5,
+        "endLine": 171,
+        "endChar": 12
+      },
+      "revId": "ffe9afef5ad53b0b6473e54fac824cb3d1265d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd59f161_0865a9ed",
+        "filename": "public/iorapd.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-01-30T18:28:42Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 72,
+        "startChar": 3,
+        "endLine": 72,
+        "endChar": 10
+      },
+      "revId": "ffe9afef5ad53b0b6473e54fac824cb3d1265d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5fcccc22_a4f59433",
         "filename": "public/te_macros",
         "patchSetId": 10
