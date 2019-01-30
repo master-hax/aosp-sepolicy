@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "63d3b33e_99a4d54c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1112838
+      },
+      "writtenOn": "2019-01-30T00:39:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4ef2157_fccd25d1",
+      "revId": "284993371e1cc3a7a247f2b9293e2046c100a059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27262da1_97eb3fb6",
         "filename": "private/compat/26.0/26.0.cil",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "284993371e1cc3a7a247f2b9293e2046c100a059",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ac91b3a_c4397d99",
+        "filename": "private/compat/26.0/26.0.cil",
+        "patchSetId": 2
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1112838
+      },
+      "writtenOn": "2019-01-30T00:39:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27262da1_97eb3fb6",
+      "revId": "284993371e1cc3a7a247f2b9293e2046c100a059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "db93f173_cf395e33",
+        "filename": "private/compat/27.0/27.0.cil",
+        "patchSetId": 2
+      },
+      "lineNbr": 1189,
+      "author": {
+        "id": 1112838
+      },
+      "writtenOn": "2019-01-30T00:39:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f617b6af_25fd18f8",
+      "revId": "284993371e1cc3a7a247f2b9293e2046c100a059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27b501ff_be0ab080",
         "filename": "private/coredomain.te",
         "patchSetId": 2
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "a7b68afa_366c66a6",
+        "filename": "private/coredomain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1112838
+      },
+      "writtenOn": "2019-01-30T00:39:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27b501ff_be0ab080",
+      "revId": "284993371e1cc3a7a247f2b9293e2046c100a059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e0ca6d8_d97137a6",
         "filename": "private/mini_keyctl.te",
         "patchSetId": 2
@@ -81,6 +153,30 @@
       "writtenOn": "2019-01-29T23:49:45Z",
       "side": 1,
       "message": "IIRC, the init and vold keys represent disk encryption keys.\n\nWhy is the code even attempting to view these keys? Can we modify the code to not probe these keys?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "284993371e1cc3a7a247f2b9293e2046c100a059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f676e82c_d955a0a1",
+        "filename": "private/mini_keyctl.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1112838
+      },
+      "writtenOn": "2019-01-30T00:39:18Z",
+      "side": 1,
+      "message": "Previously discussed here: https://googleplex-android-review.git.corp.google.com/c/platform/system/sepolicy/+/6089106/2/private/fsverity_keyctl.te#14\n\nThis is caused by reading /proc/keys which in turn tried to retrieve information for init:key and vold:key. We don\u0027t need it here. We need a new syscall option FS_IOC_GET_VERITY_KEYRING_ID to get the keyring id. Once the kernel change has the syscall, we can remove these two lines.",
+      "parentUuid": "3e0ca6d8_d97137a6",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -113,6 +209,30 @@
       "revId": "284993371e1cc3a7a247f2b9293e2046c100a059",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d63ab44_7dc09311",
+        "filename": "private/mini_keyctl.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1112838
+      },
+      "writtenOn": "2019-01-30T00:39:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0768a2ca_f9908de6",
+      "range": {
+        "startLine": 17,
+        "startChar": 36,
+        "endLine": 17,
+        "endChar": 38
+      },
+      "revId": "284993371e1cc3a7a247f2b9293e2046c100a059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
