@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "664c462c_7adab3b9",
+        "filename": "private/mini_keyctl.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-30T22:15:08Z",
+      "side": 1,
+      "message": "replace with:\n\n  init_daemon_domain(mini-keyctl)\n\nwhich does essentially the same thing.",
+      "revId": "18ab0bb48dce49e58b219d4cc0b5185dbfc99373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98cfbc15_852e400e",
+        "filename": "private/mini_keyctl.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-01-30T22:15:08Z",
+      "side": 1,
+      "message": "proc_keys is a label given to the file /proc/keys. r_dir_file gains read access to files, directories, and symlinks with the \"proc_keys\" label. No directories or symlinks exist with this label.\n\nReplace with:\n\n  allow mini-keyctl proc_keys:file r_file_perms;",
+      "revId": "18ab0bb48dce49e58b219d4cc0b5185dbfc99373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
