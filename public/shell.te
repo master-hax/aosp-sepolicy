@@ -87,6 +87,11 @@ userdebug_or_eng(`
   set_prop(shell, persist_debug_prop)
 ')
 
+# Allow memfd to be used
+# memfd is default disabled, due to breakage risk of apps/vendor
+# However, for debugging, this flag can be set from shell to allow it
+userdebug_or_eng(`set_prop(shell, use_memfd_prop)')
+
 # Read device's serial number from system properties
 get_prop(shell, serialno_prop)
 
