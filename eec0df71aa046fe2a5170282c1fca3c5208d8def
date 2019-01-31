@@ -22,6 +22,30 @@
       "revId": "eec0df71aa046fe2a5170282c1fca3c5208d8def",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c72c3eb_998cc4e5",
+        "filename": "private/system_server.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1308504
+      },
+      "writtenOn": "2019-01-31T06:54:19Z",
+      "side": 1,
+      "message": "I have discuss this with maze@. The reason is lack of flexible for updatability for sepolicy. If we want to allow new domain to use this(ex: radio or ....), it need rely on OS upgrade. So we prefer to allow system_server iotcl permission for all domain. And this should be fine because each iotcl commands still need to be granted individually.",
+      "parentUuid": "a368c577_442f82f2",
+      "range": {
+        "startLine": 58,
+        "startChar": 20,
+        "endLine": 58,
+        "endChar": 37
+      },
+      "revId": "eec0df71aa046fe2a5170282c1fca3c5208d8def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
