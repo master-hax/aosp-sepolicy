@@ -29,3 +29,8 @@ set_prop(update_verifier, powerctl_prop)
 
 # Use Boot Control HAL
 hal_client_domain(update_verifier, hal_bootctl)
+
+# Access Checkpoint commands via vdc
+allow update_verifier devpts:chr_file { read write open execute };
+allow update_verifier vdc_exec:file rx_file_perms;
+allow update_verifier servicemanager:binder call;
