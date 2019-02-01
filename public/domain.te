@@ -222,8 +222,10 @@ allow domain proc_perf:file r_file_perms;
 # toybox loads libselinux which stats /sys/fs/selinux/
 allow domain selinuxfs:dir search;
 allow domain selinuxfs:file getattr;
-allow domain sysfs:dir search;
 allow domain selinuxfs:filesystem getattr;
+
+# /sys directory tree traversal
+allow domain sysfs_type:dir search;
 
 # Almost all processes log tracing information to
 # /sys/kernel/debug/tracing/trace_marker
