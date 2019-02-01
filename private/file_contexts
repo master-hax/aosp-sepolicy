@@ -28,6 +28,7 @@
 /config             u:object_r:rootfs:s0
 /mnt                u:object_r:tmpfs:s0
 /postinstall        u:object_r:postinstall_mnt_dir:s0
+/postinstall/apex   u:object_r:postinstall_apex_mnt_dir:s0
 /proc               u:object_r:rootfs:s0
 /sys                u:object_r:sysfs:s0
 /apex               u:object_r:apex_mnt_dir:s0
@@ -38,6 +39,10 @@
 /d                  u:object_r:rootfs:s0
 /etc                u:object_r:rootfs:s0
 /sdcard             u:object_r:rootfs:s0
+
+/bionic(/.*)?           u:object_r:system_file:s0
+/bionic/lib(64)?(/.*)?  u:object_r:system_lib_file:s0
+/bionic/bin/linker(64)? u:object_r:system_linker_exec:s0
 
 # SELinux policy files
 /vendor_file_contexts   u:object_r:file_contexts_file:s0
@@ -154,6 +159,8 @@
 /dev/socket/wpa_wlan[0-9] u:object_r:wpa_socket:s0
 /dev/socket/zygote	u:object_r:zygote_socket:s0
 /dev/socket/zygote_secondary	u:object_r:zygote_socket:s0
+/dev/socket/blastula_pool	u:object_r:zygote_socket:s0
+/dev/socket/blastula_pool_secondary	u:object_r:zygote_socket:s0
 /dev/spdif_out.*	u:object_r:audio_device:s0
 /dev/tty		u:object_r:owntty_device:s0
 /dev/tty[0-9]*		u:object_r:tty_device:s0
@@ -185,6 +192,7 @@
 /system/bin/e2fsck	--	u:object_r:fsck_exec:s0
 /system/bin/fsck\.exfat	--	u:object_r:fsck_exec:s0
 /system/bin/fsck\.f2fs	--	u:object_r:fsck_exec:s0
+/system/bin/mini-keyctl	--	u:object_r:mini-keyctl_exec:s0
 /system/bin/sload_f2fs	--	u:object_r:e2fs_exec:s0
 /system/bin/make_f2fs	--	u:object_r:e2fs_exec:s0
 /system/bin/fsck_msdos	--	u:object_r:fsck_exec:s0
@@ -248,6 +256,7 @@
 /system/bin/healthd     u:object_r:healthd_exec:s0
 /system/bin/clatd	u:object_r:clatd_exec:s0
 /system/bin/linker(64)? u:object_r:system_linker_exec:s0
+/system/bin/bootstrap/linker(64)? u:object_r:system_linker_exec:s0
 /system/bin/llkd        u:object_r:llkd_exec:s0
 /system/bin/lmkd        u:object_r:lmkd_exec:s0
 /system/bin/usbd   u:object_r:usbd_exec:s0
@@ -270,6 +279,7 @@
 /system/bin/dexoptanalyzer(d)?     u:object_r:dexoptanalyzer_exec:s0
 # patchoat executable has (essentially) the same requirements as dex2oat.
 /system/bin/patchoat(d)?    u:object_r:dex2oat_exec:s0
+/system/bin/viewcompiler     u:object_r:viewcompiler_exec:s0
 /system/bin/profman(d)?     u:object_r:profman_exec:s0
 /system/bin/iorapd          u:object_r:iorapd_exec:s0
 /system/bin/sgdisk      u:object_r:sgdisk_exec:s0
@@ -310,6 +320,8 @@
 /system/bin/wait_for_keymaster   u:object_r:wait_for_keymaster_exec:s0
 /system/bin/watchdogd            u:object_r:watchdogd_exec:s0
 /system/bin/apexd                u:object_r:apexd_exec:s0
+/system/bin/gsid                 u:object_r:gsid_exec:s0
+/system/bin/simpleperf_app_runner    u:object_r:simpleperf_app_runner_exec:s0
 
 #############################
 # Vendor files
@@ -513,6 +525,10 @@
 # Bootchart data
 /data/bootchart(/.*)?		u:object_r:bootchart_data_file:s0
 
+# App data snapshots (managed by installd).
+/data/misc_de/[0-9]+/rollback(/.*)?       u:object_r:rollback_data_file:s0
+/data/misc_ce/[0-9]+/rollback(/.*)?       u:object_r:rollback_data_file:s0
+
 #############################
 # Expanded data files
 #
@@ -551,6 +567,11 @@
 
 # iorapd per-user data
 /data/misc_ce/[0-9]+/iorapd(/.*)?           u:object_r:iorapd_data_file:s0
+
+# Backup service persistent per-user bookkeeping
+/data/system_ce/[0-9]+/backup(/.*)?		u:object_r:backup_data_file:s0
+# Backup service temporary per-user data for inter-change with apps
+/data/system_ce/[0-9]+/backup_stage(/.*)?	u:object_r:backup_data_file:s0
 
 #############################
 # efs files
