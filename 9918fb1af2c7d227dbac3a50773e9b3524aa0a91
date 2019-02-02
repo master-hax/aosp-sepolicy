@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "f408010c_b3b0248b",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-02T18:44:15Z",
+      "side": 1,
+      "message": "allow rules go above all the neverallow rules.",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 33
+      },
+      "revId": "9918fb1af2c7d227dbac3a50773e9b3524aa0a91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "428345ce_06b0cef0",
+        "filename": "public/property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-02T18:44:15Z",
+      "side": 1,
+      "message": "why is this necessary? No-one is granted \"set\"",
+      "range": {
+        "startLine": 446,
+        "startChar": 0,
+        "endLine": 446,
+        "endChar": 19
+      },
+      "revId": "9918fb1af2c7d227dbac3a50773e9b3524aa0a91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ba39cb6c_a70a82b2",
         "filename": "public/property_contexts",
         "patchSetId": 2
@@ -13,6 +59,30 @@
       "writtenOn": "2019-02-02T00:56:58Z",
       "side": 1,
       "message": "If you want to expose this sysprop across Treble boundary, it needs to be implemented as an API. See this example https://android.googlesource.com/platform/system/libsysprop/+/master/srcs/android/sysprop/VoldProperties.sysprop",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 53
+      },
+      "revId": "9918fb1af2c7d227dbac3a50773e9b3524aa0a91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59e37eed_223a5bdf",
+        "filename": "public/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-02T18:44:15Z",
+      "side": 1,
+      "message": "Is this really necessary for what is essentially a debug-only property?",
+      "parentUuid": "ba39cb6c_a70a82b2",
       "range": {
         "startLine": 248,
         "startChar": 0,
