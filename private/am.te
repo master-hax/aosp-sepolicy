@@ -1,0 +1,17 @@
+# Domain for am process.
+type am, domain, coredomain;
+type am_exec, exec_type, file_type, system_file_type;
+
+init_daemon_domain(am);
+domain_auto_trans(init, am_exec, am);
+
+# To exec the am cmdline client.
+allow am am_exec:file { rx_file_perms entrypoint };
+allow am am_exec:process { transition };
+
+allow am shell_exec:file { getattr read };
+
+allow am activity_service:service_manager find;
+allow am system_file:file execute_no_trans;
+allow am servicemanager:binder call;
+allow am system_server:binder { call transfer };
