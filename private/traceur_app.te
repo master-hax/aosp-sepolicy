@@ -16,6 +16,10 @@ allow traceur_app atrace_exec:file rx_file_perms;
 # stdint through a pipe.
 allow traceur_app perfetto_exec:file rx_file_perms;
 
+# To exec the am cmdline client.
+#allow traceur_app am_exec:file { rx_file_perms entrypoint };
+#allow traceur_app am_exec:process { transition };
+
 # Allow to access traced's privileged consumer socket.
 unix_socket_connect(traceur_app, traced_consumer, traced)
 
