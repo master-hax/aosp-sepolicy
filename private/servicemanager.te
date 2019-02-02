@@ -3,3 +3,7 @@ typeattribute servicemanager coredomain;
 init_daemon_domain(servicemanager)
 
 read_runtime_log_tags(servicemanager)
+
+allow servicemanager am:dir search;
+allow servicemanager am:file { open read };
+allow servicemanager am:process getattr;
