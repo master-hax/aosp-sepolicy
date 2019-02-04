@@ -46,6 +46,30 @@
       "revId": "0327d10599b03af2801345e51ee446d82ed2c1b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2893b61a_4fa70739",
+        "filename": "private/zygote.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-02-04T16:20:30Z",
+      "side": 1,
+      "message": "But does it make sense to grant the zygote the permission to read the system property associated with namespace \"runtime_native\" (not \"runtime_native_boot\"), or is this property meant to be read later (after the zygote fork)? In that case, this permission might need to be granted to someone else (not the zygote)?",
+      "parentUuid": "b32c4a36_f160afef",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 51
+      },
+      "revId": "0327d10599b03af2801345e51ee446d82ed2c1b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
