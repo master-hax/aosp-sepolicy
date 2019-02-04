@@ -188,6 +188,30 @@
       "revId": "9918fb1af2c7d227dbac3a50773e9b3524aa0a91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0bd7cbf_1fcd0982",
+        "filename": "public/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1124848
+      },
+      "writtenOn": "2019-02-04T19:32:08Z",
+      "side": 1,
+      "message": "I found we can\u0027t wrap it in userdebug_or_eng because processes using libcutils will log spam with denials. TH fails to merge without such rule. It needs to be readable by all, on all builds.\n\nThe alternative is I could detect userdebug_or_eng from C code, and avoid calling GetProp API. Not sure if that\u0027s very clean, or easy to do.\n\nTo avoid ugliness, I would really like to leave it this way. But let us continue discussing if you want..",
+      "parentUuid": "6d7a2fd6_6142afbe",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 53
+      },
+      "revId": "9918fb1af2c7d227dbac3a50773e9b3524aa0a91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
