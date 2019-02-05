@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0915b443_e9d9cfc9",
+        "filename": "private/traced.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2019-02-05T22:39:54Z",
+      "side": 1,
+      "message": "There are 2 problems here:\n\n1) Even if we wanted, it can\u0027t work: activitymanager seems to have checks in place restrict intents only for the following cases:\n a) the source uid is \"root\" or \"system\".\n b) The source is a java app/svc that has a special manifest permission INTERACT_ACROSS_USERS_FULL. This is not a java app/svc.\n c) source uid and target uid match.\nSo the only option would be running traced as uid\u003dsystem, which I think is unideal.\n\n2) Even without the limitation above, I\u0027d be uncomfortable from a security perspective, to allow traced to send intents. If traced gets exploited, that\u0027s a very good attack vector (intent can be used to open pages in chrome and so on). I don\u0027t think it\u0027s possible to restrict the target of intents via selinux, as an intent really looks as a binder transaction to ActivityManagerService.\n\n\nSo the only viable way we found is setting a property (which can be well confined via selinux), and having init reacting to that property sending an intent to traceur.\nFWIW None of this is a fastpath, this happens once the trace ends, so quite rarely.",
+      "parentUuid": "f0129242_259e61b2",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "cb9da5be5da718dc40a4f431424ba6301b660800",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e6a453c3_e9b4c631",
         "filename": "public/traceur_app.te",
         "patchSetId": 4
