@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d76645a0_f16c04ac",
+        "filename": "private/traced.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-05T23:10:42Z",
+      "side": 1,
+      "message": "1a) hopefully this includes uid \"shell\" since that\u0027s the primary caller of /system/bin/am.\nb)\nc) how does this work for the shell user? Does the developer have to go through runas first?\n\n2) Agreed. But doing it through a script with a domain transition would be fine. That way, traced is limited to executing a specific file which has the functionality hardcoded. The script can even be allowed to setuid to shell or system using filesystem capabilities in system/core/libcutils/fs_config.cpp.",
+      "parentUuid": "0915b443_e9d9cfc9",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "cb9da5be5da718dc40a4f431424ba6301b660800",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e6a453c3_e9b4c631",
         "filename": "public/traceur_app.te",
         "patchSetId": 4
