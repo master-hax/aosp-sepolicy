@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c70df61_8b60246d",
+        "filename": "private/am.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-05T17:38:29Z",
+      "side": 1,
+      "message": "This is already included in line 5.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 37
+      },
+      "revId": "aacfe592a88cafe7fb08b55d9b904f36d959aa73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d1bb406_1a539223",
+        "filename": "private/am.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-05T17:38:29Z",
+      "side": 1,
+      "message": "already included in line 5.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "aacfe592a88cafe7fb08b55d9b904f36d959aa73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8306fd9_19307dff",
+        "filename": "private/am.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-05T17:38:29Z",
+      "side": 1,
+      "message": "is am executing a shell script? What\u0027s going on here?",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 8
+      },
+      "revId": "aacfe592a88cafe7fb08b55d9b904f36d959aa73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07349c79_c39a72a1",
+        "filename": "private/am.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-05T17:38:29Z",
+      "side": 1,
+      "message": "what is am executing?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 43
+      },
+      "revId": "aacfe592a88cafe7fb08b55d9b904f36d959aa73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65161aa8_fdf696b3",
+        "filename": "private/am.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-05T17:38:29Z",
+      "side": 1,
+      "message": "binder_use(am)",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 48
+      },
+      "revId": "aacfe592a88cafe7fb08b55d9b904f36d959aa73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1109923c_018b8f02",
+        "filename": "private/file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-05T17:38:29Z",
+      "side": 1,
+      "message": "Labeling this is going to break other things. Now the \"adb shell\" can not longer use am commands. Why can we we just allow perfetto to:\n\nallow perfetto system_file:file execute_no_trans;\n\nIf that doesn\u0027t work, perhaps creating a short shell script that perfetto executes would be simplest.",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 52
+      },
+      "revId": "aacfe592a88cafe7fb08b55d9b904f36d959aa73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13e89c80_4dedeb55",
+        "filename": "private/servicemanager.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-05T17:38:29Z",
+      "side": 1,
+      "message": "already included in binder_use(am)",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 40
+      },
+      "revId": "aacfe592a88cafe7fb08b55d9b904f36d959aa73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
