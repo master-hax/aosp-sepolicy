@@ -1,0 +1,13 @@
+type notify_traceur, domain, coredomain;
+type notify_traceur_exec, system_file_type, exec_type, file_type;
+
+init_daemon_domain(notify_traceur);
+domain_auto_trans(traced, notify_traceur_exec, notify_traceur)
+binder_use(notify_traceur);
+
+# This is to execute am
+allow notify_traceur activity_service:service_manager find;
+allow notify_traceur shell_exec:file { execute getattr open read };
+allow notify_traceur system_file:file execute_no_trans;
+allow notify_traceur system_server:binder { call transfer };
+
