@@ -98,6 +98,7 @@ allow untrusted_app_all nfc_service:service_manager find;
 allow untrusted_app_all radio_service:service_manager find;
 allow untrusted_app_all app_api_service:service_manager find;
 allow untrusted_app_all vr_manager_service:service_manager find;
+allow untrusted_app_all gpu_service:service_manager find;
 
 # Allow GMS core to access perfprofd output, which is stored
 # in /data/misc/perfprofd/. GMS core will need to list all
@@ -183,6 +184,9 @@ userdebug_or_eng(`
 
 # Allow access to ashmemd to request /dev/ashmem fds.
 binder_call(untrusted_app_all, ashmemd)
+
+# Allow untrusted apps to interact with gpuservice
+binder_call(untrusted_app_all, gpuservice)
 
 # TODO(b/113362644): audit apps directly using /dev/ashmem and emit error
 # message with info on how to fix that.
