@@ -11,3 +11,11 @@ allow hal_system_suspend_client system_suspend_hwservice:hwservice_manager find;
 
 allow hal_system_suspend_server sysfs_power:file rw_file_perms;
 allow hal_system_suspend_server system_server:fd use;
+
+# Only system_server is allowed access to ISuspendControlService.
+neverallow {
+    domain
+    -dumpstate # for bug reports
+    -hal_system_suspend_server # implements system_suspend_control_service
+    -system_server
+} system_suspend_control_service:service_manager find;
