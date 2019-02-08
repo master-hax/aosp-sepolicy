@@ -22,6 +22,30 @@
       "revId": "a7167a25ce080e4e0ac1cbf08a5b01da18774a71",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28315b37_da3c662c",
+        "filename": "private/untrusted_app_all.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1339259
+      },
+      "writtenOn": "2019-02-08T18:09:21Z",
+      "side": 1,
+      "message": "Hi Jeffrey, thanks for reviewing! It\u0027s because we limited the GpuStats tracking scope to NOT \"if (ai.isPrivilegedApp() || (ai.isSystemApp() \u0026\u0026 !ai.isUpdatedSystemApp()))\". We\u0027ll only track non-privileged apps and non-unupdated-system apps.\n\nBut from selinux point of view, if add this api generally does make more sense, we would be happy to add it for all apps at this moment in case later on we\u0027d like to track those apps\u0027s gpu stats as well.",
+      "parentUuid": "10aaae8e_ab4a9472",
+      "range": {
+        "startLine": 101,
+        "startChar": 6,
+        "endLine": 101,
+        "endChar": 23
+      },
+      "revId": "a7167a25ce080e4e0ac1cbf08a5b01da18774a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
