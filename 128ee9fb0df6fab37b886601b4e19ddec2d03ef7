@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f960e369_bc87ccbe",
+        "filename": "private/system_server.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-02-12T01:44:54Z",
+      "side": 1,
+      "message": "I think that will end up being a lot more complex.. I\u0027d rather wait and see how much the rest of system_server will rely on knowing about GSIs. Otherwise, system_server will have to poll+wait for gsid, and if gsid goes down for some reason, we\u0027ll deduce incorrect information. Meanwhile, /metadata/gsi/booted is infallible.",
+      "parentUuid": "039ea280_6a839034",
+      "range": {
+        "startLine": 1011,
+        "startChar": 0,
+        "endLine": 1013,
+        "endChar": 53
+      },
+      "revId": "128ee9fb0df6fab37b886601b4e19ddec2d03ef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d2454d3e_376c0a72",
         "filename": "private/system_server.te",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2019-02-10T15:39:01Z",
       "side": 1,
       "message": "Is there a concern with leaking the contents of the file to system_server?\n\nIf you are just checking for existence, you can use access(F_OK), and then add the following SELinux rule to deal with the denial:\n\n  dontaudit system_server gsi_metadata_file:file audit_access;\n\nbackground: http://blog.siphos.be/2013/05/the-weird-audit_access-permission/",
+      "range": {
+        "startLine": 1016,
+        "startChar": 43,
+        "endLine": 1016,
+        "endChar": 55
+      },
+      "revId": "128ee9fb0df6fab37b886601b4e19ddec2d03ef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff314800_282135f7",
+        "filename": "private/system_server.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-02-12T01:44:54Z",
+      "side": 1,
+      "message": "Actually that works fine, thanks! (This file is empty, it\u0027s not intended to be read.)",
+      "parentUuid": "d2454d3e_376c0a72",
       "range": {
         "startLine": 1016,
         "startChar": 43,
