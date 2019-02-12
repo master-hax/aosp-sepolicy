@@ -19,6 +19,10 @@ allow otapreopt_chroot file_contexts_file:file r_file_perms;
 
 # Allow otapreopt_chroot to open and read the contents of /postinstall/system/apex.
 allow otapreopt_chroot postinstall_file:dir r_dir_perms;
+# Allow otapreopt_chroot to open and read the contents of /postinstall/data/apex/active.
+allow otapreopt_chroot apex_data_file:dir r_dir_perms;
+# Allow otapreopt_chroot to open and read APEX packages located in /postinstall/data/staging.
+allow otapreopt_chroot staging_data_file:file r_file_perms;
 # Allow otapreopt_chroot to read the persist.apexd.verity_on_system system property.
 get_prop(otapreopt_chroot, apexd_prop)
 
