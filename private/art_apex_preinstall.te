@@ -27,3 +27,16 @@ allow art_apex_preinstall dex2oat_exec:file rx_file_perms;
 
 # Dex2oat will lock the boot image profile.
 allow art_apex_preinstall system_file:file lock;
+
+# Fsverity in the same domain.
+allow art_apex_preinstall system_file:file execute_no_trans;
+# Fsverity work.
+allowxperm art_apex_preinstall ota_data_file:file ioctl {
+  FS_IOC_ENABLE_VERITY FS_IOC_MEASURE_VERITY
+};
+
+allow art_apex_preinstall kernel:key search;
+# For testing purposes, allow keys installed with su.
+userdebug_or_eng {
+  allow art_apex_preinstall su:key search;
+}
