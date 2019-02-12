@@ -52,11 +52,17 @@ endif
 #    - compile output binary policy file
 
 PLAT_PUBLIC_POLICY := $(LOCAL_PATH)/public
+ifneq ( ,$(BOARD_PLAT_PUBLIC_SEPOLICY_DIR))
+PLAT_PUBLIC_POLICY += $(BOARD_PLAT_PUBLIC_SEPOLICY_DIR)
+endif
 PLAT_PRIVATE_POLICY := $(LOCAL_PATH)/private
+ifneq ( ,$(BOARD_PLAT_PRIVATE_SEPOLICY_DIR))
+PLAT_PRIVATE_POLICY += $(BOARD_PLAT_PRIVATE_SEPOLICY_DIR)
+endif
 PLAT_VENDOR_POLICY := $(LOCAL_PATH)/vendor
 REQD_MASK_POLICY := $(LOCAL_PATH)/reqd_mask
-PRODUCT_PUBLIC_POLICY := $(BOARD_PLAT_PUBLIC_SEPOLICY_DIR)
-PRODUCT_PRIVATE_POLICY := $(BOARD_PLAT_PRIVATE_SEPOLICY_DIR)
+PRODUCT_PUBLIC_POLICY := $(PRODUCT_PUBLIC_SEPOLICY_DIRS)
+PRODUCT_PRIVATE_POLICY := $(PRODUCT_PRIVATE_SEPOLICY_DIRS)
 
 # TODO(b/119305624): Currently if the device doesn't have a product partition,
 # we install product sepolicy into /system/product. We do that because bits of
@@ -258,6 +264,7 @@ LOCAL_REQUIRED_MODULES += \
     precompiled_sepolicy \
     precompiled_sepolicy.plat_sepolicy_and_mapping.sha256 \
     precompiled_sepolicy.product_sepolicy_and_mapping.sha256 \
+    product_sepolicy_and_mapping.sha256 \
 
 endif # ($(PRODUCT_PRECOMPILED_SEPOLICY),false)
 
@@ -297,7 +304,6 @@ LOCAL_REQUIRED_MODULES += \
     product_service_contexts \
     product_mac_permissions.xml \
     product_mapping_file \
-    product_sepolicy_and_mapping.sha256 \
 
 endif
 
@@ -1197,8 +1203,8 @@ intermediates := $(call intermediates-dir-for,ETC,built_plat_sepolicy,,,,)
 # plat_sepolicy - the current platform policy only, built into a policy binary.
 # TODO - this currently excludes partner extensions, but support should be added
 # to enable partners to add their own compatibility mapping
-BASE_PLAT_PUBLIC_POLICY := $(PLAT_PUBLIC_POLICY)
-BASE_PLAT_PRIVATE_POLICY := $(PLAT_PRIVATE_POLICY)
+BASE_PLAT_PUBLIC_POLICY := $(filter-out $(BOARD_PLAT_PUBLIC_SEPOLICY_DIR), $(PLAT_PUBLIC_POLICY))
+BASE_PLAT_PRIVATE_POLICY := $(filter-out $(BOARD_PLAT_PRIVATE_SEPOLICY_DIR), $(PLAT_PRIVATE_POLICY))
 base_plat_policy.conf := $(intermediates)/base_plat_policy.conf
 $(base_plat_policy.conf): PRIVATE_MLS_SENS := $(MLS_SENS)
 $(base_plat_policy.conf): PRIVATE_MLS_CATS := $(MLS_CATS)
