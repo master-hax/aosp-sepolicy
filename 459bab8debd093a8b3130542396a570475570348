@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8cd58f5f_cea0d0fa",
+        "filename": "private/zygote.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1006166
+      },
+      "writtenOn": "2019-02-14T01:23:46Z",
+      "side": 1,
+      "message": "Since it sounds like this is going to be more of a long-term solution, since we\u0027re not sure we can fix the kernel issue, can we re-write these rules to follow generalized best-practices:\n\n  allow zygote { sdcard_type media_rw_data_file }:...\n\nThis nicely handles all the various underlying filesystems:\n\npublic/file.te:type fuse, sdcard_type, fs_type, mlstrustedobject;\npublic/file.te:type sdcardfs, sdcard_type, fs_type, mlstrustedobject;\npublic/file.te:type vfat, sdcard_type, fs_type, mlstrustedobject;\npublic/file.te:type exfat, sdcard_type, fs_type, mlstrustedobject;",
+      "range": {
+        "startLine": 104,
+        "startChar": 43,
+        "endLine": 104,
+        "endChar": 47
+      },
+      "revId": "459bab8debd093a8b3130542396a570475570348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
