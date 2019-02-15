@@ -3,9 +3,11 @@ LOCAL_PATH:= $(call my-dir)
 include $(LOCAL_PATH)/definitions.mk
 
 include $(CLEAR_VARS)
+
 # SELinux policy version.
 # Must be <= /sys/fs/selinux/policyvers reported by the Android kernel.
 # Must be within the compatibility range reported by checkpolicy -V.
+# This value must be kept in sync with selinux_policy_version in Android.bp
 POLICYVERS ?= 30
 
 MLS_SENS=1
