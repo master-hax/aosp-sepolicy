@@ -10,6 +10,9 @@ allow appdomain system_server_tmpfs:file read;
 # info etc.
 allow appdomain priv_app_tmpfs:file read;
 
+# To be removed in a future release
+r_dir_file({ appdomain -ephemeral_app -isolated_app }, proc_net)
+
 neverallow appdomain system_server:udp_socket {
         accept append bind create ioctl listen lock name_bind
         relabelfrom relabelto setattr shutdown };
