@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6edb8db4_b96a1815",
+        "filename": "PREUPLOAD.cfg",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-02-21T22:26:02Z",
+      "side": 1,
+      "message": "make the name more appropriate and avoid duplicating the name from line 2?",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 10
+      },
+      "revId": "44e76dd5b7c87eba123f52cf5fb7e0027efd54ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88a90932_acb92015",
+        "filename": "tools/policy_version_check.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-02-21T22:26:02Z",
+      "side": 1,
+      "message": "Are \"$MK\" and \"$BP\" strings or integers?\n\nIf they are strings, then they should be quoted:\n\n  if [ \"$MK\" !\u003d \"$BP\" ]; then\n\nIf they are integers, then you should use \"-ne\" instead of \"!\u003d\". See \"man 1 test\".\n\n(we probably want to quote the strings anyway, even if they are integers).",
+      "range": {
+        "startLine": 6,
+        "startChar": 9,
+        "endLine": 6,
+        "endChar": 11
+      },
+      "revId": "44e76dd5b7c87eba123f52cf5fb7e0027efd54ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26096623_f58cd934",
+        "filename": "tools/policy_version_check.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-02-21T22:26:02Z",
+      "side": 1,
+      "message": "\"-1\" is a C convention. For shell scripts, return value should be \"1\"",
+      "range": {
+        "startLine": 8,
+        "startChar": 9,
+        "endLine": 8,
+        "endChar": 11
+      },
+      "revId": "44e76dd5b7c87eba123f52cf5fb7e0027efd54ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
