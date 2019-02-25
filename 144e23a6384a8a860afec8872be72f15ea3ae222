@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bd855df_55c66a70",
+        "filename": "private/atrace.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-25T20:44:57Z",
+      "side": 1,
+      "message": "same logic as dumpstate, why disallow tracing?",
+      "range": {
+        "startLine": 44,
+        "startChar": 3,
+        "endLine": 44,
+        "endChar": 33
+      },
+      "revId": "144e23a6384a8a860afec8872be72f15ea3ae222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec0aa86b_6c498043",
+        "filename": "public/dumpstate.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-25T20:44:57Z",
+      "side": 1,
+      "message": "delete, no longer needed.",
+      "range": {
+        "startLine": 230,
+        "startChar": 2,
+        "endLine": 230,
+        "endChar": 32
+      },
+      "revId": "144e23a6384a8a860afec8872be72f15ea3ae222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64dbcb16_f281df8a",
+        "filename": "public/hal_system_suspend.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-25T20:44:57Z",
+      "side": 1,
+      "message": "This is not how we\u0027ve dealt with other system provided hw services. See for example: https://android.googlesource.com/platform/system/sepolicy/+/refs/heads/master/public/attributes#307\n\nWe don\u0027t need to provide the \"client\" abstraction because the system image is always guaranteed to be ahead of vendor. Only abstracting the \"server\" is necessary.",
+      "range": {
+        "startLine": 19,
+        "startChar": 5,
+        "endLine": 19,
+        "endChar": 30
+      },
+      "revId": "144e23a6384a8a860afec8872be72f15ea3ae222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4625c31_e91b3576",
+        "filename": "public/traceur_app.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-25T20:44:57Z",
+      "side": 1,
+      "message": "why not expose for tracing?",
+      "range": {
+        "startLine": 17,
+        "startChar": 3,
+        "endLine": 17,
+        "endChar": 33
+      },
+      "revId": "144e23a6384a8a860afec8872be72f15ea3ae222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
