@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "6fa481fd_7835d062",
+        "filename": "public/hal_system_suspend.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-02-25T23:55:09Z",
+      "side": 1,
+      "message": "Makes sense. I\u0027ll move system_suspend off of hal_* attributes. That way we\u0027ll also eliminate confusion about who own this component.\n\nThere are other domains that have similar issues:\nhal_allocator, hal_bufferhub are also on system and provide hwservices\nnetd, cameraserver, statsd are not abstracted behind a \"_server\" attribute\n\nI\u0027ll open a bug.",
+      "parentUuid": "64dbcb16_f281df8a",
+      "range": {
+        "startLine": 19,
+        "startChar": 5,
+        "endLine": 19,
+        "endChar": 30
+      },
+      "revId": "144e23a6384a8a860afec8872be72f15ea3ae222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c4625c31_e91b3576",
         "filename": "public/traceur_app.te",
         "patchSetId": 5
