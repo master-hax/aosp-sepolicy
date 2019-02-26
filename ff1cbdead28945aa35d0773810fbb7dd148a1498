@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d596ae33_ec3fb0b7",
+        "filename": "private/art_apex_preinstall.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-26T17:51:09Z",
+      "side": 1,
+      "message": "why is this sharing a directory with OTAs?",
+      "range": {
+        "startLine": 10,
+        "startChar": 35,
+        "endLine": 10,
+        "endChar": 44
+      },
+      "revId": "ff1cbdead28945aa35d0773810fbb7dd148a1498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8bad535_61bd04f9",
+        "filename": "private/art_apex_preinstall.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-02-26T17:51:09Z",
+      "side": 1,
+      "message": "Should this transition into the dex2oat domain?\n\nIt probably should. We have installd transition to dex2oat to avoid parsing files in the privileged installd domain. With CAP_SYS_ADMIN, this domain is very privileged.",
+      "range": {
+        "startLine": 26,
+        "startChar": 26,
+        "endLine": 26,
+        "endChar": 43
+      },
+      "revId": "ff1cbdead28945aa35d0773810fbb7dd148a1498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
