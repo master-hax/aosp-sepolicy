@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "edf3766b_28a31f4d",
+        "filename": "private/art_apex_preinstall.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-26T18:00:02Z",
+      "side": 1,
+      "message": "Design was approved by nnk last year. Sharing folder for simplicity, as A/B \u0026 APEX updates are similar.",
+      "parentUuid": "d596ae33_ec3fb0b7",
+      "range": {
+        "startLine": 10,
+        "startChar": 35,
+        "endLine": 10,
+        "endChar": 44
+      },
+      "revId": "ff1cbdead28945aa35d0773810fbb7dd148a1498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b8bad535_61bd04f9",
         "filename": "private/art_apex_preinstall.te",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-02-26T17:51:09Z",
       "side": 1,
       "message": "Should this transition into the dex2oat domain?\n\nIt probably should. We have installd transition to dex2oat to avoid parsing files in the privileged installd domain. With CAP_SYS_ADMIN, this domain is very privileged.",
+      "range": {
+        "startLine": 26,
+        "startChar": 26,
+        "endLine": 26,
+        "endChar": 43
+      },
+      "revId": "ff1cbdead28945aa35d0773810fbb7dd148a1498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d677cf47_037e06e3",
+        "filename": "private/art_apex_preinstall.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-26T18:00:02Z",
+      "side": 1,
+      "message": "It seemed better to separate the different uses of dex2oat (as otherwise installd can write into /data/ota), but I\u0027m OK reusing it. I think it will require adding the permission below to dex2oat.te.",
+      "parentUuid": "b8bad535_61bd04f9",
       "range": {
         "startLine": 26,
         "startChar": 26,
