@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88438bd7_fb7890c2",
+        "filename": "vendor/hal_face_default.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-02-27T22:26:20Z",
+      "side": 1,
+      "message": "Referring to the server of fwk_camera_hwservice directly by its selinux type is not Treble-friendly b/126259100. So, for example, if fwk_camera_hwservice moves to a different process after a system-only OTA, hal_face_default will break.\n\nCould you abstract use of cameraserver behind an attribute? See example https://android.googlesource.com/platform/system/sepolicy/+/e8ab0020ba58978e8d7f8b1b77ae36da1f3bffa0",
+      "range": {
+        "startLine": 8,
+        "startChar": 30,
+        "endLine": 8,
+        "endChar": 42
+      },
+      "revId": "93823d05848412ba5d3a21b8dfc51ca0d4e84efe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
