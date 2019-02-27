@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9b9d1d31_0fc20a8e",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-02-27T02:36:39Z",
+      "side": 1,
+      "message": "The reason is mostly aesthetic. These permissions are for ISuspendControlService.aidl interface (and the corresponding callback), while wakelock_use() gives permissions to ISystemSuspend.hal interface. \n\nAlso, only the first permission is needed to use wakelocks, but not the second. So, to handle this in the wakelock_use() macro, we\u0027d need to add unnecessary permission into wakelock_use().",
+      "parentUuid": "9f9ecaf7_4687fcab",
+      "range": {
+        "startLine": 1006,
+        "startChar": 0,
+        "endLine": 1007,
+        "endChar": 42
+      },
+      "revId": "6198c9f9a9557285e5a959cf8a63599be9558c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6d8ff47f_a6c1b1da",
         "filename": "public/su.te",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-02-27T02:17:22Z",
       "side": 1,
       "message": "why add this? su is in permissive mode. Are there actual denials that you\u0027re addressing?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "6198c9f9a9557285e5a959cf8a63599be9558c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3aa1b7d_a9452dac",
+        "filename": "public/su.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-02-27T02:36:39Z",
+      "side": 1,
+      "message": "yep, removed that",
+      "parentUuid": "6d8ff47f_a6c1b1da",
       "range": {
         "startLine": 20,
         "startChar": 0,
