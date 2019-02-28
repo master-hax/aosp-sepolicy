@@ -146,6 +146,11 @@ attribute binderservicedomain;
 # recovery for A/B devices.
 attribute update_engine_common;
 
+# vendor_recovery related domains that need to apply an recovery update as part
+# of normal startup after a typical Non-AB OTA update. This includes the
+# install-recovery.sh and recovery image on the new vendor partition.
+attribute vendor_recovery;
+
 # All core domains (as opposed to vendor/device-specific domains)
 attribute coredomain;
 
