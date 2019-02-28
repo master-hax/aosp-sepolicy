@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9390d11_ff298039",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-02-28T14:36:42Z",
+      "side": 1,
+      "message": "This is unneeded. The process which updates the vendor recovery partition should just start with the correct UIDs and groups. Revert.",
+      "revId": "7af8b633c877989672295b65a155b87d9e3aa52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1564b087_9adf5678",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-02-28T14:36:42Z",
+      "side": 1,
+      "message": "Same comment as above. Just have the process start with the correct UID/GID. Revert.",
+      "revId": "7af8b633c877989672295b65a155b87d9e3aa52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f182643_865f63d9",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-02-28T14:36:42Z",
+      "side": 1,
+      "message": "By conventions, a neverallow rule which excludes an attribute is pointless. Any domain can \"opt-out\" of the neverallow rule by applying the attribute to their type. A neverallow rule with an attribute negation doesn\u0027t serve any purpose and gives a false sense of security.\n\nWe should just delete this neverallow rule entirely. Delete lines 617-624 please.",
+      "revId": "7af8b633c877989672295b65a155b87d9e3aa52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
