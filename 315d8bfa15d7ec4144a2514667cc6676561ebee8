@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "050d8a56_469efb0c",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-04T15:15:18Z",
+      "side": 1,
+      "message": "share -\u003e shared\n(Seems to have regressed)",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 44
+      },
+      "revId": "315d8bfa15d7ec4144a2514667cc6676561ebee8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "896837e0_73da700b",
+        "filename": "public/te_macros",
+        "patchSetId": 6
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-04T15:15:18Z",
+      "side": 1,
+      "message": "Do you have one buffer that is read/write to both sides? There are risks in that scenario if the other side is hostile.\n(Even two separate buffers, each writable by one side and readable by the other, is risky. Ideally you remove the sender\u0027s write access before reading.)",
+      "range": {
+        "startLine": 684,
+        "startChar": 0,
+        "endLine": 684,
+        "endChar": 4
+      },
+      "revId": "315d8bfa15d7ec4144a2514667cc6676561ebee8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
