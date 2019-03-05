@@ -18,7 +18,7 @@ allow crash_dump {
   -vold
 }:process { ptrace signal sigchld sigstop sigkill };
 userdebug_or_eng(`
-  allow crash_dump { llkd logd vold }:process { ptrace signal sigchld sigstop sigkill };
+  allow crash_dump { apexd llkd logd vold }:process { ptrace signal sigchld sigstop sigkill };
 ')
 
 ###
