@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b5006a4_cc259cbe",
+        "filename": "private/crash_dump.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-05T17:55:18Z",
+      "side": 1,
+      "message": "jeffv: this isn\u0027t needed. The set never includes apexd, so there\u0027s nothing in the set to remove.\n\nI think you meant to add the following:\n\n  neverallow crash_dump {\n    apexd\n    userdebug_or_eng(`-apexd\u0027)\n    ...\n  }",
+      "revId": "2cfb1f10d6594a61321f2db18461be847a2baa5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
