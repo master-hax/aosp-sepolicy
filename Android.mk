@@ -1203,8 +1203,8 @@ intermediates := $(call intermediates-dir-for,ETC,built_plat_sepolicy,,,,)
 # plat_sepolicy - the current platform policy only, built into a policy binary.
 # TODO - this currently excludes partner extensions, but support should be added
 # to enable partners to add their own compatibility mapping
-BASE_PLAT_PUBLIC_POLICY := $(filter-out $(BOARD_PLAT_PUBLIC_SEPOLICY_DIR), $(PLAT_PUBLIC_POLICY))
-BASE_PLAT_PRIVATE_POLICY := $(filter-out $(BOARD_PLAT_PRIVATE_SEPOLICY_DIR), $(PLAT_PRIVATE_POLICY))
+BASE_PLAT_PUBLIC_POLICY := $(PLAT_PUBLIC_POLICY)
+BASE_PLAT_PRIVATE_POLICY := $(PLAT_PRIVATE_POLICY)
 base_plat_policy.conf := $(intermediates)/base_plat_policy.conf
 $(base_plat_policy.conf): PRIVATE_MLS_SENS := $(MLS_SENS)
 $(base_plat_policy.conf): PRIVATE_MLS_CATS := $(MLS_CATS)
