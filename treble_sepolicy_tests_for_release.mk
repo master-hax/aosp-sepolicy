@@ -16,6 +16,8 @@ include $(BUILD_SYSTEM)/base_rules.mk
 # been maintained by our mapping files.
 $(version)_PLAT_PUBLIC_POLICY := $(LOCAL_PATH)/prebuilts/api/$(version)/public
 $(version)_PLAT_PRIVATE_POLICY := $(LOCAL_PATH)/prebuilts/api/$(version)/private
+$(version)_PLAT_PUBLIC_POLICY += $(BOARD_$(version)_PLAT_PUBLIC_SEPOLICY_DIR)
+$(version)_PLAT_PRIVATE_POLICY += $(BOARD_$(version)_PLAT_PRIVATE_SEPOLICY_DIR)
 $(version)_plat_policy.conf := $(intermediates)/$(version)_plat_policy.conf
 $($(version)_plat_policy.conf): PRIVATE_MLS_SENS := $(MLS_SENS)
 $($(version)_plat_policy.conf): PRIVATE_MLS_CATS := $(MLS_CATS)
@@ -55,14 +57,14 @@ $(version)_mapping.cil := $(call intermediates-dir-for,ETC,$(version).cil)/$(ver
 $(version)_mapping.ignore.cil := \
     $(call intermediates-dir-for,ETC,$(version).ignore.cil)/$(version).ignore.cil
 $(version)_prebuilts_dir := $(LOCAL_PATH)/prebuilts/api/$(version)
-
+$(version)_nonplat := $(BOARD_$(version)_NONPLAT_CIL)
 # vendor_sepolicy.cil and plat_pub_versioned.cil are the new design to replace
 # nonplat_sepolicy.cil.
-$(version)_nonplat := $($(version)_prebuilts_dir)/vendor_sepolicy.cil \
+#$(version)_nonplat := $($(version)_prebuilts_dir)/vendor_sepolicy.cil \
 $($(version)_prebuilts_dir)/plat_pub_versioned.cil
-ifeq (,$(wildcard $($(version)_nonplat)))
-$(version)_nonplat := $($(version)_prebuilts_dir)/nonplat_sepolicy.cil
-endif
+#ifeq (,$(wildcard $($(version)_nonplat)))
+#$(version)_nonplat := $($(version)_prebuilts_dir)/nonplat_sepolicy.cil
+#endif
 
 $($(version)_compat): PRIVATE_CIL_FILES := \
 $(built_plat_cil) $($(version)_mapping.cil) $($(version)_nonplat)
