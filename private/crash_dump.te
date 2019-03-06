@@ -1,7 +1,8 @@
 typeattribute crash_dump coredomain;
 
-# Crash dump does not need to access the GPU.
+# Crash dump does not need to access to files passed during fork()
 dontaudit crash_dump gpu_device:chr_file *;
+dontaudit crash_dump devpts:chr_file *;
 
 allow crash_dump {
   domain
