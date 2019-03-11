@@ -45,6 +45,30 @@
       "revId": "066a2521e819aafc9a7be647272b429b615abfc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8590708e_88c26ed1",
+        "filename": "public/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-11T19:36:47Z",
+      "side": 1,
+      "message": "By convention, we encourage the use of macros since it makes the addition of SELinux actions easier to implement, and makes the policy more robust against code changes.\n\nw_file_perms is defined in system/sepolicy/public/global_macros as:\n\n  { open append write lock map }\n\nso the only additional attack surface you restrict is blocking open(O_APPEND), mmap()ing the file, and creating advisory locks (flock) on the file. It doesn\u0027t feel like sufficient gain IMHO.",
+      "parentUuid": "e12aef52_fed6e205",
+      "range": {
+        "startLine": 542,
+        "startChar": 30,
+        "endLine": 542,
+        "endChar": 42
+      },
+      "revId": "066a2521e819aafc9a7be647272b429b615abfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
