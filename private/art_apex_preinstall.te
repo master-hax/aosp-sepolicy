@@ -4,9 +4,6 @@
 type art_apex_preinstall, domain, coredomain;
 type art_apex_preinstall_exec, system_file_type, exec_type, file_type;
 
-# /dev/zero
-allow art_apex_preinstall apexd:fd use;
-
 # Create temp dirs and files under /data/ota.
 allow art_apex_preinstall ota_data_file:dir create_dir_perms;
 allow art_apex_preinstall ota_data_file:file create_file_perms;

@@ -4,9 +4,6 @@
 type art_apex_postinstall, domain, coredomain;
 type art_apex_postinstall_exec, system_file_type, exec_type, file_type;
 
-# /dev/zero
-allow art_apex_postinstall apexd:fd use;
-
 # Read temp dirs and files. Move directories.
 allow art_apex_postinstall ota_data_file:dir { r_dir_perms write rename remove_name relabelfrom reparent };
 allow art_apex_postinstall ota_data_file:file { r_file_perms relabelfrom };
