@@ -20,15 +20,5 @@ allow art_apex_boot_integrity shell_exec:file rx_file_perms;
 # permissions.
 allow art_apex_boot_integrity toolbox_exec:file rx_file_perms;
 
-# Fsverity in the same domain.
-allow art_apex_boot_integrity system_file:file execute_no_trans;
-# Fsverity work.
-allowxperm art_apex_boot_integrity ota_data_file:file ioctl {
-  FS_IOC_ENABLE_VERITY FS_IOC_MEASURE_VERITY
-};
-
-allow art_apex_boot_integrity kernel:key search;
-# For testing purposes, allow keys installed with su.
-userdebug_or_eng(`
-  allow art_apex_boot_integrity su:key search;
-')
+# Run fsverity.
+domain_auto_trans(art_apex_boot_integrity, fsverity_exec, fsverity)
