@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18eb06e7_f8f22580",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-12T15:43:10Z",
+      "side": 1,
+      "message": "Do you actually read files in the /metadata directory which are outside of /metadata/apex?\n\nI think this could be replaced by:\n\n  allow apexd metadata_file:dir search;\n\nwhich would allow you to traverse through /metadata to get to /metadata/apex, without subsequently allowing access to files in /metadata",
+      "revId": "b72a19fe993f155c24c1900bba9ab7aee3c113ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
