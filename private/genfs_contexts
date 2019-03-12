@@ -160,6 +160,8 @@ genfscon debugfs /tracing/trace_marker                u:object_r:debugfs_trace_m
 genfscon tracefs /trace_marker                        u:object_r:debugfs_trace_marker:s0
 genfscon debugfs /wakeup_sources                      u:object_r:debugfs_wakeup_sources:s0
 
+genfscon debugfs /ion/heaps/system                    u:object_r:debugfs_system_ion_heap:s0
+
 genfscon debugfs /tracing/events/header_page                         u:object_r:debugfs_tracing:s0
 genfscon debugfs /tracing/events/f2fs/f2fs_get_data_block/           u:object_r:debugfs_tracing:s0
 genfscon debugfs /tracing/events/f2fs/f2fs_iget/                     u:object_r:debugfs_tracing:s0

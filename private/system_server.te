@@ -145,6 +145,9 @@ allow system_server stats_data_file:file unlink;
 # Read /sys/kernel/debug/wakeup_sources.
 allow system_server debugfs_wakeup_sources:file r_file_perms;
 
+# Read /sys/kernel/debug/ion/heaps/system.
+allow system_server debugfs_system_ion_heap:file r_file_perms;
+
 # Delete /data/misc/stats-data/ and /data/misc/stats-service/ directories.
 allow system_server stats_data_file:dir { open read remove_name search write };
 allow system_server stats_data_file:file unlink;
