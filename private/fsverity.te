@@ -1,0 +1,21 @@
+# Fsverity binary.
+#
+
+type fsverity, domain, coredomain;
+type fsverity_exec, system_file_type, exec_type, file_type;
+
+# Fsverity ioctls.
+
+allowxperm fsverity ota_data_file:file ioctl {
+  FS_IOC_ENABLE_VERITY FS_IOC_MEASURE_VERITY
+};
+
+# Fsverity key lookup.
+allow fsverity kernel:key search;
+# Keys installed at boot.
+allow fsverity mini-keyctl:key search;
+
+# For testing purposes, allow keys installed with su.
+userdebug_or_eng(`
+  allow fsverity su:key search;
+')
