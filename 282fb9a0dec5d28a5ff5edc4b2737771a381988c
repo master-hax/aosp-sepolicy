@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "114f93a9_5d4d67c5",
+        "filename": "public/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-13T19:41:44Z",
+      "side": 1,
+      "message": "r_dir_file allows the reading of files, directories, and symbolic links. It\u0027s probably a bit too excessive for this.\n\nCan we use:\n\n  allow domain sysfs_transparent_hugepage:dir search;\n  allow domain sysfs_transparent_hugepage:file r_file_perms;\n\ninstead?",
+      "revId": "282fb9a0dec5d28a5ff5edc4b2737771a381988c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
