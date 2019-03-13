@@ -46,6 +46,30 @@
       "revId": "17764110ccfb0b78769bbf2d6d9344b3a3087ec4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e02a9409_877585ac",
+        "filename": "private/postinstall_dexopt.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-03-13T20:15:39Z",
+      "side": 1,
+      "message": "update_engine doesn\u0027t really change the label. The new system partition doesn\u0027t have to have the same label set (it could be a release update, for example), which would be unexpressible in the running system. The designers chose to resolve that issue by having a unified, \"simple\" view that\u0027s always possible, and then force folks to work with that.",
+      "parentUuid": "39d0d80b_a622248f",
+      "range": {
+        "startLine": 13,
+        "startChar": 47,
+        "endLine": 14,
+        "endChar": 54
+      },
+      "revId": "17764110ccfb0b78769bbf2d6d9344b3a3087ec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
