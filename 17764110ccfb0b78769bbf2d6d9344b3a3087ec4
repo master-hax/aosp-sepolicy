@@ -22,6 +22,30 @@
       "revId": "17764110ccfb0b78769bbf2d6d9344b3a3087ec4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39d0d80b_a622248f",
+        "filename": "private/postinstall_dexopt.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-03-13T20:12:10Z",
+      "side": 1,
+      "message": "update_engine tags all files under `/postinstall` with type `postinstall_file` when it mounts that partition; see\n* https://android.googlesource.com/platform/system/update_engine/+/refs/heads/master/payload_consumer/postinstall_runner_action.cc#163\n* https://android.googlesource.com/platform/system/update_engine/+/refs/heads/master/common/platform_constants_android.cc#34\n\nI\u0027m not sure why, but I guess that\u0027s for security reasons and/or future-proof-ness? Andreas would know better.\n\nRelabeling `/system/apex/com.android.runtime.(release|debug)/bin/dex2oat(d)?` sounds like a good idea.\n\nNote that the \n\n  domain_auto_trans(postinstall_dexopt, postinstall_file, dex2oat)\n\npolicy pre-existed my initial changes to otapreopt/installd policies (https://android-review.googlesource.com/c/platform/system/sepolicy/+/878313/3/private/postinstall_dexopt.te).",
+      "parentUuid": "13d68044_9c3bb812",
+      "range": {
+        "startLine": 13,
+        "startChar": 47,
+        "endLine": 14,
+        "endChar": 54
+      },
+      "revId": "17764110ccfb0b78769bbf2d6d9344b3a3087ec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
