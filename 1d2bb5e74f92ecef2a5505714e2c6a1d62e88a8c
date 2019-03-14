@@ -45,6 +45,30 @@
       "revId": "1d2bb5e74f92ecef2a5505714e2c6a1d62e88a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "425bafb7_e36d52ec",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-14T15:42:45Z",
+      "side": 1,
+      "message": "The default label for keys is the label of the process that created the key. This obfuscates the intended purpose and controls of the key, as this comment indicates.\n\nWhile perhaps not appropriate for this CL, we should consider using setkeycreatecon() (https://linux.die.net/man/3/setkeycreatecon) to assign a more meaningful label to the generated key. This would allow finer grain control and clarify the intended scope of the keys. \n\n(it really shouldn\u0027t be the case that \"kernel\", \"mini-keyctl\", and \"su\" all essentially describe the same key)",
+      "parentUuid": "81f4557b_23e5e976",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 35
+      },
+      "revId": "1d2bb5e74f92ecef2a5505714e2c6a1d62e88a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
