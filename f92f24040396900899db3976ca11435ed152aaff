@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e1e1ce4_fd1afcbc",
+        "filename": "private/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-14T16:48:48Z",
+      "side": 1,
+      "message": "oops, associated the comment with the wrong patchset.\n\nPaul: Can you confirm the SELinux label associated with vold\u0027s filesystem encryption work? I want to make sure that we\u0027re not inadvertently exposing the private key used for disk encryption.\n\nThe \"kernel\" label here isn\u0027t clear, and I\u0027m fearful we\u0027re reusing the same label for different, unrelated keys.\n\nI think this is vold:key, not kernel:key, but I\u0027m not sure. See https://android-review.googlesource.com/c/platform/external/sepolicy/+/148586",
+      "revId": "f92f24040396900899db3976ca11435ed152aaff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
