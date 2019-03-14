@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "10da7e8d_0c2149c6",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2019-03-14T18:18:22Z",
+      "side": 1,
+      "message": "fscrypt keys are labeled with vold:key, and the fscrypt keyring is labeled with init:key.  Everything already has Search permission on them:\n\n   allow domain init:key search;\n   allow domain vold:key search;\n\nAs with fs-verity, these are needed for the filesystem to use the keys when accessing files.  It doesn\u0027t really make sense for either the fscrypt or fs-verity keys to be subject to access control checks for internal filesystem use, whether SELinux or otherwise.  That\u0027s because filesystem accesses are already subject to their own access control checks, as is the ability to add, remove, and start using these keys.\n\nThis is basically an artifact of both features using \"keys\" and \"keyrings\" from the Linux keyrings subsystem, which really does want to do these access control checks in all cases.\n\nSo I\u0027m not sure what we *really* should be doing here, but I believe it\u0027s fine to grant Search permission on these keys especially because the keyrings system calls are blocked by the seccomp policy.  Thus users can\u0027t use the keyrings system calls to do something unintended with their Search permission.\n\nAlso to be clear, fscrypt keys can\u0027t be read back into userspace under any circumstance, even if we granted Read permission and access to the keyrings syscalls, which we don\u0027t.",
+      "parentUuid": "56eca9d8_7cf26a44",
+      "revId": "24aabc3bd43ad97e996d2d51867bc3cacaf5bded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f629fea9_165b4fe6",
         "filename": "private/domain.te",
         "patchSetId": 2
