@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "56eca9d8_7cf26a44",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-14T16:47:22Z",
+      "side": 1,
+      "message": "Paul: Can you confirm the SELinux label associated with vold\u0027s filesystem encryption work? I want to make sure that we\u0027re not inadvertently exposing the private key used for disk encryption.\n\nThe \"kernel\" label here isn\u0027t clear, and I\u0027m fearful we\u0027re reusing the same label for different, unrelated keys.",
+      "revId": "24aabc3bd43ad97e996d2d51867bc3cacaf5bded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f629fea9_165b4fe6",
         "filename": "private/domain.te",
         "patchSetId": 2
