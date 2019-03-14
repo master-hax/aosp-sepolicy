@@ -1,0 +1,34 @@
+type lpdump, domain;
+type lpdump_exec, system_file_type, exec_type, file_type;
+
+typeattribute lpdump coredomain;
+
+domain_auto_trans(shell, lpdump_exec, lpdump);
+
+# Allow lpdump to start lpdump service via sysprop.
+set_prop(lpdump, lpdumpd_prop)
+
+# allow lpdump to access stdout from its parent shell.
+allow lpdump shell:fd use;
+
+# Allow lpdump to communicate use, read and write over the adb
+# connection.
+allow lpdump adbd:fd use;
+allow lpdump adbd:unix_stream_socket { getattr read write };
+
+# Allow adbd to reap lpdump
+allow lpdump adbd:process sigchld;
+
+# Allow lpdump to communicate with service manager to get lpdump service.
+allow lpdump lpdump_service:service_manager find;
+binder_call(lpdump, servicemanager);
+
+# Allow lpdump to comminicate with lpdump service to dump dynamic
+# partition metadata.
+binder_call(lpdump, lpdumpd)
+
+# No other domain should call lpdumpd.
+neverallow {
+    domain
+    -lpdump
+} lpdumpd:binder call;
