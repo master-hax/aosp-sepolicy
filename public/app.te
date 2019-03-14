@@ -582,3 +582,7 @@ neverallow appdomain proc_uid_cpupower:file *;
 # application boundary. VPN apps may use the ConnectivityManager.getConnectionOwnerUid() API to
 # perform UID lookups.
 neverallow { appdomain -shell } proc_net_tcp_udp:file *;
+
+# Apps cannot access bootstrap files
+neverallow appdomain system_bootstrap_lib_file:file *;
+neverallow appdomain system_bootstrap_lib_file:dir *;
