@@ -562,6 +562,10 @@ allow servicemanager init:binder transfer;
 # Allow calls from init to apexd
 allow init apexd:binder call;
 
+# init is using bootstrap bionic
+allow init system_lib_bootstrap_file:dir r_dir_perms;
+allow init system_lib_bootstrap_file:file { execute read open getattr map };
+
 ###
 ### neverallow rules
 ###
