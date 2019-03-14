@@ -189,6 +189,30 @@
       "revId": "1d2bb5e74f92ecef2a5505714e2c6a1d62e88a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e498398_a558bddb",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-14T16:58:38Z",
+      "side": 1,
+      "message": "missed this comment.\n\nya, I\u0027d like to change this to fs-verity:key. It\u0027s not clear to me that kernel:key will always have a 1:1 mapping to fs-verity. In particular, IIRC, some of the disk encryption keys were also labeled kernel:key, and we clearly don\u0027t want to expose disk encryption keys to all of userspace.",
+      "parentUuid": "39ef51a3_4eae6e6e",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 35
+      },
+      "revId": "1d2bb5e74f92ecef2a5505714e2c6a1d62e88a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
