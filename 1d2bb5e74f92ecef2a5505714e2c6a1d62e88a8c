@@ -117,6 +117,30 @@
       "revId": "1d2bb5e74f92ecef2a5505714e2c6a1d62e88a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d086c9f7_7c95d57c",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-14T16:08:27Z",
+      "side": 1,
+      "message": "Can you point me to the code which performs this loading?\n\nSome thoughts:\n\n1) In the same way that we have a configuration file which maps filenames-\u003elabels [1] and services-\u003elabels [2], we could have a configuration file which maps keys-\u003elabels. This would allow libselinux to determine the key labels itself instead of more complicated logic elsewhere.\n\n2) If the key is derived from the filesystem, we could assign the key based on the label of the file. Eg, if we load from /system/foo/bar, which has label \"u:object_r:foo_bar:s0\", then the key would also be assigned the \"u:object_r:foo_bar:s0\" label. In essence, instead of inheriting the key label from the process, it inherits the key label from the label of the source file.\n\n#1 is probably cleaner and more in line with how other SELinux labeling decisions are made.\n\n[1] https://android.googlesource.com/platform/system/sepolicy/+/refs/heads/master/private/file_contexts\n[2] https://android.googlesource.com/platform/system/sepolicy/+/refs/heads/master/private/service_contexts",
+      "parentUuid": "aa6a5a37_0fbcc740",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 35
+      },
+      "revId": "1d2bb5e74f92ecef2a5505714e2c6a1d62e88a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
