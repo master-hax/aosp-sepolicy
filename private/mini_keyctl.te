@@ -1,8 +1,12 @@
 type mini-keyctl, domain, coredomain;
 type mini-keyctl_exec, exec_type, file_type, system_file_type;
 
-init_daemon_domain(mini-keyctl)
+domain_auto_trans(fsverity_init, mini-keyctl_exec, mini-keyctl);
 
+# Allow to read cert from the passed fd.
+allow mini-keyctl fsverity_init:fd use;
+
+# Allow to read /proc/keys for searching key id.
 allow mini-keyctl proc_keys:file r_file_perms;
 
 # Kernel only prints the keys that can be accessed and only kernel keyring is needed here.
