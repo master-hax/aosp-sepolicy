@@ -252,6 +252,7 @@ neverallow {
 define(`dac_override_allowed', `{
   dnsmasq
   dumpstate
+  gsid
   init
   installd
   install_recovery
@@ -280,3 +281,18 @@ neverallow ~{
   dac_override_allowed
   traced_probes
 } self:global_capability_class_set dac_read_search;
+
+# Limit raw I/O to these whitelisted domains. Do not apply to debug builds.
+neverallow {
+  domain
+  userdebug_or_eng(`-domain')
+  -kernel
+  -gsid
+  -init
+  -recovery
+  -ueventd
+  -healthd
+  -uncrypt
+  -tee
+  -hal_bootctl_server
+} self:global_capability_class_set sys_rawio;
