@@ -1,0 +1,15 @@
+type fsverity_init, domain, coredomain;
+type fsverity_init_exec, exec_type, file_type, system_file_type;
+
+init_daemon_domain(fsverity_init)
+
+# Allow this shell script to run and execute toybox
+allow fsverity_init shell_exec:file rx_file_perms;
+allow fsverity_init toolbox_exec:file rx_file_perms;
+
+# Allow init to write to /proc/sys/fs/verity/require_signatures
+allow fsverity_init proc_fs_verity:file w_file_perms;
+
+# Allow to create keycreate attribute !?
+auditallow fsverity_init fsverity_init:dir { write add_name };
+auditallow fsverity_init fsverity_init:file create;
