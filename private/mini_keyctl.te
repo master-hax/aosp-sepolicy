@@ -3,6 +3,11 @@ type mini-keyctl_exec, exec_type, file_type, system_file_type;
 
 init_daemon_domain(mini-keyctl)
 
+# Allow mini-keyctl to read all keys from the directories.
+allow mini-keyctl system_security_fsverity_file:dir r_dir_perms
+allow mini-keyctl system_security_fsverity_file:file r_file_perms
+
+# Allow mini-keyctl to search /proc/keys for key.
 allow mini-keyctl proc_keys:file r_file_perms;
 
 # Kernel only prints the keys that can be accessed and only kernel keyring is needed here.
