@@ -633,7 +633,7 @@ define(`hal_attribute_hwservice', `
   add_hwservice($1_server, $2)
 
   build_test_only(`
-    neverallow { domain -$1_client -$1_server } $2:hwservice_manager find;
+    neverallow { domain -$1_client -$1_server -dumpstate } $2:hwservice_manager find;
   ')
 ')
 

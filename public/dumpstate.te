@@ -238,6 +238,12 @@ dontaudit dumpstate {
 # Most of these are neverallowed.
 dontaudit dumpstate hwservice_manager_type:hwservice_manager find;
 
+# Allow dumpstate to be able to find hal_wifi_hwservice
+allow dumpstate hal_wifi_hwservice:hwservice_manager find;
+
+# Allow dumpstate to call into hal_wifi_server
+binder_call(dumpstate, hal_wifi_server)
+
 allow dumpstate servicemanager:service_manager list;
 allow dumpstate hwservicemanager:hwservice_manager list;
 
