@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "768c14da_2d500a64",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-03-18T15:36:04Z",
+      "side": 1,
+      "message": "This just tells installd to create network_stack\u0027s private app data dir with the privapp_data_file type. You still need to grant network_stack permission to use it.\n\ne.g.\nallow network_stack privapp_data_file:dir create_dir_perms;\nallow network_stack privapp_data_file:file create_file_perms;\n\nIs privapp_data_file the right data type? Should this be radio_data_file?",
+      "range": {
+        "startLine": 149,
+        "startChar": 80,
+        "endLine": 149,
+        "endChar": 97
+      },
+      "revId": "942a4afc6087b236be7de75e045be67b11ae5444",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
