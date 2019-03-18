@@ -22,6 +22,30 @@
       "revId": "d961b018c57a6482a3bec22ce10c9e5bbc5c38b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f3ff09e_9707656c",
+        "filename": "public/dumpstate.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1332974
+      },
+      "writtenOn": "2019-03-18T07:06:43Z",
+      "side": 1,
+      "message": "In current design (userdebug build), dumpstate will invoke lshal to dump hal related logs.\nHowever, it be blocked under user build. What we like to do is allow dumpstate to do what it done as userdebug with same lshal method.\n\n03-18 07:01:46.635 +0000  7137  7137 E lshal   : android.hardware.wifi@1.3::IWifi/default does not exist, or no permission to connect.\n03-18 07:01:46.642 +0000  6674  6674 E dumpstate: *** command \u0027lshal debug -E android.hardware.wifi@1.3::IWifi/default\u0027 failed: exit code 128",
+      "parentUuid": "34ec8aae_d6e8db90",
+      "range": {
+        "startLine": 241,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 39
+      },
+      "revId": "d961b018c57a6482a3bec22ce10c9e5bbc5c38b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
