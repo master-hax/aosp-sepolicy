@@ -53,15 +53,18 @@ allow installd asec_image_file:file getattr;
 # and lib symlinks before the setfilecon call.  May want to
 # move symlink creation after setfilecon in installd.
 allow installd system_data_file:dir create_dir_perms;
+allow installd packages_list_file:dir create_dir_perms;
 # Also, allow read for lnk_file so that we can process /data/user/0 links when
 # optimizing application code.
 allow installd system_data_file:lnk_file { create getattr read setattr unlink };
+allow installd packages_list_file:lnk_file { create getattr read setattr unlink };
 
 # Upgrade /data/media for multi-user if necessary.
 allow installd media_rw_data_file:dir create_dir_perms;
 allow installd media_rw_data_file:file { getattr unlink };
 # restorecon new /data/media directory.
 allow installd system_data_file:dir relabelfrom;
+allow installd packages_list_file:dir relabelfrom;
 allow installd media_rw_data_file:dir relabelto;
 
 # Delete /data/media files through sdcardfs, instead of going behind its back
@@ -99,6 +102,7 @@ allow installd unlabeled:file r_file_perms;
 # Just need enough to relabel it and to unlink removed package files.
 # Directory access covered by earlier rule above.
 allow installd system_data_file:notdevfile_class_set { getattr relabelfrom unlink };
+allow installd packages_list_file:notdevfile_class_set { getattr relabelfrom unlink };
 
 # Manage /data/data subdirectories, including initially labeling them
 # upon creation via setfilecon or running restorecon_recursive,

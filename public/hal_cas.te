@@ -10,6 +10,7 @@ get_prop(hal_cas_server, serialno_prop)
 
 # Read files already opened under /data
 allow hal_cas system_data_file:file { getattr read };
+allow hal_cas packages_list_file:file { getattr read };
 
 # Read access to pseudo filesystems
 r_dir_file(hal_cas, cgroup)

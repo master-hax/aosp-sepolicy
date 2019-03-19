@@ -357,6 +357,7 @@ allow system_server ota_package_file:file create_file_perms;
 # Manage system data files.
 allow system_server system_data_file:dir create_dir_perms;
 allow system_server system_data_file:notdevfile_class_set create_file_perms;
+allow system_server packages_list_file:notdevfile_class_set create_file_perms;
 allow system_server keychain_data_file:dir create_dir_perms;
 allow system_server keychain_data_file:file create_file_perms;
 allow system_server keychain_data_file:lnk_file create_file_perms;
@@ -527,11 +528,12 @@ allow system_server { apk_data_file apk_private_data_file }:{ dir file } { relab
 
 # Relabel wallpaper.
 allow system_server system_data_file:file relabelfrom;
+allow system_server packages_list_file:file relabelfrom;
 allow system_server wallpaper_file:file relabelto;
 allow system_server wallpaper_file:file { rw_file_perms rename unlink };
 
 # Backup of wallpaper imagery uses temporary hard links to avoid data churn
-allow system_server { system_data_file wallpaper_file }:file link;
+allow system_server { system_data_file packages_list_file wallpaper_file }:file link;
 
 # ShortcutManager icons
 allow system_server system_data_file:dir relabelfrom;
