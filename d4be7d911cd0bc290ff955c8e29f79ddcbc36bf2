@@ -1,0 +1,418 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1dfe0957_e6cd3179",
+        "filename": "private/app_zygote.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "Could we have a TODO + bug to remove the grants which are not actually needed?\n(We could turn on auditing to try to figure out which those are.)",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 5
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7264dfe5_cb461ad4",
+        "filename": "private/dexoptanalyzer.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "packages_list_file is never going to be a symlink, so you can remove this",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 61
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d3175aa_b54a0189",
+        "filename": "private/installd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "I know you\u0027re being conservative, but this definitely isn\u0027t used for anything other than the files listed (see http://cs/android/frameworks/native/cmds/installd/installd.cpp).\nI\u0027m not convinced this rule is needed at all (even for system_data_file).",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 67
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b19202f_956c01c8",
+        "filename": "private/rs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "lnk_file isn\u0027t needed for the same reason as dir",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 42
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c549e1b_5abcfa6e",
+        "filename": "public/app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "lnk_file -\u003e delete",
+      "range": {
+        "startLine": 241,
+        "startChar": 16,
+        "endLine": 241,
+        "endChar": 43
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "898e98d3_04d6db64",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "This is a dir one so it isn\u0027t needed",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 887,
+        "endChar": 23
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d4a2fd5_3c72b524",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 898,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 23
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12d8ec25_77a53e66",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 915,
+        "startChar": 0,
+        "endLine": 915,
+        "endChar": 24
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7069388_5dbbdbf6",
+        "filename": "public/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "Another dir one",
+      "range": {
+        "startLine": 78,
+        "startChar": 51,
+        "endLine": 78,
+        "endChar": 67
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "840ac482_2072abf2",
+        "filename": "public/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "lnk_file",
+      "range": {
+        "startLine": 545,
+        "startChar": 51,
+        "endLine": 545,
+        "endChar": 52
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6cbff18_050ba046",
+        "filename": "public/installd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "dir",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 55
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e25256b3_b30b94f3",
+        "filename": "public/installd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "link",
+      "range": {
+        "startLine": 60,
+        "startChar": 82,
+        "endLine": 61,
+        "endChar": 0
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4bdbf60_2c672e52",
+        "filename": "public/installd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "dir",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 50
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ce20e4e_d2e8488a",
+        "filename": "public/logd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "Just file",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 61
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21c8f8fd_32d44d8e",
+        "filename": "public/runas.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "link\n(And the next one)",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 48
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff8e0e75_7bc21ca3",
+        "filename": "public/simpleperf_app_runner.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "link",
+      "range": {
+        "startLine": 13,
+        "startChar": 64,
+        "endLine": 14,
+        "endChar": 0
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1559097_cfa09407",
+        "filename": "public/vold.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "link",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 47
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f9855ad_470cc815",
+        "filename": "vendor/tee.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-19T22:20:46Z",
+      "side": 1,
+      "message": "link",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 55
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
