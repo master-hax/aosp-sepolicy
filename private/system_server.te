@@ -357,6 +357,7 @@ allow system_server ota_package_file:file create_file_perms;
 # Manage system data files.
 allow system_server system_data_file:dir create_dir_perms;
 allow system_server system_data_file:notdevfile_class_set create_file_perms;
+allow system_server packages_list_file:file create_file_perms;
 allow system_server keychain_data_file:dir create_dir_perms;
 allow system_server keychain_data_file:file create_file_perms;
 allow system_server keychain_data_file:lnk_file create_file_perms;
@@ -525,6 +526,8 @@ allow system_server media_rw_data_file:dir { search getattr open read };
 # Also used for measuring disk usage.
 allow system_server media_rw_data_file:file { getattr read write append };
 
+allow system_server system_server:process setfscreate;
+
 # Relabel apk files.
 allow system_server { apk_tmp_file apk_private_tmp_file }:{ dir file } { relabelfrom relabelto };
 allow system_server { apk_data_file apk_private_data_file }:{ dir file } { relabelfrom relabelto };
@@ -538,7 +541,7 @@ allow system_server wallpaper_file:file { rw_file_perms rename unlink };
 allow system_server { system_data_file wallpaper_file }:file link;
 
 # ShortcutManager icons
-allow system_server system_data_file:dir relabelfrom;
+allow system_server system_data_file:{ file dir } relabelfrom;
 allow system_server shortcut_manager_icons:dir { create_dir_perms relabelto };
 allow system_server shortcut_manager_icons:file create_file_perms;
 
