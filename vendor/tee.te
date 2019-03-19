@@ -15,3 +15,5 @@ r_dir_file(tee, sysfs_type)
 
 allow tee system_data_file:file { getattr read };
 allow tee system_data_file:lnk_file { getattr read };
+allow tee packages_list_file:file { getattr read };
+allow tee packages_list_file:lnk_file { getattr read };

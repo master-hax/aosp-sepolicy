@@ -884,6 +884,7 @@ full_treble_only(`
   } {
     core_data_file_type
     -system_data_file # default label for files on /data. Covered below...
+    -packages_list_file
     -vendor_data_file
     -zoneinfo_data_file
   }:dir *;
@@ -894,6 +895,7 @@ full_treble_only(`
     core_data_file_type
     -unencrypted_data_file
     -system_data_file
+    -packages_list_file
     -vendor_data_file
     -zoneinfo_data_file
   }:dir *;
@@ -910,6 +912,7 @@ full_treble_only(`
     -data_between_core_and_vendor_violators # TODO(b/34980020) Remove once all violators have been cleaned up
     } {
       system_data_file # default label for files on /data. Covered below
+      packages_list_file
     }:dir ~{ getattr search };
 ')
 

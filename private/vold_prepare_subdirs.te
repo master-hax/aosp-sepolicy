@@ -30,5 +30,6 @@ allow vold_prepare_subdirs {
     rollback_data_file
     storaged_data_file
     system_data_file
+    packages_list_file
     vold_data_file
 }:file { getattr unlink };

@@ -238,6 +238,9 @@ allow appdomain cache_backup_file:dir getattr;
 allow appdomain system_data_file:lnk_file r_file_perms;
 allow appdomain system_data_file:file { getattr read map };
 
+allow appdomain packages_list_file:lnk_file r_file_perms;
+allow appdomain packages_list_file:file { getattr read map };
+
 # Allow read/stat of /data/media files passed by Binder or local socket IPC.
 allow { appdomain -isolated_app } media_rw_data_file:file { read getattr };
 
