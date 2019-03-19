@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d7e83f47_16a46571",
+        "filename": "private/lpdumpd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-03-19T00:00:25Z",
+      "side": 1,
+      "message": "I don\u0027t see such property, unless you want me to create one (e.g. in FirstStageMount)",
+      "parentUuid": "91356e4b_5a44c84b",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 45
+      },
+      "revId": "f250a5917cd82c5f75b158b63155e43a172947ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b1ace0d_62726414",
         "filename": "private/lpdumpd.te",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-03-18T15:08:55Z",
       "side": 1,
       "message": "Maybe we should specify that system_[ab] are super_block_devices on retrofit OSs?\n\nNB: (just as an aside) dm nodes (currently) are assigned dm_device contexts.\n\nOne needs to expand on the work in aosp/749697 such that\n\nfile_contexts:\n/dev/block/mapper/system_[ab] u:object_r:system_block_device:s0\n\ncreates these nodes accordingly. If that is done, then system_block_device (as above) would be a _problem_ as it would open up access to more than what is necessary (eg: /dev/block/dm-0 would also now be a system_block_device).",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "f250a5917cd82c5f75b158b63155e43a172947ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba48a801_8aae14d3",
+        "filename": "private/lpdumpd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-03-19T00:00:25Z",
+      "side": 1,
+      "message": "I don\u0027t need the dm nodes. I need the physical super block devices. We could have\n\n    typeattribute system_block_device super_block_device\n\nfor retrofit devices, but I am not sure if that will work. Also, update_engine already uses rules similar to this.\n\nI can clean these up as a follow-up though (because it requires sepolicy changes on retrofit devices as well).",
+      "parentUuid": "5b1ace0d_62726414",
       "range": {
         "startLine": 20,
         "startChar": 4,
