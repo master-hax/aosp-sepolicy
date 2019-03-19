@@ -40,6 +40,7 @@ allow dumpstate anr_data_file:file create_file_perms;
 # Allow reading /data/system/uiderrors.txt
 # TODO: scope this down.
 allow dumpstate system_data_file:file r_file_perms;
+allow dumpstate packages_list_file:file r_file_perms;
 
 # Allow dumpstate to append into privileged apps private files.
 allow dumpstate privapp_data_file:file append;

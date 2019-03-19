@@ -136,12 +136,14 @@ allow vold efs_file:file rw_file_perms;
 # Create and mount on /data/tmp_mnt and management of expansion mounts
 allow vold system_data_file:dir { create rw_dir_perms mounton setattr rmdir };
 allow vold system_data_file:lnk_file getattr;
+allow vold packages_list_file:lnk_file getattr;
 
 # Vold create users in /data/vendor_{ce,de}/[0-9]+
 allow vold vendor_data_file:dir create_dir_perms;
 
 # for secdiscard
 allow vold system_data_file:file read;
+allow vold packages_list_file:file read;
 
 # Set scheduling policy of kernel processes
 allow vold kernel:process setsched;

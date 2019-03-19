@@ -75,7 +75,7 @@ allow init self:global_capability_class_set sys_chroot;
 
 # Create and mount on directories in /.
 allow init rootfs:dir create_dir_perms;
-allow init { rootfs cache_file cgroup storage_file system_data_file system_file vendor_file postinstall_mnt_dir }:dir mounton;
+allow init { rootfs cache_file cgroup storage_file system_data_file packages_list_file system_file vendor_file postinstall_mnt_dir }:dir mounton;
 allow init cgroup_bpf:dir { create mounton };
 
 # Mount bpf fs on sys/fs/bpf
@@ -540,6 +540,9 @@ r_dir_file(init, vendor_file_type)
 
 allow init system_data_file:file { getattr read };
 allow init system_data_file:lnk_file r_file_perms;
+
+allow init packages_list_file:file { getattr read };
+allow init packages_list_file:lnk_file r_file_perms;
 
 # For init to be able to run shell scripts from vendor
 allow init vendor_shell_exec:file execute;
