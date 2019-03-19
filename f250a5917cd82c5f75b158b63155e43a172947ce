@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "4c851c64_50f08a9f",
+        "filename": "private/lpdumpd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-03-19T00:08:07Z",
+      "side": 1,
+      "message": "Actually, I think about this more. On our retrofit devices, the super metadata device will be marked as system_block_device (no matter if it is system, vendor, or product). It makes sense to put this in platform sepolicy, since we are supporting retrofit dynamic partitions ecosystem-wise. I could put `typeattribute system_block_device super_block_device`, but it doesn\u0027t have a lot of benefits (other than readability).\n\nRight now only update_engine and lpdumpd reads super (super_block-device + system_block_device). If this list grows I will definitely refactor this out.",
+      "parentUuid": "ba48a801_8aae14d3",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "f250a5917cd82c5f75b158b63155e43a172947ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36221dbe_eb471400",
         "filename": "private/shell.te",
         "patchSetId": 1
