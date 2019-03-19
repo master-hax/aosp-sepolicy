@@ -25,6 +25,46 @@
     },
     {
       "key": {
+        "uuid": "938d7941_8d9da49d",
+        "filename": "private/app_zygote.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "packages.list is not a symlink so this rule is unnecessary.",
+      "range": {
+        "startLine": 69,
+        "startChar": 36,
+        "endLine": 69,
+        "endChar": 44
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bef15fc1_f53bbe09",
+        "filename": "private/app_zygote.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "this file is never passed as a file descriptor to app_zygote. This is unneeded.",
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7264dfe5_cb461ad4",
         "filename": "private/dexoptanalyzer.te",
         "patchSetId": 1
@@ -48,6 +88,46 @@
     },
     {
       "key": {
+        "uuid": "fec354c5_29a484da",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "This is a regex. Dots should be escaped.\n\n  /data/system/packages\\.list",
+      "range": {
+        "startLine": 421,
+        "startChar": 21,
+        "endLine": 421,
+        "endChar": 22
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99ae7fb2_b2d55d1c",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "This won\u0027t work how you think it works.\n\nWhen a process creates a file, the label of the file is determined by the label of the enclosing directory. /data/system has the system_data_file label, therefore, by default, /data/system/packages.list will have the system_data_file label. The only ways to avoid that are to modify the java code to change the label on file create, or setup a type transition.\n\nYou can apply this patch and do a factory reset, and verify that the label is NOT packages_list_file. You are only seeing this because you are relying on implicit relabeling when file_contexts changes.\n\nA safer way to do this would be to add a mkdir statement to system/core/rootdir/init.rc creating a directory /data/system/packages/ , and applying the label to that directory. Then when files are created in that directory, they will get the correct label.",
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2d3175aa_b54a0189",
         "filename": "private/installd.te",
         "patchSetId": 1
@@ -59,6 +139,30 @@
       "writtenOn": "2019-03-19T22:20:46Z",
       "side": 1,
       "message": "I know you\u0027re being conservative, but this definitely isn\u0027t used for anything other than the files listed (see http://cs/android/frameworks/native/cmds/installd/installd.cpp).\nI\u0027m not convinced this rule is needed at all (even for system_data_file).",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 67
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10e8ec4f_c4d93d8b",
+        "filename": "private/installd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "Ya, I don\u0027t believe /data/.layout_version is even used anymore. Line 21 delete candidate. Line 22 not needed.",
+      "parentUuid": "2d3175aa_b54a0189",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -94,6 +198,97 @@
     },
     {
       "key": {
+        "uuid": "485b1577_d213c60d",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "notdevfile_class_set is defined in system/sepolicy/public/global_macros as being { file lnk_file sock_file fifo_file } (\"plain files\", \"symbolic links\", \"named sockets\", and \"named fifos\"). This is overly permissive. You only want \"file\" here.",
+      "range": {
+        "startLine": 360,
+        "startChar": 39,
+        "endLine": 360,
+        "endChar": 59
+      },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c711b56_b3e2d46b",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "Can you point me to the code where system_server relabels packages.list?",
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ee07278_3afa7578",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "This is only relevant to wallpaper imagery. In particular, system_server should not be making hard links to this file. Delete.",
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3624b50c_4c4bf504",
+        "filename": "private/vold_prepare_subdirs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "vold should not be deleteing packages.list. Delete.",
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bf8f187_59e81bae",
+        "filename": "private/zygote.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "Can you please confirm that this is actually used?\n\nIn particular, zygote is passed the package information from system_server, and does not read the file directly itself. So this should be unnecessary.",
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0c549e1b_5abcfa6e",
         "filename": "public/app.te",
         "patchSetId": 1
@@ -111,6 +306,23 @@
         "endLine": 241,
         "endChar": 43
       },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd2142bc_5af1e1b4",
+        "filename": "public/app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "We definitely don\u0027t want to allow this. In particular, apps already have mechanisms to query package information which don\u0027t involve getting access to the raw underlying file. This would be a security bug if this file leaked.\n\n(Yes, technically it\u0027s allowed currently via line 239, but that\u0027s more of an artifact of how SELinux bringup was done, and really shouldn\u0027t be allowed.)",
       "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -186,6 +398,57 @@
     },
     {
       "key": {
+        "uuid": "14a62da0_139b0e60",
+        "filename": "public/dumpstate.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "Per comment on line 40, this is only for /data/system/uiderrors.txt (and even then, this was overly permissive. See line 41). Dumpstate should not have access directly to the package file. Delete.",
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c1701ec_bdec2852",
+        "filename": "public/hal_cas.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "this shouldn\u0027t be necessary. Delete. I\u0027m not sure why line 12 was allowed in the first place either...",
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df58b326_15768c53",
+        "filename": "public/hal_drm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "Delete. system_server shouldn\u0027t be leaking the contents of the packages file to other processes.",
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f7069388_5dbbdbf6",
         "filename": "public/init.te",
         "patchSetId": 1
@@ -203,6 +466,23 @@
         "endLine": 78,
         "endChar": 67
       },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5961c8c9_b846efc4",
+        "filename": "public/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "AFAIK, init doesn\u0027t use the contents of the packages.list file, and it would be bad for init to rely on it.\n\nDelete.",
       "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -301,6 +581,23 @@
     },
     {
       "key": {
+        "uuid": "d47d6b79_b4b8a53b",
+        "filename": "public/installd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "This was an artifact of allowing upgrades of UID\u003dsystem files in /data/data, which isn\u0027t relevant here.\n\nIn particular, packages.list is intended to be exclusive owned by system_server, so allowing installd to delete that file would be disastrous. \n\nDelete.",
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ce20e4e_d2e8488a",
         "filename": "public/logd.te",
         "patchSetId": 1
@@ -347,6 +644,23 @@
     },
     {
       "key": {
+        "uuid": "626db458_a4e64f00",
+        "filename": "public/simpleperf_app_runner.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "This line can be deleted now that it\u0027s been renamed. This line existed solely for access to packages.list.",
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ff8e0e75_7bc21ca3",
         "filename": "public/simpleperf_app_runner.te",
         "patchSetId": 1
@@ -387,6 +701,40 @@
         "endLine": 139,
         "endChar": 47
       },
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "889386a2_1d32602f",
+        "filename": "public/vold.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "vold doesn\u0027t need access to this file. Delete.",
+      "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f74724dc_a7869816",
+        "filename": "vendor/tee.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-19T22:56:38Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be necessary. This can be deleted. system_server shouldn\u0027t be giving up a file descriptor to this file, so I\u0027m not sure how a file descriptor could get to the tee process.\n\nDelete.",
       "revId": "d4be7d911cd0bc290ff955c8e29f79ddcbc36bf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
