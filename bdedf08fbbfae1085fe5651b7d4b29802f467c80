@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4157d788_900d2cd5",
+        "filename": "private/priv_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-03-20T19:10:27Z",
+      "side": 1,
+      "message": "This won\u0027t actually fix your problem.\n\npriv_app can already find the service (because bugreport_service is a system_api_service, to which access is granted two lines above).\nBut your app isn\u0027t in the priv_app domain, it has its own domain: con_monitor_app (you can see that in the denial messages in the logs in the bug).\n\nSo I think you need\nallow con_monitor_app bugreport_service:service_manager find;\n\nAnd that line should be in con_monitor.te (of which there seem to be various different device-specific versions) rather than here.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 54
+      },
+      "revId": "bdedf08fbbfae1085fe5651b7d4b29802f467c80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
