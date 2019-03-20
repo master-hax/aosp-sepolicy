@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c63d3c7b_e4d007a8",
+        "filename": "private/lpdump.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2019-03-20T17:21:59Z",
+      "side": 1,
+      "message": "KISS or you can drop the comments because they are obvious (or is that just me?) and join together:\n\nallow lpdump { adbd shell }:fd use;\n\nYou might wish to add:\n\nallow lpdump devpts:chr_file rw_file_perms;\nallow lpdump tty_device:chr_file rw_file_perms;\nallow lpdump console_device:chr_file rw_file_perms;\nallow lpdump shell:fifo_file write;\n\nso that lpdump can be used in scripts and on the serial console (test this to confirm)",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 18
+      },
+      "revId": "6ef4d0d93f4d847ce289939156c485b3cc0e16d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fc85852_e4d3dcba",
+        "filename": "private/lpdump.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2019-03-20T17:21:59Z",
+      "side": 1,
+      "message": "nit: comments are generally obvious I feel (or maybe that is jsut me), merge this into shell references.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 25
+      },
+      "revId": "6ef4d0d93f4d847ce289939156c485b3cc0e16d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc886d58_f926a479",
+        "filename": "private/lpdump.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2019-03-20T17:21:59Z",
+      "side": 1,
+      "message": "KISS: rw_socket_perms",
+      "range": {
+        "startLine": 14,
+        "startChar": 37,
+        "endLine": 14,
+        "endChar": 59
+      },
+      "revId": "6ef4d0d93f4d847ce289939156c485b3cc0e16d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f047677_22c8eae4",
+        "filename": "private/lpdumpd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2019-03-20T17:21:59Z",
+      "side": 1,
+      "message": "(Maybe outside the scope of this change) I still do not like this one, we should really do a good job of declaring which devices are super_block_device so we can be specific. For retrofit devices they should have system_[ab] as super_block_device. This way we are not accessing vendor_[ab] etc ...",
+      "range": {
+        "startLine": 16,
+        "startChar": 3,
+        "endLine": 16,
+        "endChar": 22
+      },
+      "revId": "6ef4d0d93f4d847ce289939156c485b3cc0e16d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
