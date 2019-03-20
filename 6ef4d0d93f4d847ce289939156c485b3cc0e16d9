@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e699746c_a1d5f240",
+        "filename": "private/lpdump.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-03-20T17:59:56Z",
+      "side": 1,
+      "message": "\u003e allow lpdump { adbd shell }:fd use;\n\nI mostly copy pasted the comments from other .te files; so I guess it is nice to separate the rules here.\n\nAs for serial console, I\u0027ll follow-up and do this later (with proper tests). Right now this needs to be merged before the CTS deadline :(",
+      "parentUuid": "c63d3c7b_e4d007a8",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 18
+      },
+      "revId": "6ef4d0d93f4d847ce289939156c485b3cc0e16d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2fc85852_e4d3dcba",
         "filename": "private/lpdump.te",
         "patchSetId": 5
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "29a68b44_6abb0515",
+        "filename": "private/lpdump.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-03-20T17:59:56Z",
+      "side": 1,
+      "message": "Also copy-pasted from other .te files. If you search for adbd:unix_stream_socket that\u0027s what many .te files specify. It doesn\u0027t seem to need other things in rw_socket_perms.\n\nJeff, what do you think?",
+      "parentUuid": "bc886d58_f926a479",
+      "range": {
+        "startLine": 14,
+        "startChar": 37,
+        "endLine": 14,
+        "endChar": 59
+      },
+      "revId": "6ef4d0d93f4d847ce289939156c485b3cc0e16d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3f047677_22c8eae4",
         "filename": "private/lpdumpd.te",
         "patchSetId": 5
@@ -82,6 +130,30 @@
       "writtenOn": "2019-03-20T17:21:59Z",
       "side": 1,
       "message": "(Maybe outside the scope of this change) I still do not like this one, we should really do a good job of declaring which devices are super_block_device so we can be specific. For retrofit devices they should have system_[ab] as super_block_device. This way we are not accessing vendor_[ab] etc ...",
+      "range": {
+        "startLine": 16,
+        "startChar": 3,
+        "endLine": 16,
+        "endChar": 22
+      },
+      "revId": "6ef4d0d93f4d847ce289939156c485b3cc0e16d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "276d1b00_c0d2c664",
+        "filename": "private/lpdumpd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-03-20T17:59:56Z",
+      "side": 1,
+      "message": "Filed b/128991918",
+      "parentUuid": "3f047677_22c8eae4",
       "range": {
         "startLine": 16,
         "startChar": 3,
