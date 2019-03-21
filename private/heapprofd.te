@@ -46,6 +46,7 @@ userdebug_or_eng(`
   r_dir_file(heapprofd, apk_data_file)
   r_dir_file(heapprofd, dalvikcache_data_file)
   r_dir_file(heapprofd, vendor_file_type)
+  allow heapprofd self:global_capability_class_set dac_read_search;
 ')
 
 never_profile_heap(`{
