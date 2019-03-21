@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68956eb2_6d37dbe4",
+        "filename": "private/fsverity_init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-21T19:37:44Z",
+      "side": 1,
+      "message": "Can you explain why this is auditallow? Do you really want this to be logged when it occurs?\n\nfsverity_init files in /proc/PID would be labeled with the fsverity_init SELinux label. So this generally would represent a process writing to it\u0027s own /proc/PID files. This isn\u0027t unusual, and it\u0027s unlikely you\u0027d want to remove this permission.\n\nMaybe you can help me understand why you added these audit lines?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 0
+      },
+      "revId": "657d730e462f7aaea6047854fbbd533962e46884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
