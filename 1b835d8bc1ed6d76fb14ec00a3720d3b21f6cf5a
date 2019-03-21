@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e313db60_b926245f",
+        "filename": "private/heapprofd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-21T17:17:41Z",
+      "side": 1,
+      "message": "If the dac_read_search capability check is rejected, the kernel then tries to perform a dac_override capability check. That second check will generate an SELinux denial.\n\nWe should probably have a dontaudit for each of them:\n\n  dontaudit heapprofd ... { dac_read_search dac_override };",
+      "range": {
+        "startLine": 56,
+        "startChar": 53,
+        "endLine": 56,
+        "endChar": 68
+      },
+      "revId": "1b835d8bc1ed6d76fb14ec00a3720d3b21f6cf5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
