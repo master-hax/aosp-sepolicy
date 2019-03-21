@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "dd466cb8_fde9ccd5",
+        "filename": "private/lpdump.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2019-03-21T23:45:44Z",
+      "side": 1,
+      "message": "I would hope to require that only lpdump can start lpdumpd, search for lpdumpd service, and establish the binder connection to lpdumpd. lpdumpd is a privileged app, let\u0027s limit who can control and communicate to it. I can see a day where one will chose to have dumpstate to be another domain that is allowed to do so.",
+      "parentUuid": "969f8184_988d4186",
+      "revId": "d08dfa1592c180befc5c6c8a6527209e64e11cb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b27424af_71f07b3c",
         "filename": "public/lpdump.te",
         "patchSetId": 8
