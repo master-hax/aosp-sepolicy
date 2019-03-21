@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "596c61aa_69acccdf",
+        "filename": "private/compat/28.0/28.0.ignore.cil",
+        "patchSetId": 8
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-03-21T17:50:16Z",
+      "side": 1,
+      "message": "I believe you no longer need to edit 27.0 and 26.0. The build system now automates this.",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 16
+      },
+      "revId": "d08dfa1592c180befc5c6c8a6527209e64e11cb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76e3bcea_421f1808",
+        "filename": "private/lpdump.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-03-21T17:50:16Z",
+      "side": 1,
+      "message": "Should this just be run in the shell domain? i.e. grant shell\n\nallow shell lpdump_service:service_manager find;\nbinder_call(shell, lpdumpd)",
+      "revId": "d08dfa1592c180befc5c6c8a6527209e64e11cb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b27424af_71f07b3c",
+        "filename": "public/lpdump.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-03-21T17:50:16Z",
+      "side": 1,
+      "message": "Why have any of this in public?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 57
+      },
+      "revId": "d08dfa1592c180befc5c6c8a6527209e64e11cb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ad7d79e_a6751f67",
+        "filename": "public/lpdumpd.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-03-21T17:50:16Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "d08dfa1592c180befc5c6c8a6527209e64e11cb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
