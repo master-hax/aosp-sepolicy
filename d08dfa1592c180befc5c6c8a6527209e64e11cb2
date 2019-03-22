@@ -120,6 +120,24 @@
     },
     {
       "key": {
+        "uuid": "0a493572_c8d6cec1",
+        "filename": "private/lpdump.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-03-22T00:01:34Z",
+      "side": 1,
+      "message": "Jeff, I\u0027ll also need \n\n    allow shell lpdump_exec:file rx_file_perms\n\nMark, I agree with you, but maybe I can do this separation when we actually add lpdump to bugreport. Right now, those 3 lines should be able to replace the whole file here.",
+      "parentUuid": "dd466cb8_fde9ccd5",
+      "revId": "d08dfa1592c180befc5c6c8a6527209e64e11cb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b27424af_71f07b3c",
         "filename": "public/lpdump.te",
         "patchSetId": 8
