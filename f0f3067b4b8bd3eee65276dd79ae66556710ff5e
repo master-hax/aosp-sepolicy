@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2711bab7_271716c0",
+        "filename": "private/gsid.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-25T22:34:49Z",
+      "side": 1,
+      "message": "Does the block device and/or path use a common GID? Can you add that group to the gsid process instead of issuing CAP_DAC_READ_SEARCH?",
+      "revId": "f0f3067b4b8bd3eee65276dd79ae66556710ff5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "020330a7_0cf43c98",
+        "filename": "private/gsid.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-25T22:34:49Z",
+      "side": 1,
+      "message": "Probably \"create_file_perms\" would be better here.\n\ncreate_file_perms is rw_file_perms + (create, rename, setattr, unlink), so the only additional privileges you get are setattr and rename. \"create+unlink\" has the bulk of the impact that rename has, and setattr isn\u0027t a big deal.",
+      "range": {
+        "startLine": 49,
+        "startChar": 21,
+        "endLine": 49,
+        "endChar": 53
+      },
+      "revId": "f0f3067b4b8bd3eee65276dd79ae66556710ff5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
