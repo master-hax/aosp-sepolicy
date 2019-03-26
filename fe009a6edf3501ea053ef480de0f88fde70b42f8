@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7677d7ae_1f76f7ec",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-03-26T00:02:41Z",
+      "side": 1,
+      "message": "perhaps:\n\n  dontaudit domain binder_device:chr_file audit_access;\n\ninstead? A few reasons:\n\n1) Negations in SELinux policy can cause policy bloat. \n\nWhen you write something like:\n\n  allow { domain -foo } binder_device:chr_file read;\n\nthe compiler may be forced to expand the rules, and create one allow rule for each domain:\n\n  allow foo1 binder_device:chr_file read;\n  allow foo2 binder_device:chr_file read;\n  allow foo3 binder_device:chr_file read;\n  allow foo4 binder_device:chr_file read;\n  allow foo5 binder_device:chr_file read;\n  ...\n\nYou can see the effects of rule expansion by doing an \"adb pull /sys/fs/selinux/policy\" and running \"sesearch --allow ./policy\". The compiler is a bit smarter about it, but the expansion still happens.\n\n2) \"audit_access\" is more limited in scope.\n\nSince we\u0027re only suppressing audits for access() checks, suppressing the audits isn\u0027t as important for coredomains or appdomains. Do we really care to detect if someone is inappropriately trying to call access() from a core or app domain?\n\n3) Policy is simpler.\n\nIt\u0027s clearer reading the policy when we can reduce it to one line.",
+      "range": {
+        "startLine": 652,
+        "startChar": 0,
+        "endLine": 653,
+        "endChar": 12
+      },
+      "revId": "fe009a6edf3501ea053ef480de0f88fde70b42f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
