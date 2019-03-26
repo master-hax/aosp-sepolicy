@@ -22,6 +22,30 @@
       "revId": "8730aeb2e977579e60aef838f4acd4a0637a294a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fe2a4f2_1359365b",
+        "filename": "private/system_suspend.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-03-26T21:17:39Z",
+      "side": 1,
+      "message": "wakelock_use() macro also grants other permissions (ability to talk to system_suspend via hidl) which are unnecessary in this case. I do see how wakelock_use is cleaner/more readable though. If you have a preference, I can change this.",
+      "parentUuid": "4d4f915a_8e122159",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 56
+      },
+      "revId": "8730aeb2e977579e60aef838f4acd4a0637a294a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
