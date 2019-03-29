@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3b49a0f4_7560e677",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-03-29T21:35:52Z",
+      "side": 1,
+      "message": "Alright, ack. It seems this will be less work for partners.\n\n\u003e another follow-up patch that uses this sysprop in SurfaceFlinger\n\nI\u0027m assuming this is the ones in internal? lgtm\n\n\u003e VTS for sysprop? I think I have asked this question in an email thread about how to make some compliance on sysprops but I didn\u0027t recall any conclusion\n\nYes, many properties were grandfathered in. Moving forward, we are trying to strengthen the compatibility story here as currently, breakages are hard to detect. These APIs form system/vendor contracts that must be kept just as long as any HIDL interface (approximately three releases to deprecate, judging from history) but without data to inform deprecation. For testing now, we only have integration tests (e.g. the fwk-only OTA tests on automatic integration). If surface flinger stops reading this property and vendor needs it, would the symptoms be apparent?",
+      "parentUuid": "c37bc8e9_c9d51908",
+      "range": {
+        "startLine": 12,
+        "startChar": 5,
+        "endLine": 12,
+        "endChar": 13
+      },
+      "revId": "d50d36242c77176910db2e67e89251c82907b010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ee847e33_9de69cf6",
         "filename": "public/property_contexts",
         "patchSetId": 2
