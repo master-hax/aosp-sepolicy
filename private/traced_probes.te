@@ -29,6 +29,9 @@ allow traced_probes self:global_capability_class_set { sys_nice };
 # Allow procfs access
 r_dir_file(traced_probes, domain)
 
+# Allow to read packages.list file.
+allow traced_probes:packages_list_file:file r_file_perms;
+
 # Allow to log to kernel dmesg when starting / stopping ftrace.
 allow traced_probes kmsg_device:chr_file write;
 
