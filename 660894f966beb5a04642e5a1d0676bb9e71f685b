@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99ff9a2a_476b8441",
+        "filename": "public/app.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-04-03T14:41:06Z",
+      "side": 1,
+      "message": "It would be better to explain why this shouldn\u0027t occur, not just that it can\u0027t occur. What specific architectural property are you trying to maintain, and why is it important?",
+      "revId": "660894f966beb5a04642e5a1d0676bb9e71f685b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ca5b335_15327ece",
+        "filename": "public/app.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-04-03T14:41:06Z",
+      "side": 1,
+      "message": "You could get much of the same effect, but make the rules more general, by being specific on the permissions you\u0027re granting.\n\nIn this case \"{ open read write append execute execute_no_trans map }\" might be easier to apply as a neverallow rule vs \"*\". You can examine access_vectors to see the available permissions for the \"file\" and/or \"dir\" class.",
+      "range": {
+        "startLine": 587,
+        "startChar": 52,
+        "endLine": 587,
+        "endChar": 53
+      },
+      "revId": "660894f966beb5a04642e5a1d0676bb9e71f685b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
