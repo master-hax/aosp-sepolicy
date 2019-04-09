@@ -104,9 +104,6 @@ allow netd netdomain:fd use;
 # give netd permission to read and write netlink xfrm
 allow netd self:netlink_xfrm_socket { create_socket_perms_no_ioctl nlmsg_write nlmsg_read };
 
-# give netd permission to use eBPF functionalities
-allow netd self:bpf { map_create map_read map_write };
-
 # Allow netd to register as hal server.
 add_hwservice(netd, system_net_netd_hwservice)
 hwbinder_use(netd)
@@ -131,9 +128,6 @@ neverallow netd { app_data_file system_data_file }:dir_file_class_set write;
 
 # only system_server and dumpstate may find netd service
 neverallow { domain -system_server -dumpstate -netd } netd_service:service_manager find;
-
-# only netd can create the bpf maps
-neverallow { domain -netd } netd:bpf { map_create };
 
 # apps may not interact with netd over binder.
 neverallow appdomain netd:binder call;
