@@ -36,8 +36,8 @@ allow init tmpfs:blk_file getattr;
 allow init block_device:{ dir blk_file lnk_file } relabelto;
 allow init dm_device:{ chr_file blk_file } relabelto;
 allow init kernel:fd use;
-# restorecon for early mount device symlinks
-allow init tmpfs:lnk_file { getattr read relabelfrom };
+# restorecon for early mount device symlinks, and creating symlinks in /mnt/*.
+allow init tmpfs:lnk_file { create getattr read relabelfrom };
 allow init {
   metadata_block_device
   misc_block_device
