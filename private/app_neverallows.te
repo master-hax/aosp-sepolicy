@@ -7,7 +7,6 @@ define(`all_untrusted_apps',`{
   isolated_app
   mediaprovider
   untrusted_app
-  untrusted_app_25
   untrusted_app_27
   untrusted_app_all
 }')
@@ -37,9 +36,8 @@ neverallow { all_untrusted_apps -mediaprovider } property_socket:sock_file write
 neverallow { all_untrusted_apps -mediaprovider } init:unix_stream_socket connectto;
 neverallow { all_untrusted_apps -mediaprovider } property_type:property_service set;
 
-# net.dns properties are not a public API. Temporarily exempt pre-Oreo apps,
-# but otherwise disallow untrusted apps from reading this property.
-neverallow { all_untrusted_apps -untrusted_app_25 } net_dns_prop:file read;
+# net.dns properties are not a public API.
+neverallow all_untrusted_apps net_dns_prop:file read;
 
 # Shared libraries created by trusted components within an app home
 # directory can be dlopen()ed. To maintain the W^X property, these files
@@ -53,7 +51,6 @@ neverallow all_untrusted_apps app_exec_data_file:file
 # b/112357170
 neverallow {
   all_untrusted_apps
-  -untrusted_app_25
   -untrusted_app_27
   -runas_app
 } { app_data_file privapp_data_file }:file execute_no_trans;
@@ -63,7 +60,6 @@ neverallow {
 # Exempt legacy apps (targetApi<=28) for compatibility.
 neverallow {
   all_untrusted_apps
-  -untrusted_app_25
   -untrusted_app_27
 } dex2oat_exec:file no_x_file_perms;
 
@@ -328,9 +324,7 @@ neverallow all_untrusted_apps mediaextractor_update_service:service_manager find
 # are running in an emulated environment.
 # b/33214085 b/33814662 b/33791054 b/33211769
 # https://github.com/strazzere/anti-emulator/blob/master/AntiEmulator/src/diff/strazzere/anti/emulator/FindEmulator.java
-# This will go away in a future Android release
-neverallow { all_untrusted_apps -untrusted_app_25 } proc_tty_drivers:file r_file_perms;
-neverallow all_untrusted_apps proc_tty_drivers:file ~r_file_perms;
+neverallow all_untrusted_apps proc_tty_drivers:file *;
 
 # Untrusted apps are not allowed to use cgroups.
 neverallow all_untrusted_apps cgroup:file *;
@@ -340,7 +334,6 @@ neverallow all_untrusted_apps cgroup:file *;
 neverallow {
   all_untrusted_apps
   -ephemeral_app
-  -untrusted_app_25
   -untrusted_app_27
 } ashmem_device:chr_file open;
 
