@@ -91,3 +91,117 @@ se_cil_compat_map {
     bottom_half: [":28.0.board.ignore.map"],
     // top_half: "29.0.ignore.cil",
 }
+
+file_contexts {
+    name: "plat_file_contexts",
+    filenames: ["file_contexts"],
+    sanitize: {
+        address: {
+            filenames: ["file_contexts_asan"],
+        },
+    },
+    debuggable: {
+        filenames: ["file_contexts_overlayfs"],
+    },
+    apex: {
+        flatten: {
+            srcs: ["apex/*-file_contexts"],
+        },
+    },
+    recovery_available: true,
+}
+
+file_contexts {
+    name: "vendor_file_contexts",
+    filenames: ["file_contexts"],
+    soc_specific: true,
+    recovery_available: true,
+}
+
+file_contexts {
+    name: "product_file_contexts",
+    filenames: ["file_contexts"],
+    product_specific: true,
+    recovery_available: true,
+}
+
+file_contexts {
+    name: "odm_file_contexts",
+    filenames: ["file_contexts"],
+    device_specific: true,
+    recovery_available: true,
+}
+
+hwservice_contexts {
+    name: "plat_hwservice_contexts",
+    filenames: ["hwservice_contexts"],
+    remove_comment: true,
+}
+
+hwservice_contexts {
+    name: "product_hwservice_contexts",
+    filenames: ["hwservice_contexts"],
+    remove_comment: true,
+    product_specific: true,
+}
+
+hwservice_contexts {
+    name: "vendor_hwservice_contexts",
+    filenames: ["hwservice_contexts"],
+    reqd_mask: true,
+    remove_comment: true,
+    soc_specific: true,
+}
+
+hwservice_contexts {
+    name: "odm_hwservice_contexts",
+    filenames: ["hwservice_contexts"],
+    remove_comment: true,
+    device_specific: true,
+}
+
+property_contexts {
+    name: "plat_property_contexts",
+    filenames: ["property_contexts"],
+    recovery_available: true,
+}
+
+property_contexts {
+    name: "product_property_contexts",
+    filenames: ["property_contexts"],
+    product_specific: true,
+    recovery_available: true,
+}
+
+property_contexts {
+    name: "vendor_property_contexts",
+    filenames: ["property_contexts"],
+    reqd_mask: true,
+    soc_specific: true,
+    recovery_available: true,
+}
+
+property_contexts {
+    name: "odm_property_contexts",
+    filenames: ["property_contexts"],
+    device_specific: true,
+    recovery_available: true,
+}
+
+service_contexts {
+    name: "plat_service_contexts",
+    filenames: ["service_contexts"],
+}
+
+service_contexts {
+    name: "product_service_contexts",
+    filenames: ["service_contexts"],
+    product_specific: true,
+}
+
+service_contexts {
+    name: "vendor_service_contexts",
+    filenames: ["service_contexts"],
+    reqd_mask: true,
+    soc_specific: true,
+}
