@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "66529779_8b311ff6",
+        "filename": "Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-04-15T23:00:03Z",
+      "side": 1,
+      "message": "Use build/soong/filegroup.go. It\u0027s supposed to abstract away all the different directories that contain sepolicy files.",
+      "range": {
+        "startLine": 97,
+        "startChar": 4,
+        "endLine": 97,
+        "endChar": 13
+      },
+      "revId": "67d2bdf23db99b5b742207f5572b202a497f4c4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d2241fd5_afc4b89e",
         "filename": "build/soong/selinux_contexts.go",
         "patchSetId": 3
@@ -248,6 +271,29 @@
         "startChar": 0,
         "endLine": 461,
         "endChar": 1
+      },
+      "revId": "67d2bdf23db99b5b742207f5572b202a497f4c4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b3acecd_bb5a077f",
+        "filename": "service_contexts_tests.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-04-15T23:00:03Z",
+      "side": 1,
+      "message": "All the checkfc build targets in these *_contexts look very similar. I wonder if we can merge all these checks into 1 build target. They all run on every build anyways.",
+      "range": {
+        "startLine": 28,
+        "startChar": 55,
+        "endLine": 28,
+        "endChar": 62
       },
       "revId": "67d2bdf23db99b5b742207f5572b202a497f4c4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
