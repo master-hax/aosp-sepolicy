@@ -75,8 +75,6 @@ allow system_server self:global_capability_class_set {
     sys_tty_config
 };
 
-wakelock_use(system_server)
-
 # Trigger module auto-load.
 allow system_server kernel:system module_request;
 
@@ -122,12 +120,8 @@ allow system_server hal_camera:process { getsched setsched };
 allow system_server mediaserver:process { getsched setsched };
 allow system_server bootanim:process { getsched setsched };
 
-# Allow system_server to write to /proc/<pid>/timerslack_ns
-allow system_server appdomain:file w_file_perms;
-allow system_server audioserver:file w_file_perms;
-allow system_server cameraserver:file w_file_perms;
-allow system_server hal_audio_server:file w_file_perms;
-allow system_server hal_omx_server:file w_file_perms;
+# Allow system_server to write to /proc/<pid>/*
+allow system_server domain:file w_file_perms;
 
 # Read /proc/pid data for all domains. This is used by ProcessCpuTracker
 # within system_server to keep track of memory and CPU usage for
@@ -228,7 +222,6 @@ hal_client_domain(system_server, hal_omx)
 hal_client_domain(system_server, hal_power)
 hal_client_domain(system_server, hal_power_stats)
 hal_client_domain(system_server, hal_sensors)
-hal_client_domain(system_server, hal_system_suspend)
 hal_client_domain(system_server, hal_tetheroffload)
 hal_client_domain(system_server, hal_thermal)
 hal_client_domain(system_server, hal_tv_cec)
@@ -314,6 +307,8 @@ allow system_server sysfs_type:dir search;
 r_dir_file(system_server, sysfs_android_usb)
 allow system_server sysfs_android_usb:file w_file_perms;
 
+allow system_server sysfs_extcon:dir r_dir_perms;
+
 r_dir_file(system_server, sysfs_ipv4)
 allow system_server sysfs_ipv4:file w_file_perms;
 
@@ -362,6 +357,7 @@ allow system_server ota_package_file:file create_file_perms;
 # Manage system data files.
 allow system_server system_data_file:dir create_dir_perms;
 allow system_server system_data_file:notdevfile_class_set create_file_perms;
+allow system_server packages_list_file:file create_file_perms;
 allow system_server keychain_data_file:dir create_dir_perms;
 allow system_server keychain_data_file:file create_file_perms;
 allow system_server keychain_data_file:lnk_file create_file_perms;
@@ -416,6 +412,10 @@ allow system_server incidentd:fifo_file append;
 userdebug_or_eng(`
   allow system_server su:fifo_file append;
 ')
+
+# Allow system_server to read pipes from incidentd (used to deliver incident reports
+# to dropbox)
+allow system_server incidentd:fifo_file read;
 
 # Read /data/misc/incidents - only read. The fd will be sent over binder,
 # with no DAC access to it, for dropbox to read.
@@ -481,7 +481,7 @@ allow system_server wifi_data_file:file create_file_perms;
 allow system_server zoneinfo_data_file:dir create_dir_perms;
 allow system_server zoneinfo_data_file:file create_file_perms;
 
-# Manage /data/staging.
+# Manage /data/app-staging.
 allow system_server staging_data_file:dir create_dir_perms;
 allow system_server staging_data_file:file create_file_perms;
 
@@ -525,6 +525,10 @@ allow system_server media_rw_data_file:dir { search getattr open read };
 # Receive and use open /data/media files passed over binder IPC.
 # Also used for measuring disk usage.
 allow system_server media_rw_data_file:file { getattr read write append };
+
+# System server needs to setfscreate to packages_list_file when writing
+# /data/system/packages.list
+allow system_server system_server:process setfscreate;
 
 # Relabel apk files.
 allow system_server { apk_tmp_file apk_private_tmp_file }:{ dir file } { relabelfrom relabelto };
@@ -586,6 +590,7 @@ userdebug_or_eng(`set_prop(system_server, wifi_log_prop)')
 # ctl interface
 set_prop(system_server, ctl_default_prop)
 set_prop(system_server, ctl_bugreport_prop)
+set_prop(system_server, ctl_gsid_prop)
 
 # cppreopt property
 set_prop(system_server, cppreopt_prop)
@@ -597,6 +602,7 @@ set_prop(system_server, device_config_activity_manager_native_boot_prop)
 set_prop(system_server, device_config_runtime_native_boot_prop)
 set_prop(system_server, device_config_runtime_native_prop)
 set_prop(system_server, device_config_media_native_prop)
+set_prop(system_server, device_config_sys_traced_prop)
 
 # BootReceiver to read ro.boot.bootreason
 get_prop(system_server, bootloader_boot_reason_prop)
@@ -622,6 +628,9 @@ get_prop(system_server, device_config_reset_performed_prop)
 
 # Read/write the property that enables Test Harness Mode
 set_prop(system_server, test_harness_prop)
+
+# Read gsid.image_running.
+get_prop(system_server, gsid_prop)
 
 # Create a socket for connections from debuggerd.
 allow system_server system_ndebug_socket:sock_file create_file_perms;
@@ -689,6 +698,7 @@ add_service(system_server, system_server_service);
 allow system_server audioserver_service:service_manager find;
 allow system_server batteryproperties_service:service_manager find;
 allow system_server cameraserver_service:service_manager find;
+allow system_server dnsresolver_service:service_manager find;
 allow system_server drmserver_service:service_manager find;
 allow system_server dumpstate_service:service_manager find;
 allow system_server fingerprintd_service:service_manager find;
@@ -809,11 +819,6 @@ allow system_server toolbox_exec:file rx_file_perms;
 allowxperm system_server apk_data_file:file ioctl {
   FS_IOC_ENABLE_VERITY FS_IOC_MEASURE_VERITY
 };
-# Allow system process to access the keyring.
-allow system_server kernel:key search;
-userdebug_or_eng(`
-  allow system_server su:key search;
-')
 
 # Postinstall
 #
@@ -874,10 +879,6 @@ with_asan(`
 allow system_server fs_bpf:dir search;
 allow system_server fs_bpf:file { read write };
 allow system_server bpfloader:bpf { map_read map_write };
-# in order to invoke side effect of close() on such a socket calling synchronize_rcu()
-# TODO: Remove this permission when 4.9 kernel is deprecated.
-allow system_server self:key_socket create;
-
 
 # ART Profiles.
 # Allow system_server to open profile snapshots for read.
@@ -963,6 +964,7 @@ neverallow {
   device_config_runtime_native_boot_prop
   device_config_runtime_native_prop
   device_config_media_native_prop
+  device_config_sys_traced_prop
 }:property_service set;
 
 # system_server should never be executing dex2oat. This is either
@@ -1001,6 +1003,11 @@ allow system_server apexd:binder call;
 
 # Allow system server to communicate to system-suspend's control interface
 allow system_server system_suspend_control_service:service_manager find;
+binder_call(system_server, system_suspend)
+binder_call(system_suspend, system_server)
+
+# Allow system server to communicate to system-suspend's wakelock interface
+wakelock_use(system_server)
 
 # Allow the system server to read files under /data/apex. The system_server
 # needs these privileges to compare file signatures while processing installs.
@@ -1008,6 +1015,15 @@ allow system_server system_suspend_control_service:service_manager find;
 # Only apexd is allowed to create new entries or write to any file under /data/apex.
 allow system_server apex_data_file:dir search;
 allow system_server apex_data_file:file r_file_perms;
+
+# Allow PasswordSlotManager rw access to /metadata/password_slots, so GSIs and the host image can
+# communicate which slots are available for use.
+allow system_server metadata_file:dir search;
+allow system_server password_slot_metadata_file:dir rw_dir_perms;
+allow system_server password_slot_metadata_file:file create_file_perms;
+
+# Read/Write /proc/pressure/memory
+allow system_server proc_pressure_mem:file rw_file_perms;
 
 # dexoptanalyzer is currently used only for secondary dex files which
 # system_server should never access.
@@ -1019,3 +1035,12 @@ neverallow system_server { domain -system_server }:process ptrace;
 # CAP_SYS_RESOURCE was traditionally needed for sensitive /proc/PID
 # file read access. However, that is now unnecessary (b/34951864)
 neverallow system_server system_server:global_capability_class_set sys_resource;
+
+# Only system_server/init should access /metadata/password_slots.
+neverallow { domain -init -system_server } password_slot_metadata_file:dir *;
+neverallow {
+  domain
+  -init
+  -system_server
+} password_slot_metadata_file:notdevfile_class_set ~{ relabelto getattr };
+neverallow { domain -init -system_server } password_slot_metadata_file:notdevfile_class_set *;

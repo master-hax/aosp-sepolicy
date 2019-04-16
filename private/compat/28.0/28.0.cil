@@ -1377,7 +1377,11 @@
 (typeattributeset priv_app_28_0 (priv_app))
 (typeattributeset proc_28_0
   ( proc
+    proc_fs_verity
     proc_keys
+    proc_pressure_cpu
+    proc_pressure_io
+    proc_pressure_mem
     proc_slabinfo))
 (typeattributeset proc_abi_28_0 (proc_abi))
 (typeattributeset proc_asound_28_0 (proc_asound))
@@ -1538,7 +1542,10 @@
 (typeattributeset swap_block_device_28_0 (swap_block_device))
 (typeattributeset sysfs_28_0
   ( sysfs
-    sysfs_loop))
+    sysfs_devices_block
+    sysfs_extcon
+    sysfs_loop
+    sysfs_transparent_hugepage))
 (typeattributeset sysfs_android_usb_28_0 (sysfs_android_usb))
 (typeattributeset sysfs_batteryinfo_28_0 (sysfs_batteryinfo))
 (typeattributeset sysfs_bluetooth_writable_28_0 (sysfs_bluetooth_writable))
@@ -1574,7 +1581,8 @@
 (typeattributeset system_boot_reason_prop_28_0 (system_boot_reason_prop))
 (typeattributeset system_data_file_28_0
   ( dropbox_data_file
-    system_data_file))
+    system_data_file
+    packages_list_file))
 (typeattributeset system_file_28_0
   ( system_file
     system_asan_options_file
@@ -1609,7 +1617,9 @@
 (typeattributeset thermalserviced_28_0 (thermalserviced))
 (typeattributeset thermalserviced_exec_28_0 (thermalserviced_exec))
 (typeattributeset timezone_service_28_0 (timezone_service))
-(typeattributeset tmpfs_28_0 (tmpfs))
+(typeattributeset tmpfs_28_0
+  ( mnt_sdcard_file
+    tmpfs))
 (typeattributeset tombstoned_28_0 (tombstoned))
 (typeattributeset tombstone_data_file_28_0 (tombstone_data_file))
 (typeattributeset tombstoned_crash_socket_28_0 (tombstoned_crash_socket))

@@ -9,11 +9,15 @@ allow vold cache_file:lnk_file r_file_perms;
 
 r_dir_file(vold, { sysfs_type -sysfs_batteryinfo })
 # XXX Label sysfs files with a specific type?
-allow vold sysfs:file w_file_perms; # writing to /sys/*/uevent during coldboot.
-allow vold sysfs_loop:file w_file_perms; # writing to /sys/block/loop*/uevent during coldboot.
-allow vold sysfs_dm:file w_file_perms;
-allow vold sysfs_usb:file w_file_perms;
-allow vold sysfs_zram_uevent:file w_file_perms;
+allow vold {
+  sysfs # writing to /sys/*/uevent during coldboot.
+  sysfs_devices_block
+  sysfs_dm
+  sysfs_loop # writing to /sys/block/loop*/uevent during coldboot.
+  sysfs_usb
+  sysfs_zram_uevent
+  sysfs_fs_f2fs
+}:file w_file_perms;
 
 r_dir_file(vold, rootfs)
 r_dir_file(vold, metadata_file)
@@ -248,7 +252,7 @@ neverallow {
     domain
     -vold
     -vold_prepare_subdirs
-} vold_data_file:dir ~{ open create read getattr setattr search relabelto ioctl };
+} vold_data_file:dir ~{ open create read getattr setattr search relabelfrom relabelto ioctl };
 
 neverallow {
     domain
@@ -287,14 +291,21 @@ neverallow {
 
 neverallow { domain -vold -init } restorecon_prop:property_service set;
 
-# Only system_server and vdc can interact with vold over binder
-neverallow { domain -system_server -vdc -vold -update_verifier } vold_service:service_manager find;
+neverallow {
+    domain
+    -system_server
+    -vdc
+    -vold
+    -update_verifier
+    -apexd
+} vold_service:service_manager find;
+
 neverallow vold {
   domain
   -ashmemd
   -hal_health_storage_server
   -hal_keymaster_server
-  -hal_system_suspend_server
+  -system_suspend_server
   -hal_bootctl_server
   -healthd
   -hwservicemanager

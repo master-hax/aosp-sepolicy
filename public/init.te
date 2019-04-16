@@ -11,7 +11,7 @@ allow init tmpfs:chr_file { create setattr unlink rw_file_perms };
 #
 # /dev/kmsg
 allow init tmpfs:chr_file relabelfrom;
-allow init kmsg_device:chr_file { write relabelto };
+allow init kmsg_device:chr_file { getattr write relabelto };
 # /dev/kmsg_debug
 userdebug_or_eng(`
   allow init kmsg_debug_device:chr_file { write relabelto };
@@ -45,6 +45,9 @@ allow init {
   system_block_device
   userdata_block_device
 }:{ blk_file lnk_file } relabelto;
+
+# Create /mnt/sdcard -> /storage/self/primary symlink.
+allow init mnt_sdcard_file:lnk_file create;
 
 # setrlimit
 allow init self:global_capability_class_set sys_resource;
@@ -87,15 +90,6 @@ allow init device:dir mounton;
 # Mount tmpfs on /apex
 allow init apex_mnt_dir:dir mounton;
 
-# Mount Bionic libraries and dynamic linkers
-allow init system_lib_file:file mounton;
-allow init system_linker_exec:file mounton;
-# The mount points under /bionic are rootfs in recovery mode. Init should
-# be able to bind-mount the bootstrap Bionic to the mount points.
-recovery_only(`
-  allow init rootfs:file mounton;
-')
-
 # Create and remove symlinks in /.
 allow init rootfs:lnk_file { create unlink };
 
@@ -109,6 +103,7 @@ allow init cgroup:dir create_dir_perms;
 allow init cgroup:file rw_file_perms;
 allow init cgroup_rc_file:file rw_file_perms;
 allow init cgroup_desc_file:file r_file_perms;
+allow init vendor_cgroup_desc_file:file r_file_perms;
 
 # /config
 allow init configfs:dir mounton;
@@ -317,6 +312,8 @@ allow init proc_filesystems:file r_file_perms;
 userdebug_or_eng(`
   # Overlayfs workdir write access check during mount to permit remount,rw
   allow init overlayfs_file:dir { relabelfrom mounton write };
+  allow init overlayfs_file:file { append };
+  allow init system_block_device:blk_file { write };
 ')
 
 allow init {
@@ -368,6 +365,7 @@ allow init {
   sysfs_android_usb
   sysfs_leds
   sysfs_power
+  sysfs_fs_f2fs
 }:file w_file_perms;
 
 allow init {
@@ -558,6 +556,13 @@ allow init apex_service:service_manager find;
 allow servicemanager init:binder transfer;
 # Allow calls from init to apexd
 allow init apexd:binder call;
+
+# Allow init to touch PSI monitors
+allow init proc_pressure_mem:file { rw_file_perms setattr };
+
+# init is using bootstrap bionic
+allow init system_bootstrap_lib_file:dir r_dir_perms;
+allow init system_bootstrap_lib_file:file { execute read open getattr map };
 
 ###
 ### neverallow rules

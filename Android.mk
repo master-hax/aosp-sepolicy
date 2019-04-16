@@ -1,12 +1,9 @@
 LOCAL_PATH:= $(call my-dir)
 
 include $(LOCAL_PATH)/definitions.mk
+include $(LOCAL_PATH)/policy_version.mk
 
 include $(CLEAR_VARS)
-# SELinux policy version.
-# Must be <= /sys/fs/selinux/policyvers reported by the Android kernel.
-# Must be within the compatibility range reported by checkpolicy -V.
-POLICYVERS ?= 30
 
 MLS_SENS=1
 MLS_CATS=1024
@@ -1083,7 +1080,7 @@ $(file_contexts.device.sorted.tmp): $(file_contexts.device.tmp) $(built_sepolicy
   $(HOST_OUT_EXECUTABLES)/fc_sort $(HOST_OUT_EXECUTABLES)/checkfc
 	@mkdir -p $(dir $@)
 	$(hide) $(HOST_OUT_EXECUTABLES)/checkfc -e $(PRIVATE_SEPOLICY) $<
-	$(hide) $(HOST_OUT_EXECUTABLES)/fc_sort $< $@
+	$(hide) $(HOST_OUT_EXECUTABLES)/fc_sort -i $< -o $@
 
 file_contexts.concat.tmp := $(intermediates)/file_contexts.concat.tmp
 $(file_contexts.concat.tmp): $(file_contexts.local.tmp) $(file_contexts.device.sorted.tmp)
