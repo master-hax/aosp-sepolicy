@@ -52,6 +52,9 @@ allow init mnt_sdcard_file:lnk_file create;
 # setrlimit
 allow init self:global_capability_class_set sys_resource;
 
+# restorecon for /mnt/debug_ramdisk/* files, created before initial policy load
+allow init tmpfs:file { getattr relabelfrom };
+
 # Remove /dev/.booting, created before initial policy load or restorecon /dev.
 allow init tmpfs:file unlink;
 

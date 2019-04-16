@@ -648,3 +648,8 @@
 #############################
 # mount point for read-write product partitions
 /mnt/product(/.*)?          u:object_r:mnt_product_file:s0
+
+#############################
+# Additional files for debug ramdisk
+#
+/mnt/debug_ramdisk(/.*)?    u:object_r:debug_ramdisk_file:s0

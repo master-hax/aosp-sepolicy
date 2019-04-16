@@ -415,6 +415,9 @@ neverallow { domain -init } usermodehelper:file { append write };
 neverallow { domain -init -ueventd } sysfs_usermodehelper:file { append write };
 neverallow { domain -init -vendor_init } proc_security:file { append open read write };
 
+# Only init can read debug_ramdisk files.
+neverallow { domain -init } debug_ramdisk_file:file r_file_perms;
+
 # Nobody is allowed to make binder calls into init.
 # Only servicemanager may transfer binder references to init
 # vendor_init shouldn't use binder at all.
