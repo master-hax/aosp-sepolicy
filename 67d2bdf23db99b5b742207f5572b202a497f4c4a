@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ec3f20b6_7aa6d837",
+        "filename": "Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2019-04-16T01:48:29Z",
+      "side": 1,
+      "message": "Generally yes, but I\u0027m not sure how to do in this case.\n\nFor now, sepolicy files come from numbers of BOARD_*_SEPOLICY_DIRS and PLAT_*_SEPOLICY_DIR, and using filegroup means that we should place Android.bp on every sepolicy directory. They heavily depend on the build targets, so it will be difficult and complex to maintain, because soong module names must be unique.",
+      "parentUuid": "66529779_8b311ff6",
+      "range": {
+        "startLine": 97,
+        "startChar": 4,
+        "endLine": 97,
+        "endChar": 13
+      },
+      "revId": "67d2bdf23db99b5b742207f5572b202a497f4c4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d2241fd5_afc4b89e",
         "filename": "build/soong/selinux_contexts.go",
         "patchSetId": 3
