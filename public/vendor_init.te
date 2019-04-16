@@ -63,6 +63,7 @@ allow vendor_init unlabeled:{ dir notdevfile_class_set } { getattr relabelfrom }
 allow vendor_init {
   file_type
   -core_data_file_type
+  -debug_ramdisk_file
   -exec_type
   -password_slot_metadata_file
   -runtime_event_log_tags_file
