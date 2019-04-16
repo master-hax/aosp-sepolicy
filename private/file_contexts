@@ -24,7 +24,6 @@
 /lost\+found        u:object_r:rootfs:s0
 /acct               u:object_r:cgroup:s0
 /config             u:object_r:rootfs:s0
-/debug_ramdisk      u:object_r:tmpfs:s0
 /mnt                u:object_r:tmpfs:s0
 /postinstall        u:object_r:postinstall_mnt_dir:s0
 /postinstall/apex   u:object_r:postinstall_apex_mnt_dir:s0
@@ -649,3 +648,8 @@
 #############################
 # mount point for read-write product partitions
 /mnt/product(/.*)?          u:object_r:mnt_product_file:s0
+
+#############################
+# Additional files from debug ramdisk
+#
+/debug_ramdisk(/.*)?        u:object_r:debug_ramdisk_file:s0
