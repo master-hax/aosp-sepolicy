@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8aeb3f13_e26bf08b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-04-17T18:21:32Z",
+      "side": 1,
+      "message": "Try also\n$ lunch aosp_qrm-userdebug\n$ m selinux_policy\nto make sure that devices without /product partition still build fine.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 51
+      },
+      "revId": "858dfdc9877ff3747c4b4ea263d5f047df3b2409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "873602ff_2c32b1f4",
+        "filename": "Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-04-17T18:21:32Z",
+      "side": 1,
+      "message": "We always do fc_sort on the file_contexts files. Is it possible to make default \"fc_sort: true\" for file_contexts build modules?",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 18
+      },
+      "revId": "858dfdc9877ff3747c4b4ea263d5f047df3b2409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "267239cb_54a8c5a2",
+        "filename": "Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-04-17T18:21:32Z",
+      "side": 1,
+      "message": "Similar concern as above. \"remove_comment: true\" is redundant for hwservice_contexts modules.",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 25
+      },
+      "revId": "858dfdc9877ff3747c4b4ea263d5f047df3b2409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cb0d5f5_2c9451e2",
+        "filename": "Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 1159,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-04-17T18:21:32Z",
+      "side": 1,
+      "message": "dwillemsen@, is it safe to depend on the final install location of a module instead of the intermediate location?",
+      "range": {
+        "startLine": 1159,
+        "startChar": 0,
+        "endLine": 1159,
+        "endChar": 60
+      },
+      "revId": "858dfdc9877ff3747c4b4ea263d5f047df3b2409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d013958d_f134c7f1",
+        "filename": "build/soong/filegroup.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-04-17T18:21:32Z",
+      "side": 1,
+      "message": "Could you add PRODUCT_PUBLIC_SEPOLICY_DIRS while you\u0027re at it?",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 57
+      },
+      "revId": "858dfdc9877ff3747c4b4ea263d5f047df3b2409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7388ba05_73edf3b6",
+        "filename": "contexts_tests.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-04-17T18:21:32Z",
+      "side": 1,
+      "message": "The original test in .mk checks (plat_property_contexts + vendor_property_contexts). Are we dropping plat_property_contexts part here deliberately?",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 100
+      },
+      "revId": "858dfdc9877ff3747c4b4ea263d5f047df3b2409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
