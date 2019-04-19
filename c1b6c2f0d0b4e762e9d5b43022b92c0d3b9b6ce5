@@ -1,0 +1,192 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af5c2d8c_23c987d4",
+        "filename": "build/soong/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-04-19T18:37:53Z",
+      "side": 1,
+      "message": "selinux.go sorts before selinux_contexts.go",
+      "revId": "c1b6c2f0d0b4e762e9d5b43022b92c0d3b9b6ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bc49378_3822fec7",
+        "filename": "build/soong/selinux.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-04-19T18:37:53Z",
+      "side": 1,
+      "message": "Put blueprint imports first, then soong imports.",
+      "revId": "c1b6c2f0d0b4e762e9d5b43022b92c0d3b9b6ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4e921d8_a96bfeaf",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-04-19T18:37:53Z",
+      "side": 1,
+      "message": "Use struct tag `android:\"path\"` for anything that takes a path (anything that is passed to PathsForModuleSrc)",
+      "revId": "c1b6c2f0d0b4e762e9d5b43022b92c0d3b9b6ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55897c57_c243a051",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-04-19T18:37:53Z",
+      "side": 1,
+      "message": "These shouldn\u0027t be necessary, they are already provided by build/soong/android/variable.go (or should be added there)",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 2
+      },
+      "revId": "c1b6c2f0d0b4e762e9d5b43022b92c0d3b9b6ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "519b3152_47ec046b",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-04-19T18:37:53Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be necessary, build/soong/android/variable.go should already be merging product variable properties into the top level property for you.",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 2
+      },
+      "revId": "c1b6c2f0d0b4e762e9d5b43022b92c0d3b9b6ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "437b1250_f61f28a9",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-04-19T18:37:53Z",
+      "side": 1,
+      "message": "ctx.GetDirectDepsWithTag(ctx.ModuleName(), reuseContextsDepTag)",
+      "revId": "c1b6c2f0d0b4e762e9d5b43022b92c0d3b9b6ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d417934_aba76407",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-04-19T18:37:53Z",
+      "side": 1,
+      "message": "Use PathForModuleSrc if you have only one src",
+      "range": {
+        "startLine": 219,
+        "startChar": 35,
+        "endLine": 219,
+        "endChar": 60
+      },
+      "revId": "c1b6c2f0d0b4e762e9d5b43022b92c0d3b9b6ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b367a0c8_e1c645fe",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-04-19T18:37:53Z",
+      "side": 1,
+      "message": "AddInterVariantDependency",
+      "revId": "c1b6c2f0d0b4e762e9d5b43022b92c0d3b9b6ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10c2249a_19cc284f",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-04-19T18:37:53Z",
+      "side": 1,
+      "message": "Tag the property with `android:\"path\"` and then you don\u0027t need this line.",
+      "revId": "c1b6c2f0d0b4e762e9d5b43022b92c0d3b9b6ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67ce3105_8178c771",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-04-19T18:37:53Z",
+      "side": 1,
+      "message": "Also consider android.RuleBuilder, which lets you create a command to run using a builder pattern, which would let you combine the 3 rules below into 1.",
+      "revId": "c1b6c2f0d0b4e762e9d5b43022b92c0d3b9b6ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
