@@ -305,6 +305,30 @@
       "revId": "858dfdc9877ff3747c4b4ea263d5f047df3b2409",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3b47c94_c45b02d8",
+        "filename": "contexts_tests.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2019-04-19T22:36:38Z",
+      "side": 1,
+      "message": "Combining them ensures that there are no duplicates and matches what the system does during boot, which is a good thing to check during the build.  In theory this isn\u0027t required, since vendor property contexts should be disjoint from platform property contexts, but vendor_property_contexts + odm_property_contexts should be tested together and plat_property_contexts + product_property_contexts should be tested together, since they can have overlapping properties.  \n\nOverall, it would be ideal to check all of the property contexts combined together in a single pass.\n\nSpecifically, I think what we should have is plat_property_contexts tested alone, then have vendor_property_contexts depend on plat_property_contexts and test both together, then have odm_property_contexts depend on both and test all three together, etc.",
+      "parentUuid": "4ae98c09_396e3a76",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 100
+      },
+      "revId": "858dfdc9877ff3747c4b4ea263d5f047df3b2409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
