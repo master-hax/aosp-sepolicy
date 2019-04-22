@@ -186,6 +186,54 @@
       "revId": "3ccd5977faca510e2e7475438adee051ed246474",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a91271c4_d8efe746",
+        "filename": "public/attributes",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-04-22T20:32:09Z",
+      "side": 1,
+      "message": "Ah, I see. public/cameraserver.te is only messed up downstream. You might c/p or follow-up, but I only manually checked the first item here.\n\n\u003e android.hidl.*\n\nonly hwservicemanager should be treated specially, but even it doesn\u0027t necessarily need to be. I think consistency would be better if it doesn\u0027t require too many changes.\n\n\u003e As the name suggest, will likely always be served by netd.\n\nfor consistency, it would probably be better to change",
+      "parentUuid": "593e94ad_0025db1c",
+      "range": {
+        "startLine": 306,
+        "startChar": 10,
+        "endLine": 306,
+        "endChar": 31
+      },
+      "revId": "3ccd5977faca510e2e7475438adee051ed246474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a1eeace_1fe30c7e",
+        "filename": "public/attributes",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-04-22T20:32:09Z",
+      "side": 1,
+      "message": "We depend on it for neverallows for halclientdomain as well as things given to halclientdomain. It seems like it is needed for correctness.",
+      "parentUuid": "8985c12b_3fa05c15",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 9
+      },
+      "revId": "3ccd5977faca510e2e7475438adee051ed246474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
