@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efa6ac4f_2ffd291c",
+        "filename": "public/mediaserver.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-04-22T22:09:40Z",
+      "side": 1,
+      "message": "After this change, mediaserver has access to both audioserver_service (which runs in the audioserver process), and audio_server (which runs in the system_server process). Looking at the dependency graph, this conceptually introduces a circular dependency, where system_server uses the mediaserver_service, and mediaserver uses the audio_service (which runs in system_server).\n\nQuestion for the media team: Is this something I should be concerned about? At first glance, it seems like this kind of circular dependency should be avoided, but I\u0027m really not familiar enough with the code to say for certain. What should the dependency and communication graph look like?",
+      "revId": "dc38720cfb5a5dd175bb3ad9f7283b23f3bbaed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
