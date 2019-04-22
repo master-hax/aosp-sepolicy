@@ -99,6 +99,30 @@
     },
     {
       "key": {
+        "uuid": "271488fb_31eb92fc",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2019-04-22T01:42:00Z",
+      "side": 1,
+      "message": "It seems that selinuxContextsModule must have all properties of variableProperties.Product_variables.Debuggable (cflags, cppflags, host_required, etc.) in order to use the auto-merging feature. If not, soong complains like this:\n\nerror: system/sepolicy/Android.bp:125:1: module \"plat_file_contexts\" variant \"android_common\": cflags: failed to find property to extend\n\nIs my understanding correct? In that case, should I add all properties in Debuggable to selinuxContextsModule even though it doesn\u0027t make sense?",
+      "parentUuid": "519b3152_47ec046b",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 2
+      },
+      "revId": "c1b6c2f0d0b4e762e9d5b43022b92c0d3b9b6ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "437b1250_f61f28a9",
         "filename": "build/soong/selinux_contexts.go",
         "patchSetId": 8
