@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "fa354f46_c04cbc85",
+        "filename": "private/statsd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-04-22T19:54:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6f6ba39_455faa35",
+      "revId": "3ccd5977faca510e2e7475438adee051ed246474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "343b7040_33bf96b9",
         "filename": "private/system_server.te",
         "patchSetId": 1
@@ -56,6 +74,24 @@
       "revId": "3ccd5977faca510e2e7475438adee051ed246474",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99fe0362_ddb0a3c6",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-04-22T19:54:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "343b7040_33bf96b9",
+      "revId": "3ccd5977faca510e2e7475438adee051ed246474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -102,6 +138,54 @@
       "revId": "3ccd5977faca510e2e7475438adee051ed246474",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "593e94ad_0025db1c",
+        "filename": "public/attributes",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-04-22T19:54:57Z",
+      "side": 1,
+      "message": "Note that camera_service_server wasn\u0027t added in this change. It was already fixed \nhttps://android.googlesource.com/platform/system/sepolicy/+/master/private/cameraserver.te#3\n\nThere are still these system HIDL interfaces that don\u0027t have _server attributes:\n(1) android.hidl.*. If you think we might move these to different domains, I can address in a follow-up. \n(2) android.system.net.netd::INetd. As the name suggest, will likely always be served by netd.",
+      "parentUuid": "345773a7_21ddbe4e",
+      "range": {
+        "startLine": 306,
+        "startChar": 10,
+        "endLine": 306,
+        "endChar": 31
+      },
+      "revId": "3ccd5977faca510e2e7475438adee051ed246474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8985c12b_3fa05c15",
+        "filename": "public/attributes",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-04-22T19:54:57Z",
+      "side": 1,
+      "message": "Say, we do a system-only OTA, then fwk-provided HIDL servers might move to different domains. We use _server attributes to deal with this case. OTOH, clients on the vendor side will remain the same, i.e. we don\u0027t need to abstract the client behind _client attributes.\n\nI don\u0027t mind using both _client and _server for style consistency, but display_service_server set the precedent, so I\u0027m just sticking to that.",
+      "parentUuid": "bb42d9a6_48ff24e5",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 9
+      },
+      "revId": "3ccd5977faca510e2e7475438adee051ed246474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
