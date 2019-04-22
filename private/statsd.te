@@ -1,5 +1,8 @@
 typeattribute statsd coredomain;
 
+# Allow statsd to add as HIDL service.
+typeattribute statsd stats_service_server;
+
 init_daemon_domain(statsd)
 
 binder_call(statsd, statscompanion_service)
