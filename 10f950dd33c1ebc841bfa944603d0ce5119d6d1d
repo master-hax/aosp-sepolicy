@@ -16,6 +16,24 @@
       "revId": "10f950dd33c1ebc841bfa944603d0ce5119d6d1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da05c28d_473313d4",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2019-04-23T23:03:10Z",
+      "side": 1,
+      "message": "I wanted to add dependency of product variable srcs only when needed. For example, I\u0027d like to depend on Product_variables.Debuggable only when I\u0027m in userdebug or eng. But it seems that every property with `android:\"path\"` is added as SourceDepTag on every time.\n\nSo I\u0027ve just attached the tag to properties.Srcs, but not Product_variables.*.Srcs, and chosen to manually add when needed. Does it sound reasonable?",
+      "parentUuid": "e24e066c_7ba2a256",
+      "revId": "10f950dd33c1ebc841bfa944603d0ce5119d6d1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
