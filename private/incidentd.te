@@ -141,6 +141,11 @@ allow incidentd { dumpstate incident }:fifo_file write;
 # Allow incident to call back to incident with status updates.
 binder_call(incidentd, incident)
 
+# Allow incidentd to call keystore to create encryption key
+# and do encryption/decryption
+use_keystore(incidentd)
+allow incidentd keystore:keystore_key { exist insert };
+
 ###
 ### neverallow rules
 ###
