@@ -34,6 +34,24 @@
       "revId": "10f950dd33c1ebc841bfa944603d0ce5119d6d1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb80f7d9_61e20a42",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-04-23T23:11:38Z",
+      "side": 1,
+      "message": "Instead of computing this here, can you modify the Srcs property in a LoadHook when the product variable matches?  That way the correct values would already be in place when the path properties mutator runs.",
+      "parentUuid": "da05c28d_473313d4",
+      "revId": "10f950dd33c1ebc841bfa944603d0ce5119d6d1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
