@@ -55,6 +55,9 @@ allow init self:global_capability_class_set sys_resource;
 # Remove /dev/.booting, created before initial policy load or restorecon /dev.
 allow init tmpfs:file unlink;
 
+# Allow init to load /debug_ramdisk/* files, if the device is unlocked.
+allow init tmpfs:file getattr;
+
 # Access pty created for fsck.
 allow init devpts:chr_file { read write open };
 
