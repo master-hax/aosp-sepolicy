@@ -16,6 +16,24 @@
       "revId": "dc38720cfb5a5dd175bb3ad9f7283b23f3bbaed8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34c7518d_140be115",
+        "filename": "public/mediaserver.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-04-23T16:46:23Z",
+      "side": 1,
+      "message": "Nick, we have checked the dependencies with Eric. This is what we have found.\n\nsystem_server uses \"media.player\" and \"media.resource_manager\" from mediaserver. However, this dependency is not \"strong\", that is, disabling the corresponding rule in \"system_server.te\" does not prevent the system server from starting. In fact, the same is for the dependency I\u0027m adding--mediaserver continues to work even if it can\u0027t access \"audio\" service.\n\nWe have such \"not strong\" dependencies all over the place. E.g. system_server depends on services from audioserver_service, and the latter uses services from the system_server.\n\nSo we don\u0027t see a problem here. Please let us know if we misunderstood your question.",
+      "parentUuid": "efa6ac4f_2ffd291c",
+      "revId": "dc38720cfb5a5dd175bb3ad9f7283b23f3bbaed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
