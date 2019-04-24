@@ -87,6 +87,7 @@ allow kernel vold_data_file:file { read write };
 allow kernel apexd:fd use;
 allow kernel apex_data_file:file read;
 allow kernel staging_data_file:file read;
+allow kernel product_apex_file:file read;
 
 # Allow the first-stage init (which is running in the kernel domain) to execute the
 # dynamic linker when it re-executes /init to switch into the second stage.
