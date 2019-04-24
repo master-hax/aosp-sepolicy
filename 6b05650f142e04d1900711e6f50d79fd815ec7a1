@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "150575fc_b1993283",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-04-24T02:24:52Z",
+      "side": 1,
+      "message": "IIUC, system/vendor was intended as a stopgap while we were developing a new /vendor partition. This shouldn\u0027t be relevant for new code. Can we just change this to:\n\n  /vendor/apex(/.*)? u:object_r:vendor_apex_file:s0\n\n???\n\n(Ultimately I assume we want to get rid of /system/vendor entirely, and standardized on /vendor, so adding more system/vendor dependencies seems counter productive)",
+      "range": {
+        "startLine": 355,
+        "startChar": 9,
+        "endLine": 355,
+        "endChar": 22
+      },
+      "revId": "6b05650f142e04d1900711e6f50d79fd815ec7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0dd5299_09703ebc",
+        "filename": "public/kernel.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-04-24T02:24:52Z",
+      "side": 1,
+      "message": "Since lines 88-91 are essentially the same thing, maybe group them together and write:\n\n  allow kernel {\n    apex_data_file\n    staging_data_file\n    product_apex_file\n    vendor_apex_file\n  }:file read;",
+      "revId": "6b05650f142e04d1900711e6f50d79fd815ec7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
