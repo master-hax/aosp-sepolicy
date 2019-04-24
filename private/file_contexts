@@ -402,6 +402,8 @@
 /(product|system/product)/etc/selinux/product_service_contexts   u:object_r:service_contexts_file:s0
 /(product|system/product)/etc/selinux/product_mac_permissions\.xml u:object_r:mac_perms_file:s0
 
+/(product|system/product)/apex(/.*)? u:object_r:product_apex_file:s0
+
 #############################
 # Product-Services files
 #
