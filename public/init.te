@@ -559,6 +559,8 @@ allow init apexd:binder call;
 
 # Allow init to touch PSI monitors
 allow init proc_pressure_mem:file { rw_file_perms setattr };
+# Allow setched for psi monitor thread
+allow init kernel:process setsched;
 
 # init is using bootstrap bionic
 allow init system_bootstrap_lib_file:dir r_dir_perms;

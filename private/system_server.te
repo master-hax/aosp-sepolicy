@@ -1024,6 +1024,8 @@ allow system_server password_slot_metadata_file:file create_file_perms;
 
 # Read/Write /proc/pressure/memory
 allow system_server proc_pressure_mem:file rw_file_perms;
+# Allow setched for psi monitor thread
+allow system_server kernel:process setsched;
 
 # dexoptanalyzer is currently used only for secondary dex files which
 # system_server should never access.
