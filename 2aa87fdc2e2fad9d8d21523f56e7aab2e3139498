@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b31900dc_b32200af",
+        "filename": "public/netd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2019-05-02T05:49:29Z",
+      "side": 1,
+      "message": "I\u0027m not an selinux expert, but it seems strange to have, in the netd policy, something that never allows netd to create BPF maps. Shouldn\u0027t this neverallow be somewhere else than netd.te? If there is no common place, maybe it should be in bpfloader.te?",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 46
+      },
+      "revId": "2aa87fdc2e2fad9d8d21523f56e7aab2e3139498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
