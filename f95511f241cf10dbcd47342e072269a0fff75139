@@ -22,6 +22,30 @@
       "revId": "f95511f241cf10dbcd47342e072269a0fff75139",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "393b2e45_69baae3d",
+        "filename": "public/clatd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2019-05-02T19:15:04Z",
+      "side": 1,
+      "message": "The entire goal is for a netd created tun socket to get passed in to and used by clatd as an extra file descriptor during execve (instead of clatd creating one itself).  So of course it can\u0027t be CLOEXEC.",
+      "parentUuid": "7e95055e_2e7f2503",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 0
+      },
+      "revId": "f95511f241cf10dbcd47342e072269a0fff75139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
