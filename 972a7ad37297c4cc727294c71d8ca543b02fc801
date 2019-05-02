@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c061795b_ea99b0ba",
+        "filename": "public/clatd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-05-02T17:35:28Z",
+      "side": 1,
+      "message": "Rather than allow clad to relabel objects, can we allow it to operate directly on the object received from netd? e.g. change this line to:\nallow clatd self:{ packet_socket rawip_socket } create_socket_perms_no_ioctl;\nallow clatd netd:tun_socket create_socket_perms_no_ioctl;",
+      "range": {
+        "startLine": 39,
+        "startChar": 46,
+        "endLine": 39,
+        "endChar": 56
+      },
+      "revId": "972a7ad37297c4cc727294c71d8ca543b02fc801",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
