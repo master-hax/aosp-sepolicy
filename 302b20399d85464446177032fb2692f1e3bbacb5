@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1edef8a_5640970d",
+        "filename": "public/netd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-05-04T22:09:35Z",
+      "side": 1,
+      "message": "Use \"rw_file_perms\" which includes \"getattr\" (i.e. stat()) and a few other unprivileged permissions like \"append\u0027. Basically, it\u0027s similar to what you have here, but slightly more robust and may help you avoid being blocked on us later.",
+      "range": {
+        "startLine": 23,
+        "startChar": 31,
+        "endLine": 23,
+        "endChar": 56
+      },
+      "revId": "302b20399d85464446177032fb2692f1e3bbacb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa79e349_af86cd88",
+        "filename": "public/netd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-05-04T22:09:35Z",
+      "side": 1,
+      "message": "Just for my own curiosity, how is this related to the other permissions here? Does opening /dev/tun return an anonymous tun_socket? It\u0027s very unusual to only see \"create\" needed on a socket.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 34
+      },
+      "revId": "302b20399d85464446177032fb2692f1e3bbacb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71c3545a_21c14b80",
+        "filename": "public/netd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-05-04T22:09:35Z",
+      "side": 1,
+      "message": "nit, include this below 23 so the tun_device permissions are grouped.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 66
+      },
+      "revId": "302b20399d85464446177032fb2692f1e3bbacb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
