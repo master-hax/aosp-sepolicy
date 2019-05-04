@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "85ca657e_c949b6d2",
+        "filename": "public/netd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-05-04T22:18:03Z",
+      "side": 1,
+      "message": "Nevermind netd is granted other tun_socket permissions elsewhere:\nhttps://android.googlesource.com/platform/system/sepolicy/+/refs/heads/master/public/netd.te#98\n\nSince netd is included in \"netdomain\" via net_domain(netd) above, it\u0027s indirectly granted these for tun_sockets that it has created for itself.",
+      "parentUuid": "fa79e349_af86cd88",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 34
+      },
+      "revId": "302b20399d85464446177032fb2692f1e3bbacb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "71c3545a_21c14b80",
         "filename": "public/netd.te",
         "patchSetId": 6
