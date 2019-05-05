@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "345db33c_59e0d866",
+        "filename": "public/netd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2019-05-05T03:07:31Z",
+      "side": 1,
+      "message": "And I at least partially lied...\n\n1st patchset commit message has:\n\n  type\u003d1400 audit(): avc: denied { relabelfrom } for comm\u003d\"clatd\" scontext\u003du:r:clatd:s0 tcontext\u003du:r:netd:s0 tclass\u003dtun_socket\n  type\u003d1400 audit(): avc: denied { relabelto } for comm\u003d\"clatd\" scontext\u003du:r:clatd:s0 tcontext\u003du:r:clatd:s0 tclass\u003dtun_socket\n\nwhich shows a relabelto from clatd to clatd, which you would think would be trivially allowed, and yet it is denied...\n\nI guess I don\u0027t understand what permits this apparent netd-\u003enetd relabel now.\n\nie. why am I *NOT* getting:\n  type\u003d1400 audit(): avc: denied { relabelfrom } for comm\u003d\"netd\" scontext\u003du:r:netd:s0 tcontext\u003du:r:netd:s0 tclass\u003dtun_socket\n  type\u003d1400 audit(): avc: denied { relabelto } for comm\u003d\"netd\" scontext\u003du:r:netd:s0 tcontext\u003du:r:netd:s0 tclass\u003dtun_socket\n\nMaybe relabelfrom/relabelto pairs are special...",
+      "parentUuid": "961c5495_f9a9e423",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 34
+      },
+      "revId": "302b20399d85464446177032fb2692f1e3bbacb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71c3545a_21c14b80",
         "filename": "public/netd.te",
         "patchSetId": 6
