@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "de1203f5_c7f62e33",
+        "filename": "public/netd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2019-05-05T02:55:29Z",
+      "side": 1,
+      "message": "//system/sepolicy/public/global_macros\n\ndefine(`x_file_perms\u0027, `{ getattr execute execute_no_trans map }\u0027)\ndefine(`r_file_perms\u0027, `{ getattr open read ioctl lock map }\u0027)\ndefine(`w_file_perms\u0027, `{ open append write lock map }\u0027)\ndefine(`rx_file_perms\u0027, `{ r_file_perms x_file_perms }\u0027)\ndefine(`ra_file_perms\u0027, `{ r_file_perms append }\u0027)\ndefine(`rw_file_perms\u0027, `{ r_file_perms w_file_perms }\u0027)\n\nso rw_file_perms is:\n  getattr open read append write ioctl lock map\n\nhence the extras:\n  getattr append lock map\n\ngetattr \u0026 append seem harmful enough, lock \u0026 map are I think not implemented on tunfd anyway...\n\nDone.",
+      "parentUuid": "e1edef8a_5640970d",
+      "range": {
+        "startLine": 23,
+        "startChar": 31,
+        "endLine": 23,
+        "endChar": 56
+      },
+      "revId": "302b20399d85464446177032fb2692f1e3bbacb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa79e349_af86cd88",
         "filename": "public/netd.te",
         "patchSetId": 6
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "961c5495_f9a9e423",
+        "filename": "public/netd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2019-05-05T02:55:29Z",
+      "side": 1,
+      "message": "I\u0027m not entirely convinced tun_socket-s actually *exist*.\n\nA tun fd is not created through the socket() socketpair() accept() accept4() system calls, and while there is a fake socket underlying the fd, it\u0027s kernel internal, and not actually at all visible to userspace and is basically an internal kernel implementation detail.\n\nAFAICT a tun fd is actually always still \u0027just\u0027 a character device with read/write/poll/ioctl/.. operations https://cs.corp.google.com/kernel-9xx/drivers/net/tun.c?rcl\u003d7feb42702129e4409bfac1edab6659875b37ccb7\u0026l\u003d3890 and not standard getsockopt/setsockopt and other socket operations.\n\nSee also:\n  http://cs/kernel-9xx/security/selinux/hooks.c?q\u003dp:kernel-9xx+TUN_SOCKET+case:yes\n\nSo basically certain tun operations on a tun filedescriptor trigger tun specific security hooks.\nThose hooks (for selinux) trigger:\n  tun_socket { create attach_queue relabelfrom relabelto }\nchecks - but AFAICT *nothing* else does - there are no other tun_socket operations.\n\nThe fact the selinux userspace claims a tun_socket inherits from socket is AFAICT one big fat lie.\n\nWhen you open /dev/net/tun (or /dev/tun) you are opening via an inode that exists on some file system.  This is a character device node:\n\n$ adb shell ls -lZ /dev/net/tun /dev/tun\nls: /dev/net/tun: No such file or directory\ncrw-rw---- 1 system vpn u:object_r:tun_device:s0 10, 200 1970-09-30 04:59 /dev/tun\n\nSo opening this thing and acting on it via normal vfs operations checks access to a  tun_device:chr_file thingamajig.  Hence the need for { open read write ioctl }.  The open/read/write is needed to open(\"/dev/tun\") and then the ioctl(TUNSETIFF) checks the { ioctl } and allowxperm ioctl { TUNSETIFF } privs.  (the read/write is also needed later I believe)\n\nBut this is where it gets funky.  The TUNSETIFF internally hits the tun.c tun specific code, and this triggers tun-specific security and thus selinux hooks, and this then triggers, tun_socket relabelfrom/relabelto/create (and possibly attach_queue, didn\u0027t check that).  Of course the relabelfrom/relabelto are not needed, because we open\u0027ed within netd domain (within netd daemon), and then immediately call ioctl(TUNSETIFF) so also within netd domain, and a relabel from netd to netd is trivially permitted.\n\n(the next portion is based partially on some uncommitted patches I found on lkml/netdev that haven\u0027t yet made it to mainline linux)\n\nTechnically though it looks like there\u0027s up to 3 domains involved during tun attachment.  The domain the /dev/tun was opened in, the domain we\u0027re running in, and the domain of the potentially already pre-existing tun interface we\u0027re attaching to (tun devices can be multiqueue, and in such a case require multiple file descriptors - one per queue - and attach_queue gets involved somewhere in this).\n\n(see the 3 diff checks for relabelfrom/relabelto/attach_queue in selinux_tun_dev_open \u0026 selinux_tun_dev_attach_queue)  The patch series was claiming that the relabelto check being sid-\u003esid is a code bug for the multiqueue case...\n\nAnyway... maybe this clears things up a little...\n\n(also, this is based on a lot of searching and grepping and limited experimentation, it may very well not be correct, if you know better... please let me know)",
+      "parentUuid": "85ca657e_c949b6d2",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 34
+      },
+      "revId": "302b20399d85464446177032fb2692f1e3bbacb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71c3545a_21c14b80",
         "filename": "public/netd.te",
         "patchSetId": 6
@@ -92,6 +140,30 @@
       "revId": "302b20399d85464446177032fb2692f1e3bbacb5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "966e20ca_c2d076b2",
+        "filename": "public/netd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2019-05-05T02:55:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71c3545a_21c14b80",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 66
+      },
+      "revId": "302b20399d85464446177032fb2692f1e3bbacb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
