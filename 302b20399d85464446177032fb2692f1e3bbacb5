@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "3716248e_212a333d",
+        "filename": "public/netd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2019-05-05T03:23:08Z",
+      "side": 1,
+      "message": "And here\u0027s proof of non-socketness.\n\n# cat tun.c \n#include \u003cfcntl.h\u003e\n#include \u003clinux/if.h\u003e\n#include \u003clinux/if_tun.h\u003e\n#include \u003cstdio.h\u003e\n#include \u003csys/ioctl.h\u003e\n#include \u003csys/socket.h\u003e\n#include \u003csys/stat.h\u003e\n#include \u003csys/types.h\u003e\n#include \u003cunistd.h\u003e\n\nint main (void) {\n  int fd \u003d open(\"/dev/net/tun\", O_RDWR | O_CLOEXEC);\n\n  int v; socklen_t sl \u003d sizeof(v);\n  getsockopt(fd, SOL_SOCKET, SO_DOMAIN, \u0026v, \u0026sl);\n  getsockopt(fd, SOL_SOCKET, SO_PROTOCOL, \u0026v, \u0026sl);\n  listen(fd, 128);\n\n  struct ifreq ifr \u003d {\n    .ifr_flags \u003d IFF_TUN,\n    .ifr_name \u003d \"foo0\",\n  };\n  ioctl(fd, TUNSETIFF, \u0026ifr);\n\n  getsockopt(fd, SOL_SOCKET, SO_DOMAIN, \u0026v, \u0026sl);\n  getsockopt(fd, SOL_SOCKET, SO_PROTOCOL, \u0026v, \u0026sl);\n  listen(fd, 128);\n\n  return 0;\n}\n\n# mcedit tun.c \u0026\u0026 gcc -static -Wall -O2 tun.c -o tun \u0026\u0026 strace -ff ./tun\n\nexecve(\"./tun\", [\"./tun\"], 0x7ffde34fb998 /* 27 vars */) \u003d 0\nuname({sysname\u003d\"Linux\", nodename\u003d\"athina.mtv.corp.google.com\", ...}) \u003d 0\nbrk(NULL)                               \u003d 0x1796000\nbrk(0x17971c0)                          \u003d 0x17971c0\narch_prctl(ARCH_SET_FS, 0x1796880)      \u003d 0\nreadlink(\"/proc/self/exe\", \"/root/tun\", 4096) \u003d 9\nbrk(0x17b81c0)                          \u003d 0x17b81c0\nbrk(0x17b9000)                          \u003d 0x17b9000\naccess(\"/etc/ld.so.nohwcap\", F_OK)      \u003d -1 ENOENT (No such file or directory)\nopen(\"/dev/net/tun\", O_RDWR|O_CLOEXEC)  \u003d 3\ngetsockopt(3, SOL_SOCKET, SO_DOMAIN, 0x7ffe58953028, [4]) \u003d -1 ENOTSOCK (Socket operation on non-socket)\ngetsockopt(3, SOL_SOCKET, SO_PROTOCOL, 0x7ffe58953028, [4]) \u003d -1 ENOTSOCK (Socket operation on non-socket)\nlisten(3, 128)                          \u003d -1 ENOTSOCK (Socket operation on non-socket)\nioctl(3, TUNSETIFF, 0x7ffe58953030)     \u003d 0\ngetsockopt(3, SOL_SOCKET, SO_DOMAIN, 0x7ffe58953028, [4]) \u003d -1 ENOTSOCK (Socket operation on non-socket)\ngetsockopt(3, SOL_SOCKET, SO_PROTOCOL, 0x7ffe58953028, [4]) \u003d -1 ENOTSOCK (Socket operation on non-socket)\nlisten(3, 128)                          \u003d -1 ENOTSOCK (Socket operation on non-socket)\nexit_group(0)                           \u003d ?\n+++ exited with 0 +++\n\nnote all the ENOTSOCK errors",
+      "parentUuid": "345db33c_59e0d866",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 34
+      },
+      "revId": "302b20399d85464446177032fb2692f1e3bbacb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71c3545a_21c14b80",
         "filename": "public/netd.te",
         "patchSetId": 6
