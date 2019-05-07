@@ -1,5 +1,6 @@
 type apexd_prop, property_type;
 type audio_prop, property_type, core_property_type;
+type keymaster_prop, property_type;
 type boottime_prop, property_type;
 type bluetooth_a2dp_offload_prop, property_type;
 type bluetooth_audio_hal_prop, property_type;
@@ -355,6 +356,7 @@ compatible_property_only(`
   } {
     property_type
     -apexd_prop
+    -keymaster_prop
     -audio_prop
     -bluetooth_a2dp_offload_prop
     -bluetooth_audio_hal_prop
