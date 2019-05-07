@@ -1061,13 +1061,15 @@ include $(BUILD_SYSTEM)/base_rules.mk
 # The file_contexts.bin is built in the following way:
 # 1. Collect all file_contexts files in THIS repository and process them with
 #    m4 into a tmp file called file_contexts.local.tmp.
-# 2. Collect all device specific file_contexts files and process them with m4
+# 2. Run checkfc and fc_sort on file_contexts.local.tmp and output to
+#    file_contexts.local.sorted.tmp.
+# 3. Collect all device specific file_contexts files and process them with m4
 #    into a tmp file called file_contexts.device.tmp.
-# 3. Run checkfc -e (allow no device fc entries ie empty) and fc_sort on
+# 4. Run checkfc -e (allow no device fc entries ie empty) and fc_sort on
 #    file_contexts.device.tmp and output to file_contexts.device.sorted.tmp.
-# 4. Concatenate file_contexts.local.tmp and file_contexts.device.tmp into
+# 5. Concatenate file_contexts.local.tmp and file_contexts.device.tmp into
 #    file_contexts.concat.tmp.
-# 5. Run checkfc and sefcontext_compile on file_contexts.concat.tmp to produce
+# 6. Run checkfc and sefcontext_compile on file_contexts.concat.tmp to produce
 #    file_contexts.bin.
 #
 #  Note: That a newline file is placed between each file_context file found to
@@ -1099,6 +1101,14 @@ $(file_contexts.local.tmp): $(local_fc_files)
 	@mkdir -p $(dir $@)
 	$(hide) m4 --fatal-warnings -s $^ > $@
 
+file_contexts.local.sorted.tmp := $(intermediates)/file_contexts.local.sorted.tmp
+$(file_contexts.local.sorted.tmp): PRIVATE_SEPOLICY := $(built_sepolicy)
+$(file_contexts.local.sorted.tmp): $(file_contexts.local.tmp) $(built_sepolicy) \
+  $(HOST_OUT_EXECUTABLES)/fc_sort $(HOST_OUT_EXECUTABLES)/checkfc
+	@mkdir -p $(dir $@)
+	$(hide) $(HOST_OUT_EXECUTABLES)/checkfc $(PRIVATE_SEPOLICY) $<
+	$(hide) $(HOST_OUT_EXECUTABLES)/fc_sort $< $@
+
 device_fc_files := $(call build_vendor_policy, file_contexts)
 
 ifdef BOARD_ODM_SEPOLICY_DIRS
@@ -1120,7 +1130,7 @@ $(file_contexts.device.sorted.tmp): $(file_contexts.device.tmp) $(built_sepolicy
 	$(hide) $(HOST_OUT_EXECUTABLES)/fc_sort -i $< -o $@
 
 file_contexts.concat.tmp := $(intermediates)/file_contexts.concat.tmp
-$(file_contexts.concat.tmp): $(file_contexts.local.tmp) $(file_contexts.device.sorted.tmp)
+$(file_contexts.concat.tmp): $(file_contexts.local.sorted.tmp) $(file_contexts.device.sorted.tmp)
 	@mkdir -p $(dir $@)
 	$(hide) m4 --fatal-warnings -s $^ > $@
 
@@ -1139,6 +1149,7 @@ file_contexts.concat.tmp :=
 file_contexts.device.sorted.tmp :=
 file_contexts.device.tmp :=
 file_contexts.local.tmp :=
+file_contexts.local.sorted.tmp :=
 
 ##################################
 ifneq ($(TARGET_BUILD_VARIANT), user)
