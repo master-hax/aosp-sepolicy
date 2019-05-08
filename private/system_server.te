@@ -901,6 +901,10 @@ userdebug_or_eng(`
   allow system_server user_profile_data_file:file create_file_perms;
 ')
 
+# Allow system server to read profiles from /system. lock access to for simplifying
+# ART code.
+allow system_server system_profile_file:file { lock getattr open read };
+
 userdebug_or_eng(`
   # Allow system server to notify mediaextractor of the plugin update.
   allow system_server mediaextractor_update_service:service_manager find;
