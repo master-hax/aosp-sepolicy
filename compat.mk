@@ -6,7 +6,7 @@ include $(CLEAR_VARS)
 #
 LOCAL_MODULE := $(version)_compat_test
 LOCAL_REQUIRED_MODULES := $(version).compat.cil
-LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := tests
 
 include $(BUILD_SYSTEM)/base_rules.mk

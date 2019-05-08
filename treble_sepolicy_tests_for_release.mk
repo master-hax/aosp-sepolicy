@@ -5,7 +5,7 @@ include $(CLEAR_VARS)
 # permissions granted do not violate the treble model.  Also ensure that treble
 # compatibility guarantees are upheld between SELinux version bumps.
 LOCAL_MODULE := treble_sepolicy_tests_$(version)
-LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := tests
 
 include $(BUILD_SYSTEM)/base_rules.mk
