@@ -183,12 +183,14 @@ file_contexts {
 hwservice_contexts {
     name: "plat_hwservice_contexts",
     srcs: [":hwservice_contexts_files"],
+    recovery_available: true,
 }
 
 hwservice_contexts {
     name: "product_hwservice_contexts",
     srcs: [":hwservice_contexts_files"],
     product_specific: true,
+    recovery_available: true,
 }
 
 hwservice_contexts {
@@ -196,12 +198,14 @@ hwservice_contexts {
     srcs: [":hwservice_contexts_files"],
     reqd_mask: true,
     soc_specific: true,
+    recovery_available: true,
 }
 
 hwservice_contexts {
     name: "odm_hwservice_contexts",
     srcs: [":hwservice_contexts_files"],
     device_specific: true,
+    recovery_available: true,
 }
 
 property_contexts {
@@ -235,12 +239,14 @@ property_contexts {
 service_contexts {
     name: "plat_service_contexts",
     srcs: [":service_contexts_files"],
+    recovery_available: true,
 }
 
 service_contexts {
     name: "product_service_contexts",
     srcs: [":service_contexts_files"],
     product_specific: true,
+    recovery_available: true,
 }
 
 service_contexts {
@@ -248,4 +254,5 @@ service_contexts {
     srcs: [":service_contexts_files"],
     reqd_mask: true,
     soc_specific: true,
+    recovery_available: true,
 }
