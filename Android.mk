@@ -1159,8 +1159,22 @@ $(LOCAL_BUILT_MODULE): $(vndservice_contexts.tmp) $(built_sepolicy) $(HOST_OUT_E
 	sed -e 's/#.*$$//' -e '/^$$/d' $< > $@
 	$(hide) $(HOST_OUT_EXECUTABLES)/checkfc -e -v $(PRIVATE_SEPOLICY) $@
 
+built_vndsvc := $(LOCAL_BUILT_MODULE)
 vnd_svcfiles :=
 vndservice_contexts.tmp :=
+
+##################################
+include $(CLEAR_VARS)
+LOCAL_MODULE := vndservice_contexts.recovery
+LOCAL_MODULE_STEM := vndservice_contexts
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_RECOVERY_ROOT_OUT)
+
+include $(BUILD_SYSTEM)/base_rules.mk
+
+$(LOCAL_BUILT_MODULE): $(built_vndsvc)
+    $(hide) cp -f $< $@
 
 ##################################
 include $(LOCAL_PATH)/mac_permissions.mk
@@ -1341,6 +1355,10 @@ built_sepolicy :=
 built_sepolicy_neverallows :=
 built_plat_svc :=
 built_vendor_svc :=
+built_plat_hwsvc :=
+built_vendor_hwsvc :=
+built_odm_hwsvc :=
+built_vndsvc :=
 built_plat_sepolicy :=
 mapping_policy :=
 my_target_arch :=
