@@ -81,7 +81,6 @@ allow domain ashmemd:fd use;
 allow {
   coredomain
   appdomain
-  binder_in_vendor_violators # TODO(b/35870313): Remove once all violations are gone
   -hwservicemanager
 } binder_device:chr_file rw_file_perms;
 # Devices which are not full TREBLE have fewer restrictions on access to /dev/binder
@@ -626,7 +625,6 @@ full_treble_only(`
     domain
     -coredomain
     -appdomain
-    -binder_in_vendor_violators # TODO(b/35870313): Remove once all violations are gone
   } binder_device:chr_file rw_file_perms;
 ')
 
@@ -639,7 +637,6 @@ full_treble_only(`
     domain
     -coredomain
     -appdomain # restrictions for vendor apps are declared lower down
-    -binder_in_vendor_violators # TODO(b/35870313): Remove once all violations are gone
   } service_manager_type:service_manager find;
 ')
 full_treble_only(`
@@ -672,7 +669,6 @@ full_treble_only(`
     domain
     -coredomain
     -appdomain
-    -binder_in_vendor_violators # TODO(b/35870313): Remove once all violations are gone
   } servicemanager:binder { call transfer };
 ')
 
