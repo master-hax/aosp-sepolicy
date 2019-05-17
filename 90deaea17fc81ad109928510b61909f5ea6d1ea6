@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4af9491a_6f93c9fa",
+        "filename": "private/atrace.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2019-05-17T11:32:15Z",
+      "side": 1,
+      "message": "With the way it\u0027s currently set up [1], it tries to notify all HALs. So it doesn\u0027t look for camera specifically.\n\nWith regards denial logspam, you\u0027re right, we can do better. Added a set of dontaudits similar to those of traceur_app.te, which covers both the binder services, and the HALs.\n\n[1] https://googleplex-android.git.corp.google.com/platform/frameworks/native/+/29b9a091e23953a2a6a6084d6d34703f24c38fc4/cmds/atrace/atrace.cpp#616",
+      "parentUuid": "9fe6ef52_a9be553f",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 55
+      },
+      "revId": "90deaea17fc81ad109928510b61909f5ea6d1ea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adb7da75_d49dd130",
         "filename": "private/atrace.te",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a41ec2ac_04a7f891",
+        "filename": "private/atrace.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2019-05-17T11:32:15Z",
+      "side": 1,
+      "message": "Done. Thanks, I got lost in the variety of hwservice/hal related macros.",
+      "parentUuid": "adb7da75_d49dd130",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 33
+      },
+      "revId": "90deaea17fc81ad109928510b61909f5ea6d1ea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5f6ff97_6b7f0404",
         "filename": "private/atrace.te",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "90deaea17fc81ad109928510b61909f5ea6d1ea6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4160b96_8c251589",
+        "filename": "private/atrace.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2019-05-17T11:32:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5f6ff97_6b7f0404",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 37
+      },
+      "revId": "90deaea17fc81ad109928510b61909f5ea6d1ea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
