@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0f649eb_e0398f55",
+        "filename": "private/file_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-05-20T19:30:56Z",
+      "side": 1,
+      "message": "since this is new file, can we just choose one location, instead of allowing it in two different locations? Do we really need to support both /vendor and /system/vendor?",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 24
+      },
+      "revId": "481d9b2bbf1f72b7cffe510b9d8846190422581c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fdbee59_146f5266",
+        "filename": "vendor/vendor_misc_writer.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-05-20T19:30:56Z",
+      "side": 1,
+      "message": "vendor_misc_writer is already assigned the \"domain\" attribute in vendor_misc_writer.te:\n\n  type vendor_misc_writer, domain;\n\nthis line can be deleted.",
+      "revId": "481d9b2bbf1f72b7cffe510b9d8846190422581c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
