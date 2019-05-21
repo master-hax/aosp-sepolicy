@@ -5,6 +5,8 @@
 
 typeattribute system_server coredomain;
 typeattribute system_server mlstrustedsubject;
+typeattribute system_server scheduler_service_server;
+typeattribute system_server sensor_service_server;
 
 # Define a type for tmpfs-backed ashmem regions.
 tmpfs_domain(system_server)
@@ -115,10 +117,15 @@ allow system_server audioserver:process { getsched setsched };
 allow system_server hal_audio:process { getsched setsched };
 allow system_server hal_bluetooth:process { getsched setsched };
 allow system_server hal_omx_server:process { getsched setsched };
+allow system_server mediaswcodec:process { getsched setsched };
 allow system_server cameraserver:process { getsched setsched };
 allow system_server hal_camera:process { getsched setsched };
 allow system_server mediaserver:process { getsched setsched };
 allow system_server bootanim:process { getsched setsched };
+
+# Set scheduling info for psi monitor thread.
+# TODO: delete this line b/131761776
+allow system_server kernel:process { getsched setsched };
 
 # Allow system_server to write to /proc/<pid>/*
 allow system_server domain:file w_file_perms;
@@ -243,10 +250,6 @@ allow system_server hal_graphics_composer:fd use;
 allow system_server hal_renderscript_hwservice:hwservice_manager find;
 allow system_server same_process_hal_file:file { execute read open getattr map };
 
-# Offer HwBinder services
-add_hwservice(system_server, fwk_scheduler_hwservice)
-add_hwservice(system_server, fwk_sensor_hwservice)
-
 # Talk to tombstoned to get ANR traces.
 unix_socket_connect(system_server, tombstoned_intercept, tombstoned)
 
@@ -265,8 +268,9 @@ allow system_server {
   inputflinger
   mediadrmserver
   mediaextractor
-  mediaserver
   mediametrics
+  mediaserver
+  mediaswcodec
   sdcardd
   statsd
   surfaceflinger
@@ -643,6 +647,9 @@ allow system_server { cache_file cache_recovery_file }:fifo_file create_file_per
 
 allow system_server system_file:dir r_dir_perms;
 allow system_server system_file:lnk_file r_file_perms;
+
+# ART locks profile files.
+allow system_server system_file:file lock;
 
 # LocationManager(e.g, GPS) needs to read and write
 # to uart driver and ctrl proc entry
