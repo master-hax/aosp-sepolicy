@@ -24,6 +24,7 @@
 /lost\+found        u:object_r:rootfs:s0
 /acct               u:object_r:cgroup:s0
 /config             u:object_r:rootfs:s0
+/debug_ramdisk      u:object_r:tmpfs:s0
 /mnt                u:object_r:tmpfs:s0
 /postinstall        u:object_r:postinstall_mnt_dir:s0
 /postinstall/apex   u:object_r:postinstall_apex_mnt_dir:s0
@@ -180,8 +181,10 @@
 #
 /system(/.*)?		u:object_r:system_file:s0
 /system/lib(64)?(/.*)?		u:object_r:system_lib_file:s0
+/system/lib(64)?/bootstrap(/.*)? u:object_r:system_bootstrap_lib_file:s0
 /system/bin/atrace	u:object_r:atrace_exec:s0
 /system/bin/ashmemd	u:object_r:ashmemd_exec:s0
+/system/bin/auditctl	u:object_r:auditctl_exec:s0
 /system/bin/bcc                 u:object_r:rs_exec:s0
 /system/bin/blank_screen	u:object_r:blank_screen_exec:s0
 /system/bin/charger		u:object_r:charger_exec:s0
@@ -349,6 +352,9 @@
 /(vendor|system/vendor)/overlay(/.*)?          u:object_r:vendor_overlay_file:s0
 /(vendor|system/vendor)/framework(/.*)?        u:object_r:vendor_framework_file:s0
 
+/vendor/apex(/[^/]+){0,2}                      u:object_r:vendor_apex_file:s0
+/vendor/bin/misc_writer                        u:object_r:vendor_misc_writer_exec:s0
+
 # HAL location
 /(vendor|system/vendor)/lib(64)?/hw            u:object_r:vendor_hal_file:s0
 
@@ -452,6 +458,8 @@
 /data/mediadrm(/.*)?	u:object_r:media_data_file:s0
 /data/nativetest(/.*)?	u:object_r:nativetest_data_file:s0
 /data/nativetest64(/.*)?	u:object_r:nativetest_data_file:s0
+# This directory was removed after Q Beta 2, but we need to preserve labels for upgrading devices.
+/data/pkg_staging(/.*)?		u:object_r:staging_data_file:s0
 /data/property(/.*)?	u:object_r:property_data_file:s0
 /data/preloads(/.*)?	u:object_r:preloads_data_file:s0
 /data/preloads/media(/.*)?	u:object_r:preloads_media_file:s0
@@ -633,6 +641,7 @@
 # external storage
 /mnt/media_rw(/.*)?         u:object_r:mnt_media_rw_file:s0
 /mnt/user(/.*)?             u:object_r:mnt_user_file:s0
+/mnt/sdcard                 u:object_r:mnt_sdcard_file:s0
 /mnt/runtime(/.*)?          u:object_r:storage_file:s0
 /storage(/.*)?              u:object_r:storage_file:s0
 

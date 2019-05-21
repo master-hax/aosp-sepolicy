@@ -59,6 +59,7 @@ persist.mmc.            u:object_r:mmc_prop:s0
 persist.netd.stable_secret      u:object_r:netd_stable_secret_prop:s0
 persist.sys.            u:object_r:system_prop:s0
 persist.sys.safemode    u:object_r:safemode_prop:s0
+persist.sys.fflag.override.settings_dynamic_system    u:object_r:dynamic_system_prop:s0
 ro.sys.safemode         u:object_r:safemode_prop:s0
 persist.sys.audit_safemode      u:object_r:safemode_prop:s0
 persist.service.        u:object_r:system_prop:s0
@@ -183,6 +184,9 @@ persist.device_config.netd_native.           u:object_r:device_config_netd_nativ
 persist.device_config.runtime_native.        u:object_r:device_config_runtime_native_prop:s0
 persist.device_config.runtime_native_boot.   u:object_r:device_config_runtime_native_boot_prop:s0
 persist.device_config.media_native.          u:object_r:device_config_media_native_prop:s0
+
+# Properties that relate to legacy server configurable flags
+persist.device_config.global_settings.sys_traced u:object_r:device_config_sys_traced_prop:s0
 
 apexd.                  u:object_r:apexd_prop:s0
 persist.apexd.          u:object_r:apexd_prop:s0

@@ -603,6 +603,7 @@ neverallow {
   -uncrypt
   -update_engine
   -vendor_init
+  -vendor_misc_writer
   -vold
   -recovery
   -ueventd
@@ -740,16 +741,6 @@ full_treble_only(`
     -tombstoned # linker to tombstoned
     userdebug_or_eng('-heapprofd`)
   });
-')
-
-  # Vendor domains (except netdomain) are not permitted to initiate communications to netd sockets
-full_treble_only(`
-  neverallow_establish_socket_comms({
-    domain
-    -coredomain
-    -netdomain
-    -socket_between_core_and_vendor_violators
-  }, netd);
 ')
 
   # Vendor domains are not permitted to initiate create/open sockets owned by core domains
@@ -1003,6 +994,7 @@ full_treble_only(`
     vendor_file_type
     -same_process_hal_file
     -vendor_app_file
+    -vendor_apex_file
     -vendor_configs_file
     -vendor_framework_file
     -vendor_idc_file

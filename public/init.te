@@ -46,11 +46,16 @@ allow init {
   userdata_block_device
 }:{ blk_file lnk_file } relabelto;
 
+allow init super_block_device:lnk_file relabelto;
+
+# Create /mnt/sdcard -> /storage/self/primary symlink.
+allow init mnt_sdcard_file:lnk_file create;
+
 # setrlimit
 allow init self:global_capability_class_set sys_resource;
 
-# Remove /dev/.booting, created before initial policy load or restorecon /dev.
-allow init tmpfs:file unlink;
+# Remove /dev/.booting and load /debug_ramdisk/* files
+allow init tmpfs:file { getattr unlink };
 
 # Access pty created for fsck.
 allow init devpts:chr_file { read write open };
@@ -480,9 +485,9 @@ allow init self:udp_socket { create ioctl };
 allowxperm init self:udp_socket ioctl SIOCSIFFLAGS;
 allow init self:global_capability_class_set net_raw;
 
-# This line seems suspect, as it should not really need to
-# set scheduling parameters for a kernel domain task.
-allow init kernel:process setsched;
+# Set scheduling info for psi monitor thread.
+# TODO: delete or revise this line b/131761776
+allow init kernel:process { getsched setsched };
 
 # swapon() needs write access to swap device
 # system/core/fs_mgr/fs_mgr.c - fs_mgr_swapon_all
@@ -556,6 +561,10 @@ allow init apexd:binder call;
 
 # Allow init to touch PSI monitors
 allow init proc_pressure_mem:file { rw_file_perms setattr };
+
+# init is using bootstrap bionic
+allow init system_bootstrap_lib_file:dir r_dir_perms;
+allow init system_bootstrap_lib_file:file { execute read open getattr map };
 
 ###
 ### neverallow rules
