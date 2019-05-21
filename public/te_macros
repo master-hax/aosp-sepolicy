@@ -408,6 +408,9 @@ allow $1 self:global_capability2_class_set block_suspend;
 # system_suspend permissions
 binder_call($1, system_suspend_server)
 allow $1 system_suspend_hwservice:hwservice_manager find;
+# ashmmed permissions
+binder_call($1, ashmemd_server)
+allow $1 ashmemd_hwservice:hwservice_manager find;
 # halclientdomain permissions
 hwbinder_use($1)
 get_prop($1, hwservicemanager_prop)

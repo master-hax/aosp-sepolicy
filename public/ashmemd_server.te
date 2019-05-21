@@ -1,0 +1,7 @@
+# Required to export a HIDL interface.
+hwbinder_use(ashmemd_server)
+get_prop(ashmemd_server, hwservicemanager_prop)
+
+# To serve IAshmemdService.hal.
+add_hwservice(ashmemd_server, ashmemd_hwservice)
+
