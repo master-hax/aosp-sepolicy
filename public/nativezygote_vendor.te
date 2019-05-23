@@ -1,0 +1,18 @@
+type nativezygote_vendor, domain;
+type nativezygote_vendor_exec, exec_type, file_type, system_file_type;
+
+allow nativezygote_vendor self:global_capability_class_set sys_resource;
+
+allow nativezygote_vendor self:process setsockcreate;
+
+allow nativezygote_vendor domain:unix_stream_socket { create bind setopt };
+allow nativezygote_vendor domain:unix_dgram_socket { create bind setopt };
+
+allow nativezygote_vendor self:global_capability_class_set { chown fowner fsetid };
+
+allow nativezygote_vendor self:global_capability_class_set { setuid setgid setpcap };
+
+allow nativezygote_vendor self:process setcurrent;
+
+allow nativezygote_vendor socket_device:dir { add_name write };
+allow nativezygote_vendor socket_device:sock_file { create setattr };
