@@ -1,0 +1,39 @@
+type nativezygote, domain;
+type nativezygote_vendor, domain;
+type nativezygote_exec, exec_type, file_type, system_file_type;
+type nativezygote_vendor_exec, exec_type, file_type, system_file_type;
+
+define(`nativezygote_all', `{ nativezygote nativezygote_vendor }')
+
+allow nativezygote_all file_contexts_file:file r_file_perms;
+
+allow nativezygote_all self:global_capability_class_set sys_resource;
+
+allow nativezygote_all self:process setsockcreate;
+
+allow nativezygote_all domain:{ unix_stream_socket unix_dgram_socket} { create bind setopt };
+
+allow nativezygote_all self:global_capability_class_set { chown fowner fsetid setuid setgid setpcap };
+
+allow nativezygote_all self:process setcurrent;
+
+allow nativezygote_all socket_device:dir { add_name remove_name write };
+
+allow nativezygote_all self:process { setfscreate setsockcreate };
+
+get_prop(nativezygote_all, nativezygote_prop)
+
+# Vendor native zygote needs to be able to load vendor libraries.
+r_dir_file(nativezygote_vendor, vendor_file)
+
+neverallow {
+  domain
+  -nativezygote
+  -init
+} nativezygote:unix_stream_socket connectto;
+
+neverallow {
+  domain
+  -nativezygote_vendor
+  -init
+} nativezygote_vendor:unix_stream_socket connectto;

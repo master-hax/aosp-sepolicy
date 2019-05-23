@@ -778,6 +778,8 @@ full_treble_only(`
   neverallow {
     coredomain
     -init
+    -nativezygote
+    -nativezygote_vendor
     -ueventd
     -socket_between_core_and_vendor_violators
   } {
@@ -985,6 +987,7 @@ full_treble_only(`
     -crash_dump
     -init # starts vendor executables
     -kernel # loads /vendor/firmware
+    -nativezygote_vendor # loads vendor libraries and executables
     userdebug_or_eng(`-perfprofd')
     userdebug_or_eng(`-heapprofd')
     -shell
@@ -1310,6 +1313,7 @@ full_treble_only(`
     -crash_dump
     -init
     -kernel
+    -nativezygote_vendor # loads vendor libraries and executables
     -perfprofd
     -heapprofd
     -ueventd
