@@ -1,0 +1,27 @@
+type nativezygote, domain;
+type nativezygote_exec, exec_type, file_type, system_file_type;
+
+allow nativezygote file_contexts_file:file r_file_perms;
+
+allow nativezygote self:global_capability_class_set sys_resource;
+
+allow nativezygote self:process setsockcreate;
+
+allow nativezygote domain:unix_stream_socket { create bind setopt };
+allow nativezygote domain:unix_dgram_socket { create bind setopt };
+
+allow nativezygote self:global_capability_class_set { chown fowner fsetid };
+
+allow nativezygote self:global_capability_class_set { setuid setgid setpcap };
+
+allow nativezygote self:process setcurrent;
+
+allow nativezygote socket_device:dir { add_name remove_name write };
+
+allow nativezygote self:process { setfscreate setsockcreate };
+
+neverallow {
+  domain
+  -nativezygote
+  -init
+} nativezygote:unix_stream_socket connectto;
