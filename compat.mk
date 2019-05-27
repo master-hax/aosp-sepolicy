@@ -5,7 +5,6 @@ include $(CLEAR_VARS)
 # build this target to ensure the compat permissions files all build against the current policy
 #
 LOCAL_MODULE := $(version)_compat_test
-LOCAL_REQUIRED_MODULES := $(version).compat.cil
 intermediates := $(TARGET_OUT_INTERMEDIATES)/ETC/sepolicy_intermediates
 
 all_cil_files := \

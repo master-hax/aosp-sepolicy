@@ -5,10 +5,7 @@ include $(CLEAR_VARS)
 # permissions granted do not violate the treble model.  Also ensure that treble
 # compatibility guarantees are upheld between SELinux version bumps.
 LOCAL_MODULE := treble_sepolicy_tests_$(version)
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_TAGS := tests
-
-include $(BUILD_SYSTEM)/base_rules.mk
+intermediates = $(call intermediates-dir-for,ETC,sepolicy)
 
 # $(version)_plat - the platform policy shipped as part of the $(version) release.  This is
 # built to enable us to determine the diff between the current policy and the
@@ -80,7 +77,7 @@ $($(version)_mapping.combined.cil): $($(version)_mapping.cil) $($(version)_mappi
 	mkdir -p $(dir $@)
 	cat $^ > $@
 
-treble_sepolicy_tests_$(version) := $(intermediates)/treble_sepolicy_tests_$(version)
+treble_sepolicy_tests_$(version) := $(intermediates)/$(LOCAL_MODULE)
 $(treble_sepolicy_tests_$(version)): ALL_FC_ARGS := $(all_fc_args)
 $(treble_sepolicy_tests_$(version)): PRIVATE_SEPOLICY := $(built_sepolicy)
 $(treble_sepolicy_tests_$(version)): PRIVATE_SEPOLICY_OLD := $(built_$(version)_plat_sepolicy)
@@ -114,6 +111,10 @@ $(treble_sepolicy_tests_$(version)): $(HOST_OUT_EXECUTABLES)/treble_sepolicy_tes
 		-u $(PRIVATE_PLAT_PUB_SEPOLICY) \
 		$(PRIVATE_FAKE_TREBLE)
 	$(hide) touch $@
+
+droidcore: $(treble_sepolicy_tests_$(version))
+$(LOCAL_MODULE): $(treble_sepolicy_tests_$(version))
+.PHONY: $(LOCAL_MODULE)
 
 $(version)_PLAT_PUBLIC_POLICY :=
 $(version)_PLAT_PRIVATE_POLICY :=

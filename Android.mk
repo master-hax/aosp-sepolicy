@@ -210,15 +210,11 @@ LOCAL_REQUIRED_MODULES += \
 LOCAL_REQUIRED_MODULES += \
     build_sepolicy \
     plat_file_contexts \
-    plat_file_contexts_test \
     plat_mac_permissions.xml \
     plat_property_contexts \
-    plat_property_contexts_test \
     plat_seapp_contexts \
     plat_service_contexts \
-    plat_service_contexts_test \
     plat_hwservice_contexts \
-    plat_hwservice_contexts_test \
     searchpolicy \
 
 # This conditional inclusion closely mimics the conditional logic
@@ -230,22 +226,6 @@ LOCAL_REQUIRED_MODULES += \
     vendor_service_contexts \
 
 endif # ($(PRODUCT_SEPOLICY_SPLIT),true)
-
-ifneq ($(with_asan),true)
-ifneq ($(SELINUX_IGNORE_NEVERALLOWS),true)
-LOCAL_REQUIRED_MODULES += \
-    sepolicy_tests \
-    $(addprefix treble_sepolicy_tests_,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS)) \
-    $(addsuffix _compat_test,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS)) \
-
-endif
-endif
-
-ifneq ($(PLATFORM_SEPOLICY_VERSION),$(TOT_SEPOLICY_VERSION))
-LOCAL_REQUIRED_MODULES += \
-    sepolicy_freeze_test \
-
-endif # ($(PLATFORM_SEPOLICY_VERSION),$(TOT_SEPOLICY_VERSION))
 
 include $(BUILD_PHONY_PACKAGE)
 
@@ -274,25 +254,19 @@ LOCAL_REQUIRED_MODULES += \
 
 LOCAL_REQUIRED_MODULES += \
     vendor_file_contexts \
-    vendor_file_contexts_test \
     vendor_mac_permissions.xml \
     vendor_property_contexts \
-    vendor_property_contexts_test \
     vendor_seapp_contexts \
     vendor_hwservice_contexts \
-    vendor_hwservice_contexts_test \
     vndservice_contexts \
 
 ifdef BOARD_ODM_SEPOLICY_DIRS
 LOCAL_REQUIRED_MODULES += \
     odm_sepolicy.cil \
     odm_file_contexts \
-    odm_file_contexts_test \
     odm_seapp_contexts \
     odm_property_contexts \
-    odm_property_contexts_test \
     odm_hwservice_contexts \
-    odm_hwservice_contexts_test \
     odm_mac_permissions.xml
 endif
 
@@ -300,14 +274,10 @@ ifdef HAS_PRODUCT_SEPOLICY
 LOCAL_REQUIRED_MODULES += \
     product_sepolicy.cil \
     product_file_contexts \
-    product_file_contexts_test \
     product_hwservice_contexts \
-    product_hwservice_contexts_test \
     product_property_contexts \
-    product_property_contexts_test \
     product_seapp_contexts \
     product_service_contexts \
-    product_service_contexts_test \
     product_mac_permissions.xml \
     product_mapping_file \
 
@@ -1199,10 +1169,7 @@ include $(LOCAL_PATH)/mac_permissions.mk
 #################################
 include $(CLEAR_VARS)
 LOCAL_MODULE := sepolicy_tests
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_TAGS := tests
-
-include $(BUILD_SYSTEM)/base_rules.mk
+intermediates := $(call intermediates-dir-for,ETC,sepolicy)
 
 all_fc_files := $(TARGET_OUT)/etc/selinux/plat_file_contexts
 all_fc_files += $(TARGET_OUT_VENDOR)/etc/selinux/vendor_file_contexts
@@ -1214,7 +1181,7 @@ all_fc_files += $(TARGET_OUT_ODM)/etc/selinux/odm_file_contexts
 endif
 all_fc_args := $(foreach file, $(all_fc_files), -f $(file))
 
-sepolicy_tests := $(intermediates)/sepolicy_tests
+sepolicy_tests := $(intermediates)/$(LOCAL_MODULE)
 $(sepolicy_tests): ALL_FC_ARGS := $(all_fc_args)
 $(sepolicy_tests): PRIVATE_SEPOLICY := $(built_sepolicy)
 $(sepolicy_tests): $(HOST_OUT_EXECUTABLES)/sepolicy_tests $(all_fc_files) $(built_sepolicy)
@@ -1222,6 +1189,10 @@ $(sepolicy_tests): $(HOST_OUT_EXECUTABLES)/sepolicy_tests $(all_fc_files) $(buil
 	$(hide) $(HOST_OUT_EXECUTABLES)/sepolicy_tests -l $(HOST_OUT)/lib64/libsepolwrap.$(SHAREDLIB_EXT) \
 		$(ALL_FC_ARGS)  -p $(PRIVATE_SEPOLICY)
 	$(hide) touch $@
+
+droidcore: $(sepolicy_tests)
+$(LOCAL_MODULE): $(sepolicy_tests)
+.PHONY: $(LOCAL_MODULE)
 
 ##################################
 intermediates := $(call intermediates-dir-for,ETC,built_plat_sepolicy,,,,)
@@ -1309,10 +1280,7 @@ all_fc_args :=
 #################################
 include $(CLEAR_VARS)
 LOCAL_MODULE := sepolicy_freeze_test
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_TAGS := tests
-
-include $(BUILD_SYSTEM)/base_rules.mk
+intermediates := $(call intermediates-dir-for,ETC,sepolicy_freeze_test)
 
 base_plat_public := $(LOCAL_PATH)/public
 base_plat_private := $(LOCAL_PATH)/private
@@ -1324,16 +1292,21 @@ base_plat_private_prebuilt := \
 all_frozen_files := $(call build_policy,$(sepolicy_build_files), \
 $(base_plat_public) $(base_plat_private) $(base_plat_public_prebuilt) $(base_plat_private_prebuilt))
 
-$(LOCAL_BUILT_MODULE): PRIVATE_BASE_PLAT_PUBLIC := $(base_plat_public)
-$(LOCAL_BUILT_MODULE): PRIVATE_BASE_PLAT_PRIVATE := $(base_plat_private)
-$(LOCAL_BUILT_MODULE): PRIVATE_BASE_PLAT_PUBLIC_PREBUILT := $(base_plat_public_prebuilt)
-$(LOCAL_BUILT_MODULE): PRIVATE_BASE_PLAT_PRIVATE_PREBUILT := $(base_plat_private_prebuilt)
-$(LOCAL_BUILT_MODULE): $(all_frozen_files)
+sepolicy_freeze_test := $(intermediates)/$(LOCAL_MODULE)
+$(sepolicy_freeze_test): PRIVATE_BASE_PLAT_PUBLIC := $(base_plat_public)
+$(sepolicy_freeze_test): PRIVATE_BASE_PLAT_PRIVATE := $(base_plat_private)
+$(sepolicy_freeze_test): PRIVATE_BASE_PLAT_PUBLIC_PREBUILT := $(base_plat_public_prebuilt)
+$(sepolicy_freeze_test): PRIVATE_BASE_PLAT_PRIVATE_PREBUILT := $(base_plat_private_prebuilt)
+$(sepolicy_freeze_test): $(all_frozen_files)
 ifneq ($(PLATFORM_SEPOLICY_VERSION),$(TOT_SEPOLICY_VERSION))
 	@diff -rq -x bug_map $(PRIVATE_BASE_PLAT_PUBLIC_PREBUILT) $(PRIVATE_BASE_PLAT_PUBLIC)
 	@diff -rq -x bug_map $(PRIVATE_BASE_PLAT_PRIVATE_PREBUILT) $(PRIVATE_BASE_PLAT_PRIVATE)
 endif # ($(PLATFORM_SEPOLICY_VERSION),$(TOT_SEPOLICY_VERSION))
 	$(hide) touch $@
+
+droidcore: $(sepolicy_freeze_test)
+$(LOCAL_MODULE): $(sepolicy_freeze_test)
+.PHONY: $(LOCAL_MODULE)
 
 base_plat_public :=
 base_plat_private :=
