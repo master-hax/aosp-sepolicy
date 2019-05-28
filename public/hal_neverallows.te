@@ -55,5 +55,6 @@ neverallow {
 neverallow { domain -init } halserverdomain:process transition;
 # Only allow transitioning to a domain by running its executable. Do not
 # allow transitioning into a HAL domain by use of seclabel in an
-# init.*.rc script.
-neverallow * halserverdomain:process dyntransition;
+# init.*.rc script. The only exception to this rule is when a HAL server is
+# started with native zygote.
+neverallow { domain -nativezygote_vendor } halserverdomain:process dyntransition;

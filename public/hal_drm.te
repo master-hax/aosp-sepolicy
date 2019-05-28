@@ -45,3 +45,6 @@ neverallow hal_drm_server { file_type fs_type }:file execute_no_trans;
 
 # do not allow privileged socket ioctl commands
 neverallowxperm hal_drm_server domain:{ rawip_socket tcp_socket udp_socket } ioctl priv_sock_ioctls;
+
+# hal_drm should never be used with native zygote
+neverallow nativezygote_vendor hal_drm:process dyntransition;
