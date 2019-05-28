@@ -9,6 +9,8 @@ hal_client_domain(mediaswcodec, hal_graphics_allocator)
 
 get_prop(mediaswcodec, device_config_media_native_prop)
 
+neverallow nativezygote_vendor mediaswcodec:process dyntransition;
+
 userdebug_or_eng(`
   binder_use(mediaswcodec)
   # Add mediaextractor_update_service service

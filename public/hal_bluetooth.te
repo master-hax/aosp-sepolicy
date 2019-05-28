@@ -30,3 +30,6 @@ allow hal_bluetooth proc_bluetooth_writable:file rw_file_perms;
 
 # allow to run with real-time scheduling policy
 allow hal_bluetooth self:global_capability_class_set sys_nice;
+
+# hal_bluetooth should never be used with native zygote
+neverallow nativezygote_vendor hal_bluetooth:process dyntransition;
