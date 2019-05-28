@@ -75,5 +75,9 @@ neverallow iorapd {
   userdebug_or_eng(`-su')
 }:binder call;
 
-neverallow { domain -init } iorapd:process { transition dyntransition };
+neverallow {
+  domain
+  -init
+  -nativezygote
+} iorapd:process { transition dyntransition };
 neverallow iorapd domain:{ tcp_socket udp_socket rawip_socket } *;
