@@ -63,7 +63,9 @@ neverallow logd { app_data_file privapp_data_file system_data_file packages_list
 
 # Only init is allowed to enter the logd domain via exec()
 neverallow { domain -init } logd:process transition;
-neverallow * logd:process dyntransition;
+
+# Only native zygote is allowed to perform dynamic transition
+neverallow { domain -nativezygote } logd:process dyntransition;
 
 # protect the event-log-tags file
 neverallow {

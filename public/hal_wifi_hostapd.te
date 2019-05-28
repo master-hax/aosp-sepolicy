@@ -25,3 +25,6 @@ allow hal_wifi_hostapd_server self:netlink_route_socket nlmsg_write;
 # hal_wifi_hostapd should not trust any data from sdcards
 neverallow hal_wifi_hostapd_server sdcard_type:dir ~getattr;
 neverallow hal_wifi_hostapd_server sdcard_type:file *;
+
+# hal_wifi_hostapd should not be used with native zygote
+neverallow nativezygote_vendor hal_wifi_hostapd:process dyntransition;
