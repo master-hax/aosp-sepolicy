@@ -26,3 +26,6 @@ allowxperm hal_wifi_supplicant self:packet_socket ioctl { unpriv_sock_ioctls pri
 # wpa_supplicant should not trust any data from sdcards
 neverallow hal_wifi_supplicant_server sdcard_type:dir ~getattr;
 neverallow hal_wifi_supplicant_server sdcard_type:file *;
+
+# wpa_supplicant should not be used with native zygote
+neverallow nativezygote_vendor hal_wifi_supplicant:process dyntransition;
