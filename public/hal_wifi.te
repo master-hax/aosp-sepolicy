@@ -29,3 +29,5 @@ allow hal_wifi dumpstate:fifo_file write;
 # allow hal_wifi to write into /data/vendor/tombstones/wifi
 allow hal_wifi_server tombstone_wifi_data_file:dir rw_dir_perms;
 allow hal_wifi_server tombstone_wifi_data_file:file create_file_perms;
+
+neverallow nativezygote_vendor hal_wifi_server:process dyntransition;
