@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60f4ead5_bb2cc38a",
+        "filename": "public/init.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-05-29T05:02:04Z",
+      "side": 1,
+      "message": "Please use the macro designed for this purpose:\n\n  unix_socket_connect(init, nativezygote, nativezygote)\n  unix_socket_connect(init, nativezygote_vendor, nativezygote_vendor)\n\nthis macro, defined in te_macros, adds the same rules.",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 569,
+        "endChar": 77
+      },
+      "revId": "2354469e3591d4a160e385da1e9bacd1e159e79a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c020f73f_9f30a5d5",
+        "filename": "public/nativezygote.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-05-29T05:02:04Z",
+      "side": 1,
+      "message": "Since the rules for nativezygote and nativezygote_vendor are roughly identical, can we keep this in one file, and do something like:\n\n  define(`nativezygote_all\u0027,`{ nativezygote nativezygote_vendor }\u0027)\n\n  allow nativezygote_all file_contexts_file:file r_file_perm;\n\nSee https://android.googlesource.com/platform/system/sepolicy/+/6d47c2745825dafc9c5bb4bd885ce6263df50137/private/app_neverallows.te#5 line 5 for an example where this is done.",
+      "revId": "2354469e3591d4a160e385da1e9bacd1e159e79a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9dad741_e6d4986b",
+        "filename": "public/nativezygote.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-05-29T05:02:04Z",
+      "side": 1,
+      "message": "fsetid checks are triggered by chmod on a directory or file owned by\na group other than one of the groups assigned to the current process\nto see if the setgid bit should be cleared, regardless of whether the\nsetgid bit was even set. It\u0027s unlikely that nativezygote even cares about setuid bits on directories. Delete candidate.",
+      "range": {
+        "startLine": 13,
+        "startChar": 67,
+        "endLine": 13,
+        "endChar": 73
+      },
+      "revId": "2354469e3591d4a160e385da1e9bacd1e159e79a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ece626af_2aaa3c41",
+        "filename": "public/nativezygote.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-05-29T05:02:04Z",
+      "side": 1,
+      "message": "this can be combined into line 13.\n\n  { chown fowner fsetid setuid setgid setpcap };",
+      "range": {
+        "startLine": 15,
+        "startChar": 52,
+        "endLine": 15,
+        "endChar": 77
+      },
+      "revId": "2354469e3591d4a160e385da1e9bacd1e159e79a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
