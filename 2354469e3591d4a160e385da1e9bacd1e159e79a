@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "93bf36ca_4f84225d",
+        "filename": "public/init.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1349653
+      },
+      "writtenOn": "2019-05-29T21:27:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60f4ead5_bb2cc38a",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 569,
+        "endChar": 77
+      },
+      "revId": "2354469e3591d4a160e385da1e9bacd1e159e79a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c020f73f_9f30a5d5",
         "filename": "public/nativezygote.te",
         "patchSetId": 3
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "b680d0a7_de99a037",
+        "filename": "public/nativezygote.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1349653
+      },
+      "writtenOn": "2019-05-29T21:27:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c020f73f_9f30a5d5",
+      "revId": "2354469e3591d4a160e385da1e9bacd1e159e79a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9dad741_e6d4986b",
         "filename": "public/nativezygote.te",
         "patchSetId": 3
@@ -53,6 +95,30 @@
       "writtenOn": "2019-05-29T05:02:04Z",
       "side": 1,
       "message": "fsetid checks are triggered by chmod on a directory or file owned by\na group other than one of the groups assigned to the current process\nto see if the setgid bit should be cleared, regardless of whether the\nsetgid bit was even set. It\u0027s unlikely that nativezygote even cares about setuid bits on directories. Delete candidate.",
+      "range": {
+        "startLine": 13,
+        "startChar": 67,
+        "endLine": 13,
+        "endChar": 73
+      },
+      "revId": "2354469e3591d4a160e385da1e9bacd1e159e79a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c2ed628_9be3209a",
+        "filename": "public/nativezygote.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1349653
+      },
+      "writtenOn": "2019-05-29T21:27:20Z",
+      "side": 1,
+      "message": "This is triggered when native zygote creates a socket for a service and chmod on it. FWIW this is inline with what\u0027s been granted to init. I\u0027d like to keep this here unless we are also looking into removing this for init. Makes sense?",
+      "parentUuid": "c9dad741_e6d4986b",
       "range": {
         "startLine": 13,
         "startChar": 67,
@@ -85,6 +151,30 @@
       "revId": "2354469e3591d4a160e385da1e9bacd1e159e79a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2119484c_99449dd4",
+        "filename": "public/nativezygote.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1349653
+      },
+      "writtenOn": "2019-05-29T21:27:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ece626af_2aaa3c41",
+      "range": {
+        "startLine": 15,
+        "startChar": 52,
+        "endLine": 15,
+        "endChar": 77
+      },
+      "revId": "2354469e3591d4a160e385da1e9bacd1e159e79a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
