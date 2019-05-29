@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e291cb32_2ca6eecf",
+        "filename": "public/nativezygote.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-05-29T21:34:31Z",
+      "side": 1,
+      "message": "consider merging with line 15:\n\n  allow nativezygote_all domain:{ unix_stream_socket unix_dgram_socket } { create bind setopt };",
+      "revId": "6383625a0ade3408793c75be85182e3990f30667",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b8220f1_92f3f1a0",
+        "filename": "public/property_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-05-29T21:34:31Z",
+      "side": 1,
+      "message": "It would probably be better to create a new label for this property, rather than reusing the existing label.\n\nexported3_default_prop is overly broad. It can be read by everyone, and both init and vendor_init can write to this property. \n\nA new label would allow better access control rules for this property. IIUC, it should only be settable by init and readable by nativezygote / nativezygote_vendor.",
+      "range": {
+        "startLine": 127,
+        "startChar": 34,
+        "endLine": 127,
+        "endChar": 56
+      },
+      "revId": "6383625a0ade3408793c75be85182e3990f30667",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
