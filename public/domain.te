@@ -77,6 +77,10 @@ allow {
 # Allow using fds to /dev/ashmem.
 allow domain ashmem_server:fd use;
 
+# Allow vendor hals to access IAshmem
+allow { domain -coredomain -appdomain } system_ashmem_hwservice:hwservice_manager find;
+allow { domain -coredomain -appdomain -perfprofd } ashmem_server: binder call;
+
 # /dev/binder can be accessed by non-vendor domains and by apps
 allow {
   coredomain
