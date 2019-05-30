@@ -77,6 +77,9 @@ allow {
 # Allow using fds to /dev/ashmem.
 allow domain ashmem_server:fd use;
 
+# TODO: Remove -- for local testing
+allow { domain -coredomain -appdomain } system_ashmem_hwservice:hwservice_manager find;
+
 # /dev/binder can be accessed by non-vendor domains and by apps
 allow {
   coredomain
