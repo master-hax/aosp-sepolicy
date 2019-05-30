@@ -1,3 +1,10 @@
 hwbinder_use(ashmem_server)
 get_prop(ashmem_server, hwservicemanager_prop)
-add_hwservice(ashmem_server, system_ashmem_hwservice)
+add_hwservice(ashmem_server, system_ashmem_hwservice)   # TODO: Fix this to allow uncommenting the never allow rule
+
+# Allow ashmem_use
+# binder_call({ domain -coredomain -appdomain }, ashmem_server)
+# allow { domain -coredomain -appdomain } system_ashmem_hwservice:hwservice_manager find;
+# hwbinder_use({ domain -coredomain -appdomain })
+# get_prop({ domain -coredomain -appdomain }, hwservicemanager_prop)
+# allow { domain -coredomain -appdomain } hidl_manager_hwservice:hwservice_manager find;
