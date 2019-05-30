@@ -1,10 +1,10 @@
 # perfprofd - perf profile collection daemon
 type perfprofd, domain;
 type perfprofd_exec, system_file_type, exec_type, file_type;
+typeattribute perfprofd coredomain;
 
 userdebug_or_eng(`
 
-  typeattribute perfprofd coredomain;
   typeattribute perfprofd mlstrustedsubject;
 
   # perfprofd access to sysfs directory structure.
