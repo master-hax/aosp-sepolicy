@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e0891d5_43eca8fa",
+        "filename": "public/nativezygote.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1349653
+      },
+      "writtenOn": "2019-05-31T04:28:18Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this is the best way to do it, but this gets rid of the error from nativezygote trying to write to /dev/cpuset/*.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 89
+      },
+      "revId": "55f83b27e3b2969b4398b3704dc841d3badebeea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "600a2ef8_3173b33f",
+        "filename": "public/nativezygote.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1349653
+      },
+      "writtenOn": "2019-05-31T04:28:18Z",
+      "side": 1,
+      "message": "I missed this in my previous test. Vendor native zygote needs to be able to preload vendor libraries.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 44
+      },
+      "revId": "55f83b27e3b2969b4398b3704dc841d3badebeea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
