@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "42305f69_4538604b",
+        "filename": "public/nativezygote.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-06-03T21:54:24Z",
+      "side": 1,
+      "message": "DAC_OVERRIDE is almost never the answer.\nBetter to outfit nativezygote with additional groups in the nativezygote.rc file, you can use:\nuser root\ngroup root system\n\nDepending on the device you are testing on, it may be possible that /dev/cpuset/* has the wrong uid/gid. E.g. bonito\u0027s init.rc does not have a \"chown system:system\" for /dev/cpuset/kernel/tasks, while crosshatch\u0027s has.\nC.f.\nhttps://android.googlesource.com/device/google/bonito/+/refs/heads/master/init.hardware.rc\nhttps://android.googlesource.com/device/google/crosshatch/+/refs/heads/master/init.hardware.rc#138",
+      "parentUuid": "2e0891d5_43eca8fa",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 89
+      },
+      "revId": "55f83b27e3b2969b4398b3704dc841d3badebeea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "600a2ef8_3173b33f",
         "filename": "public/nativezygote.te",
         "patchSetId": 5
