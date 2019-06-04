@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "601c4897_748e3d0a",
+        "filename": "apex/com.android.runtime.debug-file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-06-04T14:48:41Z",
+      "side": 1,
+      "message": "To ensure that this label only gets applied to plain files, you can add the optional second argument \"--\", eg from:\n\n  /bin/dex2oat(d(32)?)?          u:object_r:dex2oat_exec:s0\n\nto:\n\n  /bin/dex2oat(d(32)?)?     --     u:object_r:dex2oat_exec:s0\n\nThis will have the effect of only applying the label to the file if the file is a plain file, not a symlink. See \"FILE FORMAT\" in \"man 5 file_contexts\" (http://man7.org/linux/man-pages/man5/file_contexts.5.html)",
+      "revId": "a74787fb443df08888bdb54824b9a8edf2969640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "642c3fbf_49b9561e",
         "filename": "private/installd.te",
         "patchSetId": 1
