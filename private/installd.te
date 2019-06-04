@@ -4,6 +4,10 @@ init_daemon_domain(installd)
 
 # Run dex2oat in its own sandbox.
 domain_auto_trans(installd, dex2oat_exec, dex2oat)
+# A file with the `dex2oat_exec` label can be a symlink within the Runtime APEX (e.g.
+# `/apex/com.android.runtime/bin/dex2oatd` -> `/apex/com.android.runtime/bin/dex2oatd32`).
+# Allow installd to dereference such symlinks.
+allow installd dex2oat_exec:lnk_file read;
 
 # Run dexoptanalyzer in its own sandbox.
 domain_auto_trans(installd, dexoptanalyzer_exec, dexoptanalyzer)
