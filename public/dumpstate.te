@@ -137,6 +137,14 @@ hal_client_domain(dumpstate, hal_graphics_allocator)
 # Vibrate the device after we are done collecting the bugreport
 hal_client_domain(dumpstate, hal_vibrator)
 
+# Allow dumpstate to lshal for thermal/power/power_stats in user build
+hal_client_domain(dumpstate, hal_thermal)
+hal_client_domain(dumpstate, hal_power)
+hal_client_domain(dumpstate, hal_power_stats)
+allow dumpstate hal_thermal_hwservice:hwservice_manager find;
+allow dumpstate hal_power_hwservice:hwservice_manager find;
+allow dumpstate hal_power_stats_hwservice:hwservice_manager find;
+
 # Reading /proc/PID/maps of other processes
 allow dumpstate self:global_capability_class_set sys_ptrace;
 
