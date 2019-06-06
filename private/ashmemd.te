@@ -7,3 +7,8 @@ binder_use(ashmemd)
 add_service(ashmemd, ashmem_device_service)
 
 allow ashmemd ashmem_device:chr_file rw_file_perms;
+
+# TODO: Add neverallow rule to prevent vendor domains from opening
+# /dev/ashmem directly.
+# Audit vendor code that opens /dev/ashmem directly.
+auditallow { domain -coredomain -appdomain } ashmem_device:chr_file open;
