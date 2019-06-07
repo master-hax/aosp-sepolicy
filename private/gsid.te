@@ -21,6 +21,7 @@ dontaudit gsid self:global_capability_class_set dac_override;
 # This requires traversing /sys/block/dm-N/slaves/* and reading the list of
 # file names.
 allow gsid sysfs_dm:dir r_dir_perms;
+allow gsid sysfs_dm:file r_file_perms;
 
 # Needed to read fstab, which is used to validate that system verity does not
 # use check_once_at_most for sdcard installs. (Note: proc_cmdline is needed
