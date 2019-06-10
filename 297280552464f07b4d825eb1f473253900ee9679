@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71c737bb_84a56e61",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-06-10T22:38:12Z",
+      "side": 1,
+      "message": "Wouldn\u0027t this be a better location to store camera calibration data?",
+      "revId": "297280552464f07b4d825eb1f473253900ee9679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80f0e1e8_7bf11c5b",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-06-10T22:38:12Z",
+      "side": 1,
+      "message": "credential encrypted storage requires a user to unlock, which is why files in this directory are based on the user ID. Do you really want camera calibration data user encrypted, not device encrypted?",
+      "range": {
+        "startLine": 546,
+        "startChar": 13,
+        "endLine": 546,
+        "endChar": 15
+      },
+      "revId": "297280552464f07b4d825eb1f473253900ee9679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d4b2763_e1706b2f",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-06-10T22:38:12Z",
+      "side": 1,
+      "message": "Attempting to use an undefined type is a compile error. You need to define the type first.",
+      "range": {
+        "startLine": 546,
+        "startChar": 45,
+        "endLine": 546,
+        "endChar": 62
+      },
+      "revId": "297280552464f07b4d825eb1f473253900ee9679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7c3a314_143c7816",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-06-10T22:38:12Z",
+      "side": 1,
+      "message": "Typically we label directories, not individual files within a directory. Otherwise the process needs the ability to relabel files, and it makes the implementation more fragile as new files may be added or deleted.\n\nYou\u0027d probably want something like:\n\n/data/vendor_de/camera(/.*)? \n\nto label the directory and all files within the directory.",
+      "range": {
+        "startLine": 547,
+        "startChar": 0,
+        "endLine": 547,
+        "endChar": 22
+      },
+      "revId": "297280552464f07b4d825eb1f473253900ee9679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
