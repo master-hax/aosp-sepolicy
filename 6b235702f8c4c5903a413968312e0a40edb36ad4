@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7508065c_adfcf6cf",
+        "filename": "public/hal_face.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-06-11T17:48:24Z",
+      "side": 1,
+      "message": "This is already granted to all domains at line 223 of https://android.googlesource.com/platform/system/sepolicy/+/63521329b4a1788af22fa579899396feafdbfeaa/public/domain.te#223 .\n\nThere\u0027s no need to specify it here. Delete.",
+      "revId": "6b235702f8c4c5903a413968312e0a40edb36ad4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e6840ba_cee28eb9",
+        "filename": "public/hal_face.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-06-11T17:48:24Z",
+      "side": 1,
+      "message": "Already granted to all domains at line 226 of https://android.googlesource.com/platform/system/sepolicy/+/63521329b4a1788af22fa579899396feafdbfeaa/public/domain.te#226\n\nNot needed. Delete.",
+      "revId": "6b235702f8c4c5903a413968312e0a40edb36ad4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45ac7e15_a4632df4",
+        "filename": "vendor/hal_camera_default.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-06-11T17:48:24Z",
+      "side": 1,
+      "message": "Essentially a duplicate of rules which are already granted to all domains. Can be deleted.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 69
+      },
+      "revId": "6b235702f8c4c5903a413968312e0a40edb36ad4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72151d53_44ceac5b",
+        "filename": "vendor/hal_camera_default.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-06-11T17:48:24Z",
+      "side": 1,
+      "message": "Please use the macro:\n\n  r_file_perms\n\n(defined in system/sepolicy/public/global_macros)\n\nfor this instead of listing out individual permissions. In particular, this misses \"map\", which is needed in the event the code ever needs to mmap() this file into memory.",
+      "range": {
+        "startLine": 17,
+        "startChar": 49,
+        "endLine": 17,
+        "endChar": 70
+      },
+      "revId": "6b235702f8c4c5903a413968312e0a40edb36ad4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
