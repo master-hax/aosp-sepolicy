@@ -1,0 +1,9 @@
+userdebug_or_eng(`
+
+type hal_lazy_default, domain, coredomain;
+hal_server_domain(hal_lazy_default, hal_lazy)
+
+type hal_lazy_default_exec, system_file_type, exec_type, file_type;
+init_daemon_domain(hal_lazy_default)
+
+')
