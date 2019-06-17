@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bec1fa72_2bb25afd",
+        "filename": "private/zygote.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-06-17T16:07:38Z",
+      "side": 1,
+      "message": "the use of the generic \"tmpfs\" label is overly broad. Can you add the following line to zygote.te:\n\n  tmpfs_domain(zygote)\n\n(defined in system/sepolicy/public/te_macros)\n\nwhich will create a new zygpte_tmpfs label for these memory regions, which you can use instead.\n\nIn the end, this will be something like:\n\n  tmpfs_domain(zygote)\n  allow zygote zygote_tmpfs:file execute;\n  allow zygote ashmem_device:chr_file execute;",
+      "range": {
+        "startLine": 54,
+        "startChar": 13,
+        "endLine": 54,
+        "endChar": 18
+      },
+      "revId": "187ecec0333b6b5c8e12f24f3be490ddbdc46753",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
