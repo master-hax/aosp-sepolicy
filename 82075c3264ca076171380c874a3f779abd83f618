@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2eca2686_cb51969a",
+        "filename": "private/zygote.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-06-17T16:54:04Z",
+      "side": 1,
+      "message": "it\u0027s unnecessary to explicitly add \"read write\" here. This is granted via the macro:\n\nhttps://android.googlesource.com/platform/system/sepolicy/+/1eb45b5606f46b92ed0e6146cacf279afaa8fa82/public/te_macros#78\n\n  define(`tmpfs_domain\u0027, `\n  type_transition $1 tmpfs:file $1_tmpfs;\n  allow $1 $1_tmpfs:file { read write getattr map };\n  \u0027)",
+      "range": {
+        "startLine": 55,
+        "startChar": 33,
+        "endLine": 55,
+        "endChar": 43
+      },
+      "revId": "82075c3264ca076171380c874a3f779abd83f618",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
