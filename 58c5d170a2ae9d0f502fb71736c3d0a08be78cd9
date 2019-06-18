@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "2c0f118c_0136a03f",
+        "filename": "private/compat/27.0/27.0.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-06-18T16:34:47Z",
+      "side": 1,
+      "message": "it\u0027s only necessary to modify 29.0, not this file. This change can be omitted.",
+      "revId": "58c5d170a2ae9d0f502fb71736c3d0a08be78cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed888de2_db37cc99",
+        "filename": "private/compat/28.0/28.0.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-06-18T16:34:47Z",
+      "side": 1,
+      "message": "it\u0027s only necessary to modify 29.0, not this file. This change can be omitted.",
+      "revId": "58c5d170a2ae9d0f502fb71736c3d0a08be78cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cd3b1586_faa45887",
         "filename": "private/compat/29.0/29.0.cil",
         "patchSetId": 1
@@ -19,6 +53,23 @@
         "endLine": 1143,
         "endChar": 69
       },
+      "revId": "58c5d170a2ae9d0f502fb71736c3d0a08be78cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2388b58_50761e38",
+        "filename": "private/compat/29.0/29.0.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-06-18T16:34:47Z",
+      "side": 1,
+      "message": "Since this is a newly created property, and did not exist in older versions, mapping the property to default_prop isn\u0027t the right solution. You\u0027d only add an entry here if the property existed in previous versions, and this change relabeled the property from default_prop to cold_boot_done_prop.\n\nInstead, please add the entry to system/sepolicy/private/compat/29.0/29.0.ignore.cil",
       "revId": "58c5d170a2ae9d0f502fb71736c3d0a08be78cd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
