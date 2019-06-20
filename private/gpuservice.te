@@ -22,6 +22,15 @@ hwbinder_use(gpuservice)
 allow gpuservice graphics_device:dir search;
 allow gpuservice graphics_device:chr_file rw_file_perms;
 
+# Access /d/kgsl/proc.
+allow gpuservice debugfs_kgsl:dir { open read };
+allow gpuservice debugfs_kgsl:file { open read getattr };
+
+# Needed to register as a Perfetto producer.
+allow gpuservice traced:fd use;
+allow gpuservice traced_tmpfs:file { read write getattr map };
+unix_socket_connect(gpuservice, traced_producer, traced)
+
 # Needed for dumpsys pipes.
 allow gpuservice shell:fifo_file write;
 
