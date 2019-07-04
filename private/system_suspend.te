@@ -15,6 +15,9 @@ allow system_suspend sysfs_power:file rw_file_perms;
 allow system_suspend self:global_capability2_class_set block_suspend;
 allow system_suspend sysfs_wake_lock:file rw_file_perms;
 
+# CAP_SYS_ADMIN is required to read /proc/*/stack
+allow system_suspend self:capability sys_admin;
+
 neverallow {
     domain
     -atrace # tracing
