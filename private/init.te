@@ -32,3 +32,11 @@ userdebug_or_eng(`
 
 # Allow the BoringSSL self test to request a reboot upon failure
 set_prop(init, powerctl_prop)
+
+# Allow init to execute linkerconfig binary
+allow init linkerconfig_exec:file { getattr read };
+allow init linkerconfig_exec:file execute;
+
+# Allow init to relabel /dev/linkerconfig/ld.config.txt
+allow init linkerconfig_dir:file relabelfrom;
+allow init system_linker_config_file:file relabelto;

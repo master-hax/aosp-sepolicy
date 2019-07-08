@@ -1,0 +1,11 @@
+type linkerconfig, domain, coredomain;
+type linkerconfig_exec, exec_type, file_type, system_file_type;
+typeattribute linkerconfig coredomain;
+
+init_daemon_domain(linkerconfig)
+
+allow linkerconfig self:global_capability_class_set { dac_override };
+
+## Read and write linkerconfig subdirectory.
+allow linkerconfig linkerconfig_dir:dir create_dir_perms;
+allow linkerconfig linkerconfig_dir:file create_file_perms;
