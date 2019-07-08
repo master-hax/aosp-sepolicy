@@ -31,6 +31,7 @@
 /proc               u:object_r:rootfs:s0
 /sys                u:object_r:sysfs:s0
 /apex               u:object_r:apex_mnt_dir:s0
+/linkerconfig       u:object_r:tmpfs:s0
 
 # Symlinks
 /bin                u:object_r:rootfs:s0
@@ -261,6 +262,7 @@
 /system/bin/healthd     u:object_r:healthd_exec:s0
 /system/bin/clatd	u:object_r:clatd_exec:s0
 /system/bin/linker(64)? u:object_r:system_linker_exec:s0
+/system/bin/linkerconfig u:object_r:linkerconfig_exec:s0
 /system/bin/bootstrap/linker(64)? u:object_r:system_linker_exec:s0
 /system/bin/llkd        u:object_r:llkd_exec:s0
 /system/bin/lmkd        u:object_r:lmkd_exec:s0
@@ -652,3 +654,8 @@
 #############################
 # mount point for read-write product partitions
 /mnt/product(/.*)?          u:object_r:mnt_product_file:s0
+
+#############################
+# Generated linker config file(s)
+# grant same permission with /system/etc/ld.config.txt
+/linkerconfig(/.*)?		        u:object_r:system_linker_config_file:s0

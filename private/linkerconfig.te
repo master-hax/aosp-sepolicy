@@ -1,0 +1,11 @@
+typeattribute linkerconfig coredomain;
+
+init_daemon_domain(linkerconfig)
+tmpfs_domain(linkerconfig);
+
+## Read and write /linkerconfig subdirectory.
+allow linkerconfig tmpfs:dir create_dir_perms;
+allow linkerconfig tmpfs:file create_file_perms;
+
+allow linkerconfig linkerconfig_tmpfs:dir create_dir_perms;
+allow linkerconfig linkerconfig_tmpfs:file create_file_perms;

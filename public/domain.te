@@ -331,6 +331,9 @@ with_asan(`allow domain system_asan_options_file:file r_file_perms;')
 allow domain apex_mnt_dir:dir { getattr search };
 allow domain apex_mnt_dir:lnk_file r_file_perms;
 
+# Read files under linkerconfig directory
+allow domain linkerconfig_tmpfs:file r_file_perms;
+
 ###
 ### neverallow rules
 ###
