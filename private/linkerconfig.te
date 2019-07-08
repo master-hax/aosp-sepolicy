@@ -1,0 +1,11 @@
+type linkerconfig, domain, coredomain;
+type linkerconfig_exec, exec_type, file_type, system_file_type;
+typeattribute linkerconfig coredomain;
+
+init_daemon_domain(linkerconfig)
+
+## Read and write linkerconfig subdirectory.
+allow linkerconfig linkerconfig_dir:dir rw_dir_perms;
+allow linkerconfig linkerconfig_dir:file create_file_perms;
+
+neverallow { domain -init -linkerconfig } linkerconfig_exec:file no_x_file_perms;

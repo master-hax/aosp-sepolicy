@@ -312,3 +312,5 @@ neverallow {
   -tee
   -hal_bootctl_server
 } self:global_capability_class_set sys_rawio;
+
+allow domain linkerconfig_file:file r_file_perms;
