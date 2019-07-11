@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5783a62e_e7f37398",
+        "filename": "private/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-07-11T16:00:40Z",
+      "side": 1,
+      "message": "By convention, \"allow\" rules are placed before neverallow assertions. Can you please move this line to above line 84 or higher?",
+      "revId": "f57bc488a774ddfb4aefa98a9a13a177c3b390d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab406757_09875c34",
+        "filename": "private/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-07-11T16:00:40Z",
+      "side": 1,
+      "message": "there\u0027s no need for two separate labels here. This would be cleaner written as one line:\n\n /dev/linkerconfig(/.*)?  u:object_r:linkerconfig_file:s0",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 63
+      },
+      "revId": "f57bc488a774ddfb4aefa98a9a13a177c3b390d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42a46115_0f42d760",
+        "filename": "private/init.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-07-11T16:00:40Z",
+      "side": 1,
+      "message": "can be deleted. This is already granted by the line:\n\n  init_daemon_domain(linkerconfig)\n\nin linkerconfig.te. See the definition of init_daemon_domain in system/sepolicy/public/te_macros",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 59
+      },
+      "revId": "f57bc488a774ddfb4aefa98a9a13a177c3b390d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23fc4a22_fd75cdfb",
+        "filename": "private/init.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-07-11T16:00:40Z",
+      "side": 1,
+      "message": "not needed if we consolidate labels, as recommended in file_contexts. See also Tom\u0027s comments at https://android-review.googlesource.com/c/platform/system/core/+/1012228/3/rootdir/init.rc",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 44
+      },
+      "revId": "f57bc488a774ddfb4aefa98a9a13a177c3b390d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc32e50e_9ed366ef",
+        "filename": "private/linkerconfig.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-07-11T16:00:40Z",
+      "side": 1,
+      "message": "not needed. Line 1 already assigns this type to the coredomain attribute. No need to assign it again.",
+      "revId": "f57bc488a774ddfb4aefa98a9a13a177c3b390d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
