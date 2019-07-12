@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4ec684e5_2cdaff3f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1098053
+      },
+      "writtenOn": "2019-07-12T18:03:36Z",
+      "side": 1,
+      "message": "I was wondering about this, is it more efficient to define a top level ircs service and then request multiple independent binders for  the subsystems? i.e. IRcs#getUce() and IRcs#getMessageStore vs ircs and ircsmessage?",
+      "parentUuid": "54e77ad5_a1050a68",
+      "range": {
+        "startLine": 9,
+        "startChar": 43,
+        "endLine": 9,
+        "endChar": 60
+      },
+      "revId": "243ef72edb05864c0faf1490746503ead47cd325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "04a3ad5a_3172c619",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2019-07-12T17:52:45Z",
       "side": 1,
       "message": "Which devices did you test?  Given that this applies to all devices, are we reasonably sure it won\u0027t break any of them?",
+      "revId": "243ef72edb05864c0faf1490746503ead47cd325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1840aedf_655f3b6a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1098053
+      },
+      "writtenOn": "2019-07-12T18:03:36Z",
+      "side": 1,
+      "message": "I have only tested on bonito so far.\n\nThis service is defined by the framework as a binder between RcsMessageManager-\u003eRcsMessageController, so it should not be defined by other vendor/product components. As long as the service is renamed in the framework, it shouldn\u0027t break any devices.\n\nIf breaking devices is a concern, we can keep the internal service name the same, it is just misleading because it does not encompass all of RCS services.",
+      "parentUuid": "04a3ad5a_3172c619",
       "revId": "243ef72edb05864c0faf1490746503ead47cd325",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
