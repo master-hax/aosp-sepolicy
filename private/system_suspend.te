@@ -15,6 +15,11 @@ allow system_suspend sysfs_power:file rw_file_perms;
 allow system_suspend self:global_capability2_class_set block_suspend;
 allow system_suspend sysfs_wake_lock:file rw_file_perms;
 
+# Allow system suspend to read suspend_stats bpf map
+allow system_suspend fs_bpf:dir search;
+allow system_suspend bpfloader:bpf map_read;
+allow system_suspend fs_bpf:file read;
+
 neverallow {
     domain
     -atrace # tracing
