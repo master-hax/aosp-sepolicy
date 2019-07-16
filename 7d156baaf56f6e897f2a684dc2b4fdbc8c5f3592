@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a281acbe_79fcfdab",
+        "filename": "private/wifi_stack.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-07-16T20:07:06Z",
+      "side": 1,
+      "message": "I don\u0027t think you actually want this. Rather, just remove levelFrom\u003dall from seapp_contexts.te, otherwise you\u0027re saying that you want the mls categories on the app, but also don\u0027t want the categories to be enforced on it. Easier to just not have the categories at all.",
+      "range": {
+        "startLine": 3,
+        "startChar": 25,
+        "endLine": 3,
+        "endChar": 42
+      },
+      "revId": "7d156baaf56f6e897f2a684dc2b4fdbc8c5f3592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a97cfa0a_f0da822f",
+        "filename": "private/wifi_stack.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-07-16T20:07:06Z",
+      "side": 1,
+      "message": "This only grants directory traversal, which isn\u0027t useful on its own. I recommend deleting.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 44
+      },
+      "revId": "7d156baaf56f6e897f2a684dc2b4fdbc8c5f3592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f18e1506_a7b16eae",
+        "filename": "private/wifi_stack.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-07-16T20:07:06Z",
+      "side": 1,
+      "message": "can you add a TODO(b/#####) of the bug you filed to remove this?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 34
+      },
+      "revId": "7d156baaf56f6e897f2a684dc2b4fdbc8c5f3592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
