@@ -2,7 +2,7 @@
 # Default HALs
 #
 /(vendor|system/vendor)/bin/hw/android\.hardware\.atrace@1\.0-service         u:object_r:hal_atrace_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.audio@2\.0-service          u:object_r:hal_audio_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.audio(@2\.0-|\.)service     u:object_r:hal_audio_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.automotive\.audiocontrol@1\.0-service  u:object_r:hal_audiocontrol_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.automotive\.evs@1\.0-service  u:object_r:hal_evs_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.automotive\.vehicle@2\.0-service  u:object_r:hal_vehicle_default_exec:s0
@@ -66,6 +66,7 @@
 # Same process HALs installed by platform into /vendor
 #
 /(vendor|system/vendor)/lib(64)?/hw/android\.hardware\.graphics\.mapper@2\.0-impl\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/hw/android\.hardware\.graphics\.mapper@2\.0-impl-2\.1\.so u:object_r:same_process_hal_file:s0
 /(vendor|system/vendor)/lib(64)?/hw/android\.hardware\.graphics\.mapper@3\.0-impl\.so u:object_r:same_process_hal_file:s0
 /(vendor|system/vendor)/lib(64)?/hw/android\.hardware\.renderscript@1\.0-impl\.so     u:object_r:same_process_hal_file:s0
 /(vendor|system/vendor)/lib(64)?/hw/gralloc\.default\.so                              u:object_r:same_process_hal_file:s0

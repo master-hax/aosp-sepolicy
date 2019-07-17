@@ -51,6 +51,12 @@ userdebug_or_eng(`
   allow domain coredump_file:dir ra_dir_perms;
 ')
 
+with_native_coverage(`
+  # Allow writing coverage information to /data/misc/trace
+  allow domain method_trace_data_file:dir create_dir_perms;
+  allow domain method_trace_data_file:file create_file_perms;
+')
+
 # Root fs.
 allow domain tmpfs:dir { getattr search };
 allow domain rootfs:dir search;
@@ -75,7 +81,12 @@ allow {
 } ashmem_device:chr_file rw_file_perms;
 
 # Allow using fds to /dev/ashmem.
-allow domain ashmemd:fd use;
+allow domain ashmem_server:fd use;
+
+# Allow vendor hals to access IAshmem
+# TODO(b/134783601): Change to a whitelist.
+allow { domain -coredomain -appdomain } system_ashmem_hwservice:hwservice_manager find;
+allow { domain -coredomain -appdomain } ashmem_server: binder call;
 
 # /dev/binder can be accessed by non-vendor domains and by apps
 allow {
@@ -415,11 +426,9 @@ neverallow { domain -init } usermodehelper:file { append write };
 neverallow { domain -init -ueventd } sysfs_usermodehelper:file { append write };
 neverallow { domain -init -vendor_init } proc_security:file { append open read write };
 
-# Nobody is allowed to make binder calls into init.
-# Only servicemanager may transfer binder references to init
-# vendor_init shouldn't use binder at all.
-neverallow * init:binder ~{ transfer };
-neverallow { domain -servicemanager } init:binder { transfer };
+# Init can't do anything with binder calls. If this neverallow rule is being
+# triggered, it's probably due to a service with no SELinux domain.
+neverallow * init:binder *;
 neverallow * vendor_init:binder *;
 
 # Don't allow raw read/write/open access to block_device
@@ -842,6 +851,7 @@ full_treble_only(`
     # These functions are considered vndk-stable and thus must be allowed for
     # all processes.
     -zoneinfo_data_file
+    with_native_coverage(`-method_trace_data_file')
   }:file_class_set ~{ append getattr ioctl read write map };
   neverallow {
     vendor_init
@@ -850,6 +860,7 @@ full_treble_only(`
     core_data_file_type
     -unencrypted_data_file
     -zoneinfo_data_file
+    with_native_coverage(`-method_trace_data_file')
   }:file_class_set ~{ append getattr ioctl read write map };
   # vendor init needs to be able to read unencrypted_data_file to create directories with FBE.
   # The vendor init binary lives on the system partition so there is not a concern with stability.
@@ -868,6 +879,7 @@ full_treble_only(`
     -system_data_file # default label for files on /data. Covered below...
     -vendor_data_file
     -zoneinfo_data_file
+    with_native_coverage(`-method_trace_data_file')
   }:dir *;
   neverallow {
     vendor_init
@@ -878,6 +890,7 @@ full_treble_only(`
     -system_data_file
     -vendor_data_file
     -zoneinfo_data_file
+    with_native_coverage(`-method_trace_data_file')
   }:dir *;
   # vendor init needs to be able to read unencrypted_data_file to create directories with FBE.
   # The vendor init binary lives on the system partition so there is not a concern with stability.

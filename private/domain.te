@@ -82,6 +82,9 @@ userdebug_or_eng(`
   allow domain su:key search;
 ')
 
+# Allow access to linkerconfig file
+allow domain linkerconfig_file:file r_file_perms;
+
 # Limit ability to ptrace or read sensitive /proc/pid files of processes
 # with other UIDs to these whitelisted domains.
 neverallow {
@@ -169,7 +172,7 @@ neverallow {
 # do not change between system_server staging the files and apexd processing
 # the files.
 neverallow { domain -init -system_server -apexd -installd} staging_data_file:dir *;
-neverallow { domain -init -system_server -apexd -kernel -installd } staging_data_file:file *;
+neverallow { domain -init -system_app -system_server -apexd -kernel -installd } staging_data_file:file *;
 neverallow { domain -init -system_server -installd} staging_data_file:dir no_w_dir_perms;
 # apexd needs the link and unlink permissions, so list every `no_w_file_perms`
 # except for `link` and `unlink`.

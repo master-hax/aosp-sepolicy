@@ -6,10 +6,12 @@ type bluetooth_audio_hal_prop, property_type;
 type bluetooth_prop, property_type;
 type bpf_progs_loaded_prop, property_type;
 type bootloader_boot_reason_prop, property_type;
+type cold_boot_done_prop, property_type;
 type config_prop, property_type, core_property_type;
 type cppreopt_prop, property_type, core_property_type;
 type cpu_variant_prop, property_type;
 type ctl_adbd_prop, property_type;
+type ctl_apexd_prop, property_type;
 type ctl_bootanim_prop, property_type;
 type ctl_bugreport_prop, property_type;
 type ctl_console_prop, property_type;
@@ -84,6 +86,7 @@ type system_radio_prop, property_type, core_property_type;
 type system_trace_prop, property_type;
 type test_boot_reason_prop, property_type;
 type test_harness_prop, property_type;
+type theme_prop, property_type;
 type time_prop, property_type;
 type traced_enabled_prop, property_type;
 type traced_lazy_prop, property_type;
@@ -361,9 +364,11 @@ compatible_property_only(`
     -bootloader_boot_reason_prop
     -boottime_prop
     -bpf_progs_loaded_prop
+    -cold_boot_done_prop
     -config_prop
     -cppreopt_prop
     -ctl_adbd_prop
+    -ctl_apexd_prop
     -ctl_bootanim_prop
     -ctl_bugreport_prop
     -ctl_console_prop
@@ -459,6 +464,7 @@ compatible_property_only(`
     -system_trace_prop
     -test_boot_reason_prop
     -test_harness_prop
+    -theme_prop
     -time_prop
     -traced_enabled_prop
     -traced_lazy_prop
