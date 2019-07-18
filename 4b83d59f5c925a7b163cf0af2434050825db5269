@@ -22,6 +22,30 @@
       "revId": "4b83d59f5c925a7b163cf0af2434050825db5269",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d71a6f2a_74231de9",
+        "filename": "prebuilts/api/29.0/private/file_contexts_asan",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1447810
+      },
+      "writtenOn": "2019-07-18T01:14:50Z",
+      "side": 1,
+      "message": "If we Just modify  /data/asan/product/lib64/libfmjni.so to system_lib_file, but it suffers build fail, please feedback to google, thanks\n/system/sepolicy/private/file_contexts_asan\n/data/asan/product/lib(/.*)?                u:object_r:system_lib_file:s0\n/data/asan/product/lib64(/.*)?              u:object_r:system_lib_file:s0\n\nFAILED: out/target/product/k62v1_64_bsp/obj/ETC/sepolicy_freeze_test_intermediates/sepolicy_freeze_test\n/bin/bash -c \"(diff -rq -x bug_map system/sepolicy/prebuilts/api/29.0/public system/sepolicy/public ) \u0026\u0026 (diff -rq -x bug_map system/sepolicy/prebuilts/api/29.0/private system/sepolicy/private ) \u0026\u0026 (touch out/target/product/k62v1_64_bsp/obj/ETC/sepolicy_freeze_test_intermediates/sepolicy_freeze_test )\"\nFiles system/sepolicy/prebuilts/api/29.0/private/file_contexts_asan and system/sepolicy/private/file_contexts_asan differ",
+      "parentUuid": "fcb4ef0c_bb440915",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 72
+      },
+      "revId": "4b83d59f5c925a7b163cf0af2434050825db5269",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
