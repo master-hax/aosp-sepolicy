@@ -22,6 +22,30 @@
       "revId": "11cbad7a1b37d231915d09efbaa954279a6b4761",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "588c1e11_69331eac",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2019-07-19T15:44:54Z",
+      "side": 1,
+      "message": "I think so.  passwd and group are typically world readable on other Linux systems. \n\nThere isn\u0027t anything significant given to these processes besides this mapping.  For example, it will allow a process that knows that it\u0027s interacting with uid \u00277501\u0027 to be able to map that to \"system_ext_some_daemon\" instead of just reporting the numerical value.  Alternatively it would allow the reverse look up of \"system_ext_some_daemon\" to a uid.\n\nAlso, all processes already have access to the major \u0027platform\u0027 AIDs since they\u0027re built into libc and access to the vendor/odm ones since those files already have the needed permissions.  This just fills in the rest of the gaps.",
+      "parentUuid": "35dc63cf_a8ee656d",
+      "range": {
+        "startLine": 148,
+        "startChar": 6,
+        "endLine": 148,
+        "endChar": 12
+      },
+      "revId": "11cbad7a1b37d231915d09efbaa954279a6b4761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
