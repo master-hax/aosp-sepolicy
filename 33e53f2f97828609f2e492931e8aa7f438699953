@@ -118,6 +118,30 @@
       "revId": "33e53f2f97828609f2e492931e8aa7f438699953",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "021c4c3d_4c26ea6b",
+        "filename": "public/service.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-07-19T08:37:32Z",
+      "side": 1,
+      "message": "\u003e OK, so it should be app_api_service instead? Can we still make sure apps cannot explicitly try to call methods from this binder object?\n\nI don\u0027t know - I still don\u0027t understand what code (in which processes) will calls this.\nIf you want to make sure apps can\u0027t call it then don\u0027t make it app_api_service.\n\nsystem_api_service is for \"services that export only system_api\" (see sepolicy/public/attributes). It makes the service visible to system \u0026 priv apps, amongst others. And from the other CL that isn\u0027t what you want.\n\nIt\u0027s quite possible you don\u0027t need either - see for example netd_listener_service above. Perhaps you should start with that?\n\n\u003e I think the standard thing is to implement a permission check inside the binder calls. There should be plenty of examples you can follow elsewhere in the system server.\n\nOr a UID check, depending again on exactly what processes should have access to this.",
+      "parentUuid": "59da8ce0_7b16f7ec",
+      "range": {
+        "startLine": 99,
+        "startChar": 30,
+        "endLine": 99,
+        "endChar": 48
+      },
+      "revId": "33e53f2f97828609f2e492931e8aa7f438699953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
