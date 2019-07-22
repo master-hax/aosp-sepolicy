@@ -211,7 +211,6 @@ allow dumpstate {
   service_manager_type
   -dumpstate_service
   -gatekeeper_service
-  -incident_service
   -virtual_touchpad_service
   -vold_service
   -vr_hwc_service
@@ -220,7 +219,6 @@ allow dumpstate {
 dontaudit dumpstate {
   dumpstate_service
   gatekeeper_service
-  incident_service
   virtual_touchpad_service
   vold_service
   vr_hwc_service
