@@ -2,3 +2,8 @@ type iw, domain, coredomain;
 type iw_exec, system_file_type, exec_type, file_type;
 
 init_daemon_domain(iw)
+
+net_domain(iw)
+
+allow iw self:netlink_generic_socket create_socket_perms_no_ioctl;
+allow iw self:capability { net_raw net_admin };
