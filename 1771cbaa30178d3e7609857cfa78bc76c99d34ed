@@ -65,6 +65,30 @@
     },
     {
       "key": {
+        "uuid": "0eb7bbe4_23cac48a",
+        "filename": "private/iw.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-07-24T16:20:22Z",
+      "side": 1,
+      "message": "OOPS, this is the wrong domain entirely. The SELinux denial above is for \"carservice_app\", where this domain is \"iw\".\n\nDo you have the exact SELinux denial which triggered this? Newer kernels don\u0027t use netlink_generic_socket, but rather, a more specific socket family. \n\nWhat netlink family is being used here?",
+      "parentUuid": "04bd71d8_d05287b1",
+      "range": {
+        "startLine": 8,
+        "startChar": 14,
+        "endLine": 8,
+        "endChar": 36
+      },
+      "revId": "1771cbaa30178d3e7609857cfa78bc76c99d34ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2617d1ef_221432de",
         "filename": "private/iw.te",
         "patchSetId": 1
