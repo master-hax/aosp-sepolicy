@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "c62f9cda_6df8c941",
+        "filename": "prebuilts/api/29.0/private/iw.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-07-24T16:16:29Z",
+      "side": 1,
+      "message": "The files in the prebuilt directory shouldn\u0027t be modified. API 29 is already locked. This change should be reverted.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "1771cbaa30178d3e7609857cfa78bc76c99d34ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47993b89_a6b1e8be",
+        "filename": "prebuilts/api/29.0/private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-07-24T16:16:29Z",
+      "side": 1,
+      "message": "The files in the prebuilt directory shouldn\u0027t be modified. API 29 is already locked. This change should be reverted.",
+      "revId": "1771cbaa30178d3e7609857cfa78bc76c99d34ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04bd71d8_d05287b1",
+        "filename": "private/iw.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-07-24T16:16:29Z",
+      "side": 1,
+      "message": "Looking at b/137039363, the SELinux denial is:\n\n07-15 18:12:47.359  1246  1246 W com.android.car: type\u003d1400 audit(0.0:204): avc: denied { create } for scontext\u003du:r:carservice_app:s0 tcontext\u003du:r:carservice_app:s0 tclass\u003dnetlink_route_socket permissive\u003d0\n\nThis should be netlink_route_socket, not netlink_generic_socket.",
+      "range": {
+        "startLine": 8,
+        "startChar": 14,
+        "endLine": 8,
+        "endChar": 36
+      },
+      "revId": "1771cbaa30178d3e7609857cfa78bc76c99d34ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2617d1ef_221432de",
         "filename": "private/iw.te",
         "patchSetId": 1
@@ -85,6 +148,24 @@
       "side": 1,
       "message": "Spoke with jgalenson@ offline, we just need to confirm if iw is meant to be used this way. We confirmed it is on all devices. I\u0027ve reached out to rpius@ on wifi to see if we can get that confirmation.",
       "parentUuid": "b166baf3_abb15cb6",
+      "revId": "1771cbaa30178d3e7609857cfa78bc76c99d34ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92c41aff_18f43d15",
+        "filename": "private/iw.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-07-24T16:16:29Z",
+      "side": 1,
+      "message": "IIRC, the reason why we\u0027re sensitive to CAP_NET_ADMIN and CAP_NET_RAW is because netd is expected to handle all network configuration. Having iw also do it may be contrary to the network team\u0027s goals. \n\n+lorenzo for his opinion.",
+      "parentUuid": "65ce2c35_f0ac7a41",
       "revId": "1771cbaa30178d3e7609857cfa78bc76c99d34ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
