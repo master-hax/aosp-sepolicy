@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7b15c76e_96d58053",
+        "filename": "prebuilts/api/29.0/private/iw.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1470463
+      },
+      "writtenOn": "2019-07-25T00:02:00Z",
+      "side": 1,
+      "message": "Nick, I initially didn\u0027t plan to update this file but after updating private/iw.te (without updating the API 29 version), I received this error on make:\n\nFAILED: out/target/product/obj/ETC/sepolicy_freeze_test_intermediates/sepolicy_freeze_test\n...\nFiles system/sepolicy/prebuilts/api/29.0/private/iw.te and system/sepolicy/private/iw.te differ\n16:08:27 ninja failed with: exit status 1\n\nIs there a workaround for this assuming I need to update iw.te to meet the associated bug\u0027s release schedule?",
+      "parentUuid": "c62f9cda_6df8c941",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "1771cbaa30178d3e7609857cfa78bc76c99d34ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "47993b89_a6b1e8be",
         "filename": "prebuilts/api/29.0/private/property_contexts",
         "patchSetId": 1
@@ -77,6 +101,30 @@
       "side": 1,
       "message": "OOPS, this is the wrong domain entirely. The SELinux denial above is for \"carservice_app\", where this domain is \"iw\".\n\nDo you have the exact SELinux denial which triggered this? Newer kernels don\u0027t use netlink_generic_socket, but rather, a more specific socket family. \n\nWhat netlink family is being used here?",
       "parentUuid": "04bd71d8_d05287b1",
+      "range": {
+        "startLine": 8,
+        "startChar": 14,
+        "endLine": 8,
+        "endChar": 36
+      },
+      "revId": "1771cbaa30178d3e7609857cfa78bc76c99d34ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d84f888b_6abe18e3",
+        "filename": "private/iw.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1470463
+      },
+      "writtenOn": "2019-07-25T00:02:00Z",
+      "side": 1,
+      "message": "Hi Nick, as we had SELinux in permissive, once permissive was removed, we ran into multiple SELinux denials. The one you see in the bug was the very first one. The next one that was fixed by the code above was:\n\navc: denied { create } for comm\u003d\"iw\" scontext\u003du:r:iw:s0 tcontext\u003du:r:iw:s0 tclass\u003dnetlink_generic_socket permissive\u003d0\n\nI also updated the bug with this info.",
+      "parentUuid": "0eb7bbe4_23cac48a",
       "range": {
         "startLine": 8,
         "startChar": 14,
@@ -190,6 +238,24 @@
       "side": 1,
       "message": "IIRC, the reason why we\u0027re sensitive to CAP_NET_ADMIN and CAP_NET_RAW is because netd is expected to handle all network configuration. Having iw also do it may be contrary to the network team\u0027s goals. \n\n+lorenzo for his opinion.",
       "parentUuid": "65ce2c35_f0ac7a41",
+      "revId": "1771cbaa30178d3e7609857cfa78bc76c99d34ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eab53ba7_a3dce7ce",
+        "filename": "private/iw.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1470463
+      },
+      "writtenOn": "2019-07-25T00:02:00Z",
+      "side": 1,
+      "message": "Here are the two denials which necessitated the above:\n\navc: denied { net_raw } for comm\u003d\"iw\" capability\u003d13 scontext\u003du:r:iw:s0 tcontext\u003du:r:iw:s0 tclass\u003dcapability permissive\u003d0\navc: denied { net_admin } for comm\u003d\"iw\" capability\u003d12 scontext\u003du:r:iw:s0 tcontext\u003du:r:iw:s0 tclass\u003dcapability permissive\u003d0",
+      "parentUuid": "92c41aff_18f43d15",
       "revId": "1771cbaa30178d3e7609857cfa78bc76c99d34ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
