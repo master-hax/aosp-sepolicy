@@ -343,6 +343,24 @@
       "revId": "1771cbaa30178d3e7609857cfa78bc76c99d34ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df1f8e99_b328d2e4",
+        "filename": "private/iw.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2019-07-29T23:56:06Z",
+      "side": 1,
+      "message": "Josh is correct, we really don\u0027t want to add these permissions to anything. Why can\u0027t this operation (create a secondary wlan interface) be performed by a process that already has the permissions to do it? Examples of such processes would include a) the system server, b) netd, c) any persistent wifi process that already has CAP_NET_ADMIN.",
+      "parentUuid": "f148f2d5_42ac41b7",
+      "revId": "1771cbaa30178d3e7609857cfa78bc76c99d34ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
