@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a63b74c_edc3ce5f",
+        "filename": "public/hal_can.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-07-31T20:10:47Z",
+      "side": 1,
+      "message": "extra whitespace.",
+      "revId": "9e600df703f34ef25603af07e2f3d6dbd51a4373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "505e44ac_15ecdf44",
+        "filename": "public/hal_neverallows.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-07-31T20:10:47Z",
+      "side": 1,
+      "message": "(possibly a duplicate of other comments)\n\nIf this daemon is responsible for CAN sockets, shouldn\u0027t it have nothing to do with IP sockets?",
+      "revId": "9e600df703f34ef25603af07e2f3d6dbd51a4373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc3c1064_0cf9659e",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-07-31T20:10:47Z",
+      "side": 1,
+      "message": "Can you help me better understand why getting routing information from the NETLINK_ROUTE sockets are needed here? This has to do with IP sockets, where the description of this file really has to do with CAN sockets.",
+      "range": {
+        "startLine": 9,
+        "startChar": 29,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "9e600df703f34ef25603af07e2f3d6dbd51a4373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8234fa3b_ad32b1b8",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-07-31T20:10:47Z",
+      "side": 1,
+      "message": "Can you help me understand why the process needs to be able to create a UDP socket, but not perform any IPCs? This module feels like it is intended to only handle CAN socket families, not IP sockets.",
+      "range": {
+        "startLine": 10,
+        "startChar": 29,
+        "endLine": 10,
+        "endChar": 39
+      },
+      "revId": "9e600df703f34ef25603af07e2f3d6dbd51a4373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aaea5764_7e713862",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-07-31T20:10:47Z",
+      "side": 1,
+      "message": "this (and line 12) indicate that the process is attempting to load a kernel module (\"man 7 capability\"). The ability to load kernel modules is really sensitive can completely violate the integrity of the kernel.  Can you elaborate why this is needed, and why the functionality isn\u0027t compiled into the kernel directly?",
+      "range": {
+        "startLine": 11,
+        "startChar": 52,
+        "endLine": 11,
+        "endChar": 62
+      },
+      "revId": "9e600df703f34ef25603af07e2f3d6dbd51a4373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf3c0480_623f5d46",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-07-31T20:10:47Z",
+      "side": 1,
+      "message": "these actions, and the \"net_admin\" statement from line 11, make it appears that this daemon is attempting to configure the IP network. Configuration of the IP network is the responsibility of netd and the folks that manage Android\u0027s IP stack (lorenzo@). Can you help me understand what\u0027s going on here and why this is needed?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 2
+      },
+      "revId": "9e600df703f34ef25603af07e2f3d6dbd51a4373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
