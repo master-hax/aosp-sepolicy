@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d65ddf66_b28dc214",
+        "filename": "public/hal_can.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-07-31T22:33:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a63b74c_edc3ce5f",
+      "revId": "9e600df703f34ef25603af07e2f3d6dbd51a4373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "505e44ac_15ecdf44",
         "filename": "public/hal_neverallows.te",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "9e600df703f34ef25603af07e2f3d6dbd51a4373",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ab5ca98_e78fcbcd",
+        "filename": "public/hal_neverallows.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-07-31T22:33:35Z",
+      "side": 1,
+      "message": "This is required for if_nametoindex(3).\n\nneverallow on line 28 of system/sepolicy/public/hal_neverallows.te (or line 17635 of policy.conf) violated by allow hal_can_socketcan hal_can_socketcan:udp_socket { ioctl create };",
+      "parentUuid": "505e44ac_15ecdf44",
+      "revId": "9e600df703f34ef25603af07e2f3d6dbd51a4373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "8135f39b_b1c88462",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-07-31T22:33:35Z",
+      "side": 1,
+      "message": "It\u0027s necessary to create a new CAN interface (it\u0027s also a part of NETLINK_ROUTE protocol). What my implementation does is an equivalent of the following command:\n\n`ip link add dev vcan0 type vcan`\n\nThe implementation is here:\nhttp://ag/c/platform/hardware/interfaces/+/8604050/10/automotive/can/1.0/default/libnetdevice/libnetdevice.cpp#76\nAnd it\u0027s being used here:\nhttp://ag/c/platform/hardware/interfaces/+/8604050/10/automotive/can/1.0/default/CanBusVirtual.cpp#36",
+      "parentUuid": "dc3c1064_0cf9659e",
+      "range": {
+        "startLine": 9,
+        "startChar": 29,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "9e600df703f34ef25603af07e2f3d6dbd51a4373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8234fa3b_ad32b1b8",
         "filename": "vendor/hal_can_socketcan.te",
         "patchSetId": 3
@@ -79,6 +139,30 @@
       "revId": "9e600df703f34ef25603af07e2f3d6dbd51a4373",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e4cdb05_231ae93e",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-07-31T22:33:35Z",
+      "side": 1,
+      "message": "It\u0027s necessary for if_nametoindex. I\u0027ve added a comment about that.",
+      "parentUuid": "8234fa3b_ad32b1b8",
+      "range": {
+        "startLine": 10,
+        "startChar": 29,
+        "endLine": 10,
+        "endChar": 39
+      },
+      "revId": "9e600df703f34ef25603af07e2f3d6dbd51a4373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "41b9ca23_5fb7aba3",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-07-31T22:33:35Z",
+      "side": 1,
+      "message": "Oops, it\u0027s a leftover after the Proof-of-concept implementation that indeed loaded the CAN kernel modules dynamically. Thanks for catching this.",
+      "parentUuid": "aaea5764_7e713862",
+      "range": {
+        "startLine": 11,
+        "startChar": 52,
+        "endLine": 11,
+        "endChar": 62
+      },
+      "revId": "9e600df703f34ef25603af07e2f3d6dbd51a4373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf3c0480_623f5d46",
         "filename": "vendor/hal_can_socketcan.te",
         "patchSetId": 3
@@ -125,6 +233,30 @@
       "revId": "9e600df703f34ef25603af07e2f3d6dbd51a4373",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a94e02ad_291421e9",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-07-31T22:33:35Z",
+      "side": 1,
+      "message": "I\u0027ve changed the code to use CAN sockets explicitly, but it still requires net_admin to do anything with them. Does it still look like configuring IP network after the changes?",
+      "parentUuid": "cf3c0480_623f5d46",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 2
+      },
+      "revId": "9e600df703f34ef25603af07e2f3d6dbd51a4373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
