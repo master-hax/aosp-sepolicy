@@ -397,6 +397,24 @@
       "revId": "1771cbaa30178d3e7609857cfa78bc76c99d34ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac50ebfb_fe705825",
+        "filename": "private/iw.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1470463
+      },
+      "writtenOn": "2019-07-31T00:50:47Z",
+      "side": 1,
+      "message": "Lorenzo, we need them to be available after boot to so that when WifiNative.java attempts to provision an AP interface, one is already available. If one is not available, it fails:\nhttp://cs/android/frameworks/opt/net/wifi/service/java/com/android/server/wifi/WifiNative.java?l\u003d1041\n\nFrom my understanding this is an existing behavior of WifiNative that worked assuming those wlan interfaces were already added from native drivers. We reused the existing behavior of WifiNative by creating our own wlan interfaces using iw instead of relying on drivers. \n\nLet me know if that makes sense?",
+      "parentUuid": "1880721d_0065b92a",
+      "revId": "1771cbaa30178d3e7609857cfa78bc76c99d34ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
