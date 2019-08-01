@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "831ad766_727bc9c6",
+        "filename": "public/property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-08-01T17:19:30Z",
+      "side": 1,
+      "message": "This might want to be more specific (since we have many other init properties). How about init_debug_pid_prop?",
+      "range": {
+        "startLine": 58,
+        "startChar": 5,
+        "endLine": 58,
+        "endChar": 14
+      },
+      "revId": "3f71271adad3357c9ee2b38c66aff10c198a6caa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "68dac597_223b5e0f",
         "filename": "public/property.te",
         "patchSetId": 2
@@ -13,6 +36,30 @@
       "writtenOn": "2019-08-01T16:39:17Z",
       "side": 1,
       "message": "vendor_init shouldn\u0027t be able to set this prop, since it\u0027s not an \"exported\" prop",
+      "range": {
+        "startLine": 295,
+        "startChar": 5,
+        "endLine": 295,
+        "endChar": 16
+      },
+      "revId": "3f71271adad3357c9ee2b38c66aff10c198a6caa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ea0c643_165e353f",
+        "filename": "public/property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-08-01T17:19:30Z",
+      "side": 1,
+      "message": "meaning, it should be an exported prop, since we want to be able to find the pids of all services",
+      "parentUuid": "68dac597_223b5e0f",
       "range": {
         "startLine": 295,
         "startChar": 5,
