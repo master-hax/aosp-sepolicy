@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ee34a742_194e7812",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2019-08-02T17:28:48Z",
+      "side": 1,
+      "message": "How\u0027s \u0027init_svc_debug_prop\u0027?\n\nTo be a bit shorter while still addressing Tom\u0027s request of \"We should be specific with the label too and call it init_svc_debug_pid_prop.  Init sets other props and will likely set even more in the future.\"\n\nThis way it\u0027s for any init service debug properties, which may be more than PIDs in the future, but any service debug prop will (probably?) want to have the same sepolicy. This is tough to plan for...",
+      "parentUuid": "8efe4533_052861b5",
+      "range": {
+        "startLine": 58,
+        "startChar": 5,
+        "endLine": 58,
+        "endChar": 28
+      },
+      "revId": "9b08bcdc6bd066f81a407411e5cfb0db0cfb9d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c3d2614_cc472f0e",
         "filename": "public/property.te",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "941d6c04_829e5d1e",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2019-08-02T17:28:48Z",
+      "side": 1,
+      "message": "I moved it above the \u0027compatible_property_only\u0027 block so it lives next to some other neverallow rules rather than being alone. Please let me know if that\u0027s not OK and I\u0027ll move it below the \u0027compatible_property_only\u0027 block instead.",
+      "parentUuid": "9c3d2614_cc472f0e",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 0
+      },
+      "revId": "9b08bcdc6bd066f81a407411e5cfb0db0cfb9d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b705601d_28a66d71",
         "filename": "public/property.te",
         "patchSetId": 3
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "b507fdb6_e090f271",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2019-08-02T17:28:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b705601d_28a66d71",
+      "revId": "9b08bcdc6bd066f81a407411e5cfb0db0cfb9d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0cf97efe_059daf28",
         "filename": "public/property.te",
         "patchSetId": 3
@@ -79,6 +145,24 @@
       "revId": "9b08bcdc6bd066f81a407411e5cfb0db0cfb9d6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8562e746_b9ddd9eb",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2019-08-02T17:28:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cf97efe_059daf28",
+      "revId": "9b08bcdc6bd066f81a407411e5cfb0db0cfb9d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -102,6 +186,30 @@
       "revId": "9b08bcdc6bd066f81a407411e5cfb0db0cfb9d6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd9d5120_99d5e79e",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2019-08-02T17:28:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4af0a56b_2b3ecab8",
+      "range": {
+        "startLine": 364,
+        "startChar": 4,
+        "endLine": 366,
+        "endChar": 26
+      },
+      "revId": "9b08bcdc6bd066f81a407411e5cfb0db0cfb9d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
