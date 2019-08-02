@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "250e73be_c85b5030",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-08-02T17:43:00Z",
+      "side": 1,
+      "message": "There\u0027s no technical concern here. It\u0027s purely human readability.\n\n(The only technical concern with SELinux label lengths have to do with how they\u0027re stored in the filesystem. A label which is too long will exceed the space available in the file inode, and as a result, the label may spill to another filesystem block. This is more of a concern on /data though, where a large number of files have very long labels, and routinely can\u0027t fit into the inode space. I don\u0027t have this concern here.)",
+      "parentUuid": "a7044e42_fc775829",
+      "range": {
+        "startLine": 58,
+        "startChar": 5,
+        "endLine": 58,
+        "endChar": 28
+      },
+      "revId": "9b08bcdc6bd066f81a407411e5cfb0db0cfb9d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c3d2614_cc472f0e",
         "filename": "public/property.te",
         "patchSetId": 3
