@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8efe4533_052861b5",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-08-02T02:52:44Z",
+      "side": 1,
+      "message": "nit: consider a shorter name, perhaps \"debug_pid_prop\"? Or not. I\u0027m fine either way.\n\n(I see this has already been discussed on a previous revision, so my apologies in advance if this is bikeshedding).",
+      "range": {
+        "startLine": 58,
+        "startChar": 5,
+        "endLine": 58,
+        "endChar": 28
+      },
+      "revId": "9b08bcdc6bd066f81a407411e5cfb0db0cfb9d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c3d2614_cc472f0e",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-08-02T02:52:44Z",
+      "side": 1,
+      "message": "this should be moved outside of the \"compatible_property_only\" block (line 194). This neverallow should unconditionally apply, not be conditional.\n\nCan you please move this to somewhere after line 367?",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 0
+      },
+      "revId": "9b08bcdc6bd066f81a407411e5cfb0db0cfb9d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b705601d_28a66d71",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-08-02T02:52:44Z",
+      "side": 1,
+      "message": "Similar to the comment on line 292, can you please make this assertion unconditional by moving this entire block past line 367?",
+      "revId": "9b08bcdc6bd066f81a407411e5cfb0db0cfb9d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cf97efe_059daf28",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-08-02T02:52:44Z",
+      "side": 1,
+      "message": "the \"su\" domain doesn\u0027t exist on user builds, so this should be written instead as:\n\n  userdebug_or_eng(`-su\u0027)",
+      "revId": "9b08bcdc6bd066f81a407411e5cfb0db0cfb9d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4af0a56b_2b3ecab8",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-08-02T02:52:44Z",
+      "side": 1,
+      "message": "nit: I would merge this to all one line.\n\n } init_svc_debug_pid_prop:file no_rw_file_perms;",
+      "range": {
+        "startLine": 364,
+        "startChar": 4,
+        "endLine": 366,
+        "endChar": 26
+      },
+      "revId": "9b08bcdc6bd066f81a407411e5cfb0db0cfb9d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
