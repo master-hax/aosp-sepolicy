@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a7044e42_fc775829",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2019-08-02T17:34:12Z",
+      "side": 1,
+      "message": "FWIW, I still don\u0027t like including \u0027debug\u0027 in either the property names or the label.  In part, we\u0027re using this for \u0027testing\u0027 not \u0027debugging\u0027 so it\u0027s already a misnomer.  In part, we don\u0027t know how this will be used in the future, so tying a general information source to the term \u0027debug\u0027 doesn\u0027t seem right.\n\nSo to me, init_svc_pid_prop and init.svc_pid. are the two best answers.\n\n(But if we do keep the current name, why is \u0027init_svc_debug_pid_prop\u0027 too long?  I feel like it\u0027s just specific enough.  Are we worried about the length of labels for any specific reasons)",
+      "parentUuid": "ee34a742_194e7812",
+      "range": {
+        "startLine": 58,
+        "startChar": 5,
+        "endLine": 58,
+        "endChar": 28
+      },
+      "revId": "9b08bcdc6bd066f81a407411e5cfb0db0cfb9d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c3d2614_cc472f0e",
         "filename": "public/property.te",
         "patchSetId": 3
