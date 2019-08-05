@@ -22,6 +22,30 @@
       "revId": "839e3db7c78be16520af4b0e20b9f7fdb957d7cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a0b2298_0ba9f7fa",
+        "filename": "private/servicemanager.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-08-05T08:39:35Z",
+      "side": 1,
+      "message": "Should service manager also be allowed to stop these services? Or is the expectation that the service should shut itself down?\n\nOverall I think this approach makes a lot of sense. Service manager already gates access to services, allowing it to start those services on demand seems logical.\n\nSteven, does your comment still hold even if the service managers are combined?",
+      "parentUuid": "bc369899_886bf36f",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 49
+      },
+      "revId": "839e3db7c78be16520af4b0e20b9f7fdb957d7cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
