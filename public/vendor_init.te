@@ -198,63 +198,15 @@ recovery_only(`
 not_compatible_property(`
     set_prop(vendor_init, {
       property_type
-      -device_config_activity_manager_native_boot_prop
-      -device_config_boot_count_prop
-      -device_config_reset_performed_prop
-      -device_config_input_native_boot_prop
-      -device_config_netd_native_prop
-      -device_config_runtime_native_boot_prop
-      -device_config_runtime_native_prop
-      -device_config_media_native_prop
-      -device_config_sys_traced_prop
-      -restorecon_prop
-      -netd_stable_secret_prop
-      -firstboot_prop
-      -pm_prop
-      -system_boot_reason_prop
-      -bootloader_boot_reason_prop
-      -last_boot_reason_prop
-      -apexd_prop
-      -gsid_prop
-      -nnapi_ext_deny_product_prop
-      -init_svc_debug_prop
+      -vendor_init_non_settable_property_type
     })
 ')
 
 # Get file context
 allow vendor_init file_contexts_file:file r_file_perms;
 
-set_prop(vendor_init, bluetooth_a2dp_offload_prop)
-set_prop(vendor_init, bluetooth_audio_hal_prop)
-set_prop(vendor_init, cpu_variant_prop)
-set_prop(vendor_init, debug_prop)
-set_prop(vendor_init, exported_audio_prop)
-set_prop(vendor_init, exported_bluetooth_prop)
-set_prop(vendor_init, exported_config_prop)
-set_prop(vendor_init, exported_dalvik_prop)
-set_prop(vendor_init, exported_default_prop)
-set_prop(vendor_init, exported_ffs_prop)
-set_prop(vendor_init, exported_overlay_prop)
-set_prop(vendor_init, exported_pm_prop)
-set_prop(vendor_init, exported_radio_prop)
-set_prop(vendor_init, exported_system_radio_prop)
-set_prop(vendor_init, exported_wifi_prop)
-set_prop(vendor_init, exported2_config_prop)
-set_prop(vendor_init, exported2_system_prop)
-set_prop(vendor_init, exported2_vold_prop)
-set_prop(vendor_init, exported3_default_prop)
-set_prop(vendor_init, exported3_radio_prop)
-set_prop(vendor_init, logd_prop)
-set_prop(vendor_init, log_tag_prop)
-set_prop(vendor_init, log_prop)
-set_prop(vendor_init, serialno_prop)
-set_prop(vendor_init, vendor_default_prop)
-set_prop(vendor_init, vendor_security_patch_level_prop)
-set_prop(vendor_init, wifi_log_prop)
-
-get_prop(vendor_init, exported2_radio_prop)
-get_prop(vendor_init, exported3_system_prop)
-get_prop(vendor_init, theme_prop)
+set_prop(vendor_init, vendor_init_settable_property_type)
+get_prop(vendor_init, vendor_init_readable_property_type)
 
 ###
 ### neverallow rules
@@ -284,3 +236,7 @@ neverallow vendor_init servicemanager:service_manager list;
 
 # vendor_init should never be ptraced
 neverallow * vendor_init:process ptrace;
+
+neverallow vendor_init {
+  vendor_init_non_settable_property_type
+}:property_service set;
