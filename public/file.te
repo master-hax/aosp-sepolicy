@@ -215,7 +215,7 @@ type gsi_metadata_file, file_type;
 type password_slot_metadata_file, file_type;
 # APEX files within /metadata
 type apex_metadata_file, file_type;
-# libsnapshot files within /metadata
+# libsnapshot files within /metadata/gsi
 type ota_metadata_file, file_type;
 
 # Type for /dev/cpu_variant:.*.
@@ -362,7 +362,11 @@ type update_engine_data_file, file_type, data_file_type, core_data_file_type;
 type update_engine_log_data_file, file_type, data_file_type, core_data_file_type;
 # /data/misc/trace for method traces on userdebug / eng builds
 type method_trace_data_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
+
+# /data/gsi
 type gsi_data_file, file_type, data_file_type, core_data_file_type;
+# /data/gsi/ota
+type ota_image_data_file, file_type, data_file_type, core_data_file_type;
 
 # /data/data subdirectories - app sandboxes
 type app_data_file, file_type, data_file_type, core_data_file_type;
