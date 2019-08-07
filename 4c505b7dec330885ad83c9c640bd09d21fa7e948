@@ -118,6 +118,30 @@
       "revId": "4c505b7dec330885ad83c9c640bd09d21fa7e948",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b38d7a48_928aa350",
+        "filename": "public/attributes",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-08-07T20:41:29Z",
+      "side": 1,
+      "message": "I agree that permissions need to be more granular. I think we should keep the permissions in terms of types, not attributes. And use the attributes to fix the neverallows, which imo is the problematic area with the existing scheme, e.g.\n\n # This definition might need refinement.\n define(`vendordomain\u0027,`{ domain -coredomain }\u0027)\n\n # Prop is set by system iff it has system_prop_type attribute.\n attribute system_prop_type;\n neverallow coredomain { property_type -system_prop_type }:property_service set;\n neverallow vendordomain system_prop_type:property_service set;\n # We\u0027ll need to test to make sure that all props have property_type attribute on them.\n\n # System can\u0027t read props set by vendor except whitelist.\n neverallow coredomain {\n        vendor_prop_type\n        -...\n }:file no_rw_file_perms;\n\n # Plus symmetric rules for vendordomain and vendor_prop_type.\n\nSo, say, vendor_init sets foo_prop, and system_server reads it, then\n\n type foo_prop, vendor_prop_type\n set_prop(vendor_init, foo_prop);\n get_prop(system_server, foo_prop);\n # Add foo_prop to the list to coredomain\u0027s neverallow whitelist\n # If foo_prop-specific constraints need to be introduced, write neverallows in terms of foo_prop.\n\nThis way we:\n(1) avoid embedding access control policy into names of attributes.\n(2) relax the neverallows, which makes us room to rename/merge/change semantics of existing \"exported\" props.\n(3) maintain high granularity of permission, because we don\u0027t grant them using attributes.\n\nProblem with this approach is that it assumes props are only set from either system or vendor.\n\nSorry for the churn. WDYT?",
+      "parentUuid": "62e6e2b3_0b6be4ac",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 49
+      },
+      "revId": "4c505b7dec330885ad83c9c640bd09d21fa7e948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
