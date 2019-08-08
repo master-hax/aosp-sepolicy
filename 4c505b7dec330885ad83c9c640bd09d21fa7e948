@@ -142,6 +142,30 @@
       "revId": "4c505b7dec330885ad83c9c640bd09d21fa7e948",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8455f724_e7dc19dc",
+        "filename": "public/attributes",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-08-08T03:23:58Z",
+      "side": 1,
+      "message": "neverallow vendordomain system_prop_type:property_service set;\n\nI think this is wrong. There are many platform-defined properties that are expected to be set by vendor. They act as control knobs to the platform.\n\nHowever, in a broader sense, I think we are saying the same thing. Attributes will be used for specifying overarching rules like \u0027vendor process can\u0027t access private properties from platform\u0027. This will allow us to avoid adding type names to the rules whenever a new type is added. Domain-specific rules like \u0027process X can/can\u0027t write certain props\u0027 will still be written with types.",
+      "parentUuid": "b38d7a48_928aa350",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 49
+      },
+      "revId": "4c505b7dec330885ad83c9c640bd09d21fa7e948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
