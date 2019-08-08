@@ -166,6 +166,30 @@
       "revId": "4c505b7dec330885ad83c9c640bd09d21fa7e948",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31149ba7_a55386f0",
+        "filename": "public/attributes",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-08-08T19:07:44Z",
+      "side": 1,
+      "message": "\u003e neverallow vendordomain system_prop_type:property_service set;\n\n\u003e I think this is wrong. There are many platform-defined properties that are expected to be set by vendor. They act as control knobs to the platform.\n\nIn this case that platform-defined prop should have vendor_prop_type attribute. \n\nThat may sound odd, but I think making the setter, in this example vendor, also the \"owner\" of the prop simplifies the way we reason about these props, even if the definition of the type is in system. This is somewhat like a HAL interface being defined in system, but the HAL process counts as a vendor process.\n\n\u003e However, in a broader sense, I think we are saying the same thing. Attributes will be used for specifying overarching rules like \u0027vendor process can\u0027t access private properties from platform\u0027. This will allow us to avoid adding type names to the rules whenever a new type is added. Domain-specific rules like \u0027process X can/can\u0027t write certain props\u0027 will still be written with types.\n\nYes, we agree on the general idea. There is a caveat with attributes though. Say, you have:\n neverallow some_domains { \n        property_type;\n        -public_readable_property_type\n }:file no_rw_file_perms;\n\nHere, you need to test that public_readable_property_type is not applied inappropriately by vendors.\n\nI would prefer a scheme that avoids this neverallow pattern with \"-attribute\".",
+      "parentUuid": "8455f724_e7dc19dc",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 49
+      },
+      "revId": "4c505b7dec330885ad83c9c640bd09d21fa7e948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
