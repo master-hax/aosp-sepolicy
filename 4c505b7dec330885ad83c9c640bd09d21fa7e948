@@ -190,6 +190,30 @@
       "revId": "4c505b7dec330885ad83c9c640bd09d21fa7e948",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b516c600_6ba6b29e",
+        "filename": "public/attributes",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2019-08-09T09:32:39Z",
+      "side": 1,
+      "message": "Three thoughts:\n\n1) Suppose we introduce attributes that represent the owner, e.g. vendor_prop_type, system_prop_type, etc, and create neverallow rules based on them. Then properties with no such attributes will have no restrictions at all. So we must enforce one of such attributes is assigned to each property. But won\u0027t it be so painful to fix all of them in once?\n\nOn the other hand, if we introduce access policy attributes like this, I think we can refactor one by one.\n\n2) I don\u0027t understand why access policy attributes are bad.\n\n3) But, still I absolutely agree to avoid \"-attribute\".",
+      "parentUuid": "31149ba7_a55386f0",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 49
+      },
+      "revId": "4c505b7dec330885ad83c9c640bd09d21fa7e948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
