@@ -238,6 +238,30 @@
       "revId": "4c505b7dec330885ad83c9c640bd09d21fa7e948",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06a6074d_2805ccc2",
+        "filename": "public/attributes",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-08-09T19:14:14Z",
+      "side": 1,
+      "message": "Inseob,\n\n\u003e 1) Suppose we introduce attributes that represent the owner, e.g. vendor_prop_type, system_prop_type, etc, and create neverallow rules based on them. Then properties with no such attributes will have no restrictions at all. \n\nNeither system nor vendor would be able to set the prop in this case though.\n\n\u003e So we must enforce one of such attributes is assigned to each property. But won\u0027t it be so painful to fix all of them in once?\n\nYes, you\u0027re right. Doing this for vendor props would be very painful.\n\n\u003e 2) I don\u0027t understand why access policy attributes are bad.\n\nAssuming we avoid \"-attribute\", we might have something like\n\n get_prop(x, core_readable_property_type);\n neverallow y { core_readable_property_type -z }:file read;\n\nThis makes it problematic to add more to core_readable_property_type, since that adds more permission and tightens a neverallow at the same time. Also, first rule is too permissive.\n\n\nJiyong,\n\n\u003e Yeah, but that\u0027s what vendor_init_settable_property_type is for. Isn\u0027t it more descriptive and less confusing then just saying vendor_prop_type?\n\n\"vendor_init_settable_property_type\" conflates labels with rules. We generally avoid embedding access control policy in the names and instead express them as rules. I think vendor_prop_type + associated rules is more consistent with the convention.\n\nMaybe SELinux folks can weigh in on this?\n\n\u003e Sure we can have tests.\n\nIt doesn\u0027t seem like a trivial thing to do. Will we have to maintain another whitelist of types that are allowed to be public_readable_property_type? same for vendor_init_readable_property_type, vendor_init_settable_property_type \n\nOTOH ensuring (vendor_prop_type \u003d\u003d props set by vendor) is fairly straightforward:\n\n neverallow { domain -coredomain } { property_type -vendor_prop_type }:property_service set;\n neverallow coredomain vendor_prop_type:property_service set;\n\nNote that this approach leverages the fact that we can trust \"coredomain\" to mean \"system process\", since we already test that. The only real test we\u0027d need to add is checking that *all* props have property_type attribute. We can do that by looking at all property_contexts and cross-checking with the policy. We already do something like this with system_file_type and vendor_file_type.",
+      "parentUuid": "44f502e4_e8be28a4",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 49
+      },
+      "revId": "4c505b7dec330885ad83c9c640bd09d21fa7e948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
