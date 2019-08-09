@@ -214,6 +214,30 @@
       "revId": "4c505b7dec330885ad83c9c640bd09d21fa7e948",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44f502e4_e8be28a4",
+        "filename": "public/attributes",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-08-09T09:45:57Z",
+      "side": 1,
+      "message": "Tri, \n\n\u003e In this case that platform-defined prop should have vendor_prop_type attribute. \n\nYeah, but that\u0027s what vendor_init_settable_property_type is for. Isn\u0027t it more descriptive and less confusing then just saying vendor_prop_type?\n\n\u003e Here, you need to test that public_readable_property_type is not applied inappropriately by vendors.\n\nSure we can have tests.\n\n\u003e I would prefer a scheme that avoids this neverallow pattern with \"-attribute\".\n\nYeah, attribute is powerful but sepolicy itself doesn\u0027t seem to be capable of restricting associating an attribute to a type. So we have to rely on external tests.\n\n\nInseob,\n\n\u003e Then properties with no such attributes will have no restrictions at all\n\nIf there is no rule, nothing is allowed. We could also have a neverallow rule for properties that don\u0027t have any attribute.\n\nneverallow domain { property_type -vendor_prop_type -system_prop_type -xxx_prop_type}:file r_file_perms",
+      "parentUuid": "31149ba7_a55386f0",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 49
+      },
+      "revId": "4c505b7dec330885ad83c9c640bd09d21fa7e948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
