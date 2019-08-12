@@ -318,3 +318,7 @@ neverallow {
   -traceur_app
   -dumpstate
 } dumpstate_service:service_manager find;
+
+# for testNoBugreportDenials cts case
+allow dumpstate apexd:binder { call };
+allow dumpstate vold:binder { call };

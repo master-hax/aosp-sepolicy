@@ -662,3 +662,7 @@
 #############################
 # mount point for read-write product partitions
 /mnt/product(/.*)?          u:object_r:mnt_product_file:s0
+
+#############################
+# relabel for /system/etc/hosts
+/system/etc/hosts          u:object_r:system_hosts_file:s0

@@ -8,3 +8,7 @@ hal_attribute_hwservice(hal_dumpstate, hal_dumpstate_hwservice)
 allow hal_dumpstate shell_data_file:file write;
 # allow reading /proc/interrupts for all hal impls
 allow hal_dumpstate proc_interrupts:file r_file_perms;
+# run /vendor/bin/date command
+allow hal_dumpstate vendor_toolbox_exec:file {execute_no_trans};
+# for DumpFdToFile
+allow hal_dumpstate system_hosts_file:file { read };
