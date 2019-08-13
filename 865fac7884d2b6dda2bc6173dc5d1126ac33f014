@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2e92b94_1156c62e",
+        "filename": "private/shell.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-08-13T17:48:38Z",
+      "side": 1,
+      "message": "technically the semicolon isn\u0027t needed here.",
+      "range": {
+        "startLine": 80,
+        "startChar": 30,
+        "endLine": 80,
+        "endChar": 31
+      },
+      "revId": "865fac7884d2b6dda2bc6173dc5d1126ac33f014",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be2d994b_0b7394a4",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-08-13T17:48:38Z",
+      "side": 1,
+      "message": "given the sensitive nature of these properties, can you please also make sure that this property is restricted so that only init and the shell user can write to the property. This can be written as:\n\n  neverallow { domain -init userdebug_or_eng(`-shell\u0027) } linker_prop:property_service set;\n\nwhich says that only init and the shell domain (on debuggable builds) can set this property.\n\nneverallow statements are compile time assertions, and are automatically turned into CTS tests.\n\nThis change will help prevent regressions and ensures we won\u0027t run into problems when this change is later reverted.\n\nThis line would be a good place to put the assertion.",
+      "revId": "865fac7884d2b6dda2bc6173dc5d1126ac33f014",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
