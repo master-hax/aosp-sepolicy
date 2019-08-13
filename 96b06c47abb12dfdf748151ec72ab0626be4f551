@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afc19986_d601783e",
+        "filename": "private/shell.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-08-13T01:39:13Z",
+      "side": 1,
+      "message": "I feel really nervous allowing something like the unprivileged shell user the ability to control linker config variables. The linker is responsible for loading every program, and the idea that one unprivileged user could configure this seems ... unnecessarily dangerous. Even if we needed to keep this as a property, it would be safer to only let \"adb root\" / \"su\" set the property, instead of the unprivileged shell user.",
+      "revId": "96b06c47abb12dfdf748151ec72ab0626be4f551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
