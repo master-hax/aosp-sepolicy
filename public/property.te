@@ -6,6 +6,7 @@ type bluetooth_audio_hal_prop, property_type;
 type bluetooth_prop, property_type;
 type bpf_progs_loaded_prop, property_type;
 type bootloader_boot_reason_prop, property_type;
+type charger_prop, property_type;
 type cold_boot_done_prop, property_type;
 type config_prop, property_type, core_property_type;
 type cppreopt_prop, property_type, core_property_type;
@@ -54,6 +55,7 @@ type gsid_prop, property_type;
 type heapprofd_enabled_prop, property_type;
 type heapprofd_prop, property_type;
 type hwservicemanager_prop, property_type;
+type init_svc_debug_prop, property_type;
 type last_boot_reason_prop, property_type;
 type system_lmk_prop, property_type;
 type llkd_prop, property_type;
@@ -91,6 +93,7 @@ type time_prop, property_type;
 type traced_enabled_prop, property_type;
 type traced_lazy_prop, property_type;
 type use_memfd_prop, property_type;
+type virtual_ab_prop, property_type;
 type vold_prop, property_type, core_property_type;
 type wifi_log_prop, property_type, log_property_type;
 type wifi_prop, property_type;
@@ -188,6 +191,18 @@ dontaudit domain {
   ctl_mdnsd_prop
   ctl_rildaemon_prop
 }:property_service set;
+
+neverallow {
+  domain
+  -init
+} init_svc_debug_prop:property_service set;
+
+neverallow {
+  domain
+  -init
+  -dumpstate
+  userdebug_or_eng(`-su')
+} init_svc_debug_prop:file no_rw_file_perms;
 
 compatible_property_only(`
 # Prevent properties from being set

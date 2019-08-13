@@ -35,6 +35,7 @@ debug.                  u:object_r:debug_prop:s0
 debug.db.               u:object_r:debuggerd_prop:s0
 dumpstate.              u:object_r:dumpstate_prop:s0
 dumpstate.options       u:object_r:dumpstate_options_prop:s0
+init.svc_debug_pid.     u:object_r:init_svc_debug_prop:s0
 llk.                    u:object_r:llkd_prop:s0
 khungtask.              u:object_r:llkd_prop:s0
 ro.llk.                 u:object_r:llkd_prop:s0
@@ -107,7 +108,6 @@ ro.persistent_properties.ready  u:object_r:persistent_properties_ready_prop:s0
 
 # ctl properties
 ctl.bootanim            u:object_r:ctl_bootanim_prop:s0
-ctl.android.hardware.dumpstate u:object_r:ctl_dumpstate_prop:s0
 ctl.dumpstate           u:object_r:ctl_dumpstate_prop:s0
 ctl.fuse_               u:object_r:ctl_fuse_prop:s0
 ctl.mdnsd               u:object_r:ctl_mdnsd_prop:s0
@@ -138,6 +138,9 @@ ctl.restart$gsid        u:object_r:ctl_gsid_prop:s0
 
 # Restrict access to stopping apexd.
 ctl.stop$apexd          u:object_r:ctl_apexd_prop:s0
+
+# Restrict access to restart dumpstate
+ctl.interface_restart$android.hardware.dumpstate u:object_r:ctl_dumpstate_prop:s0
 
 # NFC properties
 nfc.                    u:object_r:nfc_prop:s0
@@ -206,3 +209,10 @@ ro.nnapi.extensions.deny_on_product                u:object_r:nnapi_ext_deny_pro
 
 # Property that is set once ueventd finishes cold boot.
 ro.cold_boot_done       u:object_r:cold_boot_done_prop:s0
+
+# Charger properties
+ro.charger.             u:object_r:charger_prop:s0
+
+# Virtual A/B properties
+ro.virtual_ab.enabled   u:object_r:virtual_ab_prop:s0
+ro.virtual_ab.retrofit  u:object_r:virtual_ab_prop:s0
