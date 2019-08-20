@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4fd10182_f29f4b83",
+        "filename": "private/installd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-08-20T19:26:29Z",
+      "side": 1,
+      "message": "There\u0027s currently a line in public/installd.te which reads:\n\n  allow installd install_data_file:file create_file_perms;\n\nCan you please move that line to this file, so that the directory and file operations are in the same area?",
+      "revId": "8607a31f82df923757e8b6abdfb74e97bd23989d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3430553f_4104c52c",
+        "filename": "private/sdcardd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-08-20T19:26:29Z",
+      "side": 1,
+      "message": "1) There\u0027s currently a line in public/sdcardd.te which reads:\n\n  allow sdcardd install_data_file:file r_file_perms;\n\nCan you please move that line to this file?\n\n2) You shouldn\u0027t need the ability to read the directory. The following should be sufficient:\n\n  allow sdcardd install_data_file:dir search;",
+      "revId": "8607a31f82df923757e8b6abdfb74e97bd23989d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
