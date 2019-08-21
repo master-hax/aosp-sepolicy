@@ -1,6 +1,6 @@
 # rild - radio interface layer daemon
 type rild, domain;
-hal_server_domain(rild, hal_telephony)
+protected_hal_server_domain(rild, hal_telephony)
 net_domain(rild)
 
 # type_transition must be private policy the domain_trans rules could stay

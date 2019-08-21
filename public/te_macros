@@ -242,6 +242,16 @@ typeattribute $1 $2;
 ')
 
 #####################################
+# protected_hal_server_domain(domain, hal_type)
+# Same as hal_server_domain, but prevents access from untrusted apps
+define(`protected_hal_server_domain', `
+typeattribute $1 halserverdomain;
+typeattribute $1 protected_halserverdomain;
+typeattribute $1 $2_server;
+typeattribute $1 $2;
+')
+
+#####################################
 # hal_client_domain(domain, hal_type)
 # Allow a base set of permissions required for a domain to be a
 # client of a HAL of the specified type.
