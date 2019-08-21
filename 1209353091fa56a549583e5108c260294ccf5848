@@ -22,6 +22,30 @@
       "revId": "1209353091fa56a549583e5108c260294ccf5848",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5e3a004_1b1dd84d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-08-21T22:57:25Z",
+      "side": 1,
+      "message": "Yes :)\nThe app in the bug is hitting a code path that accesses gpu_service. And that throws a denial.\n\nAdding gpu_service permissions to the app is not possible, because vendor apps are constrained by this neverallow rule https://android.googlesource.com/platform/system/sepolicy/+/refs/heads/master/public/domain.te#658\n\nI think gpu_service should be accessible by vendor apps because it\u0027s already accessible by untrusted 3p apps.",
+      "parentUuid": "61b251ec_9aa3d1e4",
+      "range": {
+        "startLine": 12,
+        "startChar": 5,
+        "endLine": 12,
+        "endChar": 14
+      },
+      "revId": "1209353091fa56a549583e5108c260294ccf5848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
