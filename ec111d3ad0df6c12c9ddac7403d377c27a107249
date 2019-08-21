@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96d78562_60a4f274",
+        "filename": "private/compat/29.0/29.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-08-21T03:04:12Z",
+      "side": 1,
+      "message": "instead of this, please edit private/compat/29.0/29.0.cil and change the line which reads:\n\n  (typeattributeset system_data_file_29_0 (system_data_file))\n\nto\n\n  (typeattributeset system_data_file_29_0 (system_data_file \nsystem_data_root_file))\n\nThis basically says that, on older APIs, system_data_root_file can be substituted by version 29 system_data_file.",
+      "revId": "ec111d3ad0df6c12c9ddac7403d377c27a107249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40ce9b8c_41aeeb87",
+        "filename": "public/vold.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-08-21T03:04:12Z",
+      "side": 1,
+      "message": "This should probably be split into two lines:\n\nallow vold system_data_file:dir { create rw_dir_perms mounton setattr rmdir };\n\nallow vold system_data_root_file:dir rw_dir_perms;\n\nI\u0027m pretty sure we don\u0027t want vold mounting something on top of /data.",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 52
+      },
+      "revId": "ec111d3ad0df6c12c9ddac7403d377c27a107249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
