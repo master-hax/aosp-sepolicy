@@ -1,6 +1,6 @@
 type hal_can_socketcan, domain;
-hal_server_domain(hal_can_socketcan, hal_can_controller)
-hal_server_domain(hal_can_socketcan, hal_can_bus)
+protected_hal_server_domain(hal_can_socketcan, hal_can_controller)
+protected_hal_server_domain(hal_can_socketcan, hal_can_bus)
 
 type hal_can_socketcan_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(hal_can_socketcan)
