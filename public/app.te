@@ -311,6 +311,11 @@ allow { appdomain -isolated_app } hal_camera:fd use;
 allow { appdomain -isolated_app } hal_renderscript_hwservice:hwservice_manager find;
 allow appdomain same_process_hal_file:file { execute read open getattr map };
 
+# Access GestureLauncherService and IGestureLauncher
+# Intercepts certain keys; needed since PhoneFallbackEventHandler.java will be
+# called from *any* view
+allow appdomain gesture_launcher_service:service_manager find;
+
 # TODO: switch to meminfo service
 allow appdomain proc_meminfo:file r_file_perms;
 
