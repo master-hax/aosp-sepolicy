@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e5f27ed_7912d754",
+        "filename": "private/system_server.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-08-26T12:54:11Z",
+      "side": 1,
+      "message": "It looks me this does not needed after srvice.te change.",
+      "range": {
+        "startLine": 732,
+        "startChar": 0,
+        "endLine": 732,
+        "endChar": 52
+      },
+      "revId": "39e5668edfab01a019924f90fca587d3045e8bd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a0d185c_523b33ab",
+        "filename": "public/app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-08-26T12:54:11Z",
+      "side": 1,
+      "message": "It looks me it does not need after service.te change",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 317,
+        "endChar": 62
+      },
+      "revId": "39e5668edfab01a019924f90fca587d3045e8bd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a23f7b59_34c3c0b4",
+        "filename": "public/service.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-08-26T12:54:11Z",
+      "side": 1,
+      "message": "gesutre_launcher_service runs on systemserver.\n\nIt looks me move under following section and add system_server_service.\n\n# system_server_services broken down\ntype gesture_launcher_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;\n\nsystem_server_service resolve\n\navc: denied { add } for service\u003dgesture_launcher pid\u003d1042 uid\u003d1000 \\\n  scontext\u003du:r:system_server:s0 \\\n  tcontext\u003du:object_r:gesture_launcher_service:s0 tclass\u003dservice_manager\n\napp_api_service, ephemeral_app_api_service resolve other { find } rules",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 53
+      },
+      "revId": "39e5668edfab01a019924f90fca587d3045e8bd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
