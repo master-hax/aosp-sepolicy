@@ -6,6 +6,7 @@ binder_service(secure_element)
 add_service(secure_element, secure_element_service)
 
 allow secure_element app_api_service:service_manager find;
+allow secure_element radio_service:service_manager find;
 hal_client_domain(secure_element, hal_secure_element)
 
 # already open bugreport file descriptors may be shared with
