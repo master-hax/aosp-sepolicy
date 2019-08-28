@@ -189,6 +189,30 @@
       "revId": "df0a65785cac195af64abdcb36edb25660ebe040",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e5717dd_3a8ac632",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-08-28T18:26:49Z",
+      "side": 1,
+      "message": "I\u0027ve talked to Tri offline. I\u0027ll remove vintf_service. The only distinction that matters for security is if a service is served by vendor or not AND which process is allowed to talk to which.\n\ncoredomain is allowed to talk to vintf_service OR vendor_service, it\u0027s just that for a non-@VintfStability service user-defined APIs (as opposed to pingBinder/dump) are restricted.",
+      "parentUuid": "861fd58d_ab9e4917",
+      "range": {
+        "startLine": 628,
+        "startChar": 0,
+        "endLine": 630,
+        "endChar": 37
+      },
+      "revId": "df0a65785cac195af64abdcb36edb25660ebe040",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
