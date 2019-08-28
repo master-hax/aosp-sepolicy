@@ -117,6 +117,30 @@
       "revId": "df0a65785cac195af64abdcb36edb25660ebe040",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d68d266_1cd23dd7",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-08-28T00:34:57Z",
+      "side": 1,
+      "message": "I\u0027m not convinced this is a good idea. Replacing parts of sepolicy with some other access policy will at the very least make sepolicy not very readable, e.g. here you can\u0027t tell if system processes can talk to vendor_service without looking at implementation details of libbinder. Neverallows also have degree of enforcement (CTS) that we don\u0027t have with runtime checks.",
+      "parentUuid": "240658b3_11336252",
+      "range": {
+        "startLine": 628,
+        "startChar": 0,
+        "endLine": 630,
+        "endChar": 37
+      },
+      "revId": "df0a65785cac195af64abdcb36edb25660ebe040",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
