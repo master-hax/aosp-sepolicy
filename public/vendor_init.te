@@ -253,6 +253,10 @@ set_prop(vendor_init, vendor_default_prop)
 set_prop(vendor_init, vendor_security_patch_level_prop)
 set_prop(vendor_init, wifi_log_prop)
 
+userdebug_or_eng(`
+  set_prop(vendor_init, logpersistd_logging_prop)
+')
+
 get_prop(vendor_init, exported2_radio_prop)
 get_prop(vendor_init, exported3_system_prop)
 get_prop(vendor_init, theme_prop)
