@@ -83,6 +83,7 @@
 /dev/block/vold/.+	u:object_r:vold_device:s0
 /dev/block/ram[0-9]*	u:object_r:ram_device:s0
 /dev/block/zram[0-9]*	u:object_r:ram_device:s0
+/dev/boringssl/selftest/(.+)	u:object_r:boringssl_self_test_marker:s0
 /dev/bus/usb(.*)?       u:object_r:usb_device:s0
 /dev/console		u:object_r:console_device:s0
 /dev/cpu_variant:.*     u:object_r:dev_cpu_variant:s0
@@ -176,6 +177,10 @@
 /dev/zero		u:object_r:zero_device:s0
 /dev/__properties__ u:object_r:properties_device:s0
 /dev/__properties__/property_info   u:object_r:property_info:s0
+#############################
+# Files provided via /apex
+/apex/com.android.conscrypt/bin/boringssl_self_test32	u:object_r:boringssl_self_test_exec:s0
+/apex/com.android.conscrypt/bin/boringssl_self_test64	u:object_r:boringssl_self_test_exec:s0
 #############################
 # System files
 #
