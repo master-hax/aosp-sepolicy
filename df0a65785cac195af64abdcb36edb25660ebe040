@@ -93,6 +93,30 @@
       "revId": "df0a65785cac195af64abdcb36edb25660ebe040",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "240658b3_11336252",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-08-28T00:14:16Z",
+      "side": 1,
+      "message": "Neverallows are build errors only if there is an allow rule. Without the rule, it\u0027s also a runtime error. Stability policy doesn\u0027t need to be in sepolicy because it\u0027s orthogonal.\n\nIt\u0027s intentional that a vendor binder can be sent to system even if it isn\u0027t used. For instance, a vendor could send an IBinder token or send a binder as a convenient opaque token.",
+      "parentUuid": "6e51f7d3_7c8bf1c5",
+      "range": {
+        "startLine": 628,
+        "startChar": 0,
+        "endLine": 630,
+        "endChar": 37
+      },
+      "revId": "df0a65785cac195af64abdcb36edb25660ebe040",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
