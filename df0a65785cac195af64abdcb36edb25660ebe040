@@ -141,6 +141,30 @@
       "revId": "df0a65785cac195af64abdcb36edb25660ebe040",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de01eb8c_24444593",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-08-28T00:54:35Z",
+      "side": 1,
+      "message": "These issues are still orthogonal. You would still have \u0027binder_call\u0027 (someone would still have to give a permission for something to talk to a vendor service over binder). We already do this since there is no such thing as hwbinder_call. No sepolicy has been replaced.\n\nThere is a separate long-standing discussion to potentially remove binder_call from talking about processes and instead talk about which processes can use which interfaces to talk to which processes, but it isn\u0027t clear this will ever happen.",
+      "parentUuid": "0d68d266_1cd23dd7",
+      "range": {
+        "startLine": 628,
+        "startChar": 0,
+        "endLine": 630,
+        "endChar": 37
+      },
+      "revId": "df0a65785cac195af64abdcb36edb25660ebe040",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
