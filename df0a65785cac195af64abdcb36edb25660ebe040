@@ -165,6 +165,30 @@
       "revId": "df0a65785cac195af64abdcb36edb25660ebe040",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "861fd58d_ab9e4917",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-08-28T17:55:45Z",
+      "side": 1,
+      "message": "Sorry, I\u0027m going on a tangent. This change LGTM. But I do want to continue the discussion on the use of vendor_service attribute.\n\n\u003e No sepolicy has been replaced.\n\n\"Coredomain can\u0027t talk to vendor_service.\" This constraint is no longer in sepolicy. \n\nAnother concern is that there is room to apply \"vendor_service\" inappropriately. As is, sepolicy doesn\u0027t distinguish between vendor_service and vintf_service for services added by vendor. So say, you have a vintf stability interface in vendor and pixel sepolicy marks it as vendor_service, instead of vintf_service. \n\nI\u0027d like to avoid a situation where the attribute grows divergent from its original meaning (e.g. app_api_service b/36783122).",
+      "parentUuid": "de01eb8c_24444593",
+      "range": {
+        "startLine": 628,
+        "startChar": 0,
+        "endLine": 630,
+        "endChar": 37
+      },
+      "revId": "df0a65785cac195af64abdcb36edb25660ebe040",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
