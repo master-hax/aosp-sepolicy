@@ -46,6 +46,30 @@
       "revId": "58b1dfcd0d94521b3c6e4f76526f82a8d194ff7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6cd7e96f_91feced5",
+        "filename": "private/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1002975
+      },
+      "writtenOn": "2019-08-29T22:55:48Z",
+      "side": 1,
+      "message": "\u003e \u003e This should probably be (/.*)? \n\u003e \n\u003e Only the files are marker (and the self test binary only needs to be able to create those files rather than the directory) but, okay, I\u0027ve added the directory to the label.\n\nFiles inherit the context of their parent directory by default. You can also use file_type_auto_trans(...) but labelling the containing directory with the same label is probably better.\n\n\u003e \u003e and then you should call restorecon after the mkdir in the init.rc\n\u003e \n\u003e FYI I don\u0027t understand what restorecon does. What would it achieve / why is it needed and how would I use it?\n\nrestorecon is what reads file_contexts. Nothing else does. As a consequence just creating a file in a directory doesn\u0027t label it (beyond inheriting parent\u0027s eabel) unless you explicitly do it in whatever program created the file via setfilecon() or something similar.\n\n\u003e \u003e Files inherit their parent\u0027s label by default without any autotrans rules. As a consequence \n\u003e \u003e you should also allow the self test executable to write to the directory with this label as \n\u003e \u003e well.\n\u003e \n\u003e That\u0027s what boringssl_self_test.te\u0027s line:\n\u003e \n\u003e    allow boringssl_self_test boringssl_self_test_marker:file rw_file_perms;\n\u003e \n\u003e does. Right?\n\nFrom SELinux\u0027s point of view a :file is not a :dir, so you\u0027ll need another one that looks like:\n\n  allow boringssl_self_test boringssl_self_test_marker:dir ra_dir_perms;\n\nAdditionally that might need to be \"create_file_perms\" instead of \"rw_file_perms\"",
+      "parentUuid": "7adaca0d_c7974c25",
+      "range": {
+        "startLine": 86,
+        "startChar": 23,
+        "endLine": 86,
+        "endChar": 28
+      },
+      "revId": "58b1dfcd0d94521b3c6e4f76526f82a8d194ff7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
