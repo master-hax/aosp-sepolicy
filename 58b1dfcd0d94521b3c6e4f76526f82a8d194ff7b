@@ -22,6 +22,30 @@
       "revId": "58b1dfcd0d94521b3c6e4f76526f82a8d194ff7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7adaca0d_c7974c25",
+        "filename": "private/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2019-08-29T22:29:58Z",
+      "side": 1,
+      "message": "\u003e This should probably be (/.*)? \n\nOnly the files are marker (and the self test binary only needs to be able to create those files rather than the directory) but, okay, I\u0027ve added the directory to the label.\n\n\u003e and then you should call restorecon after the mkdir in the init.rc\n\nFYI I don\u0027t understand what restorecon does. What would it achieve / why is it needed and how would I use it?\n\n\u003e Files inherit their parent\u0027s label by default without any autotrans rules. As a consequence \n\u003e you should also allow the self test executable to write to the directory with this label as \n\u003e well.\n\nThat\u0027s what boringssl_self_test.te\u0027s line:\n\n   allow boringssl_self_test boringssl_self_test_marker:file rw_file_perms;\n\ndoes. Right?",
+      "parentUuid": "d2fc392a_188686f2",
+      "range": {
+        "startLine": 86,
+        "startChar": 23,
+        "endLine": 86,
+        "endChar": 28
+      },
+      "revId": "58b1dfcd0d94521b3c6e4f76526f82a8d194ff7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
