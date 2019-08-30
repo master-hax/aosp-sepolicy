@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c8336ec4_c81d5b0e",
+        "filename": "apex/com.android.conscrypt-file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2019-08-30T19:29:58Z",
+      "side": 1,
+      "message": "Done. Have also added additional spaces in the lines above to align these.",
+      "parentUuid": "b7ea0241_77358240",
+      "range": {
+        "startLine": 6,
+        "startChar": 26,
+        "endLine": 6,
+        "endChar": 27
+      },
+      "revId": "60d77548fcdae062478cff8c0702832f40776f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b13bc14_9be3615f",
         "filename": "apex/com.android.conscrypt-file_contexts",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "dd686eef_474fe0bb",
+        "filename": "apex/com.android.conscrypt-file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2019-08-30T19:29:58Z",
+      "side": 1,
+      "message": "Thanks! Done.",
+      "parentUuid": "3b13bc14_9be3615f",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 65
+      },
+      "revId": "60d77548fcdae062478cff8c0702832f40776f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d85c1fb_e0188f17",
         "filename": "private/boringssl_self_test.te",
         "patchSetId": 5
@@ -59,6 +107,24 @@
       "writtenOn": "2019-08-30T12:47:21Z",
       "side": 1,
       "message": "Why do you need coredomain?",
+      "revId": "60d77548fcdae062478cff8c0702832f40776f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd75b295_237d3ecc",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2019-08-30T19:29:58Z",
+      "side": 1,
+      "message": "I was copying from examples, honestly I don\u0027t know what this line does. Care to explain?",
+      "parentUuid": "0d85c1fb_e0188f17",
       "revId": "60d77548fcdae062478cff8c0702832f40776f13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "61332832_877b54f7",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2019-08-30T19:29:58Z",
+      "side": 1,
+      "message": "That was a good question/observation (I wasn\u0027t sure either - the stuff in apex is part of the platform but it no longer lives in /system, so I could have seen that either option is defensible) as of the patchset that you reviewed.\n\nI\u0027ve now added another copy of boringssl_self_test{32,64} in /system/bin because we also need to optimize the self test of the copy of libcrypto in /system/bin. Would you say that it\u0027s reasonable to keep a shared SELinux security domain for the copies of the executable in /system vs. /apex?\n\nIf so, then because boringssl_self_test_exec now contains files from /system then I guess there\u0027s no longer a question whether system_file_type should be included here.",
+      "parentUuid": "bf52a5e5_7e3365cf",
+      "revId": "60d77548fcdae062478cff8c0702832f40776f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94b15100_b814b74e",
         "filename": "private/boringssl_self_test.te",
         "patchSetId": 5
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "559b93f9_cec9a7fe",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2019-08-30T19:29:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94b15100_b814b74e",
+      "revId": "60d77548fcdae062478cff8c0702832f40776f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6affe475_be8a4c4f",
         "filename": "private/boringssl_self_test.te",
         "patchSetId": 5
@@ -110,6 +212,24 @@
       "writtenOn": "2019-08-30T12:47:21Z",
       "side": 1,
       "message": "Should you also allow neverallow rules to make sure nothing other than the self test is ever allowed to create these files?",
+      "revId": "60d77548fcdae062478cff8c0702832f40776f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "918264ea_244e4f19",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2019-08-30T19:29:58Z",
+      "side": 1,
+      "message": "Done. Two questions though:\n\n1.) Should this neverallow rule live here or in domain.te?\n\n2.) Not important but confusing: I needed to add \"-init -vendor_init\" to the neverallow rule because otherwise I ran into:\n\nlibsepol.report_failure: neverallow on line 19 of system/sepolicy/private/boringssl_self_test.te (or line 33600 of policy.conf) violated by allow vendor_init boringssl_self_test_marker:file { read write create getattr setattr map unlink open };\nlibsepol.report_failure: neverallow on line 19 of system/sepolicy/private/boringssl_self_test.te (or line 33600 of policy.conf) violated by allow init boringssl_self_test_marker:file { read write create getattr setattr map unlink open };\n\nOut of curiosity (not the end of the world if you don\u0027t know) Do you happen to know why that is? I looked into this myself (with help by rpl@) but couldn\u0027t figure it out:\n\nThe only allow rule for boringssl_self_test_marker:file is create_file_perms in line 11, but that doesn\u0027t seem to be related:\n - Commenting out that line doesn\u0027t fix the error.\n - The permissions are slightly different, e.g. create_file_perms also contains \"rename\".\n - Also, the line is needed because otherwise init runs into an SELinux denial when trying to start those executables.\n - Looking into what domain_auto_trans expands to (via te_macros), I don\u0027t see why it would grant such permissions to boringssl_self_test_marker:file\n\nSo where are the rules coming from that allow boringssl_self_test_marker:file { read write create getattr setattr map unlink open }; to both init and vendor_init?\n\nIt\u0027s not a major issue, but I don\u0027t really see a reason why init and vendor_init would need to be allowed to create those files in any way other than through calling the boringssl_self_test{32,64} binaries.",
+      "parentUuid": "6affe475_be8a4c4f",
       "revId": "60d77548fcdae062478cff8c0702832f40776f13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -133,6 +253,24 @@
     },
     {
       "key": {
+        "uuid": "9eebf664_d1d477a2",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2019-08-30T19:29:58Z",
+      "side": 1,
+      "message": "Ack. Deleted this because I\u0027ve replaced the domain_auto_trans with init_daemon_domain above.",
+      "parentUuid": "8bd763c9_0c1883b3",
+      "revId": "60d77548fcdae062478cff8c0702832f40776f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79f41eec_615db8c5",
         "filename": "private/boringssl_self_test.te",
         "patchSetId": 5
@@ -147,6 +285,24 @@
       "revId": "60d77548fcdae062478cff8c0702832f40776f13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bf7d64e_dfadb1f4",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2019-08-30T19:29:58Z",
+      "side": 1,
+      "message": "\u003e This should be in domain.te.\n\nDone. (Personally I think it\u0027s fragile to split these rules into multiple .te files because they all form one logical unit, regardless of the fact that they affect multiple SELinux security domains, but I do understand that putting it into domain.te is consistent with how the rest of the rules are organized).\n\n\u003e Should you allow ...:file getattr ?\n\nEmpirically, no, in the sense that I do not observe any SELinux denials for :file getattr.\n\nIn practice, the processes do the following in boringssl\u0027s self_check.c [1]:\n\n   access(flag_path, F_OK)\n\nand, based on the SELinux denials, it looks like that only needs ...:dir search, not :file getattr or any other :file permission.\n\n[1] https://boringssl.googlesource.com/boringssl/+/a8ffaf1bf2ec64cbbb17863ede06ba506b3db8b8%5E%21/#F1",
+      "parentUuid": "79f41eec_615db8c5",
+      "revId": "60d77548fcdae062478cff8c0702832f40776f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
