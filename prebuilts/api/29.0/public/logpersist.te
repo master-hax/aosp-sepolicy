@@ -1,6 +1,9 @@
 # android debug logging, logpersist domains
 type logpersist, domain;
 
+# logpersist is allowed to pin/fallocate/fadvise logcat files via ioctl syscall
+allow logpersist device:fifo_file ioctl;
+
 ###
 ### Neverallow rules
 ###
