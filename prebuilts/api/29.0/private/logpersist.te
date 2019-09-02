@@ -18,6 +18,9 @@ userdebug_or_eng(`
 
 ')
 
+# logpersist is allowed to fallocate/fadvise logcat files via ioctl syscall
+allow logpersist cf_logcat_pipe:fifo_file ioctl;
+
 # logpersist is allowed to write to /data/misc/log for userdebug and eng builds
 neverallow logpersist { file_type userdebug_or_eng(`-misc_logd_file -coredump_file') }:file { create write append };
 neverallow { domain -init userdebug_or_eng(`-logpersist -logd -dumpstate') } misc_logd_file:file no_rw_file_perms;
