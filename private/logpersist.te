@@ -18,6 +18,8 @@ userdebug_or_eng(`
 
 ')
 
+allow logpersist device:fifo_file ioctl;
+
 # logpersist is allowed to write to /data/misc/log for userdebug and eng builds
 neverallow logpersist {
   file_type
