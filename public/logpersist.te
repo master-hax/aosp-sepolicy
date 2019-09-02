@@ -6,6 +6,9 @@ type logpersist, domain;
 ###
 ### logpersist should NEVER do any of this
 
+# logpersist is allowed to fallocate/fadvise logcat files via ioctl syscall
+allow logpersist cf_logcat_pipe:fifo_file ioctl;
+
 # Block device access.
 neverallow logpersist dev_type:blk_file { read write };
 
