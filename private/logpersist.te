@@ -18,6 +18,9 @@ userdebug_or_eng(`
 
 ')
 
+# logpersist is allowed to pin/fallocate logcat files via ioctl syscall
+allow logpersist device:fifo_file ioctl;
+
 # logpersist is allowed to write to /data/misc/log for userdebug and eng builds
 neverallow logpersist {
   file_type
