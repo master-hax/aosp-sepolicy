@@ -272,6 +272,24 @@
     },
     {
       "key": {
+        "uuid": "7a012281_61bbf102",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-09-03T12:53:00Z",
+      "side": 1,
+      "message": "\u003e Done. Two questions though:\n\u003e \n\u003e 1.) Should this neverallow rule live here or in domain.te?\n\nI think it should be here.\nConventionally neverallow rules are at the end of the file, as you\u0027ve done.\n\n\u003e \n\u003e 2.) Not important but confusing: I needed to add \"-init -vendor_init\" to the neverallow rule because otherwise I ran into:\n\u003e \n\u003e libsepol.report_failure: neverallow on line 19 of system/sepolicy/private/boringssl_self_test.te (or line 33600 of policy.conf) violated by allow vendor_init boringssl_self_test_marker:file { read write create getattr setattr map unlink open };\n\u003e libsepol.report_failure: neverallow on line 19 of system/sepolicy/private/boringssl_self_test.te (or line 33600 of policy.conf) violated by allow init boringssl_self_test_marker:file { read write create getattr setattr map unlink open };\n\u003e \n\u003e Out of curiosity (not the end of the world if you don\u0027t know) Do you happen to know why that is? I looked into this myself (with help by rpl@) but couldn\u0027t figure it out:\n\ninit and vendor_init are granted broad access to all of file_type with a list of exceptions (see system/sepolicy/public/init.te, system/sepolicy/public/vendor_init.te). I presume that\u0027s because they need to be able to configure things and generally move things around.\n\nIf boringssl_self_test_marker was marked as core_data_file_type that would exclude vendor_init, but that seems a slight stretch since that attribute is supposed to apply to things in /data but not /data/vendor; and it doesn\u0027t affect init. Your use of /dev is a bit unconventional, which I think is why none of the existing exclusions apply.\n\n\u003e It\u0027s not a major issue, but I don\u0027t really see a reason why init and vendor_init would need to be allowed to create those files in any way other than through calling the boringssl_self_test{32,64} binaries.\n\nIn that case you should probably explicitly exclude boringssl_self_test_marker from the existing init \u0026 vendor_init allow rules.",
+      "parentUuid": "918264ea_244e4f19",
+      "revId": "60d77548fcdae062478cff8c0702832f40776f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8bd763c9_0c1883b3",
         "filename": "private/boringssl_self_test.te",
         "patchSetId": 5
