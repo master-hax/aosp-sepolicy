@@ -131,6 +131,24 @@
     },
     {
       "key": {
+        "uuid": "a9e6b8ea_81184234",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-09-03T09:43:37Z",
+      "side": 1,
+      "message": "I had to look it up, but it\u0027s a treble-related attribute; the definition says \"All core domains (as opposed to vendor/device-specific domains)\" and there\u0027s a test to make sure it is applied to anything executed from /system.\nSo yes, you do need it.",
+      "parentUuid": "cd75b295_237d3ecc",
+      "revId": "60d77548fcdae062478cff8c0702832f40776f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf52a5e5_7e3365cf",
         "filename": "private/boringssl_self_test.te",
         "patchSetId": 5
@@ -160,6 +178,24 @@
       "side": 1,
       "message": "That was a good question/observation (I wasn\u0027t sure either - the stuff in apex is part of the platform but it no longer lives in /system, so I could have seen that either option is defensible) as of the patchset that you reviewed.\n\nI\u0027ve now added another copy of boringssl_self_test{32,64} in /system/bin because we also need to optimize the self test of the copy of libcrypto in /system/bin. Would you say that it\u0027s reasonable to keep a shared SELinux security domain for the copies of the executable in /system vs. /apex?\n\nIf so, then because boringssl_self_test_exec now contains files from /system then I guess there\u0027s no longer a question whether system_file_type should be included here.",
       "parentUuid": "bf52a5e5_7e3365cf",
+      "revId": "60d77548fcdae062478cff8c0702832f40776f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36c860dc_1a5d9ab8",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-09-03T09:43:37Z",
+      "side": 1,
+      "message": "Yes, sounds reasonable. Agreed.",
+      "parentUuid": "61332832_877b54f7",
       "revId": "60d77548fcdae062478cff8c0702832f40776f13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
