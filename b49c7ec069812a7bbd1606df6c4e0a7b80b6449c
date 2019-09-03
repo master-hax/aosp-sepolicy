@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2fdfaabd_702c1403",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-09-03T11:10:36Z",
+      "side": 1,
+      "message": "is this actually necessary, or is there just an overly permissive \"allow\" rule that is triggering this neverallow?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 14
+      },
+      "revId": "b49c7ec069812a7bbd1606df6c4e0a7b80b6449c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81f15cb4_b0953d5a",
+        "filename": "public/boringssl_self_test.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-09-03T11:10:36Z",
+      "side": 1,
+      "message": "Is there any reason why this is in public policy instead of private? It\u0027s much better to keep everything in private if possible because then we know that vendor policy is not allowed to customize it.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 33
+      },
+      "revId": "b49c7ec069812a7bbd1606df6c4e0a7b80b6449c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
