@@ -70,6 +70,30 @@
       "revId": "ef0ff67c6d5c08ce5e8af802de8eddab19de62d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db63246c_493b23ca",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2019-09-04T04:03:08Z",
+      "side": 1,
+      "message": "Sorry, the rule that I was worried would conflict wasn\u0027t the one from line 12 but this one from domain.te:\n\nallow domain boringssl_self_test_marker:dir search;\n\nbut because that one is also :dir, it shouldn\u0027t conflict.\n\nDone.",
+      "parentUuid": "d2a002ed_e5fb2295",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "ef0ff67c6d5c08ce5e8af802de8eddab19de62d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

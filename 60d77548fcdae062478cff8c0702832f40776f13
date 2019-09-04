@@ -290,6 +290,24 @@
     },
     {
       "key": {
+        "uuid": "bb20a31c_fc2bc99c",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2019-09-04T04:03:08Z",
+      "side": 1,
+      "message": "\u003e \u003e It\u0027s not a major issue, but I don\u0027t really see a reason why init and vendor_init would need to be allowed to create those files in any way other than through calling the boringssl_self_test{32,64} binaries.\n\u003e \n\u003e In that case you should probably explicitly exclude boringssl_self_test_marker from the existing init \u0026 vendor_init allow rules.\n\nCorrection: init not needing to create those files is actually still a couple of CLs away. If you don\u0027t mind, let\u0027s leave it as is and I can reconsider disallowing init creating them in future (it doesn\u0027t seem like a big deal either way). Sounds good?",
+      "parentUuid": "7a012281_61bbf102",
+      "revId": "60d77548fcdae062478cff8c0702832f40776f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8bd763c9_0c1883b3",
         "filename": "private/boringssl_self_test.te",
         "patchSetId": 5

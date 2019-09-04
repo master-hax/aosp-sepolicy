@@ -69,6 +69,30 @@
       "revId": "b49c7ec069812a7bbd1606df6c4e0a7b80b6449c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd6e831b_a1544005",
+        "filename": "public/boringssl_self_test.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2019-09-04T04:03:08Z",
+      "side": 1,
+      "message": "I was being consistent with existing examples.\n\nIn public/, we have:\n\ntype charger, domain;\ntype crash_dump, domain;\ntype dhcp, domain;\ntype fingerprintd, domain;\ntype gatekeeperd, domain;\ntype keystore, domain;\ntype mediaswcodec, domain;\ntype modprobe, domain;\ntype netutils_wrapper, domain;\ntype runas_app, domain;\ntype sdcardd, domain;\ntype traceur_app, domain;\ntype usbd, domain;\ntype vendor_shell, domain;\ntype virtual_touchpad, domain;\ntype vr_hwc, domain;\ntype wpantund, domain;\n\nIn private/, we only have:\n\ntype stats, domain;\n\nIs that a good enough reason?",
+      "parentUuid": "81f15cb4_b0953d5a",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 33
+      },
+      "revId": "b49c7ec069812a7bbd1606df6c4e0a7b80b6449c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
