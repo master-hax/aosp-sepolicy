@@ -93,6 +93,30 @@
       "revId": "b49c7ec069812a7bbd1606df6c4e0a7b80b6449c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb6adbd6_6704f04b",
+        "filename": "public/boringssl_self_test.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-09-04T07:28:49Z",
+      "side": 1,
+      "message": "Not a good reason. Those domains are all in public because they interact across the Treble boundary. Putting types in public increases our long term maintenance costs and prevents us from making even minor changes because we have to maintain a stable interface across multiple releases.\n\nMany more domain types are declared in private policy:\n\nprivate/gsid.te:type gsid, domain;\nprivate/stats.te:type stats, domain;\nprivate/otapreopt_chroot.te:type otapreopt_chroot, domain, coredomain;\nprivate/system_suspend.te:type system_suspend, domain, coredomain, system_suspend_server;\nprivate/dexoptanalyzer.te:type dexoptanalyzer, domain, coredomain, mlstrustedsubject;\nprivate/viewcompiler.te:type viewcompiler, domain, coredomain, mlstrustedsubject;\nprivate/auditctl.te:type auditctl, domain, coredomain;\nprivate/dex2oat.te:type dex2oat, domain, coredomain;\nprivate/fsverity_init.te:type fsverity_init, domain, coredomain;\nprivate/preopt2cachename.te:type preopt2cachename, domain, coredomain;\nprivate/art_apex_postinstall.te:type art_apex_postinstall, domain, coredomain;\nprivate/atrace.te:type atrace, domain, coredomain;\nprivate/linkerconfig.te:type linkerconfig, domain, coredomain;\nprivate/fwk_bufferhub.te:type fwk_bufferhub, domain, coredomain;\nprivate/iw.te:type iw, domain, coredomain;\nprivate/bpfloader.te:type bpfloader, domain;\nprivate/migrate_legacy_obb_data.te:type migrate_legacy_obb_data, domain, coredomain;\nprivate/storaged.te:type storaged, domain, coredomain, mlstrustedsubject;\nprivate/clatd.te:type clatd, domain, coredomain;\nprivate/art_apex_preinstall.te:type art_apex_preinstall, domain, coredomain;\nprivate/system_server_startup.te:type system_server_startup, domain, coredomain;\nprivate/blank_screen.te:type blank_screen, domain, coredomain;\nprivate/wait_for_keymaster.te:type wait_for_keymaster, domain, coredomain;\nprivate/preloads_copy.te:type preloads_copy, domain, coredomain;\nprivate/notify_traceur.te:type notify_traceur, domain, coredomain;\nprivate/cppreopts.te:type cppreopts, domain, mlstrustedsubject, coredomain;\nprivate/postinstall_dexopt.te:type postinstall_dexopt, domain, coredomain;\nprivate/otapreopt_slot.te:type otapreopt_slot, domain, mlstrustedsubject, coredomain;\nprivate/hal_allocator_default.te:type hal_allocator_default, domain, coredomain;\nprivate/lpdumpd.te:type lpdumpd, domain, coredomain;\n\nThere\u0027s no reason for boringssl_self_test to be public, so it should be in private.",
+      "parentUuid": "dd6e831b_a1544005",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 33
+      },
+      "revId": "b49c7ec069812a7bbd1606df6c4e0a7b80b6449c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
