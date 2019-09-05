@@ -7,6 +7,12 @@ init_daemon_domain(fsverity_init)
 allow fsverity_init shell_exec:file rx_file_perms;
 allow fsverity_init toolbox_exec:file rx_file_perms;
 
+# Allow to retrive keys from keystore.
+binder_use(fsverity_init)
+use_keystore(fsverity_init)
+allow fsverity_init keystore:keystore_key { list get };
+allow fsverity_init fsverity_init_exec:file execute_no_trans;
+
 # Allow to read /proc/keys for searching key id.
 allow fsverity_init proc_keys:file r_file_perms;
 
