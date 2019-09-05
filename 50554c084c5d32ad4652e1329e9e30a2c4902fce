@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59794f69_21f2bf46",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2019-09-05T01:06:59Z",
+      "side": 1,
+      "message": "FYI, this is required to avoid the following  linker warning:\n\nWarning: couldn\u0027t read config file \"/apex/com.android.conscrypt/etc/ld.config.txt\" for \"/apex/com.android.conscrypt/bin/boringssl_self_test64\"\n\napparently this is required because:\n- all dynamic processes read ld.config.txt file by the dynamic linker.\n- therefore they need access to system_file\n- which is typically granted by coredomain.\n\n(I\u0027m not certain whether the \"typeattribute boringssl_self_test coredomain;\" in line 5 is still needed).",
+      "range": {
+        "startLine": 1,
+        "startChar": 34,
+        "endLine": 1,
+        "endChar": 44
+      },
+      "revId": "50554c084c5d32ad4652e1329e9e30a2c4902fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
