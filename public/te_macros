@@ -723,3 +723,11 @@ define(`dump_hal', `
   allow $1_server dumpstate:fifo_file write;
   allow $1_server dumpstate:fd use;
 ')
+
+define(`define_system_prop', `
+  type $1, property_type, system_property_type, system_$2_property_type;
+')
+
+define(`system_internal_prop', `define_system_prop($1, internal)')
+define(`system_restricted_prop', `define_system_prop($1, restricted)')
+define(`system_public_prop', `define_system_prop($1, public)')
