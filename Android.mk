@@ -310,6 +310,8 @@ endif
 ifdef HAS_SYSTEM_EXT_SEPOLICY
 LOCAL_REQUIRED_MODULES += \
     system_ext_sepolicy.cil \
+    system_ext_file_contexts \
+    system_ext_file_contexts_test \
     system_ext_mapping_file \
 
 endif
@@ -1405,6 +1407,9 @@ include $(BUILD_SYSTEM)/base_rules.mk
 
 all_fc_files := $(TARGET_OUT)/etc/selinux/plat_file_contexts
 all_fc_files += $(TARGET_OUT_VENDOR)/etc/selinux/vendor_file_contexts
+ifdef HAS_SYSTEM_EXT_SEPOLICY
+all_fc_files += $(TARGET_OUT_SYSTEM_EXT)/etc/selinux/system_ext_file_contexts
+endif
 ifdef HAS_PRODUCT_SEPOLICY
 all_fc_files += $(TARGET_OUT_PRODUCT)/etc/selinux/product_file_contexts
 endif
