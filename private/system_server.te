@@ -1030,3 +1030,8 @@ neverallow {
   -system_server
 } password_slot_metadata_file:notdevfile_class_set ~{ relabelto getattr };
 neverallow { domain -init -system_server } password_slot_metadata_file:notdevfile_class_set *;
+
+# Read/write property that triggers callers to
+# invalidate their permission and package information
+# caches.
+set_prop(system_server, package_info_cache_key_prop)

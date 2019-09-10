@@ -318,3 +318,10 @@ neverallow {
   -tee
   -hal_bootctl_server
 } self:global_capability_class_set sys_rawio;
+
+# Let everyone read the package info cache key.
+# This key only allows processes to tell whether locally-cached
+# permission and package queries are still valid. They still
+# need to go through all the usual checks to actually get updated
+# information.
+get_prop(domain, package_info_cache_key_prop);
