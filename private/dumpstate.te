@@ -53,3 +53,6 @@ binder_call(dumpstate, incidentcompanion_service)
 # For dumping dynamic partition information.
 set_prop(dumpstate, lpdumpd_prop)
 binder_call(dumpstate, lpdumpd)
+
+set_prop(dumpstate, ctl_gsid_prop)
+binder_call(dumpstate, gsid)
