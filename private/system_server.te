@@ -725,6 +725,7 @@ allow system_server vold_service:service_manager find;
 allow system_server wificond_service:service_manager find;
 
 add_service(system_server, batteryproperties_service)
+add_service(system_server, gesture_launcher_service)
 
 allow system_server keystore:keystore_key {
 	get_state
