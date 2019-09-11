@@ -18,3 +18,18 @@ neverallow {
   -init
   -vendor_init
 } boringssl_self_test_marker:file no_rw_file_perms;
+
+# If those other processes attempt to create the marker files,
+# that's not a big deal. Don't log about it.
+dontaudit {
+  domain
+  -boringssl_self_test
+} boringssl_self_test_marker:dir ra_dir_perms;
+
+dontaudit {
+  domain
+  -boringssl_self_test
+  -init
+  -vendor_init
+} boringssl_self_test_marker:file create_file_perms;
+
