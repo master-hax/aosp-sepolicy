@@ -74,7 +74,7 @@ type selinuxContextsModule struct {
 	fileContextsProperties fileContextsProperties
 	build                  func(ctx android.ModuleContext, inputs android.Paths)
 	outputPath             android.ModuleGenPath
-	installPath            android.OutputPath
+	installPath            android.InstallPath
 }
 
 var (
@@ -109,7 +109,7 @@ func (m *selinuxContextsModule) InstallInRecovery() bool {
 func (m *selinuxContextsModule) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 	if m.InstallInRecovery() {
 		// Workaround for installing context files at the root of the recovery partition
-		m.installPath = android.PathForOutput(ctx,
+		m.installPath = android.PathForInstall(ctx,
 			"target", "product", ctx.Config().DeviceName(), "recovery", "root")
 	} else {
 		m.installPath = android.PathForModuleInstall(ctx, "etc", "selinux")
