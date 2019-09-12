@@ -2,6 +2,7 @@ dnsmasq netd fifo_file 77868789
 dnsmasq netd unix_stream_socket 77868789
 init app_data_file file 77873135
 init cache_file blk_file 77873135
+init_insmod_sh boringssl_self_test_marker dir 140918050
 init logpersist file 77873135
 init nativetest_data_file dir 77873135
 init pstorefs dir 77873135
@@ -17,6 +18,7 @@ mediaextractor radio_data_file file 77923736
 mediaprovider cache_file blk_file 77925342
 mediaprovider mnt_media_rw_file dir 77925342
 mediaprovider shell_data_file dir 77925342
+netd boringssl_self_test_marker dir 140918050
 netd priv_app unix_stream_socket 77870037
 netd untrusted_app unix_stream_socket 77870037
 netd untrusted_app_25 unix_stream_socket 77870037
