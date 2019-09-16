@@ -22,6 +22,30 @@
       "revId": "d97909519506d0ccf49064078395277a14f22a49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "151bcdb8_17668fcb",
+        "filename": "public/vold.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2019-09-16T19:46:53Z",
+      "side": 1,
+      "message": "There\u0027s a neverallow rule in domain.te that says all ioctls on file-like objects must be whitelisted, but no neverallow rule that says other domains can\u0027t whitelist these specific ioctls.  We could add something like the following; is this what you\u0027re thinking of?\n\n  # Only vold and init should ever get/set file-based encryption policies.\n  neverallowxperm {\n    domain\n    -vold\n    -init\n    -vendor_init\n  } data_file_type:dir ioctl { FS_IOC_GET_ENCRYPTION_POLICY FS_IOC_SET_ENCRYPTION_POLICY };\n\n  # Only vold should ever add/remove file-based encryption keys.\n  neverallowxperm {\n    domain\n    -vold\n  } data_file_type:dir ioctl { FS_IOC_ADD_ENCRYPTION_KEY FS_IOC_REMOVE_ENCRYPTION_KEY };\n\n\nI\u0027m not really familiar with whether we\u0027d typically add this sort of thing or not, so it\u0027s maybe a question for the SELinux people.",
+      "parentUuid": "592c79a4_f3a9583d",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 30
+      },
+      "revId": "d97909519506d0ccf49064078395277a14f22a49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
