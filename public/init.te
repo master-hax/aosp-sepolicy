@@ -594,3 +594,11 @@ neverallow init sysfs:file { open read write };
 
 # No domain should be allowed to ptrace init.
 neverallow * init:process ptrace;
+<<<<<<< HEAD   (9bfaa1 Allow perfetto to access gpu_frequency tracepoint in user)
+=======
+
+# init owns the root of /data
+# TODO(b/140259336) We want to remove vendor_init
+# TODO(b/141108496) We want to remove toolbox
+neverallow { domain -init -toolbox -vendor_init -vold } system_data_root_file:dir { write add_name remove_name };
+>>>>>>> CHANGE (2367ba Allow toolbox to rm -rf /data/per_boot)
