@@ -22,6 +22,30 @@
       "revId": "3ca8d0c1b8e5bb1d8d7e06332fa2cac40441327e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce3fa0bb_f2a64eb2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1182749
+      },
+      "writtenOn": "2019-09-17T15:28:23Z",
+      "side": 1,
+      "message": "\u003e Are these props SoC-specific?\n\nI\u0027m not sure, but per my understanding, this is either vendor-specific or SoC-specific (but it is not system and not product-specific). I tend to say that this is SoC-specific.\n\n\u003e Why does vendor_init need to set them?\n\nAs I can see the init process load build properties from system and vendor partitions with the different contexts. The explanation can be found in the\n$ANDROID_BUILD_TOP/system/core/init/subcontext.cpp:\n```\nconst std::string kInitContext \u003d \"u:r:init:s0\";                                                                                                                                                             \nconst std::string kVendorContext \u003d \"u:r:vendor_init:s0\";                                                                                                                                                    \n                                                                                                                                                                                                            \nconst char* const paths_and_secontexts[2][2] \u003d {                                                                                                                                                            \n    {\"/vendor\", kVendorContext.c_str()},                                                                                                                                                                    \n    {\"/odm\", kVendorContext.c_str()},                                                                                                                                                                       \n};\n```\nIf I use `PRODUCT_ODM_PROPERTIES` or `PRODUCT_PROPERTY_OVERRIDES` to put the property in `/odm` or `/vendor` partition then the property will be loaded with the `vendor_init` context. But if I put the property in `/product` or `/system` partition then the property will be loaded with the `init` context.\n\n\nJust in case, please find below the steps to reproduce the issue on the emulator.\n1. $ repo init -b android-10.0.0_r2\n2. $ repo sync -c -d\n3. $ . build/envsetup.sh\n4. $ lunch aosp_car_x86_64-userdebug\n5. Override a property in the device descriptor:\n5.1. $ cd $ANDROID_BUILD_TOP/device/generic/car/\n5.2. $ git diff\ndiff --git a/common/car.mk b/common/car.mk\nindex 4dff8f8..16ce02b 100644\n--- a/common/car.mk\n+++ b/common/car.mk\n@@ -64,4 +64,8 @@ PRODUCT_COPY_FILES +\u003d \\\n PRODUCT_COPY_FILES +\u003d \\\n     device/generic/car/common/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml\n \n+# Use Sdcardfs\n+PRODUCT_PROPERTY_OVERRIDES +\u003d \\\n+    ro.sys.sdcardfs\u003d1\n+\n $(call inherit-product, packages/services/Car/car_product/build/car.mk)\n6. make\n7. emulator\n8. adb root\n9. adb shell getprop | grep sdcardfs\n10. adb shell dmesg\n[    3.350356] selinux: avc:  denied  { set } for  scontext\u003du:r:vendor_init:s0 tcontext\u003du:object_r:default_prop:s0 tclass\u003dproperty_service permissive\u003d0\\x0a\n[    3.351503] init: Do not have permissions to set \u0027ro.sys.sdcardfs\u0027 to \u00271\u0027 in property file \u0027/vendor/build.prop\u0027: SELinux permission check failed",
+      "parentUuid": "4d002760_4af79448",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "3ca8d0c1b8e5bb1d8d7e06332fa2cac40441327e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
