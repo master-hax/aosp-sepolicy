@@ -823,6 +823,7 @@ full_treble_only(`
     -coredomain
     -data_between_core_and_vendor_violators # TODO(b/34980020) Remove once all violators have been cleaned up
     -vendor_init
+    -vendor_install_recovery
   } {
     core_data_file_type
     # libc includes functions like mktime and localtime which attempt to access
@@ -853,6 +854,7 @@ full_treble_only(`
     -coredomain
     -data_between_core_and_vendor_violators
     -vendor_init
+    -vendor_install_recovery
   } {
     core_data_file_type
     -system_data_file # default label for files on /data. Covered below...
