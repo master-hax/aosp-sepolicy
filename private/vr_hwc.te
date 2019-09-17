@@ -3,4 +3,7 @@ typeattribute vr_hwc coredomain;
 # Daemon started by init.
 init_daemon_domain(vr_hwc)
 
+neverallow { domain -vr_hwc } vr_hwc_service:hwservice_manager add;
+neverallow { domain -surfaceflinger } vr_hwc_service:hwservice_manager find;
+
 hal_server_domain(vr_hwc, hal_graphics_composer)
