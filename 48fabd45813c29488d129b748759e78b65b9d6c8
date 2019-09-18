@@ -46,6 +46,30 @@
       "revId": "48fabd45813c29488d129b748759e78b65b9d6c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ecb13db_4ec2e1fc",
+        "filename": "public/property.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-09-18T18:20:24Z",
+      "side": 1,
+      "message": "Good catch. We do test that all domains that originate from /system have coredomain attached and that all domains launched form /vendor do not have the coredomain.\n\nhttps://android.googlesource.com/platform/system/sepolicy/+/refs/heads/master/tests/treble_sepolicy_tests.py#193\n\nThere can be vendor-specific apps, which are appdomain, but not coredomain, e.g. hardware_info_app on Pixel devices, i.e coredomain + appdomain is a superset of system domains.\n\nSystem-owned apps will have both appdomain and coredomain attached to them, e.g. com.android.nfc.\n\nSo use \"coredomain\" instead of \"coredomain + appdomain\" in the neverallow rules to refer to domains owned by system.",
+      "parentUuid": "ec761817_2651216a",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 34
+      },
+      "revId": "48fabd45813c29488d129b748759e78b65b9d6c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
