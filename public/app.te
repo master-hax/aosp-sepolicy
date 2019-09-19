@@ -211,6 +211,9 @@ userdebug_or_eng(`
 # They need that to render the standard UI.
 allow { appdomain -isolated_app } gpu_device:chr_file rw_file_perms;
 
+# Allow access to graphics DRM (/dev/dri/) devices.
+allow { appdomain -isolated_app } graphics_device:dir r_dir_perms;
+
 # Use the Binder.
 binder_use(appdomain)
 # Perform binder IPC to binder services.
