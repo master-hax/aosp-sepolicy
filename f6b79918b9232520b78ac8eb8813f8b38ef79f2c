@@ -22,6 +22,30 @@
       "revId": "f6b79918b9232520b78ac8eb8813f8b38ef79f2c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c16f826_a73bfdc6",
+        "filename": "public/app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1031448
+      },
+      "writtenOn": "2019-09-20T14:57:16Z",
+      "side": 1,
+      "message": "That is most likely true and I do see graphics_device (/dev/dri/card0) chr_file getattr denials. But these are non-fatal and I do not see major issues with that denial yet.\n\nSo for the background, I\u0027m running AOSP with mainline kernel and upstreamed DRM/KMS driver on db845c and db410c. I see following display nodes:\n/dev/dri/card0\n/dev/dri/renderD128\n\nAs per my understanding renderD128 is non-privileged (render) node and hence labeled as gpu_graphics in my file_contexts. I\u0027m not setting any sepolicy rule on this gpu_device and access to this device is handled all thru system/sepoliy/public/ rules.\n\ncard0 device node however is a more restricted device and hence labeled as graphics_device in my file_contexts. And only getattr access is provided to few system apps for now but I can get rid of that with no consequences.\n\nBut my problem is that system apps eg. deskclock are not able to access /dev/dri/card0 and crash on startup unless I give them read dir access to /dev/dri directory.\n\nWhat could I be missing? Here is my device config https://android-review.googlesource.com/c/device/linaro/dragonboard/+/1110771",
+      "parentUuid": "52e23225_3167c575",
+      "range": {
+        "startLine": 215,
+        "startChar": 50,
+        "endLine": 215,
+        "endChar": 53
+      },
+      "revId": "f6b79918b9232520b78ac8eb8813f8b38ef79f2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
