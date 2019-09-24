@@ -116,6 +116,10 @@ pdx_server(surfaceflinger, display_vsync)
 pdx_client(surfaceflinger, bufferhub_client)
 pdx_client(surfaceflinger, performance_client)
 
+# Allow supplying timestats statistics to statsd in a file
+allow surfaceflinger statsd:fd use;
+allow surfaceflinger statsd:fifo_file write;
+
 ###
 ### Neverallow rules
 ###
