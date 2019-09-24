@@ -19,3 +19,7 @@ allow statsd incidentd:fifo_file write;
 
 # Allow StatsCompanionService to pipe data to statsd.
 allow statsd system_server:fifo_file { read getattr };
+
+# Allow statsd to retrieve SF statistics over binder
+allow statsd surfaceflinger:binder call;
+allow statsd surfaceflinger:binder transfer;
