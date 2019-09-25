@@ -22,6 +22,30 @@
       "revId": "a7f61021b798cd7b35f81b12340d9ba216808c0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59a90796_dbe74301",
+        "filename": "vendor/hal_sensors_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-09-25T20:08:05Z",
+      "side": 1,
+      "message": "fd in question used to have \"ashmemd\" label on it. But now that it\u0027s being opened system_server\u0027s process, it has \"system_server\" label on it. \n\nSo now we see denials:\navc: denied { use } for comm\u003d\"system-server-i\" path\u003d\"/dev/ashmem82be9084-fd38-443d-b62d-fd1441557845\" dev\u003d\"tmpfs\" ino\u003d7014 scontext\u003du:r:hal_sensors_default:s0 tcontext\u003du:r:system_server:s0 tclass\u003dfd permissive\u003d0",
+      "parentUuid": "042d0acc_d9d81b66",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 55
+      },
+      "revId": "a7f61021b798cd7b35f81b12340d9ba216808c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
