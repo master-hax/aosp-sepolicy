@@ -167,6 +167,13 @@ ifeq ($(NATIVE_COVERAGE),true)
   with_native_coverage := true
 endif
 
+launching_with_r := false
+ifeq ($(PRODUCT_SHIPPING_API_LEVEL),)
+	#$(warning no product shipping level defined)
+else ifneq ($(call math_lt,29,$(PRODUCT_SHIPPING_API_LEVEL)),)
+	launching_with_r := true
+endif
+
 # Library extension for host-side tests
 ifeq ($(HOST_OS),darwin)
 SHAREDLIB_EXT=dylib
@@ -424,6 +431,7 @@ $(reqd_policy_mask.conf): PRIVATE_TGT_WITH_NATIVE_COVERAGE := $(with_native_cove
 $(reqd_policy_mask.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(reqd_policy_mask.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(reqd_policy_mask.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
+$(reqd_policy_mask.conf): PRIVATE_LAUNCHING_WITH_R := $(launching_with_r)
 $(reqd_policy_mask.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(reqd_policy_mask.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -456,6 +464,7 @@ $(pub_policy.conf): PRIVATE_TGT_WITH_NATIVE_COVERAGE := $(with_native_coverage)
 $(pub_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(pub_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(pub_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
+$(pub_policy.conf): PRIVATE_LAUNCHING_WITH_R := $(launching_with_r)
 $(pub_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(pub_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -484,6 +493,7 @@ $(plat_pub_policy.conf): PRIVATE_TGT_WITH_NATIVE_COVERAGE := $(with_native_cover
 $(plat_pub_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(plat_pub_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(plat_pub_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
+$(plat_pub_policy.conf): PRIVATE_LAUNCHING_WITH_R := $(launching_with_r)
 $(plat_pub_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(plat_pub_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -525,6 +535,7 @@ $(plat_policy.conf): PRIVATE_TGT_WITH_NATIVE_COVERAGE := $(with_native_coverage)
 $(plat_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(plat_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(plat_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
+$(plat_policy.conf): PRIVATE_LAUNCHING_WITH_R := $(launching_with_r)
 $(plat_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(plat_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -570,6 +581,7 @@ $(userdebug_plat_policy.conf): PRIVATE_TGT_WITH_NATIVE_COVERAGE := $(with_native
 $(userdebug_plat_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(userdebug_plat_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(userdebug_plat_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
+$(userdebug_plat_policy.conf): PRIVATE_LAUNCHING_WITH_R := $(launching_with_r)
 $(userdebug_plat_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(userdebug_plat_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -617,6 +629,7 @@ $(product_policy.conf): PRIVATE_TGT_WITH_NATIVE_COVERAGE := $(with_native_covera
 $(product_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(product_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(product_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
+$(product_policy.conf): PRIVATE_LAUNCHING_WITH_R := $(launching_with_r)
 $(product_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(product_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -761,6 +774,7 @@ $(vendor_policy.conf): PRIVATE_TGT_WITH_NATIVE_COVERAGE := $(with_native_coverag
 $(vendor_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(vendor_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(vendor_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
+$(vendor_policy.conf): PRIVATE_LAUNCHING_WITH_R := $(launching_with_r)
 $(vendor_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(vendor_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -814,6 +828,7 @@ $(odm_policy.conf): PRIVATE_TGT_WITH_NATIVE_COVERAGE := $(with_native_coverage)
 $(odm_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(odm_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(odm_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
+$(odm_policy.conf): PRIVATE_LAUNCHING_WITH_R := $(launching_with_r)
 $(odm_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(odm_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -1083,6 +1098,7 @@ $(LOCAL_BUILT_MODULE): PRIVATE_TGT_ARCH := $(my_target_arch)
 $(LOCAL_BUILT_MODULE): PRIVATE_WITH_ASAN := false
 $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY_SPLIT := cts
 $(LOCAL_BUILT_MODULE): PRIVATE_COMPATIBLE_PROPERTY := cts
+$(LOCAL_BUILT_MODULE): PRIVATE_LAUNCHING_WITH_R := cts
 $(LOCAL_BUILT_MODULE): PRIVATE_EXCLUDE_BUILD_TEST := true
 $(LOCAL_BUILT_MODULE): PRIVATE_POLICY_FILES := $(policy_files)
 $(LOCAL_BUILT_MODULE): $(policy_files) $(M4)
@@ -1287,6 +1303,7 @@ $(base_plat_policy.conf): PRIVATE_TGT_WITH_ASAN := $(with_asan)
 $(base_plat_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(base_plat_policy.conf): PRIVATE_SEPOLICY_SPLIT := true
 $(base_plat_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
+$(base_plat_policy.conf): PRIVATE_LAUNCHING_WITH_R := $(launching_with_r)
 $(base_plat_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(base_plat_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -1317,6 +1334,7 @@ $(base_plat_pub_policy.conf): PRIVATE_TGT_WITH_ASAN := $(with_asan)
 $(base_plat_pub_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(base_plat_pub_policy.conf): PRIVATE_SEPOLICY_SPLIT := true
 $(base_plat_pub_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
+$(base_plat_pub_policy.conf): PRIVATE_LAUNCHING_WITH_R := $(launching_with_r)
 $(base_plat_pub_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(base_plat_pub_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -1412,6 +1430,7 @@ built_sepolicy_neverallows :=
 built_plat_svc :=
 built_vendor_svc :=
 built_plat_sepolicy :=
+launching_with_r :=
 mapping_policy :=
 my_target_arch :=
 pub_policy.cil :=

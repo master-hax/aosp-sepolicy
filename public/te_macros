@@ -724,6 +724,17 @@ define(`dump_hal', `
   allow $1_server dumpstate:fd use;
 ')
 
+#####################################
+# launching_with_r(rules)
+# SELinux rules which apply only to devices launching with R or later.
+#
+define(`launching_with_r', ifelse(target_launching_with_r, `true', $1,
+ifelse(target_launching_with_r, `cts',
+# BEGIN_LAUNCHING_WITH_R_ONLY -- this marker is used by CTS -- do not modify
+$1
+# END_LAUNCHING_WITH_R_ONLY -- this marker is used by CTS -- do not modify
+, )))
+
 ###########################################
 # define_prop(name, owner, scope)
 # Define a property with given owner and scope
@@ -735,14 +746,26 @@ define(`define_prop', `
 ###########################################
 # system_internal_prop(name)
 # Define a /system-owned property used only in /system
+# This restriction only applies with devices launching with R or later
 #
-define(`system_internal_prop', `define_prop($1, system, internal)')
+define(`system_internal_prop', `
+  define_prop($1, system, internal)
+  launching_with_r(`
+    neverallow {domain -coredomain} $1:file no_rw_file_perms;
+  ')
+')
 
 ###########################################
 # system_restricted_prop(name)
 # Define a /system-owned property which can't be written outside /system
+# This restriction only applies with devices launching with R or later
 #
-define(`system_restricted_prop', `define_prop($1, system, restricted)')
+define(`system_restricted_prop', `
+  define_prop($1, system, restricted)
+  launching_with_r(`
+    neverallow {domain -coredomain} $1:property_service set;
+  ')
+')
 
 ###########################################
 # system_public_prop(name)
@@ -753,14 +776,26 @@ define(`system_public_prop', `define_prop($1, system, public)')
 ###########################################
 # product_internal_prop(name)
 # Define a /product-owned property used only in /product
+# This restriction only applies with devices launching with R or later
 #
-define(`product_internal_prop', `define_prop($1, product, internal)')
+define(`product_internal_prop', `
+  define_prop($1, product, internal)
+  launching_with_r(`
+    neverallow {domain -coredomain} $1:file no_rw_file_perms;
+  ')
+')
 
 ###########################################
 # product_restricted_prop(name)
 # Define a /product-owned property which can't be written outside /product
+# This restriction only applies with devices launching with R or later
 #
-define(`product_restricted_prop', `define_prop($1, product, restricted)')
+define(`product_restricted_prop', `
+  define_prop($1, product, restricted)
+  launching_with_r(`
+    neverallow {domain -coredomain} $1:property_service set;
+  ')
+')
 
 ###########################################
 # product_public_prop(name)
@@ -771,14 +806,26 @@ define(`product_public_prop', `define_prop($1, product, public)')
 ###########################################
 # vendor_internal_prop(name)
 # Define a /vendor-owned property used only in /vendor
+# This restriction only applies with devices launching with R or later
 #
-define(`vendor_internal_prop', `define_prop($1, vendor, internal)')
+define(`vendor_internal_prop', `
+  define_prop($1, vendor, internal)
+  launching_with_r(`
+    neverallow coredomain $1:file no_rw_file_perms;
+  ')
+')
 
 ###########################################
 # vendor_restricted_prop(name)
 # Define a /vendor-owned property which can't be written outside /vendor
+# This restriction only applies with devices launching with R or later
 #
-define(`vendor_restricted_prop', `define_prop($1, vendor, restricted)')
+define(`vendor_restricted_prop', `
+  define_prop($1, vendor, restricted)
+  launching_with_r(`
+    neverallow coredomain $1:property_service set;
+  ')
+')
 
 ###########################################
 # vendor_public_prop(name)

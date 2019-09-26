@@ -140,7 +140,13 @@ allow property_type tmpfs:filesystem associate;
 ### Neverallow rules
 ###
 
-compatible_property_only(`
+launching_with_r(`
+
+# For devices launching with R or later, all properties must be explicitly marked as one of:
+# system_property_type, vendor_property_type, or product_property_type.
+# Also, exported properties must be explicitly marked as "restricted" or "public",
+# depending on the accessibility outside the owner.
+# See {partition}_{accessibility}_prop macros on te_macros file.
 
 # TODO(b/131162102): uncomment these after assigning ownership attributes to all properties
 # neverallow * {
@@ -149,6 +155,13 @@ compatible_property_only(`
 #   -product_property_type
 #   -vendor_property_type
 # }:file no_rw_file_perms;
+
+neverallow * {
+  system_property_type
+  -system_internal_property_type
+  -system_restricted_property_type
+  -system_public_property_type
+}:file no_rw_file_perms;
 
 neverallow { domain -coredomain } {
   system_property_type
@@ -163,6 +176,13 @@ neverallow { domain -coredomain } {
 
 neverallow { domain -coredomain } {
   system_internal_property_type
+}:file no_rw_file_perms;
+
+neverallow * {
+  vendor_property_type
+  -vendor_internal_property_type
+  -vendor_restricted_property_type
+  -vendor_public_property_type
 }:file no_rw_file_perms;
 
 neverallow coredomain {
