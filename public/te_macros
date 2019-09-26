@@ -492,6 +492,17 @@ $1
 , )))
 
 #####################################
+# Full treble property only
+# SELinux rules which apply only to devices with full treble property
+#
+define(`full_treble_property_only', ifelse(target_full_treble_property, `true', $1,
+ifelse(target_full_treble_property, `cts',
+# BEGIN_TREBLE_PROPERTY_ONLY -- this marker is used by CTS -- do not modify
+$1
+# END_TREBLE_PROPERTY_ONLY -- this marker is used by CTS -- do not modify
+, )))
+
+#####################################
 # Not compatible property
 # SELinux rules which apply only to devices without compatible property
 #
@@ -736,13 +747,23 @@ define(`define_prop', `
 # system_internal_prop(name)
 # Define a /system-owned property used only in /system
 #
-define(`system_internal_prop', `define_prop($1, system, internal)')
+define(`system_internal_prop', `
+  define_prop($1, system, internal)
+  full_treble_property_only(`
+    neverallow {domain -coredomain} $1:file no_rw_file_perms;
+  ')
+')
 
 ###########################################
 # system_restricted_prop(name)
 # Define a /system-owned property which can't be written outside /system
 #
-define(`system_restricted_prop', `define_prop($1, system, restricted)')
+define(`system_restricted_prop', `
+  define_prop($1, system, restricted)
+  full_treble_property_only(`
+    neverallow {domain -coredomain} $1:property_service set;
+  ')
+')
 
 ###########################################
 # system_public_prop(name)
@@ -754,13 +775,23 @@ define(`system_public_prop', `define_prop($1, system, public)')
 # product_internal_prop(name)
 # Define a /product-owned property used only in /product
 #
-define(`product_internal_prop', `define_prop($1, product, internal)')
+define(`product_internal_prop', `
+  define_prop($1, product, internal)
+  full_treble_property_only(`
+    neverallow {domain -coredomain} $1:file no_rw_file_perms;
+  ')
+')
 
 ###########################################
 # product_restricted_prop(name)
 # Define a /product-owned property which can't be written outside /product
 #
-define(`product_restricted_prop', `define_prop($1, product, restricted)')
+define(`product_restricted_prop', `
+  define_prop($1, product, restricted)
+  full_treble_property_only(`
+    neverallow {domain -coredomain} $1:property_service set;
+  ')
+')
 
 ###########################################
 # product_public_prop(name)
@@ -772,13 +803,23 @@ define(`product_public_prop', `define_prop($1, product, public)')
 # vendor_internal_prop(name)
 # Define a /vendor-owned property used only in /vendor
 #
-define(`vendor_internal_prop', `define_prop($1, vendor, internal)')
+define(`vendor_internal_prop', `
+  define_prop($1, vendor, internal)
+  full_treble_property_only(`
+    neverallow coredomain $1:file no_rw_file_perms;
+  ')
+')
 
 ###########################################
 # vendor_restricted_prop(name)
 # Define a /vendor-owned property which can't be written outside /vendor
 #
-define(`vendor_restricted_prop', `define_prop($1, vendor, restricted)')
+define(`vendor_restricted_prop', `
+  define_prop($1, vendor, restricted)
+  full_treble_property_only(`
+    neverallow coredomain $1:property_service set;
+  ')
+')
 
 ###########################################
 # vendor_public_prop(name)
