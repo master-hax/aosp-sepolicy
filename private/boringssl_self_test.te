@@ -2,21 +2,32 @@ type boringssl_self_test, domain, coredomain;
 type boringssl_self_test_exec, system_file_type, exec_type, file_type;
 type boringssl_self_test_marker, file_type;
 
-# switch to boringssl_self_test security domain when running boringssl_self_test_exec from init.
-init_daemon_domain(boringssl_self_test)
+# Vendor domains cannot be in coredomain, so vendor self tests run in their own domain
+# This also means the vendor self tests cannot reboot the device on failure
+type vendor_boringssl_self_test, domain;
+type vendor_boringssl_self_test_exec, vendor_file_type, exec_type, file_type;
 
-# Allow boringssl_self_test binaries to create/check for the existence of boringssl_self_test_marker
-# files.
+# switch to boringssl_self_test security domain when running boringssl_self_test_exec
+init_daemon_domain(boringssl_self_test)
+# switch to vendor_boringssl_self_test security domain when running vendor_boringssl_self_test_exec
+init_daemon_domain(vendor_boringssl_self_test)
+
+# Allow [vendor_]boringssl_self_test binaries to create/check for the existence of
+# boringssl_self_test_marker files.
 allow boringssl_self_test boringssl_self_test_marker:file create_file_perms;
 allow boringssl_self_test boringssl_self_test_marker:dir ra_dir_perms;
+allow vendor_boringssl_self_test boringssl_self_test_marker:file create_file_perms;
+allow vendor_boringssl_self_test boringssl_self_test_marker:dir ra_dir_perms;
 
-# Allow boringsself_self_test to write its stdout/stderr messages to kmsg_debug.
+# Allow [vendor_]boringsself_self_test to write its stdout/stderr messages to kmsg_debug.
 allow boringssl_self_test kmsg_debug_device:chr_file { w_file_perms getattr ioctl };
+allow vendor_boringssl_self_test kmsg_debug_device:chr_file { w_file_perms getattr ioctl };
 
 # No other process should be able to create these files because their existence causes the
 # boringssl self test to be skipped.
 neverallow {
   domain
+  -vendor_boringssl_self_test
   -boringssl_self_test
   -init
   -vendor_init
@@ -24,6 +35,7 @@ neverallow {
 
 neverallow {
   domain
+  -vendor_boringssl_self_test
   -boringssl_self_test
   -init
   -vendor_init
