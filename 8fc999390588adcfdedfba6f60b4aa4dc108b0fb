@@ -140,6 +140,30 @@
       "revId": "8fc999390588adcfdedfba6f60b4aa4dc108b0fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6652039f_cbb672b8",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2019-10-01T10:07:09Z",
+      "side": 1,
+      "message": "No, sorry, that won\u0027t work.  The path to the flag files is hard coded in libcrypto, which has no knowledge of whether it is running from vendor or system. So I\u0027m afraid they do need to access the same files.",
+      "parentUuid": "a7f55d79_afce63a5",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 83
+      },
+      "revId": "8fc999390588adcfdedfba6f60b4aa4dc108b0fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
