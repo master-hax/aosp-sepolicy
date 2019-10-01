@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "82213bee_6479ac08",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2019-10-01T10:02:52Z",
+      "side": 1,
+      "message": "Will do",
+      "parentUuid": "3a135c81_14157167",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 45
+      },
+      "revId": "8fc999390588adcfdedfba6f60b4aa4dc108b0fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d39042a6_47f51ed3",
         "filename": "private/boringssl_self_test.te",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "768aebb1_31be3188",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2019-10-01T10:02:52Z",
+      "side": 1,
+      "message": "Yeah, I actually started with two files and then realised it was more confusing that way.",
+      "parentUuid": "d39042a6_47f51ed3",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 40
+      },
+      "revId": "8fc999390588adcfdedfba6f60b4aa4dc108b0fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72f29c1a_25902da8",
         "filename": "private/boringssl_self_test.te",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2019-10-01T09:55:18Z",
       "side": 1,
       "message": "I\u0027m wary of having one label which is writable by two different domains.\nShouldn\u0027t the vendor \u0026 core self tests be accessing disjoint files? Should the policy say that?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 83
+      },
+      "revId": "8fc999390588adcfdedfba6f60b4aa4dc108b0fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7f55d79_afce63a5",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2019-10-01T10:02:52Z",
+      "side": 1,
+      "message": "I think the risks are low, but I\u0027m not an expert.\n\nI can introduce a /dev/boringssl/selftest_vendor for flag files created by the vendor self tests if you want better separation.  In which case maybe the vendor stuff probably *should* be in its own file (I\u0027ll cross ref the two).  WDYT?",
+      "parentUuid": "72f29c1a_25902da8",
       "range": {
         "startLine": 19,
         "startChar": 0,
