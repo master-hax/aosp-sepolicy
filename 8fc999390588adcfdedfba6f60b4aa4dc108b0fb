@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a135c81_14157167",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-10-01T09:55:18Z",
+      "side": 1,
+      "message": "Perhaps a bit late to mention it, but could we have a header comment explaining what this is all about?\n(You explain nicely why we have separate vendor_*, but not what the original is for.)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 45
+      },
+      "revId": "8fc999390588adcfdedfba6f60b4aa4dc108b0fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d39042a6_47f51ed3",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-10-01T09:55:18Z",
+      "side": 1,
+      "message": "Arguably this should be in vendor_boringssl_self_test.te. It\u0027s not a great convention, but it helps a little in maintaining comprehensibility.\nBut in this case having two separate files would I think be more confusing, so I\u0027m ok with t",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 40
+      },
+      "revId": "8fc999390588adcfdedfba6f60b4aa4dc108b0fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72f29c1a_25902da8",
+        "filename": "private/boringssl_self_test.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-10-01T09:55:18Z",
+      "side": 1,
+      "message": "I\u0027m wary of having one label which is writable by two different domains.\nShouldn\u0027t the vendor \u0026 core self tests be accessing disjoint files? Should the policy say that?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 83
+      },
+      "revId": "8fc999390588adcfdedfba6f60b4aa4dc108b0fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
