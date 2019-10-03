@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74b5fa35_f4c4d80d",
+        "filename": "private/compat/26.0/26.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-10-03T16:53:22Z",
+      "side": 1,
+      "message": "modifying this file is no longer needed.",
+      "revId": "60945b41bf7c5b1fe903adc95e7dde20f5d01f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d97663cd_77dfb1ed",
+        "filename": "private/compat/27.0/27.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-10-03T16:53:22Z",
+      "side": 1,
+      "message": "modifying this file is no longer needed.",
+      "revId": "60945b41bf7c5b1fe903adc95e7dde20f5d01f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "561902c7_6a25d667",
+        "filename": "private/compat/28.0/28.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-10-03T16:53:22Z",
+      "side": 1,
+      "message": "modifying this file is no longer needed.",
+      "revId": "60945b41bf7c5b1fe903adc95e7dde20f5d01f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87090599_289b157f",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-10-03T16:53:22Z",
+      "side": 1,
+      "message": "This is just for development builds, right? We don\u0027t need to support this on production builds?\n\nIf so, can you modify this to read:\n\n  userdebug_or_eng(`\n    set_prop(system_server, device_config_storage_native_boot_prop)\n  \u0027)\n\nwhich will restrict this functionality to debuggable builds (userdebug or eng).",
+      "revId": "60945b41bf7c5b1fe903adc95e7dde20f5d01f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
