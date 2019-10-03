@@ -85,6 +85,24 @@
       "revId": "60945b41bf7c5b1fe903adc95e7dde20f5d01f09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "109a8206_95b7d676",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1385031
+      },
+      "writtenOn": "2019-10-03T17:27:37Z",
+      "side": 1,
+      "message": "Shafik, I read through go/usefuse and it sounds like you\u0027re planning to use the flag during development and dogfood for sure. Do you know if you\u0027ll need the ability to toggle the feature on public (non userdebug or eng) builds also? If you want to run tests during dogfood, then finalize the setting before the actual release, using the flag on only userdebug and eng builds might be sufficient. If you need to A/B test public builds, or have a kill switch to turn the feature off on public builds, then we probably need to leave this as is.",
+      "parentUuid": "b5fc7115_db146914",
+      "revId": "60945b41bf7c5b1fe903adc95e7dde20f5d01f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
