@@ -103,6 +103,24 @@
       "revId": "60945b41bf7c5b1fe903adc95e7dde20f5d01f09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb33a2ab_39e4297f",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1367962
+      },
+      "writtenOn": "2019-10-03T17:59:57Z",
+      "side": 1,
+      "message": "Thanks for the doc go/usefuse, Matt!\nActually after reading that doc, I\u0027m not sure I understand why the flag needs to be accessible in native-level in first place ---- according to the doc and ag/9476268 , looks like the plan is to set a non-device-config sys prop via DeviceConfig in java code only. \nThus not sure why we need to make this CL or making the namespace a *_native one?\nMatt and Shafik, please let me know if I missed anything, thanks!",
+      "parentUuid": "109a8206_95b7d676",
+      "revId": "60945b41bf7c5b1fe903adc95e7dde20f5d01f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
