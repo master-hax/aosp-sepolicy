@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "eb79e19a_ef57d5b4",
+        "filename": "private/compat/26.0/26.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1444042
+      },
+      "writtenOn": "2019-10-04T11:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74b5fa35_f4c4d80d",
+      "revId": "60945b41bf7c5b1fe903adc95e7dde20f5d01f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d97663cd_77dfb1ed",
         "filename": "private/compat/27.0/27.0.ignore.cil",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "1389086a_3f7cbe02",
+        "filename": "private/compat/27.0/27.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1444042
+      },
+      "writtenOn": "2019-10-04T11:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d97663cd_77dfb1ed",
+      "revId": "60945b41bf7c5b1fe903adc95e7dde20f5d01f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "561902c7_6a25d667",
         "filename": "private/compat/28.0/28.0.ignore.cil",
         "patchSetId": 1
@@ -50,6 +86,24 @@
       "revId": "60945b41bf7c5b1fe903adc95e7dde20f5d01f09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8df061d_c2119ac4",
+        "filename": "private/compat/28.0/28.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1444042
+      },
+      "writtenOn": "2019-10-04T11:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "561902c7_6a25d667",
+      "revId": "60945b41bf7c5b1fe903adc95e7dde20f5d01f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -118,6 +172,24 @@
       "side": 1,
       "message": "Thanks for the doc go/usefuse, Matt!\nActually after reading that doc, I\u0027m not sure I understand why the flag needs to be accessible in native-level in first place ---- according to the doc and ag/9476268 , looks like the plan is to set a non-device-config sys prop via DeviceConfig in java code only. \nThus not sure why we need to make this CL or making the namespace a *_native one?\nMatt and Shafik, please let me know if I missed anything, thanks!",
       "parentUuid": "109a8206_95b7d676",
+      "revId": "60945b41bf7c5b1fe903adc95e7dde20f5d01f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "484e4d97_0a04b6f6",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1444042
+      },
+      "writtenOn": "2019-10-04T11:08:22Z",
+      "side": 1,
+      "message": "We\u0027ll probably need the flag in Beta releases as well, so I guess userdebug and eng builds are not enough.\n\nHongyi, thanks for catching that! As you\u0027ve mentioned, the value of this flag is eventually propagated to native code in the form of a system property (persist.sys.fuse). But initially, we thought we might need to use this flag directly from native code, however this didn\u0027t work because we needed to use it too early in the boot process and the value should be consistent across the boot time so we decided to snapshot it in Java and use the snapshot in native code for the next reboot. So you\u0027re right, this specific flag doesn\u0027t need to be in a _native namespace. That being said, we might need to introduce more flags (different cache settings? FUSE configurations?) and given that we\u0027re mostly working in the native level, they\u0027ll probably need to be native flags. Is it ok to keep using a _native namespace or should we revert back to non _native?\nFeel free to move this discussion to go/usefuse :)",
+      "parentUuid": "eb33a2ab_39e4297f",
       "revId": "60945b41bf7c5b1fe903adc95e7dde20f5d01f09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
