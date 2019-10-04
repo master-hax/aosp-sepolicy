@@ -229,6 +229,24 @@
       "revId": "60945b41bf7c5b1fe903adc95e7dde20f5d01f09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "266eb8f8_b8e756cb",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1444042
+      },
+      "writtenOn": "2019-10-04T18:16:02Z",
+      "side": 1,
+      "message": "Re: Maybe limit it to userdebug or eng for now, until you do end up adding a flag which you know you\u0027ll need to read in Beta?\n\nThis is a flag we will most probably need in Beta. This is last year\u0027s scoped storage dogfood plan: go/team-food-scoped-storage and we\u0027ll probably do something similar for FUSE. When an issue arises, it will be much easier to debug it if we can toggle off the feature and, for instance, see whether we can reproduce it.\n\nNick, what do you think?",
+      "parentUuid": "13d970b1_77b7d775",
+      "revId": "60945b41bf7c5b1fe903adc95e7dde20f5d01f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
