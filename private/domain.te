@@ -13,7 +13,28 @@ get_prop(domain, heapprofd_prop);
 # Allow heap profiling on debug builds.
 userdebug_or_eng(`can_profile_heap_userdebug_or_eng({
   domain
+  -app_zygote
   -bpfloader
+  -hal_configstore
+  -init
+  -kernel
+  -keystore
+  -llkd
+  -logd
+  -logpersist
+  -recovery
+  -recovery_persist
+  -recovery_refresh
+  -ueventd
+  -vendor_init
+  -vold
+})')
+
+userdebug_or_eng(`perfetto_producer({
+  domain
+  -app_zygote
+  -bpfloader
+  -hal_configstore
   -init
   -kernel
   -keystore
