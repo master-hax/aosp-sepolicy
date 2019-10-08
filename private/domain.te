@@ -28,6 +28,11 @@ userdebug_or_eng(`can_profile_heap_userdebug_or_eng({
   -vold
 })')
 
+userdebug_or_eng(`perfetto_producer({
+  appdomain
+  system_server
+})')
+
 # Path resolution access in cgroups.
 allow domain cgroup:dir search;
 allow { domain -appdomain -rs } cgroup:dir w_dir_perms;
