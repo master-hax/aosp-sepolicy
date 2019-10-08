@@ -67,8 +67,8 @@ allow installd media_rw_data_file:dir relabelto;
 # Delete /data/media files through sdcardfs, instead of going behind its back
 allow installd tmpfs:dir r_dir_perms;
 allow installd storage_file:dir search;
-allow installd sdcardfs:dir { search open read write remove_name getattr rmdir };
-allow installd sdcardfs:file { getattr unlink };
+allow installd sdcard_type:dir { search open read write remove_name getattr rmdir };
+allow installd sdcard_type:file { getattr unlink };
 
 # Upgrade /data/misc/keychain for multi-user if necessary.
 allow installd misc_user_data_file:dir create_dir_perms;
@@ -76,8 +76,9 @@ allow installd misc_user_data_file:file create_file_perms;
 allow installd keychain_data_file:dir create_dir_perms;
 allow installd keychain_data_file:file {r_file_perms unlink};
 
-# Create /data/.layout_version.* file
+# Create /data/misc/installd/layout_version.* file
 allow installd install_data_file:file create_file_perms;
+allow installd install_data_file:dir rw_dir_perms;
 
 # Create files under /data/dalvik-cache.
 allow installd dalvikcache_data_file:dir create_dir_perms;
@@ -170,7 +171,6 @@ neverallow { domain -system_server -dumpstate -installd } installd_service:servi
 neverallow { domain -system_server -dumpstate } installd:binder call;
 neverallow installd {
     domain
-    -ashmem_server
     -system_server
     -servicemanager
     userdebug_or_eng(`-su')

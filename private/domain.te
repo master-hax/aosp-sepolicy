@@ -42,6 +42,9 @@ allow domain vendor_task_profiles_file:file r_file_perms;
 # if memfd support can be used if device supports it
 get_prop(domain, use_memfd_prop);
 
+# Allow to read properties for linker
+get_prop(domain, linker_prop);
+
 # For now, everyone can access core property files
 # Device specific properties are not granted by default
 not_compatible_property(`
@@ -83,7 +86,11 @@ userdebug_or_eng(`
 ')
 
 # Allow access to linkerconfig file
+allow domain linkerconfig_file:dir search;
 allow domain linkerconfig_file:file r_file_perms;
+
+# Allow all processes to check for the existence of the boringssl_self_test_marker files.
+allow domain boringssl_self_test_marker:dir search;
 
 # Limit ability to ptrace or read sensitive /proc/pid files of processes
 # with other UIDs to these whitelisted domains.
@@ -254,9 +261,9 @@ define(`dac_override_allowed', `{
   dumpstate
   init
   installd
-  install_recovery
   userdebug_or_eng(`llkd')
   lmkd
+  migrate_legacy_obb_data
   netd
   postinstall_dexopt
   recovery

@@ -61,7 +61,6 @@ dalvik.vm.method-trace u:object_r:exported_dalvik_prop:s0 exact bool
 dalvik.vm.method-trace-file u:object_r:exported_dalvik_prop:s0 exact string
 dalvik.vm.method-trace-file-siz u:object_r:exported_dalvik_prop:s0 exact int
 dalvik.vm.method-trace-stream u:object_r:exported_dalvik_prop:s0 exact bool
-dalvik.vm.profilesystemserver u:object_r:exported_dalvik_prop:s0 exact bool
 dalvik.vm.usejit u:object_r:exported_dalvik_prop:s0 exact bool
 dalvik.vm.usejitprofiles u:object_r:exported_dalvik_prop:s0 exact bool
 dalvik.vm.zygote.max-boot-retry u:object_r:exported_dalvik_prop:s0 exact int
@@ -100,6 +99,7 @@ ro.boot.vendor.overlay.theme u:object_r:exported_overlay_prop:s0 exact string
 ro.boot.wificountrycode u:object_r:exported3_default_prop:s0 exact string
 ro.bt.bdaddr_path u:object_r:exported_bluetooth_prop:s0 exact string
 ro.camera.notify_nfc u:object_r:exported3_default_prop:s0 exact int
+ro.camera.enableLazyHal u:object_r:exported3_default_prop:s0 exact bool
 ro.com.android.dataroaming u:object_r:exported3_default_prop:s0 exact bool
 ro.com.android.prov_mobiledata u:object_r:exported3_default_prop:s0 exact bool
 ro.config.alarm_alert u:object_r:exported2_config_prop:s0 exact string
@@ -110,8 +110,13 @@ ro.config.ringtone u:object_r:exported2_config_prop:s0 exact string
 ro.control_privapp_permissions u:object_r:exported3_default_prop:s0 exact string
 ro.cp_system_other_odex u:object_r:exported3_default_prop:s0 exact int
 ro.crypto.allow_encrypt_override u:object_r:exported2_vold_prop:s0 exact bool
+ro.crypto.fde_algorithm u:object_r:exported2_vold_prop:s0 exact string
+ro.crypto.fde_sector_size u:object_r:exported2_vold_prop:s0 exact int
 ro.crypto.scrypt_params u:object_r:exported2_vold_prop:s0 exact string
+ro.crypto.set_dun u:object_r:exported2_vold_prop:s0 exact bool
+ro.crypto.volume.contents_mode u:object_r:exported2_vold_prop:s0 exact string
 ro.crypto.volume.filenames_mode u:object_r:exported2_vold_prop:s0 exact string
+ro.crypto.volume.flags u:object_r:exported2_vold_prop:s0 exact string
 ro.dalvik.vm.native.bridge u:object_r:exported_dalvik_prop:s0 exact string
 ro.enable_boot_charger_mode u:object_r:exported3_default_prop:s0 exact bool
 ro.gfx.driver.0 u:object_r:exported3_default_prop:s0 exact string
@@ -144,6 +149,9 @@ ro.telephony.call_ring.multiple u:object_r:exported3_default_prop:s0 exact bool
 ro.telephony.default_cdma_sub u:object_r:exported3_default_prop:s0 exact int
 ro.telephony.default_network u:object_r:exported3_default_prop:s0 exact string
 ro.vendor.build.security_patch u:object_r:vendor_security_patch_level_prop:s0 exact string
+ro.zram.mark_idle_delay_mins u:object_r:exported3_default_prop:s0 exact int
+ro.zram.first_wb_delay_mins u:object_r:exported3_default_prop:s0 exact int
+ro.zram.periodic_wb_delay_hours u:object_r:exported3_default_prop:s0 exact int
 ro.zygote u:object_r:exported3_default_prop:s0 exact string
 sendbug.preferred.domain u:object_r:exported3_default_prop:s0 exact string
 sys.usb.controller u:object_r:exported2_system_prop:s0 exact string
@@ -392,3 +400,8 @@ ro.surface_flinger.display_primary_green u:object_r:exported_default_prop:s0 exa
 ro.surface_flinger.display_primary_blue u:object_r:exported_default_prop:s0 exact string
 ro.surface_flinger.display_primary_white u:object_r:exported_default_prop:s0 exact string
 ro.surface_flinger.protected_contents u:object_r:exported_default_prop:s0 exact bool
+ro.surface_flinger.set_idle_timer_ms u:object_r:exported_default_prop:s0 exact int
+ro.surface_flinger.set_touch_timer_ms u:object_r:exported_default_prop:s0 exact int
+ro.surface_flinger.support_kernel_idle_timer u:object_r:exported_default_prop:s0 exact bool
+ro.surface_flinger.use_smart_90_for_video u:object_r:exported_default_prop:s0 exact bool
+ro.surface_flinger.refresh_rate_switching u:object_r:exported_default_prop:s0 exact bool
