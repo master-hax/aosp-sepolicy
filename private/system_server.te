@@ -602,6 +602,7 @@ set_prop(system_server, device_config_sys_traced_prop)
 
 # BootReceiver to read ro.boot.bootreason
 get_prop(system_server, bootloader_boot_reason_prop)
+
 # PowerManager to read sys.boot.reason
 get_prop(system_server, system_boot_reason_prop)
 
@@ -627,6 +628,9 @@ set_prop(system_server, test_harness_prop)
 
 # Read gsid.image_running.
 get_prop(system_server, gsid_prop)
+
+# Read the property that mocks an OTA
+userdebug_or_eng(`get_prop(system_server, mock_ota_prop)')
 
 # Create a socket for connections from debuggerd.
 allow system_server system_ndebug_socket:sock_file create_file_perms;
