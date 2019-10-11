@@ -43,11 +43,28 @@ allow vold e2fs_exec:file rx_file_perms;
 # allowxperm still requires the ioctl permission for the individual type
 allowxperm vold { fs_type file_type }:dir ioctl FITRIM;
 
-# Get encryption policy for dirs in /data
+# Get/set file-based encryption policies on dirs in /data and adoptable storage,
+# and add/remove file-based encryption keys.
 allowxperm vold data_file_type:dir ioctl {
   FS_IOC_GET_ENCRYPTION_POLICY
   FS_IOC_SET_ENCRYPTION_POLICY
+  FS_IOC_ADD_ENCRYPTION_KEY
+  FS_IOC_REMOVE_ENCRYPTION_KEY
 };
+
+# Only vold and init should ever set file-based encryption policies.
+neverallowxperm {
+  domain
+  -vold
+  -init
+  -vendor_init
+} data_file_type:dir ioctl { FS_IOC_SET_ENCRYPTION_POLICY };
+
+# Only vold should ever add/remove file-based encryption keys.
+neverallowxperm {
+  domain
+  -vold
+} data_file_type:dir ioctl { FS_IOC_ADD_ENCRYPTION_KEY FS_IOC_REMOVE_ENCRYPTION_KEY };
 
 # Find the location on the raw block device where the
 # crypto key is stored so it can be destroyed
@@ -135,7 +152,10 @@ allow vold labeledfs:filesystem { mount unmount remount };
 allow vold efs_file:file rw_file_perms;
 
 # Create and mount on /data/tmp_mnt and management of expansion mounts
-allow vold system_data_file:dir { create rw_dir_perms mounton setattr rmdir };
+allow vold {
+    system_data_file
+    system_data_root_file
+}:dir { create rw_dir_perms mounton setattr rmdir };
 allow vold system_data_file:lnk_file getattr;
 
 # Vold create users in /data/vendor_{ce,de}/[0-9]+
@@ -302,7 +322,6 @@ neverallow {
 
 neverallow vold {
   domain
-  -ashmem_server
   -hal_health_storage_server
   -hal_keymaster_server
   -system_suspend_server
