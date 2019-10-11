@@ -131,7 +131,11 @@ ro.lmk.kill_heaviest_task u:object_r:exported3_default_prop:s0 exact bool
 ro.lmk.kill_timeout_ms u:object_r:exported3_default_prop:s0 exact int
 ro.lmk.low u:object_r:exported3_default_prop:s0 exact int
 ro.lmk.medium u:object_r:exported3_default_prop:s0 exact int
+ro.lmk.psi_partial_stall_ms u:object_r:exported3_default_prop:s0 exact int
+ro.lmk.psi_complete_stall_ms u:object_r:exported3_default_prop:s0 exact int
 ro.lmk.swap_free_low_percentage u:object_r:exported3_default_prop:s0 exact int
+ro.lmk.thrashing_limit u:object_r:exported3_default_prop:s0 exact int
+ro.lmk.thrashing_limit_decay u:object_r:exported3_default_prop:s0 exact int
 ro.lmk.use_minfree_levels u:object_r:exported3_default_prop:s0 exact bool
 ro.lmk.upgrade_pressure u:object_r:exported3_default_prop:s0 exact int
 ro.minui.default_rotation u:object_r:exported3_default_prop:s0 exact string
@@ -288,6 +292,7 @@ ro.boot.slot_suffix u:object_r:exported_default_prop:s0 exact string
 ro.bootimage.build.date u:object_r:exported_default_prop:s0 exact string
 ro.bootimage.build.date.utc u:object_r:exported_default_prop:s0 exact int
 ro.bootimage.build.fingerprint u:object_r:exported_default_prop:s0 exact string
+ro.boringcrypto.hwrand u:object_r:exported_default_prop:s0 exact bool
 ro.build.ab_update u:object_r:exported_default_prop:s0 exact string
 ro.build.expect.baseband u:object_r:exported_default_prop:s0 exact string
 ro.build.expect.bootloader u:object_r:exported_default_prop:s0 exact string
