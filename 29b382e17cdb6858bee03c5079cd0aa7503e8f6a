@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d017370e_ffc8cde1",
+        "filename": "private/app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1463094
+      },
+      "writtenOn": "2019-10-14T15:05:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7450055_466404de",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 0
+      },
+      "revId": "29b382e17cdb6858bee03c5079cd0aa7503e8f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9369fa22_6552b108",
         "filename": "private/compat/29.0/29.0.ignore.cil",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-10-14T14:49:35Z",
       "side": 1,
       "message": "From an SELinux perspective, do you need two labels? Will they have different rules?\nFrom a code perspective: why do you have 2 services, rather than having one which offers both APIs?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 34
+      },
+      "revId": "29b382e17cdb6858bee03c5079cd0aa7503e8f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e930754_4f777744",
+        "filename": "private/compat/29.0/29.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1463094
+      },
+      "writtenOn": "2019-10-14T15:05:39Z",
+      "side": 1,
+      "message": "SELinux wise: no, one is enough. Can I just add u:object_r:platform_compat_native_service:s0 tp the existing label?\n\nCode: I\u0027ve commented in aosp/1139015. It\u0027s just a silly technical reason: the existing aidl file can\u0027t be compiled to cpp as it has ApplicationInfo in the API definition, and the same class can\u0027t extend both stubs so I\u0027ve added a native service that implements the native reduced API and just calls the non-native API.\nNot ideal, but it\u0027s the easiest way found to do this, and there\u0027s no actual duplication of logic.",
+      "parentUuid": "9369fa22_6552b108",
       "range": {
         "startLine": 13,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3f12d256_ba90a5b2",
+        "filename": "private/service_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1463094
+      },
+      "writtenOn": "2019-10-14T15:05:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6aa6630_0b7741d1",
+      "range": {
+        "startLine": 35,
+        "startChar": 49,
+        "endLine": 35,
+        "endChar": 93
+      },
+      "revId": "29b382e17cdb6858bee03c5079cd0aa7503e8f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0357f0a9_7f7707d5",
         "filename": "private/untrusted_app_all.te",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "29b382e17cdb6858bee03c5079cd0aa7503e8f6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac18ac8d_e28ff9a0",
+        "filename": "private/untrusted_app_all.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1463094
+      },
+      "writtenOn": "2019-10-14T15:05:39Z",
+      "side": 1,
+      "message": "Yeah, that was an unrelated local change that accidentally got into the change, sorry about that.",
+      "parentUuid": "0357f0a9_7f7707d5",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 69
+      },
+      "revId": "29b382e17cdb6858bee03c5079cd0aa7503e8f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
