@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "63a53262_8423cbfe",
+        "filename": "private/compat/29.0/29.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-10-14T15:20:09Z",
+      "side": 1,
+      "message": "\u003e SELinux wise: no, one is enough. Can I just add u:object_r:platform_compat_native_service:s0 tp the existing label?\n\nIt\u0027s the other way round: in service_contexts you could map platform_compat_native_service to u:object_r:platform_compat_service:s0 and then the existing rules would apply to it.\n\nWhat slightly confuses me is that as things stand you\u0027ve added a new label but not granted any access to it at all. I\u0027m surprised that works.\n\n\u003e \n\u003e Code: I\u0027ve commented in aosp/1139015. It\u0027s just a silly technical reason: the existing aidl file can\u0027t be compiled to cpp as it has ApplicationInfo in the API definition, and the same class can\u0027t extend both stubs so I\u0027ve added a native service that implements the native reduced API and just calls the non-native API.\n\u003e Not ideal, but it\u0027s the easiest way found to do this, and there\u0027s no actual duplication of logic.\n\n:-(",
+      "parentUuid": "6e930754_4f777744",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 34
+      },
+      "revId": "29b382e17cdb6858bee03c5079cd0aa7503e8f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a6aa6630_0b7741d1",
         "filename": "private/service_contexts",
         "patchSetId": 1
