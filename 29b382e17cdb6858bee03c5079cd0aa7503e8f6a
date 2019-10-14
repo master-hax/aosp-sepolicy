@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7450055_466404de",
+        "filename": "private/app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-10-14T14:49:35Z",
+      "side": 1,
+      "message": "Revert whitespace change?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 0
+      },
+      "revId": "29b382e17cdb6858bee03c5079cd0aa7503e8f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9369fa22_6552b108",
+        "filename": "private/compat/29.0/29.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-10-14T14:49:35Z",
+      "side": 1,
+      "message": "From an SELinux perspective, do you need two labels? Will they have different rules?\nFrom a code perspective: why do you have 2 services, rather than having one which offers both APIs?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 34
+      },
+      "revId": "29b382e17cdb6858bee03c5079cd0aa7503e8f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6aa6630_0b7741d1",
+        "filename": "private/service_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-10-14T14:49:35Z",
+      "side": 1,
+      "message": "Can we line this up with the others?",
+      "range": {
+        "startLine": 35,
+        "startChar": 49,
+        "endLine": 35,
+        "endChar": 93
+      },
+      "revId": "29b382e17cdb6858bee03c5079cd0aa7503e8f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0357f0a9_7f7707d5",
+        "filename": "private/untrusted_app_all.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-10-14T14:49:35Z",
+      "side": 1,
+      "message": "Was this supposed to be the native service?\n\nThe existing rule in platform_app.te is:\nuserdebug_or_eng(`\n  allow platform_app platform_compat_service:service_manager find;\n\u0027)\n\nThis seems like it\u0027s broadening it quite significantly.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 69
+      },
+      "revId": "29b382e17cdb6858bee03c5079cd0aa7503e8f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
