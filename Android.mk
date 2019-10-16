@@ -193,6 +193,8 @@ ifeq ($(NATIVE_COVERAGE),true)
   with_native_coverage := true
 endif
 
+$(warning BUILD_BROKEN_TREBLE_SYSPROP_NEVERALLOW := $(BUILD_BROKEN_TREBLE_SYSPROP_NEVERALLOW))
+
 treble_sysprop_neverallow := true
 ifeq ($(BUILD_BROKEN_TREBLE_SYSPROP_NEVERALLOW),true)
   treble_sysprop_neverallow := false
@@ -205,6 +207,8 @@ else ifneq ($(call math_lt,29,$(PRODUCT_SHIPPING_API_LEVEL)),)
     $(error BUILD_BROKEN_TREBLE_SYSPROP_NEVERALLOW cannot be set on a device shipping with R or later, and this is tested by CTS.)
   endif
 endif
+
+$(warning treble_sysprop_neverallow := $(treble_sysprop_neverallow))
 
 # Library extension for host-side tests
 ifeq ($(HOST_OS),darwin)
@@ -572,6 +576,7 @@ $(system_ext_pub_policy.conf): PRIVATE_TGT_WITH_NATIVE_COVERAGE := $(with_native
 $(system_ext_pub_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(system_ext_pub_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(system_ext_pub_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
+$(system_ext_pub_policy.conf): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := $(treble_sysprop_neverallow)
 $(system_ext_pub_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(system_ext_pub_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -737,6 +742,7 @@ $(system_ext_policy.conf): PRIVATE_TGT_WITH_NATIVE_COVERAGE := $(with_native_cov
 $(system_ext_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(system_ext_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(system_ext_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
+$(system_ext_policy.conf): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := $(treble_sysprop_neverallow)
 $(system_ext_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(system_ext_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
