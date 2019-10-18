@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e305453c_9f73d301",
+        "filename": "public/init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-10-18T22:58:00Z",
+      "side": 1,
+      "message": "a macro is provided for this purpose:\n\n  unix_socket_connect(init, lmkd, lmkd)\n\nPlease see the definition of unix_socket_connect in system/sepolicy/public/te_macros\n\nBut having said that, init can pass file descriptor\u0027s to init\u0027s children. So why not just have init create the socketpair() file descriptor and pass it directly (pass on exec), instead of lmkd listening and init making the connection. The current method seems unnecessarily complicated.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 39
+      },
+      "revId": "017cb864f115afbe698d8687c2f9700008c5717e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
