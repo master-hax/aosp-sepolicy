@@ -30,3 +30,6 @@ allow snapshotctl dm_device:chr_file rw_file_perms;
 
 # Needed to mutate device-mapper nodes.
 allow snapshotctl self:global_capability_class_set sys_admin;
+
+# Allow access to IBootControl.
+hal_client_domain(snapshotctl, hal_bootctl)
