@@ -30,3 +30,8 @@ allow wificond permission_service:service_manager find;
 # dumpstate support
 allow wificond dumpstate:fd use;
 allow wificond dumpstate:fifo_file write;
+
+# Offer the Wifi Keystore HwBinder service
+typeattribute keystore wifi_keystore_service_server;
+add_hwservice(keystore, system_wifi_keystore_hwservice)
+
