@@ -1,0 +1,7 @@
+binder_call(hal_storagekey_client, hal_storagekey_server)
+
+hal_attribute_hwservice(hal_storagekey, hal_storagekey_hwservice)
+ 
+# TEE access.
+allow hal_storagekey tee_device:chr_file rw_file_perms;
+allow hal_storagekey ion_device:chr_file r_file_perms;
