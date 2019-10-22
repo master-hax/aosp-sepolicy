@@ -4,6 +4,7 @@
 
 # Data files
 /adb_keys           u:object_r:adb_keys_file:s0
+/adb_wifi_keys      u:object_r:adb_keys_file:s0
 /build\.prop        u:object_r:rootfs:s0
 /default\.prop      u:object_r:rootfs:s0
 /fstab\..*          u:object_r:rootfs:s0
@@ -122,6 +123,7 @@
 /dev/snd(/.*)?		u:object_r:audio_device:s0
 /dev/socket(/.*)?	u:object_r:socket_device:s0
 /dev/socket/adbd	u:object_r:adbd_socket:s0
+/dev/socket/adbdwifi	u:object_r:adbd_socket:s0
 /dev/socket/dnsproxyd	u:object_r:dnsproxyd_socket:s0
 /dev/socket/dumpstate	u:object_r:dumpstate_socket:s0
 /dev/socket/fwmarkd	u:object_r:fwmarkd_socket:s0
