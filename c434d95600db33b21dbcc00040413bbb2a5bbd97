@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da6c9aff_158b74a1",
+        "filename": "public/lmkd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2019-10-23T01:12:32Z",
+      "side": 1,
+      "message": "I know that instead of scoping it down I\u0027m scoping it up but if we want lmkd to be able to kill native services then it should be able to manipulate their oom_score_adj and timerslack_ns. If there is a way to setup write access specifically to /proc/PID/oom_score_adj and /proc/PID/timerslack_ns files I would be glad to change this.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 0
+      },
+      "revId": "c434d95600db33b21dbcc00040413bbb2a5bbd97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2d51135_053ad431",
+        "filename": "public/lmkd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2019-10-23T01:12:32Z",
+      "side": 1,
+      "message": "Similarly, now we should be able to use these syscalls against native processes as well.",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 25
+      },
+      "revId": "c434d95600db33b21dbcc00040413bbb2a5bbd97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
