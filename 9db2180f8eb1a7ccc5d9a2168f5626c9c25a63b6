@@ -46,6 +46,30 @@
       "revId": "9db2180f8eb1a7ccc5d9a2168f5626c9c25a63b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40016c3e_c012cd37",
+        "filename": "public/audioserver.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2019-10-23T19:58:46Z",
+      "side": 1,
+      "message": "The audioserver needs to know the pid of the audio HAL service process in order to send a debugger signal to generate a tombstone in case of watchdog.\nThis is needed because we realized that most of the deadlocks happen in audio HAL service and having the audioserver tombstone is not enough when we force restart due to a watchdog timeout.\nhttps://android-review.googlesource.com/c/platform/frameworks/av/+/1130071\n\nThese is critical to help us debug audio issues related to drivers usb and bluetooth for instance.",
+      "parentUuid": "931c2eec_57de714c",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 58
+      },
+      "revId": "9db2180f8eb1a7ccc5d9a2168f5626c9c25a63b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
