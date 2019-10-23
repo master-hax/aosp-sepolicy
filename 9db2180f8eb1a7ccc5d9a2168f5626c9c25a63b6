@@ -22,6 +22,30 @@
       "revId": "9db2180f8eb1a7ccc5d9a2168f5626c9c25a63b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "983434ef_1370357c",
+        "filename": "public/audioserver.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-10-23T19:28:34Z",
+      "side": 1,
+      "message": "As I understand, the current code needs that for finding out PIDs of the services of interest, so it lists all the services to find the ones it needs.\n\nEric, I think this could be done in another way. Since we have IDevicesFactory instances (and if we don\u0027t have them yet that means audio HAL can\u0027t block audioserver), we can use IBase::getDebugInfo method and get PIDs. Note that this only works on debuggable builds, see getPidIfSharable() function here: http://cs/android/system/libhidl/transport/HidlTransportSupport.cpp. If we want this functionality on all builds, then listing services is the only way to get their PIDs.",
+      "parentUuid": "931c2eec_57de714c",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 58
+      },
+      "revId": "9db2180f8eb1a7ccc5d9a2168f5626c9c25a63b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
