@@ -27,6 +27,7 @@ set_prop(radio, net_radio_prop)
 set_prop(radio, ctl_rildaemon_prop)
 
 add_service(radio, radio_service)
+add_service(radio, telephony_ims_service)
 allow radio audioserver_service:service_manager find;
 allow radio cameraserver_service:service_manager find;
 allow radio drmserver_service:service_manager find;
