@@ -1,0 +1,5 @@
+# HwBinder IPC from client to server, and callbacks
+binder_call(hal_bootmessage_client, hal_bootmessage_server)
+binder_call(hal_bootmessage_server, hal_bootmessage_client)
+
+hal_attribute_hwservice(hal_bootmessage, hal_bootmessage_hwservice)
