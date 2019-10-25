@@ -4,5 +4,13 @@ domain_auto_trans(kernel, init_exec, init)
 
 # Allow the kernel to read otapreopt_chroot's file descriptors and files under
 # /postinstall, as it uses apexd logic to mount APEX packages in /postinstall/apex.
+allow kernel ota_image_data_file:file read;
 allow kernel otapreopt_chroot:fd use;
 allow kernel postinstall_file:file read;
+
+# On FBE devices (not using dm-default-key), the kernel uses gsid, which uses
+# loop devices to map images rather than device-mapper.
+allow kernel gsid:fd use;
+
+# libdm_test uses tmpfs to store images that will be mounted in loop devices.
+allow kernel appdomain_tmpfs:file write;
