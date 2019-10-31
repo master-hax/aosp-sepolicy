@@ -22,6 +22,30 @@
       "revId": "d87649c64560565681158203d61f3830019ff7db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f83c1130_5c68ed7d",
+        "filename": "vendor/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-31T16:18:23Z",
+      "side": 1,
+      "message": "Hmmm, well this line refers to the example implementation, so that it can run (there are other cases of this). Other devices would add a context referring to their hardware-specific implementation. If we name the default/reference/example implementation without this suffix, then it increases the chance it will accidentally get shipped into production (there have been reports of this).\n\nMany of the service names here refer to actual default implementations, it\u0027s just not clear (yet) from their names.",
+      "parentUuid": "d95cea79_74c2dccb",
+      "range": {
+        "startLine": 64,
+        "startChar": 67,
+        "endLine": 64,
+        "endChar": 74
+      },
+      "revId": "d87649c64560565681158203d61f3830019ff7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
