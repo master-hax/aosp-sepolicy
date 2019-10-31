@@ -46,6 +46,30 @@
       "revId": "9f222c6e8ff6d30d24a70752a361edeeea3abdca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54f8ab47_a855777d",
+        "filename": "public/radio.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1467491
+      },
+      "writtenOn": "2019-10-31T15:14:55Z",
+      "side": 1,
+      "message": "The ITelephony service \"phone\" is set as the type \"radio_service\" which associate with \"service_manager_type\" :\n\nhttps://cs.corp.google.com/android/system/sepolicy/private/service_contexts?rcl\u003d7655f269fe3a5e72fcceb7046da6359415e2fd3c\u0026l\u003d146\n\nhttps://cs.corp.google.com/android/system/sepolicy/public/service.te?l\u003d26\n\nThe \"telephony_ims\" has it own service type \"telephony_ims_service\" which also associate with \"service_manager_type\" :\n\nhttps://android-review.googlesource.com/c/platform/system/sepolicy/+/1149337/4/private/service_contexts#191\n\nhttps://android-review.googlesource.com/c/platform/system/sepolicy/+/1149337/4/public/service.te#32\n\n\nradio requires to add the telephony_ims_service to service_manager or the avc denied will happen:\n\n\"avc:  denied  { add } for pid\u003d4718 uid\u003d1001 name\u003dtelephony_ims scontext\u003du:r:radio:s0 tcontext\u003du:object_r:telephony_ims_service:s0 tclass\u003dservice_manager permissive\u003d0\"",
+      "parentUuid": "5d43d108_b0302e71",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 41
+      },
+      "revId": "9f222c6e8ff6d30d24a70752a361edeeea3abdca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
