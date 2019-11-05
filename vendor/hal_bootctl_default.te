@@ -8,6 +8,7 @@ init_daemon_domain(hal_bootctl_default)
 # Needed for ReadDefaultFstab.
 allow hal_bootctl_default proc_cmdline:file r_file_perms;
 allow hal_bootctl_default sysfs_dt_firmware_android:dir r_dir_perms;
+allow hal_bootctl_default sysfs_dt_firmware_android:file r_file_perms;
 
 # Needed for reading/writing misc partition.
 allow hal_bootctl_default block_device:dir search;
