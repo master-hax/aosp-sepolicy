@@ -137,6 +137,7 @@ system_public_prop(system_prop)
 system_public_prop(vendor_security_patch_level_prop)
 system_public_prop(wifi_log_prop)
 system_public_prop(wifi_prop)
+system_public_prop(vehicle_prop)
 
 # Properties which are public for devices launching with Android O or earlier
 # This should not be used for any new properties.
@@ -324,13 +325,17 @@ neverallow * {
   -vold_prop
 }:file no_rw_file_perms;
 
-# sigstop property is only used for debugging; should only be set by su which is permissive
-# for userdebug/eng
 neverallow {
   domain
   -init
   -vendor_init
-} ctl_sigstop_prop:property_service set;
+} {
+  # sigstop property is only used for debugging; should only be set by su which is permissive
+  # for userdebug/eng
+  ctl_sigstop_prop
+
+  vehicle_prop
+}:property_service set;
 
 # Don't audit legacy ctl. property handling.  We only want the newer permission check to appear
 # in the audit log
