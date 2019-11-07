@@ -46,6 +46,30 @@
       "revId": "5f1ac021577726846544186168e3033c96ce6859",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9f959a2_f5f0e581",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-11-07T22:04:49Z",
+      "side": 1,
+      "message": "Correct. This is not a drop-in update. Platform policy can\u0027t label device-specific files.\n\nNote that applies to all of /sys/class/*, since any of those could be a symlink to some device path. \n\nYou\u0027ll need something like this:\nhttps://android.googlesource.com/device/generic/goldfish/+/9982eef198ffb1756a9025baa0ed37f44732632e/sepolicy/common/genfs_contexts#15",
+      "parentUuid": "0c0ea965_af899ee5",
+      "range": {
+        "startLine": 19,
+        "startChar": 26,
+        "endLine": 20,
+        "endChar": 30
+      },
+      "revId": "5f1ac021577726846544186168e3033c96ce6859",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
