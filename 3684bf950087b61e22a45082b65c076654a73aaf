@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3fb67ede_8291d1dd",
+        "filename": "public/lmkd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2019-11-07T18:05:39Z",
+      "side": 1,
+      "message": "Any process that AMS or init register with lmkd is a fair game. The point of this patchset is to allow init to register services with lmkd so that they can be killed if needed. Before this patchset only AMS can register processes with lmkd, so only apps can be killed. With this patchset if a native service is declared with oom_adj_score other than -1000 (default and unkillable) then init will register it with lmkd and it can be killed. That can be any native service really.",
+      "parentUuid": "3fee456f_1c3db565",
+      "range": {
+        "startLine": 15,
+        "startChar": 17,
+        "endLine": 15,
+        "endChar": 23
+      },
+      "revId": "3684bf950087b61e22a45082b65c076654a73aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6a2b9356_1d527f7d",
         "filename": "public/lmkd.te",
         "patchSetId": 4
@@ -39,6 +63,24 @@
       "revId": "3684bf950087b61e22a45082b65c076654a73aaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "357f82d8_95ff3f0e",
+        "filename": "public/lmkd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2019-11-07T18:05:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a2b9356_1d527f7d",
+      "revId": "3684bf950087b61e22a45082b65c076654a73aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
