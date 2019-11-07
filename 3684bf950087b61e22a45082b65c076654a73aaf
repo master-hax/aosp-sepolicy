@@ -22,6 +22,23 @@
       "revId": "3684bf950087b61e22a45082b65c076654a73aaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a2b9356_1d527f7d",
+        "filename": "public/lmkd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-11-07T12:40:01Z",
+      "side": 1,
+      "message": "can you add a neverallow rule for sys_ptrace so we can be sure that the ability to read/write to private files in /proc has some limitations.\n\nneverallow vold self:global_capability_class_set sys_ptrace;",
+      "revId": "3684bf950087b61e22a45082b65c076654a73aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
