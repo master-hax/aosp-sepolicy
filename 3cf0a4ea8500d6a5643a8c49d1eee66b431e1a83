@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26dec6cd_b7049c24",
+        "filename": "private/incidentd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-11-08T22:05:00Z",
+      "side": 1,
+      "message": "SELinux policy files are parsed by the m4 macro language, which considers single quotes and backticks as special.  Can you please rewrite this avoiding single quotes?\n\nAdditionally, can you please include an explanation about when this data is used?\n\nProposed updated comment:\n\n  # Read the deice serial number from system properties.\n  # This is used to track all reports from lab testing devices",
+      "range": {
+        "startLine": 153,
+        "startChar": 13,
+        "endLine": 153,
+        "endChar": 14
+      },
+      "revId": "3cf0a4ea8500d6a5643a8c49d1eee66b431e1a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0504e1f_944e7e80",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-11-08T22:05:00Z",
+      "side": 1,
+      "message": "Can you please also update this to exclude this on debuggable builds:\n\n  userdebug_or_eng(`-incidentd\u0027)",
+      "revId": "3cf0a4ea8500d6a5643a8c49d1eee66b431e1a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
