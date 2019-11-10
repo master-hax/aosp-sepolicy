@@ -22,3 +22,14 @@ neverallow {
     -system_server # configures system_suspend via ISuspendControlService
     -traceur_app # tracing
 } system_suspend_control_service:service_manager find;
+
+neverallow {
+    coredomain # TODO: disallow from all "domain"
+    -system_suspend
+    # ueventd and vold need these sysfs permissions for coldboot
+    -ueventd
+    -vold
+} {
+    sysfs_wakeup
+    sysfs_suspend_stats
+}:file { open read write };
