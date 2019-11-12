@@ -118,6 +118,30 @@
       "revId": "e3e77ed26451d078aa8d297d84f0480abf4e3a74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fe7eccf_77c584ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-11-12T22:38:41Z",
+      "side": 1,
+      "message": "The intermediate directories might not necessarily have types that system_suspend can have access to, e.g. sysfs_msm_subsys on pixel. system_suspend would need \"search\" permission to perform path resolution in this case. \n\nRationale here is similar to why we have same permission in charger to allow it to resolve paths in /sys/class/power_supply/*\nhttps://android.googlesource.com/platform/system/sepolicy/+/refs/heads/master/public/charger.te#12",
+      "parentUuid": "d0dbc475_cae0cd71",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "e3e77ed26451d078aa8d297d84f0480abf4e3a74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
