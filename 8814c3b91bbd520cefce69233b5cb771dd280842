@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6c426518_ed04f0d7",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2019-11-14T15:33:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "473688bd_eb4768ae",
+      "revId": "8814c3b91bbd520cefce69233b5cb771dd280842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f41f808d_6a3e02fa",
         "filename": "private/apexd.te",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "8814c3b91bbd520cefce69233b5cb771dd280842",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95305784_fad3f4c6",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2019-11-14T15:33:28Z",
+      "side": 1,
+      "message": "Changing to create_pty(apexd) fails the userspace reboot. Here is the avc denial message from the kernel:\n\n[   72.269295] c3    630 type\u003d1400 audit(1573745068.159:12): avc: denied { read write } for comm\u003d\"apexd\" path\u003d\"/dev/pts/0\" dev\u003d\"devpts\" ino\u003d3 scontext\u003du:r:apexd:s0 tcontext\u003du:object_r:devpts:s0 tclass\u003dchr_file permissive\u003d0\n\nI think this is because init invokes apexd with logrwapper, hence the unnamed ptys: https://android.googlesource.com/platform/system/core/+/refs/heads/master/init/reboot.cpp#720",
+      "parentUuid": "f41f808d_6a3e02fa",
+      "revId": "8814c3b91bbd520cefce69233b5cb771dd280842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
