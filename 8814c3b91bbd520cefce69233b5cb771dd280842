@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "473688bd_eb4768ae",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-11-14T14:52:18Z",
+      "side": 1,
+      "message": "by convention, allow rules are placed before neverallow rules. Can you please move this line to near line 116?",
+      "revId": "8814c3b91bbd520cefce69233b5cb771dd280842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f41f808d_6a3e02fa",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-11-14T14:52:18Z",
+      "side": 1,
+      "message": "Please use the macro create_pty which is designed for this purpose. It will make sure the ptys are specific to this domain.\n\n  create_pty(apexd)",
+      "revId": "8814c3b91bbd520cefce69233b5cb771dd280842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
