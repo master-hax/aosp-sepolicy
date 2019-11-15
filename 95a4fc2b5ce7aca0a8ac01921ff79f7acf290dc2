@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "52a7aadf_32975cbe",
+        "filename": "public/property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2019-11-15T14:41:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b47cd26_73806501",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 50
+      },
+      "revId": "95a4fc2b5ce7aca0a8ac01921ff79f7acf290dc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b737eb80_4454eb7f",
         "filename": "public/vendor_init.te",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "95a4fc2b5ce7aca0a8ac01921ff79f7acf290dc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43e7410c_f76feac5",
+        "filename": "public/vendor_init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2019-11-15T14:41:38Z",
+      "side": 1,
+      "message": "Isn\u0027t this vice-versa (prohibiting vendor_init to set these properties)?\nWithout these lines I\u0027m getting following build error:\n\nlibsepol.report_failure: neverallow on line 40 of system/sepolicy/private/init.te (or line 39212 of policy.conf) violated by allow vendor_init userspace_reboot_exported_prop:property_service { set };\nlibsepol.report_failure: neverallow on line 39 of system/sepolicy/private/init.te (or line 39211 of policy.conf) violated by allow vendor_init userspace_reboot_prop:property_service { set };",
+      "parentUuid": "b737eb80_4454eb7f",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 37
+      },
+      "revId": "95a4fc2b5ce7aca0a8ac01921ff79f7acf290dc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
