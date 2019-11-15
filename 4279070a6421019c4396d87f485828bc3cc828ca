@@ -22,6 +22,30 @@
       "revId": "4279070a6421019c4396d87f485828bc3cc828ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee3a7453_f1bb90e0",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-11-15T16:47:10Z",
+      "side": 1,
+      "message": "I assume you mean hal_can_controller_server.\n\nThis is something that\u0027s between device-specific and generic policy. Not every CAN controller will need access to SocketCAN interfaces, but this kind of controller is quite common and worth providing a ready-to-use domain (thus the policies are added to vendor/hal_can_socketcan).\n\nIf not here, where it should be specified?",
+      "parentUuid": "6cff1e2c_6e4157d1",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 19,
+        "endChar": 23
+      },
+      "revId": "4279070a6421019c4396d87f485828bc3cc828ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
