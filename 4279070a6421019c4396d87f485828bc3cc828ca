@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "9056355f_dccfad98",
+        "filename": "private/file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2019-11-18T21:56:55Z",
+      "side": 1,
+      "message": "If you had N instances of USB SLCAN devices, they should appear as /dev/ttyUSB0-/dev/ttyUSB\u003cN\u003e or /dev/ttyACM0-/dev/ttyACM\u003cN\u003e depending on how the firmware was implemented. Unfortunately, it appears that the order of the devices isn\u0027t consistent across boots.\n\nAnother part of the issue is that we don\u0027t know how many SLCAN devices will be attached at a given time, which makes it hard to limit it to a specific set of /dev/tty\u0027s",
+      "parentUuid": "0f276e5b_01d9f59f",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 51
+      },
+      "revId": "4279070a6421019c4396d87f485828bc3cc828ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6cff1e2c_6e4157d1",
         "filename": "vendor/hal_can_socketcan.te",
         "patchSetId": 5
