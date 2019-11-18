@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "68b96eea_ef8ad31b",
+        "filename": "private/file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-11-18T20:42:28Z",
+      "side": 1,
+      "message": "How is it more broad that the grant one line above (ttyS)? The only difference here is how the serial port is connected to the system (ttyS is onboard, ttyUSB/ttyACM is via USB).\n\nThere is no specific node we could use for slcan, as the serial port number assignment for USB is more or less \"random\".",
+      "parentUuid": "c377a595_fe7faf5b",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 51
+      },
+      "revId": "4279070a6421019c4396d87f485828bc3cc828ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6cff1e2c_6e4157d1",
         "filename": "vendor/hal_can_socketcan.te",
         "patchSetId": 5
@@ -107,6 +131,30 @@
       "writtenOn": "2019-11-18T20:31:15Z",
       "side": 1,
       "message": "instead of using the existing label \"serial_device\" (which is used by other processes in policy), we should create a new label for this, perhaps called \"slcan_device\", which can be used to label the exact /dev nodes used by the hal_can_socketcan code. The use of \"serial_device\" is too generic and grants access to too many device nodes.",
+      "range": {
+        "startLine": 28,
+        "startChar": 24,
+        "endLine": 28,
+        "endChar": 37
+      },
+      "revId": "4279070a6421019c4396d87f485828bc3cc828ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b36f98a0_8c728cba",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-11-18T20:42:28Z",
+      "side": 1,
+      "message": "Would usb_serial_device work better for you? SLCAN devices show up as a regular serial port (not distinguishable from one) until you send some bytes to it to initialize the protocol.",
+      "parentUuid": "aa1eb3c8_e570e317",
       "range": {
         "startLine": 28,
         "startChar": 24,
