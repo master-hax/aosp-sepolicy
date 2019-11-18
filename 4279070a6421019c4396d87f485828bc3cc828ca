@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "0f276e5b_01d9f59f",
+        "filename": "private/file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-11-18T21:52:47Z",
+      "side": 1,
+      "message": "It depends on the order on which USB devices got initialized by the kernel. It may vary between boots (we had similar issue with USB-to-Ethernet interfaces).\n\nThe SLCAN code will check interface\u0027s serial number /sys/bus/usb/devices/*/serial prior to opening it.\n\nWould specifying usb_serial_device help here? In such case the impact of this change would be limited exclusively to hot-plug serial devices that cannot be marked for a specific node.",
+      "parentUuid": "53b758c3_7fc4b65c",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 51
+      },
+      "revId": "4279070a6421019c4396d87f485828bc3cc828ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6cff1e2c_6e4157d1",
         "filename": "vendor/hal_can_socketcan.te",
         "patchSetId": 5
