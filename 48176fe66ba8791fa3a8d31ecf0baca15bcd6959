@@ -22,6 +22,30 @@
       "revId": "48176fe66ba8791fa3a8d31ecf0baca15bcd6959",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13e7530b_04214dfd",
+        "filename": "private/network_stack.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1308504
+      },
+      "writtenOn": "2019-11-21T06:23:25Z",
+      "side": 1,
+      "message": "Done\nSeparate them to platform_app.te and priv_app.te\n\nsystem_app.te seems cover have this permission.\nallow system_app {\n  service_manager_type\n  -apex_service\n  -dnsresolver_service\n  -dumpstate_service\n  -installd_service\n  -iorapd_service\n  -lpdump_service\n  -netd_service\n  -system_suspend_control_service\n  -virtual_touchpad_service\n  -vold_service\n  -vr_hwc_service\n}:service_manager find;",
+      "parentUuid": "e2c06836_99c6bcca",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 80
+      },
+      "revId": "48176fe66ba8791fa3a8d31ecf0baca15bcd6959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
