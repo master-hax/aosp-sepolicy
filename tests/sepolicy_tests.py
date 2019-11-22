@@ -12,7 +12,8 @@ def TestDataTypeViolations(pol):
     return pol.AssertPathTypesHaveAttr(["/data/"], [], "data_file_type")
 
 def TestSystemTypeViolations(pol):
-    return pol.AssertPathTypesHaveAttr(["/system/"], [], "system_file_type")
+    # /syste/etc/linkerconfig should not be an system_file_type as it would be writable from init
+    return pol.AssertPathTypesHaveAttr(["/system/"], ["/system/etc/linkerconfig"], "system_file_type")
 
 def TestProcTypeViolations(pol):
     return pol.AssertGenfsFilesystemTypesHaveAttr("proc", "proc_type")
