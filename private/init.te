@@ -30,6 +30,9 @@ userdebug_or_eng(`
   allow init su:process { siginh rlimitinh };
 ')
 
+# Allow init to mount tmpfs on /system/etc/linkerconfig
+allow init linkerconfig_file:dir mounton;
+
 # Allow the BoringSSL self test to request a reboot upon failure
 set_prop(init, powerctl_prop)
 
