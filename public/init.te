@@ -16,6 +16,8 @@ allow init kmsg_device:chr_file { getattr write relabelto };
 userdebug_or_eng(`
   allow init kmsg_debug_device:chr_file { open write relabelto };
 ')
+# /dev/__atrace_shmem__
+allow init atrace_shmem_device:file { rw_file_perms relabelto };
 # /dev/__properties__
 allow init properties_device:dir relabelto;
 allow init properties_serial:file { write relabelto };
