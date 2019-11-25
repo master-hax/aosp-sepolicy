@@ -1,0 +1,10 @@
+
+# Domain for derive_sdk
+type derive_sdk, domain, coredomain;
+type derive_sdk_exec, system_file_type, exec_type, file_type;
+init_daemon_domain(derive_sdk)
+
+# Prop rules
+set_prop(derive_sdk, module_sdkext_prop)
+neverallow {domain -init -derive_sdk} module_sdkext_prop:property_service set;
+get_prop(domain, module_sdkext_prop)
