@@ -2,6 +2,9 @@
 # the implementation of ActivityManager.isDeviceInTestHarnessMode()
 get_prop(appdomain, test_harness_prop)
 
+# Apps can read sdkext props
+get_prop(appdomain, module_sdkext_prop)
+
 userdebug_or_eng(`perfetto_producer({ appdomain })')
 
 neverallow appdomain system_server:udp_socket {
