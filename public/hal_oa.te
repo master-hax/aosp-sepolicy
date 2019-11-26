@@ -1,0 +1,6 @@
+# HwBinder IPC from client to server, and callbacks
+binder_call(hal_oa_client, hal_oa_server)
+binder_call(hal_oa_server, hal_oa_client)
+
+add_service(hal_oa_server, hal_oa_service)
+allow hal_oa_client hal_oa_service:service_manager find;
