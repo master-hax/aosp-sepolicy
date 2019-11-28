@@ -1,0 +1,133 @@
+commit b87c75f9ded3a0d898aa4761b4d25eec3fa1e145
+Author: Hangyu Kuang <hkuang@google.com>
+Date:   Wed Nov 27 15:05:10 2019 -0800
+
+    MediaTranscodingService: Add seplicy for MediaTranscodingService.
+    
+    Bug:145233472
+    Test: Build and run.
+    Change-Id: Ie91905ff0486ac64436088cb15bc3ef51d978d18
+
+diff --git a/private/compat/26.0/26.0.ignore.cil b/private/compat/26.0/26.0.ignore.cil
+index 15746a2b2..c7d640ab7 100644
+--- a/private/compat/26.0/26.0.ignore.cil
++++ b/private/compat/26.0/26.0.ignore.cil
+@@ -116,6 +116,9 @@
+     mediaswcodec
+     mediaswcodec_exec
+     mediaswcodec_tmpfs
++    mediatranscoding
++    mediatranscoding_exec
++    mediatranscoding_tmpfs
+     mediaextractor_update_service
+     mediaprovider_tmpfs
+     metadata_file
+diff --git a/private/compat/27.0/27.0.ignore.cil b/private/compat/27.0/27.0.ignore.cil
+index fa8d9fe76..2397725d5 100644
+--- a/private/compat/27.0/27.0.ignore.cil
++++ b/private/compat/27.0/27.0.ignore.cil
+@@ -107,6 +107,9 @@
+     mediaswcodec
+     mediaswcodec_exec
+     mediaswcodec_tmpfs
++    mediatranscoding
++    mediatranscoding_exec
++    mediatranscoding_tmpfs
+     metadata_file
+     mnt_product_file
+     mnt_vendor_file
+diff --git a/private/compat/28.0/28.0.ignore.cil b/private/compat/28.0/28.0.ignore.cil
+index 6fc86deff..bb799e632 100644
+--- a/private/compat/28.0/28.0.ignore.cil
++++ b/private/compat/28.0/28.0.ignore.cil
+@@ -97,6 +97,9 @@
+     mediaswcodec
+     mediaswcodec_exec
+     mediaswcodec_tmpfs
++    mediatranscoding
++    mediatranscoding_exec
++    mediatranscoding_tmpfs
+     mnt_product_file
+     network_stack
+     network_stack_service
+diff --git a/private/compat/29.0/29.0.ignore.cil b/private/compat/29.0/29.0.ignore.cil
+index 739940b72..49bd51ede 100644
+--- a/private/compat/29.0/29.0.ignore.cil
++++ b/private/compat/29.0/29.0.ignore.cil
+@@ -25,6 +25,10 @@
+     iorap_prefetcherd_data_file
+     iorap_prefetcherd_exec
+     iorap_prefetcherd_tmpfs
++    mediatranscoding_service
++    mediatranscoding
++    mediatranscoding_exec
++    mediatranscoding_tmpfs
+     linker_prop
+     mock_ota_prop
+     ota_metadata_file
+diff --git a/private/mediatranscoding.te b/private/mediatranscoding.te
+new file mode 100644
+index 000000000..e55150120
+--- /dev/null
++++ b/private/mediatranscoding.te
+@@ -0,0 +1,4 @@
++typeattribute mediatranscoding coredomain;
++
++init_daemon_domain(mediatranscoding)
++
+diff --git a/private/service_contexts b/private/service_contexts
+index dd7111113..33ef8e630 100644
+--- a/private/service_contexts
++++ b/private/service_contexts
+@@ -118,6 +118,7 @@ media.log                                 u:object_r:audioserver_service:s0
+ media.player                              u:object_r:mediaserver_service:s0
+ media.metrics                             u:object_r:mediametrics_service:s0
+ media.extractor                           u:object_r:mediaextractor_service:s0
++media.transcoding                         u:object_r:mediatranscoding_service:s0
+ media.resource_manager                    u:object_r:mediaserver_service:s0
+ media.sound_trigger_hw                    u:object_r:audioserver_service:s0
+ media.drm                                 u:object_r:mediadrmserver_service:s0
+diff --git a/public/mediaserver.te b/public/mediaserver.te
+index 02a0eb072..30f51a155 100644
+--- a/public/mediaserver.te
++++ b/public/mediaserver.te
+@@ -75,6 +75,7 @@ allow mediaserver batterystats_service:service_manager find;
+ allow mediaserver drmserver_service:service_manager find;
+ allow mediaserver mediaextractor_service:service_manager find;
+ allow mediaserver mediametrics_service:service_manager find;
++allow mediaserver mediatranscoding_service:service_manager find;
+ allow mediaserver media_session_service:service_manager find;
+ allow mediaserver permission_service:service_manager find;
+ allow mediaserver power_service:service_manager find;
+diff --git a/public/mediatranscoding.te b/public/mediatranscoding.te
+new file mode 100644
+index 000000000..e9ab2a86e
+--- /dev/null
++++ b/public/mediatranscoding.te
+@@ -0,0 +1,14 @@
++# mediatranscoding - daemon for transcoding video and image. 
++type mediatranscoding, domain;
++type mediatranscoding_exec, system_file_type, exec_type, file_type;
++type mediatranscoding_tmpfs, file_type;
++
++binder_use(mediatranscoding)
++binder_call(mediatranscoding, binderservicedomain)
++binder_service(mediatranscoding)
++
++add_service(mediatranscoding, mediatranscoding_service)
++
++allow mediatranscoding system_server:fd use;
++
++
+diff --git a/public/service.te b/public/service.te
+index c025530fe..69b409c07 100644
+--- a/public/service.te
++++ b/public/service.te
+@@ -21,6 +21,7 @@ type mediaserver_service,       service_manager_type;
+ type mediametrics_service,      service_manager_type;
+ type mediaextractor_service,    service_manager_type;
+ type mediadrmserver_service,    service_manager_type;
++type mediatranscoding_service,    service_manager_type;
+ type netd_service,              service_manager_type;
+ type nfc_service,               service_manager_type;
+ type radio_service,             service_manager_type;
