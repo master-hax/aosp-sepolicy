@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dec843ba_bdeed8ae",
+        "filename": "public/device.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-11-28T17:00:11Z",
+      "side": 1,
+      "message": "Why do you need mlstrustedobject ?\n\nI\u0027m not even sure dev_type is appropriate since this isn\u0027t a device. (I know properties_device is precedent, but that just confuses me).",
+      "range": {
+        "startLine": 57,
+        "startChar": 36,
+        "endLine": 57,
+        "endChar": 52
+      },
+      "revId": "f4e4cd0d1e00ecd7efa356cfefb93e6b04913555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "382b771d_69f28c67",
+        "filename": "public/init.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2019-11-28T17:00:11Z",
+      "side": 1,
+      "message": "I feel there should be some neverallow rules too - presumably nothing else should have create access?\nNot dissimilar to this: http://cs/android/system/sepolicy/public/domain.te?l\u003d453",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 72
+      },
+      "revId": "f4e4cd0d1e00ecd7efa356cfefb93e6b04913555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
