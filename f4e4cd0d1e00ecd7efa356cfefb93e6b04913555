@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fd328bd8_e1cbaa50",
+        "filename": "public/device.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-11-29T10:21:31Z",
+      "side": 1,
+      "message": "+1, only init is currently granted access to this object. mlstrustedobject is only necessary if apps are granted access, which is not currently the case.",
+      "parentUuid": "dec843ba_bdeed8ae",
+      "range": {
+        "startLine": 57,
+        "startChar": 36,
+        "endLine": 57,
+        "endChar": 52
+      },
+      "revId": "f4e4cd0d1e00ecd7efa356cfefb93e6b04913555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "382b771d_69f28c67",
         "filename": "public/init.te",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2019-11-28T17:00:11Z",
       "side": 1,
       "message": "I feel there should be some neverallow rules too - presumably nothing else should have create access?\nNot dissimilar to this: http://cs/android/system/sepolicy/public/domain.te?l\u003d453",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 72
+      },
+      "revId": "f4e4cd0d1e00ecd7efa356cfefb93e6b04913555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e55553b_abbb342a",
+        "filename": "public/init.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-11-29T10:21:31Z",
+      "side": 1,
+      "message": "rw_file_perms is already included in create_file_perms.",
+      "parentUuid": "382b771d_69f28c67",
       "range": {
         "startLine": 20,
         "startChar": 0,
