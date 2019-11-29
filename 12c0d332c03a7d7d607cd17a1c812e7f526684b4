@@ -2,6 +2,92 @@
   "comments": [
     {
       "key": {
+        "uuid": "1a7be83a_74812c6f",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-11-29T18:10:46Z",
+      "side": 1,
+      "message": "I don\u0027t see the prop being used",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 18
+      },
+      "revId": "12c0d332c03a7d7d607cd17a1c812e7f526684b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c4dfea7_514bed37",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-11-29T18:10:46Z",
+      "side": 1,
+      "message": "don\u0027t just specify the prefix, but the entire prop name and along with its type using the \u0027exact\u0027 keyword  in public/property_contexts.",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 57
+      },
+      "revId": "12c0d332c03a7d7d607cd17a1c812e7f526684b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "960af734_54d72953",
+        "filename": "private/sdk.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-11-29T18:10:46Z",
+      "side": 1,
+      "message": "name the file as derive_sdk.te",
+      "revId": "12c0d332c03a7d7d607cd17a1c812e7f526684b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5422bcc_b7facb71",
+        "filename": "private/sdk.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-11-29T18:10:46Z",
+      "side": 1,
+      "message": "this program should be able to search /apex, right? then I guess you might need something like this\n\nallow derive_sdk apex_mnt_dir:dir search",
+      "range": {
+        "startLine": 3,
+        "startChar": 5,
+        "endLine": 3,
+        "endChar": 15
+      },
+      "revId": "12c0d332c03a7d7d607cd17a1c812e7f526684b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a2aafd9e_e7c654c5",
         "filename": "public/property.te",
         "patchSetId": 1
@@ -22,6 +108,30 @@
       "revId": "12c0d332c03a7d7d607cd17a1c812e7f526684b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae0f719c_add8eb00",
+        "filename": "public/property.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-11-29T18:10:46Z",
+      "side": 1,
+      "message": "this long rule should be written as\n\nneverallow { coredomain -init -system_writes_vendor_properties_violators } vendor_system_property_type:property_service set\n\nor \n\nneverallow { coredomain -init -system_writes_vendor_properties_violators } { property_type -system_property_type}:property_service set\n\nBut, let\u0027s keep your change until we define all *_prop types using the new macros like system_restricted_prop",
+      "parentUuid": "a2aafd9e_e7c654c5",
+      "range": {
+        "startLine": 621,
+        "startChar": 0,
+        "endLine": 621,
+        "endChar": 20
+      },
+      "revId": "12c0d332c03a7d7d607cd17a1c812e7f526684b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
