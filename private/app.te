@@ -4,6 +4,8 @@ get_prop(appdomain, test_harness_prop)
 
 userdebug_or_eng(`perfetto_producer({ appdomain })')
 
+auditallow appdomain self:netlink_route_socket bind;
+
 neverallow appdomain system_server:udp_socket {
         accept append bind create ioctl listen lock name_bind
         relabelfrom relabelto setattr shutdown };
