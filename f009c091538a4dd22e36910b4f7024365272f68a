@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5a97c0c_cbece5fd",
+        "filename": "public/domain.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 1391,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-02T12:25:19Z",
+      "side": 1,
+      "message": "File creation is already fairly locked down in /dev. I would expect that you would want to prevent other processes from ever accessing it, not just creating it. In fact, as written, it doesn\u0027t seem like any process other than su (i.e. adb root) should ever have access.",
+      "range": {
+        "startLine": 1391,
+        "startChar": 53,
+        "endLine": 1391,
+        "endChar": 59
+      },
+      "revId": "f009c091538a4dd22e36910b4f7024365272f68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3260343_fff4748c",
+        "filename": "public/init.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-02T12:25:19Z",
+      "side": 1,
+      "message": "It\u0027s unclear how this is used. Is it only ever used by adb root? If that\u0027s the case, then why grant init access at all. Why not just have adb root create the file and leave it with the default file label.",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 10
+      },
+      "revId": "f009c091538a4dd22e36910b4f7024365272f68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb4ee141_e6bdb0fc",
+        "filename": "public/init.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-02T12:25:19Z",
+      "side": 1,
+      "message": "nit: brackets not necessary here.",
+      "range": {
+        "startLine": 20,
+        "startChar": 35,
+        "endLine": 20,
+        "endChar": 37
+      },
+      "revId": "f009c091538a4dd22e36910b4f7024365272f68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
