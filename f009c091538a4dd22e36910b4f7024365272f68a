@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9e5f03dd_83a12ff0",
+        "filename": "public/domain.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 1391,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-12-02T15:19:48Z",
+      "side": 1,
+      "message": "This will be added in a follow up CL. Also see the other comment.\n\nThe atrace binary, shell will get write access, all other processes will get read only.\n\nI wanted to split this into smaller CLs.",
+      "parentUuid": "e5a97c0c_cbece5fd",
+      "range": {
+        "startLine": 1391,
+        "startChar": 53,
+        "endLine": 1391,
+        "endChar": 59
+      },
+      "revId": "f009c091538a4dd22e36910b4f7024365272f68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3260343_fff4748c",
         "filename": "public/init.te",
         "patchSetId": 7
@@ -68,6 +92,54 @@
       "revId": "f009c091538a4dd22e36910b4f7024365272f68a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95d9ebe5_954512a7",
+        "filename": "public/init.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-12-02T15:19:48Z",
+      "side": 1,
+      "message": "This will be mmaped read only by every process that uses atrace. See go/binder-less-atrace or https://r.android.com/q/topic:%22atraceshmem2%22+(status:open%20OR%20status:merged)",
+      "parentUuid": "e3260343_fff4748c",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 10
+      },
+      "revId": "f009c091538a4dd22e36910b4f7024365272f68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f47ebb48_79eb6a7b",
+        "filename": "public/init.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-12-02T15:19:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb4ee141_e6bdb0fc",
+      "range": {
+        "startLine": 20,
+        "startChar": 35,
+        "endLine": 20,
+        "endChar": 37
+      },
+      "revId": "f009c091538a4dd22e36910b4f7024365272f68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
