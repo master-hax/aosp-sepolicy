@@ -247,18 +247,20 @@ neverallow { domain -coredomain } {
   system_internal_property_type
 }:file no_rw_file_perms;
 
-neverallow coredomain {
+# init is in coredomain, but should be able to read/write all props.
+# dumpstate is also in coredomain, but should be able to read all props.
+neverallow { coredomain -init -dumpstate } {
   vendor_property_type
   -vendor_restricted_property_type
   -vendor_public_property_type
 }:file no_rw_file_perms;
 
-neverallow coredomain {
+neverallow { coredomain -init } {
   vendor_property_type
   -vendor_public_property_type
 }:property_service set;
 
-neverallow coredomain {
+neverallow { coredomain -init -dumpstate } {
   vendor_internal_property_type
 }:file no_rw_file_perms;
 
