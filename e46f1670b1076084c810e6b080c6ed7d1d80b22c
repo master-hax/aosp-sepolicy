@@ -22,6 +22,30 @@
       "revId": "e46f1670b1076084c810e6b080c6ed7d1d80b22c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5c50d37_e4b52b93",
+        "filename": "public/te_macros",
+        "patchSetId": 3
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-05T08:44:18Z",
+      "side": 1,
+      "message": "I would also prefer that we not broadly grant this. It\u0027s unfortunate that we already do for hwservicemanager :(.\n\nServiceManager is reachable by almost every process on Android, and certainly by every app, which makes it a compelling target for privilege escalation. However, once in ServiceManager, further options are limited because ServiceManager is very restricted in what other processes it can reach. That\u0027s no longer true with this change. Particularly concerning is the ability to reach very privileged processes like vold, installd, and zygote. Coupled with running as AID_SYSTEM which grants most permissions, this seems like a very dangerous change.\n\nI agree with Steven, we should limit this to the subset of processes that actually need it.",
+      "parentUuid": "c0abfa98_97224b4c",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 341,
+        "endChar": 49
+      },
+      "revId": "e46f1670b1076084c810e6b080c6ed7d1d80b22c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
