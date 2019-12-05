@@ -144,6 +144,7 @@ neverallow {
   -runas
   -system_server
   -viewcompiler
+  -zygote
 } { privapp_data_file app_data_file }:dir *;
 
 # Only apps should be modifying app data. installd is exempted for
@@ -153,6 +154,7 @@ neverallow {
   -appdomain
   -installd
   -rs # spawned by appdomain, so carryover the exception above
+  -zygote
 } { privapp_data_file app_data_file }:dir ~r_dir_perms;
 
 neverallow {
@@ -173,7 +175,13 @@ neverallow {
 neverallow {
   domain
   -installd
-} { privapp_data_file app_data_file }:dir_file_class_set { relabelfrom relabelto };
+  -zygote
+} { privapp_data_file app_data_file }:dir { relabelfrom relabelto };
+
+neverallow {
+  domain
+  -installd
+} { privapp_data_file app_data_file }:file_class_set { relabelfrom relabelto };
 
 # The staging directory contains APEX and APK files. It is important to ensure
 # that these files cannot be accessed by other domains to ensure that the files
