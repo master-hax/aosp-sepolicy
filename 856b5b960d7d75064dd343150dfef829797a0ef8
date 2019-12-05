@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03424814_4ab35a66",
+        "filename": "private/derive_sdk.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-05T13:46:01Z",
+      "side": 1,
+      "message": "Style nit: Generally neverallow rules go at the end of the file.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 10
+      },
+      "revId": "856b5b960d7d75064dd343150dfef829797a0ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f10ce9ba_5432b757",
+        "filename": "private/derive_sdk.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-05T13:46:01Z",
+      "side": 1,
+      "message": "Style nit: Rules are organized by scontext, meaning this rule should go in private/domain.te.\n\nHowever, does every process really require access to this property? HALs? Vendor processes? Low level system Daemons? Allowing vendor processes to access it means you\u0027ll have to support it for quite some time due to Treble-compat requirements.",
+      "range": {
+        "startLine": 13,
+        "startChar": 9,
+        "endLine": 13,
+        "endChar": 15
+      },
+      "revId": "856b5b960d7d75064dd343150dfef829797a0ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
