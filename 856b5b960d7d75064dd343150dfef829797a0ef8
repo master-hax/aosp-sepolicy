@@ -168,6 +168,30 @@
       "revId": "856b5b960d7d75064dd343150dfef829797a0ef8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5de97774_bc0b020f",
+        "filename": "private/derive_sdk.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-12-05T14:04:48Z",
+      "side": 1,
+      "message": "I think this is in the grey area. Process-wise, it is readable from all processes, so it sounds like its format should be kept stable. However, if the intention is to make this readable only via his library, keeping this private and perhaps intentionally (and regularly??) changing its type and name might be helpful to prevent others from trying to directly access it bypassing the library. There actually is no incentive for them too, as his library will anyway provide API for the sysprop.",
+      "parentUuid": "917633a1_8a5442f0",
+      "range": {
+        "startLine": 13,
+        "startChar": 9,
+        "endLine": 13,
+        "endChar": 15
+      },
+      "revId": "856b5b960d7d75064dd343150dfef829797a0ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
