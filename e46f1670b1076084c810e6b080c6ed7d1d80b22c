@@ -94,6 +94,30 @@
       "revId": "e46f1670b1076084c810e6b080c6ed7d1d80b22c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7064395_f08e028b",
+        "filename": "public/te_macros",
+        "patchSetId": 3
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-05T18:38:03Z",
+      "side": 1,
+      "message": "Actually, on second thought, it would be foolish for me to say that. Still the difference between \"completely hosed\" and \"completely hosed\" is, well, we\u0027d be completely hosed.\n\nFor why this permission wasn\u0027t needed before, I\u0027ve filed b/145748309, since we definitely should have needed this permission.\n\nMaybe we can approach this race another way. I am concerned that someone will call waitForService, and only zero zero zero point zero one percent of the time, the service will start late, and the client will fail to get the service (maybe this is the answer to b/145748309). Do we have a solution to detect when this happens?",
+      "parentUuid": "78e15dbe_4b6bb437",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 341,
+        "endChar": 49
+      },
+      "revId": "e46f1670b1076084c810e6b080c6ed7d1d80b22c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
