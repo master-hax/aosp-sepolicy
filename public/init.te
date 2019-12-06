@@ -52,6 +52,7 @@ allow init super_block_device:lnk_file relabelto;
 
 # Create /mnt/sdcard -> /storage/self/primary symlink.
 allow init mnt_sdcard_file:lnk_file create;
+allow init tmpfs:lnk_file create;
 
 # setrlimit
 allow init self:global_capability_class_set sys_resource;
