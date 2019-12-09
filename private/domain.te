@@ -338,3 +338,12 @@ neverallow {
   -installd
   -zygote
 } mirror_data_file:dir *;
+
+# Let everyone read the provided cache key.
+# This key only allows processes to tell if
+# locally-cached binder queries are still
+# valid. Checks are still enforced to actually
+# get updated information.
+get_prop(domain, power_save_mode_cache_key_prop);
+get_prop(domain, is_interactive_cache_key_prop);
+

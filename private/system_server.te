@@ -1090,3 +1090,8 @@ neverallow {
   -system_server
 } password_slot_metadata_file:notdevfile_class_set ~{ relabelto getattr };
 neverallow { domain -init -system_server } password_slot_metadata_file:notdevfile_class_set *;
+
+# Allow system server to read/write the invalidation property
+# for binder caches
+set_prop(system_server, power_save_mode_cache_key_prop);
+set_prop(system_server, is_interactive_cache_key_prop);
