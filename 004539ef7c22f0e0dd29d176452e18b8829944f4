@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7eef61eb_f324b07a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-09T09:04:50Z",
+      "side": 1,
+      "message": "This seems like it\u0027s going to cause app-compat issues. Do we need symlinks from the old location to the new location?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 17
+      },
+      "revId": "004539ef7c22f0e0dd29d176452e18b8829944f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4d496f6_2f1fc0c2",
+        "filename": "public/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-09T09:04:50Z",
+      "side": 1,
+      "message": "This seems like a bug in your implementation. This permission isn\u0027t useful by itself. \"search\" allows directory traversal, but you\u0027re not accessing anything in the directory. Do we need modifications to libbinder (or elsewhere) to avoid unnecessarily traversing into this directory?",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 43
+      },
+      "revId": "004539ef7c22f0e0dd29d176452e18b8829944f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
