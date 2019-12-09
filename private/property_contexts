@@ -212,6 +212,12 @@ ro.gsid.                u:object_r:gsid_prop:s0
 # which can't use NNAPI vendor extensions).
 ro.nnapi.extensions.deny_on_product                u:object_r:nnapi_ext_deny_product_prop:s0
 
+# Application pprocess cache invalidation
+# This property changes every time server backing
+# information changes.
+cache_key.is_power_save_mode 	u:object_r:power_save_mode_cache_key_prop:s0
+cache_key.is_interactive	u:object_r:is_interactive_cache_key_prop:s0
+
 # Property that is set once ueventd finishes cold boot.
 ro.cold_boot_done       u:object_r:cold_boot_done_prop:s0
 

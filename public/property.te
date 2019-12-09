@@ -542,6 +542,9 @@ compatible_property_only(`
   }:file no_rw_file_perms;
 ')
 
+type is_interactive_cache_key_prop, property_type;
+type power_save_mode_cache_key_prop, property_type;
+
 compatible_property_only(`
   # Neverallow coredomain to set vendor properties
   neverallow {
@@ -630,6 +633,7 @@ compatible_property_only(`
     -heapprofd_enabled_prop
     -heapprofd_prop
     -hwservicemanager_prop
+    -is_interactive_cache_key_prop
     -last_boot_reason_prop
     -module_sdkextensions_prop
     -system_lmk_prop
@@ -653,6 +657,7 @@ compatible_property_only(`
     -persistent_properties_ready_prop
     -pm_prop
     -powerctl_prop
+    -power_save_mode_cache_key_prop
     -radio_prop
     -restorecon_prop
     -safemode_prop
