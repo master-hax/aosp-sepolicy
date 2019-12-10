@@ -173,6 +173,9 @@ with_native_coverage := false
 ifeq ($(NATIVE_COVERAGE),true)
   with_native_coverage := true
 endif
+ifeq ($(CLANG_COVERAGE),true)
+  with_native_coverage := true
+endif
 
 # Library extension for host-side tests
 ifeq ($(HOST_OS),darwin)
