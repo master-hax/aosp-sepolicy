@@ -22,6 +22,47 @@
       "revId": "345e5899b5ab6919aed070af29328e9997996eae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc2d5d38_7abcad4f",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1466604
+      },
+      "writtenOn": "2019-12-11T01:07:13Z",
+      "side": 1,
+      "message": "It\u0027s in the comment on line 289.\n\n# Since the kernel checks dac_read_search before dac_override, domains that\n# have dac_override should also have dac_read_search to eliminate spurious\n# denials.  Some domains have dac_read_search without having dac_override, so\n# this list should be a superset of the one above.\n\nGSID gets around this dac_override by using a dontaudit on dac_override in line 19 of gsid.te.",
+      "parentUuid": "5cbbaec0_902f723a",
+      "range": {
+        "startLine": 265,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 51
+      },
+      "revId": "345e5899b5ab6919aed070af29328e9997996eae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e529933_80b6a769",
+        "filename": "private/gsid.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1466604
+      },
+      "writtenOn": "2019-12-11T01:07:13Z",
+      "side": 1,
+      "message": "Should I make this dontaudit an allow?",
+      "revId": "345e5899b5ab6919aed070af29328e9997996eae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
