@@ -2,6 +2,10 @@
 # the implementation of ActivityManager.isDeviceInTestHarnessMode()
 get_prop(appdomain, test_harness_prop)
 
+# Temparily allow app to get this property for testing, before the new API is
+# ready to use. TODO(victorhsieh): revert this
+userdebug_or_eng(`get_prop(appdomain, apk_verity_prop)')
+
 userdebug_or_eng(`perfetto_producer({ appdomain })')
 
 neverallow appdomain system_server:udp_socket {
