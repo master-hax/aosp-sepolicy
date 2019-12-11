@@ -46,6 +46,30 @@
       "revId": "abce8733657c46001c7152586963339f4171f02b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d3ccdbd_29d272cd",
+        "filename": "public/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2019-12-11T14:47:31Z",
+      "side": 1,
+      "message": "Ack that\u0027s how it works.  \n\nI probably should have required it to be specific terms, but I cared more about allowing people to specify the \u0027type\u0027 with the default option instead of \u0027exact\u0027, which would otherwise be a blank entry.  I could change this to be more strict and require either \u0027exact\u0027 or \u0027prefix\u0027 during the build if that would be more clear (I think it would).  Since this goes across a Treble boundary, I\u0027d need to retain the old behavior for old vendor images, but that\u0027s fine.\n\nAs I wrote above though, I\u0027d prefer \u0027prefix\u0027 to \u0027non-exact\u0027, since that\u0027s how the code refers to this.  I think it\u0027s a bit clearer too, since \u0027non-exact\u0027 doesn\u0027t directly imply \u0027how\u0027 we\u0027re matching.",
+      "parentUuid": "3f237af3_53be427d",
+      "range": {
+        "startLine": 259,
+        "startChar": 62,
+        "endLine": 259,
+        "endChar": 71
+      },
+      "revId": "abce8733657c46001c7152586963339f4171f02b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
