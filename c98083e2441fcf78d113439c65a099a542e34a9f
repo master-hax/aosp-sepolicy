@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d34fff6_bac4d9c4",
+        "filename": "private/statsd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1286922
+      },
+      "writtenOn": "2019-12-12T19:42:06Z",
+      "side": 1,
+      "message": "Why is this one needed? statsmanager_service needs to binder to statsd, but I don\u0027t think the other way is necessary. Statsd should be able to binder call into system server due to: https://cs.corp.google.com/android/system/sepolicy/private/system_server.te?type\u003dcs\u0026q\u003dstatsd+system_server_service+package:%5Eandroid$+-f:prebuilts\u0026g\u003d0\u0026l\u003d200",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "c98083e2441fcf78d113439c65a099a542e34a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fb4d7e4_7a3f3f80",
+        "filename": "private/statsd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1286922
+      },
+      "writtenOn": "2019-12-12T19:42:06Z",
+      "side": 1,
+      "message": "why is this one needed? I think this line allows system server to find stats_service: https://cs.corp.google.com/android/system/sepolicy/private/system_server.te?type\u003dcs\u0026q\u003dstats_service+service_manager+package:%5Eandroid$+-f:prebuilts\u0026g\u003d0\u0026l\u003d738. stats_service is StatsService inside statsd.",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 22
+      },
+      "revId": "c98083e2441fcf78d113439c65a099a542e34a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
