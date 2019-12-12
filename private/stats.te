@@ -20,7 +20,10 @@ allow stats adbd:process { sigchld };
 # back the stats report data from a ParcelFileDescriptor.
 binder_use(stats)
 allow stats stats_service:service_manager find;
+allow stats statsmanager_service:service_manager find;
+
 binder_call(stats, statsd)
+binder_call(stats, statsmanager_service)
 allow stats statsd:fifo_file write;
 
 # Only statsd can publish the binder service.
