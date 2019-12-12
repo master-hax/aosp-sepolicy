@@ -4,6 +4,7 @@ typeattribute statsd stats_service_server;
 init_daemon_domain(statsd)
 
 binder_call(statsd, statscompanion_service)
+binder_call(statsd, statsmanager_service)
 
 # Allow to exec the perfetto cmdline client and pass it the trace config on
 # stdint through a pipe. It allows statsd to  capture traces and hand them
@@ -14,6 +15,7 @@ domain_auto_trans(statsd, perfetto_exec, perfetto)
 # Grant statsd with permissions to register the services.
 allow statsd {
   statscompanion_service
+  statsmanager_service
 }:service_manager find;
 
 # Allow incidentd to obtain the statsd incident section.
