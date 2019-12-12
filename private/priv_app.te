@@ -147,6 +147,7 @@ userdebug_or_eng(`
 
 # Allow GMS core to communicate with statsd.
 binder_call(priv_app, statsd)
+
 # b/142672293: No other priv-app should need this allow rule now that GMS core runs in its own domain.
 userdebug_or_eng(`
   auditallow priv_app statsd:binder { call transfer };
