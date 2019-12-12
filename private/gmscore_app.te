@@ -38,6 +38,7 @@ allow gmscore_app system_update_service:service_manager find;
 
 # Allow GMS core to communicate with statsd.
 binder_call(gmscore_app, statsd)
+binder_call(gmscore_app, statsmanager_service)
 
 # Allow GMS core to generate unique hardware IDs
 allow gmscore_app keystore:keystore_key gen_unique_id;
@@ -104,6 +105,7 @@ allow gmscore_app persistent_data_block_service:service_manager find;
 allow gmscore_app radio_service:service_manager find;
 allow gmscore_app recovery_service:service_manager find;
 allow gmscore_app stats_service:service_manager find;
+allow gmscore_app statsmanager_service:service_manager find;
 
 # Used by Finsky / Android "Verify Apps" functionality when
 # running "adb install foo.apk".
