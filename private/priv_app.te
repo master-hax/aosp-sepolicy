@@ -52,6 +52,7 @@ allow priv_app persistent_data_block_service:service_manager find;
 allow priv_app radio_service:service_manager find;
 allow priv_app recovery_service:service_manager find;
 allow priv_app stats_service:service_manager find;
+allow priv_app statsmanager_service:service_manager find;
 allow priv_app tethering_service:service_manager find;
 
 # Allow privileged apps to interact with gpuservice
@@ -147,6 +148,8 @@ userdebug_or_eng(`
 
 # Allow GMS core to communicate with statsd.
 binder_call(priv_app, statsd)
+binder_call(priv_app, statsmanager_service)
+
 # b/142672293: No other priv-app should need this allow rule now that GMS core runs in its own domain.
 userdebug_or_eng(`
   auditallow priv_app statsd:binder { call transfer };
