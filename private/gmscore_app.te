@@ -64,6 +64,9 @@ dontaudit gmscore_app sysfs_loop:file r_file_perms;
 dontaudit gmscore_app wifi_prop:file r_file_perms;
 dontaudit gmscore_app { wifi_prop exported_wifi_prop }:file r_file_perms;
 
+# suppress denials for scanning /data_mirror
+dontaudit gmscore_app mirror_data_file:dir search;
+
 # Access the network
 net_domain(gmscore_app)
 
