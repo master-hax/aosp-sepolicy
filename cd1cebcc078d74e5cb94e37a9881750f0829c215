@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cfb7edfc_70465814",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-16T09:41:46Z",
+      "side": 1,
+      "message": "Is this actually being used on Android, or just ChromeOS?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 35
+      },
+      "revId": "cd1cebcc078d74e5cb94e37a9881750f0829c215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b44fd99_8513eb81",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-16T09:41:46Z",
+      "side": 1,
+      "message": "Alternatively, we could use -hal_health_server in this neverallow rule. But that may go against your goal of opening this up more broadly to vendor use.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 74
+      },
+      "revId": "cd1cebcc078d74e5cb94e37a9881750f0829c215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0bfc83f_064f3641",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-16T09:41:46Z",
+      "side": 1,
+      "message": "Can we limit bpfloader\u0027s filesystem access to just /system/etc/bpf and /vendor/etc/bpf? That would make it easier to reason about what\u0027s going on, and to fully enforce verified boot on bpf programs in the future.",
+      "revId": "cd1cebcc078d74e5cb94e37a9881750f0829c215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
