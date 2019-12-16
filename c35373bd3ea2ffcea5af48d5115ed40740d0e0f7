@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9d0fa4c_a88e3b6c",
+        "filename": "private/priv_app.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-16T10:37:08Z",
+      "side": 1,
+      "message": "This line (in this file and others) doesn\u0027t make sense. binder calls happen between processes (like statsd or system_server). where process does this service live in?",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 43
+      },
+      "revId": "c35373bd3ea2ffcea5af48d5115ed40740d0e0f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1557790a_99875a04",
+        "filename": "private/service.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-16T10:37:08Z",
+      "side": 1,
+      "message": "instead of adding \"find\" to a bunch of different app domains, consider adding the \"app_api_service\" attribute to this line.",
+      "revId": "c35373bd3ea2ffcea5af48d5115ed40740d0e0f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
