@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3180920f_4b0a3c5d",
+        "filename": "private/priv_app.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1242539
+      },
+      "writtenOn": "2019-12-16T19:49:19Z",
+      "side": 1,
+      "message": "This process lives in system_server. I removed these lines from the files.",
+      "parentUuid": "c9d0fa4c_a88e3b6c",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 43
+      },
+      "revId": "c35373bd3ea2ffcea5af48d5115ed40740d0e0f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1557790a_99875a04",
         "filename": "private/service.te",
         "patchSetId": 7
@@ -39,6 +63,24 @@
       "revId": "c35373bd3ea2ffcea5af48d5115ed40740d0e0f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6afca6a_ef61324b",
+        "filename": "private/service.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1242539
+      },
+      "writtenOn": "2019-12-16T19:49:19Z",
+      "side": 1,
+      "message": "I think we don\u0027t want app_api_service since StatsManager is guarded by @SystemApi. I put \"find\" in the other files because that\u0027s what statsd did. Do you think \"system_api_service\" would suit our needs since the comment above the attribute seems to suggest its for our use case.",
+      "parentUuid": "1557790a_99875a04",
+      "revId": "c35373bd3ea2ffcea5af48d5115ed40740d0e0f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
