@@ -45,6 +45,9 @@ get_prop(domain, use_memfd_prop);
 # Allow to read properties for linker
 get_prop(domain, linker_prop);
 
+# Read access to sdkext props
+get_prop(domain, module_sdkext_prop)
+
 # For now, everyone can access core property files
 # Device specific properties are not granted by default
 not_compatible_property(`
@@ -107,7 +110,7 @@ neverallow {
 } self:global_capability_class_set sys_ptrace;
 
 # Limit ability to generate hardware unique device ID attestations to priv_apps
-neverallow { domain -priv_app } *:keystore_key gen_unique_id;
+neverallow { domain -priv_app -gmscore_app } *:keystore_key gen_unique_id;
 
 neverallow {
   domain
@@ -144,6 +147,7 @@ neverallow {
   -runas
   -system_server
   -viewcompiler
+  -zygote
 } { privapp_data_file app_data_file }:dir *;
 
 # Only apps should be modifying app data. installd is exempted for
@@ -325,3 +329,11 @@ neverallow {
   -hal_bootctl_server
   -fastbootd
 } self:global_capability_class_set sys_rawio;
+
+# Limit directory operations that doesn't need to do app data isolation.
+neverallow {
+  domain
+  -init
+  -installd
+  -zygote
+} mirror_data_file:dir *;

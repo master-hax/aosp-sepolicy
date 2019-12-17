@@ -67,6 +67,7 @@ persist.sys.theme       u:object_r:theme_prop:s0
 persist.sys.fflag.override.settings_dynamic_system    u:object_r:dynamic_system_prop:s0
 ro.sys.safemode         u:object_r:safemode_prop:s0
 persist.sys.audit_safemode      u:object_r:safemode_prop:s0
+persist.sys.dalvik.jvmtiagent   u:object_r:system_jvmti_agent_prop:s0
 persist.service.        u:object_r:system_prop:s0
 persist.service.bdroid. u:object_r:bluetooth_prop:s0
 persist.security.       u:object_r:system_prop:s0
@@ -223,3 +224,7 @@ ro.virtual_ab.retrofit  u:object_r:virtual_ab_prop:s0
 
 # Property to set/clear the warm reset flag after an OTA update.
 ota.warm_reset  u:object_r:ota_prop:s0
+
+# Module properties
+com.android.sdkext.                  u:object_r:module_sdkext_prop:s0
+persist.com.android.sdkext.          u:object_r:module_sdkext_prop:s0

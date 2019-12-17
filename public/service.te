@@ -21,6 +21,7 @@ type mediaserver_service,       service_manager_type;
 type mediametrics_service,      service_manager_type;
 type mediaextractor_service,    service_manager_type;
 type mediadrmserver_service,    service_manager_type;
+type mediatranscoding_service,  app_api_service, service_manager_type;
 type netd_service,              service_manager_type;
 type nfc_service,               service_manager_type;
 type radio_service,             service_manager_type;
@@ -44,6 +45,7 @@ type activity_task_service, app_api_service, ephemeral_app_api_service, system_s
 type adb_service, system_api_service, system_server_service, service_manager_type;
 type alarm_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 type app_binding_service, system_server_service, service_manager_type;
+type app_integrity_service, system_api_service, system_server_service, service_manager_type;
 type app_prediction_service, app_api_service, system_server_service, service_manager_type;
 type app_search_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 type appops_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
@@ -76,6 +78,7 @@ type country_detector_service, app_api_service, ephemeral_app_api_service, syste
 # with EMMA_INSTRUMENT=true. We should consider locking this down in the future.
 type coverage_service, system_server_service, service_manager_type;
 type cpuinfo_service, system_api_service, system_server_service, service_manager_type;
+type dataloader_manager_service, system_server_service, service_manager_type;
 type dbinfo_service, system_api_service, system_server_service, service_manager_type;
 type device_config_service, system_server_service, service_manager_type;
 type device_policy_service, app_api_service, system_server_service, service_manager_type;
@@ -105,6 +108,7 @@ type hardware_service, system_server_service, service_manager_type;
 type hardware_properties_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 type hdmi_control_service, system_api_service, system_server_service, service_manager_type;
 type imms_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
+type incremental_service, system_server_service, service_manager_type;
 type input_method_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 type input_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 type ipsec_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
@@ -161,6 +165,7 @@ type slice_service, app_api_service, system_server_service, service_manager_type
 type statusbar_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 type storagestats_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 type system_update_service, system_server_service, service_manager_type;
+type soundtrigger_middleware_service, system_server_service, service_manager_type;
 type task_service, system_server_service, service_manager_type;
 type testharness_service, system_server_service, service_manager_type;
 type textclassification_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
@@ -186,17 +191,18 @@ type webviewupdate_service, app_api_service, ephemeral_app_api_service, system_s
 type wifip2p_service, app_api_service, system_server_service, service_manager_type;
 type wifiscanner_service, system_api_service, system_server_service, service_manager_type;
 type wifi_service, app_api_service, system_server_service, service_manager_type;
-type wifi_stack_service, system_server_service, service_manager_type;
 type wificond_service, service_manager_type;
 type wifiaware_service, app_api_service, system_server_service, service_manager_type;
 type window_service, system_api_service, system_server_service, service_manager_type;
 type inputflinger_service, system_api_service, system_server_service, service_manager_type;
 type wpantund_service, system_api_service, service_manager_type;
+type tethering_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 
 ###
 ### HAL Services
 ###
 
+type hal_rebootescrow_service, vendor_service, service_manager_type;
 type hal_vibrator_service, vendor_service, service_manager_type;
 
 ###
