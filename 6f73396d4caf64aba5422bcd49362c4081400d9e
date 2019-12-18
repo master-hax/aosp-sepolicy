@@ -46,6 +46,30 @@
       "revId": "6f73396d4caf64aba5422bcd49362c4081400d9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5ff631a_5a8ef5a5",
+        "filename": "private/linkerconfig.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2019-12-18T12:15:39Z",
+      "side": 1,
+      "message": "pts files are opened in init, and passed by file descriptor to linkerconfig, so the existing permissions are more correct. rw_file_perms would allow \"open\", which is not what you want here.",
+      "parentUuid": "6baa14e2_c9229da8",
+      "range": {
+        "startLine": 14,
+        "startChar": 35,
+        "endLine": 14,
+        "endChar": 50
+      },
+      "revId": "6f73396d4caf64aba5422bcd49362c4081400d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
