@@ -187,6 +187,11 @@ allow priv_app incident_service:service_manager find;
 binder_call(priv_app, incidentd)
 allow priv_app incidentd:fifo_file { read write };
 
+# Allow priv_apps to read from Incremental File System
+allow priv_app incfs:dir r_dir_perms;
+allow priv_app incfs:file r_file_perms;
+allow priv_app incremental_root_file:file r_file_perms;
+
 # Allow heap profiling if the app opts in by being marked
 # profileable/debuggable.
 can_profile_heap(priv_app)
