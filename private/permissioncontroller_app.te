@@ -43,3 +43,6 @@ allow permissioncontroller_app trust_service:service_manager find;
 allow permissioncontroller_app incident_service:service_manager find;
 binder_call(permissioncontroller_app, incidentd)
 allow permissioncontroller_app incidentd:fifo_file { read write };
+
+# Permission control for APK files stored in Incremental File System
+allow permissioncontroller_app incfs:file r_file_perms;
