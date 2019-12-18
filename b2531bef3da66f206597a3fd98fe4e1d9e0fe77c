@@ -1,0 +1,343 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9208d59a_a9a8392a",
+        "filename": "private/gmscore_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-18T20:27:52Z",
+      "side": 1,
+      "message": "This type of comment isn\u0027t particularly helpful. The policy already says this. it\u0027s kind of the equivalent of...\n// set x equal to y\nx \u003d y;\n\nIt would be much better to say why the permissions are necessary.\n\nEven within this file: line 121 is an example of a useful comment, Line 117 is an example of a not-useful comment.",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 35
+      },
+      "revId": "b2531bef3da66f206597a3fd98fe4e1d9e0fe77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f00013cb_17dad596",
+        "filename": "private/gmscore_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-18T20:27:52Z",
+      "side": 1,
+      "message": "Can you include, or send the reviewers some more information on what the file layout looks like? I\u0027m a little surprised that no directory permissions are needed.\n\nAlso note that gmscore_app domain is currently (temporarily) running in permissive mode so it\u0027s very likely that functionality working is not sufficient evidence that this policy is sufficient. You also need to verify that there are no related selinux denials in the logs.",
+      "range": {
+        "startLine": 127,
+        "startChar": 18,
+        "endLine": 127,
+        "endChar": 28
+      },
+      "revId": "b2531bef3da66f206597a3fd98fe4e1d9e0fe77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6386b8a9_12c9d5eb",
+        "filename": "private/gmscore_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-18T20:27:52Z",
+      "side": 1,
+      "message": "I\u0027m not really clear on how this is used. it\u0027s a directory that other files are mounted on? Why are file permissions needed on it and not just directory traversal?",
+      "range": {
+        "startLine": 128,
+        "startChar": 18,
+        "endLine": 128,
+        "endChar": 44
+      },
+      "revId": "b2531bef3da66f206597a3fd98fe4e1d9e0fe77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92b490f4_0b40cae1",
+        "filename": "private/installd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-18T20:27:52Z",
+      "side": 1,
+      "message": "permissions granted do not match the comment.",
+      "range": {
+        "startLine": 47,
+        "startChar": 20,
+        "endLine": 47,
+        "endChar": 24
+      },
+      "revId": "b2531bef3da66f206597a3fd98fe4e1d9e0fe77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "316bb6ec_e960ad83",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-18T20:27:52Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 35
+      },
+      "revId": "b2531bef3da66f206597a3fd98fe4e1d9e0fe77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e47d9914_739f7018",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-18T20:27:52Z",
+      "side": 1,
+      "message": "no directory permissions? How does this app traverse to the files without directory permissions?",
+      "revId": "b2531bef3da66f206597a3fd98fe4e1d9e0fe77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1af3d151_36f86be3",
+        "filename": "private/priv_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-18T20:27:52Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 54
+      },
+      "revId": "b2531bef3da66f206597a3fd98fe4e1d9e0fe77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f25b2292_b7c2a566",
+        "filename": "private/system_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-18T20:27:52Z",
+      "side": 1,
+      "message": "system_app may be too generic. Should this (highly privileged) app go into its own sandbox?",
+      "range": {
+        "startLine": 148,
+        "startChar": 6,
+        "endLine": 148,
+        "endChar": 16
+      },
+      "revId": "b2531bef3da66f206597a3fd98fe4e1d9e0fe77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a8f9eb2_23536ff2",
+        "filename": "private/system_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-18T20:27:52Z",
+      "side": 1,
+      "message": "what system is this and why is it allowed to modify these files?",
+      "range": {
+        "startLine": 148,
+        "startChar": 28,
+        "endLine": 148,
+        "endChar": 41
+      },
+      "revId": "b2531bef3da66f206597a3fd98fe4e1d9e0fe77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac7ac734_f78d652b",
+        "filename": "private/system_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-18T20:27:52Z",
+      "side": 1,
+      "message": "explanation of what this is and why it\u0027s needed.",
+      "range": {
+        "startLine": 150,
+        "startChar": 2,
+        "endLine": 150,
+        "endChar": 18
+      },
+      "revId": "b2531bef3da66f206597a3fd98fe4e1d9e0fe77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d36979c4_c3311769",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-18T20:27:52Z",
+      "side": 1,
+      "message": "this comment isn\u0027t correct. /data/incremental is created in a init.rc in a separate change.",
+      "range": {
+        "startLine": 23,
+        "startChar": 36,
+        "endLine": 23,
+        "endChar": 53
+      },
+      "revId": "b2531bef3da66f206597a3fd98fe4e1d9e0fe77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50b52f76_d04db9e0",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-18T20:27:52Z",
+      "side": 1,
+      "message": "I\u0027m not sure this permission makes sense. this implies that files are being added, but that permissions for that are not included here.",
+      "range": {
+        "startLine": 31,
+        "startChar": 30,
+        "endLine": 31,
+        "endChar": 42
+      },
+      "revId": "b2531bef3da66f206597a3fd98fe4e1d9e0fe77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71c8e39a_1d257f6b",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-18T20:27:52Z",
+      "side": 1,
+      "message": "Why is this a file? Isn\u0027t this a directory that needs to be traversed.",
+      "range": {
+        "startLine": 66,
+        "startChar": 23,
+        "endLine": 66,
+        "endChar": 49
+      },
+      "revId": "b2531bef3da66f206597a3fd98fe4e1d9e0fe77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63e53232_0261310e",
+        "filename": "public/ioctl_defines",
+        "patchSetId": 3
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-18T20:27:52Z",
+      "side": 1,
+      "message": "Can these names be changed to something meaningful. Instead of cmd and cmd2, perhaps what those commands actually do?",
+      "range": {
+        "startLine": 1057,
+        "startChar": 20,
+        "endLine": 1057,
+        "endChar": 24
+      },
+      "revId": "b2531bef3da66f206597a3fd98fe4e1d9e0fe77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5677aee_b5226297",
+        "filename": "public/vold.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-18T20:27:52Z",
+      "side": 1,
+      "message": "where are these filesystems coming from? Are these downloaded and mounted?",
+      "range": {
+        "startLine": 45,
+        "startChar": 11,
+        "endLine": 45,
+        "endChar": 27
+      },
+      "revId": "b2531bef3da66f206597a3fd98fe4e1d9e0fe77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
