@@ -39,6 +39,13 @@ allow vold self:process setexec;
 # For formatting adoptable storage devices
 allow vold e2fs_exec:file rx_file_perms;
 
+# For Incremental Service
+allow vold incremental_root_file:file create_file_perms;
+allow vold incremental_root_file:dir { mounton rw_dir_perms };
+allow vold incfs:filesystem { mount unmount };
+allow vold incfs:dir { mounton rw_dir_perms };
+allow vold incfs:file rw_file_perms;
+
 # Run fstrim on mounted partitions
 # allowxperm still requires the ioctl permission for the individual type
 allowxperm vold { fs_type file_type }:dir ioctl FITRIM;
@@ -107,6 +114,9 @@ allow vold mnt_user_file:file create_file_perms;
 allow vold mnt_expand_file:dir { create_dir_perms mounton };
 allow vold apk_data_file:dir { create getattr setattr };
 allow vold shell_data_file:dir { create getattr setattr };
+# Allow mounting Incremental File System on /data/app
+allow vold apk_data_file:dir { search mounton };
+allow vold apk_tmp_file:dir mounton;
 
 allow vold tmpfs:filesystem { mount unmount };
 allow vold tmpfs:dir create_dir_perms;

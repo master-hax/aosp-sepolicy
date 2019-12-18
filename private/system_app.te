@@ -143,6 +143,15 @@ get_prop(system_app, device_logging_prop)
 allow system_app system_server:udp_socket {
         connect getattr read recvfrom sendto write getopt setopt };
 
+# Allow data loader app to write to Incremental File System
+allow system_app incfs:dir r_dir_perms;
+allow system_app incfs:file rw_file_perms;
+# Data loader app uses ioctl to query file info from Incremental File System
+allowxperm system_app incfs:file ioctl {
+  INCFS_IOCTL_READ_FILE_ATTR
+};
+allow system_app incremental_root_file:file rw_file_perms;
+
 ###
 ### Neverallow rules
 ###
