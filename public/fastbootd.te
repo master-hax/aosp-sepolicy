@@ -56,7 +56,7 @@ recovery_only(`
   # For disabling/wiping GSI.
   allow fastbootd metadata_block_device:blk_file r_file_perms;
   allow fastbootd {rootfs tmpfs}:dir mounton;
-  allow fastbootd metadata_file:dir search;
+  allow fastbootd metadata_file:dir { search getattr };
   allow fastbootd gsi_metadata_file:dir r_dir_perms;
   allow fastbootd gsi_metadata_file:file rw_file_perms;
 
