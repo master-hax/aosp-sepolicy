@@ -43,3 +43,7 @@ get_prop(installd, apk_verity_prop)
 # Allow installd to delete files in /data/staging
 allow installd staging_data_file:file unlink;
 allow installd staging_data_file:dir { open read remove_name rmdir search write };
+
+# Allow installd to read files in dirs mounted on Incremental File System
+allow installd incfs:dir { rw_dir_perms };
+allow installd incfs:file { rw_file_perms };

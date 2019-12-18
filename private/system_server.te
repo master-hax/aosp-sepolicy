@@ -20,6 +20,17 @@ allow system_server appdomain_tmpfs:file { getattr map read write };
 # For Incremental Service to check if incfs is available
 allow system_server proc_filesystems:file r_file_perms;
 
+# For Incremental Service to create /data/incremental
+allow system_server incremental_root_file:dir create_dir_perms;
+allow system_server incremental_root_file:file create_file_perms;
+allow system_server incremental_root_file:dir rw_dir_perms;
+
+allow system_server incfs:file { rw_file_perms ioctl };
+allowxperm system_server incfs:file ioctl {
+  INCFS_IOCTL_CMD
+};
+allow system_server incfs:dir { rw_dir_perms search };
+
 # For art.
 allow system_server dalvikcache_data_file:dir r_dir_perms;
 allow system_server dalvikcache_data_file:file r_file_perms;

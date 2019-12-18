@@ -59,3 +59,8 @@ auditallow untrusted_app_25 ashmem_device:chr_file open;
 
 # Read /mnt/sdcard symlink.
 allow untrusted_app_25 mnt_sdcard_file:lnk_file r_file_perms;
+
+# Read and execute files from Incremental File System
+allow untrusted_app_25 incfs:dir r_dir_perms;
+allow untrusted_app_25 incfs:file rx_file_perms;
+allow untrusted_app_25 incremental_root_file:file r_file_perms;
