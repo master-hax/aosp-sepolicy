@@ -17,8 +17,19 @@ type_transition system_server system_data_file:sock_file system_ndebug_socket "n
 allow system_server zygote_tmpfs:file read;
 allow system_server appdomain_tmpfs:file { getattr map read write };
 
-# For Incremental Service to check if incfs is available
+# For IncrementalManagerService to check if incfs is available
 allow system_server proc_filesystems:file r_file_perms;
+
+# For IncrementalManagerService to create directories under /data/incremental
+allow system_server incremental_root_file:dir create_dir_perms;
+allow system_server incremental_root_file:file create_file_perms;
+
+# For IncrementalManagerService to send commands to Incremental File System
+allow system_server incfs:file rw_file_perms;
+allowxperm system_server incfs:file ioctl {
+  INCFS_IOCTL_PROCESS_INSTRUCTION
+};
+allow system_server incfs:dir r_dir_perms;
 
 # For art.
 allow system_server dalvikcache_data_file:dir r_dir_perms;
