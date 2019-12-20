@@ -1,0 +1,18 @@
+# bpf program attacher
+type bpfattacher, domain;
+type bpfattacher_exec, system_file_type, exec_type, file_type;
+typeattribute bpfattacher coredomain;
+
+# These permissions are needed in order to attach pinned bpf programs & clear pinned maps.
+allow bpfattacher fs_bpf:dir r_dir_perms;
+allow bpfattacher fs_bpf:file rw_file_perms;
+allow bpfattacher bpfloader:bpf { prog_run map_read map_write };
+
+allow bpfattacher debugfs_tracing:file { open read };
+
+# Attaching bpf programs to tracepoints requires CAP_SYS_ADMIN
+allow bpfattacher self:global_capability_class_set sys_admin;
+
+get_prop(bpfattacher, bpf_progs_loaded_prop)
+
+init_daemon_domain(init, bpfattacher_exec, bpfattacher)
