@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "3b056084_19a23890",
+        "filename": "vendor/hal_vehicle_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-20T10:14:32Z",
+      "side": 1,
+      "message": "\"proc_net\" is the default label for everything in /proc/net, and includes almost 100 files. What actual file is being read and why?",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 15,
+        "endChar": 34
+      },
+      "revId": "eb1a4db7e691578d2934072cbaa1e7a105081561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e28e4d28_a1152741",
+        "filename": "vendor/hal_vehicle_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-20T10:14:32Z",
+      "side": 1,
+      "message": "create_socket_perms_no_ioctl ?",
+      "range": {
+        "startLine": 16,
+        "startChar": 44,
+        "endLine": 16,
+        "endChar": 116
+      },
+      "revId": "eb1a4db7e691578d2934072cbaa1e7a105081561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3bfaa480_a9df52b7",
         "filename": "vendor/hal_vehicle_default.te",
         "patchSetId": 2
@@ -36,6 +82,30 @@
       "writtenOn": "2019-12-20T01:32:43Z",
       "side": 1,
       "message": "This should be triggering a neverallow. Can you label these?",
+      "range": {
+        "startLine": 17,
+        "startChar": 26,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "eb1a4db7e691578d2934072cbaa1e7a105081561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a580f85a_99df4234",
+        "filename": "vendor/hal_vehicle_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-20T10:14:32Z",
+      "side": 1,
+      "message": "+1. How is this process getting ahold of an unlabeled socket? Perhaps some consequence of running in permissive mode?",
+      "parentUuid": "a55ee68a_91c4fd41",
       "range": {
         "startLine": 17,
         "startChar": 26,
