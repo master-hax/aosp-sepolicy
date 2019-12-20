@@ -8,6 +8,7 @@ domain_trans(init, rootfs, slideshow)
 domain_auto_trans(init, charger_exec, charger)
 domain_auto_trans(init, e2fs_exec, e2fs)
 domain_auto_trans(init, bpfloader_exec, bpfloader)
+domain_auto_trans(init, bpfattacher_exec, bpfattacher)
 
 recovery_only(`
   # Files in recovery image are labeled as rootfs.
