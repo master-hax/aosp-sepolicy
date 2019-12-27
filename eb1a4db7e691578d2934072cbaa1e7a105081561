@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c2e8ae24_edfd259b",
+        "filename": "vendor/hal_vehicle_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1569496
+      },
+      "writtenOn": "2019-12-27T23:06:23Z",
+      "side": 1,
+      "message": "I don\u0027t know which one that I need, it is probably used by other libraries. The message I received is \n\"12-27 22:13:33.597   340   340 W android.hardwar: type\u003d1400 audit(0.0:17): avc: denied { read } for name\u003d\"somaxconn\" dev\u003d\"proc\" ino\u003d11075 scontext\u003du:r:hal_vehicle_default:s0 tcontext\u003du:object_r:proc_net:s0 tclass\u003dfile permissive\u003d0\"",
+      "parentUuid": "3b056084_19a23890",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 15,
+        "endChar": 34
+      },
+      "revId": "eb1a4db7e691578d2934072cbaa1e7a105081561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e28e4d28_a1152741",
         "filename": "vendor/hal_vehicle_default.te",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "eb1a4db7e691578d2934072cbaa1e7a105081561",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba0350ab_934e2bc1",
+        "filename": "vendor/hal_vehicle_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1569496
+      },
+      "writtenOn": "2019-12-27T23:06:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e28e4d28_a1152741",
+      "range": {
+        "startLine": 16,
+        "startChar": 44,
+        "endLine": 16,
+        "endChar": 116
+      },
+      "revId": "eb1a4db7e691578d2934072cbaa1e7a105081561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -106,6 +154,30 @@
       "side": 1,
       "message": "+1. How is this process getting ahold of an unlabeled socket? Perhaps some consequence of running in permissive mode?",
       "parentUuid": "a55ee68a_91c4fd41",
+      "range": {
+        "startLine": 17,
+        "startChar": 26,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "eb1a4db7e691578d2934072cbaa1e7a105081561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c610dbd_cc2c9197",
+        "filename": "vendor/hal_vehicle_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1569496
+      },
+      "writtenOn": "2019-12-27T23:06:23Z",
+      "side": 1,
+      "message": "I ran it in enforcing mode. How do I label these?\n\nI got several messages like these:\n\n12-27 22:59:44.757   340   340 W android.hardwar: type\u003d1400 audit(0.0:90): avc: denied { write } for scontext\u003du:r:hal_vehicle_default:s0 tcontext\u003du:object_r:unlabeled:s0 tclass\u003dvsock_socket permissive\u003d0",
+      "parentUuid": "a580f85a_99df4234",
       "range": {
         "startLine": 17,
         "startChar": 26,
