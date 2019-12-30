@@ -1044,6 +1044,10 @@ neverallow { domain -system_server -webview_zygote -app_zygote } webview_zygote:
 neverallow { domain -system_server } webview_zygote:sock_file write;
 neverallow { domain -system_server } app_zygote:sock_file write;
 
+# Only zygote/webview_zygote/app_zygote could write to the unsolicited zygote socket in system_server
+neverallow { domain -zygote -webview_zygote -app_zygote} system_unsolzygote_socket:sock_file write;
+neverallow { domain -zygote -webview_zygote -app_zygote} system_unsolzygote_socket:unix_dgram_socket sendto;
+
 neverallow {
   domain
   -tombstoned
