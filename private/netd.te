@@ -28,3 +28,6 @@ binder_call(netd, network_stack)
 # Allow netd to send dump info to dumpstate
 allow netd dumpstate:fd use;
 allow netd dumpstate:fifo_file { getattr write };
+
+# Allow netd to read net.dns system property
+get_prop(netd, net_dns_prop)
