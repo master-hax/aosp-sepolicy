@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "87bfdf2b_4fc65d25",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2020-01-03T16:09:15Z",
+      "side": 1,
+      "message": "Hi Jeff, yes there will be symlinks from the old location to the new  one. I will edit the commit message to make that clear.",
+      "parentUuid": "7eef61eb_f324b07a",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 17
+      },
+      "revId": "004539ef7c22f0e0dd29d176452e18b8829944f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b4d496f6_2f1fc0c2",
         "filename": "public/domain.te",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-12-09T09:04:50Z",
       "side": 1,
       "message": "This seems like a bug in your implementation. This permission isn\u0027t useful by itself. \"search\" allows directory traversal, but you\u0027re not accessing anything in the directory. Do we need modifications to libbinder (or elsewhere) to avoid unnecessarily traversing into this directory?",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 43
+      },
+      "revId": "004539ef7c22f0e0dd29d176452e18b8829944f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a0d8ece_76d597af",
+        "filename": "public/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2020-01-03T16:09:15Z",
+      "side": 1,
+      "message": "The search permission seems to be required by lookup_one_len() from fs/namei.c which searches for a dentry and creates it if not found. It is invoked by binder_open()-\u003ebinderfs_create_file-\u003ebinderfs_create_dentry() to create a process-specific log file. The usage of lookup_one_len() to create a new dentry in binderfs seems consistent with other file system implementations. lookup_one_len() does not appear to need permission other than search in the base directory. Let me know if this sounds ok to you or if you would like me to investigate further. Thanks!",
+      "parentUuid": "b4d496f6_2f1fc0c2",
       "range": {
         "startLine": 85,
         "startChar": 0,
