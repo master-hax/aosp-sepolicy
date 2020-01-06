@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "357a5d3e_01b64c28",
+        "filename": "vendor/hal_vehicle_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-06T18:29:48Z",
+      "side": 1,
+      "message": "Jeff might be able to tell more from this, but it might be easiest to remove this permission and see what fails when the device is in enforcing mode.",
+      "parentUuid": "c2e8ae24_edfd259b",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 15,
+        "endChar": 34
+      },
+      "revId": "eb1a4db7e691578d2934072cbaa1e7a105081561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e28e4d28_a1152741",
         "filename": "vendor/hal_vehicle_default.te",
         "patchSetId": 2
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "I ran it in enforcing mode. How do I label these?\n\nI got several messages like these:\n\n12-27 22:59:44.757   340   340 W android.hardwar: type\u003d1400 audit(0.0:90): avc: denied { write } for scontext\u003du:r:hal_vehicle_default:s0 tcontext\u003du:object_r:unlabeled:s0 tclass\u003dvsock_socket permissive\u003d0",
       "parentUuid": "a580f85a_99df4234",
+      "range": {
+        "startLine": 17,
+        "startChar": 26,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "eb1a4db7e691578d2934072cbaa1e7a105081561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05220afe_6e172ed7",
+        "filename": "vendor/hal_vehicle_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-06T18:29:48Z",
+      "side": 1,
+      "message": "See system/sepolicy/private/file_contexts for instance.",
+      "parentUuid": "3c610dbd_cc2c9197",
       "range": {
         "startLine": 17,
         "startChar": 26,
