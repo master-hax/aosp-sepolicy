@@ -253,6 +253,8 @@ allow { appdomain -isolated_app -ephemeral_app } storage_file:dir r_dir_perms;
 allow { appdomain -isolated_app -ephemeral_app } storage_file:lnk_file r_file_perms;
 allow { appdomain -isolated_app -ephemeral_app } mnt_user_file:dir r_dir_perms;
 allow { appdomain -isolated_app -ephemeral_app } mnt_user_file:lnk_file r_file_perms;
+allow { appdomain -isolated_app -ephemeral_app } mnt_pass_through_file:dir r_dir_perms;
+allow { appdomain -isolated_app -ephemeral_app } mnt_pass_through_file:lnk_file r_file_perms;
 
 # Read/write visible storage
 allow { appdomain -isolated_app -ephemeral_app } sdcard_type:dir create_dir_perms;
