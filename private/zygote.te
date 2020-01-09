@@ -51,13 +51,16 @@ allow zygote resourcecache_data_file:file create_file_perms;
 allow zygote dalvikcache_data_file:file execute;
 
 # Bind mount on /data/data and mounted volumes
-allow zygote { system_data_file mnt_expand_file }:dir mounton;
+allow zygote { system_data_file mnt_expand_file }:dir { mounton relabelto };
+
+# Relabel /data/user/0
+allow zygote system_data_file:lnk_file relabelto;
 
 # Create and bind dirs on /data/data
-allow zygote tmpfs:dir { create_dir_perms mounton };
+allow zygote tmpfs:dir { create_dir_perms mounton relabelfrom };
 
 # Create symlink for /data/user/0
-allow zygote tmpfs:lnk_file create;
+allow zygote tmpfs:lnk_file { create relabelfrom };
 
 allow zygote mirror_data_file:dir r_dir_perms;
 
