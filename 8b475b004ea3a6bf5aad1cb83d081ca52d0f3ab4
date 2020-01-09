@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a9207bb_26da4a8e",
+        "filename": "private/zygote.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-01-09T14:52:58Z",
+      "side": 1,
+      "message": "I\u0027d rather you added the relabelto below (system_data_file : { lnk_file dir } I think is valid)\nEither that or the comment needs updating\n\n(Do you actually need relabelto for mnt_expand_file?)",
+      "revId": "8b475b004ea3a6bf5aad1cb83d081ca52d0f3ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d99edee_51f671f2",
+        "filename": "private/zygote.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-01-09T14:52:58Z",
+      "side": 1,
+      "message": "Similarly I\u0027d rather you extracted out the relabelfrom rules into one separate rule and put it under the relabel comment above",
+      "revId": "8b475b004ea3a6bf5aad1cb83d081ca52d0f3ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
