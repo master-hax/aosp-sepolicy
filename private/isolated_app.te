@@ -13,6 +13,10 @@ app_domain(isolated_app)
 # Access already open app data files received over Binder or local socket IPC.
 allow isolated_app { app_data_file privapp_data_file }:file { append read write getattr lock map };
 
+# Allow access to network sockets received over IPC. New socket creation is not
+# permitted.
+allow isolated_app untrusted_app:{ tcp_socket udp_socket } { rw_socket_perms_no_ioctl };
+
 allow isolated_app activity_service:service_manager find;
 allow isolated_app display_service:service_manager find;
 allow isolated_app webviewupdate_service:service_manager find;
