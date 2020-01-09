@@ -9,6 +9,7 @@ hal_client_domain(bootanim, hal_graphics_composer)
 binder_use(bootanim)
 binder_call(bootanim, surfaceflinger)
 binder_call(bootanim, audioserver)
+binder_call(bootanim, gpuservice)
 
 hwbinder_use(bootanim)
 
@@ -23,6 +24,7 @@ allow bootanim audio_device:chr_file rw_file_perms;
 
 allow bootanim audioserver_service:service_manager find;
 allow bootanim surfaceflinger_service:service_manager find;
+allow bootanim gpu_service:service_manager find;
 
 # Allow access to ion memory allocation device
 allow bootanim ion_device:chr_file rw_file_perms;
