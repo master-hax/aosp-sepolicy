@@ -53,6 +53,10 @@ allow zygote dalvikcache_data_file:file execute;
 # Bind mount on /data/data and mounted volumes
 allow zygote { system_data_file mnt_expand_file }:dir mounton;
 
+# Relabel /data/user/0
+allow zygote tmpfs:{ dir lnk_file } relabelfrom;
+allow zygote system_data_file:{ dir lnk_file } relabelto;
+
 # Create and bind dirs on /data/data
 allow zygote tmpfs:dir { create_dir_perms mounton };
 
