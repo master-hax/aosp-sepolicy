@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8b846b0_7b1818aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-10T20:57:10Z",
+      "side": 1,
+      "message": "All of these daemons have read/write/mount permission for this /mnt/pass_though. Having multiple different processes have simultaneous access to a directory means there\u0027s no clear division of responsibility and ownership for who should manage this directory. This is a non-ideal architecture. Ideally only one process would have write permission, and all the other processes would have read-only access. \n\nCan we limit this so that only one process can write to this directory, and the other processes can read from it?",
+      "range": {
+        "startLine": 7,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "1c89d74a754790ad4ecd34086cccd1696b0f96d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dce95e54_0438dd4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-10T20:57:10Z",
+      "side": 1,
+      "message": "Can you please update the commit message to explain \"why\" this is done, and what\u0027s being accomplished. Additionally, it would be nice to explain what other alternatives were explored.",
+      "revId": "1c89d74a754790ad4ecd34086cccd1696b0f96d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fe212b8_0d79c022",
+        "filename": "public/installd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-10T20:57:10Z",
+      "side": 1,
+      "message": "Line 60 indicates that this is for symlinks, but here we\u0027re granting permission to create plain files. Are plain files used here, or is it only symlinks?\n\n(same comment for zygote.te and vold.te)",
+      "range": {
+        "startLine": 63,
+        "startChar": 37,
+        "endLine": 63,
+        "endChar": 41
+      },
+      "revId": "1c89d74a754790ad4ecd34086cccd1696b0f96d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
