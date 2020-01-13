@@ -308,8 +308,8 @@ type server_configurable_flags_data_file, file_type, data_file_type, core_data_f
 type staging_data_file, file_type, data_file_type, core_data_file_type;
 # /vendor/apex
 type vendor_apex_file, vendor_file_type, file_type;
-# /data/incremental
-type incremental_root_file, file_type, data_file_type, core_data_file_type;
+# /data/incremental/**/backing_store
+type incremental_backing_file, file_type, data_file_type, core_data_file_type;
 
 # Mount locations managed by vold
 type mnt_media_rw_file, file_type;
@@ -515,6 +515,7 @@ allow file_type rootfs:filesystem associate;
 allow dev_type tmpfs:filesystem associate;
 allow app_fuse_file app_fusefs:filesystem associate;
 allow postinstall_file self:filesystem associate;
+allow incremental_backing_file incfs:filesystem associate;
 
 # asanwrapper (run a sanitized app_process, to be used with wrap properties)
 with_asan(`type asanwrapper_exec, exec_type, file_type;')
