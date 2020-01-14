@@ -22,6 +22,29 @@
       "revId": "9c4302ab40928b083d12c26ee3953cbb607715ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f215ac4e_fcbbf640",
+        "filename": "private/isolated_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-01-14T18:29:29Z",
+      "side": 1,
+      "message": "This assumes that Chrome is running in the most recent untrusted_app domain. I suspect that this should be \"untrusted_app_all\" to be safer. It\u0027s also possible that it should be { appdomain -isolated_app } so that other apps can similarly use this idea.",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 32
+      },
+      "revId": "9c4302ab40928b083d12c26ee3953cbb607715ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
