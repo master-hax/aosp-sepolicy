@@ -1095,3 +1095,7 @@ neverallow { domain -init -system_server } password_slot_metadata_file:notdevfil
 set_prop(system_server, binder_cache_system_server_prop)
 neverallow { domain -system_server -init }
     binder_cache_system_server_prop:property_service set;
+
+# Allow system server to attach BPF programs to tracepoints
+allow system_server self:perf_event { open write cpu kernel };
+neverallow system_server self:perf_event ~{ open write cpu kernel };
