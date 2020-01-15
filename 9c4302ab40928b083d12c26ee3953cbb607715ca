@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "eda59d65_5f6105c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2020-01-15T18:03:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "964fef93_cacf81ad",
+      "revId": "9c4302ab40928b083d12c26ee3953cbb607715ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "240445b3_eb03b9f7",
         "filename": "private/isolated_app.te",
         "patchSetId": 1
@@ -157,6 +175,78 @@
       "revId": "9c4302ab40928b083d12c26ee3953cbb607715ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "141daf82_26972d08",
+        "filename": "private/isolated_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2020-01-15T18:03:23Z",
+      "side": 1,
+      "message": "Per the above thread, I added priv_app. Using appdomain didn\u0027t work, though. Open to other suggestions if there\u0027s a better alternative (but I didn\u0027t see an obvious one).",
+      "parentUuid": "535c9cc5_6733d9c2",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 32
+      },
+      "revId": "9c4302ab40928b083d12c26ee3953cbb607715ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d4adde3_d16d8107",
+        "filename": "private/isolated_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2020-01-15T18:03:23Z",
+      "side": 1,
+      "message": "I tried {appdomain -isolated_app} but hit errors like:\n\nlibsepol.report_failure: neverallow on line 695 of system/sepolicy/public/domain.te (or line 12060 of policy.conf) violated by allow isolated_app con_monitor_app:tcp_socket { connect };\n\nSo I just listed privapp too. Also switched to untrusted_app_all.",
+      "parentUuid": "f215ac4e_fcbbf640",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 32
+      },
+      "revId": "9c4302ab40928b083d12c26ee3953cbb607715ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5f526f8_5c486f7e",
+        "filename": "private/isolated_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2020-01-15T18:03:23Z",
+      "side": 1,
+      "message": "Updated the one on line 137 to include the two domains allowed here (untrusted_app_all and priv_app).",
+      "parentUuid": "240445b3_eb03b9f7",
+      "range": {
+        "startLine": 18,
+        "startChar": 61,
+        "endLine": 18,
+        "endChar": 85
+      },
+      "revId": "9c4302ab40928b083d12c26ee3953cbb607715ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
