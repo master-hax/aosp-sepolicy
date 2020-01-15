@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f292ddbb_98adb7ea",
+        "filename": "private/app_zygote.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2020-01-15T18:04:12Z",
+      "side": 1,
+      "message": "as discussed over chat, app zygote is a little different than the others here because it runs untrusted code during its creation. But, since we can limit it to this socket, and we can check the incoming data in system_server, this seems comparable to binder calls? nnk@ will have better feedback.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 16
+      },
+      "revId": "a04c177a8a3ab06b54fbb955d88a29032327b052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
