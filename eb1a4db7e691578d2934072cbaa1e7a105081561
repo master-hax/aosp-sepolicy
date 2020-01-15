@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "56b15db1_02187b06",
+        "filename": "vendor/hal_vehicle_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1569496
+      },
+      "writtenOn": "2020-01-15T00:43:47Z",
+      "side": 1,
+      "message": "Do we need to add a line like\n\n    /proc/net/somaxconn      u:object_r:proc_net_somaxconn:s0\n\nto our vendor/file_contexts?",
+      "parentUuid": "aa048a96_f1de6353",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 15,
+        "endChar": 34
+      },
+      "revId": "eb1a4db7e691578d2934072cbaa1e7a105081561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e28e4d28_a1152741",
         "filename": "vendor/hal_vehicle_default.te",
         "patchSetId": 2
@@ -250,6 +274,30 @@
       "side": 1,
       "message": "See system/sepolicy/private/file_contexts for instance.",
       "parentUuid": "3c610dbd_cc2c9197",
+      "range": {
+        "startLine": 17,
+        "startChar": 26,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "eb1a4db7e691578d2934072cbaa1e7a105081561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1d76001_70b95226",
+        "filename": "vendor/hal_vehicle_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1569496
+      },
+      "writtenOn": "2020-01-15T00:43:47Z",
+      "side": 1,
+      "message": "It looks like those work because the underlying socket is a AF_LOCAL socket, which is backed by a filesystem node. In this case, vsock has no filesystem entry underneath. How would we go about labeling the object?",
+      "parentUuid": "05220afe_6e172ed7",
       "range": {
         "startLine": 17,
         "startChar": 26,
