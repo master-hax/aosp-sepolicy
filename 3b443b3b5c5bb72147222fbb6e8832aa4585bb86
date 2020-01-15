@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "befe6bfe_ef3826b0",
+        "filename": "private/simpleperf.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2020-01-15T14:34:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67a6a8ef_2a3575af",
+      "range": {
+        "startLine": 11,
+        "startChar": 54,
+        "endLine": 11,
+        "endChar": 64
+      },
+      "revId": "3b443b3b5c5bb72147222fbb6e8832aa4585bb86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29155008_9af45c47",
         "filename": "private/simpleperf.te",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "3b443b3b5c5bb72147222fbb6e8832aa4585bb86",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17c5c1f3_84d84187",
+        "filename": "private/simpleperf.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2020-01-15T14:34:27Z",
+      "side": 1,
+      "message": "Context: when using run-as to run binaries within the scope of debuggable apps, this is the domain in which the final (arbitrary) binary itself runs in.\n\nIt seemed clearer to exclude this \"tooling\" domain, as there should never be a need for simpleperf to profile it. But I also don\u0027t expect the situation to arise in practice (and the MLS still applies).\n\nRemoved refs to runas_app, as I now agree that it complicates the policy more than it helps.",
+      "parentUuid": "29155008_9af45c47",
+      "range": {
+        "startLine": 19,
+        "startChar": 37,
+        "endLine": 19,
+        "endChar": 47
+      },
+      "revId": "3b443b3b5c5bb72147222fbb6e8832aa4585bb86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "89c59558_5958ee6c",
+        "filename": "private/simpleperf.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2020-01-15T14:34:27Z",
+      "side": 1,
+      "message": "Done, see comment thread above.",
+      "parentUuid": "a73bef12_3c5ad26c",
+      "range": {
+        "startLine": 26,
+        "startChar": 43,
+        "endLine": 26,
+        "endChar": 53
+      },
+      "revId": "3b443b3b5c5bb72147222fbb6e8832aa4585bb86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "facc395f_54010896",
         "filename": "private/simpleperf.te",
         "patchSetId": 3
@@ -82,6 +154,24 @@
       "writtenOn": "2020-01-15T09:01:58Z",
       "side": 1,
       "message": "can we add a neverallow rule which prevents simpleperf from access app_data_file (assuming that\u0027s doable).",
+      "revId": "3b443b3b5c5bb72147222fbb6e8832aa4585bb86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b04cb63a_4a5b16a4",
+        "filename": "private/simpleperf.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2020-01-15T14:34:27Z",
+      "side": 1,
+      "message": "Afaiu, as implemented, this domain requires (and uses) the ability to create and write app_data_file files. This is because simpleperf needs a working directory to create temp \u0026 report files in. In the case of app executing the tool, it uses the app\u0027s data directory for this[1]. I\u0027m not sure whether there are other reasons for accessing app_data_file. \n\n+yabinc to confirm\n\n[1] https://cs.android.com/android/_/android/platform/system/extras/+/18ed23f3a48f67d99434e814be7617aea2789244:simpleperf/app_api/cpp/simpleperf.cpp;l\u003d430;drc\u003de2f99e6102781356aa00ef38efa0802d6ec63fe2",
+      "parentUuid": "facc395f_54010896",
       "revId": "3b443b3b5c5bb72147222fbb6e8832aa4585bb86",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "583a8be3_c3910f8e",
+        "filename": "private/untrusted_app_all.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2020-01-15T14:34:27Z",
+      "side": 1,
+      "message": "Done, see comment thread above.",
+      "parentUuid": "2239ba73_3f089f0f",
+      "range": {
+        "startLine": 175,
+        "startChar": 26,
+        "endLine": 175,
+        "endChar": 37
+      },
+      "revId": "3b443b3b5c5bb72147222fbb6e8832aa4585bb86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20c3c274_5c4eb4e6",
         "filename": "public/domain.te",
         "patchSetId": 3
@@ -122,6 +236,30 @@
       "writtenOn": "2020-01-15T09:01:58Z",
       "side": 1,
       "message": "This should be in line 1179.",
+      "range": {
+        "startLine": 1180,
+        "startChar": 20,
+        "endLine": 1180,
+        "endChar": 30
+      },
+      "revId": "3b443b3b5c5bb72147222fbb6e8832aa4585bb86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c123b460_68e5edf5",
+        "filename": "public/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2020-01-15T14:34:27Z",
+      "side": 1,
+      "message": "This is intentional. The uniqueness of the situation is that we allow apps to exec /system/bin/simpleperf with a transition to the new \"simpleperf\" domain. Which is best described as an app_domain itself .\n\nIn other words, we have: untrusted_app_all -\u003e simpleperf (app_domain).\n\nThis excludes simpleperf from the \"transitioned to\" list on 1180 to allow for the transition. \n\nIn addition to this, I could add something like:\nneverallow { domain -unstrusted_app_all -shell -simpleperf_app_runner } simpleperf:process { transition dyntransition };\n\nto further clarify the expected transitions to simpleperf, but I\u0027m not sure whether that makes a big difference. WDYT?",
+      "parentUuid": "20c3c274_5c4eb4e6",
       "range": {
         "startLine": 1180,
         "startChar": 20,
