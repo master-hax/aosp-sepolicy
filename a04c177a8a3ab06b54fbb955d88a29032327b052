@@ -22,6 +22,98 @@
       "revId": "a04c177a8a3ab06b54fbb955d88a29032327b052",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95e98121_b49252b0",
+        "filename": "private/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-01-15T19:49:43Z",
+      "side": 1,
+      "message": "tmpfs is where we generally put sockets like this. e.g. /dev/socket/unsolzygotesocket. Have init create/manage this socket instead of system_server e.g. https://cs.android.com/android/platform/superproject/+/master:system/core/rootdir/init.zygote64.rc;l\u003d7?q\u003dinit.zygote64.rc",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 467,
+        "endChar": 71
+      },
+      "revId": "a04c177a8a3ab06b54fbb955d88a29032327b052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86381bbd_29eb86fd",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-01-15T19:49:43Z",
+      "side": 1,
+      "message": "delete. Unnecessary after move to /dev/socket/unsolzygotesocket",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 103
+      },
+      "revId": "a04c177a8a3ab06b54fbb955d88a29032327b052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83c53934_d09a789e",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-01-15T19:49:43Z",
+      "side": 1,
+      "message": "can be scoped down since init will create this socket.",
+      "range": {
+        "startLine": 664,
+        "startChar": 56,
+        "endLine": 664,
+        "endChar": 73
+      },
+      "revId": "a04c177a8a3ab06b54fbb955d88a29032327b052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "157edc0b_9205b160",
+        "filename": "public/file.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-01-15T19:49:43Z",
+      "side": 1,
+      "message": "is this really necessary? This is typically used for user/app separation, but zygote processes shouldn\u0027t have mls categories applied.",
+      "range": {
+        "startLine": 454,
+        "startChar": 99,
+        "endLine": 454,
+        "endChar": 115
+      },
+      "revId": "a04c177a8a3ab06b54fbb955d88a29032327b052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
