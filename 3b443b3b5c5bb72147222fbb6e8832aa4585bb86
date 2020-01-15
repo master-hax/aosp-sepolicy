@@ -249,6 +249,24 @@
     },
     {
       "key": {
+        "uuid": "1881d2b0_70c0b391",
+        "filename": "private/simpleperf.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2020-01-15T18:59:35Z",
+      "side": 1,
+      "message": "Yes, simpleperf uses app\u0027s data dir to store temp \u0026 report files. So it needs app_data_file access.\nAfter `adb shell setprop security.perf_harden 0`, it happens in two cases:\n1) the app is profileable or debuggable, user can run simpleperf through shell.\n2) the app code executes simpleperf directly.",
+      "parentUuid": "b04cb63a_4a5b16a4",
+      "revId": "3b443b3b5c5bb72147222fbb6e8832aa4585bb86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2239ba73_3f089f0f",
         "filename": "private/untrusted_app_all.te",
         "patchSetId": 3
