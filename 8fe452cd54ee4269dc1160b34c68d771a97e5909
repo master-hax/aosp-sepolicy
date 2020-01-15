@@ -22,6 +22,30 @@
       "revId": "8fe452cd54ee4269dc1160b34c68d771a97e5909",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3abed89_07ccfcca",
+        "filename": "private/isolated_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1022895
+      },
+      "writtenOn": "2020-01-15T18:44:59Z",
+      "side": 1,
+      "message": "+1 to adding ephemeral.\n\nJust so I understand the behavior of rw_socket_perms_no_ioctl:\nFor listening sockets the isolated app can not create or bind but if given a bound socket can listen() and accept()?\nFor tcp can it call connect or only operate on already connected sockets?",
+      "parentUuid": "cf72bf12_33201cb1",
+      "range": {
+        "startLine": 18,
+        "startChar": 20,
+        "endLine": 18,
+        "endChar": 47
+      },
+      "revId": "8fe452cd54ee4269dc1160b34c68d771a97e5909",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
