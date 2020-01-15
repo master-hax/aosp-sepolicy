@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "2e6ad6ba_c1db4af5",
+        "filename": "private/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1561214
+      },
+      "writtenOn": "2020-01-15T19:53:17Z",
+      "side": 1,
+      "message": "It\u0027s a different socket other than the traditional zygote socket. The zygote is the client of the socket, while the system_server is the server.",
+      "parentUuid": "95e98121_b49252b0",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 467,
+        "endChar": 71
+      },
+      "revId": "a04c177a8a3ab06b54fbb955d88a29032327b052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "86381bbd_29eb86fd",
         "filename": "private/system_server.te",
         "patchSetId": 2
@@ -105,6 +129,30 @@
       "writtenOn": "2020-01-15T19:49:43Z",
       "side": 1,
       "message": "is this really necessary? This is typically used for user/app separation, but zygote processes shouldn\u0027t have mls categories applied.",
+      "range": {
+        "startLine": 454,
+        "startChar": 99,
+        "endLine": 454,
+        "endChar": 115
+      },
+      "revId": "a04c177a8a3ab06b54fbb955d88a29032327b052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c9531a7_28f3455b",
+        "filename": "public/file.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1561214
+      },
+      "writtenOn": "2020-01-15T19:53:17Z",
+      "side": 1,
+      "message": "Good point. I was just following the system_ndebug_socket above",
+      "parentUuid": "157edc0b_9205b160",
       "range": {
         "startLine": 454,
         "startChar": 99,
