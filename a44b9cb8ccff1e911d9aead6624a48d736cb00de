@@ -69,6 +69,30 @@
       "revId": "a44b9cb8ccff1e911d9aead6624a48d736cb00de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4fc278b_10b28ffa",
+        "filename": "private/gsid.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-01-16T08:34:16Z",
+      "side": 1,
+      "message": "create_dir_perms is just create + rw_dir_perms. rw_dir_perms is already included in line 113. It would be cleaner to split up the allow rule in 112 into two separate allow rules for    gsi_metadata_file and ota_metadata_file.",
+      "parentUuid": "d03ebedc_a62d3413",
+      "range": {
+        "startLine": 129,
+        "startChar": 33,
+        "endLine": 129,
+        "endChar": 39
+      },
+      "revId": "a44b9cb8ccff1e911d9aead6624a48d736cb00de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
