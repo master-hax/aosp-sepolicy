@@ -46,6 +46,30 @@
       "revId": "8fe452cd54ee4269dc1160b34c68d771a97e5909",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e36caab6_8d5161ae",
+        "filename": "private/isolated_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2020-01-16T15:22:46Z",
+      "side": 1,
+      "message": "\u003e I\u0027m still a little concerned that this is insufficient. Perhaps also include ephemeral_app?\n\nConcerned that it enables too few domains to use this capability, but not that it\u0027s insecure, correct?\n\n\u003e +1 to adding ephemeral.\n\nDone.\n\n\u003e Just so I understand the behavior of rw_socket_perms_no_ioctl:\n\u003e For listening sockets the isolated app can not create or bind but if given a bound socket can listen() and accept()?\n\nIt can bind() but not listen() nor accept() as those are part of rw_stream_socket_perms, not rw_socket_perms.\n\n\u003e For tcp can it call connect or only operate on already connected sockets?\n\nIt can call connect(), though Chromium will broker the actual connect() operation so that the socket gets marked for fwmark. We need to broker accept() for the same reason.",
+      "parentUuid": "d3abed89_07ccfcca",
+      "range": {
+        "startLine": 18,
+        "startChar": 20,
+        "endLine": 18,
+        "endChar": 47
+      },
+      "revId": "8fe452cd54ee4269dc1160b34c68d771a97e5909",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
