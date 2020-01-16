@@ -40,3 +40,4 @@ add_hwservice(wificond, system_wifi_keystore_hwservice)
 allow wificond keystore_service:service_manager find;
 allow wificond keystore:binder call;
 allow wificond keystore:keystore_key get;
+allow wificond keystore:binder transfer;
