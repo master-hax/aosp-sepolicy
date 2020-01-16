@@ -107,7 +107,7 @@ neverallow app_zygote {
 }:service_manager find;
 
 # Isolated apps should not be able to access the driver directly.
-neverallow app_zygote gpu_device:chr_file { rwx_file_perms };
+neverallow app_zygote gpu_device:chr_file { rw_file_perms x_chr_file_perms };
 
 # Do not allow app_zygote access to /cache.
 neverallow app_zygote cache_file:dir ~{ r_dir_perms };
