@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ccc0a57a_1955dbf3",
+        "filename": "public/keystore.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-17T18:32:04Z",
+      "side": 1,
+      "message": "by convention, allow rules are placed before neverallow assertions (above line 23).\n\nPlease delete these lines and replace it by the appropriate macro:\n\n  binder_call(keystore, wificond)\n\nand place the binder_call line at line 9, near the other binder_call statement.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 40
+      },
+      "revId": "dc2e1bccb9b6152776977a36472c879aae6f8688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f7a8af3_f1680873",
+        "filename": "public/wificond.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-17T18:32:04Z",
+      "side": 1,
+      "message": "Please delete this line, and place \n\n  binder_call(wificond, keystore)\n\nat line 7 instead.\n\nUsing the macro defined for this purpose is more robust and eliminates the need for the changes on line 43, as well as keystore.te line 38. You can see the macro definition by looking in system/sepolicy/public/te_macros",
+      "revId": "dc2e1bccb9b6152776977a36472c879aae6f8688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
