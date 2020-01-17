@@ -486,6 +486,9 @@ neverallow { appdomain -bluetooth }
     bluetooth_data_file:dir_file_class_set
     { create write setattr relabelfrom relabelto append unlink link rename };
 neverallow appdomain
+    credstore_data_file:dir_file_class_set
+    { create write setattr relabelfrom relabelto append unlink link rename };
+neverallow appdomain
     keystore_data_file:dir_file_class_set
     { create write setattr relabelfrom relabelto append unlink link rename };
 neverallow appdomain

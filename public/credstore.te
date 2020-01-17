@@ -1,0 +1,21 @@
+type credstore, domain;
+type credstore_exec, system_file_type, exec_type, file_type;
+
+# credstore daemon
+typeattribute credstore mlstrustedsubject;
+binder_use(credstore)
+binder_service(credstore)
+binder_call(credstore, system_server)
+
+allow credstore credstore_data_file:dir create_dir_perms;
+allow credstore credstore_data_file:notdevfile_class_set create_file_perms;
+allow credstore credstore_exec:file { getattr };
+
+add_service(credstore, credstore_service)
+allow credstore sec_key_att_app_id_provider_service:service_manager find;
+allow credstore dropbox_service:service_manager find;
+
+# Check SELinux permissions.
+selinux_check_access(credstore)
+
+r_dir_file(credstore, cgroup)
