@@ -45,6 +45,9 @@ set_prop(bluetooth, bluetooth_audio_hal_prop)
 set_prop(bluetooth, bluetooth_prop)
 set_prop(bluetooth, exported_bluetooth_prop)
 set_prop(bluetooth, pan_result_prop)
+set_prop(bluetooth, binder_cache_bluetooth_server_prop);
+neverallow { domain -bluetooth -init }
+    binder_cache_bluetooth_server_prop:property_service set;
 
 allow bluetooth audioserver_service:service_manager find;
 allow bluetooth bluetooth_service:service_manager find;
