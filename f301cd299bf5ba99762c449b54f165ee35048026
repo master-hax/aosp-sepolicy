@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9137ff42_bf21bc13",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-17T19:15:12Z",
+      "side": 1,
+      "message": "Comment 1:\n\nsystem_server can create files in /data/misc/apexdata/com.android.permission ? How exactly does this work?\n\nsystem_server runs with UID\u003dsystem, whereas apexd runs with UID\u003droot (and does not have CAP_DAC_OVERRIDE nor CAP_DAC_READ_SEARCH). This UID mismatch essentially means that files / directories created by either party won\u0027t be readable / writable by the other party, unless you\u0027re using 0777 directories and 0666 files (dangerous).\n\nComment 2:\n\nIn general, the use of shared directories for state between different processes is dangerous. You inevitably have various problems like race conditions, dealing with data format changes, and permission problems.\n\nWhy is system_server not making an RPC to apexd to perform these state changes, rather than relying on a shared mutable data store? \n\nGenerally speaking, all files should have an exclusive owner and access mediated through standard RPC calls. When this can\u0027t be done easily, it\u0027s better to architect the system so that there\u0027s only one writer and multiple readers, which also eliminates architectural fragility.",
+      "range": {
+        "startLine": 1056,
+        "startChar": 0,
+        "endLine": 1057,
+        "endChar": 69
+      },
+      "revId": "f301cd299bf5ba99762c449b54f165ee35048026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
