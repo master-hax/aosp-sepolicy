@@ -22,6 +22,30 @@
       "revId": "f301cd299bf5ba99762c449b54f165ee35048026",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b16de240_61c7d31d",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1351609
+      },
+      "writtenOn": "2020-01-17T19:44:33Z",
+      "side": 1,
+      "message": "Yes, the system server process owns for /data/misc/apexdata/com.android.permission because the permission APEX code runs inside system server, and the permission APEX owns its data directory.\nWe cannot run in a separate process because of performance/threading/complexity reasons. A lot of other APEX is also moving code from the system server into APEX to make it updatable, but will still run in the system server.\nI believe apexd will only write to module data directory during backup and rollback, and that should happen when the module isn\u0027t running yet, so there won\u0027t be multiple writers. I think this is similar to how app data is managed - app owns their data directory and can do whatever they want, but the system can also clear/backup/restore those data.\nI agree that apexd might need some other configuration to access the data for rollback though, but since this is blocking ag/10105951 for IC, could submit this CL first (if the other concerns are resolved)?",
+      "parentUuid": "9137ff42_bf21bc13",
+      "range": {
+        "startLine": 1056,
+        "startChar": 0,
+        "endLine": 1057,
+        "endChar": 69
+      },
+      "revId": "f301cd299bf5ba99762c449b54f165ee35048026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
