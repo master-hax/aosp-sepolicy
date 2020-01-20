@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e96fa769_34079454",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1480715
+      },
+      "writtenOn": "2020-01-20T20:14:21Z",
+      "side": 1,
+      "message": "It seems that seapp_context is more about app_data_file not apk_data_file. I used apk_data_file in private/file_contexts as a reference. It is the label associated with /data/app directory. \n\nBy labeling /data/incremental apk_data_file, /data/incremental will have the same permission rules as /data/app. \n\nHowever, this means we will need to add additional permissions to apk_data_file (for vold to mount incfs on a dir under /data/incremental). \n\nPlease let me know if it makes sense to you. Thanks!",
+      "parentUuid": "014b1adc_ca448511",
+      "range": {
+        "startLine": 10,
+        "startChar": 28,
+        "endLine": 10,
+        "endChar": 41
+      },
+      "revId": "8cfdde7407105303849e6ae2e47dd0d19d3b750d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c4ddb016_4e0dec85",
         "filename": "private/file_contexts",
         "patchSetId": 1
@@ -39,6 +63,24 @@
       "revId": "8cfdde7407105303849e6ae2e47dd0d19d3b750d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "484bed1a_ef7c61ec",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1480715
+      },
+      "writtenOn": "2020-01-20T20:14:21Z",
+      "side": 1,
+      "message": "Yeah I think we don\u0027t need this line. I was just thinking that this will make it clear that this dir temporarily holds some bind-mount points. Removing it. \n\nWhen an app is being installed, we first mount incfs onto a dir under /data/incremental/[random]/mount/. We then bind mount this dir onto a dir under /data/incremental/tmp/. When the app is being staged we bind mount the first dir to /data/app/vmdl-* (stage dir that is labeld apk_tmp_file). At the end of the installation we change the bind-mount target to /data/app/[package_dir].",
+      "parentUuid": "c4ddb016_4e0dec85",
+      "revId": "8cfdde7407105303849e6ae2e47dd0d19d3b750d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
