@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12661255_ac8587eb",
+        "filename": "private/blank_screen.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-21T17:15:51Z",
+      "side": 1,
+      "message": "this should be hal_light_service once we have the service context for it",
+      "range": {
+        "startLine": 8,
+        "startChar": 19,
+        "endLine": 8,
+        "endChar": 42
+      },
+      "revId": "235679fb6c5ca20c90b148b32462d7b4ab4203f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d07a319_864cc6f5",
+        "filename": "private/hwservice_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-21T17:15:51Z",
+      "side": 1,
+      "message": "we should be able to remove this (this is a context for a HIDL service, but we\u0027re adding an AIDL service)\n\nInstead it seems like we need to add:\n- android.hardware.light.ILights/default to private/service_contexts for hal_light_service\n- something to private/service_contexts for ILightsManager (which I believe is light_service)",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 97
+      },
+      "revId": "235679fb6c5ca20c90b148b32462d7b4ab4203f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
