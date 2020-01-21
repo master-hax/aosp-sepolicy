@@ -230,6 +230,17 @@ neverallow {
     -postinstall_file
 }:file execute;
 
+# TODO(b/148081219): remove exceptions and move this to public/dumpstate.te
+# with the other similar rules
+neverallow {
+  domain
+  -shell
+  -atrace
+  -dumpstate
+  -system_app
+  -traceur_app
+} default_android_service:service_manager { find };
+
 # Only init is allowed to write cgroup.rc file
 neverallow {
   domain
