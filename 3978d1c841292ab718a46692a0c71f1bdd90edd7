@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "214ac383_0af2a94a",
+        "filename": "vendor/hal_vehicle_default.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1133963
+      },
+      "writtenOn": "2020-01-23T20:07:40Z",
+      "side": 1,
+      "message": "/proc/net/somaxconn\n\nDo you think we need a different label just for that file? It seems like it might introduce more risk than the reward (in case something else breaks down the line by doing so)\n\nwdyt?",
+      "parentUuid": "d7997c3a_d4119b36",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 15,
+        "endChar": 39
+      },
+      "revId": "3978d1c841292ab718a46692a0c71f1bdd90edd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b77439f0_3de81a13",
         "filename": "vendor/hal_vehicle_default.te",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-01-23T20:04:55Z",
       "side": 1,
       "message": "Where is this socket coming from? Init?",
+      "range": {
+        "startLine": 18,
+        "startChar": 26,
+        "endLine": 18,
+        "endChar": 35
+      },
+      "revId": "3978d1c841292ab718a46692a0c71f1bdd90edd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b49ffccf_445b4031",
+        "filename": "vendor/hal_vehicle_default.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1133963
+      },
+      "writtenOn": "2020-01-23T20:07:40Z",
+      "side": 1,
+      "message": "It is created by the gRPC framework",
+      "parentUuid": "b77439f0_3de81a13",
       "range": {
         "startLine": 18,
         "startChar": 26,
