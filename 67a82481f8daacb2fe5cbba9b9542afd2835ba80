@@ -118,6 +118,30 @@
       "revId": "67a82481f8daacb2fe5cbba9b9542afd2835ba80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d16b08c_5e00a7ae",
+        "filename": "public/te_macros",
+        "patchSetId": 1
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2020-01-23T14:41:49Z",
+      "side": 1,
+      "message": "* We also want to stat the /proc/pid dir itself, to find out the UID of the process (to check packages.list).\n* The reason for allowing direct reads is indeed to filter whether a process is in scope for a given profiling session, without having to signal it.\n* I don\u0027t think we can achieve anything more fine-grained from SELinux perspective here, as all /proc/pid/* files have the same label.\n* However, do note that per \"man proc\", the more sensitive files are behind ptrace-checks (just like the maps \u0026 mem). This daemon cannot pass either of the ptrace checks unless the target has the same UID/GID.",
+      "parentUuid": "20f9e371_e0682886",
+      "range": {
+        "startLine": 727,
+        "startChar": 0,
+        "endLine": 728,
+        "endChar": 39
+      },
+      "revId": "67a82481f8daacb2fe5cbba9b9542afd2835ba80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
