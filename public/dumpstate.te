@@ -91,6 +91,7 @@ allow dumpstate {
   hal_thermal_server
   hal_vr_server
   system_suspend_server
+  hal_neuralnetworks_server
 }:process signal;
 
 # Connect to tombstoned to intercept dumps.
@@ -139,6 +140,8 @@ hal_client_domain(dumpstate, hal_wifi)
 hal_client_domain(dumpstate, hal_graphics_allocator)
 # Vibrate the device after we are done collecting the bugreport
 hal_client_domain(dumpstate, hal_vibrator)
+
+dump_hal(hal_neuralnetworks)
 
 # Reading /proc/PID/maps of other processes
 allow dumpstate self:global_capability_class_set sys_ptrace;
