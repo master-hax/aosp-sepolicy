@@ -22,6 +22,30 @@
       "revId": "67a82481f8daacb2fe5cbba9b9542afd2835ba80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6713006d_fb23d23a",
+        "filename": "public/te_macros",
+        "patchSetId": 1
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2020-01-23T10:44:24Z",
+      "side": 1,
+      "message": "I think in this case we need to cheaply read cmdline to figure out if we are interested in that process at all. An end-to-end example:\n\n1. The user says \"I want to profile the process naamed surfaceflinger\".\n2. We have no idea what\u0027s the pid of surfaceflinger, so we start listing /proc and to find it.\n3. Once found we send the signal and the process sends the fd.\n\nWithout this, the alternative would be:\n1. Send a signal to *all* processes in the system\n2. Read the cmdlines over fd\n3. as below\n\nwhich is very undesirable, because it would create massive wake-ups and scheduling storms every time.",
+      "parentUuid": "128645ad_0a80b9d1",
+      "range": {
+        "startLine": 727,
+        "startChar": 0,
+        "endLine": 728,
+        "endChar": 39
+      },
+      "revId": "67a82481f8daacb2fe5cbba9b9542afd2835ba80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
