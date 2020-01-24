@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d077e99_813798e2",
+        "filename": "private/logpersist.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-24T01:01:23Z",
+      "side": 1,
+      "message": "reviewers note: /data/misc/log is only ever written to on debuggable builds. On user builds, this directory will be empty, and thus, allowing incidentd read access is safe.\n\nLog data should never be persistently logged on user builds. See also line 21.\n\nReviewers note. No action is required.",
+      "range": {
+        "startLine": 27,
+        "startChar": 48,
+        "endLine": 27,
+        "endChar": 85
+      },
+      "revId": "08f494d200f6c438ec2cb6b125ac5f5de9402f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
