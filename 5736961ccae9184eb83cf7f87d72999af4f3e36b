@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8471781_749323c4",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-24T20:36:12Z",
+      "side": 1,
+      "message": "for robustness, please use the macro provided for this purpose.\n\n  r_dir_perms\n\nThis macro is defined in system/sepolicy/public/global_macros",
+      "range": {
+        "startLine": 24,
+        "startChar": 33,
+        "endLine": 24,
+        "endChar": 46
+      },
+      "revId": "5736961ccae9184eb83cf7f87d72999af4f3e36b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97601f04_903938f8",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-24T20:36:12Z",
+      "side": 1,
+      "message": "can you please double check that CAP_DAC_OVERRIDE is really needed, or if CAP_DAC_READ_SEARCH is sufficient?",
+      "range": {
+        "startLine": 48,
+        "startChar": 63,
+        "endLine": 48,
+        "endChar": 75
+      },
+      "revId": "5736961ccae9184eb83cf7f87d72999af4f3e36b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
