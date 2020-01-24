@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95c51781_b1b8e15c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-01-24T15:56:18Z",
+      "side": 1,
+      "message": "The permissions seem to be signature only (if they were privileged you wouldn\u0027t need this change).",
+      "range": {
+        "startLine": 9,
+        "startChar": 52,
+        "endLine": 9,
+        "endChar": 62
+      },
+      "revId": "e44484710f7a249f15358863320394f84d102964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "554b5c8a_6513067b",
+        "filename": "private/untrusted_app_all.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-01-24T15:56:18Z",
+      "side": 1,
+      "message": "It\u0027s probably better just to give platform_compat_service the app_api_service attribute\nThen you can remove this \u0026 at least some of the existing grants.\n\nAlso avoids making b/36783122 worse.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 69
+      },
+      "revId": "e44484710f7a249f15358863320394f84d102964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
