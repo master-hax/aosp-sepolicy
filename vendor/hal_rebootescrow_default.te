@@ -6,3 +6,5 @@ init_daemon_domain(hal_rebootescrow_default)
 
 type rebootescrow_device, dev_type;
 allow hal_rebootescrow_default rebootescrow_device:chr_file rw_file_perms;
+allow hal_rebootescrow_default block_device:dir search;
+allow hal_rebootescrow_default rebootescrow_device:blk_file rw_file_perms;
