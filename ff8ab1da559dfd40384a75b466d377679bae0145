@@ -22,6 +22,30 @@
       "revId": "ff8ab1da559dfd40384a75b466d377679bae0145",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3559e4e2_43a34634",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1480715
+      },
+      "writtenOn": "2020-01-27T21:19:40Z",
+      "side": 1,
+      "message": "Thanks a lot for reviewing! \n\nNot sure I understand your first question. Do you mean that we can consider directly placing oat/ files directly under /data/app/[randomStringA]? \n\nWith regard to your question 2):\n\nIndeed I have not thought about randomeStringA colliding with pre-existing package installed on the device. Potentially it can happen during an OTA update. I think we can enhance the encoding such that the randomly generated string can never be a valid package name. For example, add a prefix \u00270\u0027 in front of the result of the random string encoder. In Java, it is illegal to have a package name that starts with a digit. This way, it is impossible for randomStringA to collide with a pre-existing package name. Please let me know what you think about this approach.\n\nAnd 3):\n\nThe random strings used in the apk paths are generated using Base64.Encoder. They can be optionally ending with padding chars \u0027\u003d\u0027. So, like \"OvDcmvnIQd-gpAbXjKedqQ\u003d\u003d\". See the full character table: https://source.corp.google.com/android/frameworks/base/core/java/android/util/Base64.java;cl\u003dmaster;l\u003d567\n\nWe can match randomStringB with regex \"[A-Za-z0-9\\-_]+\u003d*\". We still need to keep the first part of the regex to make the rule backward compatible though.\n\nActually it seems that the current rule for oat file is already overly permissive. A valid Java package name has a few rules (e.g., does not start with digit, does not contain hyphen) that are not reflected in the rules here.",
+      "parentUuid": "ae2ceb5f_afab58e2",
+      "range": {
+        "startLine": 483,
+        "startChar": 18,
+        "endLine": 483,
+        "endChar": 19
+      },
+      "revId": "ff8ab1da559dfd40384a75b466d377679bae0145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
