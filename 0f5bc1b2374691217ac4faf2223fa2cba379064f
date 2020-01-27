@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a65a4ec7_eacbc9ea",
+        "filename": "vendor/hal_rebootescrow_default.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-27T17:45:15Z",
+      "side": 1,
+      "message": "Recommend rewriting this line as:\n\n  allow hal_rebootescrow_default rebootescrow_device:{ chr_file blk_file } rw_file_perms;\n\nand deleting line 11. This will be slightly cleaner looking and accomplishes the same thing.",
+      "revId": "0f5bc1b2374691217ac4faf2223fa2cba379064f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
