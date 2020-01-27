@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35b49c83_d01b87ad",
+        "filename": "private/apexd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-27T18:03:10Z",
+      "side": 1,
+      "message": "Sorry for missing this in the earlier commit. I don\u0027t believe apexd uses the setgid bit on the directories being restored. As such, this permission isn\u0027t needed. Can you remove this permission and add a dontaudit below?\n\n  # Note: fsetid is deliberately not included above. fsetid checks are\n  # triggered by chmod on a directory or file owned by a group other\n  # than one of the groups assigned to the current process to see if\n  # the setgid bit should be cleared, regardless of whether the setgid\n  # bit was even set.  We do not appear to truly need this capability\n  # for apexd to operate.\n  dontaudit apexd self:global_capability_class_set fsetid;",
+      "range": {
+        "startLine": 48,
+        "startChar": 83,
+        "endLine": 48,
+        "endChar": 89
+      },
+      "revId": "330aa17b81e2a51f427af8658f8cc65b00007026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1cf80dd_f882687a",
+        "filename": "private/apexd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-27T18:03:10Z",
+      "side": 1,
+      "message": "The devpts files passed from init should be labeled differently than the ones that apexd creates itself. We can do this by slightly modifying what you have above:\n\n  # Allow apexd to be invoked with logwrapper from init during userspace reboot.\n  allow apexd devpts:chr_file { read write };\n\n  # Allow apexd to create pts files via logwrap_fork_exec for its own use, to pass to\n  # other processes\n  create_pty(apexd)",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 56
+      },
+      "revId": "330aa17b81e2a51f427af8658f8cc65b00007026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2b3ee71_e4d26ac7",
+        "filename": "private/apexd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-27T18:03:10Z",
+      "side": 1,
+      "message": "for robustness, please use the macro provided for this purpose, \"r_file_perms\". This macro is defined in system/sepolicy/public/global_macros\n\n  allow apexd file_contexts_file:file r_file_perms;",
+      "range": {
+        "startLine": 129,
+        "startChar": 36,
+        "endLine": 129,
+        "endChar": 57
+      },
+      "revId": "330aa17b81e2a51f427af8658f8cc65b00007026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
