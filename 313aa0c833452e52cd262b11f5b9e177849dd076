@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1788f86e_262efa45",
+        "filename": "vendor/hal_rebootescrow_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-01-27T08:27:22Z",
+      "side": 1,
+      "message": "this is overly broad. Please map this property to its own type instead of using the default type. As mentioned here: https://source.android.com/security/selinux/device-policy\n\n\"In general, granting permissions to default labels is wrong. Many of these permissions are disallowed by neverallow rules, but even when not explicitly disallowed, best practice is to provide a specific label.\"",
+      "range": {
+        "startLine": 3,
+        "startChar": 35,
+        "endLine": 3,
+        "endChar": 54
+      },
+      "revId": "313aa0c833452e52cd262b11f5b9e177849dd076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
