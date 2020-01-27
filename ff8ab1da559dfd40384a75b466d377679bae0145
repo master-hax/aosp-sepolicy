@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae2ceb5f_afab58e2",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-27T20:29:58Z",
+      "side": 1,
+      "message": "I feel uncomfortable with the \"1 or more\" logic here. Can we limit this to two levels deep?\n\nProbably the most readable way of doing this would be to split this into two lines:\n\n  # Traditional /data/app/[packageName]-[randomString]/base.apk location\n  /data/app/[^/]+/oat(/.*)?                u:object_r:dalvikcache_data_file:s0\n\n  # /data/app/[randomStringA]/[packageName]-[randomStringB]/base.apk layout\n  /data/app/[^/]+/[^/]+/oat(/.*)?          u:object_r:dalvikcache_data_file:s0\n\n... although I wonder if:\n\n1) Perhaps we should place these into a different directory to avoid the regexes? Perhaps /data/app/random?\n\n2) Do we need to deal with someone maliciously trying to cause a collision with a pre-existing package name? I don\u0027t think so, but I want to make sure you\u0027re thinking about it.\n\n3) Is there a format to the \"randomStringA\" and \"randomStringB\" strings which we can embed into the regex? Right now the logic says to just match anything which isn\u0027t a slash, which feels overly permissive.",
+      "range": {
+        "startLine": 483,
+        "startChar": 18,
+        "endLine": 483,
+        "endChar": 19
+      },
+      "revId": "ff8ab1da559dfd40384a75b466d377679bae0145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
