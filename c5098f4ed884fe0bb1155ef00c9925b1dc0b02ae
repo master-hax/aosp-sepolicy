@@ -70,6 +70,30 @@
       "revId": "c5098f4ed884fe0bb1155ef00c9925b1dc0b02ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6a676da_fb8240d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1346941
+      },
+      "writtenOn": "2020-01-28T22:22:12Z",
+      "side": 1,
+      "message": "I agree, only one component should be responsible for creating these. It\u0027s a bit tricky cos system_server is the \u0027first\u0027 to know when a user is started and needs vold to do some more involved path setup for that user, maybe we can have a strict invariant that when a zygote app is forked its paths must have already been created by vold. Will discuss further here b/148480835",
+      "parentUuid": "127247f7_483cb0c8",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 41
+      },
+      "revId": "c5098f4ed884fe0bb1155ef00c9925b1dc0b02ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
