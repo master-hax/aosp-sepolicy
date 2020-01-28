@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bf32631_a4f0651a",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-28T17:59:06Z",
+      "side": 1,
+      "message": "This allows all SELinux domains (all processes) to access this property. At first glance this seems overly permissive. Can this be scoped down to only the processes which need access? This ensures that we\u0027re not unnecessarily exposing an unofficial \"API\" to processes which don\u0027t have a need for access.",
+      "range": {
+        "startLine": 52,
+        "startChar": 9,
+        "endLine": 52,
+        "endChar": 15
+      },
+      "revId": "bad920a95fb5d9095e540a97c1e005906e4a8d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7acf4ec_647baa1d",
+        "filename": "public/property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-28T17:59:06Z",
+      "side": 1,
+      "message": "Can you add some documentation describing what this property is and what it\u0027s used for?\n\n  # bq_config_prop is an integer property which allows configuring the depth of the \n  # video decoding pipeline. This property is used by A, B, C ....\n  system_restricted_prop(bq_config_prop)",
+      "revId": "bad920a95fb5d9095e540a97c1e005906e4a8d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
