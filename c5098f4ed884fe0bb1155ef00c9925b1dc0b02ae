@@ -22,6 +22,30 @@
       "revId": "c5098f4ed884fe0bb1155ef00c9925b1dc0b02ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daea5402_7d798081",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1346941
+      },
+      "writtenOn": "2020-01-28T21:01:00Z",
+      "side": 1,
+      "message": "You are right and thanks for the links. I\u0027ve updated my commit message to reflect what I meant. Which is, zygote forking an app for a user before vold has finished preparing the mounts/paths for that user.\n\nThat too is very unlikely in practice, but we do handle it for /mnt/user/\u003cuserid\u003e by creating the dir in zygote if it doesn\u0027t exist and I\u0027ll do same for /mnt/pass_through/\u003cuserid\u003e in a follow up cl",
+      "parentUuid": "697cb771_a69b28c2",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 41
+      },
+      "revId": "c5098f4ed884fe0bb1155ef00c9925b1dc0b02ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
