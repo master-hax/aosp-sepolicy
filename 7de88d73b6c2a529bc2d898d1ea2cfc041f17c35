@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dbcde37f_c87d577d",
+        "filename": "private/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1480715
+      },
+      "writtenOn": "2020-01-28T21:15:28Z",
+      "side": 1,
+      "message": "Yeah, we still need it. Just a bit background: We are doing this code path change because for an Incremental (instamatic) app installation, we need to first mount the Incremental File System on a directory under /data/incremental, then bind-mount this directory to the app\u0027s apk directory. As a result, the app\u0027s apk dir path will show up in the /proc/mounts file. Because we don\u0027t have a way to restrict the access to /proc/mounts, each app can view this file, see the apk dir paths and learn about what other apps have been installed on the device. \n\nWith the code path change, anyone will see /data/app/[randomStringA] in /proc/mount. Without [randomStringB] in the code path, anyone can try to poke each directory listed in /proc/mount with a certain package name, and check if /data/app/[randomStringA]/[packageName] exists. This still leaks the information about whether or not this certain package is installed . That\u0027s why we need a second level of randomized string.",
+      "parentUuid": "a37aad78_44798ddc",
+      "range": {
+        "startLine": 485,
+        "startChar": 41,
+        "endLine": 485,
+        "endChar": 57
+      },
+      "revId": "7de88d73b6c2a529bc2d898d1ea2cfc041f17c35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "687c05f0_8fe99cf5",
         "filename": "private/file_contexts",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2020-01-28T18:42:51Z",
       "side": 1,
       "message": "Per previous discussion, I would mildly prefer if we change this naming scheme to:\n\n  /data/app-v2/[^/]+/oat(/.*)?      u:object_r:dalvikcache_data_file:s0\n\n(or some other better name than \"app-v2\")\n\nto clearly distinguish between apps installed via the old scheme, vs apps installed with the new scheme.",
+      "revId": "7de88d73b6c2a529bc2d898d1ea2cfc041f17c35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a20d1d1b_da567913",
+        "filename": "private/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1480715
+      },
+      "writtenOn": "2020-01-28T21:15:28Z",
+      "side": 1,
+      "message": "I can see that with a new directory, apps installed with the old scheme and with the new scheme can be clearly distinguished. However, after discussing with Todd, we think that a new directory does not worth the effort, because eventually all the apps will be installed with the new scheme under /data/app. Only the apps that were installed before the OTA will be in the old code path scheme. And once these apps are upgraded, they will be in the new code paths.",
+      "parentUuid": "687c05f0_8fe99cf5",
       "revId": "7de88d73b6c2a529bc2d898d1ea2cfc041f17c35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
