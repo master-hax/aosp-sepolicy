@@ -46,6 +46,30 @@
       "revId": "c5098f4ed884fe0bb1155ef00c9925b1dc0b02ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "127247f7_483cb0c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-28T21:12:02Z",
+      "side": 1,
+      "message": "To avoid the race condition, perhaps zygote should unconditionally create these links, and not have vold / system_server responsible for calling into vold. That would be much simpler, probably faster, and avoid the race condition.\n\nPerhaps a future change?\n\nThe goal of the sepolicy review is not to only address security issues, but also to address architectural issues too.",
+      "parentUuid": "daea5402_7d798081",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 41
+      },
+      "revId": "c5098f4ed884fe0bb1155ef00c9925b1dc0b02ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
