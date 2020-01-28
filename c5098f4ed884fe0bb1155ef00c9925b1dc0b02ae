@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "697cb771_a69b28c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-01-28T20:21:17Z",
+      "side": 1,
+      "message": "vold is in init group \"core\" [1], whereas zygote is in init group \"main\". The \"core\" group always starts before the \"main\" group [3], so I\u0027m not sure how this race condition should occur.\n\nIf this is happening, it seems like a race condition that should be fixed.\n\n[1] https://android.googlesource.com/platform/system/vold/+/432ca5af06a540f627a3b82c870b9ec099f309b7/vold.rc#4\n[2] https://android.googlesource.com/platform/system/core/+/077839ab239f0aeae95e0b3814da70f6a0eb9699/rootdir/init.zygote64.rc#2\n[3] https://android.googlesource.com/platform/system/core/+/077839ab239f0aeae95e0b3814da70f6a0eb9699/rootdir/init.rc#887",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 41
+      },
+      "revId": "c5098f4ed884fe0bb1155ef00c9925b1dc0b02ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
