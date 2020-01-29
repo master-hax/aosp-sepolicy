@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2d341259_5f5f7e40",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1060234
+      },
+      "writtenOn": "2020-01-29T01:48:06Z",
+      "side": 1,
+      "message": "The property is used to configure an internal property of the bufferqueue, so anything that needs to use bufferqueue needs to be able to access this property. The library is used by the framework in many places, and it is also available to vendors. As far as I can tell, there aren\u0027t really any restrictions on where the bufferqueue library can run (even if not all processes are actually going to use it).\n\nAt the very least, I saw usage by the following contexts: system_server, surfaceflinger, bootanim, mediacodec, zygote, drmserver, mediaextractor, mediasxerver, cameraserver, mediaswcodec, system_app, platform_app, priv_app, untrusted_app. I doubt this is an exhaustive list, though.",
+      "parentUuid": "4bf32631_a4f0651a",
+      "range": {
+        "startLine": 52,
+        "startChar": 9,
+        "endLine": 52,
+        "endChar": 15
+      },
+      "revId": "bad920a95fb5d9095e540a97c1e005906e4a8d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a7acf4ec_647baa1d",
         "filename": "public/property.te",
         "patchSetId": 2
@@ -39,6 +63,24 @@
       "revId": "bad920a95fb5d9095e540a97c1e005906e4a8d3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a85816ec_009df67e",
+        "filename": "public/property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1060234
+      },
+      "writtenOn": "2020-01-29T01:48:06Z",
+      "side": 1,
+      "message": "I expanded on the description in private/property_contexts, since that seemed to be where other properties were described. Let me know if I should add a description here as well.",
+      "parentUuid": "a7acf4ec_647baa1d",
+      "revId": "bad920a95fb5d9095e540a97c1e005906e4a8d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
