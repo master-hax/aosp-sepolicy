@@ -57,7 +57,6 @@ compatible_property_only(`
     system_internal_prop(time_prop)
     system_internal_prop(traced_enabled_prop)
     system_internal_prop(traced_lazy_prop)
-    system_internal_prop(virtual_ab_prop)
 ')
 
 # Properties which can't be written outside system
@@ -158,6 +157,9 @@ system_public_prop(wifi_prop)
 # Properties used in default HAL implementations
 vendor_internal_prop(rebootescrow_hal_prop)
 
+# Properties which can't be written outside /vendor.
+vendor_restricted_prop(virtual_ab_prop)
+
 # Properties which are public for devices launching with Android O or earlier
 # This should not be used for any new properties.
 not_compatible_property(`
@@ -196,7 +198,6 @@ not_compatible_property(`
     system_public_prop(time_prop)
     system_public_prop(traced_enabled_prop)
     system_public_prop(traced_lazy_prop)
-    system_public_prop(virtual_ab_prop)
 
     system_public_prop(config_prop)
     system_public_prop(cppreopt_prop)
