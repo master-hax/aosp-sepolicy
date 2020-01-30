@@ -92,14 +92,6 @@ $(warning Be careful when using the SELINUX_IGNORE_NEVERALLOWS flag. \
 NEVERALLOW_ARG := -N
 endif
 
-# BOARD_SEPOLICY_DIRS was used for vendor/odm sepolicy customization before.
-# It has been replaced by BOARD_VENDOR_SEPOLICY_DIRS (mandatory) and
-# BOARD_ODM_SEPOLICY_DIRS (optional). BOARD_SEPOLICY_DIRS is still allowed for
-# backward compatibility, which will be merged into BOARD_VENDOR_SEPOLICY_DIRS.
-ifdef BOARD_SEPOLICY_DIRS
-BOARD_VENDOR_SEPOLICY_DIRS += $(BOARD_SEPOLICY_DIRS)
-endif
-
 ifdef BOARD_ODM_SEPOLICY_DIRS
 ifneq ($(PRODUCT_SEPOLICY_SPLIT),true)
 $(error PRODUCT_SEPOLICY_SPLIT needs to be true when using BOARD_ODM_SEPOLICY_DIRS)
