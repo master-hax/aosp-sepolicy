@@ -82,6 +82,7 @@ allow priv_app fuse_device:chr_file { read write };
 # /proc access
 allow priv_app {
   proc_vmstat
+  proc_pipe_conf
 }:file r_file_perms;
 
 allow priv_app sysfs_type:dir search;
