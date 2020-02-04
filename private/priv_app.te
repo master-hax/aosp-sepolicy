@@ -123,6 +123,10 @@ can_profile_perf(priv_app)
 # Allow priv_apps to check whether Dynamic System Update is enabled
 get_prop(priv_app, dynamic_system_prop)
 
+# Allow priv_apps (e.g., Phonesky, launcher) to read files on incremental file system
+allow priv_app incfs:dir r_dir_perms;
+allow priv_app incfs:file r_file_perms;
+
 # suppress denials for non-API accesses.
 dontaudit priv_app exec_type:file getattr;
 dontaudit priv_app device:dir read;
