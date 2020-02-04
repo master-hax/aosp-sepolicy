@@ -69,6 +69,10 @@ allow system_app anr_data_file:file create_file_perms;
 # Settings need to access app name and icon from asec
 allow system_app asec_apk_file:file r_file_perms;
 
+# Allow system_app (adb data loader) to read and write files on incremental file system
+allow system_app incfs:file r_file_perms;
+allow system_app incfs:dir search;
+
 # Allow system apps (like Settings) to interact with statsd
 binder_call(system_app, statsd)
 

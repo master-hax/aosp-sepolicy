@@ -193,6 +193,15 @@ allow system_server webview_zygote:unix_stream_socket { read write connectto set
 # Communicate over a socket created by app_zygote.
 allow system_server app_zygote:unix_stream_socket { read write connectto setopt };
 
+# Allow to read and write APK files on incremental file system
+allow system_server incfs:dir create_dir_perms;
+allow system_server incfs:file { r_file_perms link setattr };
+
+# Allow to send ioctl to incremental file system
+allowxperm system_server incfs:file ioctl {
+  INCFS_IOCTL_PROCESS_INSTRUCTION
+};
+
 # Perform Binder IPC.
 binder_use(system_server)
 binder_call(system_server, appdomain)
