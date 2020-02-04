@@ -16,4 +16,7 @@ allow linkerconfig devpts:chr_file { read write };
 # Allow linkerconfig to scan for apex modules
 allow linkerconfig apex_mnt_dir:dir r_dir_perms;
 
+# Do not audit linkerconfig in dumpstate
+dontaudit dumpstate linkerconfig_file:dir getattr;
+
 neverallow { domain -init -linkerconfig } linkerconfig_exec:file no_x_file_perms;
