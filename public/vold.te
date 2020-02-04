@@ -52,6 +52,11 @@ allowxperm vold data_file_type:dir ioctl {
   FS_IOC_REMOVE_ENCRYPTION_KEY
 };
 
+# Allow to mount incremental file system and read files in it
+allow vold incfs:file { getattr open read };
+allow vold incfs:filesystem { mount unmount };
+allow vold incfs:dir search;
+
 # Only vold and init should ever set file-based encryption policies.
 neverallowxperm {
   domain

@@ -172,6 +172,12 @@ allow installd preloads_data_file:dir { r_dir_perms write remove_name rmdir };
 allow installd preloads_media_file:file { r_file_perms unlink };
 allow installd preloads_media_file:dir { r_dir_perms write remove_name rmdir };
 
+# Allow to create files and dirs on incremental file system during app installation
+allow installd incfs:dir { add_name create setattr write };
+allow installd incfs:file { getattr open read };
+# Allow to prepare oat dirs on incremental file system after app installation
+allow installd incfs:dir search;
+
 ###
 ### Neverallow rules
 ###
