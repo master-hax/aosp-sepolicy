@@ -118,6 +118,13 @@ allow vold mnt_expand_file:dir { create_dir_perms mounton };
 allow vold apk_data_file:dir { create getattr setattr };
 allow vold shell_data_file:dir { create getattr setattr };
 
+# Allow to mount incremental file system on /data/incremental and create files
+allow vold apk_data_file:dir { mounton open read write search };
+# Allow to create files in /data/incremental
+allow vold apk_data_file:file { open read write };
+# Allow to bind-mount incremental file system on /data/app/vmdl*.tmp and read files
+allow vold apk_tmp_file:dir { getattr mounton open read };
+
 allow vold tmpfs:filesystem { mount unmount };
 allow vold tmpfs:dir create_dir_perms;
 allow vold tmpfs:dir mounton;
