@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fecf756b_73545ca2",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-02-05T21:28:30Z",
+      "side": 1,
+      "message": "Currently, this attribute is assigned to statsd. Please see https://android.googlesource.com/platform/system/sepolicy/+/df701f3e45aa0614d15a847012e21dbab89ebe4d/private/statsd.te#2 where this attribute is defined, and https://android.googlesource.com/platform/system/sepolicy/+/df701f3e45aa0614d15a847012e21dbab89ebe4d/public/stats_service_server.te where this attribute is used.\n\nTo prevent race conditions and avoid confusion where multiple processes compete to add the same service, the \"add_hwservice\" macro is designed to enforce the architectural constraint that only one process can add a service. See https://android.googlesource.com/platform/system/sepolicy/+/df701f3e45aa0614d15a847012e21dbab89ebe4d/public/te_macros#624 . However, the use of the attribute here inhibits the check and allows mutiple processes to add the same service.\n\nIf system_server is the intended process for adding this service, then the attribute assignment in statsd.te should be deleted.",
+      "revId": "e98e76cbdb015d111d20a6811d8d9934ae420846",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
