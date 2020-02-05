@@ -6,3 +6,7 @@ domain_auto_trans(kernel, init_exec, init)
 # /postinstall, as it uses apexd logic to mount APEX packages in /postinstall/apex.
 allow kernel otapreopt_chroot:fd use;
 allow kernel postinstall_file:file read;
+
+# Allow the kernel to mount ota image files as loopback devices in /data/gsi/.
+allow kernel gsi_data_file:file read;
+allow kernel ota_image_data_file:file read;
