@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0766e45_c24a289e",
+        "filename": "private/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-02-05T20:23:40Z",
+      "side": 1,
+      "message": "why is this a kernel module instead of compiled into the kernel? Presumably it\u0027s going to be loaded 100% of the time.",
+      "revId": "41956cbe6b64fb96232a75557406c4956a222631",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f01e7377_7bc26e6c",
+        "filename": "public/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-02-05T20:23:40Z",
+      "side": 1,
+      "message": "Why is this kernel module coming from the /vendor partition? It seems like a kernel module we\u0027d be providing on all builds, not vendor specific.\n\nIf this really needs to come from the /vendor partition, the treble-clean approach would be to load this from a vendor *.rc file, by using the insmod *.rc builtin:\n\n  insmod /vendor/lib/modules/incrementalfs.ko\n\nThis avoids having core system components with vendor dependencies. Vold depending on a loadable kernel module seems especially problematic.",
+      "revId": "41956cbe6b64fb96232a75557406c4956a222631",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11189312_770478a4",
+        "filename": "public/vold.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-02-05T20:23:40Z",
+      "side": 1,
+      "message": "I can\u0027t find the CL which modifies vold to load this kernel module. Can you please send me a link to the CL?",
+      "revId": "41956cbe6b64fb96232a75557406c4956a222631",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
