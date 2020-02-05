@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f3c46cb1_f2b72ec8",
+        "filename": "private/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1480715
+      },
+      "writtenOn": "2020-02-05T21:03:54Z",
+      "side": 1,
+      "message": "Yeah, it is not compiled into the kernel. AFAIK it has to do with how Pixel and other OEMs adopt new modules. I think Paul/Todd can explain the reason behind the decision.",
+      "parentUuid": "c0766e45_c24a289e",
+      "revId": "41956cbe6b64fb96232a75557406c4956a222631",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f01e7377_7bc26e6c",
         "filename": "public/domain.te",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2020-02-05T20:23:40Z",
       "side": 1,
       "message": "Why is this kernel module coming from the /vendor partition? It seems like a kernel module we\u0027d be providing on all builds, not vendor specific.\n\nIf this really needs to come from the /vendor partition, the treble-clean approach would be to load this from a vendor *.rc file, by using the insmod *.rc builtin:\n\n  insmod /vendor/lib/modules/incrementalfs.ko\n\nThis avoids having core system components with vendor dependencies. Vold depending on a loadable kernel module seems especially problematic.",
+      "revId": "41956cbe6b64fb96232a75557406c4956a222631",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab0c6f8d_283efc8f",
+        "filename": "public/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1480715
+      },
+      "writtenOn": "2020-02-05T21:03:54Z",
+      "side": 1,
+      "message": "I think this is because of the requirement from the Pixel team, that we should not load/enable this module unless users explicitly wants to use our feature. Thus we need a dynamic way to load/unload it. \n\nPaul, can you explain why it is vendor specific?",
+      "parentUuid": "f01e7377_7bc26e6c",
       "revId": "41956cbe6b64fb96232a75557406c4956a222631",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -50,6 +86,24 @@
       "revId": "41956cbe6b64fb96232a75557406c4956a222631",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61843530_99d025ba",
+        "filename": "public/vold.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1480715
+      },
+      "writtenOn": "2020-02-05T21:03:54Z",
+      "side": 1,
+      "message": "Please see ag/10183839 and ag/9813189 (enabledAndReady() in incfs.cpp)",
+      "parentUuid": "11189312_770478a4",
+      "revId": "41956cbe6b64fb96232a75557406c4956a222631",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
