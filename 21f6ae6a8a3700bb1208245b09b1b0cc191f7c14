@@ -22,6 +22,30 @@
       "revId": "21f6ae6a8a3700bb1208245b09b1b0cc191f7c14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0884d05_478eaae7",
+        "filename": "private/traced.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2020-02-06T14:26:56Z",
+      "side": 1,
+      "message": "Please see aosp/1217310 (used in the followup patches), in particular the changes to src/tracing/ipc/posix_shared_memory.cc. The expected set of seals is \"F_SEAL_SHRINK | F_SEAL_GROW | F_SEAL_SEAL\".\n\nNote this is tried to memfd_create(), and there\u0027s a kernel version check that only enforces the seals on kernels with the syscall (3.17+), with a more permissive fallback. But that should always hold on master.\nI\u0027ll let Eric (the author of the changes) comment on whether there\u0027s anything else worth highlighting.",
+      "parentUuid": "47bb960e_e06a7ed8",
+      "range": {
+        "startLine": 43,
+        "startChar": 27,
+        "endLine": 43,
+        "endChar": 33
+      },
+      "revId": "21f6ae6a8a3700bb1208245b09b1b0cc191f7c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
