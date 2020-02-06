@@ -2,3 +2,8 @@
 binder_call(hal_atrace_client, hal_atrace_server)
 
 hal_attribute_hwservice(hal_atrace, hal_atrace_hwservice)
+
+add_service(hal_atrace_server, hal_atrace_service)
+binder_call(hal_atrace_server, servicemanager)
+
+allow hal_atrace_client hal_atrace_service:service_manager find;
