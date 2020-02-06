@@ -46,6 +46,30 @@
       "revId": "21f6ae6a8a3700bb1208245b09b1b0cc191f7c14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f72bbeb_af7b3633",
+        "filename": "private/traced.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1260559
+      },
+      "writtenOn": "2020-02-06T15:38:46Z",
+      "side": 1,
+      "message": "Ryan pretty much covered it 😊\n\nRegarding the note about kernels below 3.17: This doesn\u0027t really affect android - it\u0027s mainly for Chrome/ChromeOS. On these systems, the service wouldn\u0027t be able to enforce seals on a service-provided shared buffer either (since the kernel doesn\u0027t support it), and thus we also accept unsealed buffers from the producer.\n\nThe sealing option is enabled in [1], where we read the FD provided by the producer.\n\n[1] https://source.corp.google.com/android/external/perfetto/src/tracing/ipc/service/producer_ipc_service.cc;l\u003d104?q\u003drequire_seals_if_supported%3D",
+      "parentUuid": "d0884d05_478eaae7",
+      "range": {
+        "startLine": 43,
+        "startChar": 27,
+        "endLine": 43,
+        "endChar": 33
+      },
+      "revId": "21f6ae6a8a3700bb1208245b09b1b0cc191f7c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
