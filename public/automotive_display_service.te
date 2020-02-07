@@ -1,0 +1,5 @@
+# Display proxy service for Automotive
+type automotive_display_service, domain;
+type automotive_display_service_exec, system_file_type, exec_type, file_type;
+
+add_hwservice(automotive_display_service, fwk_automotive_display_hwservice);
