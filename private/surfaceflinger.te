@@ -121,6 +121,9 @@ allow surfaceflinger statsmanager_service:service_manager find;
 # TODO(146461633): remove this once native pullers talk to StatsManagerService
 binder_call(surfaceflinger, statsd);
 
+# Allow pushing jank event atoms to statsd
+unix_socket_send(surfaceflinger, statsdw, statsd)
+
 ###
 ### Neverallow rules
 ###
