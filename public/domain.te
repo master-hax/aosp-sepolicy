@@ -105,6 +105,7 @@ get_prop(domain, exported_system_prop)
 get_prop(domain, exported_vold_prop)
 get_prop(domain, exported2_default_prop)
 get_prop(domain, logd_prop)
+get_prop(domain, socket_hook_prop)
 get_prop(domain, vndk_prop)
 
 # Binder cache properties are world-readable
@@ -1403,3 +1404,6 @@ neverallow {
   -untrusted_app_25
   -untrusted_app_27
 } ashmem_device:chr_file open;
+
+# Do not allow any domain other than init or system server to set the property
+neverallow { domain -init -system_server } socket_hook_prop:property_service set;
