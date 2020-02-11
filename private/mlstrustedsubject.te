@@ -1,0 +1,14 @@
+# MLS override can't be used to access private app data.
+neverallow {
+  mlstrustedsubject
+  -installd
+  -iorap_prefetcherd
+  -iorap_inode2filename
+} { app_data_file privapp_data_file }:file ~{ read write map getattr ioctl lock append };
+
+neverallow {
+  mlstrustedsubject
+  -installd
+  -iorap_prefetcherd
+  -iorap_inode2filename
+} { app_data_file privapp_data_file }:dir ~{ read getattr search };
