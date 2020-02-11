@@ -15,6 +15,7 @@ recovery_only(`
   domain_trans(init, rootfs, charger)
   domain_trans(init, rootfs, fastbootd)
   domain_trans(init, rootfs, recovery)
+  domain_trans(init, rootfs, linkerconfig)
 ')
 domain_trans(init, shell_exec, shell)
 domain_trans(init, init_exec, ueventd)
@@ -30,5 +31,30 @@ userdebug_or_eng(`
   allow init su:process { siginh rlimitinh };
 ')
 
+# Allow init to figure out name of dm-device from it's /dev/block/dm-XX path.
+# This is useful in case of remounting ext4 userdata into checkpointing mode,
+# since it potentially requires tearing down dm-devices (e.g. dm-bow, dm-crypto)
+# that userdata is mounted onto.
+allow init sysfs_dm:file read;
+
 # Allow the BoringSSL self test to request a reboot upon failure
 set_prop(init, powerctl_prop)
+
+# Only init is allowed to set userspace reboot related properties.
+set_prop(init, userspace_reboot_exported_prop)
+neverallow { domain -init } userspace_reboot_exported_prop:property_service set;
+
+# Second-stage init performs a test for whether the kernel has SELinux hooks
+# for the perf_event_open() syscall. This is done by testing for the syscall
+# outcomes corresponding to this policy.
+# TODO(b/137092007): this can be removed once the platform stops supporting
+# kernels that precede the perf_event_open hooks (Android common kernels 4.4
+# and 4.9).
+allow init self:perf_event { open cpu };
+neverallow init self:perf_event { kernel tracepoint read write };
+dontaudit init self:perf_event { kernel tracepoint read write };
+
+# Only init is allowed to set the sysprop indicating whether perf_event_open()
+# SELinux hooks were detected.
+set_prop(init, init_perf_lsm_hooks_prop)
+neverallow { domain -init } init_perf_lsm_hooks_prop:property_service set;

@@ -85,7 +85,7 @@ recovery_only(`
   allow recovery device:dir r_dir_perms;
   allow recovery block_device:dir r_dir_perms;
   allow recovery dev_type:blk_file rw_file_perms;
-  allowxperm recovery { userdata_block_device metadata_block_device }:blk_file ioctl BLKPBSZGET;
+  allowxperm recovery { userdata_block_device metadata_block_device cache_block_device }:blk_file ioctl BLKPBSZGET;
 
   # GUI
   allow recovery graphics_device:chr_file rw_file_perms;
@@ -142,6 +142,12 @@ recovery_only(`
   # These are needed to update dynamic partitions in recovery.
   r_dir_file(recovery, sysfs_dm)
   allowxperm recovery super_block_device_type:blk_file ioctl { BLKIOMIN BLKALIGNOFF };
+
+  # Allow using libfiemap/gsid directly (no binder in recovery).
+  set_prop(recovery, gsid_prop)
+  allow recovery gsi_metadata_file:dir search;
+  allow recovery ota_metadata_file:dir rw_dir_perms;
+  allow recovery ota_metadata_file:file create_file_perms;
 ')
 
 ###

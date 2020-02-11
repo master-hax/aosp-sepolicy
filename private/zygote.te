@@ -50,6 +50,39 @@ allow zygote resourcecache_data_file:file create_file_perms;
 # is ensured by fsverity protection (checked in art_apex_boot_integrity).
 allow zygote dalvikcache_data_file:file execute;
 
+# Bind mount on /data/data and mounted volumes
+allow zygote { system_data_file mnt_expand_file }:dir mounton;
+
+# Relabel /data/user /data/user_de and /data/data
+allow zygote tmpfs:{ dir lnk_file } relabelfrom;
+allow zygote system_data_file:{ dir lnk_file } relabelto;
+
+# Zygote opens /mnt/expand to mount CE DE storage on each vol
+allow zygote mnt_expand_file:dir { open read search relabelto };
+
+# Bind mount subdirectories on /data/misc/profiles/cur
+allow zygote { user_profile_data_file }:dir { mounton search };
+
+# Create and bind dirs on /data/data
+allow zygote tmpfs:dir { create_dir_perms mounton };
+
+# Create symlink for /data/user/0
+allow zygote tmpfs:lnk_file create;
+
+allow zygote mirror_data_file:dir r_dir_perms;
+
+# Get inode of data directories
+allow zygote {
+  system_data_file
+  radio_data_file
+  app_data_file
+  shell_data_file
+  bluetooth_data_file
+  privapp_data_file
+  nfc_data_file
+  mnt_expand_file
+}:dir getattr;
+
 # Allow zygote to create JIT memory.
 allow zygote self:process execmem;
 allow zygote zygote_tmpfs:file execute;
@@ -96,18 +129,16 @@ allow zygote sdcardfs:filesystem { unmount };
 allow zygote mnt_user_file:dir { create_dir_perms mounton };
 allow zygote mnt_user_file:lnk_file create_file_perms;
 allow zygote mnt_user_file:file create_file_perms;
+
+# Allow mounting user-specific storage source if started before vold.
+allow zygote mnt_pass_through_file:dir { create_dir_perms mounton };
+
 # Allowed to mount user-specific storage into place
 allow zygote storage_file:dir { search mounton };
 
 # Allow mounting and creating files, dirs on sdcardfs.
-# TODO: reduce this back to only sdcardfs once b/123533205 is root-caused
-# (Technically "sdcardfs" and "media_rw_data_file" are equivalent, since
-# sdcardfs simply wraps files stored under /data/media.)
-allow zygote { sdcard_type media_rw_data_file }:dir { create_dir_perms mounton };
-allow zygote { sdcard_type media_rw_data_file }:file { create_file_perms };
-
-# Allow zygote to expand app files while preloading libraries
-allow zygote mnt_expand_file:dir getattr;
+allow zygote { sdcard_type }:dir { create_dir_perms mounton };
+allow zygote { sdcard_type }:file { create_file_perms };
 
 # Handle --invoke-with command when launching Zygote with a wrapper command.
 allow zygote zygote_exec:file rx_file_perms;
@@ -143,11 +174,18 @@ get_prop(zygote, exported_overlay_prop)
 get_prop(zygote, device_config_runtime_native_prop)
 get_prop(zygote, device_config_runtime_native_boot_prop)
 
+# Allow the zygote to access window manager native boot feature flags
+# to initialize WindowManager static properties.
+get_prop(zygote, device_config_window_manager_native_boot_prop)
+
 # ingore spurious denials
 dontaudit zygote self:global_capability_class_set sys_resource;
 
 # Allow zygote to use ashmem fds from system_server.
 allow zygote system_server:fd use;
+
+# Send unsolicited message to system_server
+unix_socket_send(zygote, system_unsolzygote, system_server)
 
 ###
 ### neverallow rules
@@ -180,3 +218,9 @@ neverallow zygote {
   bluetooth_prop
   exported_bluetooth_prop
 }:file create_file_perms;
+
+# Zygote should not be able to access app private data.
+neverallow zygote {
+  privapp_data_file
+  app_data_file
+}:dir ~getattr;

@@ -145,6 +145,16 @@ sepolicy_build_files := security_classes \
                         genfs_contexts \
                         port_contexts
 
+# Security classes and permissions defined outside of system/sepolicy.
+security_class_extension_files := $(call build_policy, security_classes access_vectors, \
+  $(SYSTEM_EXT_PUBLIC_POLICY) $(SYSTEM_EXT_PRIVATE_POLICY) \
+  $(PRODUCT_PUBLIC_POLICY) $(PRODUCT_PRIVATE_POLICY) \
+  $(BOARD_VENDOR_SEPOLICY_DIRS) $(BOARD_ODM_SEPOLICY_DIRS))
+
+ifneq (,$(strip $(security_class_extension_files)))
+  $(error Only platform SELinux policy may define classes and permissions: $(strip $(security_class_extension_files)))
+endif
+
 ifdef HAS_SYSTEM_EXT_SEPOLICY_DIR
   # Checks if there are public system_ext policy files.
   policy_files := $(call build_policy, $(sepolicy_build_files), $(SYSTEM_EXT_PUBLIC_POLICY))
@@ -192,6 +202,9 @@ with_native_coverage := false
 ifeq ($(NATIVE_COVERAGE),true)
   with_native_coverage := true
 endif
+ifeq ($(CLANG_COVERAGE),true)
+  with_native_coverage := true
+endif
 
 treble_sysprop_neverallow := true
 ifeq ($(BUILD_BROKEN_TREBLE_SYSPROP_NEVERALLOW),true)
@@ -216,12 +229,12 @@ endif
 # Convert a file_context file for a non-flattened APEX into a file for
 # flattened APEX. /system/apex/<apex_name> path is prepended to the original paths
 # $(1): path to the input file_contexts file for non-flattened APEX
-# $(2): name of the APEX
-# $(3): path to the generated file_contexs file for flattened APEX
+# $(2): path to the flattened APEX
+# $(3): path to the generated file_contexts file for flattened APEX
 # $(4): variable where $(3) is added to
 define build_flattened_apex_file_contexts
 $(4) += $(3)
-$(3): PRIVATE_APEX_PATH := /system/apex/$(subst .,\\.,$(2))
+$(3): PRIVATE_APEX_PATH := $(subst .,\\.,$(2))
 $(3): $(1)
 	$(hide) awk '/object_r/{printf("$$(PRIVATE_APEX_PATH)%s\n",$$$$0)}' $$< > $$@
 endef
@@ -1406,15 +1419,16 @@ endif
 ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
   local_fc_files += $(wildcard $(addsuffix /file_contexts_overlayfs, $(PLAT_PRIVATE_POLICY)))
 endif
-ifeq ($(TARGET_FLATTEN_APEX),true)
-  $(foreach _pair,$(APEX_FILE_CONTEXTS_INFOS),\
-    $(eval _apex_name := $(call word-colon,1,$(_pair)))\
-    $(eval _fc_name := $(call word-colon,2,$(_pair)))\
-    $(eval _input := $(LOCAL_PATH)/apex/$(_fc_name)-file_contexts)\
-    $(eval _output := $(intermediates)/$(_apex_name)-flattened)\
-    $(eval $(call build_flattened_apex_file_contexts,$(_input),$(_apex_name),$(_output),local_fc_files))\
-   )
-endif
+
+# Even if TARGET_FLATTEN_APEX is not turned on, "flattened" APEXes are installed
+$(foreach _tuple,$(APEX_FILE_CONTEXTS_INFOS),\
+  $(eval _apex_name := $(call word-colon,1,$(_tuple)))\
+  $(eval _apex_path := $(call word-colon,2,$(_tuple)))\
+  $(eval _fc_path := $(call word-colon,3,$(_tuple)))\
+  $(eval _input := $(_fc_path))\
+  $(eval _output := $(intermediates)/$(_apex_name)-flattened)\
+  $(eval $(call build_flattened_apex_file_contexts,$(_input),$(_apex_path),$(_output),local_fc_files))\
+  )
 
 file_contexts.local.tmp := $(intermediates)/file_contexts.local.tmp
 $(file_contexts.local.tmp): PRIVATE_FC_FILES := $(local_fc_files)

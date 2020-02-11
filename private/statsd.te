@@ -1,9 +1,6 @@
 typeattribute statsd coredomain;
-typeattribute statsd stats_service_server;
 
 init_daemon_domain(statsd)
-
-binder_call(statsd, statscompanion_service)
 
 # Allow to exec the perfetto cmdline client and pass it the trace config on
 # stdint through a pipe. It allows statsd to  capture traces and hand them
@@ -21,3 +18,6 @@ allow statsd incidentd:fifo_file write;
 
 # Allow StatsCompanionService to pipe data to statsd.
 allow statsd system_server:fifo_file { read getattr };
+
+# Allow statsd to retrieve SF statistics over binder
+binder_call(statsd, surfaceflinger);

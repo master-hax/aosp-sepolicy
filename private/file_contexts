@@ -24,6 +24,7 @@
 /lost\+found        u:object_r:rootfs:s0
 /acct               u:object_r:cgroup:s0
 /config             u:object_r:rootfs:s0
+/data_mirror        u:object_r:mirror_data_file:s0
 /debug_ramdisk      u:object_r:tmpfs:s0
 /mnt                u:object_r:tmpfs:s0
 /postinstall        u:object_r:postinstall_mnt_dir:s0
@@ -101,7 +102,6 @@
 /dev/iio:device[0-9]+   u:object_r:iio_device:s0
 /dev/ion		u:object_r:ion_device:s0
 /dev/keychord   u:object_r:keychord_device:s0
-/dev/linkerconfig(/.*)? u:object_r:linkerconfig_file:s0
 /dev/loop-control	u:object_r:loop_control_device:s0
 /dev/modem.*		u:object_r:radio_device:s0
 /dev/mtp_usb		u:object_r:mtp_device:s0
@@ -150,8 +150,9 @@
 /dev/socket/tombstoned_crash u:object_r:tombstoned_crash_socket:s0
 /dev/socket/tombstoned_java_trace u:object_r:tombstoned_java_trace_socket:s0
 /dev/socket/tombstoned_intercept u:object_r:tombstoned_intercept_socket:s0
-/dev/socket/traced_producer	u:object_r:traced_producer_socket:s0
 /dev/socket/traced_consumer	u:object_r:traced_consumer_socket:s0
+/dev/socket/traced_perf	u:object_r:traced_perf_socket:s0
+/dev/socket/traced_producer	u:object_r:traced_producer_socket:s0
 /dev/socket/heapprofd	u:object_r:heapprofd_socket:s0
 /dev/socket/uncrypt	u:object_r:uncrypt_socket:s0
 /dev/socket/wpa_eth[0-9] u:object_r:wpa_socket:s0
@@ -164,6 +165,8 @@
 /dev/tty		u:object_r:owntty_device:s0
 /dev/tty[0-9]*		u:object_r:tty_device:s0
 /dev/ttyS[0-9]*		u:object_r:serial_device:s0
+/dev/ttyUSB[0-9]*	u:object_r:usb_serial_device:s0
+/dev/ttyACM[0-9]*	u:object_r:usb_serial_device:s0
 /dev/tun		u:object_r:tun_device:s0
 /dev/uhid		u:object_r:uhid_device:s0
 /dev/uinput		u:object_r:uhid_device:s0
@@ -178,6 +181,10 @@
 /dev/zero		u:object_r:zero_device:s0
 /dev/__properties__ u:object_r:properties_device:s0
 /dev/__properties__/property_info   u:object_r:property_info:s0
+#############################
+# Linker configuration
+#
+/linkerconfig(/.*)?          u:object_r:linkerconfig_file:s0
 #############################
 # System files
 #
@@ -239,6 +246,7 @@
 /system/bin/cameraserver	u:object_r:cameraserver_exec:s0
 /system/bin/mediaextractor	u:object_r:mediaextractor_exec:s0
 /system/bin/mediaswcodec	u:object_r:mediaswcodec_exec:s0
+/system/bin/mediatranscoding	u:object_r:mediatranscoding_exec:s0
 /system/bin/mdnsd	u:object_r:mdnsd_exec:s0
 /system/bin/installd	u:object_r:installd_exec:s0
 /system/bin/otapreopt_chroot   u:object_r:otapreopt_chroot_exec:s0
@@ -275,6 +283,7 @@
 /system/bin/rss_hwm_reset	u:object_r:rss_hwm_reset_exec:s0
 /system/bin/perfetto        u:object_r:perfetto_exec:s0
 /system/bin/traced        u:object_r:traced_exec:s0
+/system/bin/traced_perf        u:object_r:traced_perf_exec:s0
 /system/bin/traced_probes        u:object_r:traced_probes_exec:s0
 /system/bin/heapprofd        u:object_r:heapprofd_exec:s0
 /system/bin/uncrypt     u:object_r:uncrypt_exec:s0
@@ -289,6 +298,7 @@
 /system/bin/viewcompiler     u:object_r:viewcompiler_exec:s0
 /system/bin/profman(d)?     u:object_r:profman_exec:s0
 /system/bin/iorapd          u:object_r:iorapd_exec:s0
+/system/bin/iorap\.prefetcherd u:object_r:iorap_prefetcherd_exec:s0
 /system/bin/sgdisk      u:object_r:sgdisk_exec:s0
 /system/bin/blkid       u:object_r:blkid_exec:s0
 /system/bin/tzdatacheck u:object_r:tzdatacheck_exec:s0
@@ -330,9 +340,11 @@
 /system/bin/watchdogd            u:object_r:watchdogd_exec:s0
 /system/bin/apexd                u:object_r:apexd_exec:s0
 /system/bin/gsid                 u:object_r:gsid_exec:s0
+/system/bin/simpleperf           u:object_r:simpleperf_exec:s0
 /system/bin/simpleperf_app_runner    u:object_r:simpleperf_app_runner_exec:s0
 /system/bin/notify_traceur\.sh       u:object_r:notify_traceur_exec:s0
 /system/bin/migrate_legacy_obb_data\.sh u:object_r:migrate_legacy_obb_data_exec:s0
+/system/bin/android\.frameworks\.automotive\.display@1\.0-service u:object_r:automotive_display_exec:s0
 
 #############################
 # Vendor files
@@ -360,6 +372,7 @@
 /(vendor|system/vendor)/apex(/[^/]+){0,2}                      u:object_r:vendor_apex_file:s0
 /(vendor|system/vendor)/bin/misc_writer                        u:object_r:vendor_misc_writer_exec:s0
 /(vendor|system/vendor)/bin/boringssl_self_test(32|64)         u:object_r:vendor_boringssl_self_test_exec:s0
+(/vendor|system/vendor)/lib(64)?/modules/incrementalfs\.ko     u:object_r:vendor_incremental_module:s0
 
 # HAL location
 /(vendor|system/vendor)/lib(64)?/hw            u:object_r:vendor_hal_file:s0
@@ -434,6 +447,8 @@
 /(system_ext|system/system_ext)/etc/selinux/system_ext_service_contexts     u:object_r:service_contexts_file:s0
 /(system_ext|system/system_ext)/etc/selinux/system_ext_mac_permissions\.xml u:object_r:mac_perms_file:s0
 
+/(system_ext|system/system_ext)/bin/aidl_lazy_test_server   u:object_r:aidl_lazy_test_server_exec:s0
+
 #############################
 # Vendor files from /(product|system/product)/vendor_overlay
 #
@@ -455,6 +470,7 @@
 /data/backup(/.*)?		u:object_r:backup_data_file:s0
 /data/secure/backup(/.*)?	u:object_r:backup_data_file:s0
 /data/system/ndebugsocket	u:object_r:system_ndebug_socket:s0
+/data/system/unsolzygotesocket  u:object_r:system_unsolzygote_socket:s0
 /data/drm(/.*)?		u:object_r:drm_data_file:s0
 /data/resource-cache(/.*)? u:object_r:resourcecache_data_file:s0
 /data/dalvik-cache(/.*)? u:object_r:dalvikcache_data_file:s0
@@ -466,7 +482,10 @@
 /data/apex/active/(.*)?		u:object_r:staging_data_file:s0
 /data/apex/backup/(.*)?		u:object_r:staging_data_file:s0
 /data/app(/.*)?                       u:object_r:apk_data_file:s0
+# Traditional /data/app/[packageName]-[randomString]/base.apk location
 /data/app/[^/]+/oat(/.*)?                u:object_r:dalvikcache_data_file:s0
+# /data/app/[randomStringA]/[packageName]-[randomStringB]/base.apk layout
+/data/app/[^/]+/[^/]+/oat(/.*)?                u:object_r:dalvikcache_data_file:s0
 /data/app/vmdl[^/]+\.tmp(/.*)?           u:object_r:apk_tmp_file:s0
 /data/app/vmdl[^/]+\.tmp/oat(/.*)?           u:object_r:dalvikcache_data_file:s0
 /data/app-private(/.*)?               u:object_r:apk_private_data_file:s0
@@ -493,6 +512,9 @@
 
 # Misc data
 /data/misc/adb(/.*)?            u:object_r:adb_keys_file:s0
+/data/misc/apexdata(/.*)?       u:object_r:apex_module_data_file:s0
+/data/misc/apexdata/com.android.permission(/.*)?    u:object_r:apex_permission_data_file:s0
+/data/misc/apexrollback(/.*)?   u:object_r:apex_rollback_data_file:s0
 /data/misc/apns(/.*)?           u:object_r:radio_data_file:s0
 /data/misc/audio(/.*)?          u:object_r:audio_data_file:s0
 /data/misc/audioserver(/.*)?    u:object_r:audioserver_data_file:s0
@@ -508,6 +530,7 @@
 /data/misc/carrierid(/.*)?      u:object_r:radio_data_file:s0
 /data/misc/dhcp(/.*)?           u:object_r:dhcp_data_file:s0
 /data/misc/dhcp-6\.8\.2(/.*)?     u:object_r:dhcp_data_file:s0
+/data/misc/emergencynumberdb(/.*)?     u:object_r:emergency_data_file:s0
 /data/misc/gatekeeper(/.*)?     u:object_r:gatekeeper_data_file:s0
 /data/misc/incidents(/.*)?	    u:object_r:incident_data_file:s0
 /data/misc/installd(/.*)?		u:object_r:install_data_file:s0
@@ -518,9 +541,11 @@
 /data/misc/net(/.*)?            u:object_r:net_data_file:s0
 /data/misc/network_watchlist(/.*)? u:object_r:network_watchlist_data_file:s0
 /data/misc/perfetto-traces(/.*)? u:object_r:perfetto_traces_data_file:s0
+/data/misc/prereboot(/.*)?      u:object_r:prereboot_data_file:s0
 /data/misc/recovery(/.*)?       u:object_r:recovery_data_file:s0
 /data/misc/shared_relro(/.*)?   u:object_r:shared_relro_file:s0
 /data/misc/sms(/.*)?            u:object_r:radio_data_file:s0
+/data/misc/snapshotctl_log(/.*)?      u:object_r:snapshotctl_log_data_file:s0
 /data/misc/stats-active-metric(/.*)? u:object_r:stats_data_file:s0
 /data/misc/stats-data(/.*)?     u:object_r:stats_data_file:s0
 /data/misc/stats-service(/.*)?  u:object_r:stats_data_file:s0
@@ -574,6 +599,19 @@
 # App data snapshots (managed by installd).
 /data/misc_de/[0-9]+/rollback(/.*)?       u:object_r:rollback_data_file:s0
 /data/misc_ce/[0-9]+/rollback(/.*)?       u:object_r:rollback_data_file:s0
+
+# Apex data directories
+/data/misc_de/[0-9]+/apexdata(/.*)?       u:object_r:apex_module_data_file:s0
+/data/misc_ce/[0-9]+/apexdata(/.*)?       u:object_r:apex_module_data_file:s0
+/data/misc_de/[0-9]+/apexdata/com.android.permission(/.*)?  u:object_r:apex_permission_data_file:s0
+/data/misc_ce/[0-9]+/apexdata/com.android.permission(/.*)?  u:object_r:apex_permission_data_file:s0
+
+# Apex rollback directories
+/data/misc_de/[0-9]+/apexrollback(/.*)?   u:object_r:apex_rollback_data_file:s0
+/data/misc_ce/[0-9]+/apexrollback(/.*)?   u:object_r:apex_rollback_data_file:s0
+
+# Incremental directories
+/data/incremental(/.*)?                        u:object_r:apk_data_file:s0
 
 #############################
 # Expanded data files
@@ -669,6 +707,7 @@
 # external storage
 /mnt/media_rw(/.*)?         u:object_r:mnt_media_rw_file:s0
 /mnt/user(/.*)?             u:object_r:mnt_user_file:s0
+/mnt/pass_through(/.*)?     u:object_r:mnt_pass_through_file:s0
 /mnt/sdcard                 u:object_r:mnt_sdcard_file:s0
 /mnt/runtime(/.*)?          u:object_r:storage_file:s0
 /storage(/.*)?              u:object_r:storage_file:s0
