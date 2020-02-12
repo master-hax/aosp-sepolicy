@@ -96,6 +96,9 @@ get_prop(adbd, serialno_prop)
 # Read whether or not Test Harness Mode is enabled
 get_prop(adbd, test_harness_prop)
 
+# Read sys.adb.wifi property
+get_prop(adbd, system_radio_prop)
+
 # Read device's overlayfs related properties and files
 userdebug_or_eng(`
   get_prop(adbd, persistent_properties_ready_prop)
