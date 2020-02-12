@@ -157,6 +157,8 @@ system_public_prop(serialno_prop)
 system_public_prop(system_prop)
 system_public_prop(wifi_log_prop)
 system_public_prop(wifi_prop)
+system_public_prop(system_adbd_prop)
+system_public_prop(adbd_prop)
 
 # Properties used in default HAL implementations
 vendor_internal_prop(rebootescrow_hal_prop)
@@ -571,4 +573,20 @@ neverallow {
   -system_server
 } {
   userspace_reboot_log_prop
+}:property_service set;
+
+neverallow {
+  # Only allow init and system_server to set system_adbd_prop
+  -init
+  -system_server
+} {
+  system_adbd_prop
+}:property_service set;
+
+neverallow {
+  # Only allow init and adbd to set adbd_prop
+  -init
+  -adbd
+} {
+  adbd_prop
 }:property_service set;
