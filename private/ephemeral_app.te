@@ -64,6 +64,9 @@ allow ephemeral_app system_server:udp_socket {
 
 allow ephemeral_app ashmem_device:chr_file rw_file_perms;
 
+# Allow apps to read the list of expected test interaction helper packages.
+get_prop(ephemeral_app, vendor_interaction_helper_prop)
+
 ###
 ### neverallow rules
 ###

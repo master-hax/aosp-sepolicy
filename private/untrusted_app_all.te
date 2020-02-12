@@ -173,3 +173,6 @@ userdebug_or_eng(`
 # profiler runs as when executed by the app. The signals are used to control
 # the profiler (which would be profiling the app that is sending the signal).
 allow untrusted_app_all simpleperf:process signal;
+
+# Allow apps to read the list of expected test interaction helper packages.
+get_prop(untrusted_app_all, vendor_interaction_helper_prop)

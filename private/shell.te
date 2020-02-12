@@ -91,3 +91,6 @@ allow shell simpleperf_exec:file rx_file_perms;
 # not the whole system.
 allow shell self:perf_event { open read write kernel };
 neverallow shell self:perf_event ~{ open read write kernel };
+
+# Allow shell to read the list of expected test interaction helper packages.
+get_prop(shell, vendor_interaction_helper_prop)
