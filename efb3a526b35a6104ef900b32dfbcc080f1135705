@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d62264d_f253a0ca",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-02-13T20:29:29Z",
+      "side": 1,
+      "message": "This can only occur one level deep, correct?\n\nIf so, this should be:\n\n  /data/incremental/[^/]+/\\.pending_reads \n\n(essentially the same comment for line 616)\n\nOtherwise, we end up potentially mislabeling a file, if a file of the same name but a different directory ends up with that path.\n\nI continue to be worried about name collisions here.....",
+      "range": {
+        "startLine": 615,
+        "startChar": 19,
+        "endLine": 615,
+        "endChar": 21
+      },
+      "revId": "efb3a526b35a6104ef900b32dfbcc080f1135705",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b45c0025_62f69f0a",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-02-13T20:29:29Z",
+      "side": 1,
+      "message": "data_file_type is the attribute used to define files which reside on the persistent /data partition. As these are virtually created files which do not exist across reboots, this attribute is inappropriate.",
+      "range": {
+        "startLine": 190,
+        "startChar": 42,
+        "endLine": 190,
+        "endChar": 56
+      },
+      "revId": "efb3a526b35a6104ef900b32dfbcc080f1135705",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
