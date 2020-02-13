@@ -22,6 +22,53 @@
       "revId": "e357508163aefb5d12efe86da3d5e8d690cb7e9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4b4a418_13c967c3",
+        "filename": "private/mlstrustedsubject.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-02-13T10:54:40Z",
+      "side": 1,
+      "message": "~{ read write map getattr }\n\nalso\nneverallow { mlstrusted...} { app_data_file privapp... } dir *;",
+      "parentUuid": "1a97a9eb_fb599a93",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "e357508163aefb5d12efe86da3d5e8d690cb7e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "324c0894_1bbc7617",
+        "filename": "private/shell.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-02-13T10:54:40Z",
+      "side": 1,
+      "message": "Is this really necessary? this means that apps can grant shell access to their private dir by overriding the default DAC permissions. That seems like an unfortunate regression.",
+      "range": {
+        "startLine": 1,
+        "startChar": 32,
+        "endLine": 1,
+        "endChar": 49
+      },
+      "revId": "e357508163aefb5d12efe86da3d5e8d690cb7e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
