@@ -612,6 +612,8 @@
 
 # Incremental directories
 /data/incremental(/.*)?                        u:object_r:apk_data_file:s0
+/data/incremental(/.*)/\.pending_reads         u:object_r:incremental_control_file:s0
+/data/incremental(/.*)/\.log                   u:object_r:incremental_control_file:s0
 
 #############################
 # Expanded data files
