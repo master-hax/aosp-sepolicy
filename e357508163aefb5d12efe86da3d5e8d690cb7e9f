@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3a3f020f_e1bed4fe",
+        "filename": "private/mlstrustedsubject.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-02-13T13:56:48Z",
+      "side": 1,
+      "message": "It turns out those would already be broken. By experiment this seems to be the strongest we can do without changing existing rules.\n\n(My limited set of allows apply to things that are both appdomain and mlstrustedsubject. But there are other allows for things that are mlstrustedsubject but not appdomain which would be affected. I don\u0027t think I can express a neverallow for the intersection of appdomain and mlstrustedsubject.)",
+      "parentUuid": "e4b4a418_13c967c3",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "e357508163aefb5d12efe86da3d5e8d690cb7e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "324c0894_1bbc7617",
         "filename": "private/shell.te",
         "patchSetId": 1
