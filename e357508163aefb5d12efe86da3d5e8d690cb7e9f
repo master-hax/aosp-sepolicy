@@ -69,6 +69,30 @@
       "revId": "e357508163aefb5d12efe86da3d5e8d690cb7e9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7366f615_fd0c5305",
+        "filename": "private/shell.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-02-13T12:53:29Z",
+      "side": 1,
+      "message": "But the TE rules prevent it?\n$ sesearch --allow -s shell -t app_data_file /tmp/policy\nallow shell app_data_file:file { read write getattr map };\n\nThe way I\u0027ve set it up, granting mlstrustedsubject automatically removes your access to app_data_file. (I was quite pleased with that tbh.)\n\nIn terms of whether it\u0027s necessary: Shell seems to store some things under data/data (eg files/heapdumps), with label shell_data_file, so this means it can still do so even if data/data itself were to be levelFrom user.",
+      "parentUuid": "324c0894_1bbc7617",
+      "range": {
+        "startLine": 1,
+        "startChar": 32,
+        "endLine": 1,
+        "endChar": 49
+      },
+      "revId": "e357508163aefb5d12efe86da3d5e8d690cb7e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
