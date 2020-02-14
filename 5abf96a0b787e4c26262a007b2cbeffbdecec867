@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53b7bdc1_1da28a9c",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-02-14T01:39:35Z",
+      "side": 1,
+      "message": "This is overly permissive. This exposes the property to all processes, not just CTS. Rules should be written to only expose properties to processes which have a need.",
+      "revId": "5abf96a0b787e4c26262a007b2cbeffbdecec867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a2743a8_8ab0db95",
+        "filename": "public/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-02-14T01:39:35Z",
+      "side": 1,
+      "message": "While the intended purpose of this property is to be used by CTS tests, the fact that it exists at all, and is readable to applications, makes it a de-facto API. Has this gone through an API review? Does this support or test an official Android API?\n\nDoes this have any use outside of CTS tests? We don\u0027t generally accept exposing new functionality which is only exposed for testing purposes.",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 41
+      },
+      "revId": "5abf96a0b787e4c26262a007b2cbeffbdecec867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
