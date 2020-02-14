@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bd42230f_4d8c8317",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1249497
+      },
+      "writtenOn": "2020-02-14T20:36:45Z",
+      "side": 1,
+      "message": "I had mistaken domain for the top-level app domain, but that made me realize that even appdomain may be broader than needed.  I pushed this down to just the specific app types that are needed for the module we\u0027re currently converting.  CTS tests are supposed to cover all the types of app, so I think it\u0027s likely to eventually end up in all of them: Should I put this on appdomain instead or just gradually increase the types of apps that can read the property if/when CTS needs it?",
+      "parentUuid": "53b7bdc1_1da28a9c",
+      "revId": "5abf96a0b787e4c26262a007b2cbeffbdecec867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a2743a8_8ab0db95",
         "filename": "public/property_contexts",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2020-02-14T01:39:35Z",
       "side": 1,
       "message": "While the intended purpose of this property is to be used by CTS tests, the fact that it exists at all, and is readable to applications, makes it a de-facto API. Has this gone through an API review? Does this support or test an official Android API?\n\nDoes this have any use outside of CTS tests? We don\u0027t generally accept exposing new functionality which is only exposed for testing purposes.",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 41
+      },
+      "revId": "5abf96a0b787e4c26262a007b2cbeffbdecec867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e3e9751_eda48797",
+        "filename": "public/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1249497
+      },
+      "writtenOn": "2020-02-14T20:36:45Z",
+      "side": 1,
+      "message": "The property isn\u0027t used by any code that\u0027s part of a public API, and in fact there is no code that ships on the device that uses the property.  The goal of the larger project is to provide a principled way for CTS to access necessary implementation details that aren\u0027t covered by a public API (e.g. clicking the print button as a necessary but incidental step of testing print APIs).  Details are in the design doc if you\u0027re interested: go/cts-oem-driver-dd.\n\nHow it\u0027s used: tradefed reads the property when it prepares a device to know which CTS helpers to install.  CTS tests that use the helper framework then read it to know which helper packages to use.  tradefed then uninstalls the helpers when it cleans up the device.  Nothing that is part of the permanently installed system reads the property.\n\nHaving the property intended for use only in tradefed and instrumented tests is essentially the equivalent of @TestApi, but as far as I understand there isn\u0027t any way to encode that into the policy.\n\nDoes that address the concern here?  I haven\u0027t asked for a formal API review because none of the guidelines discuss any requirements for properties, but I can do so if you think it\u0027s needed.",
+      "parentUuid": "5a2743a8_8ab0db95",
       "range": {
         "startLine": 164,
         "startChar": 0,
