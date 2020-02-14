@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81cb67a9_7154e21d",
+        "filename": "public/file.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-02-14T21:00:13Z",
+      "side": 1,
+      "message": "The use of the word \"property\" here is really confusing. These files are not \"property\" files in the way that /data/property files are property files. Rather, this is just a plain file which happens to contain a string written to by the bootstat process. If this was a true property file it would be labeled as \"property_data_file\" and subject to all of the restrictions of these types of files:\n\n* Can only be read/written to by init\n\nIf this is intended to be a \"property\", then you need to make it so that only init can write to it. Otherwise, a better label would be \"metadata_bootstats_file\".",
+      "revId": "840f997bd8042a7ef01ea06e072ecd9defce3be8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
