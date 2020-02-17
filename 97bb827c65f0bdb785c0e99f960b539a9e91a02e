@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "92532892_0364264b",
+        "filename": "public/service.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-02-17T12:23:45Z",
+      "side": 1,
+      "message": "Based on your explanation, I believe this is correct. My (mis)understanding was that this was a system provided service. But if it really is intended to be provided by the vendor, then this is correct.",
+      "parentUuid": "a38e72b8_4216cfdb",
+      "range": {
+        "startLine": 209,
+        "startChar": 25,
+        "endLine": 209,
+        "endChar": 39
+      },
+      "revId": "97bb827c65f0bdb785c0e99f960b539a9e91a02e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "adab442e_a1e8ba63",
         "filename": "vendor/file_contexts",
         "patchSetId": 9
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "example seemed a bit weird to me too. I was following the example of the vibrator service (see below in this file):\n\n/(vendor|system/vendor)/bin/hw/android\\.hardware\\.vibrator-service.example    u:object_r:hal_vibrator_default_exec:s0\n\nThe name was discussed a bit on a previous CL:\nhttps://android-review.googlesource.com/c/platform/system/sepolicy/+/1152040/3/vendor/file_contexts#64",
       "parentUuid": "adab442e_a1e8ba63",
+      "range": {
+        "startLine": 5,
+        "startChar": 65,
+        "endLine": 5,
+        "endChar": 72
+      },
+      "revId": "97bb827c65f0bdb785c0e99f960b539a9e91a02e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29d0acb9_9f2692ed",
+        "filename": "vendor/file_contexts",
+        "patchSetId": 9
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-02-17T12:23:45Z",
+      "side": 1,
+      "message": "I believe that vibrator has .example, because it is used as the most simple example of a HAL. You probably shouldn\u0027t be using that here.",
+      "parentUuid": "46cf8324_b9c1ab95",
       "range": {
         "startLine": 5,
         "startChar": 65,
