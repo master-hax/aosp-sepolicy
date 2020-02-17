@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a38e72b8_4216cfdb",
+        "filename": "public/service.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1047376
+      },
+      "writtenOn": "2020-02-17T12:02:52Z",
+      "side": 1,
+      "message": "I thought so, maybe I miss-understand what vendor_service means. The idea (of the existing HAL) is that device makers with their only custom kernel trace points have a mechanism to teach atrace about those trace points. So they create an implementation of this HAL with methods for listCategories/ enableCategories/disableCategories then atrace calls those methods to enable/disable the custom trace points. The new HAL is almost identical. just AIDL based and listCategories returns more info (see reply above). I was mostly following the example of the other AIDL HALs (hal_vibrator_service in particular). Does this seem wrong given that information?",
+      "parentUuid": "29f6e53a_3f2a524f",
+      "range": {
+        "startLine": 209,
+        "startChar": 25,
+        "endLine": 209,
+        "endChar": 39
+      },
+      "revId": "97bb827c65f0bdb785c0e99f960b539a9e91a02e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "adab442e_a1e8ba63",
         "filename": "vendor/file_contexts",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2020-02-17T11:16:10Z",
       "side": 1,
       "message": "Example?",
+      "range": {
+        "startLine": 5,
+        "startChar": 65,
+        "endLine": 5,
+        "endChar": 72
+      },
+      "revId": "97bb827c65f0bdb785c0e99f960b539a9e91a02e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46cf8324_b9c1ab95",
+        "filename": "vendor/file_contexts",
+        "patchSetId": 9
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1047376
+      },
+      "writtenOn": "2020-02-17T12:02:52Z",
+      "side": 1,
+      "message": "example seemed a bit weird to me too. I was following the example of the vibrator service (see below in this file):\n\n/(vendor|system/vendor)/bin/hw/android\\.hardware\\.vibrator-service.example    u:object_r:hal_vibrator_default_exec:s0\n\nThe name was discussed a bit on a previous CL:\nhttps://android-review.googlesource.com/c/platform/system/sepolicy/+/1152040/3/vendor/file_contexts#64",
+      "parentUuid": "adab442e_a1e8ba63",
       "range": {
         "startLine": 5,
         "startChar": 65,
