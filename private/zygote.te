@@ -66,6 +66,9 @@ allow zygote { user_profile_data_file }:dir { mounton search };
 # Create and bind dirs on /data/data
 allow zygote tmpfs:dir { create_dir_perms mounton };
 
+# Allow zyoget go into media directory and bind mount obb directory
+allow zygote media_rw_data_file:dir { getattr search };
+
 # Create symlink for /data/user/0
 allow zygote tmpfs:lnk_file create;
 
