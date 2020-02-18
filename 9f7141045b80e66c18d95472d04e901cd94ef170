@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9815ab69_8b50b8c4",
+        "filename": "private/file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T21:12:48Z",
+      "side": 1,
+      "message": "credstore is storing data on behalf of other applications (similar to keystore).",
+      "parentUuid": "639d1722_725f8185",
+      "range": {
+        "startLine": 539,
+        "startChar": 11,
+        "endLine": 539,
+        "endChar": 20
+      },
+      "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9e6d3c4b_9ab4db17",
         "filename": "private/system_server.te",
         "patchSetId": 5
@@ -59,6 +83,30 @@
       "writtenOn": "2020-02-18T19:54:02Z",
       "side": 1,
       "message": "why do apps need access to any of these files? Why not just neverallow *?",
+      "range": {
+        "startLine": 489,
+        "startChar": 0,
+        "endLine": 489,
+        "endChar": 77
+      },
+      "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5320a7ab_341885ac",
+        "filename": "public/app.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T21:12:48Z",
+      "side": 1,
+      "message": "Apps do not need direct access to these files. It\u0027s probably just copy-paste from keystore.te which I based the policy on. I don\u0027t know enough about SELinux to infer what you want me to change here - please advise!",
+      "parentUuid": "3db058c6_14660897",
       "range": {
         "startLine": 489,
         "startChar": 0,
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "3dedb3aa_41157cb6",
+        "filename": "public/credstore.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T21:12:48Z",
+      "side": 1,
+      "message": "Yes, copy-paste. Removed.",
+      "parentUuid": "25613dda_7a0ac8af",
+      "range": {
+        "startLine": 5,
+        "startChar": 24,
+        "endLine": 5,
+        "endChar": 41
+      },
+      "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25f23c29_5771a4f3",
         "filename": "public/credstore.te",
         "patchSetId": 5
@@ -138,6 +210,30 @@
       "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1ea5b33_d8d310f3",
+        "filename": "public/credstore.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T21:12:48Z",
+      "side": 1,
+      "message": "Changed to :file.",
+      "parentUuid": "25f23c29_5771a4f3",
+      "range": {
+        "startLine": 11,
+        "startChar": 36,
+        "endLine": 11,
+        "endChar": 56
+      },
+      "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -164,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "8b4166a5_5188458c",
+        "filename": "public/credstore.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T21:12:48Z",
+      "side": 1,
+      "message": "I think because I based it on keystore\u0027s policy and I think keystore is doing this to detect if it has been upgraded. Not applicable to credstore so removing.",
+      "parentUuid": "f248f8a8_94fc1b55",
+      "range": {
+        "startLine": 12,
+        "startChar": 16,
+        "endLine": 12,
+        "endChar": 35
+      },
+      "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cfb7c727_03a2b204",
         "filename": "public/te_macros",
         "patchSetId": 5
@@ -184,6 +304,30 @@
       "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7395a9b5_7205b94b",
+        "filename": "public/te_macros",
+        "patchSetId": 5
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T21:12:48Z",
+      "side": 1,
+      "message": "Copy-paste from the keystore part this was lifted from. Removed the comment.",
+      "parentUuid": "cfb7c727_03a2b204",
+      "range": {
+        "startLine": 606,
+        "startChar": 10,
+        "endLine": 606,
+        "endChar": 19
+      },
+      "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
