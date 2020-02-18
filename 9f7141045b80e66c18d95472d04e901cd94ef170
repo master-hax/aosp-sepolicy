@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "639d1722_725f8185",
+        "filename": "private/file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-02-18T19:54:02Z",
+      "side": 1,
+      "message": "what type of data is stored here? If it\u0027s stored on behalf of apps, it should likely be in CE storage and not here in DE storage.",
+      "range": {
+        "startLine": 539,
+        "startChar": 11,
+        "endLine": 539,
+        "endChar": 20
+      },
+      "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3db058c6_14660897",
+        "filename": "public/app.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-02-18T19:54:02Z",
+      "side": 1,
+      "message": "why do apps need access to any of these files? Why not just neverallow *?",
+      "range": {
+        "startLine": 489,
+        "startChar": 0,
+        "endLine": 489,
+        "endChar": 77
+      },
+      "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87b0fb55_f4f09826",
+        "filename": "public/credstore.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-02-18T19:54:02Z",
+      "side": 1,
+      "message": "I would prefer this not be granted. IIUC, this is currently only needed due to the use of getpidcon(). However, you really should not be using getpidcon.",
+      "range": {
+        "startLine": 5,
+        "startChar": 24,
+        "endLine": 5,
+        "endChar": 41
+      },
+      "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25f23c29_5771a4f3",
+        "filename": "public/credstore.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-02-18T19:54:02Z",
+      "side": 1,
+      "message": "This is a strange set of files to grant. It\u0027s primarily (exclusively?) used as a useful group for neverallow tests, not for allow rules. Why not just grant \"file\"? What else is actually needed here?",
+      "range": {
+        "startLine": 11,
+        "startChar": 36,
+        "endLine": 11,
+        "endChar": 56
+      },
+      "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfb7c727_03a2b204",
+        "filename": "public/te_macros",
+        "patchSetId": 5
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-02-18T19:54:02Z",
+      "side": 1,
+      "message": "getpidcon()is racy. Why not use UID?",
+      "range": {
+        "startLine": 606,
+        "startChar": 10,
+        "endLine": 606,
+        "endChar": 19
+      },
+      "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
