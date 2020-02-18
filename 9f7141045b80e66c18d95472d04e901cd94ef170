@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "dc5fa2ae_08584e9e",
+        "filename": "private/file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-02-18T21:24:21Z",
+      "side": 1,
+      "message": "Yeah, this seems like it really should be in per-user CE storage. Keystore is bad precedent, likely because it pre-dates CE storage, and perhaps even pre-dates multi-user support.",
+      "parentUuid": "9815ab69_8b50b8c4",
+      "range": {
+        "startLine": 539,
+        "startChar": 11,
+        "endLine": 539,
+        "endChar": 20
+      },
+      "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9e6d3c4b_9ab4db17",
         "filename": "private/system_server.te",
         "patchSetId": 5
@@ -107,6 +131,30 @@
       "side": 1,
       "message": "Apps do not need direct access to these files. It\u0027s probably just copy-paste from keystore.te which I based the policy on. I don\u0027t know enough about SELinux to infer what you want me to change here - please advise!",
       "parentUuid": "3db058c6_14660897",
+      "range": {
+        "startLine": 489,
+        "startChar": 0,
+        "endLine": 489,
+        "endChar": 77
+      },
+      "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19f52366_a5a53fc5",
+        "filename": "public/app.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-02-18T21:24:21Z",
+      "side": 1,
+      "message": "Change to:\nneverallow appdomain credstore_data_file:dir_file_class_set *;\n\nBetter yet, it seems access should be exclusive to credstore (in credstore.te)\nneverallow { domain -credstore } credstore_data_file:dir_file_class_set *;\n\nyou may also need to exempt init (-init).",
+      "parentUuid": "5320a7ab_341885ac",
       "range": {
         "startLine": 489,
         "startChar": 0,
