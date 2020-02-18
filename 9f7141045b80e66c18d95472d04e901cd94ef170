@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "9e6d3c4b_9ab4db17",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-02-18T20:14:17Z",
+      "side": 1,
+      "message": "is this actually needed? Why doesn\u0027t system_server use the use_credstore() macro?",
+      "range": {
+        "startLine": 748,
+        "startChar": 0,
+        "endLine": 748,
+        "endChar": 59
+      },
+      "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3db058c6_14660897",
         "filename": "public/app.te",
         "patchSetId": 5
@@ -111,6 +134,29 @@
         "startChar": 36,
         "endLine": 11,
         "endChar": 56
+      },
+      "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f248f8a8_94fc1b55",
+        "filename": "public/credstore.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-02-18T20:14:17Z",
+      "side": 1,
+      "message": "This is odd. Why is credstore calling stat() on its own executable?",
+      "range": {
+        "startLine": 12,
+        "startChar": 16,
+        "endLine": 12,
+        "endChar": 35
       },
       "revId": "9f7141045b80e66c18d95472d04e901cd94ef170",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
