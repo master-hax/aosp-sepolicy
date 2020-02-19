@@ -1,0 +1,15 @@
+type canhalconfigurator, domain, coredomain;
+type canhalconfigurator_exec, exec_type, system_file_type, file_type;
+type canhalconfigurator_file, system_file_type, file_type;
+init_daemon_domain(canhalconfigurator)
+
+
+allow canhalconfigurator canhalconfigurator_file:file { getattr open read };
+allow canhalconfigurator hal_can_controller_hwservice:hwservice_manager find;
+allow canhalconfigurator hal_can_controller:binder call;
+allow canhalconfigurator hidl_manager_hwservice:hwservice_manager find;
+allow canhalconfigurator hwservicemanager:binder call;
+allow canhalconfigurator hwservicemanager_prop:file { getattr open read };
+
+allow hwservicemanager canhalconfigurator:binder transfer;
+
