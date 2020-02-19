@@ -1,0 +1,10 @@
+type canhalconfigurator, domain, coredomain;
+type canhalconfigurator_exec, exec_type, system_file_type, file_type;
+init_daemon_domain(canhalconfigurator)
+
+
+allow canhalconfigurator hal_can_controller_hwservice:hwservice_manager find;
+binder_call(canhalconfigurator, hal_can_controller);
+allow canhalconfigurator hidl_manager_hwservice:hwservice_manager find;
+hwbinder_use(canhalconfigurator);
+get_prop(canhalconfigurator, hwservicemanager_prop);
