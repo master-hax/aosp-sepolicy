@@ -18,6 +18,8 @@ allow apexd apex_module_data_file:dir { create_dir_perms relabelfrom };
 allow apexd apex_module_data_file:file { create_file_perms relabelfrom };
 allow apexd apex_rollback_data_file:dir create_dir_perms;
 allow apexd apex_rollback_data_file:file create_file_perms;
+allow apexd apex_wifi_data_file:dir create_dir_perms;
+allow apexd apex_wifi_data_file:file create_file_perms;
 
 # Allow apexd to read directories under /data/misc_de in order to snapshot and
 # restore apex data for all users.
@@ -153,3 +155,6 @@ neverallow { domain -apexd -init -vold_prepare_subdirs } apex_module_data_file:f
 
 neverallow { domain -apexd -init -vold_prepare_subdirs } apex_rollback_data_file:dir no_w_dir_perms;
 neverallow { domain -apexd -init -vold_prepare_subdirs } apex_rollback_data_file:file no_w_file_perms;
+
+neverallow { domain -apexd -init -vold_prepare_subdirs } apex_wifi_data_file:dir no_w_dir_perms;
+neverallow { domain -apexd -init -vold_prepare_subdirs } apex_wifi_data_file:file no_w_file_perms;
