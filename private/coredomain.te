@@ -1,6 +1,8 @@
 get_prop(coredomain, pm_prop)
 get_prop(coredomain, exported_pm_prop)
 
+allow coredomain system_seccomp_policy_file:file r_file_perms;
+
 full_treble_only(`
 neverallow {
     coredomain
