@@ -484,6 +484,12 @@ $1
 define(`not_full_treble', ifelse(target_full_treble, `true', , $1))
 
 #####################################
+# Not split seccomp
+# SELinux rules which apply only to devices which don't have split seccomp
+# (original behavior)
+define(`not_split_seccomp', ifelse(target_split_seccomp, `true', , $1))
+
+#####################################
 # Compatible property only
 # SELinux rules which apply only to devices with compatible property
 #

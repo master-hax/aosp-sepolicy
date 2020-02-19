@@ -21,6 +21,9 @@ get_prop(coredomain, userspace_reboot_config_prop)
 get_prop(coredomain, vold_config_prop)
 get_prop(coredomain, vts_status_prop)
 
+allow coredomain system_seccomp_policy_file:dir r_dir_perms;
+allow coredomain system_seccomp_policy_file:file r_file_perms;
+
 full_treble_only(`
 neverallow {
     coredomain
