@@ -145,14 +145,17 @@ write_logd(domain)
 allow domain {
     system_file
     system_lib_file
-    system_seccomp_policy_file
+    not_split_seccomp(`system_seccomp_policy_file')
     system_security_cacerts_file
 }:dir r_dir_perms;
 allow domain system_file:lnk_file { getattr read };
 
-# Global access to /system/etc/security/cacerts/*, /system/etc/seccomp_policy/*, /system/lib[64]/*,
-# /(system|product|system_ext)/etc/(group|passwd), linker and its config.
-allow domain system_seccomp_policy_file:file r_file_perms;
+not_split_seccomp(`
+    # Global access to /system/etc/security/cacerts/*, /system/etc/seccomp_policy/*, /system/lib[64]/*,
+    # /(system|product|system_ext)/etc/(group|passwd), linker and its config.
+    allow domain system_seccomp_policy_file:file r_file_perms;
+')
+
 # cacerts are accessible from public Java API.
 allow domain system_security_cacerts_file:file r_file_perms;
 allow domain system_group_file:file r_file_perms;
@@ -1026,7 +1029,7 @@ full_treble_only(`
     -system_linker_exec
     -system_linker_config_file
     -system_passwd_file
-    -system_seccomp_policy_file
+    not_split_seccomp(`-system_seccomp_policy_file')
     -system_security_cacerts_file
     -system_zoneinfo_file
     -task_profiles_file

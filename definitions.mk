@@ -10,6 +10,7 @@ $(hide) $(M4) --fatal-warnings $(PRIVATE_ADDITIONAL_M4DEFS) \
 	-D target_with_asan=$(PRIVATE_TGT_WITH_ASAN) \
 	-D target_with_native_coverage=$(PRIVATE_TGT_WITH_NATIVE_COVERAGE) \
 	-D target_full_treble=$(PRIVATE_SEPOLICY_SPLIT) \
+	-D target_split_seccomp=$(PRIVATE_SEPOLICY_SPLIT_SECCOMP) \
 	-D target_compatible_property=$(PRIVATE_COMPATIBLE_PROPERTY) \
 	-D target_treble_sysprop_neverallow=$(PRIVATE_TREBLE_SYSPROP_NEVERALLOW) \
 	-D target_enforce_sysprop_owner=$(PRIVATE_ENFORCE_SYSPROP_OWNER) \
