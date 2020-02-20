@@ -22,6 +22,30 @@
       "revId": "d08b90382a54fdaa1fcdafeee653becbbfdc4ffb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "833f7ce4_a47f3e1f",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2020-02-20T23:33:26Z",
+      "side": 1,
+      "message": "This is very easy to hit: basically just look in the directory.\n\nWhat would we do about it if it was hit?\nGrant access?\nAt least in my opinion, the answer is clearly no...\nSo basically it\u0027s just a spurious denial that gets logged...\n\n(obviously I can drop this, but I\u0027m annoyed by the spurious denials polluting my log)\n\nThoughts?",
+      "parentUuid": "a38088bd_51719351",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 20
+      },
+      "revId": "d08b90382a54fdaa1fcdafeee653becbbfdc4ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
