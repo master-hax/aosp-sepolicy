@@ -46,6 +46,30 @@
       "revId": "d08b90382a54fdaa1fcdafeee653becbbfdc4ffb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f59c350d_365825e3",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-20T23:46:13Z",
+      "side": 1,
+      "message": "We want the log so that it\u0027s easy to debug if you hit an error. If someone hits this, and they see the selinux error, then they\u0027ll know what the issue is (maybe even they\u0027ll try to add policy, hit the neverallow, and then hopefully understand)\n\nw/ dontaudit, it\u0027s much harder to understand what is going on.",
+      "parentUuid": "833f7ce4_a47f3e1f",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 20
+      },
+      "revId": "d08b90382a54fdaa1fcdafeee653becbbfdc4ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
