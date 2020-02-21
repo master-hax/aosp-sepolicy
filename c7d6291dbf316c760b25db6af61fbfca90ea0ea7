@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6db4dbe2_a4257bfe",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2020-02-21T03:13:50Z",
+      "side": 1,
+      "message": "Does this ever actually happen? My understanding is currently bpfloader runs once at boot and never again (which was what https://android-review.googlesource.com/c/platform/system/bpf/+/1163400 was trying to change). If that\u0027s the case and not going to change, we should be able to take away map_read and map_write",
+      "range": {
+        "startLine": 11,
+        "startChar": 35,
+        "endLine": 11,
+        "endChar": 68
+      },
+      "revId": "c7d6291dbf316c760b25db6af61fbfca90ea0ea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a41385f0_95296f6a",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2020-02-21T03:13:50Z",
+      "side": 1,
+      "message": "Can we remove this? Not aware of any current or proposed use cases where bpfloader runs a program itself",
+      "range": {
+        "startLine": 12,
+        "startChar": 67,
+        "endLine": 12,
+        "endChar": 75
+      },
+      "revId": "c7d6291dbf316c760b25db6af61fbfca90ea0ea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
