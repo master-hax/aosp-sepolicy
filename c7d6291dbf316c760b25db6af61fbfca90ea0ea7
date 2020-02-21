@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d02d7e60_08b47596",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2020-02-21T15:32:44Z",
+      "side": 1,
+      "message": "It doesn\u0027t.  Will remove.",
+      "parentUuid": "6db4dbe2_a4257bfe",
+      "range": {
+        "startLine": 11,
+        "startChar": 35,
+        "endLine": 11,
+        "endChar": 68
+      },
+      "revId": "c7d6291dbf316c760b25db6af61fbfca90ea0ea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a41385f0_95296f6a",
         "filename": "private/bpfloader.te",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "c7d6291dbf316c760b25db6af61fbfca90ea0ea7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ba4dc48_d2b9f632",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2020-02-21T15:32:44Z",
+      "side": 1,
+      "message": "it fails to create/ping maps, load/pin progs, without map_read / map_write / prog_run.\n\nthis kind of feels like a selinux bug, since I certainly agree that map_create\nshould be enough for create and pin, and prog_load to load and pin...",
+      "parentUuid": "a41385f0_95296f6a",
+      "range": {
+        "startLine": 12,
+        "startChar": 67,
+        "endLine": 12,
+        "endChar": 75
+      },
+      "revId": "c7d6291dbf316c760b25db6af61fbfca90ea0ea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
