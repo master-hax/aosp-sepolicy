@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b2e6108_c1756509",
+        "filename": "private/priv_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-02-22T02:10:53Z",
+      "side": 1,
+      "message": "based on the denials, it looks like this is passed by file descriptor. If so, r_file_perms is overly permissive, as it allows open.\n\nThis should be written as:\n\n  { read getattr }",
+      "range": {
+        "startLine": 154,
+        "startChar": 45,
+        "endLine": 154,
+        "endChar": 57
+      },
+      "revId": "b13db870a872706db775c93920e23634a09e9f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
