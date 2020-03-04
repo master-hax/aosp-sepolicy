@@ -212,6 +212,7 @@
 /system/bin/fsck_msdos	--	u:object_r:fsck_exec:s0
 /system/bin/tcpdump	--	u:object_r:tcpdump_exec:s0
 /system/bin/tune2fs	--	u:object_r:fsck_exec:s0
+/system/bin/resize2fs	--	u:object_r:fsck_exec:s0
 /system/bin/toolbox	--	u:object_r:toolbox_exec:s0
 /system/bin/toybox	--	u:object_r:toolbox_exec:s0
 /system/bin/ld\.mc              u:object_r:rs_exec:s0
@@ -252,6 +253,7 @@
 /system/bin/otapreopt_chroot   u:object_r:otapreopt_chroot_exec:s0
 /system/bin/otapreopt_slot   u:object_r:otapreopt_slot_exec:s0
 /system/bin/art_apex_boot_integrity   u:object_r:art_apex_boot_integrity_exec:s0
+/system/bin/credstore	u:object_r:credstore_exec:s0
 /system/bin/keystore	u:object_r:keystore_exec:s0
 /system/bin/fingerprintd u:object_r:fingerprintd_exec:s0
 /system/bin/gatekeeperd u:object_r:gatekeeperd_exec:s0
@@ -298,6 +300,7 @@
 /system/bin/viewcompiler     u:object_r:viewcompiler_exec:s0
 /system/bin/profman(d)?     u:object_r:profman_exec:s0
 /system/bin/iorapd          u:object_r:iorapd_exec:s0
+/system/bin/iorap\.inode2filename u:object_r:iorap_inode2filename_exec:s0
 /system/bin/iorap\.prefetcherd u:object_r:iorap_prefetcherd_exec:s0
 /system/bin/sgdisk      u:object_r:sgdisk_exec:s0
 /system/bin/blkid       u:object_r:blkid_exec:s0
@@ -344,7 +347,7 @@
 /system/bin/simpleperf_app_runner    u:object_r:simpleperf_app_runner_exec:s0
 /system/bin/notify_traceur\.sh       u:object_r:notify_traceur_exec:s0
 /system/bin/migrate_legacy_obb_data\.sh u:object_r:migrate_legacy_obb_data_exec:s0
-/system/bin/android\.frameworks\.automotive\.display@1\.0-service u:object_r:automotive_display_exec:s0
+/system/bin/android\.frameworks\.automotive\.display@1\.0-service u:object_r:automotive_display_service_exec:s0
 
 #############################
 # Vendor files
@@ -514,6 +517,7 @@
 /data/misc/adb(/.*)?            u:object_r:adb_keys_file:s0
 /data/misc/apexdata(/.*)?       u:object_r:apex_module_data_file:s0
 /data/misc/apexdata/com.android.permission(/.*)?    u:object_r:apex_permission_data_file:s0
+/data/misc/apexdata/com\.android\.wifi(/.*)?    u:object_r:apex_wifi_data_file:s0
 /data/misc/apexrollback(/.*)?   u:object_r:apex_rollback_data_file:s0
 /data/misc/apns(/.*)?           u:object_r:radio_data_file:s0
 /data/misc/audio(/.*)?          u:object_r:audio_data_file:s0
@@ -535,6 +539,7 @@
 /data/misc/incidents(/.*)?	    u:object_r:incident_data_file:s0
 /data/misc/installd(/.*)?		u:object_r:install_data_file:s0
 /data/misc/keychain(/.*)?       u:object_r:keychain_data_file:s0
+/data/misc/credstore(/.*)?       u:object_r:credstore_data_file:s0
 /data/misc/keystore(/.*)?       u:object_r:keystore_data_file:s0
 /data/misc/logd(/.*)?           u:object_r:misc_logd_file:s0
 /data/misc/media(/.*)?          u:object_r:media_data_file:s0
@@ -605,13 +610,17 @@
 /data/misc_ce/[0-9]+/apexdata(/.*)?       u:object_r:apex_module_data_file:s0
 /data/misc_de/[0-9]+/apexdata/com.android.permission(/.*)?  u:object_r:apex_permission_data_file:s0
 /data/misc_ce/[0-9]+/apexdata/com.android.permission(/.*)?  u:object_r:apex_permission_data_file:s0
+/data/misc_de/[0-9]+/apexdata/com\.android\.wifi(/.*)?  u:object_r:apex_wifi_data_file:s0
+/data/misc_ce/[0-9]+/apexdata/com\.android\.wifi(/.*)?  u:object_r:apex_wifi_data_file:s0
 
 # Apex rollback directories
 /data/misc_de/[0-9]+/apexrollback(/.*)?   u:object_r:apex_rollback_data_file:s0
 /data/misc_ce/[0-9]+/apexrollback(/.*)?   u:object_r:apex_rollback_data_file:s0
 
 # Incremental directories
-/data/incremental(/.*)?                        u:object_r:apk_data_file:s0
+/data/incremental(/.*)?                                 u:object_r:apk_data_file:s0
+/data/incremental/MT_[^/]+/mount/.pending_reads         u:object_r:incremental_control_file:s0
+/data/incremental/MT_[^/]+/mount/.log                   u:object_r:incremental_control_file:s0
 
 #############################
 # Expanded data files
@@ -620,6 +629,8 @@
 /mnt/expand/[^/]+(/.*)?                             u:object_r:system_data_file:s0
 /mnt/expand/[^/]+/app(/.*)?                         u:object_r:apk_data_file:s0
 /mnt/expand/[^/]+/app/[^/]+/oat(/.*)?               u:object_r:dalvikcache_data_file:s0
+# /mnt/expand/..../app/[randomStringA]/[packageName]-[randomStringB]/base.apk layout
+/mnt/expand/[^/]+/app/[^/]+/[^/]+/oat(/.*)?        u:object_r:dalvikcache_data_file:s0
 /mnt/expand/[^/]+/app/vmdl[^/]+\.tmp(/.*)?          u:object_r:apk_tmp_file:s0
 /mnt/expand/[^/]+/app/vmdl[^/]+\.tmp/oat(/.*)?      u:object_r:dalvikcache_data_file:s0
 /mnt/expand/[^/]+/local/tmp(/.*)?                   u:object_r:shell_data_file:s0
@@ -695,6 +706,7 @@
 /metadata/gsi/ota(/.*)?   u:object_r:ota_metadata_file:s0
 /metadata/password_slots(/.*)?    u:object_r:password_slot_metadata_file:s0
 /metadata/ota(/.*)?       u:object_r:ota_metadata_file:s0
+/metadata/bootstat(/.*)?  u:object_r:metadata_bootstat_file:s0
 
 #############################
 # asec containers
