@@ -143,6 +143,18 @@ get_prop(zygote, device_config_runtime_native_boot_prop)
 # ingore spurious denials
 dontaudit zygote self:global_capability_class_set sys_resource;
 
+<<<<<<< HEAD   (03b5fb Add fastbootd to the sys_rawio whitelist.)
+=======
+# Allow zygote to use ashmem fds from system_server.
+allow zygote system_server:fd use;
+
+# Send unsolicited message to system_server
+unix_socket_send(zygote, system_unsolzygote, system_server)
+
+# Allow zygote to access media_variant_prop for static initialization
+get_prop(zygote, media_variant_prop)
+
+>>>>>>> CHANGE (76d7cf Allow XML file paths to be customized with sysprop)
 ###
 ### neverallow rules
 ###
