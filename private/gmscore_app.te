@@ -57,6 +57,9 @@ dontaudit gmscore_app wifi_prop:file r_file_perms;
 dontaudit gmscore_app { wifi_prop exported_wifi_prop }:file r_file_perms;
 dontaudit gmscore_app mirror_data_file:dir search;
 
+# b/149481633: dontaudit directory traversal
+dontaudit gmscore_app varrun_file:dir search;
+
 # Access the network
 net_domain(gmscore_app)
 
