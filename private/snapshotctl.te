@@ -1,6 +1,9 @@
 type snapshotctl, domain, coredomain;
 type snapshotctl_exec, system_file_type, exec_type, file_type;
 
+# Allow shell to run snapshotctl.
+domain_auto_trans(shell, snapshotctl_exec, snapshotctl)
+
 # Allow init to run snapshotctl and do auto domain transfer.
 init_daemon_domain(snapshotctl);
 
