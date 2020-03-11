@@ -710,14 +710,14 @@ static void rule_map_validate(rule_map *rm) {
 static rule_map *rule_map_new(kvp keys[], size_t num_of_keys, int lineno,
 		const char *filename, bool is_never_allow) {
 
-	size_t i = 0, j = 0;
+	size_t i = 0, j = 0, key_len = 0;
 	rule_map *new_map = NULL;
 	kvp *k = NULL;
 	key_map *r = NULL, *x = NULL;
-	bool seen[KVP_NUM_OF_RULES];
+	int seen[KVP_NUM_OF_RULES]; // Record the index in the new_map.m array
 
 	for (i = 0; i < KVP_NUM_OF_RULES; i++)
-		seen[i] = false;
+		seen[i] = -1;
 
 	new_map = calloc(1, (num_of_keys * sizeof(key_map)) + sizeof(rule_map));
 	if (!new_map)
@@ -748,11 +748,11 @@ static rule_map *rule_map_new(kvp keys[], size_t num_of_keys, int lineno,
 				continue;
 			}
 
-			if (seen[j]) {
+			if (seen[j] != -1) {
 					log_error("Duplicated key: %s\n", k->key);
 					goto err;
 			}
-			seen[j] = true;
+			seen[j] = i;
 
 			memcpy(r, x, sizeof(key_map));
 
@@ -770,37 +770,42 @@ static rule_map *rule_map_new(kvp keys[], size_t num_of_keys, int lineno,
 
 			/*
 			 * Only build key off of inputs with the exception of neverallows.
-			 * Neverallows are keyed off of all key value pairs,
+			 * Neverallows are keyed off of all key value pairs.
+			 * Here we just calculate the length of the new_map->key needed.
 			 */
 			if (r->dir == dir_in || new_map->is_never_allow) {
-				char *tmp;
-				int key_len = strlen(k->key);
-				int val_len = strlen(k->value);
-				int l = (new_map->key) ? strlen(new_map->key) : 0;
-				l = l + key_len + val_len;
-				l += 1;
-
-				tmp = realloc(new_map->key, l);
-				if (!tmp)
-					goto oom;
-
-				if (!new_map->key)
-					memset(tmp, 0, l);
-
-				new_map->key = tmp;
-
-				strncat(new_map->key, k->key, key_len);
-				strncat(new_map->key, k->value, val_len);
+				key_len += strlen(r->name) + strlen(r->data);
 			}
+
 			break;
 		}
 		free_kvp(k);
 	}
 
-	if (new_map->key == NULL) {
+	if (!key_len) {
 		log_error("Strange, no keys found, input file corrupt perhaps?\n");
 		goto err;
 	}
+
+	new_map->key = calloc(1, key_len + 1);
+	if (!new_map->key)
+		goto oom;
+
+	/*
+	 * The calculation of the key uses the order of the rules array to
+	 * ensure that we can detect the same entries in different order.
+	 */
+	for (i = 0; i < KVP_NUM_OF_RULES; i++) {
+		if (seen[i] == -1) {
+			continue;
+		}
+		r = &(new_map->m[seen[i]]);
+		if (r->dir == dir_in  || new_map->is_never_allow) {
+			strcat(new_map->key, r->name);
+			strcat(new_map->key, r->data);
+		}
+	}
+	log_info("%s:%d key: %s\n", new_map->filename, new_map->lineno, new_map->key);
 
 	return new_map;
 
