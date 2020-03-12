@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "21030f8b_a660fb8f",
+        "filename": "public/property.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1105338
+      },
+      "writtenOn": "2020-03-12T03:58:07Z",
+      "side": 1,
+      "message": "I don\u0027t quite understand what you mean. I think this should be readable by every process, but only settable during the boot time (by vendor). How do I make that happen?",
+      "parentUuid": "51433276_bb11c8d5",
+      "revId": "30a9b769096c4b7bfdad88a2ae7c4fa6c007ab79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "df88fe50_b7f06ffe",
         "filename": "public/property.te",
         "patchSetId": 4
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "95ce1f53_a2d12668",
+        "filename": "public/property.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1105338
+      },
+      "writtenOn": "2020-03-12T03:58:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "df88fe50_b7f06ffe",
+      "revId": "30a9b769096c4b7bfdad88a2ae7c4fa6c007ab79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d7d4cb7_f1edbff0",
         "filename": "public/property_contexts",
         "patchSetId": 4
@@ -47,6 +83,30 @@
       "writtenOn": "2020-03-12T00:23:27Z",
       "side": 1,
       "message": "These are owned by platform, so no need to prefix them with \"vendor.\".\n\nAlso, I strongly suggest to rename these in a structured way, e.g., \n\nro.media.codecs.performance_xml.path\nro.media.codecs.xml.path\nro.media.profiles_xml.path",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 82
+      },
+      "revId": "30a9b769096c4b7bfdad88a2ae7c4fa6c007ab79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21cb54be_d31b87c0",
+        "filename": "public/property_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1105338
+      },
+      "writtenOn": "2020-03-12T03:58:07Z",
+      "side": 1,
+      "message": "These variants are going to be inserted right before \".xml\" of the original file names. We still want to enforce the prefix and the suffix.\n\nWould the following be more acceptable?\n\nro.media.xml_variant.codecs\nro.media.xml_variant.codecs_performance\nro.media.xml_variant.profiles",
+      "parentUuid": "9d7d4cb7_f1edbff0",
       "range": {
         "startLine": 167,
         "startChar": 0,
