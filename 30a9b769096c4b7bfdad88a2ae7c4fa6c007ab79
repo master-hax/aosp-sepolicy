@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "d10414eb_f84c687c",
+        "filename": "public/property.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-03-12T04:06:05Z",
+      "side": 1,
+      "message": "In this change, only the following two are allowed to read the prop.\n\nget_prop(hal_omx_client, media_variant_prop)\nget_prop(hal_omx_server, media_variant_prop)\n\nSo, I was expecting something like\n\nneverallow { domain -hal_omx_client -hal_omx_server } media_variant_prop:file no_rw_file_perms",
+      "parentUuid": "21030f8b_a660fb8f",
+      "revId": "30a9b769096c4b7bfdad88a2ae7c4fa6c007ab79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "df88fe50_b7f06ffe",
         "filename": "public/property.te",
         "patchSetId": 4
@@ -107,6 +125,30 @@
       "side": 1,
       "message": "These variants are going to be inserted right before \".xml\" of the original file names. We still want to enforce the prefix and the suffix.\n\nWould the following be more acceptable?\n\nro.media.xml_variant.codecs\nro.media.xml_variant.codecs_performance\nro.media.xml_variant.profiles",
       "parentUuid": "9d7d4cb7_f1edbff0",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 82
+      },
+      "revId": "30a9b769096c4b7bfdad88a2ae7c4fa6c007ab79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fff12e8_dae595db",
+        "filename": "public/property_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-03-12T04:06:05Z",
+      "side": 1,
+      "message": "Yeah,that sounds good as well. If I can add more, consider adding \".path\" suffix to make it clear that the properties are for paths.",
+      "parentUuid": "21cb54be_d31b87c0",
       "range": {
         "startLine": 167,
         "startChar": 0,
