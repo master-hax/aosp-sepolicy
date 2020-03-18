@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "104a9219_c204d48a",
+        "filename": "public/property.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1105338
+      },
+      "writtenOn": "2020-03-18T22:51:00Z",
+      "side": 1,
+      "message": "These properties don\u0027t need to be private to the HAL-facing modules, so if other modules need to read them in the future, they should be able to add an allow rule.",
+      "parentUuid": "d10414eb_f84c687c",
+      "revId": "30a9b769096c4b7bfdad88a2ae7c4fa6c007ab79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df88fe50_b7f06ffe",
         "filename": "public/property.te",
         "patchSetId": 4
@@ -158,6 +176,30 @@
       "revId": "30a9b769096c4b7bfdad88a2ae7c4fa6c007ab79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "456164d3_56f723e6",
+        "filename": "public/property_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1105338
+      },
+      "writtenOn": "2020-03-18T22:51:00Z",
+      "side": 1,
+      "message": "I renamed them, but I didn\u0027t add the \".path\" suffix because I think that the term \"xml_variant\" kind of implies that it\u0027s going to be a part of an xml file name.",
+      "parentUuid": "8fff12e8_dae595db",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 82
+      },
+      "revId": "30a9b769096c4b7bfdad88a2ae7c4fa6c007ab79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
