@@ -166,3 +166,4 @@ neverallow system_app fuse_device:chr_file *;
 # bug reports, but not reads.
 neverallow system_app shell_data_file:dir { no_w_dir_perms open search read };
 neverallow system_app shell_data_file:file { open read ioctl lock };
+allow system_app gsid_prop:file { open read getattr };
