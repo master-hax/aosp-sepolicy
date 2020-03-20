@@ -87,6 +87,12 @@ set_prop(adbd, powerctl_prop)
 set_prop(adbd, ffs_prop)
 set_prop(adbd, exported_ffs_prop)
 
+# Set service.adb.tls.port, persist.adb.wifi. properties
+set_prop(adbd, adbd_prop)
+
+# Allow adbd start/stop mdnsd via ctl.start
+set_prop(adbd, ctl_mdnsd_prop)
+
 # Access device logging gating property
 get_prop(adbd, device_logging_prop)
 
@@ -95,6 +101,9 @@ get_prop(adbd, serialno_prop)
 
 # Read whether or not Test Harness Mode is enabled
 get_prop(adbd, test_harness_prop)
+
+# Read persist.adb.tls_server.enable property
+get_prop(adbd, system_adbd_prop)
 
 # Read device's overlayfs related properties and files
 userdebug_or_eng(`
@@ -180,7 +189,7 @@ allow adbd perfetto_traces_data_file:dir r_dir_perms;
 
 # Connect to shell and use a socket transferred from it.
 # Used for e.g. abb.
-allow adbd shell:unix_stream_socket { read write };
+allow adbd shell:unix_stream_socket { read write shutdown };
 allow adbd shell:fd use;
 
 ###

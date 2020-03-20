@@ -1,5 +1,4 @@
 typeattribute statsd coredomain;
-typeattribute statsd stats_service_server;
 
 init_daemon_domain(statsd)
 
@@ -19,3 +18,6 @@ allow statsd incidentd:fifo_file write;
 
 # Allow StatsCompanionService to pipe data to statsd.
 allow statsd system_server:fifo_file { read getattr };
+
+# Allow statsd to retrieve SF statistics over binder
+binder_call(statsd, surfaceflinger);

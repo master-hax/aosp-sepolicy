@@ -95,6 +95,15 @@ allow vold media_rw_data_file:file create_file_perms;
 # Allow mounting (lower filesystem) on parts of media for performance
 allow vold media_rw_data_file:dir mounton;
 
+# Allow setting extended attributes (for project quota IDs) on files and dirs
+# and to enable project ID inheritance through FS_IOC_SETFLAGS
+allowxperm vold media_rw_data_file:{ dir file } ioctl {
+  FS_IOC_FSGETXATTR
+  FS_IOC_FSSETXATTR
+  FS_IOC_GETFLAGS
+  FS_IOC_SETFLAGS
+};
+
 # Allow mounting of storage devices
 allow vold { mnt_media_rw_stub_file storage_stub_file }:dir { mounton create rmdir getattr setattr };
 
@@ -103,10 +112,23 @@ allow vold mnt_user_file:dir { create_dir_perms mounton };
 allow vold mnt_user_file:lnk_file create_file_perms;
 allow vold mnt_user_file:file create_file_perms;
 
+# Manage per-user pass_through primary symlinks
+allow vold mnt_pass_through_file:dir { create_dir_perms mounton };
+allow vold mnt_pass_through_file:lnk_file create_file_perms;
+
 # Allow to create and mount expanded storage
 allow vold mnt_expand_file:dir { create_dir_perms mounton };
 allow vold apk_data_file:dir { create getattr setattr };
 allow vold shell_data_file:dir { create getattr setattr };
+
+# Allow to mount incremental file system on /data/incremental and create files
+allow vold apk_data_file:dir { mounton rw_dir_perms };
+# Allow to create and write files in /data/incremental
+allow vold apk_data_file:file rw_file_perms;
+# Allow to bind-mount incremental file system on /data/app/vmdl*.tmp and read files
+allow vold apk_tmp_file:dir { mounton r_dir_perms };
+# Allow to read incremental control file and call selinux restorecon on it
+allow vold incremental_control_file:file { r_file_perms relabelto };
 
 allow vold tmpfs:filesystem { mount unmount };
 allow vold tmpfs:dir create_dir_perms;
@@ -168,15 +190,6 @@ allow vold system_data_file:file read;
 
 # Set scheduling policy of kernel processes
 allow vold kernel:process setsched;
-
-# Property Service
-set_prop(vold, vold_prop)
-set_prop(vold, exported_vold_prop)
-set_prop(vold, exported2_vold_prop)
-set_prop(vold, powerctl_prop)
-set_prop(vold, ctl_fuse_prop)
-set_prop(vold, restorecon_prop)
-set_prop(vold, ota_prop)
 
 # ASEC
 allow vold asec_image_file:file create_file_perms;

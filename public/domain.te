@@ -80,6 +80,10 @@ allow domain ashmem_libcutils_device:chr_file rw_file_perms;
 # /dev/binder can be accessed by ... everyone! :)
 allow { domain -hwservicemanager -vndservicemanager } binder_device:chr_file rw_file_perms;
 
+# /dev/binderfs needs to be accessed by everyone too!
+allow domain binderfs:dir { getattr search };
+allow domain binderfs_logs_proc:dir search;
+
 allow { domain -servicemanager -vndservicemanager -isolated_app } hwbinder_device:chr_file rw_file_perms;
 allow domain ptmx_device:chr_file rw_file_perms;
 allow domain random_device:chr_file rw_file_perms;
@@ -101,6 +105,14 @@ get_prop(domain, exported_system_prop)
 get_prop(domain, exported_vold_prop)
 get_prop(domain, exported2_default_prop)
 get_prop(domain, logd_prop)
+get_prop(domain, socket_hook_prop)
+get_prop(domain, vendor_socket_hook_prop)
+get_prop(domain, vndk_prop)
+
+# Binder cache properties are world-readable
+get_prop(domain, binder_cache_bluetooth_server_prop)
+get_prop(domain, binder_cache_system_server_prop)
+get_prop(domain, binder_cache_telephony_server_prop)
 
 # Let everyone read log properties, so that liblog can avoid sending unloggable
 # messages to logd.
@@ -492,9 +504,9 @@ neverallow { domain recovery_only(`userdebug_or_eng(`-fastbootd')') } contextmou
 # system_app_service rather than the generic type.
 # New service_types are defined in {,hw,vnd}service.te and new mappings
 # from service name to service_type are defined in {,hw,vnd}service_contexts.
-neverallow * default_android_service:service_manager add;
-neverallow * default_android_vndservice:service_manager { add find };
-neverallow * default_android_hwservice:hwservice_manager { add find };
+neverallow * default_android_service:service_manager *;
+neverallow * default_android_vndservice:service_manager *;
+neverallow * default_android_hwservice:hwservice_manager *;
 
 # Looking up the base class/interface of all HwBinder services is a bad idea.
 # hwservicemanager currently offer such lookups only to make it so that security
@@ -509,6 +521,7 @@ neverallow * hidl_base_hwservice:hwservice_manager find;
 # anyone but init to modify unknown properties.
 neverallow { domain -init -vendor_init } default_prop:property_service set;
 neverallow { domain -init -vendor_init } mmc_prop:property_service set;
+neverallow { domain -init -vendor_init } vndk_prop:property_service set;
 
 compatible_property_only(`
     neverallow { domain -init } default_prop:property_service set;
@@ -519,10 +532,6 @@ compatible_property_only(`
     neverallow { domain -init -vendor_init } exported3_default_prop:property_service set;
     neverallow { domain -init -vendor_init } vendor_default_prop:property_service set;
 ')
-
-# Only core domains are allowed to access package_manager properties
-neverallow { domain -init -system_server } pm_prop:property_service set;
-neverallow { domain -coredomain } pm_prop:file no_rw_file_perms;
 
 compatible_property_only(`
     neverallow { domain -init -system_server -vendor_init } exported_pm_prop:property_service set;
@@ -548,9 +557,6 @@ neverallow {
   -system_server
   -vendor_init
 } serialno_prop:file r_file_perms;
-
-# Do not allow reading the last boot timestamp from system properties
-neverallow { domain -init -system_server -dumpstate } firstboot_prop:file r_file_perms;
 
 neverallow {
   domain
@@ -643,6 +649,8 @@ full_treble_only(`
     -audioserver_service # TODO(b/36783122) remove exemptions below once app_api_service is fixed
     -cameraserver_service
     -drmserver_service
+    -hal_light_service # TODO(b/148154485) remove once all violators are gone
+    -credstore_service
     -keystore_service
     -mediadrmserver_service
     -mediaextractor_service
@@ -718,7 +726,8 @@ full_treble_only(`
     userdebug_or_eng(`-su') # communications with su are permitted only on userdebug or eng builds
     -init
     -tombstoned # linker to tombstoned
-    userdebug_or_eng('-heapprofd`)
+    userdebug_or_eng(`-heapprofd')
+    userdebug_or_eng(`-traced_perf')
   });
 ')
 
@@ -930,6 +939,7 @@ full_treble_only(`
         -system_linker_exec
         -crash_dump_exec
         -iorap_prefetcherd_exec
+        -iorap_inode2filename_exec
         -netutils_wrapper_exec
         userdebug_or_eng(`-tcpdump_exec')
     }:file { entrypoint execute execute_no_trans };
@@ -972,12 +982,15 @@ full_treble_only(`
     # TODO(b/37168747): clean up fwk access to /vendor
     -crash_dump
     -init # starts vendor executables
+    -iorap_inode2filename
     -iorap_prefetcherd
     -kernel # loads /vendor/firmware
     userdebug_or_eng(`-heapprofd')
     -shell
     -system_executes_vendor_violators
+    -traced_perf # library/binary access for symbolization
     -ueventd # reads /vendor/ueventd.rc
+    -vold # loads incremental fs driver
   } {
     vendor_file_type
     -same_process_hal_file
@@ -1010,6 +1023,7 @@ full_treble_only(`
     system_file_type
     -crash_dump_exec
     -file_contexts_file
+    -iorap_inode2filename_exec
     -netutils_wrapper_exec
     -property_contexts_file
     -system_event_log_tags_file
@@ -1140,6 +1154,7 @@ neverallow {
   -appdomain # finer-grained rules for appdomain are listed below
   -system_server #populate com.android.providers.settings/databases/settings.db.
   -installd # creation of app sandbox
+  -iorap_inode2filename
   -traced_probes # resolve inodes for i/o tracing.
                  # only needs open and read, the rest is neverallow in
                  # traced_probes.te.
@@ -1164,10 +1179,11 @@ neverallow {
   -zygote
 } shell:process { transition dyntransition };
 
-# Only domains spawned from zygote, runas and simpleperf_app_runner may have the appdomain
-# attribute.
+# Only domains spawned from zygote, runas and simpleperf_app_runner may have
+# the appdomain attribute. simpleperf is excluded as a domain transitioned to
+# when running an app-scoped profiling session.
 neverallow { domain -simpleperf_app_runner -runas -app_zygote -webview_zygote -zygote } {
-  appdomain -shell userdebug_or_eng(`-su')
+  appdomain -shell -simpleperf userdebug_or_eng(`-su')
 }:process { transition dyntransition };
 
 # Minimize read access to shell- or app-writable symlinks.
@@ -1299,10 +1315,12 @@ full_treble_only(`
     -appdomain
     -bootanim
     -crash_dump
+    -heapprofd
     -init
+    -iorap_inode2filename
     -iorap_prefetcherd
     -kernel
-    -heapprofd
+    -traced_perf
     -ueventd
   } vendor_file:file { no_w_file_perms no_x_file_perms open };
 ')

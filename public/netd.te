@@ -63,7 +63,7 @@ allow netd sysfs_usb:file write;
 r_dir_file(netd, cgroup_bpf)
 
 allow netd fs_bpf:dir search;
-allow netd fs_bpf:file { read write setattr };
+allow netd fs_bpf:file { read write };
 
 # TODO: netd previously thought it needed these permissions to do WiFi related
 #       work.  However, after all the WiFi stuff is gone, we still need them.
@@ -80,9 +80,6 @@ allow netd system_file:file lock;
 
 # Allow netd to spawn dnsmasq in it's own domain
 allow netd dnsmasq:process signal;
-
-set_prop(netd, ctl_mdnsd_prop)
-set_prop(netd, netd_stable_secret_prop)
 
 # Allow netd to publish a binder service and make binder calls.
 binder_use(netd)
@@ -113,8 +110,6 @@ allow netd self:netlink_xfrm_socket { create_socket_perms_no_ioctl nlmsg_write n
 # Allow netd to register as hal server.
 add_hwservice(netd, system_net_netd_hwservice)
 hwbinder_use(netd)
-get_prop(netd, hwservicemanager_prop)
-get_prop(netd, device_config_netd_native_prop)
 
 ###
 ### Neverallow rules
@@ -157,14 +152,6 @@ neverallow {
 neverallow { appdomain -network_stack } netd:binder call;
 neverallow netd { appdomain -network_stack userdebug_or_eng(`-su') }:binder call;
 
-# persist.netd.stable_secret contains RFC 7217 secret key which should never be
-# leaked to other processes. Make sure it never leaks.
-neverallow { domain -netd -init -dumpstate } netd_stable_secret_prop:file r_file_perms;
-
-# We want to ensure that no other process ever tries tampering with persist.netd.stable_secret,
-# the RFC 7217 secret key managed by netd. Doing so could compromise user privacy.
-neverallow { domain -netd -init } netd_stable_secret_prop:property_service set;
-
 # If an already existing file is opened with O_CREATE, the kernel might generate
 # a false report of a create denial. Silence these denials and make sure that
 # inappropriate permissions are not granted.
@@ -173,3 +160,13 @@ dontaudit netd proc_net:dir write;
 
 neverallow netd sysfs_net:dir no_w_dir_perms;
 dontaudit netd sysfs_net:dir write;
+
+# Netd should not have SYS_ADMIN privs.
+neverallow netd self:capability sys_admin;
+dontaudit netd self:capability sys_admin;
+
+# Netd should not have SYS_MODULE privs, nor should it be requesting module loads
+# (things it requires should be built directly into the kernel)
+dontaudit netd self:capability sys_module;
+
+dontaudit netd kernel:system module_request;

@@ -4,6 +4,9 @@ type pipefs, fs_type;
 type sockfs, fs_type;
 type rootfs, fs_type;
 type proc, fs_type, proc_type;
+type binderfs, fs_type;
+type binderfs_logs, fs_type;
+type binderfs_logs_proc, fs_type;
 # Security-sensitive proc nodes that should not be writable to most.
 type proc_security, fs_type, proc_type;
 type proc_drop_caches, fs_type, proc_type;
@@ -81,6 +84,7 @@ type sysfs_batteryinfo, fs_type, sysfs_type;
 type sysfs_bluetooth_writable, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_devices_block, fs_type, sysfs_type;
 type sysfs_dm, fs_type, sysfs_type;
+type sysfs_dm_verity, fs_type, sysfs_type;
 type sysfs_dt_firmware_android, fs_type, sysfs_type;
 type sysfs_extcon, fs_type, sysfs_type;
 type sysfs_ion, fs_type, sysfs_type;
@@ -133,6 +137,7 @@ type debugfs_tracing_debug, fs_type, debugfs_type, mlstrustedobject;
 type debugfs_tracing_instances, fs_type, debugfs_type;
 type debugfs_wakeup_sources, fs_type, debugfs_type;
 type debugfs_wifi_tracing, fs_type, debugfs_type;
+type securityfs, fs_type;
 
 type pstorefs, fs_type;
 type functionfs, fs_type, mlstrustedobject;
@@ -140,8 +145,6 @@ type oemfs, fs_type, contextmount_type;
 type usbfs, fs_type;
 type binfmt_miscfs, fs_type;
 type app_fusefs, fs_type, contextmount_type;
-
-type incfs, fs_type;
 
 # File types
 type unlabeled, file_type;
@@ -184,6 +187,8 @@ type vendor_task_profiles_file, vendor_file_type, file_type;
 type art_apex_dir, system_file_type, file_type;
 # /linkerconfig(/.*)?
 type linkerconfig_file, file_type;
+# Control files under /data/incremental
+type incremental_control_file, file_type, data_file_type, core_data_file_type;
 
 # Default type for directories search for
 # HAL implementations
@@ -224,6 +229,8 @@ type password_slot_metadata_file, file_type;
 type apex_metadata_file, file_type;
 # libsnapshot files within /metadata
 type ota_metadata_file, file_type;
+# property files within /metadata/bootstat
+type metadata_bootstat_file, file_type;
 
 # Type for /dev/cpu_variant:.*.
 type dev_cpu_variant, file_type;
@@ -277,6 +284,8 @@ type ota_package_file, file_type, data_file_type, core_data_file_type, mlstruste
 type user_profile_data_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
 # /data/misc/profman
 type profman_dump_data_file, file_type, data_file_type, core_data_file_type;
+# /data/misc/prereboot
+type prereboot_data_file, file_type, data_file_type, core_data_file_type;
 # /data/resource-cache
 type resourcecache_data_file, file_type, data_file_type, core_data_file_type;
 # /data/local - writable by shell
@@ -305,12 +314,11 @@ type server_configurable_flags_data_file, file_type, data_file_type, core_data_f
 type staging_data_file, file_type, data_file_type, core_data_file_type;
 # /vendor/apex
 type vendor_apex_file, vendor_file_type, file_type;
-# /data/incremental
-type incremental_root_file, file_type, data_file_type, core_data_file_type;
 
 # Mount locations managed by vold
 type mnt_media_rw_file, file_type;
 type mnt_user_file, file_type;
+type mnt_pass_through_file, file_type;
 type mnt_expand_file, file_type;
 type mnt_sdcard_file, file_type;
 type storage_file, file_type;
@@ -341,7 +349,9 @@ type mirror_data_file, file_type, core_data_file_type;
 # /data/misc subdirectories
 type adb_keys_file, file_type, data_file_type, core_data_file_type;
 type apex_module_data_file, file_type, data_file_type, core_data_file_type;
+type apex_permission_data_file, file_type, data_file_type, core_data_file_type;
 type apex_rollback_data_file, file_type, data_file_type, core_data_file_type;
+type apex_wifi_data_file, file_type, data_file_type, core_data_file_type;
 type audio_data_file, file_type, data_file_type, core_data_file_type;
 type audioserver_data_file, file_type, data_file_type, core_data_file_type;
 type bluetooth_data_file, file_type, data_file_type, core_data_file_type;
@@ -349,6 +359,7 @@ type bluetooth_logs_data_file, file_type, data_file_type, core_data_file_type;
 type bootstat_data_file, file_type, data_file_type, core_data_file_type;
 type boottrace_data_file, file_type, data_file_type, core_data_file_type;
 type camera_data_file, file_type, data_file_type, core_data_file_type;
+type credstore_data_file, file_type, data_file_type, core_data_file_type;
 type gatekeeper_data_file, file_type, data_file_type, core_data_file_type;
 type incident_data_file, file_type, data_file_type, core_data_file_type;
 type keychain_data_file, file_type, data_file_type, core_data_file_type;
@@ -362,6 +373,7 @@ type nfc_data_file, file_type, data_file_type, core_data_file_type;
 type radio_data_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
 type recovery_data_file, file_type, data_file_type, core_data_file_type;
 type shared_relro_file, file_type, data_file_type, core_data_file_type;
+type snapshotctl_log_data_file, file_type, data_file_type, core_data_file_type;
 type stats_data_file, file_type, data_file_type, core_data_file_type;
 type systemkeys_data_file, file_type, data_file_type, core_data_file_type;
 type textclassifier_data_file, file_type, data_file_type, core_data_file_type;
@@ -448,11 +460,13 @@ type rild_debug_socket, file_type;
 type statsdw_socket, file_type, coredomain_socket, mlstrustedobject;
 type system_wpa_socket, file_type, data_file_type, core_data_file_type, coredomain_socket;
 type system_ndebug_socket, file_type, data_file_type, core_data_file_type, coredomain_socket, mlstrustedobject;
+type system_unsolzygote_socket, file_type, data_file_type, core_data_file_type, coredomain_socket, mlstrustedobject;
 type tombstoned_crash_socket, file_type, coredomain_socket, mlstrustedobject;
 type tombstoned_java_trace_socket, file_type, mlstrustedobject;
 type tombstoned_intercept_socket, file_type, coredomain_socket;
-type traced_producer_socket, file_type, coredomain_socket, mlstrustedobject;
 type traced_consumer_socket, file_type, coredomain_socket, mlstrustedobject;
+type traced_perf_socket, file_type, coredomain_socket, mlstrustedobject;
+type traced_producer_socket, file_type, coredomain_socket, mlstrustedobject;
 type uncrypt_socket, file_type, coredomain_socket;
 type wpa_socket, file_type, data_file_type, core_data_file_type;
 type zygote_socket, file_type, coredomain_socket;

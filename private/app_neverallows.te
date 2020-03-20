@@ -6,9 +6,11 @@ define(`all_untrusted_apps',`{
   ephemeral_app
   isolated_app
   mediaprovider
+  mediaprovider_app
   untrusted_app
   untrusted_app_25
   untrusted_app_27
+  untrusted_app_29
   untrusted_app_all
 }')
 # Receive or send uevent messages.
@@ -111,6 +113,14 @@ neverallow all_untrusted_apps *:{
   alg_socket nfc_socket vsock_socket kcm_socket qipcrtr_socket smc_socket xdp_socket
 } *;
 
+# Disallow sending RTM_GETLINK messages on netlink sockets.
+neverallow {
+  all_untrusted_apps
+  -untrusted_app_25
+  -untrusted_app_27
+  -untrusted_app_29
+} domain:netlink_route_socket { bind nlmsg_readpriv };
+
 # Do not allow untrusted apps access to /cache
 neverallow { all_untrusted_apps -mediaprovider } { cache_file cache_recovery_file }:dir ~{ r_dir_perms };
 neverallow { all_untrusted_apps -mediaprovider } { cache_file cache_recovery_file }:file ~{ read getattr };
@@ -136,8 +146,8 @@ neverallow { all_untrusted_apps -mediaprovider } {
   ')
 }:dir_file_class_set { create unlink };
 
-# No untrusted component except mediaprovider should be touching /dev/fuse
-neverallow { all_untrusted_apps -mediaprovider } fuse_device:chr_file *;
+# No untrusted component except mediaprovider_app should be touching /dev/fuse
+neverallow { all_untrusted_apps -mediaprovider_app } fuse_device:chr_file *;
 
 # Do not allow untrusted apps to directly open the tun_device
 neverallow all_untrusted_apps tun_device:chr_file open;
@@ -176,7 +186,6 @@ neverallow all_untrusted_apps anr_data_file:dir ~search;
 neverallow all_untrusted_apps {
   proc
   proc_asound
-  proc_filesystems
   proc_kmsg
   proc_loadavg
   proc_mounts
@@ -189,6 +198,10 @@ neverallow all_untrusted_apps {
   proc_vmallocinfo
   proc_vmstat
 }:file { no_rw_file_perms no_x_file_perms };
+
+# /proc/filesystems is accessible to mediaprovider_app only since it handles
+# external storage
+neverallow { all_untrusted_apps - mediaprovider_app } proc_filesystems:file { no_rw_file_perms no_x_file_perms };
 
 # Avoid all access to kernel configuration
 neverallow all_untrusted_apps config_gz:file { no_rw_file_perms no_x_file_perms };

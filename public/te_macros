@@ -171,16 +171,17 @@ typeattribute $1 appdomain;
 # Label tmpfs objects for all apps.
 type_transition $1 tmpfs:file appdomain_tmpfs;
 allow $1 appdomain_tmpfs:file { execute getattr map read write };
-neverallow { $1 -runas_app -shell } { domain -$1 }:file no_rw_file_perms;
-neverallow { appdomain -runas_app -shell -$1 } $1:file no_rw_file_perms;
+neverallow { $1 -runas_app -shell -simpleperf } { domain -$1 }:file no_rw_file_perms;
+neverallow { appdomain -runas_app -shell -simpleperf -$1 } $1:file no_rw_file_perms;
 # The Android security model guarantees the confidentiality and integrity
 # of application data and execution state. Ptrace bypasses those
-# confidentiality guarantees. Disallow ptrace access from system components
-# to apps. Crash_dump is excluded, as it needs ptrace access to
-# produce stack traces.  llkd is excluded, as it needs to inspect
-# the kernel stack for live lock conditions. runas_app is excluded, as it can
-# only access debuggable apps.
-neverallow { domain -$1 -crash_dump userdebug_or_eng(`-llkd') -runas_app } $1:process ptrace;
+# confidentiality guarantees. Disallow ptrace access from system components to
+# apps. crash_dump is excluded, as it needs ptrace access to produce stack
+# traces. runas_app is excluded, as it operates only on debuggable apps.
+# simpleperf is excluded, as it operates only on debuggable or profileable
+# apps. llkd is excluded, as it needs ptrace access to inspect stack traces for
+# live lock conditions.
+neverallow { domain -$1 -crash_dump userdebug_or_eng(`-llkd') -runas_app -simpleperf } $1:process ptrace;
 ')
 
 #####################################
@@ -337,6 +338,8 @@ allow $1 $3:unix_dgram_socket sendto;
 define(`binder_use', `
 # Call the servicemanager and transfer references to it.
 allow $1 servicemanager:binder { call transfer };
+# Allow servicemanager to send out callbacks
+allow servicemanager $1:binder { call transfer };
 # servicemanager performs getpidcon on clients.
 allow servicemanager $1:dir search;
 allow servicemanager $1:file { read open };
@@ -596,6 +599,18 @@ define(`use_keystore', `
   binder_call(keystore, $1)
 ')
 
+#####################################
+# use_credstore(domain)
+# Ability to use credstore.
+define(`use_credstore', `
+  allow credstore $1:dir search;
+  allow credstore $1:file { read open };
+  allow credstore $1:process getattr;
+  allow $1 credstore_service:service_manager find;
+  binder_call($1, credstore)
+  binder_call(credstore, $1)
+')
+
 ###########################################
 # use_drmservice(domain)
 # Ability to use DrmService which requires
@@ -715,12 +730,48 @@ define(`never_profile_heap', `
 ')
 
 ###################################
+# can_profile_perf(domain)
+# Allow processes within the domain to be profiled, and have their stacks
+# sampled, by traced_perf.
+define(`can_profile_perf', `
+  # Allow directory & file read to traced_perf, as it stat(2)s /proc/[pid], and
+  # reads /proc/[pid]/cmdline.
+  allow traced_perf $1:file r_file_perms;
+  allow traced_perf $1:dir r_dir_perms;
+
+  # Allow central daemon to send signal to request /proc/[pid]/maps and
+  # /proc/[pid]/mem fds from this process.
+  allow traced_perf $1:process signal;
+
+  # Allow connecting to the daemon.
+  unix_socket_connect($1, traced_perf, traced_perf)
+  # Allow daemon to use the passed fds.
+  allow traced_perf $1:fd use;
+')
+
+###################################
+# never_profile_perf(domain)
+# Opt out of profiling by traced_perf.
+define(`never_profile_perf', `
+  neverallow traced_perf $1:file read;
+  neverallow traced_perf $1:process signal;
+')
+
+###################################
 # perfetto_producer(domain)
 # Allow processes within the domain to write data to Perfetto.
+# When applying this macro, you might need to also allow traced to use the
+# producer tmpfs domain, if the producer will be the one creating the shared
+# memory.
 define(`perfetto_producer', `
   allow $1 traced:fd use;
   allow $1 traced_tmpfs:file { read write getattr map };
   unix_socket_connect($1, traced_producer, traced)
+
+  # Also allow the service to use the producer file descriptors. This is
+  # necessary when the producer is creating the shared memory, as it will be
+  # passed to the service as a file descriptor (obtained from memfd_create).
+  allow traced $1:fd use;
 ')
 
 ###########################################
@@ -794,6 +845,18 @@ define(`system_restricted_prop', `
 # Define a /system-owned property with no restrictions
 #
 define(`system_public_prop', `define_prop($1, system, public)')
+
+###########################################
+# system_vendor_config_prop(name)
+# Define a /system-owned property which can only be written by vendor_init
+# This is a macro for vendor-specific configuration properties which is meant
+# to be set once from vendor_init.
+#
+define(`system_vendor_config_prop', `
+  system_public_prop($1)
+  set_prop(vendor_init, $1)
+  neverallow { domain -init -vendor_init } $1:property_service set;
+')
 
 ###########################################
 # product_internal_prop(name)

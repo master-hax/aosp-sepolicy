@@ -64,8 +64,8 @@ selinux_check_access(webview_zygote)
 # Directory listing in /system.
 allow webview_zygote system_file:dir r_dir_perms;
 
-# Read system properties managed by zygote.
-allow webview_zygote zygote_tmpfs:file read;
+# Read and inspect temporary files (like system properties) managed by zygote.
+allow webview_zygote zygote_tmpfs:file { read getattr };
 # Child of zygote.
 allow webview_zygote zygote:fd use;
 allow webview_zygote zygote:process sigchld;
@@ -76,6 +76,9 @@ r_dir_file(webview_zygote, vendor_overlay_file)
 allow webview_zygote same_process_hal_file:file { execute read open getattr map };
 
 allow webview_zygote system_data_file:lnk_file r_file_perms;
+
+# Send unsolicited message to system_server
+unix_socket_send(webview_zygote, system_unsolzygote, system_server)
 
 #####
 ##### Neverallow
