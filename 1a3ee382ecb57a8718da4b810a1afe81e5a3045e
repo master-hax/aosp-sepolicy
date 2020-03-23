@@ -94,6 +94,30 @@
       "revId": "1a3ee382ecb57a8718da4b810a1afe81e5a3045e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ad521fa_c944526c",
+        "filename": "public/device.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1148300
+      },
+      "writtenOn": "2020-03-23T18:21:08Z",
+      "side": 1,
+      "message": "looks like it added a while ago\nhttps://cs.android.com/android/_/android/platform/system/sepolicy/+/81039ab556b72d43b703da0ac1eb93b979ee6bc4\n\nand it also has \"gps_device\"\n\nI think we should just use gnss_device, gnss is more standard and accurate name,(gnss \u003dGlobal Navigation Satellite System, contains GPS/Galileo/Beidou/GLonass etc, GPS is only a subset) in framework code, we already change lots place from Gpsxxxx to Gnssxxx\nlater we can try to migrate gps to gnss_device if necessary?",
+      "parentUuid": "92762923_b9c25ec3",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 27
+      },
+      "revId": "1a3ee382ecb57a8718da4b810a1afe81e5a3045e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
