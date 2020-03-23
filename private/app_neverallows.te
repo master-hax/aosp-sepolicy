@@ -8,6 +8,7 @@ define(`all_untrusted_apps',`{
   mediaprovider
   mediaprovider_app
   untrusted_app
+  untrusted_app_compat
   untrusted_app_25
   untrusted_app_27
   untrusted_app_29
@@ -40,7 +41,7 @@ neverallow { all_untrusted_apps -mediaprovider } init:unix_stream_socket connect
 neverallow { all_untrusted_apps -mediaprovider } property_type:property_service set;
 
 # net.dns properties are not a public API. Disallow untrusted apps from reading this property.
-neverallow { all_untrusted_apps } net_dns_prop:file read;
+neverallow { all_untrusted_apps -untrusted_app_compat} net_dns_prop:file read;
 
 # Shared libraries created by trusted components within an app home
 # directory can be dlopen()ed. To maintain the W^X property, these files
@@ -57,6 +58,7 @@ neverallow {
   -untrusted_app_25
   -untrusted_app_27
   -runas_app
+  -untrusted_app_compat
 } { app_data_file privapp_data_file }:file execute_no_trans;
 
 # Do not allow untrusted apps to invoke dex2oat. This was historically required
@@ -66,6 +68,7 @@ neverallow {
   all_untrusted_apps
   -untrusted_app_25
   -untrusted_app_27
+  -untrusted_app_compat
 } dex2oat_exec:file no_x_file_perms;
 
 # Do not allow untrusted apps to be assigned mlstrustedsubject.
@@ -223,7 +226,7 @@ neverallow all_untrusted_apps selinuxfs:file no_rw_file_perms;
 # b/33214085 b/33814662 b/33791054 b/33211769
 # https://github.com/strazzere/anti-emulator/blob/master/AntiEmulator/src/diff/strazzere/anti/emulator/FindEmulator.java
 # This will go away in a future Android release
-neverallow { all_untrusted_apps -untrusted_app_25 } proc_tty_drivers:file r_file_perms;
+neverallow { all_untrusted_apps -untrusted_app_25 -untrusted_app_compat } proc_tty_drivers:file r_file_perms;
 neverallow all_untrusted_apps proc_tty_drivers:file ~r_file_perms;
 
 # Untrusted apps are not allowed to use cgroups.
@@ -235,6 +238,7 @@ neverallow {
   all_untrusted_apps
   -untrusted_app_25
   -untrusted_app_27
+  -untrusted_app_compat
 } mnt_sdcard_file:lnk_file *;
 
 # Only privileged apps may find the incident service

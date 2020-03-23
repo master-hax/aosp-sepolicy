@@ -355,7 +355,7 @@ neverallow {
 
 # This property is being removed. Remove remaining access.
 neverallow { domain -init -system_server -vendor_init } net_dns_prop:property_service set;
-neverallow { domain -dumpstate -init -system_server -vendor_init } net_dns_prop:file read;
+neverallow { domain -dumpstate -init -system_server -vendor_init -untrusted_app_compat} net_dns_prop:file read;
 
 # Only core domains are allowed to access package_manager properties
 neverallow { domain -init -system_server } pm_prop:property_service set;
