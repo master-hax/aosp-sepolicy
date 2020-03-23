@@ -70,6 +70,30 @@
       "revId": "1a3ee382ecb57a8718da4b810a1afe81e5a3045e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92762923_b9c25ec3",
+        "filename": "public/device.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1293738
+      },
+      "writtenOn": "2020-03-23T15:07:35Z",
+      "side": 1,
+      "message": "I see a class called \"gps_control\", but there aren\u0027t any devices labelled with it by default. I think this was used by boards to label /dev/ttyXY devices, because before the GNSS subsystem was added, Linux had no GPS/GNSS-specific device nodes. Though I\u0027m sure it would be possible to re-use gps_control, I\u0027m not sure it would be a good idea. Now we have /dev/gnssX, I don\u0027t think board sepolicy will need to use gnss_device itself.",
+      "parentUuid": "2c88fe28_8e3c8eec",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 27
+      },
+      "revId": "1a3ee382ecb57a8718da4b810a1afe81e5a3045e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
