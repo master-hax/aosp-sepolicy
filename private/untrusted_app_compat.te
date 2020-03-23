@@ -1,0 +1,22 @@
+###
+### Untrusted_app_compat.
+###
+### This file defines the rules for untrusted apps opting out of latest (from 30) restrictions
+### during development.
+###
+### This file defines the rules for untrusted apps with compatibility abilities.
+###
+
+typeattribute untrusted_app_compat coredomain;
+
+app_domain(untrusted_app_compat)
+untrusted_app_domain(untrusted_app_compat)
+net_domain(untrusted_app_compat)
+bluetooth_domain(untrusted_app_compat)
+
+## Reinsert removed permissions in R
+allow untrusted_app_compat ashmem_device:chr_file { getattr read ioctl lock map append write };
+allow untrusted_app_compat self:netlink_route_socket { bind nlmsg_readpriv };
+
+get_prop(untrusted_app_compat, net_dns_prop)
+
