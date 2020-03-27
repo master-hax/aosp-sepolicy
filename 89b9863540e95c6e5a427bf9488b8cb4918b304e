@@ -46,6 +46,30 @@
       "revId": "89b9863540e95c6e5a427bf9488b8cb4918b304e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1945f09f_6b2387ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2020-03-27T10:00:32Z",
+      "side": 1,
+      "message": "Sorry for not being clear.\n\nThe *actual* rollback protection of DSU [1] done by init is by comparing the SPL from AVB property, not Android system property.\n\nhttps://android.googlesource.com/platform/system/core/+/a1f41fc6f1dc818be6fc1ab606f1dcaf6fdd7aaf/init/first_stage_mount.cpp#206\n\nThe above code reads the AVB property (verified by AVB):\n`avbtool info_image --image $OUT/system.img`:\n  ....\n    Root Digest:           dc6815fc50410afe7883de37076ce3da40b130f9\n      Flags:                 0\n    Prop: com.android.build.system.fingerprint -\u003e \u0027Android/aosp_flame/flame:R/MASTER/bowgotsai03171518:userdebug/test-keys\u0027\n    Prop: com.android.build.system.os_version -\u003e \u002710\u0027\n    Prop: com.android.build.system.security_patch -\u003e \u00272020-04-05\u0027\n\n \nOTOH, DSULoader (ag/10768864) in Java is doing an early check via the system property first, before init\u0027s actions on rollback protection on next boot.\n\nThe property is default in AOSP source, so it will be there unless OEMs remove that.\n[ro.build.version.security_patch]: [2020-05-05]\n[ro.vendor.build.security_patch]: [2020-05-05]\n\n\nNote that DSU is not mandatory and OEMs who want to op-in [2] this feature should keep those properties there. \n\n[1] https://developer.android.com/topic/dsu\n[2] https://source.android.com/devices/tech/ota/dynamic-system-updates",
+      "parentUuid": "2dd6f41b_c7b07d4d",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 73
+      },
+      "revId": "89b9863540e95c6e5a427bf9488b8cb4918b304e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
