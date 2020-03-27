@@ -14,3 +14,7 @@ app_domain(untrusted_app)
 untrusted_app_domain(untrusted_app)
 net_domain(untrusted_app)
 bluetooth_domain(untrusted_app)
+
+# Read state of apk verity support for opt-in devices. This is used for CTS in order to run tests
+# per device support.
+get_prop(untrusted_app, apk_verity_prop)
