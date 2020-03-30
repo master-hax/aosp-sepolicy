@@ -95,6 +95,7 @@
 /dev/cgroup_info(/.*)?  u:object_r:cgroup_rc_file:s0
 /dev/fscklogs(/.*)?	u:object_r:fscklogs:s0
 /dev/fuse		u:object_r:fuse_device:s0
+/dev/gnss[0-9]+		u:object_r:gnss_device:s0
 /dev/graphics(/.*)?	u:object_r:graphics_device:s0
 /dev/hw_random		u:object_r:hw_random_device:s0
 /dev/hwbinder		u:object_r:hwbinder_device:s0
@@ -257,8 +258,6 @@
 /system/bin/keystore	u:object_r:keystore_exec:s0
 /system/bin/fingerprintd u:object_r:fingerprintd_exec:s0
 /system/bin/gatekeeperd u:object_r:gatekeeperd_exec:s0
-/system/bin/crash_dump32 u:object_r:crash_dump_exec:s0
-/system/bin/crash_dump64 u:object_r:crash_dump_exec:s0
 /system/bin/tombstoned u:object_r:tombstoned_exec:s0
 /system/bin/recovery-persist     u:object_r:recovery_persist_exec:s0
 /system/bin/recovery-refresh     u:object_r:recovery_refresh_exec:s0
@@ -375,7 +374,6 @@
 /(vendor|system/vendor)/apex(/[^/]+){0,2}                      u:object_r:vendor_apex_file:s0
 /(vendor|system/vendor)/bin/misc_writer                        u:object_r:vendor_misc_writer_exec:s0
 /(vendor|system/vendor)/bin/boringssl_self_test(32|64)         u:object_r:vendor_boringssl_self_test_exec:s0
-(/vendor|system/vendor)/lib(64)?/modules/incrementalfs\.ko     u:object_r:vendor_incremental_module:s0
 
 # HAL location
 /(vendor|system/vendor)/lib(64)?/hw            u:object_r:vendor_hal_file:s0
@@ -451,6 +449,7 @@
 /(system_ext|system/system_ext)/etc/selinux/system_ext_mac_permissions\.xml u:object_r:mac_perms_file:s0
 
 /(system_ext|system/system_ext)/bin/aidl_lazy_test_server   u:object_r:aidl_lazy_test_server_exec:s0
+/(system_ext|system/system_ext)/bin/hidl_lazy_test_server   u:object_r:hidl_lazy_test_server_exec:s0
 
 #############################
 # Vendor files from /(product|system/product)/vendor_overlay
@@ -554,6 +553,7 @@
 /data/misc/stats-active-metric(/.*)? u:object_r:stats_data_file:s0
 /data/misc/stats-data(/.*)?     u:object_r:stats_data_file:s0
 /data/misc/stats-service(/.*)?  u:object_r:stats_data_file:s0
+/data/misc/stats-metadata(/.*)? u:object_r:stats_data_file:s0
 /data/misc/systemkeys(/.*)?     u:object_r:systemkeys_data_file:s0
 /data/misc/textclassifier(/.*)?       u:object_r:textclassifier_data_file:s0
 /data/misc/train-info(/.*)?     u:object_r:stats_data_file:s0
