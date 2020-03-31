@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42fa6a7e_b0fde54b",
+        "filename": "private/canhalconfigurator.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-03-31T22:19:31Z",
+      "side": 1,
+      "message": "For robustness, please use the macro provided for this purpose:\n\n  r_file_perms\n\n(defined in system/sepolicy/public/global_macros)",
+      "range": {
+        "startLine": 7,
+        "startChar": 54,
+        "endLine": 7,
+        "endChar": 75
+      },
+      "revId": "f81fb4c9c51ca7662ecb9f22a777bcd0e1686218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f6b5e2a_6274e5c0",
+        "filename": "private/canhalconfigurator.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-03-31T22:19:31Z",
+      "side": 1,
+      "message": "Please use the macro provided for this purpose:\n\n  binder_call(canhalconfigurator, hal_can_controller)",
+      "revId": "f81fb4c9c51ca7662ecb9f22a777bcd0e1686218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ba29555_dcdc3e7f",
+        "filename": "private/canhalconfigurator.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-03-31T22:19:31Z",
+      "side": 1,
+      "message": "This is covered by the macro\n\n  hwbinder_use(canhalconfigurator)\n\nSee the comment on line 14.",
+      "revId": "f81fb4c9c51ca7662ecb9f22a777bcd0e1686218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9581a881_55e42e48",
+        "filename": "private/canhalconfigurator.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-03-31T22:19:31Z",
+      "side": 1,
+      "message": "instead of this line, please use the macro provided for this purpose:\n\n  get_prop(canhalconfigurator, hwservicemanager_prop)\n\n(although this is weird... I would have expected this to be part of the \"hwbinder_use\" macro. See comment on line 14)",
+      "revId": "f81fb4c9c51ca7662ecb9f22a777bcd0e1686218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6114fc1e_33632b6f",
+        "filename": "private/canhalconfigurator.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-03-31T22:19:31Z",
+      "side": 1,
+      "message": "Instead of this line, please use the macro provided for this purpose:\n\n  hwbinder_use(canhalconfigurator)",
+      "revId": "f81fb4c9c51ca7662ecb9f22a777bcd0e1686218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29ce63df_4fee96ed",
+        "filename": "private/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-03-31T22:19:31Z",
+      "side": 1,
+      "message": "This file can contain regular expressions. As such, literal dots should be escaped.\n\n  /system/etc/canbus_config\\.pb",
+      "range": {
+        "startLine": 202,
+        "startChar": 25,
+        "endLine": 202,
+        "endChar": 26
+      },
+      "revId": "f81fb4c9c51ca7662ecb9f22a777bcd0e1686218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c431c67_4ded9979",
+        "filename": "private/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-03-31T22:19:31Z",
+      "side": 1,
+      "message": "The default label for files on the /system partition is system_file, which is readable to all processes. A label for this file is only needed if you want to ensure that only canhalconfigurator can read this file, and no other process can read this file, or you want to have some other special rules for this file.\n\nWhat security properties are you trying to achieve by giving this file its own label?\n\nToo fine grain labeling can cause its own problems by making the security policy more difficult to understand.\n\n(I\u0027m not arguing for or against this label, but just trying to gain a better understanding of what you\u0027re trying to accomplish)",
+      "revId": "f81fb4c9c51ca7662ecb9f22a777bcd0e1686218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
