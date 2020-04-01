@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5759f0c7_45d2f691",
+        "filename": "private/compat/29.0/29.0.ignore.cil",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2020-04-01T14:21:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f7980db_c228b83c",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 28
+      },
+      "revId": "fc8f337a04ae2a3e4ea0a67f254c1ed85e1f1104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "627033d5_c633f196",
         "filename": "private/system_server.te",
         "patchSetId": 9
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a784310f_fc3b0571",
+        "filename": "private/system_server.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2020-04-01T14:21:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "627033d5_c633f196",
+      "range": {
+        "startLine": 783,
+        "startChar": 0,
+        "endLine": 783,
+        "endChar": 52
+      },
+      "revId": "fc8f337a04ae2a3e4ea0a67f254c1ed85e1f1104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f41d054a_da49db11",
         "filename": "public/service.te",
         "patchSetId": 9
@@ -59,6 +107,30 @@
       "writtenOn": "2020-04-01T11:52:55Z",
       "side": 1,
       "message": "Should this service be available to Instant apps?",
+      "range": {
+        "startLine": 108,
+        "startChar": 48,
+        "endLine": 108,
+        "endChar": 73
+      },
+      "revId": "fc8f337a04ae2a3e4ea0a67f254c1ed85e1f1104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81e408e8_0a274f32",
+        "filename": "public/service.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2020-04-01T14:21:11Z",
+      "side": 1,
+      "message": "In PhoneFallbackEventHandler, GestureLauncherManager (which in turn provides GestureLauncherService) is used to decide whether to simply launch a long-press haptic feedback or launch the camera. Since the codepath for KeyEvent.KEYCODE can be called from apps, I was sure it applied to instant apps as well, similar to e.g. statusbar_service or vibrator_service.\nC.f. https://android-review.googlesource.com/c/platform/frameworks/base/+/1274974/1/core/java/com/android/internal/policy/PhoneFallbackEventHandler.java#369\n\nWhat\u0027s the \"official\" way of testing instant apps? My current approach would be to try to flash Q GApps on top of current master and download some sample app from the Play Store, but surely there\u0027s a better way?",
+      "parentUuid": "f41d054a_da49db11",
       "range": {
         "startLine": 108,
         "startChar": 48,
