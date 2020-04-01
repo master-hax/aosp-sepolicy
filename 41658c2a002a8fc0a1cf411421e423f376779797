@@ -135,6 +135,24 @@
       "revId": "41658c2a002a8fc0a1cf411421e423f376779797",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c90d26c3_e82cd3c0",
+        "filename": "private/blank_screen.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1045544
+      },
+      "writtenOn": "2020-04-01T22:29:11Z",
+      "side": 1,
+      "message": "What I did to test it was boot up cf_x86_phone P13257004 from the presubmit page [1] and check that it\u0027s in enforcing mode, then run `adb logcat -b all` in one terminal to look for what happens when I kick blank_screen into action with `setprop ctl.start blank_screen` as suggested.\n\n[1] https://android-build.googleplex.com/builds/treetop/android-review/1271863?revision\u003d5\u0026revisionAttempt\u003d1\n\nThis was the output (no avc errors before or after):\n\n     0 I init    : starting service \u0027blank_screen\u0027...\n   411 I android.hardware.lights-service.example: Lights reporting supported lights\n     0 I init    : Control message: Processed ctl.start for \u0027blank_screen\u0027 from pid: 9257 (setprop ctl.start blank_screen)\n     0 I init    : Service \u0027blank_screen\u0027 (pid 9258) exited with status 0 oneshot service took 0.016000 seconds in background\n     0 I init    : Sending signal 9 to service \u0027blank_screen\u0027 (pid 9258) process group...\n     0 I libprocessgroup: Successfully killed process cgroup uid 1000 pid 9258 in 0ms\n\nReading Jeff\u0027s comment and then going and looking at the relevant files it had looked like, since the hal_client_domain on L6 is giving blank_screen hal_light_client, L10 of hal_light.te is doing the same thing as L8 was here.\n\nThe line is \"allow hal_light_client hal_light_service:service_manager find;\" which I had thought was referring to the AIDL HAL, not the HIDL (because it\u0027s hal_light_service, not hal_light_hwservice)\n\nIs this incorrect? Or was that not really a good enough test and it would be better off with something automated?",
+      "parentUuid": "79dc3d5c_f18e8acb",
+      "revId": "41658c2a002a8fc0a1cf411421e423f376779797",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
