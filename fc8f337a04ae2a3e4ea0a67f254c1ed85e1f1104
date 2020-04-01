@@ -140,6 +140,30 @@
       "revId": "fc8f337a04ae2a3e4ea0a67f254c1ed85e1f1104",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81abe991_7d8cd304",
+        "filename": "public/service.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2020-04-01T17:41:54Z",
+      "side": 1,
+      "message": "Ok, I verified this myself by using Android Q GApps and launching an instant app, then long-pressing the camera button (with my topic applied in fwb).\nTurned on auditallow and observed requests for all app types: priv_app, platform_app, untrusted_app_(all), ephemeral_app, ...\n\n04-01 19:39:14.709   533   533 E SELinux : avc:  denied  { find } for pid\u003d11827 uid\u003d10137 name\u003dgesture_launcher scontext\u003du:r:ephemeral_app:s0:c137,c256,c512,c768 tcontext\u003du:object_r:gesture_launcher_service:s0 tclass\u003dservice_manager permissive\u003d1\n04-01 19:39:14.710   533   533 I auditd  : avc:  denied  { find } for pid\u003d11827 uid\u003d10137 name\u003dgesture_launcher scontext\u003du:r:ephemeral_app:s0:c137,c256,c512,c768 tcontext\u003du:object_r:gesture_launcher_service:s0 tclass\u003dservice_manager permissive\u003d1",
+      "parentUuid": "81e408e8_0a274f32",
+      "range": {
+        "startLine": 108,
+        "startChar": 48,
+        "endLine": 108,
+        "endChar": 73
+      },
+      "revId": "fc8f337a04ae2a3e4ea0a67f254c1ed85e1f1104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
