@@ -29,6 +29,10 @@ allow perfetto dropbox_service:service_manager find;
 # stdout.
 allow perfetto { statsd shell su }:fd use;
 allow perfetto { statsd shell su }:fifo_file { getattr read write };
+# Additionally, allow reading trace configs directly from under
+# /data/local/tmp/ for ease of use. Excluding symlinks for simplicity.
+allow perfetto shell_data_file:dir search;
+allow perfetto shell_data_file:file { open getattr read };
 
 # Allow to communicate use, read and write over the adb connection.
 allow perfetto adbd:fd use;
@@ -73,6 +77,7 @@ neverallow perfetto domain:process ptrace;
 # Disallows access to other /data files.
 neverallow perfetto {
   data_file_type
+  -shell_data_file
   -system_data_file
   -system_data_root_file
   # TODO(b/72998741) Remove exemption. Further restricted in a subsequent
@@ -87,7 +92,8 @@ neverallow perfetto zoneinfo_data_file:dir ~r_dir_perms;
 neverallow perfetto { data_file_type -zoneinfo_data_file -perfetto_traces_data_file }:lnk_file *;
 neverallow perfetto {
   data_file_type
-  -zoneinfo_data_file
   -perfetto_traces_data_file
+  -shell_data_file
+  -zoneinfo_data_file
   with_native_coverage(`-method_trace_data_file')
 }:file ~write;

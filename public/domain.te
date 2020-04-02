@@ -1222,6 +1222,7 @@ neverallow {
   -dumpstate
   -init
   -installd
+  -perfetto
   -simpleperf_app_runner
   -system_server # why?
   userdebug_or_eng(`-uncrypt')
@@ -1235,6 +1236,7 @@ neverallow {
   -appdomain
   -dumpstate
   -installd
+  -perfetto
   userdebug_or_eng(`-uncrypt')
 } shell_data_file:file open;
 
