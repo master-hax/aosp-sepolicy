@@ -116,6 +116,7 @@ def GetCoreDomains():
         if d in appdomains:
             continue
         if not alldomains[d].entrypointpaths:
+            print "WARNING: could not get entrypointpath for",d
             continue
         for path in alldomains[d].entrypointpaths:
             # Processes with entrypoint on /system
