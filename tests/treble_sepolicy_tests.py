@@ -17,6 +17,12 @@ are not violated.
 # TODO: how do we make sure vendor_init doesn't have bad coupling with /vendor?
 coredomainWhitelist = {
         'vendor_init',
+        # FIXME FIXME FIXME FIXME FIXME
+        # These are from ramfs/rootfs? - need to find a way to avoid blanket
+        # whitelist
+        "modprobe",
+        "slideshow",
+        "healthd",
         }
 
 class scontext:
@@ -28,6 +34,7 @@ class scontext:
         self.attributes = set()
         self.entrypoints = []
         self.entrypointpaths = []
+        self.error = False
 
 def PrintScontexts():
     for d in sorted(alldomains.keys()):
@@ -96,16 +103,25 @@ def GetCoreDomains():
         if not alldomains[d].entrypointpaths:
             continue
         for path in alldomains[d].entrypointpaths:
-            # Processes with entrypoint on /system
-            if ((MatchPathPrefix(path, "/system") and not
-                    MatchPathPrefix(path, "/system/vendor")) or
-                    MatchPathPrefix(path, "/init") or
-                    MatchPathPrefix(path, "/charger")):
-                alldomains[d].fromSystem = True
-            # Processes with entrypoint on /vendor or /system/vendor
-            if (MatchPathPrefix(path, "/vendor") or
-                    MatchPathPrefix(path, "/system/vendor")):
-                alldomains[d].fromVendor = True
+            if MatchPathPrefix(path, "/init"):
+              pass # TODO
+            elif MatchPathPrefix(path, "/charger"):
+              pass # TODO
+            elif MatchPathPrefix(path, "/system/vendor"):
+              alldomains[d].fromVendor = True
+            elif MatchPathPrefix(path, "/system"):
+              alldomains[d].fromSystem = True
+            elif MatchPathPrefix(path, "/product"):
+              alldomains[d].fromSystem = True
+            elif MatchPathPrefix(path, "/system_ext"):
+              alldomains[d].fromSystem = True
+            elif MatchPathPrefix(path, "/vendor"):
+              alldomains[d].fromVendor = True
+            elif MatchPathPrefix(path, "/odm"):
+              alldomains[d].fromVendor = True
+            else:
+              print "Unrecognized domain location for",d,"at",path
+              alldomains[d].error = True
 
 ###
 # Add the entrypoint type and path(s) to each domain.
@@ -183,6 +199,11 @@ def TestCoredomainViolations():
         ret += "\"coredomain\" attribute because they are executed off of "
         ret += "/system:\n"
         ret += " ".join(str(x) for x in sorted(violators)) + "\n"
+
+    for d in alldomains:
+        domain = alldomains[d]
+        if domain.error:
+            ret += "..."
 
     # verify that all domains launched form /vendor do not have the coredomain
     # attribute
