@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8281678e_cfa8a9b7",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-04-06T04:41:42Z",
+      "side": 1,
+      "message": "nit; we could just write\n\nSYSTEM_EXT_PUBLIC_POLICY :\u003d $(BOARD_SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS) $(BOARD_PLAT_PUBLIC_SEPOLICY_DIR)\nSYSTEM_EXT_PRIVATE_POLICY :\u003d $(BOARD_SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS) $(BOARD_PLAT_PRIVATE_SEPOLICY_DIR)\n\nor, even better, we may emit a warning message, such as\n\nifneq (,$(BOARD_PLAT_PUBLIC_SEPOLICY_DIR))\n$(warning Please use BOARD_SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS instead of the old variable BOARD_PLAT_PUBLIC_SEPOLICY_DIR)\nSYSTEM_EXT_PUBLIC_POLICY +\u003d $(BOARD_PLAT_PUBLIC_SEPOLICY_DIR)\nendif",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 5
+      },
+      "revId": "968326853662e852506399c89b17d947739375be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
