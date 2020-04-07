@@ -1,5 +1,8 @@
 ;; types removed from current policy
 (type ashmemd)
+(type exported_vold_prop)
+(type exported2_config_prop)
+(type exported2_vold_prop)
 (type hal_wifi_offload_hwservice)
 (type install_recovery)
 (type install_recovery_exec)
@@ -1194,11 +1197,11 @@
 (typeattributeset ephemeral_app_29_0 (ephemeral_app))
 (typeattributeset ethernet_service_29_0 (ethernet_service))
 (typeattributeset exfat_29_0 (exfat))
-(typeattributeset exported2_config_prop_29_0 (exported2_config_prop))
+(typeattributeset exported2_config_prop_29_0 (exported2_config_prop systemsound_config_prop))
 (typeattributeset exported2_default_prop_29_0 (exported2_default_prop))
 (typeattributeset exported2_radio_prop_29_0 (exported2_radio_prop))
 (typeattributeset exported2_system_prop_29_0 (exported2_system_prop))
-(typeattributeset exported2_vold_prop_29_0 (exported2_vold_prop))
+(typeattributeset exported2_vold_prop_29_0 (exported2_vold_prop vold_config_prop))
 (typeattributeset exported3_default_prop_29_0 (exported3_default_prop))
 (typeattributeset exported3_radio_prop_29_0 (exported3_radio_prop))
 (typeattributeset exported3_system_prop_29_0 (exported3_system_prop))
@@ -1208,6 +1211,7 @@
 (typeattributeset exported_dalvik_prop_29_0 (exported_dalvik_prop))
 (typeattributeset exported_default_prop_29_0
   ( exported_default_prop
+    surfaceflinger_prop
     vndk_prop))
 (typeattributeset exported_dumpstate_prop_29_0 (exported_dumpstate_prop))
 (typeattributeset exported_ffs_prop_29_0 (exported_ffs_prop))
@@ -1218,7 +1222,7 @@
 (typeattributeset exported_secure_prop_29_0 (exported_secure_prop))
 (typeattributeset exported_system_prop_29_0 (exported_system_prop))
 (typeattributeset exported_system_radio_prop_29_0 (exported_system_radio_prop))
-(typeattributeset exported_vold_prop_29_0 (exported_vold_prop))
+(typeattributeset exported_vold_prop_29_0 (exported_vold_prop vold_status_prop))
 (typeattributeset exported_wifi_prop_29_0 (exported_wifi_prop))
 (typeattributeset external_vibrator_service_29_0 (external_vibrator_service))
 (typeattributeset face_service_29_0 (face_service))
