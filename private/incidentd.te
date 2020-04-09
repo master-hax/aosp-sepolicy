@@ -168,6 +168,12 @@ userdebug_or_eng(`
   get_prop(incidentd, serialno_prop)
 ')
 
+# Read ro.boot.bootreason
+# This is used to track reports from lab testing devices
+userdebug_or_eng(`
+  get_prop(incidentd, bootloader_boot_reason_prop)
+')
+
 ###
 ### neverallow rules
 ###
