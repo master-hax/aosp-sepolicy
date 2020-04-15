@@ -22,6 +22,30 @@
       "revId": "3cec37824c24b462611b1a135da60cb8a68917f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78f00bb7_de74f322",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2020-04-15T16:11:52Z",
+      "side": 1,
+      "message": "I know but:\n1. shell can already read this. feels unfortunate that a domain we created to make perfetto-execed-by-shell consistent with perfetto-execed-by-statsd can\u0027t do this. Pragmatically this is the location that every engineer uses when they need to do something with shell, feels very weird to tell them to pipe.\n\n2. perfetto.te is *not* used by any of the perfetto daemons (those are traced.te and traced_probes.te), so here we won\u0027t be granting an extra privilege to a long-running daemon, but only to something short-lived that is executed and transitioned-into by: (i) shell.te, (ii) statsd.te",
+      "parentUuid": "d8010d98_f0593e5f",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 72
+      },
+      "revId": "3cec37824c24b462611b1a135da60cb8a68917f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
