@@ -375,3 +375,9 @@ service_contexts {
     reqd_mask: true,
     soc_specific: true,
 }
+
+// For vts_treble_sys_prop_test
+filegroup {
+    name: "private_property_contexts",
+    srcs: ["private/property_contexts"],
+}
