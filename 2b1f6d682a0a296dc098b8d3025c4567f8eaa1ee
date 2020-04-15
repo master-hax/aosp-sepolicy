@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7f41ab68_4c63a5a3",
+        "filename": "private/property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2020-04-15T07:21:58Z",
+      "side": 1,
+      "message": "mmm I\u0027m not sure either - I think this rules out at least other vendor processes from reading it? If so, I\u0027d prefer to remove it, since they might have a need to. Removed in latest PS.",
+      "parentUuid": "044bbcc8_d4d15304",
+      "range": {
+        "startLine": 247,
+        "startChar": 4,
+        "endLine": 247,
+        "endChar": 23
+      },
+      "revId": "2b1f6d682a0a296dc098b8d3025c4567f8eaa1ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ac63d62_b8bd93a4",
         "filename": "private/property_contexts",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "2b1f6d682a0a296dc098b8d3025c4567f8eaa1ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91155c96_87b21712",
+        "filename": "private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2020-04-15T07:21:58Z",
+      "side": 1,
+      "message": "Yeah, it is indeed a boolean. These props were already used, but previously they were in /product and needed no sepolicy. The name \u0027emulated_storage\u0027 was anyway not great, since these props are independent of whether storage is emulated or not. So I changed the name as well as added the enabled suffix.",
+      "parentUuid": "1ac63d62_b8bd93a4",
+      "range": {
+        "startLine": 409,
+        "startChar": 20,
+        "endLine": 409,
+        "endChar": 26
+      },
+      "revId": "2b1f6d682a0a296dc098b8d3025c4567f8eaa1ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
