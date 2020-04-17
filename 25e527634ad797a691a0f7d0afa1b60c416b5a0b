@@ -22,6 +22,30 @@
       "revId": "25e527634ad797a691a0f7d0afa1b60c416b5a0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73b89c83_e3c6514d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2020-04-17T15:15:35Z",
+      "side": 1,
+      "message": "Jeffery, thanks for the help.\nEmergencyAffordanceService is an important service to determine if we should enable Emergency Affordance feature (https://source.android.com/devices/tech/connect/emergency-affordance). \n\nIt was there for years but with bad design (unnecessary battery consumption, no log or system dump to know the status when debugging). what we did now (in ag/11003861) is to optimize it, log it and dumpsys of it. The dumpsys through adb requires to publish the binder service which need policy change here.\n\nIn the future, we can further optimize EmergencyAffordanceService once we have the binder service published. eg. instead of reading/writing db item to determine feature enabling.We can use IPC now.\n\nAgain, thanks a lot for the review and comments!",
+      "parentUuid": "803de835_cd8de605",
+      "range": {
+        "startLine": 7,
+        "startChar": 20,
+        "endLine": 7,
+        "endChar": 46
+      },
+      "revId": "25e527634ad797a691a0f7d0afa1b60c416b5a0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
