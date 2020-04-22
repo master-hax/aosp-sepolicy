@@ -22,6 +22,10 @@ dontaudit mediaprovider cache_recovery_file:dir getattr;
 # Access external sdcards through /mnt/media_rw
 allow mediaprovider { mnt_media_rw_file }:dir search;
 
+# For AppFuse.
+allow mediaprovider vold:fd use;
+allow mediaprovider fuse_device:chr_file { read write };
+
 allow mediaprovider app_api_service:service_manager find;
 allow mediaprovider audioserver_service:service_manager find;
 allow mediaprovider drmserver_service:service_manager find;
