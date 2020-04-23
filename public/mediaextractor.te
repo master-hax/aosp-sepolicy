@@ -37,6 +37,9 @@ allow mediaextractor ringtone_file:file { read getattr };
 # scan extractor library directory to dynamically load extractors
 allow mediaextractor system_file:dir { read open };
 
+# overlay package access
+allow mediaextractor vendor_overlay_file:file read;
+
 ###
 ### neverallow rules
 ###
