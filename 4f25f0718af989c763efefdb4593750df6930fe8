@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "a340d9cc_4279336a",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-04-24T14:25:00Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "ffebc23c_aba70d8c",
+      "range": {
+        "startLine": 623,
+        "startChar": 9,
+        "endLine": 623,
+        "endChar": 22
+      },
+      "revId": "4f25f0718af989c763efefdb4593750df6930fe8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ce5975f_1b78cecb",
         "filename": "public/property.te",
         "patchSetId": 1
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "This can be set by both vendor_init and system_server. So system_public_prop should be used.",
       "parentUuid": "9ce5975f_1b78cecb",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 18
+      },
+      "revId": "4f25f0718af989c763efefdb4593750df6930fe8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bf3a0ef_e664bbf3",
+        "filename": "public/property.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-04-24T14:25:00Z",
+      "side": 1,
+      "message": "ok, then leave it as system_public_prop but then we should prevent it from being written by other processes.",
+      "parentUuid": "2acc6dec_7aa1f4ac",
       "range": {
         "startLine": 156,
         "startChar": 0,
