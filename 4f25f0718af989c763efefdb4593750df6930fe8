@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "ffebc23c_aba70d8c",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-04-24T14:20:30Z",
+      "side": 1,
+      "message": "This is set by Java. surfaceflinger just reads this. That\u0027s covered by getprop call in private/domain.te.\n\nhttps://android.googlesource.com/platform/frameworks/base/+/master/services/core/java/com/android/server/display/color/DisplayTransformManager.java",
+      "parentUuid": "6a7e06cd_019d905b",
+      "range": {
+        "startLine": 623,
+        "startChar": 9,
+        "endLine": 623,
+        "endChar": 22
+      },
+      "revId": "4f25f0718af989c763efefdb4593750df6930fe8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ce5975f_1b78cecb",
         "filename": "public/property.te",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2020-04-24T14:11:29Z",
       "side": 1,
       "message": "why not system_restricted_prop or system_vendor_config_prop?",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 18
+      },
+      "revId": "4f25f0718af989c763efefdb4593750df6930fe8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2acc6dec_7aa1f4ac",
+        "filename": "public/property.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-04-24T14:20:30Z",
+      "side": 1,
+      "message": "This can be set by both vendor_init and system_server. So system_public_prop should be used.",
+      "parentUuid": "9ce5975f_1b78cecb",
       "range": {
         "startLine": 156,
         "startChar": 0,
