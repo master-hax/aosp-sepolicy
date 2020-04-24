@@ -53,7 +53,6 @@ allow surfaceflinger self:netlink_kobject_uevent_socket create_socket_perms_no_i
 
 # Get properties.
 get_prop(surfaceflinger, surfaceflinger_prop)
-neverallow { domain -coredomain -vendor_init } surfaceflinger_prop:file no_rw_file_perms;
 
 # Set properties.
 set_prop(surfaceflinger, system_prop)
@@ -74,9 +73,6 @@ userdebug_or_eng(`
 
 # Needed to register as a Perfetto producer.
 perfetto_producer(surfaceflinger)
-
-# Use socket supplied by adbd, for cmd gpu vkjson etc.
-allow surfaceflinger adbd:unix_stream_socket { read write getattr };
 
 # Allow a dumpstate triggered screenshot
 binder_call(surfaceflinger, dumpstate)
