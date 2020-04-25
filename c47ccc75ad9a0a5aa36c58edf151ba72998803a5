@@ -45,6 +45,30 @@
       "revId": "c47ccc75ad9a0a5aa36c58edf151ba72998803a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83360f3a_525b6862",
+        "filename": "private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-04-25T07:10:46Z",
+      "side": 1,
+      "message": "I admit this seems verbose, but the reason why I chose surfaceflinger_color_transform_prop over surfaceflinger_persist_prop is:\n\n1) we are trying to avoid encoding any general terms like \"persist\", \"sys\", \"default\", etc. in property context names.\n2) I found these properties are related to color transform, and seems that the accessibility pattern is different to other \"ro.surface_flinger.\" propertie",
+      "parentUuid": "683ff0f4_c94756cf",
+      "range": {
+        "startLine": 822,
+        "startChar": 43,
+        "endLine": 822,
+        "endChar": 78
+      },
+      "revId": "c47ccc75ad9a0a5aa36c58edf151ba72998803a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
