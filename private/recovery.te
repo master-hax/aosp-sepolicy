@@ -11,7 +11,8 @@ recovery_only(`
 
   # Set sys.usb.ffs.ready when starting minadbd for sideload.
   set_prop(recovery, ffs_prop)
-  set_prop(recovery, exported_ffs_prop)
+  set_prop(recovery, ffs_control_prop)
+  get_prop(recovery, ffs_config_prop)
 
   # Set sys.usb.config when switching into fastboot.
   set_prop(recovery, system_radio_prop)
