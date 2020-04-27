@@ -1,0 +1,12 @@
+type hal_bluetooth_socket, domain;
+type hal_bluetooth_socket_exec, exec_type, file_type, vendor_file_type;
+
+hal_server_domain(hal_bluetooth_socket, hal_bluetooth)
+init_daemon_domain(hal_bluetooth_socket)
+
+allow hal_bluetooth_socket fwmarkd_socket:sock_file write;
+allow hal_bluetooth_socket netd:unix_stream_socket connectto;
+allow hal_bluetooth_socket port:tcp_socket name_connect;
+allow hal_bluetooth_socket self:tcp_socket { create connect getopt setopt getattr read write };
+allow netd hal_bluetooth_socket:fd use;
+allow netd hal_bluetooth_socket:tcp_socket { getopt setopt read write };
