@@ -87,7 +87,7 @@ neverallow * {
   -restorecon_prop
   -shell_prop
   -system_prop
-  -system_radio_prop
+  -usb_prop
   -vold_prop
 }:file no_rw_file_perms;
 
@@ -140,11 +140,11 @@ compatible_property_only(`
     exported_ffs_prop
     exported_fingerprint_prop
     exported_system_prop
-    exported_system_radio_prop
     exported2_default_prop
     exported2_system_prop
     exported3_default_prop
     exported3_system_prop
+    usb_ctl_prop
     -nfc_prop
     -powerctl_prop
     -radio_prop
@@ -239,11 +239,11 @@ compatible_property_only(`
     dalvik_config_prop
     extended_core_property_type
     exported_ffs_prop
-    exported_system_radio_prop
     exported2_system_prop
     exported3_default_prop
     exported3_system_prop
     systemsound_config_prop
+    usb_ctl_prop
     -debug_prop
     -logd_prop
     -nfc_prop

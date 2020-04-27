@@ -1,6 +1,7 @@
 ;; types removed from current policy
 (type ashmemd)
 (type exported_dalvik_prop)
+(type exported_system_radio_prop)
 (type exported_vold_prop)
 (type exported2_config_prop)
 (type exported2_vold_prop)
@@ -11,6 +12,7 @@
 (type perfprofd_data_file)
 (type perfprofd_service)
 (type sysfs_mac_address)
+(type system_radio_prop)
 
 (expandtypeattribute (accessibility_service_29_0) true)
 (expandtypeattribute (account_service_29_0) true)
@@ -1222,7 +1224,10 @@
 (typeattributeset exported_radio_prop_29_0 (exported_radio_prop))
 (typeattributeset exported_secure_prop_29_0 (exported_secure_prop))
 (typeattributeset exported_system_prop_29_0 (exported_system_prop))
-(typeattributeset exported_system_radio_prop_29_0 (exported_system_radio_prop))
+(typeattributeset exported_system_radio_prop_29_0
+  ( exported_system_radio_prop
+    usb_config_prop
+    usb_ctl_prop))
 (typeattributeset exported_vold_prop_29_0 (exported_vold_prop vold_status_prop))
 (typeattributeset exported_wifi_prop_29_0 (exported_wifi_prop))
 (typeattributeset external_vibrator_service_29_0 (external_vibrator_service))
@@ -1805,7 +1810,7 @@
 (typeattributeset system_ndebug_socket_29_0 (system_ndebug_socket))
 (typeattributeset system_net_netd_hwservice_29_0 (system_net_netd_hwservice))
 (typeattributeset system_prop_29_0 (system_prop))
-(typeattributeset system_radio_prop_29_0 (system_radio_prop))
+(typeattributeset system_radio_prop_29_0 (system_radio_prop usb_prop))
 (typeattributeset system_seccomp_policy_file_29_0 (system_seccomp_policy_file))
 (typeattributeset system_security_cacerts_file_29_0 (system_security_cacerts_file))
 (typeattributeset system_server_29_0 (system_server))

@@ -9,7 +9,6 @@ net.qmi                 u:object_r:net_radio_prop:s0
 net.lte                 u:object_r:net_radio_prop:s0
 net.cdma                u:object_r:net_radio_prop:s0
 net.dns                 u:object_r:net_dns_prop:s0
-sys.usb.config          u:object_r:system_radio_prop:s0
 ril.                    u:object_r:radio_prop:s0
 ro.ril.                 u:object_r:radio_prop:s0
 gsm.                    u:object_r:radio_prop:s0
@@ -474,13 +473,19 @@ ro.zygote u:object_r:exported3_default_prop:s0 exact string
 
 sendbug.preferred.domain u:object_r:exported3_default_prop:s0 exact string
 
-sys.usb.controller      u:object_r:exported2_system_prop:s0 exact string
 sys.usb.ffs.max_read    u:object_r:exported_ffs_prop:s0 exact int
 sys.usb.ffs.max_write   u:object_r:exported_ffs_prop:s0 exact int
 sys.usb.ffs.ready       u:object_r:exported_ffs_prop:s0 exact bool
-sys.usb.mtp.device_type u:object_r:exported2_system_prop:s0 exact int
 sys.usb.ffs.mtp.ready   u:object_r:exported_ffs_prop:s0 exact bool
-sys.usb.state           u:object_r:exported2_system_prop:s0 exact string
+
+sys.usb.config     u:object_r:usb_ctl_prop:s0 exact string
+sys.usb.configfs   u:object_r:usb_ctl_prop:s0 exact int
+sys.usb.controller u:object_r:usb_ctl_prop:s0 exact string
+sys.usb.state      u:object_r:usb_ctl_prop:s0 exact string
+
+sys.usb.mtp.device_type u:object_r:usb_config_prop:s0 exact int
+
+sys.usb.config u:object_r:usb_prop:s0
 
 telephony.lteOnCdmaDevice u:object_r:exported3_default_prop:s0 exact int
 
@@ -508,9 +513,6 @@ sys.user.0.ce_available u:object_r:exported3_system_prop:s0 exact bool
 sys.vdso                u:object_r:exported3_system_prop:s0 exact string
 
 persist.sys.zram_enabled u:object_r:exported2_system_prop:s0 exact bool
-
-sys.usb.config   u:object_r:exported_system_radio_prop:s0 exact string
-sys.usb.configfs u:object_r:exported_system_radio_prop:s0 exact int
 
 aac_drc_boost            u:object_r:exported2_default_prop:s0 exact int
 aac_drc_cut              u:object_r:exported2_default_prop:s0 exact int
