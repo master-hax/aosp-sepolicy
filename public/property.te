@@ -54,11 +54,10 @@ compatible_property_only(`
 ')
 
 # Properties which can't be written outside system
-
-# Properties used by binder caches
 system_restricted_prop(binder_cache_bluetooth_server_prop)
 system_restricted_prop(binder_cache_system_server_prop)
 system_restricted_prop(binder_cache_telephony_server_prop)
+system_restricted_prop(boot_status_prop)
 system_restricted_prop(bq_config_prop)
 system_restricted_prop(module_sdkextensions_prop)
 system_restricted_prop(nnapi_ext_deny_product_prop)
@@ -101,6 +100,7 @@ compatible_property_only(`
 # Properties which can be written only by vendor_init
 system_vendor_config_prop(apk_verity_prop)
 system_vendor_config_prop(cpu_variant_prop)
+system_vendor_config_prop(dalvik_config_prop)
 system_vendor_config_prop(exported_audio_prop)
 system_vendor_config_prop(exported_camera_prop)
 system_vendor_config_prop(exported_config_prop)
@@ -134,7 +134,6 @@ system_public_prop(exported2_radio_prop)
 system_public_prop(exported2_system_prop)
 system_public_prop(exported3_radio_prop)
 system_public_prop(exported_bluetooth_prop)
-system_public_prop(exported_dalvik_prop)
 system_public_prop(exported_ffs_prop)
 system_public_prop(exported_overlay_prop)
 system_public_prop(exported_pm_prop)
