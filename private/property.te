@@ -137,7 +137,6 @@ compatible_property_only(`
     exported_config_prop
     exported_default_prop
     exported_dumpstate_prop
-    exported_ffs_prop
     exported_fingerprint_prop
     exported_system_prop
     exported_system_radio_prop
@@ -238,7 +237,6 @@ compatible_property_only(`
     core_property_type
     dalvik_config_prop
     extended_core_property_type
-    exported_ffs_prop
     exported_system_radio_prop
     exported2_system_prop
     exported3_default_prop
@@ -300,6 +298,14 @@ compatible_property_only(`
     -extended_core_property_type
   }:property_service set;
 ')
+
+neverallow {
+  -coredomain
+  -vendor_init
+} {
+  ffs_config_prop
+  ffs_ctl_prop
+}:file no_rw_file_perms;
 
 neverallow {
   -init
