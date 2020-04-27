@@ -422,7 +422,8 @@
 /(product|system/product)(/.*)?                                 u:object_r:system_file:s0
 /(product|system/product)/etc/group                             u:object_r:system_group_file:s0
 /(product|system/product)/etc/passwd                            u:object_r:system_passwd_file:s0
-/(product|system/product)/overlay(/.*)?                         u:object_r:vendor_overlay_file:s0
+#FIXME
+/(product|system/product)/overlay(/.*)?                         u:object_r:system_file:s0
 
 /(product|system/product)/etc/selinux/product_file_contexts      u:object_r:file_contexts_file:s0
 /(product|system/product)/etc/selinux/product_hwservice_contexts u:object_r:hwservice_contexts_file:s0
@@ -439,7 +440,8 @@
 /(system_ext|system/system_ext)(/.*)?               u:object_r:system_file:s0
 /(system_ext|system/system_ext)/etc/group           u:object_r:system_group_file:s0
 /(system_ext|system/system_ext)/etc/passwd          u:object_r:system_passwd_file:s0
-/(system_ext|system/system_ext)/overlay(/.*)?       u:object_r:vendor_overlay_file:s0
+#FIXME
+/(system_ext|system/system_ext)/overlay(/.*)?       u:object_r:system_file:s0
 
 /(system_ext|system/system_ext)/etc/selinux/system_ext_file_contexts        u:object_r:file_contexts_file:s0
 /(system_ext|system/system_ext)/etc/selinux/system_ext_hwservice_contexts   u:object_r:hwservice_contexts_file:s0
@@ -457,7 +459,8 @@
 # NOTE: For additional vendor file contexts for vendor overlay files,
 # use device specific file_contexts.
 #
-/(product|system/product)/vendor_overlay/[0-9]+/.*          u:object_r:vendor_file:s0
+#FIXME
+/(product|system/product)/vendor_overlay/[0-9]+/.*          u:object_r:system_file:s0
 
 #############################
 # Data files
