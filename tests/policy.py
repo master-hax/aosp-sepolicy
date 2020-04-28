@@ -72,12 +72,12 @@ class Policy:
     def AssertGenfsFilesystemTypesHaveAttr(self, Filesystem, Attr):
         TypesPol = self.QueryTypeAttribute(Attr, True)
         TypesGenfs = self.__GenfsDict[Filesystem]
-        violators = TypesGenfs.difference(TypesPol)
+        violators = TypesGenfs.symmetric_difference(TypesPol)
 
         ret = ""
         if len(violators) > 0:
-            ret += "The following types in " + Filesystem
-            ret += " must be associated with the "
+            ret += "Types in " + Filesystem
+            ret += " must exactly correspond to the "
             ret += "\"" + Attr + "\" attribute: "
             ret += " ".join(str(x) for x in sorted(violators)) + "\n"
         return ret
@@ -92,13 +92,13 @@ class Policy:
         # Search file_contexts to find paths/types that should be associated with
         # Attr.
         TypesFc = self.__GetTypesByFilePathPrefix(MatchPrefix, DoNotMatchPrefix)
-        violators = TypesFc.difference(TypesPol)
+        violators = TypesFc.symmetric_difference(TypesPol)
 
         ret = ""
         if len(violators) > 0:
-            ret += "The following types on "
+            ret += "The types in these directories "
             ret += " ".join(str(x) for x in sorted(MatchPrefix))
-            ret += " must be associated with the "
+            ret += " must exactly correspond to these attributes "
             ret += "\"" + Attr + "\" attribute: "
             ret += " ".join(str(x) for x in sorted(violators)) + "\n"
         return ret
