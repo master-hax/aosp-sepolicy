@@ -948,6 +948,16 @@ full_treble_only(`
 ')
 
 full_treble_only(`
+    # Do not allow coredomain to access entrypoint for files other
+    # than system_file_type and postinstall_file
+    neverallow coredomain {
+        file_type
+        -system_file_type
+        -postinstall_file
+    }:file entrypoint;
+')
+
+full_treble_only(`
     # Do not allow system components to execute files from vendor
     # except for the ones whitelisted here.
     neverallow {
