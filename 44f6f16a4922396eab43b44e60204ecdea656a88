@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cfb6b68b_d8051f0b",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2020-04-29T19:12:15Z",
+      "side": 1,
+      "message": "Do we want that or \n\nneverallow {                                                                                                                                                                                                    \n        domain                                                                                                                                                                                                      \n        -coredomain                                                                                                                                                                                                 \n    } {                                                                                                                                                                                                             \n        system_file_type                                                                                                                                                                                            \n        -init_exec                                                                                                                                                                                                  \n    }:file entrypoint;\n\n(init_exec is needed for vendor_init)",
+      "parentUuid": "cbbb1c5f_fa0cd9b0",
+      "range": {
+        "startLine": 953,
+        "startChar": 15,
+        "endLine": 953,
+        "endChar": 25
+      },
+      "revId": "44f6f16a4922396eab43b44e60204ecdea656a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63321ea2_01764d09",
         "filename": "public/domain.te",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-04-29T18:40:34Z",
       "side": 1,
       "message": "oh, also, this should be considered a bug, right?",
+      "range": {
+        "startLine": 956,
+        "startChar": 9,
+        "endLine": 956,
+        "endChar": 25
+      },
+      "revId": "44f6f16a4922396eab43b44e60204ecdea656a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8453402_0c287d4d",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2020-04-29T19:12:15Z",
+      "side": 1,
+      "message": "Maybe, I\u0027m not sure how postinstall_file is used.  Perhaps it should be considered system_file_type?",
+      "parentUuid": "63321ea2_01764d09",
       "range": {
         "startLine": 956,
         "startChar": 9,
