@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ab356cdf_1e6de0d3",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-04-29T21:00:03Z",
+      "side": 1,
+      "message": "Well, it is for parity with the checks on L960..L966 and L969..L973.\n\nIt all comes down to whether or not system_file_type and vendor_file_type are mutually exclusive. I don\u0027t think this is the right place to provide that guarantee, but I thought you wanted to. Anyway, I feel either we should add this check for consistency or remove L960..L966. Assuming these types are mutually exclusive, the latter neverallow (L969..L973) is strictly more restrictive then the L960..L966 one.",
+      "parentUuid": "54c2cd0d_1f86c861",
+      "range": {
+        "startLine": 951,
+        "startChar": 0,
+        "endLine": 957,
+        "endChar": 22
+      },
+      "revId": "bb052152bd424fc1bfdec99cc8ce0e5d40978afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c06fc1bf_b3853f3b",
         "filename": "public/domain.te",
         "patchSetId": 2
