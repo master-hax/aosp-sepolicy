@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "757dc39f_410ba51d",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-04-29T19:22:54Z",
+      "side": 1,
+      "message": "What is wrong with:\n\nfile_type\n-vendor_file_type\n-init_exec\n\nwhich should be more strict? (sepolicy_tests.py is in the process of enforcing vendor_file_type/system_file_type have no overlap)\n\nor both?",
+      "parentUuid": "cfb6b68b_d8051f0b",
+      "range": {
+        "startLine": 953,
+        "startChar": 15,
+        "endLine": 953,
+        "endChar": 25
+      },
+      "revId": "44f6f16a4922396eab43b44e60204ecdea656a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63321ea2_01764d09",
         "filename": "public/domain.te",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Maybe, I\u0027m not sure how postinstall_file is used.  Perhaps it should be considered system_file_type?",
       "parentUuid": "63321ea2_01764d09",
+      "range": {
+        "startLine": 956,
+        "startChar": 9,
+        "endLine": 956,
+        "endChar": 25
+      },
+      "revId": "44f6f16a4922396eab43b44e60204ecdea656a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac441efe_fa296221",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-04-29T19:22:54Z",
+      "side": 1,
+      "message": "It\u0027s rootfs (see postinstall_mnt_dir and init.rc code), and I haven\u0027t figured the best way to handle these, since we aren\u0027t detecting them yet:\nhttps://android-review.googlesource.com/c/platform/system/sepolicy/+/1296935/4//COMMIT_MSG#1\n\nCertainly, there is an argument for 0 exceptions here. Perhaps I can follow-up after looking into the general problem more deeply.",
+      "parentUuid": "c8453402_0c287d4d",
       "range": {
         "startLine": 956,
         "startChar": 9,
