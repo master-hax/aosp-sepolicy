@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "89d204cd_0e404ef1",
+        "filename": "private/coredomain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-04-29T00:48:15Z",
+      "side": 1,
+      "message": "Let me rephrase what I said above, because it doesn\u0027t even make sense to me.  :-)\n\nDirectly calling open(\"/path/to/vendor/overlay/file\") is a treble violation. However, passing an already open file descriptor across an IPC boundary, such as via binder, is not considered a treble violation. Changing this to \"open\" just stops direct open()s, but doesn\u0027t disallow passing by file descriptor.",
+      "parentUuid": "4fbf88a8_0d803589",
+      "range": {
+        "startLine": 94,
+        "startChar": 31,
+        "endLine": 94,
+        "endChar": 43
+      },
+      "revId": "3a1ca69d2c0bced9a26a23724c0d7d8ed11f0f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3fe30ef_290047b5",
         "filename": "public/drmserver.te",
         "patchSetId": 2
