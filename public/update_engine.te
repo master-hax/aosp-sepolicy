@@ -60,6 +60,9 @@ hal_client_domain(update_engine, hal_bootctl)
 # access /proc/misc
 allow update_engine proc_misc:file r_file_perms;
 
+# Allow to get the DSU status
+get_prop(update_engine, gsid_prop)
+
 # read directories on /system and /vendor
 allow update_engine system_file:dir r_dir_perms;
 
