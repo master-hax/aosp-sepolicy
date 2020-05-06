@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b2bc870a_163089bd",
+        "filename": "private/lmkd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2020-05-06T21:20:04Z",
+      "side": 1,
+      "message": "lmkd should reset the property back to 0 when it reinitializes. If not for that requirement I would be happy with vendor-only write permission.",
+      "parentUuid": "93beb173_876b977b",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 25
+      },
+      "revId": "f9d2b3dfda75b8b344a8d0dfcdcbd0023bf66b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "85236c6f_5be94626",
         "filename": "public/property.te",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2020-05-06T21:09:00Z",
       "side": 1,
       "message": "It seems to me like this should be more like \"system_vendor_config_prop\" but that macro\u0027s neverallow rule should be\n\nneverallow { domain -coredomain -vendor_init }....",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 18
+      },
+      "revId": "f9d2b3dfda75b8b344a8d0dfcdcbd0023bf66b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8bfa262_d1f765f0",
+        "filename": "public/property.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2020-05-06T21:20:04Z",
+      "side": 1,
+      "message": "Would lmkd be able to reset this property if I change it this way?",
+      "parentUuid": "85236c6f_5be94626",
       "range": {
         "startLine": 146,
         "startChar": 0,
