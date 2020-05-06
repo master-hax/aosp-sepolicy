@@ -94,6 +94,7 @@ allow domain properties_serial:file r_file_perms;
 allow domain property_info:file r_file_perms;
 
 # Public readable properties
+get_prop(domain, aac_drc_prop)
 get_prop(domain, debug_prop)
 get_prop(domain, exported_config_prop)
 get_prop(domain, exported_default_prop)
@@ -539,6 +540,8 @@ compatible_property_only(`
     neverallow { domain -init -system_server -vendor_init } exported_pm_prop:property_service set;
     neverallow { domain -coredomain -vendor_init } exported_pm_prop:file no_rw_file_perms;
 ')
+
+neverallow { domain -init } aac_drc_prop:property_service set;
 
 # Do not allow reading device's serial number from system properties except form
 # a few whitelisted domains.
