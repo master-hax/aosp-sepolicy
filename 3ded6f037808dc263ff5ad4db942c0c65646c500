@@ -70,6 +70,30 @@
       "revId": "3ded6f037808dc263ff5ad4db942c0c65646c500",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82429dd3_601857be",
+        "filename": "public/mediatranscoding.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-05-11T17:25:17Z",
+      "side": 1,
+      "message": "Well, this rule allows this to call untrusted_app (not \"allow untrusted_app mediatranscoding:binder call\").\n\nIf you think that would be a problem, you can add:\n\n    neverallow untrusted_app mediatranscoding:binder call",
+      "parentUuid": "a92ffdca_df0d0bc0",
+      "range": {
+        "startLine": 13,
+        "startChar": 18,
+        "endLine": 13,
+        "endChar": 49
+      },
+      "revId": "3ded6f037808dc263ff5ad4db942c0c65646c500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
