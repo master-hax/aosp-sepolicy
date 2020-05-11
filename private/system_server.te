@@ -1118,6 +1118,9 @@ allow system_server metadata_file:dir search;
 allow system_server password_slot_metadata_file:dir rw_dir_perms;
 allow system_server password_slot_metadata_file:file create_file_perms;
 
+allow system_server userspace_reboot_metadata_file:dir { create getattr rename rmdir rw_dir_perms search };
+allow system_server userspace_reboot_metadata_file:file { rw_file_perms rename unlink };
+
 # Allow init to set sysprop used to compute stats about userspace reboot.
 set_prop(system_server, userspace_reboot_log_prop)
 
