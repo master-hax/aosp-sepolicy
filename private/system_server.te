@@ -683,6 +683,9 @@ get_prop(system_server, wifi_prop)
 # Read the vendor property that indicates if Incremental features is enabled
 get_prop(system_server, incremental_prop)
 
+# Read/write persist.sys.dalvik.vm.lib.2
+set_prop(system_server, dalvik_runtime_prop)
+
 # Create a socket for connections from debuggerd.
 allow system_server system_ndebug_socket:sock_file create_file_perms;
 
