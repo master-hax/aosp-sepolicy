@@ -88,6 +88,9 @@ compatible_property_only(`
     get_prop({domain -coredomain -appdomain}, vendor_default_prop)
 ')
 
+# Read access to zygote_config_prop
+get_prop(domain, zygote_config_prop)
+
 # Allow access to fsverity keyring.
 allow domain kernel:key search;
 # Allow access to keys in the fsverity keyring that were installed at boot.
