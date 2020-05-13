@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "490a300c_80b6c43d",
+        "filename": "private/fastbootd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2020-05-13T01:12:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99b8fd5f_c7ecc3d5",
+      "range": {
+        "startLine": 27,
+        "startChar": 46,
+        "endLine": 27,
+        "endChar": 47
+      },
+      "revId": "d3aaa9054b08f5eaff05521b3172eda02819f49a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9eba7ab_e00180ed",
         "filename": "private/fastbootd.te",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "d3aaa9054b08f5eaff05521b3172eda02819f49a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fefa29de_cd09252e",
+        "filename": "private/fastbootd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2020-05-13T01:12:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9eba7ab_e00180ed",
+      "range": {
+        "startLine": 28,
+        "startChar": 46,
+        "endLine": 28,
+        "endChar": 47
+      },
+      "revId": "d3aaa9054b08f5eaff05521b3172eda02819f49a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "736162bd_0c8ce3a7",
+        "filename": "private/fastbootd.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2020-05-13T01:12:52Z",
+      "side": 1,
+      "message": "I changed to it, but the \"accept\" and \"listen\" permissions are still needed.",
+      "parentUuid": "dfda023b_46c3fed5",
+      "range": {
+        "startLine": 29,
+        "startChar": 34,
+        "endLine": 29,
+        "endChar": 81
+      },
+      "revId": "d3aaa9054b08f5eaff05521b3172eda02819f49a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74b6f477_2f414ba4",
         "filename": "private/recovery.te",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2020-05-07T11:07:38Z",
       "side": 1,
       "message": "If we used link-local IPv6 instead of IPv4 we\u0027d avoid the need for net_raw and udp_socket. Link-local addresses are configured automatically when the interface comes up and can be used immediately with no setup.",
+      "range": {
+        "startLine": 30,
+        "startChar": 62,
+        "endLine": 30,
+        "endChar": 69
+      },
+      "revId": "d3aaa9054b08f5eaff05521b3172eda02819f49a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd54a88e_7562d1ee",
+        "filename": "private/recovery.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2020-05-13T01:12:52Z",
+      "side": 1,
+      "message": "I did it. The \"net_raw\" permission is removed. But I still need the udp_socket to bring up interface. Is there way to us to bring up interface without udp_socket?",
+      "parentUuid": "74b6f477_2f414ba4",
       "range": {
         "startLine": 30,
         "startChar": 62,
@@ -114,6 +210,30 @@
       "revId": "d3aaa9054b08f5eaff05521b3172eda02819f49a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2922205_8de2844a",
+        "filename": "private/recovery.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2020-05-13T01:12:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0cb2537_4860362c",
+      "range": {
+        "startLine": 32,
+        "startChar": 44,
+        "endLine": 32,
+        "endChar": 60
+      },
+      "revId": "d3aaa9054b08f5eaff05521b3172eda02819f49a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
