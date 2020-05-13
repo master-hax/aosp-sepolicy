@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "3abb9dae_b15979e2",
+        "filename": "private/recovery.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-05-13T10:33:05Z",
+      "side": 1,
+      "message": "Is netd running at this point in time? If so, then we could avoid the need for NET_ADMIN by sending an IPC to netd to configure the interface. We\u0027d need the ability to find the netd binder service, and send IPCs to it.\n\nIf at this point in time netd is not running, or might not be running, or we don\u0027t want to take the extra dependency because it might make flashing unreliable, then I don\u0027t think there\u0027s a way to do this that does not require net_admin.\n\nAs for udp_socket, that\u0027s not really much of a risk. But you can call ioctl(SIOCSIFFLAGS) on a tcp socket too, if you want. I just tested and it seems to work.",
+      "parentUuid": "bd54a88e_7562d1ee",
+      "range": {
+        "startLine": 30,
+        "startChar": 62,
+        "endLine": 30,
+        "endChar": 69
+      },
+      "revId": "d3aaa9054b08f5eaff05521b3172eda02819f49a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f0cb2537_4860362c",
         "filename": "private/recovery.te",
         "patchSetId": 7

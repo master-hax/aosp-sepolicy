@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9057e83e_01f3d65e",
+        "filename": "private/recovery.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-05-13T10:33:05Z",
+      "side": 1,
+      "message": "Is netd running at this point in time? If so, then we could avoid the need for NET_ADMIN by sending an IPC to netd to configure the interface. We\u0027d need the ability to find the netd binder service, and send IPCs to it.\n\nIf at this point in time netd is not running, or might not be running, or we don\u0027t want to take the extra dependency because it might make flashing unreliable, then I don\u0027t think there\u0027s a way to do this that does not require net_admin.",
+      "range": {
+        "startLine": 29,
+        "startChar": 50,
+        "endLine": 29,
+        "endChar": 59
+      },
+      "revId": "d8ff4ecce1535275aff3f1f23b736d601dbfa48b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
