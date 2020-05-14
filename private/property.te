@@ -163,7 +163,6 @@ compatible_property_only(`
     -hal_telephony_server
     -vendor_init
   } {
-    exported_radio_prop
     exported3_radio_prop
   }:property_service set;
 
@@ -173,7 +172,6 @@ compatible_property_only(`
     -appdomain
     -hal_telephony_server
   } {
-    exported2_radio_prop
     radio_prop
   }:property_service set;
 
@@ -361,3 +359,9 @@ neverallow {
   -system_server
   -vendor_init
 } dalvik_runtime_prop:property_service set;
+
+neverallow {
+  -init
+  -radio
+  -hal_telephony_server
+} telephony_status_prop:property_service set;
