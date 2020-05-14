@@ -58,6 +58,8 @@ type selinuxContextsProperties struct {
 	Recovery_available *bool
 
 	InRecovery bool `blueprint:"mutated"`
+
+	Vendor_dlkm_specific *bool
 }
 
 type fileContextsProperties struct {
@@ -163,6 +165,8 @@ func (m *selinuxContextsModule) GenerateAndroidBuildActions(ctx android.ModuleCo
 			inputs = append(inputs, segroup.OdmSrcs()...)
 		} else if ctx.SystemExtSpecific() {
 			inputs = append(inputs, segroup.SystemExtPrivateSrcs()...)
+		} else if proptools.Bool(m.properties.Vendor_dlkm_specific) {
+			inputs = append(inputs, segroup.VendorDlkmSrcs()...)
 		} else {
 			inputs = append(inputs, segroup.SystemPrivateSrcs()...)
 			inputs = append(inputs, segroup.SystemPublicSrcs()...)

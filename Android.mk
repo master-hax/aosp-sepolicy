@@ -93,8 +93,9 @@ NEVERALLOW_ARG := -N
 endif
 
 # BOARD_SEPOLICY_DIRS was used for vendor/odm sepolicy customization before.
-# It has been replaced by BOARD_VENDOR_SEPOLICY_DIRS (mandatory) and
-# BOARD_ODM_SEPOLICY_DIRS (optional). BOARD_SEPOLICY_DIRS is still allowed for
+# It has been replaced by BOARD_VENDOR_SEPOLICY_DIRS (mandatory),
+# BOARD_ODM_SEPOLICY_DIRS (optional), and BOARD_VENDOR_DLKM_SEPOLICY_DIRS
+# (optional). BOARD_SEPOLICY_DIRS is still allowed for
 # backward compatibility, which will be merged into BOARD_VENDOR_SEPOLICY_DIRS.
 ifdef BOARD_SEPOLICY_DIRS
 BOARD_VENDOR_SEPOLICY_DIRS += $(BOARD_SEPOLICY_DIRS)
@@ -103,6 +104,12 @@ endif
 ifdef BOARD_ODM_SEPOLICY_DIRS
 ifneq ($(PRODUCT_SEPOLICY_SPLIT),true)
 $(error PRODUCT_SEPOLICY_SPLIT needs to be true when using BOARD_ODM_SEPOLICY_DIRS)
+endif
+endif
+
+ifdef BOARD_VENDOR_DLKM_SEPOLICY_DIRS
+ifneq ($(PRODUCT_SEPOLICY_SPLIT),true)
+$(error PRODUCT_SEPOLICY_SPLIT needs to be true when using BOARD_VENDOR_DLKM_SEPOLICY_DIRS)
 endif
 endif
 
@@ -122,6 +129,9 @@ build_vendor_policy = $(call build_policy, $(1), $(PLAT_VENDOR_POLICY) $(BOARD_V
 
 # Builds paths for all policy files found in BOARD_ODM_SEPOLICY_DIRS.
 build_odm_policy = $(call build_policy, $(1), $(BOARD_ODM_SEPOLICY_DIRS))
+
+# Builds paths for all policy files found in BOARD_VENDOR_DLKM_SEPOLICY_DIRS.
+build_vendor_dlkm_policy = $(call build_policy, $(1), $(BOARD_VENDOR_DLKM_SEPOLICY_DIRS))
 
 sepolicy_build_files := security_classes \
                         initial_sids \
@@ -149,7 +159,7 @@ sepolicy_build_files := security_classes \
 security_class_extension_files := $(call build_policy, security_classes access_vectors, \
   $(SYSTEM_EXT_PUBLIC_POLICY) $(SYSTEM_EXT_PRIVATE_POLICY) \
   $(PRODUCT_PUBLIC_POLICY) $(PRODUCT_PRIVATE_POLICY) \
-  $(BOARD_VENDOR_SEPOLICY_DIRS) $(BOARD_ODM_SEPOLICY_DIRS))
+  $(BOARD_VENDOR_SEPOLICY_DIRS) $(BOARD_ODM_SEPOLICY_DIRS) $(BOARD_VENDOR_DLKM_SEPOLICY_DIRS))
 
 ifneq (,$(strip $(security_class_extension_files)))
   $(error Only platform SELinux policy may define classes and permissions: $(strip $(security_class_extension_files)))
@@ -363,6 +373,19 @@ LOCAL_REQUIRED_MODULES += \
     odm_mac_permissions.xml
 endif
 
+ifdef BOARD_VENDOR_DLKM_SEPOLICY_DIRS
+LOCAL_REQUIRED_MODULES += \
+    vendor_dlkm_sepolicy.cil \
+    vendor_dlkm_file_contexts \
+    vendor_dlkm_file_contexts_test \
+    vendor_dlkm_seapp_contexts \
+    vendor_dlkm_property_contexts \
+    vendor_dlkm_property_contexts_test \
+    vendor_dlkm_hwservice_contexts \
+    vendor_dlkm_hwservice_contexts_test \
+    vendor_dlkm_mac_permissions.xml
+endif
+
 ifdef HAS_SYSTEM_EXT_SEPOLICY
 LOCAL_REQUIRED_MODULES += system_ext_sepolicy.cil
 endif
@@ -439,7 +462,7 @@ policy_files := $(call build_policy, $(sepolicy_build_files), \
   $(PLAT_PUBLIC_POLICY) $(PLAT_PRIVATE_POLICY) $(PLAT_VENDOR_POLICY) \
   $(SYSTEM_EXT_PUBLIC_POLICY) $(SYSTEM_EXT_PRIVATE_POLICY) \
   $(PRODUCT_PUBLIC_POLICY) $(PRODUCT_PRIVATE_POLICY) \
-  $(BOARD_VENDOR_SEPOLICY_DIRS) $(BOARD_ODM_SEPOLICY_DIRS))
+  $(BOARD_VENDOR_SEPOLICY_DIRS) $(BOARD_ODM_SEPOLICY_DIRS) $(BOARD_VENDOR_DLKM_SEPOLICY_DIRS))
 sepolicy_policy.conf := $(intermediates)/policy.conf
 $(sepolicy_policy.conf): PRIVATE_MLS_SENS := $(MLS_SENS)
 $(sepolicy_policy.conf): PRIVATE_MLS_CATS := $(MLS_CATS)
@@ -460,7 +483,7 @@ policy_files := $(call build_policy, $(sepolicy_build_files), \
   $(PLAT_PUBLIC_POLICY) $(PLAT_PRIVATE_POLICY) $(PLAT_VENDOR_POLICY) \
   $(SYSTEM_EXT_PUBLIC_POLICY) $(SYSTEM_EXT_PRIVATE_POLICY) \
   $(PRODUCT_PUBLIC_POLICY) $(PRODUCT_PRIVATE_POLICY) \
-  $(BOARD_VENDOR_SEPOLICY_DIRS) $(BOARD_ODM_SEPOLICY_DIRS))
+  $(BOARD_VENDOR_SEPOLICY_DIRS) $(BOARD_ODM_SEPOLICY_DIRS) $(BOARD_VENDOR_DLKM_SEPOLICY_DIRS))
 sepolicy_policy_2.conf := $(intermediates)/policy_2.conf
 $(sepolicy_policy_2.conf): PRIVATE_MLS_SENS := $(MLS_SENS)
 $(sepolicy_policy_2.conf): PRIVATE_MLS_CATS := $(MLS_CATS)
@@ -777,7 +800,7 @@ $(HOST_OUT_EXECUTABLES)/build_sepolicy $(HOST_OUT_EXECUTABLES)/secilc $(built_pl
 	$(hide) grep -v ';;' $@ > $@.tmp
 	$(hide) mv $@.tmp $@
 	# Combine plat_sepolicy.cil and system_ext_sepolicy.cil to make sure that the
-	# latter doesn't accidentally depend on vendor/odm policies.
+	# latter doesn't accidentally depend on vendor/odm/vendor_dlkm policies.
 	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -m -M true -G -c $(POLICYVERS) \
 		$(PRIVATE_NEVERALLOW_ARG) $(PRIVATE_PLAT_CIL) $@ -o /dev/null -f /dev/null
 
@@ -834,7 +857,7 @@ $(built_plat_cil) $(built_system_ext_cil)
 	$(hide) grep -v ';;' $@ > $@.tmp
 	$(hide) mv $@.tmp $@
 	# Combine plat_sepolicy.cil, system_ext_sepolicy.cil and product_sepolicy.cil to
-	# make sure that the latter doesn't accidentally depend on vendor/odm policies.
+	# make sure that the latter doesn't accidentally depend on vendor/odm/vendor_dlkm policies.
 	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -m -M true -G -c $(POLICYVERS) \
 		$(PRIVATE_NEVERALLOW_ARG) $(PRIVATE_PLAT_CIL_FILES) $@ -o /dev/null -f /dev/null
 
@@ -1072,6 +1095,65 @@ odm_policy.conf :=
 odm_policy_raw :=
 endif
 
+
+#################################
+include $(CLEAR_VARS)
+
+ifdef BOARD_VENDOR_DLKM_SEPOLICY_DIRS
+# vendor_dlkm_policy.cil - the vendor_dlkm sepolicy. This needs attributization and to be combined
+# with the platform-provided policy.  It makes use of the reqd_policy_mask files from private
+# policy and the platform public policy files in order to use checkpolicy.
+LOCAL_MODULE := vendor_dlkm_sepolicy.cil
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_PROPRIETARY_MODULE := true
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_DLKM)/etc/selinux
+
+include $(BUILD_SYSTEM)/base_rules.mk
+
+policy_files := $(call build_policy, $(sepolicy_build_files), \
+  $(PLAT_PUBLIC_POLICY) $(SYSTEM_EXT_PUBLIC_POLICY) $(PRODUCT_PUBLIC_POLICY) \
+  $(REQD_MASK_POLICY) $(PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS) $(BOARD_ODM_SEPOLICY_DIRS) $(BOARD_VENDOR_DLKM_SEPOLICY_DIRS))
+vendor_dlkm_policy.conf := $(intermediates)/vendor_dlkm_policy.conf
+$(vendor_dlkm_policy.conf): PRIVATE_MLS_SENS := $(MLS_SENS)
+$(vendor_dlkm_policy.conf): PRIVATE_MLS_CATS := $(MLS_CATS)
+$(vendor_dlkm_policy.conf): PRIVATE_TARGET_BUILD_VARIANT := $(TARGET_BUILD_VARIANT)
+$(vendor_dlkm_policy.conf): PRIVATE_TGT_ARCH := $(my_target_arch)
+$(vendor_dlkm_policy.conf): PRIVATE_TGT_WITH_ASAN := $(with_asan)
+$(vendor_dlkm_policy.conf): PRIVATE_TGT_WITH_NATIVE_COVERAGE := $(with_native_coverage)
+$(vendor_dlkm_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
+$(vendor_dlkm_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
+$(vendor_dlkm_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
+$(vendor_dlkm_policy.conf): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := $(treble_sysprop_neverallow)
+$(vendor_dlkm_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
+$(vendor_dlkm_policy.conf): $(policy_files) $(M4)
+	$(transform-policy-to-conf)
+	$(hide) sed '/^\s*dontaudit.*;/d' $@ | sed '/^\s*dontaudit/,/;/d' > $@.dontaudit
+
+$(LOCAL_BUILT_MODULE): PRIVATE_POL_CONF := $(vendor_dlkm_policy.conf)
+$(LOCAL_BUILT_MODULE): PRIVATE_REQD_MASK := $(reqd_policy_mask.cil)
+$(LOCAL_BUILT_MODULE): PRIVATE_BASE_CIL := $(pub_policy.cil)
+$(LOCAL_BUILT_MODULE): PRIVATE_VERS := $(BOARD_SEPOLICY_VERS)
+$(LOCAL_BUILT_MODULE): PRIVATE_DEP_CIL_FILES := $(built_plat_cil) $(built_system_ext_cil) \
+  $(built_product_cil) $(built_pub_vers_cil) $(built_plat_mapping_cil) \
+  $(built_system_ext_mapping_cil) $(built_product_mapping_cil) $(built_vendor_cil)
+$(LOCAL_BUILT_MODULE) : PRIVATE_FILTER_CIL_FILES := $(built_pub_vers_cil) $(built_vendor_cil)
+$(LOCAL_BUILT_MODULE): $(HOST_OUT_EXECUTABLES)/build_sepolicy \
+  $(vendor_dlkm_policy.conf) $(reqd_policy_mask.cil) $(pub_policy.cil) \
+  $(built_plat_cil) $(built_system_ext_cil) $(built_product_cil) $(built_pub_vers_cil) \
+  $(built_plat_mapping_cil) $(built_system_ext_mapping_cil) $(built_product_mapping_cil) \
+  $(built_vendor_cil)
+	@mkdir -p $(dir $@)
+	$(hide) $(HOST_OUT_EXECUTABLES)/build_sepolicy -a $(HOST_OUT_EXECUTABLES) build_cil \
+		-i $(PRIVATE_POL_CONF) -m $(PRIVATE_REQD_MASK) -c $(CHECKPOLICY_ASAN_OPTIONS) \
+		-b $(PRIVATE_BASE_CIL) -d $(PRIVATE_DEP_CIL_FILES) -f $(PRIVATE_FILTER_CIL_FILES) \
+		-t $(PRIVATE_VERS) -p $(POLICYVERS) -o $@
+
+built_vendor_dlkm_cil := $(LOCAL_BUILT_MODULE)
+vendor_dlkm_policy.conf :=
+vendor_dlkm_policy_raw :=
+endif
+
 #################################
 include $(CLEAR_VARS)
 
@@ -1112,6 +1194,10 @@ endif
 
 ifdef BOARD_ODM_SEPOLICY_DIRS
 all_cil_files += $(built_odm_cil)
+endif
+
+ifdef BOARD_VENDOR_DLKM_SEPOLICY_DIRS
+all_cil_files += $(built_vendor_dlkm_cil)
 endif
 
 $(LOCAL_BUILT_MODULE): PRIVATE_CIL_FILES := $(all_cil_files)
@@ -1273,6 +1359,10 @@ ifdef BOARD_ODM_SEPOLICY_DIRS
 all_cil_files += $(built_odm_cil)
 endif
 
+ifdef BOARD_VENDOR_DLKM_SEPOLICY_DIRS
+all_cil_files += $(built_vendor_dlkm_cil)
+endif
+
 $(LOCAL_BUILT_MODULE): PRIVATE_CIL_FILES := $(all_cil_files)
 $(LOCAL_BUILT_MODULE): PRIVATE_NEVERALLOW_ARG := $(NEVERALLOW_ARG)
 $(LOCAL_BUILT_MODULE): $(HOST_OUT_EXECUTABLES)/secilc $(HOST_OUT_EXECUTABLES)/sepolicy-analyze $(all_cil_files) \
@@ -1311,7 +1401,7 @@ policy_files := $(call build_policy, $(sepolicy_build_files), \
   $(SYSTEM_EXT_PUBLIC_POLICY) $(SYSTEM_EXT_PRIVATE_POLICY) \
   $(PRODUCT_PUBLIC_POLICY) $(PRODUCT_PRIVATE_POLICY) \
   $(PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS) \
-  $(BOARD_ODM_SEPOLICY_DIRS))
+  $(BOARD_ODM_SEPOLICY_DIRS) $(BOARD_VENDOR_DLKM_SEPOLICY_DIRS))
 sepolicy.recovery.conf := $(intermediates)/sepolicy.recovery.conf
 $(sepolicy.recovery.conf): PRIVATE_MLS_SENS := $(MLS_SENS)
 $(sepolicy.recovery.conf): PRIVATE_MLS_CATS := $(MLS_CATS)
@@ -1442,6 +1532,10 @@ ifdef BOARD_ODM_SEPOLICY_DIRS
 device_fc_files += $(call build_odm_policy, file_contexts)
 endif
 
+ifdef BOARD_VENDOR_DLKM_SEPOLICY_DIRS
+device_fc_files += $(call build_vendor_dlkm_policy, file_contexts)
+endif
+
 file_contexts.device.tmp := $(intermediates)/file_contexts.device.tmp
 $(file_contexts.device.tmp): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(file_contexts.device.tmp): PRIVATE_DEVICE_FC_FILES := $(device_fc_files)
@@ -1551,6 +1645,9 @@ all_fc_files += $(TARGET_OUT_PRODUCT)/etc/selinux/product_file_contexts
 endif
 ifdef BOARD_ODM_SEPOLICY_DIRS
 all_fc_files += $(TARGET_OUT_ODM)/etc/selinux/odm_file_contexts
+endif
+ifdef BOARD_VENDOR_DLKM_SEPOLICY_DIRS
+all_fc_files += $(TARGET_OUT_VENDOR_DLKM)/etc/selinux/vendor_dlkm_file_contexts
 endif
 all_fc_args := $(foreach file, $(all_fc_files), -f $(file))
 
@@ -1697,6 +1794,7 @@ all_frozen_files :=
 
 build_vendor_policy :=
 build_odm_policy :=
+build_vendor_dlkm_policy :=
 build_policy :=
 built_plat_cil :=
 built_system_ext_cil :=
@@ -1707,6 +1805,7 @@ built_system_ext_mapping_cil :=
 built_product_mapping_cil :=
 built_vendor_cil :=
 built_odm_cil :=
+built_vendor_dlkm_cil :=
 built_precompiled_sepolicy :=
 built_sepolicy :=
 built_sepolicy_neverallows :=
