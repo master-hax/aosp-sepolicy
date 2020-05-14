@@ -368,3 +368,7 @@ neverallow {
   usb_config_prop
   usb_control_prop
 }:property_service set;
+
+neverallow {
+  -init
+} init_service_status_prop:property_service set;
