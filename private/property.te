@@ -361,3 +361,7 @@ neverallow {
   -system_server
   -vendor_init
 } dalvik_runtime_prop:property_service set;
+
+neverallow {
+  -init
+} init_service_status_prop:property_service set;

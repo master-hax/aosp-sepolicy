@@ -36,6 +36,7 @@ debug.                  u:object_r:debug_prop:s0
 debug.db.               u:object_r:debuggerd_prop:s0
 dumpstate.              u:object_r:dumpstate_prop:s0
 dumpstate.options       u:object_r:dumpstate_options_prop:s0
+init.svc.               u:object_r:init_service_status_prop:s0
 init.svc_debug_pid.     u:object_r:init_svc_debug_prop:s0
 llk.                    u:object_r:llkd_prop:s0
 khungtask.              u:object_r:llkd_prop:s0
@@ -533,14 +534,6 @@ dumpstate.dry_run u:object_r:exported_dumpstate_prop:s0 exact bool
 dumpstate.unroot  u:object_r:exported_dumpstate_prop:s0 exact bool
 
 hal.instrumentation.enable u:object_r:exported2_default_prop:s0 exact bool
-
-init.svc.bugreport      u:object_r:exported2_default_prop:s0 exact string
-init.svc.console        u:object_r:exported2_default_prop:s0 exact string
-init.svc.dumpstatez     u:object_r:exported2_default_prop:s0 exact string
-init.svc.mediadrm       u:object_r:exported2_default_prop:s0 exact string
-init.svc.surfaceflinger u:object_r:exported2_default_prop:s0 exact string
-init.svc.tombstoned     u:object_r:exported2_default_prop:s0 exact string
-init.svc.zygote         u:object_r:exported2_default_prop:s0 exact string
 
 libc.debug.malloc.options u:object_r:libc_debug_prop:s0 exact string
 libc.debug.malloc.program u:object_r:libc_debug_prop:s0 exact string
