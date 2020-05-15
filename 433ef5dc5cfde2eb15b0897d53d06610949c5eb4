@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9c4bdf9_c38a86eb",
+        "filename": "private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2020-05-15T16:05:41Z",
+      "side": 1,
+      "message": "I don\u0027t think this is what you want, since it\u0027s actually a pretty big behavior change.  Currently, init.svc.* is default_prop which is not exported, since if we export these service names, they\u0027ll become a treble interface, which we do not want for all platform services.\n\nThat\u0027s why below there are specific services called out that vendor\u0027s can access and are exported.\n\nWhat we want here is \n\ninit.svc. -\u003e system only read access\ninit.svc.vendor_ / init.svc.odm_ -\u003e vendor only read access\ninit.svc.\u003cspecific name\u003e -\u003e system and vendor read access\n\nOf course no one bug init should write any of those.",
+      "revId": "433ef5dc5cfde2eb15b0897d53d06610949c5eb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
