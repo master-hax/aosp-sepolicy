@@ -347,3 +347,8 @@ neverallow {
   -traceur_app
   -dumpstate
 } dumpstate_service:service_manager find;
+
+# Allow dumpsate to get lshal information
+dump_hal(hal_thermal)
+dump_hal(hal_power)
+dump_hal(hal_power_stats)
