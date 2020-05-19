@@ -118,6 +118,30 @@
       "revId": "ca1d534c4ab28c106ed8cbfcd7c207617bcab92d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e51c597_8f543832",
+        "filename": "private/coredomain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2020-05-19T15:52:18Z",
+      "side": 1,
+      "message": "I\u0027m still iffy on those labels.  The difference that we need to convey between them is that one of the labels is exported to vendors but the other is internal and \u0027status\u0027 doesn\u0027t make that clear.\n\nI like jiyong@\u0027s suggestion better: that we include \u0027private\u0027 in the label itself.\n\nAlternatively: instead of using the same label for all of the exported properties, could we have explicit labels for each exported service, e.g. init_bugreport_status_prop?  In that scenario, then we\u0027d know that init_service_status_prop is restricted to the system partition, but wouldn\u0027t make assumptions about each init_\u003cname\u003e_status_prop and need to look up their visibility.",
+      "parentUuid": "465cf9a7_3ed60074",
+      "range": {
+        "startLine": 6,
+        "startChar": 21,
+        "endLine": 6,
+        "endChar": 45
+      },
+      "revId": "ca1d534c4ab28c106ed8cbfcd7c207617bcab92d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
