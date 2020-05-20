@@ -10,6 +10,9 @@ allow hal_bootctl_default proc_cmdline:file r_file_perms;
 allow hal_bootctl_default sysfs_dt_firmware_android:dir search;
 allow hal_bootctl_default sysfs_dt_firmware_android:file r_file_perms;
 
+# For ReadDefaultFstab
+get_prop(hal_bootctl_default, fstab_exported_prop)
+
 # ReadDefaultFstab looks for /metadata/gsi/booted. We don't care about getting
 # a GSI-corrected fstab.
 dontaudit hal_bootctl_default metadata_file:dir search;

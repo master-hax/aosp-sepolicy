@@ -83,6 +83,9 @@ neverallow {
   -fastbootd
 } gsid_prop:property_service set;
 
+# For ReadDefaultFstab
+get_prop(gsid, fstab_exported_prop);
+
 # gsid needs to store images on /data, but cannot use file I/O. If it did, the
 # underlying blocks would be encrypted, and we couldn't mount the GSI image in
 # first-stage init. So instead of directly writing to /data, we:
