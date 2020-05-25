@@ -1179,3 +1179,8 @@ neverallow system_server self:perf_event ~{ open write cpu kernel };
 neverallow { domain -init -system_server } socket_hook_prop:property_service set;
 
 neverallow { domain -init -system_server } boot_status_prop:property_service set;
+
+# Allow systemserver to read/write the framework_watchdog_prop
+set_prop(system_server, framework_watchdog_prop)
+# Allow systemserver to read the framework_watchdog_config_prop
+get_prop(system_server, framework_watchdog_config_prop)
