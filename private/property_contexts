@@ -853,3 +853,9 @@ persist.dbg.wfc_avail_ovr         u:object_r:telephony_config_prop:s0 exact int
 # Graphics related properties
 graphics.gpu.profiler.support          u:object_r:graphics_config_prop:s0 exact bool
 graphics.gpu.profiler.vulkan_layer_apk u:object_r:graphics_config_prop:s0 exact string
+
+# Framework watchdog configuration properties.
+framework_watchdog.timeout_history      u:object_r:framework_watchdog_prop:s0 exact string
+framework_watchdog.fatal_count          u:object_r:framework_watchdog_config_prop:s0 exact int
+framework_watchdog.fatal_window.second  u:object_r:framework_watchdog_config_prop:s0 exact int
+persist.framework_watchdog.fatal_ignore u:object_r:framework_watchdog_config_prop:s0 exact bool
