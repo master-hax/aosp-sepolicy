@@ -392,6 +392,7 @@ allow system_server packages_list_file:file create_file_perms;
 allow system_server keychain_data_file:dir create_dir_perms;
 allow system_server keychain_data_file:file create_file_perms;
 allow system_server keychain_data_file:lnk_file create_file_perms;
+allow system_server framework_watchdog_data_file:file create_file_perms;
 
 # Manage /data/app.
 allow system_server apk_data_file:dir create_dir_perms;
@@ -1237,3 +1238,9 @@ neverallow {
 # BINDER_FREEZE is used to block ipc transactions to frozen processes, so it
 # can be accessed by system_server only (b/143717177)
 neverallowxperm { domain -system_server } binder_device:chr_file ioctl { BINDER_FREEZE };
+
+# Allow systemserver to read the framework_watchdog_config_prop
+get_prop(system_server, framework_watchdog_config_prop)
+
+# Allow systemserver to write messages to kmsg_debug_device.
+allow system_server kmsg_debug_device:chr_file write;
