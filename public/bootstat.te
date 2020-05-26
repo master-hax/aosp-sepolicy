@@ -37,6 +37,7 @@ neverallow {
   -recovery
   -shell
   -system_server
+  -system_app
 } { bootloader_boot_reason_prop last_boot_reason_prop }:file r_file_perms;
 # ... and refine, as these components should not set the last boot reason
 neverallow { bootanim recovery } last_boot_reason_prop:file r_file_perms;
