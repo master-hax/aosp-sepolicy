@@ -94,15 +94,19 @@ allow domain properties_serial:file r_file_perms;
 allow domain property_info:file r_file_perms;
 
 # Public readable properties
+get_prop(domain, build_odm_prop)
+get_prop(domain, build_prop)
+get_prop(domain, build_vendor_prop)
 get_prop(domain, debug_prop)
 get_prop(domain, exported_config_prop)
 get_prop(domain, exported_default_prop)
 get_prop(domain, exported_dumpstate_prop)
-get_prop(domain, exported_fingerprint_prop)
 get_prop(domain, exported_radio_prop)
 get_prop(domain, exported_secure_prop)
 get_prop(domain, exported_system_prop)
 get_prop(domain, exported2_default_prop)
+get_prop(domain, fingerprint_prop)
+get_prop(domain, libc_debug_prop)
 get_prop(domain, logd_prop)
 get_prop(domain, socket_hook_prop)
 get_prop(domain, surfaceflinger_prop)
@@ -540,6 +544,9 @@ compatible_property_only(`
     neverallow { domain -coredomain -vendor_init } exported_pm_prop:file no_rw_file_perms;
 ')
 
+neverallow { domain -init } aac_drc_prop:property_service set;
+neverallow { domain -init } build_prop:property_service set;
+
 # Do not allow reading device's serial number from system properties except form
 # a few whitelisted domains.
 neverallow {
@@ -945,6 +952,23 @@ full_treble_only(`
         -netutils_wrapper_exec
         userdebug_or_eng(`-tcpdump_exec')
     }:file { entrypoint execute execute_no_trans };
+')
+
+full_treble_only(`
+    # Do not allow coredomain to access entrypoint for files other
+    # than system_file_type and postinstall_file
+    neverallow coredomain {
+        file_type
+        -system_file_type
+        -postinstall_file
+    }:file entrypoint;
+    # Do not allow domains other than coredomain to access entrypoint
+    # for anything but vendor_file_type and init_exec for vendor_init.
+    neverallow { domain -coredomain } {
+        file_type
+        -vendor_file_type
+        -init_exec
+    }:file entrypoint;
 ')
 
 full_treble_only(`
