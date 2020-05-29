@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3657c92d_3089fbb1",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-05-29T10:35:37Z",
+      "side": 1,
+      "message": "Not sure you need mlstrustedobject for this one if no app ever touches it. (selinuxfs has broader access - see selinux_check_access)",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 42
+      },
+      "revId": "3e2448f5cba989de9aebde1591bd031cca8187ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "111efc1a_d5f1bd13",
+        "filename": "public/vold.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-05-29T10:35:37Z",
+      "side": 1,
+      "message": "Also neverallow rules to prevent anything else accessing it?\n(Like http://cs/android/system/sepolicy/private/app_neverallows.te?l\u003d240\u0026rcl\u003d2aa8042f9db1eac2fb19f479f9f0a5ebd76d9ab6)",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 61
+      },
+      "revId": "3e2448f5cba989de9aebde1591bd031cca8187ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
