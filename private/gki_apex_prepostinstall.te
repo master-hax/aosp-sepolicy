@@ -1,0 +1,27 @@
+# GKI pre- & post-install hooks.
+#
+# Allow to run pre- and post-install hooks for GKI APEXes
+
+type gki_apex_prepostinstall, domain, coredomain;
+type gki_apex_prepostinstall_exec, system_file_type, exec_type, file_type;
+
+# /dev/zero
+allow gki_apex_prepostinstall apexd:fd use;
+# Logwrapper.
+create_pty(gki_apex_prepostinstall)
+# Logwrapper executing sh.
+allow gki_apex_prepostinstall shell_exec:file rx_file_perms;
+# Logwrapper exec.
+allow gki_apex_prepostinstall system_file:file execute_no_trans;
+# Ls.
+allow gki_apex_prepostinstall toolbox_exec:file rx_file_perms;
+
+# Allow to copy to update_engine's directory in /data.
+allow gki_apex_prepostinstall update_engine_data_file:dir ra_dir_perms;
+allow gki_apex_prepostinstall update_engine_data_file:file create_file_perms;
+
+# Allow preinstall hook to communicate with update_engine to execute update.
+binder_use(gki_apex_prepostinstall)
+allow gki_apex_prepostinstall update_engine_stable_service:service_manager find;
+binder_call(gki_apex_prepostinstall, update_engine)
+allow gki_apex_prepostinstall update_engine:binder { call transfer };
