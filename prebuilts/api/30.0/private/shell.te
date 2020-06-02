@@ -140,3 +140,7 @@ get_prop(shell, system_boot_reason_prop)
 get_prop(shell, init_perf_lsm_hooks_prop)
 
 userdebug_or_eng(`set_prop(shell, persist_debug_prop)')
+
+# Allow shell to access files under /sys/kernel/ion/ for VTS test.
+allow shell sysfs_ion:dir search;
+allow shell sysfs_ion:file r_file_perms;
