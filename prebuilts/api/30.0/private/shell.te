@@ -92,6 +92,10 @@ allow shell simpleperf_exec:file rx_file_perms;
 allow shell self:perf_event { open read write kernel };
 neverallow shell self:perf_event ~{ open read write kernel };
 
+# Allow shell to access files under /sys/kernel/ion/ for VTS test.
+allow shell sysfs_ion:dir search;
+allow shell sysfs_ion:file r_file_perms;
+
 # Set properties.
 set_prop(shell, shell_prop)
 set_prop(shell, ctl_bugreport_prop)
