@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "527be8d0_556fc907",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-06-03T08:13:49Z",
+      "side": 1,
+      "message": "I\u0027m under the impression that vendors are already requesting this.",
+      "parentUuid": "2052380c_2d5ea3b9",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 95
+      },
+      "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "56f80b81_24673e40",
         "filename": "private/domain.te",
         "patchSetId": 3
@@ -111,6 +135,29 @@
         "startChar": 0,
         "endLine": 47,
         "endChar": 59
+      },
+      "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ee381ab_e8119c89",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-06-03T08:13:49Z",
+      "side": 1,
+      "message": "We need a better mechanism for doing access control of bpf maps. This approach means that gpuservice has access to any map that has been created by bpfloader. That\u0027s not great. Can we have bpfloader create a separate label for this map (e.g. using fsetfilecon()) such that we can both limit access to these maps to just gpuservice and prevent gpuservice from accessing the bpf maps of other processes. Alternatively, we could do the access control at the filesystem layer by providing a separate label for these files in fs_bpf.",
+      "range": {
+        "startLine": 54,
+        "startChar": 17,
+        "endLine": 54,
+        "endChar": 30
       },
       "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
