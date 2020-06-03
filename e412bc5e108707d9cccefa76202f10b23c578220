@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "949ea60a_a604be86",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1339259
+      },
+      "writtenOn": "2020-06-03T18:24:59Z",
+      "side": 1,
+      "message": "Given the policy around vendors is not yet ready in R, and potentially I need to cherry-pick this change to prebuilt/api/30.0 for supporting vendors volunteer to ship a kernel with the gpu_mem tracepoint integrated. I\u0027d leave these lines as they are in this change.",
+      "parentUuid": "cccce00d_08c1ed9e",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 95
+      },
+      "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56f80b81_24673e40",
         "filename": "private/domain.te",
         "patchSetId": 3
@@ -117,6 +141,30 @@
       "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f0cf21f_a16cf3f9",
+        "filename": "private/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1339259
+      },
+      "writtenOn": "2020-06-03T18:24:59Z",
+      "side": 1,
+      "message": "You answered the exact question I asked in the patchsetv1. Thx!",
+      "parentUuid": "56f80b81_24673e40",
+      "range": {
+        "startLine": 141,
+        "startChar": 3,
+        "endLine": 141,
+        "endChar": 13
+      },
+      "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "5ed0b2cf_b19e7fa9",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1339259
+      },
+      "writtenOn": "2020-06-03T18:24:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99f30ea7_ce6352f0",
+      "range": {
+        "startLine": 46,
+        "startChar": 17,
+        "endLine": 46,
+        "endChar": 43
+      },
+      "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c47d2c23_801fb75e",
         "filename": "private/gpuservice.te",
         "patchSetId": 3
@@ -163,6 +235,30 @@
       "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efa31c23_10765ede",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1339259
+      },
+      "writtenOn": "2020-06-03T18:24:59Z",
+      "side": 1,
+      "message": "me either...the audit2allow asks me to add this and I noticed similar in system_server:\n\n# Allow system server to attach BPF programs to tracepoints. Deny read permission so that\n# system_server cannot use this access to read perf event data like process stacks.\nallow system_server self:perf_event { open write cpu kernel };\nneverallow system_server self:perf_event ~{ open write cpu kernel };\n\nAnd i still need it, otherwise the attaching bpf prog to TP did fail.",
+      "parentUuid": "c47d2c23_801fb75e",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 59
+      },
+      "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -210,6 +306,30 @@
       "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f120049d_2bf0f589",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1339259
+      },
+      "writtenOn": "2020-06-03T18:24:59Z",
+      "side": 1,
+      "message": "Currently gpuservice has gid AID_GRAPHICS so it can\u0027t read the other existing bpf maps which are all in different groups. Looks like the uid is always AID_ROOT, otherwise gpuservice itself do have a separate uid defined so that to distinguish the map created from the potential future other maps in the AID_GRAPHICS group.",
+      "parentUuid": "543e1dd2_6efd95c8",
+      "range": {
+        "startLine": 54,
+        "startChar": 17,
+        "endLine": 54,
+        "endChar": 30
+      },
+      "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
