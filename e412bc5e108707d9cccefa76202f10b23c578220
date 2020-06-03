@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ca648e5_bf0de726",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-06-03T07:34:02Z",
+      "side": 1,
+      "message": "I think it\u0027s time to get rid of these two neverallow rules. They were originally intended to help us limit the expansion of bpf usage until we had a bit more confidence in it. Clearly it\u0027s not going away, and will only continue to expand. Furthermore, we have higher confidence in it than in the vendor/oem kernel customizations that it\u0027s replacing, so limiting partner use is likely a net negative for security.\n\nLet\u0027s leave the neverallow in line #29, delete these two rules, and add the following to private/app.te.\n\nneverallow appdomain *:bpf prog_run *;",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 95
+      },
+      "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56f80b81_24673e40",
+        "filename": "private/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-06-03T07:34:02Z",
+      "side": 1,
+      "message": "I don\u0027t think this is the right approach. Instead, we should be labeling these files as \"debugfs_tracing\" in genfs_contexts.",
+      "range": {
+        "startLine": 141,
+        "startChar": 3,
+        "endLine": 141,
+        "endChar": 13
+      },
+      "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99f30ea7_ce6352f0",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-06-03T07:34:02Z",
+      "side": 1,
+      "message": "label these files as debugfs_tracing.",
+      "range": {
+        "startLine": 46,
+        "startChar": 17,
+        "endLine": 46,
+        "endChar": 43
+      },
+      "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c47d2c23_801fb75e",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-06-03T07:34:02Z",
+      "side": 1,
+      "message": "I don\u0027t understand what this has to do with the rest of the change.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 59
+      },
+      "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
