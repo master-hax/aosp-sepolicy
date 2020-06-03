@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "cccce00d_08c1ed9e",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2020-06-03T09:12:58Z",
+      "side": 1,
+      "message": "They\u0027re asking yes, but we didn\u0027t make R.",
+      "parentUuid": "527be8d0_556fc907",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 95
+      },
+      "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "56f80b81_24673e40",
         "filename": "private/domain.te",
         "patchSetId": 3
@@ -153,6 +177,30 @@
       "writtenOn": "2020-06-03T08:13:49Z",
       "side": 1,
       "message": "We need a better mechanism for doing access control of bpf maps. This approach means that gpuservice has access to any map that has been created by bpfloader. That\u0027s not great. Can we have bpfloader create a separate label for this map (e.g. using fsetfilecon()) such that we can both limit access to these maps to just gpuservice and prevent gpuservice from accessing the bpf maps of other processes. Alternatively, we could do the access control at the filesystem layer by providing a separate label for these files in fs_bpf.",
+      "range": {
+        "startLine": 54,
+        "startChar": 17,
+        "endLine": 54,
+        "endChar": 30
+      },
+      "revId": "e412bc5e108707d9cccefa76202f10b23c578220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "543e1dd2_6efd95c8",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2020-06-03T09:12:58Z",
+      "side": 1,
+      "message": "My understanding is we need not yet ready kernel patches to enable bpf filesystem to support selinux labels (or at the bare minimum changes to how bpffs is mounted). connoro@ \u0026 adelva@ would know I think.  I don\u0027t remember specifics.\n\nplus changes to bpf loader to enforce some sort of sanity to prevent namespace collisions, and changes to make it support loading from vendor partition.\n\nadditionally I\u0027m still fighting (without success) random bpfloader failures during boot.\n\nat the moment the only support we have is based on these generic selinux rules and unix privs on the progs/maps (ie. uid/gid \u0026 owner/group/other perms)\n\nimho this is *not* ready for vendor consumption in R.\n\nwe do want this to get better, both to enable vendors and in order to allow our own development (we\u0027d like to ship and access bpf progs/maps from networking mainline modules)",
+      "parentUuid": "8ee381ab_e8119c89",
       "range": {
         "startLine": 54,
         "startChar": 17,
