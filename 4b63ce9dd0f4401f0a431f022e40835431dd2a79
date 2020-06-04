@@ -22,6 +22,30 @@
       "revId": "4b63ce9dd0f4401f0a431f022e40835431dd2a79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c388f99_3a75ce8d",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2020-06-04T20:14:35Z",
+      "side": 1,
+      "message": "This is needed for attaching a BPF program to a tracepoint, which is done by calling perf_event_open with the tracepoint id and then passing the BPF program fd to the PERF_EVENT_IOC_SET_BPF ioctl. The libbpf function that handles this is here: https://android.googlesource.com/platform/external/bcc/+/refs/heads/master/src/cc/libbpf.c#783\n\nThere\u0027s some previous discussion on https://android-review.googlesource.com/c/platform/system/sepolicy/+/1208683 that might be relevant, including input from the perfetto folks. In that case the neverallow rules (particularly denying read) mitigated the problems with perf event access",
+      "parentUuid": "f6b14fd8_f268654b",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 65
+      },
+      "revId": "4b63ce9dd0f4401f0a431f022e40835431dd2a79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
