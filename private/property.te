@@ -393,3 +393,8 @@ neverallow {
   init_service_status_private_prop
   init_service_status_prop
 }:property_service set;
+
+neverallow {
+  -init
+  -vendor_init
+} fixed_performance_prop:property_service set;
