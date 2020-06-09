@@ -62,6 +62,12 @@ allow ueventd system_bootstrap_lib_file:file { execute read open getattr map };
 # Allow ueventd to run shell scripts from vendor
 allow ueventd vendor_shell_exec:file execute;
 
+# Uevent switches to "default" mount namespace by reading /proc/1/ns/mnt
+allow ueventd self:global_capability_class_set { sys_admin sys_chroot  };
+allow ueventd init:{file lnk_file} read;
+allow ueventd unlabeled:file {read open};
+allow ueventd init:dir search;
+
 #####
 ##### neverallow rules
 #####
