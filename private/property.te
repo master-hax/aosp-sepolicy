@@ -406,3 +406,8 @@ neverallow {
 } {
   graphics_config_prop
 }:property_service set;
+
+neverallow {
+  -init
+  -vendor_init
+} fixed_performance_prop:property_service set;
