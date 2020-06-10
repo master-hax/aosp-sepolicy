@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "1ec34abb_7b60d716",
+        "filename": "public/ueventd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2020-06-10T15:43:59Z",
+      "side": 1,
+      "message": "Is the question can init force ueventd to transition to the new namespace or for init to handle firmwares?\n\nFor the first question:\nI don\u0027t think there are any syscalls that can push a different process into a given namespace.  \n\nThere\u0027s a chicken and egg problem here that prevents init from starting ueventd in the default, since we use the bootstrap namespace for any process that is started before /data is mounted and we need to start ueventd to mount /data.  (Unless it would be somehow possible to start ueventd in the default namespace ahead of mounting /data?  I\u0027m guessing that\u0027s not possible, but Jooyung/Jiyong would be better to confirm).\n\nWe don\u0027t want to restart ueventd either, since if we close the uevent netlink socket, then we may miss uevents between when we close it and reopen it.  Maybe we could come up with a strategy to keep this socket alive through ueventd restarts, but that\u0027ll also be complex / require more privileges.  \n\nThat said, I don\u0027t think we\u0027d have significant issues if two copies of ueventd are running in parallel, or at least we should be able to use some sort of shared lock to ensure that only one of them is functional... so maybe launching a ueventd_default_ns after /data is mounted is another solution?\n\nFor the second question:\nYes it\u0027s pretty much just the design; ueventd reads from the uevent netlink socket and handles firmwares.  I don\u0027t think we\u0027ll want to change that design.",
+      "parentUuid": "bae35f01_de04fc82",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 72
+      },
+      "revId": "f891fd4699b066e7e573e176b87efe5df49865e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "64d2e56c_83a282b1",
         "filename": "public/ueventd.te",
         "patchSetId": 4
