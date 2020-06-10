@@ -98,6 +98,8 @@ genfscon proc /vmallocinfo u:object_r:proc_vmallocinfo:s0
 genfscon proc /vmstat u:object_r:proc_vmstat:s0
 genfscon proc /zoneinfo u:object_r:proc_zoneinfo:s0
 
+genfscon fusectl / u:object_r:fusectlfs:s0
+
 # selinuxfs booleans can be individually labeled.
 genfscon selinuxfs / u:object_r:selinuxfs:s0
 genfscon cgroup / u:object_r:cgroup:s0
@@ -241,11 +243,13 @@ genfscon tracefs /events/filemap/mm_filemap_delete_from_page_cache/      u:objec
 genfscon tracefs /events/kmem/rss_stat/                                  u:object_r:debugfs_tracing:s0
 genfscon tracefs /events/kmem/ion_heap_grow/                             u:object_r:debugfs_tracing:s0
 genfscon tracefs /events/kmem/ion_heap_shrink/                           u:object_r:debugfs_tracing:s0
+genfscon tracefs /events/ion/ion_stat/                                   u:object_r:debugfs_tracing:s0
 genfscon tracefs /events/mm_event/mm_event_record/                       u:object_r:debugfs_tracing:s0
 genfscon tracefs /events/oom/oom_score_adj_update/                       u:object_r:debugfs_tracing:s0
 genfscon tracefs /events/task/task_rename/                               u:object_r:debugfs_tracing:s0
 genfscon tracefs /events/task/task_newtask/                              u:object_r:debugfs_tracing:s0
 genfscon tracefs /events/ftrace/print/                                   u:object_r:debugfs_tracing:s0
+genfscon tracefs /events/gpu_mem/gpu_mem_total                           u:object_r:debugfs_tracing:s0
 
 genfscon debugfs /tracing/trace_clock                                            u:object_r:debugfs_tracing:s0
 genfscon debugfs /tracing/buffer_size_kb                                         u:object_r:debugfs_tracing:s0
@@ -285,6 +289,7 @@ genfscon debugfs /tracing/events/filemap/mm_filemap_delete_from_page_cache/     
 genfscon debugfs /tracing/events/kmem/rss_stat/                                          u:object_r:debugfs_tracing:s0
 genfscon debugfs /tracing/events/kmem/ion_heap_grow/                                     u:object_r:debugfs_tracing:s0
 genfscon debugfs /tracing/events/kmem/ion_heap_shrink/                                   u:object_r:debugfs_tracing:s0
+genfscon debugfs /tracing/events/ion/ion_stat/                                           u:object_r:debugfs_tracing:s0
 genfscon debugfs /tracing/events/mm_event/mm_event_record/                               u:object_r:debugfs_tracing:s0
 genfscon debugfs /tracing/events/oom/oom_score_adj_update/                               u:object_r:debugfs_tracing:s0
 genfscon debugfs /tracing/events/task/task_rename/                                       u:object_r:debugfs_tracing:s0

@@ -4,8 +4,10 @@ system_internal_prop(device_config_storage_native_boot_prop)
 system_internal_prop(device_config_sys_traced_prop)
 system_internal_prop(device_config_window_manager_native_boot_prop)
 system_internal_prop(device_config_configuration_prop)
+system_internal_prop(fastbootd_protocol_prop)
 system_internal_prop(gsid_prop)
 system_internal_prop(init_perf_lsm_hooks_prop)
+system_internal_prop(init_service_status_private_prop)
 system_internal_prop(init_svc_debug_prop)
 system_internal_prop(last_boot_reason_prop)
 system_internal_prop(netd_stable_secret_prop)
@@ -74,7 +76,6 @@ neverallow * {
   -default_prop
   -dhcp_prop
   -dumpstate_prop
-  -ffs_prop
   -fingerprint_prop
   -logd_prop
   -net_radio_prop
@@ -87,7 +88,7 @@ neverallow * {
   -restorecon_prop
   -shell_prop
   -system_prop
-  -system_radio_prop
+  -usb_prop
   -vold_prop
 }:file no_rw_file_perms;
 
@@ -135,17 +136,14 @@ compatible_property_only(`
     core_property_type
     extended_core_property_type
     exported_config_prop
-    exported_dalvik_prop
     exported_default_prop
     exported_dumpstate_prop
-    exported_ffs_prop
-    exported_fingerprint_prop
     exported_system_prop
-    exported_system_radio_prop
     exported2_default_prop
     exported2_system_prop
     exported3_default_prop
     exported3_system_prop
+    usb_control_prop
     -nfc_prop
     -powerctl_prop
     -radio_prop
@@ -167,7 +165,6 @@ compatible_property_only(`
     -hal_telephony_server
     -vendor_init
   } {
-    exported_radio_prop
     exported3_radio_prop
   }:property_service set;
 
@@ -177,7 +174,6 @@ compatible_property_only(`
     -appdomain
     -hal_telephony_server
   } {
-    exported2_radio_prop
     radio_prop
   }:property_service set;
 
@@ -237,10 +233,8 @@ compatible_property_only(`
     -vendor_init
   } {
     core_property_type
+    dalvik_config_prop
     extended_core_property_type
-    exported_dalvik_prop
-    exported_ffs_prop
-    exported_system_radio_prop
     exported2_system_prop
     exported3_default_prop
     exported3_system_prop
@@ -303,6 +297,14 @@ compatible_property_only(`
 ')
 
 neverallow {
+  -coredomain
+  -vendor_init
+} {
+  ffs_config_prop
+  ffs_control_prop
+}:file no_rw_file_perms;
+
+neverallow {
   -init
   -system_server
 } {
@@ -331,4 +333,76 @@ neverallow {
   -shell
 } {
   userspace_reboot_test_prop
+}:property_service set;
+
+neverallow {
+  -init
+  -system_server
+  -vendor_init
+} {
+  surfaceflinger_color_prop
+}:property_service set;
+
+neverallow {
+  -init
+} {
+  libc_debug_prop
+}:property_service set;
+
+neverallow {
+  -init
+  -system_server
+  -vendor_init
+} zram_control_prop:property_service set;
+
+neverallow {
+  -init
+  -system_server
+  -vendor_init
+} dalvik_runtime_prop:property_service set;
+
+neverallow {
+  -coredomain
+  -vendor_init
+} {
+  usb_config_prop
+  usb_control_prop
+}:property_service set;
+
+neverallow {
+  -init
+  -system_server
+} {
+  provisioned_prop
+  retaildemo_prop
+}:property_service set;
+
+neverallow {
+  -coredomain
+  -vendor_init
+} {
+  provisioned_prop
+  retaildemo_prop
+}:file no_rw_file_perms;
+
+neverallow {
+  -init
+} {
+  init_service_status_private_prop
+  init_service_status_prop
+}:property_service set;
+
+neverallow {
+  -init
+  -radio
+  -appdomain
+  -hal_telephony_server
+  not_compatible_property(`-vendor_init')
+} telephony_status_prop:property_service set;
+
+neverallow {
+  -init
+  -vendor_init
+} {
+  graphics_config_prop
 }:property_service set;

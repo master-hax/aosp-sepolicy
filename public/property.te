@@ -54,18 +54,25 @@ compatible_property_only(`
 ')
 
 # Properties which can't be written outside system
-
-# Properties used by binder caches
+system_restricted_prop(aac_drc_prop)
 system_restricted_prop(binder_cache_bluetooth_server_prop)
 system_restricted_prop(binder_cache_system_server_prop)
 system_restricted_prop(binder_cache_telephony_server_prop)
+system_restricted_prop(boot_status_prop)
 system_restricted_prop(bq_config_prop)
+system_restricted_prop(build_prop)
+system_restricted_prop(fingerprint_prop)
+system_restricted_prop(init_service_status_prop)
+system_restricted_prop(libc_debug_prop)
 system_restricted_prop(module_sdkextensions_prop)
 system_restricted_prop(nnapi_ext_deny_product_prop)
+system_restricted_prop(provisioned_prop)
 system_restricted_prop(restorecon_prop)
+system_restricted_prop(retaildemo_prop)
 system_restricted_prop(socket_hook_prop)
 system_restricted_prop(system_boot_reason_prop)
 system_restricted_prop(system_jvmti_agent_prop)
+system_restricted_prop(usb_prop)
 system_restricted_prop(userspace_reboot_exported_prop)
 system_restricted_prop(vold_status_prop)
 
@@ -82,16 +89,12 @@ compatible_property_only(`
     system_restricted_prop(exported2_default_prop)
     system_restricted_prop(exported3_system_prop)
     system_restricted_prop(exported_dumpstate_prop)
-    system_restricted_prop(exported_fingerprint_prop)
     system_restricted_prop(exported_secure_prop)
-    system_restricted_prop(ffs_prop)
-    system_restricted_prop(fingerprint_prop)
     system_restricted_prop(heapprofd_prop)
     system_restricted_prop(net_radio_prop)
     system_restricted_prop(pan_result_prop)
     system_restricted_prop(persist_debug_prop)
     system_restricted_prop(shell_prop)
-    system_restricted_prop(system_radio_prop)
     system_restricted_prop(test_harness_prop)
     system_restricted_prop(theme_prop)
     system_restricted_prop(use_memfd_prop)
@@ -100,16 +103,28 @@ compatible_property_only(`
 
 # Properties which can be written only by vendor_init
 system_vendor_config_prop(apk_verity_prop)
+system_vendor_config_prop(audio_config_prop)
+system_vendor_config_prop(build_odm_prop)
+system_vendor_config_prop(build_vendor_prop)
+system_vendor_config_prop(camera_config_prop)
 system_vendor_config_prop(cpu_variant_prop)
-system_vendor_config_prop(exported_audio_prop)
+system_vendor_config_prop(dalvik_config_prop)
 system_vendor_config_prop(exported_camera_prop)
 system_vendor_config_prop(exported_config_prop)
 system_vendor_config_prop(exported_default_prop)
 system_vendor_config_prop(exported3_default_prop)
+system_vendor_config_prop(ffs_config_prop)
+system_vendor_config_prop(graphics_config_prop)
+system_vendor_config_prop(hdmi_config_prop)
+system_vendor_config_prop(incremental_prop)
+system_vendor_config_prop(lmkd_config_prop)
+system_vendor_config_prop(media_config_prop)
 system_vendor_config_prop(media_variant_prop)
 system_vendor_config_prop(storage_config_prop)
 system_vendor_config_prop(surfaceflinger_prop)
 system_vendor_config_prop(systemsound_config_prop)
+system_vendor_config_prop(telephony_config_prop)
+system_vendor_config_prop(usb_config_prop)
 system_vendor_config_prop(userspace_reboot_config_prop)
 system_vendor_config_prop(vehicle_hal_prop)
 system_vendor_config_prop(vendor_security_patch_level_prop)
@@ -117,6 +132,7 @@ system_vendor_config_prop(vendor_socket_hook_prop)
 system_vendor_config_prop(virtual_ab_prop)
 system_vendor_config_prop(vndk_prop)
 system_vendor_config_prop(vold_config_prop)
+system_vendor_config_prop(zram_config_prop)
 
 # Properties with no restrictions
 system_public_prop(audio_prop)
@@ -127,22 +143,20 @@ system_public_prop(ctl_default_prop)
 system_public_prop(ctl_interface_start_prop)
 system_public_prop(ctl_start_prop)
 system_public_prop(ctl_stop_prop)
+system_public_prop(dalvik_runtime_prop)
 system_public_prop(debug_prop)
 system_public_prop(dumpstate_options_prop)
 system_public_prop(exported_system_prop)
-system_public_prop(exported2_radio_prop)
 system_public_prop(exported2_system_prop)
 system_public_prop(exported3_radio_prop)
 system_public_prop(exported_bluetooth_prop)
-system_public_prop(exported_dalvik_prop)
-system_public_prop(exported_ffs_prop)
 system_public_prop(exported_overlay_prop)
 system_public_prop(exported_pm_prop)
-system_public_prop(exported_radio_prop)
-system_public_prop(exported_system_radio_prop)
 system_public_prop(exported_wifi_prop)
+system_public_prop(ffs_control_prop)
 system_public_prop(sota_prop)
 system_public_prop(hwservicemanager_prop)
+system_public_prop(lmkd_prop)
 system_public_prop(logd_prop)
 system_public_prop(logpersistd_logging_prop)
 system_public_prop(log_prop)
@@ -153,9 +167,13 @@ system_public_prop(ota_prop)
 system_public_prop(powerctl_prop)
 system_public_prop(radio_prop)
 system_public_prop(serialno_prop)
+system_public_prop(surfaceflinger_color_prop)
 system_public_prop(system_prop)
+system_public_prop(telephony_status_prop)
+system_public_prop(usb_control_prop)
 system_public_prop(wifi_log_prop)
 system_public_prop(wifi_prop)
+system_public_prop(zram_control_prop)
 
 # Properties used in default HAL implementations
 vendor_internal_prop(rebootescrow_hal_prop)
@@ -210,16 +228,12 @@ not_compatible_property(`
     system_public_prop(exported2_default_prop)
     system_public_prop(exported3_system_prop)
     system_public_prop(exported_dumpstate_prop)
-    system_public_prop(exported_fingerprint_prop)
     system_public_prop(exported_secure_prop)
-    system_public_prop(ffs_prop)
-    system_public_prop(fingerprint_prop)
     system_public_prop(heapprofd_prop)
     system_public_prop(net_radio_prop)
     system_public_prop(pan_result_prop)
     system_public_prop(persist_debug_prop)
     system_public_prop(shell_prop)
-    system_public_prop(system_radio_prop)
     system_public_prop(test_harness_prop)
     system_public_prop(theme_prop)
     system_public_prop(use_memfd_prop)
@@ -250,8 +264,6 @@ typeattribute debug_prop         core_property_type;
 typeattribute default_prop       core_property_type;
 typeattribute dhcp_prop          core_property_type;
 typeattribute dumpstate_prop     core_property_type;
-typeattribute ffs_prop           core_property_type;
-typeattribute fingerprint_prop   core_property_type;
 typeattribute logd_prop          core_property_type;
 typeattribute net_radio_prop     core_property_type;
 typeattribute nfc_prop           core_property_type;
@@ -263,5 +275,5 @@ typeattribute radio_prop         core_property_type;
 typeattribute restorecon_prop    core_property_type;
 typeattribute shell_prop         core_property_type;
 typeattribute system_prop        core_property_type;
-typeattribute system_radio_prop  core_property_type;
+typeattribute usb_prop           core_property_type;
 typeattribute vold_prop          core_property_type;

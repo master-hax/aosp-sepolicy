@@ -1,5 +1,21 @@
-get_prop(coredomain, pm_prop)
+get_prop(coredomain, boot_status_prop)
+get_prop(coredomain, camera_config_prop)
+get_prop(coredomain, dalvik_config_prop)
+get_prop(coredomain, dalvik_runtime_prop)
 get_prop(coredomain, exported_pm_prop)
+get_prop(coredomain, ffs_config_prop)
+get_prop(coredomain, hdmi_config_prop)
+get_prop(coredomain, init_service_status_private_prop)
+get_prop(coredomain, lmkd_config_prop)
+get_prop(coredomain, pm_prop)
+get_prop(coredomain, surfaceflinger_color_prop)
+get_prop(coredomain, systemsound_config_prop)
+get_prop(coredomain, telephony_config_prop)
+
+get_prop(coredomain, usb_config_prop)
+get_prop(coredomain, usb_control_prop)
+get_prop(coredomain, userspace_reboot_config_prop)
+get_prop(coredomain, vold_config_prop)
 
 full_treble_only(`
 neverallow {
@@ -88,7 +104,7 @@ full_treble_only(`
         -webview_zygote
         -zygote
         userdebug_or_eng(`-heapprofd')
-    } vendor_overlay_file:file r_file_perms;
+    } vendor_overlay_file:file open;
 ')
 
 # Core domains are not permitted to use kernel interfaces which are not
@@ -131,6 +147,7 @@ full_treble_only(`
     coredomain
     -atrace
     -dumpstate
+    -gpuservice
     -init
     -traced_probes
     -shell
