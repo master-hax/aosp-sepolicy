@@ -1,3 +1,13 @@
 typeattribute mediatranscoding coredomain;
 
 init_daemon_domain(mediatranscoding)
+
+hal_client_domain(mediatranscoding, hal_graphics_allocator)
+hal_client_domain(mediatranscoding, hal_configstore)
+hal_client_domain(mediatranscoding, hal_omx)
+hal_client_domain(mediatranscoding, hal_codec2)
+
+allow mediatranscoding mediaserver_service:service_manager find;
+allow mediatranscoding mediametrics_service:service_manager find;
+allow mediatranscoding mediaextractor_service:service_manager find;
+

@@ -16,6 +16,7 @@ allow mediatranscoding untrusted_app:binder call;
 allow mediatranscoding sdcardfs:file { getattr read write };
 allow mediatranscoding media_rw_data_file:file { getattr read write };
 allow mediatranscoding apk_data_file:file { getattr read };
+allow mediatranscoding shell_data_file:file { getattr read write };
 
 # mediatranscoding should never execute any executable without a
 # domain transition
