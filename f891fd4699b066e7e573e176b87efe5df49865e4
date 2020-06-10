@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "07ac5725_d84620d6",
+        "filename": "public/ueventd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-06-10T10:45:39Z",
+      "side": 1,
+      "message": "The topic tries to switch \"mount namespace\" for ueventd process.\nThe call to setns() requires this.",
+      "parentUuid": "3f4ba4fa_21098b3e",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 72
+      },
+      "revId": "f891fd4699b066e7e573e176b87efe5df49865e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "64d2e56c_83a282b1",
         "filename": "public/ueventd.te",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2020-06-10T10:34:00Z",
       "side": 1,
       "message": "Why is this needed?",
+      "range": {
+        "startLine": 70,
+        "startChar": 16,
+        "endLine": 70,
+        "endChar": 25
+      },
+      "revId": "f891fd4699b066e7e573e176b87efe5df49865e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b2ab83e_ab715074",
+        "filename": "public/ueventd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-06-10T10:45:39Z",
+      "side": 1,
+      "message": "open(/proc/1/ns/mnt) requires this.\nWhen I tested, mount namespace file(say, /proc/1/ns/mnt) was labeled as \"unlabeled\".  \n\nI thought labeling those files as \"nsfs\" would be the ideal, but a quick codesearch revealed that many processes are using \"unlabeled\" and changing them seems to be too much for this change.",
+      "parentUuid": "64d2e56c_83a282b1",
       "range": {
         "startLine": 70,
         "startChar": 16,
