@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1da60778_bc68a15b",
+        "filename": "private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-06-10T07:24:26Z",
+      "side": 1,
+      "message": "Can we have some prefix(es) so that power-related property contexts can be easily identified?\n\nPlease refer to go/android-sysprop for the naming.",
+      "range": {
+        "startLine": 748,
+        "startChar": 51,
+        "endLine": 748,
+        "endChar": 73
+      },
+      "revId": "5efb9eeeed8c0e30f1eea708badd4e2fb0b8cdc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65f89580_d9694c45",
+        "filename": "public/property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-06-10T07:24:26Z",
+      "side": 1,
+      "message": "I guess what you actually want is system_vendor_config_prop. \n\nsystem_public_prop is for properties that are writable by everyone.",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 18
+      },
+      "revId": "5efb9eeeed8c0e30f1eea708badd4e2fb0b8cdc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef6243ec_bf1c3fd5",
+        "filename": "public/vendor_init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-06-10T07:24:26Z",
+      "side": 1,
+      "message": "If this was with system_vendor_config_prop, you don\u0027t need this line. It is done by the macro.",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 45
+      },
+      "revId": "5efb9eeeed8c0e30f1eea708badd4e2fb0b8cdc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
