@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "b2a64b6c_9c54a27d",
+        "filename": "public/ueventd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-06-11T01:00:47Z",
+      "side": 1,
+      "message": "\u003e Unless it would be somehow possible to start ueventd in the default namespace ahead of mounting /data?  I\u0027m guessing that\u0027s not possible, but Jooyung/Jiyong would be better to confirm\n\nHmm, that actually is a good idea. When init forks ueventd, it might take a special path to fork, switch into default namespace and then exec ueventd.",
+      "parentUuid": "1ec34abb_7b60d716",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 72
+      },
+      "revId": "f891fd4699b066e7e573e176b87efe5df49865e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "64d2e56c_83a282b1",
         "filename": "public/ueventd.te",
         "patchSetId": 4
