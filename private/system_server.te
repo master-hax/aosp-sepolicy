@@ -693,6 +693,15 @@ set_prop(system_server, zram_control_prop)
 # Read/write persist.sys.dalvik.vm.lib.2
 set_prop(system_server, dalvik_runtime_prop)
 
+# Read/write ro.control_privapp_permissions and ro.cp_system_other_odex
+get_prop(system_server, packagemanager_config_prop)
+neverallow {
+  -init
+  -dumpstate
+  -system_server
+  -vendor_init
+} packagemanager_config_prop:file no_rw_file_perms;
+
 # Create a socket for connections from debuggerd.
 allow system_server system_ndebug_socket:sock_file create_file_perms;
 
