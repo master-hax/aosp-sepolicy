@@ -208,6 +208,7 @@ binder_call(system_server, binderservicedomain)
 binder_call(system_server, dumpstate)
 binder_call(system_server, fingerprintd)
 binder_call(system_server, gatekeeperd)
+binder_call(system_server, gpuservice)
 binder_call(system_server, idmap)
 binder_call(system_server, installd)
 binder_call(system_server, incidentd)
@@ -1186,3 +1187,7 @@ neverallow system_server self:perf_event ~{ open write cpu kernel };
 neverallow { domain -init -system_server } socket_hook_prop:property_service set;
 
 neverallow { domain -init -system_server } boot_status_prop:property_service set;
+
+# System server has a GPU service, allow it to communicate with the native
+# GPU service.
+allow system_server gpuservice:binder call;
