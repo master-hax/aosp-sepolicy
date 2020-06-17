@@ -1169,3 +1169,7 @@ neverallow system_server self:perf_event ~{ open write cpu kernel };
 
 # Do not allow any domain other than init or system server to set the property
 neverallow { domain -init -system_server } socket_hook_prop:property_service set;
+
+# System server has a GPU service, allow it to communicate with the native
+# GPU service.
+allow system_server gpuservice:binder call;
