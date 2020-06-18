@@ -46,6 +46,30 @@
       "revId": "351dd88e86fd487fdcdd4041ee39c6877a0af5db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "975bebef_73704862",
+        "filename": "public/mediatranscoding.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-06-18T20:16:32Z",
+      "side": 1,
+      "message": "We should find a separate way of handling that. E.g. since we believe that it\u0027s likely in the graphics library, we could instead do something like:\nget_prop(domain, vendor_display_prop)\n\nIt\u0027s a bug in Qualcomm\u0027s implementation that this property is being read by users of the graphics library, so definitely not your fault. But exposing this type across the Treble boundary is not the right solution. It will lead to vendors doing the wrong thing, just like Qualcomm in this case.",
+      "parentUuid": "7e729195_8b187bc0",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 30
+      },
+      "revId": "351dd88e86fd487fdcdd4041ee39c6877a0af5db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
