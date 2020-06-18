@@ -86,6 +86,10 @@ allow shell {
 }:service_manager find;
 allow shell dumpstate:binder call;
 
+userdebug_or_eng(`
+  allow shell profcollectd:binder call;
+')
+
 # allow shell to get information from hwservicemanager
 # for instance, listing hardware services with lshal
 hwbinder_use(shell)
