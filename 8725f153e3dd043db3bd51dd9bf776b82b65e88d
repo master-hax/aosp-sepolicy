@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "664fda4a_26bcdd2f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2020-06-19T15:24:38Z",
+      "side": 1,
+      "message": "nit: body indent and whitespace in footer\n\nSystem_app allowed to read the bootreason\n\nIn order to get an accurate view on the reasons of device reboots,\nthe system applications needs to access to the ro.boot.bootreason.\n\nBug: 158813786\nTest: ensure a system application can read the property\nChange-Id: I3a2cbf1c3a7efeeda6c6d08ac2ba2a3eee0dd077",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 52
+      },
+      "revId": "8725f153e3dd043db3bd51dd9bf776b82b65e88d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dca9aaa4_d0c5a7cf",
+        "filename": "public/bootstat.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2020-06-19T15:24:38Z",
+      "side": 1,
+      "message": "Nothing provided in bug or discussion on why you need ro.boot.bootreason property access instead of just sys.boot.reason? What is the bootloader_boot_reason_prop providing? Is it because you are pulling data much like dumpstate does (general debug information)? Please provide reasoning and say so in the commit message so that we can understand why when future selves revisit this (eg: via git blame)\n\nThis is granting last_boot_reason_prop as well, do you need it? If not, so should also add system_app below to refine:\n\nneverallow {\n  bootanim\n  recovery\n  system_app\n} last_boot_reason_prop:file r_file_perm;\n\nObligatoryDisclaimer: These two property classes are for all intents and purposes internal properties and have not been guaranteed to be part of any API. Debug/triage, and bootloader HALs, might be the only reason to export them.",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 53
+      },
+      "revId": "8725f153e3dd043db3bd51dd9bf776b82b65e88d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
