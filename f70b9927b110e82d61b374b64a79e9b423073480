@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79b3674c_ada3ee68",
+        "filename": "public/uncrypt.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-06-22T13:55:06Z",
+      "side": 1,
+      "message": "Question: do we lose a nice security property with this change? Previously, uncrypt could only read/verify the OTA, now it can modify or overwrite it. Is that desirable? Should we instead give this new file a separate label in order to preserve the previous read-only property of an OTA?",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 20,
+        "endChar": 49
+      },
+      "revId": "f70b9927b110e82d61b374b64a79e9b423073480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
