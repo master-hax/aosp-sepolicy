@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9b38691_8928363f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2020-06-22T15:17:22Z",
+      "side": 1,
+      "message": "software_master is not a recognized boot reason, please add an alias for it in system/core/bootstat/bootstat.cpp if there is too much in-field device momentum, or alter the bootloader to comply with the canonical boot reasons standard and add an enum reference for it in the kBootReasonMap list so that the data can propagate via TRON and other population statistics.\n\neg: reboot,software_master\n\nwhat does software_master mean, canonical boot reasons should, but are not required to, be human or non-expert understandable.",
+      "range": {
+        "startLine": 13,
+        "startChar": 21,
+        "endLine": 13,
+        "endChar": 36
+      },
+      "revId": "e82ba0b8d8295db8dc97ed32e8c15fcbf3b2887a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1762932_58c8a0b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2020-06-22T15:17:22Z",
+      "side": 1,
+      "message": "power_on is not a recognized boot reason, ditto from above.\n\nI am surprised that power_on did not get aliased (this may point to a _different_ bug in bootstat) as it is already in the aliasReasons lists. This also needs an investigation since it should have been changed to \u0027cold,powerkey\u0027 which then should supersede reboot,quiescent.",
+      "range": {
+        "startLine": 16,
+        "startChar": 21,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "e82ba0b8d8295db8dc97ed32e8c15fcbf3b2887a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b7d77de_35dcfa2d",
+        "filename": "public/bootstat.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2020-06-22T15:17:22Z",
+      "side": 1,
+      "message": "According to the commit message, system_app does not require access to the last_boot_reason properties. Add system_app to the following neverallow.\n\nPlease note that the commit message actually points to the boot loader creating non-compliant boot reasons. If there is no momentum on the product currently in the field, recommend updating the bootloader to provide compliant canonical and meaningful boot reasons via ro.boot.bootreason property.",
+      "range": {
+        "startLine": 41,
+        "startChar": 32,
+        "endLine": 41,
+        "endChar": 53
+      },
+      "revId": "e82ba0b8d8295db8dc97ed32e8c15fcbf3b2887a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
