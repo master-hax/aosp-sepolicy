@@ -22,6 +22,30 @@
       "revId": "f70b9927b110e82d61b374b64a79e9b423073480",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98455348_5f2f94fe",
+        "filename": "public/uncrypt.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1415202
+      },
+      "writtenOn": "2020-06-22T14:12:49Z",
+      "side": 1,
+      "message": "Yes, this write permission is needed actually, since uncrypt module needs to set a bit on the OTA package file for f2fs file pinning (using F2FS_IOC_SET_PIN_FILE ioctl), uncrypt module also open()s the OTA package file in O_RDWR mode presently by default.. so such permission is needed on any OTA package file (i.e. ota_package_file:file label).",
+      "parentUuid": "79b3674c_ada3ee68",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 20,
+        "endChar": 49
+      },
+      "revId": "f70b9927b110e82d61b374b64a79e9b423073480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
