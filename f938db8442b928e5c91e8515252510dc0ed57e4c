@@ -46,6 +46,30 @@
       "revId": "f938db8442b928e5c91e8515252510dc0ed57e4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f7221c6_d62c6bc5",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1339259
+      },
+      "writtenOn": "2020-06-23T01:00:03Z",
+      "side": 1,
+      "message": "That\u0027s my exact question. Why the couple lines below `ro.gfx.driver.1` doesn\u0027t need it? https://source.corp.google.com/android/frameworks/native/services/gpuservice/GpuService.cpp;l\u003d180\n\nI do see both properties properly got in the bugreport upon dumpstate queries gpuservice. I also see the property properly got upon `adb shell dumpsys gpu`. This is why I\u0027m asking what is the exact denial message you see requiring this. I want to understand the difference between the 2 properties here.",
+      "parentUuid": "6d83cc7e_d9766208",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 42
+      },
+      "revId": "f938db8442b928e5c91e8515252510dc0ed57e4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
