@@ -69,6 +69,30 @@
       "revId": "32ab92dea52351bdb43b623e5d060e36d7f54cfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b3753a6_938f2fe4",
+        "filename": "private/property_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-06-24T20:28:53Z",
+      "side": 1,
+      "message": "I put this in partly because I am copy-pasting code for vendor and odm.\n\nBesides that, ideally every partition should have its own build fingerprint. At the bare minimum, we want SoC\u0027s to flash the boot partition with GKI along with vendor_dlkm for all the kernel modules when executing *TS tests. In the future, we want this partition to be independently updateable too for go/gki-updates. The fingerprint is necessary to determine the \"version\" of the vendor_dlkm image on the device.",
+      "parentUuid": "2df81883_06e7a442",
+      "range": {
+        "startLine": 756,
+        "startChar": 0,
+        "endLine": 759,
+        "endChar": 89
+      },
+      "revId": "32ab92dea52351bdb43b623e5d060e36d7f54cfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
