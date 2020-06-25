@@ -336,6 +336,13 @@ file_contexts {
     recovery_available: true,
 }
 
+file_contexts {
+    name: "vendor_dlkm_file_contexts",
+    srcs: [":file_contexts_files"],
+    vendor_dlkm_specific: true,
+    recovery_available: true,
+}
+
 hwservice_contexts {
     name: "plat_hwservice_contexts",
     srcs: [":hwservice_contexts_files"],
@@ -398,6 +405,14 @@ property_contexts {
     name: "odm_property_contexts",
     srcs: [":property_contexts_files"],
     device_specific: true,
+    recovery_available: true,
+}
+
+// For partition that holds VENDOR Dynamically Loadable Kernel Modules
+property_contexts {
+    name: "vendor_dlkm_property_contexts",
+    srcs: [":property_contexts_files"],
+    vendor_dlkm_specific: true,
     recovery_available: true,
 }
 

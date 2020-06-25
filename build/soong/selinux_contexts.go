@@ -163,6 +163,8 @@ func (m *selinuxContextsModule) GenerateAndroidBuildActions(ctx android.ModuleCo
 			inputs = append(inputs, segroup.OdmSrcs()...)
 		} else if ctx.SystemExtSpecific() {
 			inputs = append(inputs, segroup.SystemExtPrivateSrcs()...)
+		} else if ctx.VendorDlkmSpecific() {
+			inputs = append(inputs, segroup.VendorDlkmSrcs()...)
 		} else {
 			inputs = append(inputs, segroup.SystemPrivateSrcs()...)
 			inputs = append(inputs, segroup.SystemPublicSrcs()...)

@@ -55,8 +55,9 @@ type fileGroup struct {
 	productPublicSrcs  android.Paths
 	productPrivateSrcs android.Paths
 
-	vendorSrcs android.Paths
-	odmSrcs    android.Paths
+	vendorSrcs     android.Paths
+	odmSrcs        android.Paths
+	vendorDlkmSrcs android.Paths
 }
 
 // Source files from system/sepolicy/public
@@ -107,6 +108,11 @@ func (fg *fileGroup) VendorSrcs() android.Paths {
 // Source files from BOARD_ODM_SEPOLICY_DIRS
 func (fg *fileGroup) OdmSrcs() android.Paths {
 	return fg.odmSrcs
+}
+
+// Source files from BOARD_VENDOR_DLKM_SEPOLICY_DIRS
+func (fg *fileGroup) VendorDlkmSrcs() android.Paths {
+	return fg.vendorDlkmSrcs
 }
 
 func (fg *fileGroup) findSrcsInDirs(ctx android.ModuleContext, dirs []string) android.Paths {
