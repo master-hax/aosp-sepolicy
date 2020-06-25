@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcb2660a_942c0a7d",
+        "filename": "public/profcollectd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2020-06-25T18:42:27Z",
+      "side": 1,
+      "message": "In android \u003e\u003d R, perf_event_paranoid should always be -1, and perf event is controlled by selinux. So should be fine even can\u0027t write to perf_event_paranoid?",
+      "range": {
+        "startLine": 13,
+        "startChar": 13,
+        "endLine": 13,
+        "endChar": 56
+      },
+      "revId": "d57dc23d704068df365f11fb1e60598002310160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "681bebef_3a68be66",
+        "filename": "public/profcollectd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2020-06-25T18:42:27Z",
+      "side": 1,
+      "message": "should also need:\n  allow profcollectd self:perf_event *;\n\nand probably also need to record any process instead of system wide:\n  allow profcollectd *:process ptrace;",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 2
+      },
+      "revId": "d57dc23d704068df365f11fb1e60598002310160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
