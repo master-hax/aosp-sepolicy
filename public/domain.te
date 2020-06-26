@@ -1440,3 +1440,6 @@ neverallow {
   -untrusted_app_25
   -untrusted_app_27
 } ashmem_device:chr_file open;
+
+
+auditallow { domain userdebug_or_eng(`-dumpstate') } debugfs_type:file rw_file_perms;
