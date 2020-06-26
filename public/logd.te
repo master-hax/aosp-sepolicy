@@ -18,8 +18,8 @@ allow logd pstorefs:dir search;
 allow logd pstorefs:file r_file_perms;
 userdebug_or_eng(`
   # Access to /data/misc/logd/event-log-tags
-  allow logd misc_logd_file:dir r_dir_perms;
-  allow logd misc_logd_file:file rw_file_perms;
+  allow logd misc_logd_file:dir rw_dir_perms;
+  allow logd misc_logd_file:file create_file_perms;
 ')
 allow logd runtime_event_log_tags_file:file rw_file_perms;
 
