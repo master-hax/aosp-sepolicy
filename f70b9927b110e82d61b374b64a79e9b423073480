@@ -46,6 +46,30 @@
       "revId": "f70b9927b110e82d61b374b64a79e9b423073480",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdd7b397_3bcd6b8e",
+        "filename": "public/uncrypt.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2020-06-30T21:40:20Z",
+      "side": 1,
+      "message": "Also, in practice uncrypt has always written to the OTA package! It\u0027s just that instead of doing so directly with filesystem writes, it cheats by looking up which sectors on disk contain the OTA package, and writes to them directly using the block device. So nothing is lost here.",
+      "parentUuid": "98455348_5f2f94fe",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 20,
+        "endChar": 49
+      },
+      "revId": "f70b9927b110e82d61b374b64a79e9b423073480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
