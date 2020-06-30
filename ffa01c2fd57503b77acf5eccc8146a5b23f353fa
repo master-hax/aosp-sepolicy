@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "326b482c_dc7cbca4",
+        "filename": "public/file.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-06-30T16:12:05Z",
+      "side": 1,
+      "message": "This attribute indicates that this data source is intended to be accessed across a multi-user boundary from Android applications. This resource isn\u0027t accessed by Android applications, so annotating it as mlstrustedobject isn\u0027t needed.",
+      "range": {
+        "startLine": 288,
+        "startChar": 77,
+        "endLine": 288,
+        "endChar": 93
+      },
+      "revId": "ffa01c2fd57503b77acf5eccc8146a5b23f353fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fea32bd9_14447c03",
+        "filename": "public/profcollectd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-06-30T16:12:05Z",
+      "side": 1,
+      "message": "Instead of using typeattribute here, this should be part of the type declaration on line 2.\n\n  type profcollectd, domain, coredomain;",
+      "revId": "ffa01c2fd57503b77acf5eccc8146a5b23f353fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9b99d1d_5da3e2bc",
+        "filename": "public/profcollectd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-06-30T16:12:05Z",
+      "side": 1,
+      "message": "please use spaces instead of tabs (here and all the lines below)",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 1
+      },
+      "revId": "ffa01c2fd57503b77acf5eccc8146a5b23f353fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "690b5fdd_29ce0e40",
+        "filename": "public/profcollectd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-06-30T16:12:05Z",
+      "side": 1,
+      "message": "this shouldn\u0027t be needed, as this process isn\u0027t accessed by Android apps.",
+      "revId": "ffa01c2fd57503b77acf5eccc8146a5b23f353fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39bf7c0d_001e4ad5",
+        "filename": "public/profcollectd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-06-30T16:12:05Z",
+      "side": 1,
+      "message": "is this sufficient? Normally you also need the \"open\" permission? Or is proc_perf passed by file descriptor?\n\nYou probably want \"w_file_perms\" (defined in global_macros) here instead of \"write\"",
+      "range": {
+        "startLine": 14,
+        "startChar": 35,
+        "endLine": 14,
+        "endChar": 40
+      },
+      "revId": "ffa01c2fd57503b77acf5eccc8146a5b23f353fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9d3ff82_ddd781cb",
+        "filename": "public/profcollectd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-06-30T16:12:05Z",
+      "side": 1,
+      "message": "All domains are already given the ability to write to logd implicitly.\n\nhttps://android.googlesource.com/platform/system/sepolicy/+/15fb633cb5fc7dc161df0f16d95295b003fb0ec5/public/domain.te#134\n\n  # logd access\n  write_logd(domain)\n\nThis line shouldn\u0027t be needed.",
+      "revId": "ffa01c2fd57503b77acf5eccc8146a5b23f353fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
