@@ -144,6 +144,9 @@ userdebug_or_eng(`set_prop(shell, persist_debug_prop)')
 # Allow to read graphics related properties.
 get_prop(shell, graphics_config_prop)
 
+# Allow to read media.recorder.show_manufacturer_and_model for test
+get_prop(shell, media_config_prop)
+
 # Allow to issue control commands to profcollectd binder service.
 userdebug_or_eng(`
   allow shell profcollectd:binder call;
