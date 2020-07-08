@@ -68,6 +68,29 @@
       "revId": "959e2b398cb985d2fe203381fc4355ed2ea8750f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04925516_cb0949f2",
+        "filename": "private/shell.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-07-08T04:36:57Z",
+      "side": 1,
+      "message": "The shell domain has the attribute \"appdomain\". This line is redundant and essentially a duplicate of your app.te change:\n\n  get_prop(appdomain, media_config_prop)\n\ncan be deleted.",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 34
+      },
+      "revId": "959e2b398cb985d2fe203381fc4355ed2ea8750f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
