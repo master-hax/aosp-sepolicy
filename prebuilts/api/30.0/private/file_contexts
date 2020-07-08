@@ -212,7 +212,6 @@
 /system/bin/fsck_msdos	--	u:object_r:fsck_exec:s0
 /system/bin/tcpdump	--	u:object_r:tcpdump_exec:s0
 /system/bin/tune2fs	--	u:object_r:fsck_exec:s0
-/system/bin/resize2fs	--	u:object_r:fsck_exec:s0
 /system/bin/toolbox	--	u:object_r:toolbox_exec:s0
 /system/bin/toybox	--	u:object_r:toolbox_exec:s0
 /system/bin/ld\.mc              u:object_r:rs_exec:s0
@@ -257,6 +256,8 @@
 /system/bin/keystore	u:object_r:keystore_exec:s0
 /system/bin/fingerprintd u:object_r:fingerprintd_exec:s0
 /system/bin/gatekeeperd u:object_r:gatekeeperd_exec:s0
+/system/bin/crash_dump32 u:object_r:crash_dump_exec:s0
+/system/bin/crash_dump64 u:object_r:crash_dump_exec:s0
 /system/bin/tombstoned u:object_r:tombstoned_exec:s0
 /system/bin/recovery-persist     u:object_r:recovery_persist_exec:s0
 /system/bin/recovery-refresh     u:object_r:recovery_refresh_exec:s0
@@ -377,7 +378,9 @@
 # HAL location
 /(vendor|system/vendor)/lib(64)?/hw            u:object_r:vendor_hal_file:s0
 
-/(vendor|system/vendor)/etc/selinux/(vendor|nonplat)_service_contexts u:object_r:nonplat_service_contexts_file:s0
+/(vendor|system/vendor)/etc/selinux/nonplat_service_contexts u:object_r:nonplat_service_contexts_file:s0
+
+/(vendor|system/vendor)/etc/selinux/vendor_service_contexts u:object_r:vendor_service_contexts_file:s0
 
 /(vendor|system/vendor)/bin/install-recovery\.sh u:object_r:vendor_install_recovery_exec:s0
 
@@ -450,6 +453,8 @@
 /(system_ext|system/system_ext)/bin/aidl_lazy_test_server   u:object_r:aidl_lazy_test_server_exec:s0
 /(system_ext|system/system_ext)/bin/hidl_lazy_test_server   u:object_r:hidl_lazy_test_server_exec:s0
 
+/(system_ext|system/system_ext)/lib(64)?(/.*)?      u:object_r:system_lib_file:s0
+
 #############################
 # Vendor files from /(product|system/product)/vendor_overlay
 #
@@ -514,7 +519,7 @@
 # Misc data
 /data/misc/adb(/.*)?            u:object_r:adb_keys_file:s0
 /data/misc/apexdata(/.*)?       u:object_r:apex_module_data_file:s0
-/data/misc/apexdata/com\.android\.permission(/.*)?    u:object_r:apex_permission_data_file:s0
+/data/misc/apexdata/com.android.permission(/.*)?    u:object_r:apex_permission_data_file:s0
 /data/misc/apexdata/com\.android\.wifi(/.*)?    u:object_r:apex_wifi_data_file:s0
 /data/misc/apexrollback(/.*)?   u:object_r:apex_rollback_data_file:s0
 /data/misc/apns(/.*)?           u:object_r:radio_data_file:s0
@@ -607,8 +612,8 @@
 # Apex data directories
 /data/misc_de/[0-9]+/apexdata(/.*)?       u:object_r:apex_module_data_file:s0
 /data/misc_ce/[0-9]+/apexdata(/.*)?       u:object_r:apex_module_data_file:s0
-/data/misc_de/[0-9]+/apexdata/com\.android\.permission(/.*)?  u:object_r:apex_permission_data_file:s0
-/data/misc_ce/[0-9]+/apexdata/com\.android\.permission(/.*)?  u:object_r:apex_permission_data_file:s0
+/data/misc_de/[0-9]+/apexdata/com.android.permission(/.*)?  u:object_r:apex_permission_data_file:s0
+/data/misc_ce/[0-9]+/apexdata/com.android.permission(/.*)?  u:object_r:apex_permission_data_file:s0
 /data/misc_de/[0-9]+/apexdata/com\.android\.wifi(/.*)?  u:object_r:apex_wifi_data_file:s0
 /data/misc_ce/[0-9]+/apexdata/com\.android\.wifi(/.*)?  u:object_r:apex_wifi_data_file:s0
 
@@ -706,6 +711,7 @@
 /metadata/password_slots(/.*)?    u:object_r:password_slot_metadata_file:s0
 /metadata/ota(/.*)?       u:object_r:ota_metadata_file:s0
 /metadata/bootstat(/.*)?  u:object_r:metadata_bootstat_file:s0
+/metadata/staged-install(/.*)?    u:object_r:staged_install_file:s0
 
 #############################
 # asec containers

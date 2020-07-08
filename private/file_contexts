@@ -33,7 +33,7 @@
 /sys                u:object_r:sysfs:s0
 /apex               u:object_r:apex_mnt_dir:s0
 
-/apex/apex-info-list.xml u:object_r:apex_info_file:s0
+/apex/(\.(bootstrap|default)-)?apex-info-list.xml u:object_r:apex_info_file:s0
 
 # Symlinks
 /bin                u:object_r:rootfs:s0
@@ -310,6 +310,7 @@
 /system/bin/idmap u:object_r:idmap_exec:s0
 /system/bin/idmap2(d)?           u:object_r:idmap_exec:s0
 /system/bin/update_engine        u:object_r:update_engine_exec:s0
+/system/bin/profcollectd         u:object_r:profcollectd_exec:s0
 /system/bin/storaged             u:object_r:storaged_exec:s0
 /system/bin/wpantund             u:object_r:wpantund_exec:s0
 /system/bin/virtual_touchpad     u:object_r:virtual_touchpad_exec:s0
@@ -380,7 +381,9 @@
 # HAL location
 /(vendor|system/vendor)/lib(64)?/hw            u:object_r:vendor_hal_file:s0
 
-/(vendor|system/vendor)/etc/selinux/(vendor|nonplat)_service_contexts u:object_r:nonplat_service_contexts_file:s0
+/(vendor|system/vendor)/etc/selinux/nonplat_service_contexts u:object_r:nonplat_service_contexts_file:s0
+
+/(vendor|system/vendor)/etc/selinux/vendor_service_contexts u:object_r:vendor_service_contexts_file:s0
 
 /(vendor|system/vendor)/bin/install-recovery\.sh u:object_r:vendor_install_recovery_exec:s0
 
@@ -452,6 +455,8 @@
 
 /(system_ext|system/system_ext)/bin/aidl_lazy_test_server   u:object_r:aidl_lazy_test_server_exec:s0
 /(system_ext|system/system_ext)/bin/hidl_lazy_test_server   u:object_r:hidl_lazy_test_server_exec:s0
+
+/(system_ext|system/system_ext)/lib(64)?(/.*)?      u:object_r:system_lib_file:s0
 
 #############################
 # Vendor files from /(product|system/product)/vendor_overlay
@@ -548,6 +553,7 @@
 /data/misc/network_watchlist(/.*)? u:object_r:network_watchlist_data_file:s0
 /data/misc/perfetto-traces(/.*)? u:object_r:perfetto_traces_data_file:s0
 /data/misc/prereboot(/.*)?      u:object_r:prereboot_data_file:s0
+/data/misc/profcollectd(/.*)?   u:object_r:profcollectd_data_file:s0
 /data/misc/recovery(/.*)?       u:object_r:recovery_data_file:s0
 /data/misc/shared_relro(/.*)?   u:object_r:shared_relro_file:s0
 /data/misc/sms(/.*)?            u:object_r:radio_data_file:s0
@@ -709,6 +715,7 @@
 /metadata/password_slots(/.*)?    u:object_r:password_slot_metadata_file:s0
 /metadata/ota(/.*)?       u:object_r:ota_metadata_file:s0
 /metadata/bootstat(/.*)?  u:object_r:metadata_bootstat_file:s0
+/metadata/staged-install(/.*)?    u:object_r:staged_install_file:s0
 
 #############################
 # asec containers
