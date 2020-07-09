@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "457a2262_9f5b1bc8",
+        "filename": "Android.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2020-07-09T07:32:07Z",
+      "side": 1,
+      "message": "How about forcing the build error in a separate CL, so we can start to use SYSTEM_EXT_* in new projects?\n\ne.g.,\n1. Adding SYSTEM_EXT_[PUBLIC|PRIVATE]_SEPOLICY_DIRS (this CL)\n2. Replacing BOARD_PLAT_[PUBLIC|PRIVATE]_SEPOLICY_DIR with the newly added SYSTEM_EXT_* syntax.\n3. Enforcing the build error for API_LEVEL \u003e\u003d 31.",
+      "range": {
+        "startLine": 59,
+        "startChar": 1,
+        "endLine": 61,
+        "endChar": 116
+      },
+      "revId": "a572e372296233616506f993daf2b989b6560053",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
