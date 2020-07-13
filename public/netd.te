@@ -170,3 +170,7 @@ dontaudit netd self:capability sys_admin;
 dontaudit netd self:capability sys_module;
 
 dontaudit netd kernel:system module_request;
+
+dontaudit netd priv_app:unix_stream_socket { read write };
+dontaudit netd untrusted_app_25:unix_stream_socket { read write };
+dontaudit netd untrusted_app_27:unix_stream_socket { read write };
