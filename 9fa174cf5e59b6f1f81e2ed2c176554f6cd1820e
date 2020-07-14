@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84c7ba9c_0fef699c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-07-14T06:02:39Z",
+      "side": 1,
+      "message": "Please specify. I see this sysprop is used by some audio tests",
+      "range": {
+        "startLine": 14,
+        "startChar": 10,
+        "endLine": 14,
+        "endChar": 14
+      },
+      "revId": "9fa174cf5e59b6f1f81e2ed2c176554f6cd1820e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd2590be_dee70dd4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-07-14T06:02:39Z",
+      "side": 1,
+      "message": "This sysprop seems to be dangerous, IMHO.\n\nframeworks/av/media/audioserver/audioserver.rc:\non property:vts.native_server.on\u003d1\n    stop audioserver\non property:vts.native_server.on\u003d0\n    start audioserver\n\nIf unprotected, this prop can be used to turn audioserver down.\n\nThat should be allowed only for testing purpose. Or to be better the audio team should find another way to conduct the test without shutting the process down. Could you file a bug to them?",
+      "revId": "9fa174cf5e59b6f1f81e2ed2c176554f6cd1820e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db3c3a81_73740c56",
+        "filename": "private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-07-14T06:02:39Z",
+      "side": 1,
+      "message": "This prop is supposed to be set by the test. But I don\u0027t see an allow rule for that. Did you check that the sysprop is actually set by the test?",
+      "range": {
+        "startLine": 745,
+        "startChar": 0,
+        "endLine": 745,
+        "endChar": 61
+      },
+      "revId": "9fa174cf5e59b6f1f81e2ed2c176554f6cd1820e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
