@@ -22,6 +22,30 @@
       "revId": "a67fb5fcbe94f23ebf0428b65db2dc6238a43d41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b39e1ad_e7f06a13",
+        "filename": "private/dex2oat.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-07-14T23:24:20Z",
+      "side": 1,
+      "message": "I forgot to submit my comment about this with the CL...\n\nI am actually not sure. For some apps I see denials like:\n\n07-10 00:27:16.382 22948 22948 W dex2oat : type\u003d1400 audit(0.0:276):\navc: denied { search } for name\u003d\"com.example.secondaryrepro\" dev\u003d\"dm-6\"\nino\u003d9017 scontext\u003du:r:dex2oat:s0\ntcontext\u003du:object_r:app_data_file:s0:c252,c256,c512,c76\n\ndex2oat uses fd\u0027s to read the data so I am not sure why this appears. Could it be attributed to some installd FD leak?\n\ninitially I thought that maybe dex2oat also needs read/search on the backed dir in order to properly read from there. But this doesn\u0027t appear to be the case. The strange thing is that even after I added this, I still get the denial. Thoughts?\n\nGiven that this seems to be a separate issue to the bug that this CL tries to address, I\u0027ll split it from this one.",
+      "parentUuid": "84789426_0a182753",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 66
+      },
+      "revId": "a67fb5fcbe94f23ebf0428b65db2dc6238a43d41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
