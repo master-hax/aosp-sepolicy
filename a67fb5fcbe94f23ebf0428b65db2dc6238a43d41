@@ -46,6 +46,30 @@
       "revId": "a67fb5fcbe94f23ebf0428b65db2dc6238a43d41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cd1ab73_867f6b58",
+        "filename": "private/dex2oat.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-07-15T08:06:37Z",
+      "side": 1,
+      "message": "App UID 22948 (running as dex2oat) is attempting to read the private data dir of UID 10164. What apps are these? It sure seems like a bug to me. I\u0027m not sure how an FD leak could cause it since \"search\" implies attempted directory traversal, which doesn\u0027t seem like it would ever result from an FD leaking. Not only is this wrong for app-to-app, but it appears to be attempting to do it across the multi-user boundary. Is this a bug in how we handle secondary dex files across the multi-user boundary? \n\nAdding the permission doesn\u0027t work because the MLS categories don\u0027t match. It\u0027s nice to see this WAI :)",
+      "parentUuid": "5b39e1ad_e7f06a13",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 66
+      },
+      "revId": "a67fb5fcbe94f23ebf0428b65db2dc6238a43d41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
