@@ -16,6 +16,23 @@
       "revId": "98a33f2de75ad9ab9eb5a71f403d0241f21676da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d32345c9_55377ee6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2020-07-15T05:55:06Z",
+      "side": 1,
+      "message": "There are some usage of BOARD_PLAT_[PUBLIC|PRIVATE]_SEPOLICY_DIR in our internal tree.\n\ne.g., under vendor/google/.../*.mk, which might be included for various devices with different first_api_level. (i.e., this CL cannot pass TreeHugger as it will be cherry-picked then verified against our internal tree).\n\nWe\u0027ll need to clean up the usage of BOARD_PLAT_[PUBLIC|PRIVATE]_SEPOLICY_DIR, before landing this CL.",
+      "revId": "98a33f2de75ad9ab9eb5a71f403d0241f21676da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
