@@ -13,7 +13,8 @@ hal_attribute_hwservice(hal_codec2, hal_codec2_hwservice)
 allow hal_codec2_server hal_graphics_composer:fd use;
 
 # Allow both server and client access to ion
-allow hal_codec2_server ion_device:chr_file r_file_perms;
+allow hal_codec2_server ion_device:chr_file rw_file_perms;
+allow hal_codec2_server ion_device:dir search;
 
 # Allow server access to camera HAL's fences
 allow hal_codec2_server hal_camera:fd use;
