@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1294784_a9963fb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-07-15T07:40:05Z",
+      "side": 1,
+      "message": "I don\u0027t think those failures on DeviceBootTest.DeviceBootTest#SELinuxUncheckedDenialBootTest are related to this change.\n\n07-15 02:49:05.386   793   793 I auditd  : type\u003d1400 audit(0.0:4): avc: denied { getattr } for comm\u003d\"apexd\" path\u003d\"/metadata/apex/sessions\" dev\u003d\"sde41\" ino\u003d15 scontext\u003du:r:apexd:s0 tcontext\u003du:object_r:metadata_file:s0 tclass\u003ddir permissive\u003d0\n07-15 02:49:05.386   793   793 I auditd  : type\u003d1400 audit(0.0:5): avc: denied { read } for comm\u003d\"apexd\" name\u003d\"sessions\" dev\u003d\"sde41\" ino\u003d15 scontext\u003du:r:apexd:s0 tcontext\u003du:object_r:metadata_file:s0 tclass\u003ddir permissive\u003d0\n07-15 02:49:05.859   793   793 I auditd  : type\u003d1400 audit(0.0:8): avc: denied { read } for comm\u003d\"apexd\" name\u003d\"sessions\" dev\u003d\"sde41\" ino\u003d15 scontext\u003du:r:apexd:s0 tcontext\u003du:object_r:metadata_file:s0 tclass\u003ddir permissive\u003d0\n07-15 02:49:06.546   859   859 I auditd  : type\u003d1400 audit(0.0:9): avc: denied { read } for comm\u003d\"apexd\" name\u003d\"sessions\" dev\u003d\"sde41\" ino\u003d15 scontext\u003du:r:apexd:s0 tcontext\u003du:object_r:metadata_file:s0 tclass\u003ddir permissive\u003d0\n07-15 02:49:43.466   793   793 I auditd  : type\u003d1400 audit(0.0:11): avc: denied { read } for comm\u003d\"Binder:793_1\" name\u003d\"sessions\" dev\u003d\"sde41\" ino\u003d15 scontext\u003du:r:apexd:s0 tcontext\u003du:object_r:metadata_file:s0 tclass\u003ddir permissive\u003d0\n07-15 02:49:05.386   793   793 I auditd  : type\u003d1400 audit(0.0:4): avc: denied { getattr } for comm\u003d\"apexd\" path\u003d\"/metadata/apex/sessions\" dev\u003d\"sde41\" ino\u003d15 scontext\u003du:r:apexd:s0 tcontext\u003du:object_r:metadata_file:s0 tclass\u003ddir permissive\u003d0\n07-15 02:49:05.386   793   793 I auditd  : type\u003d1400 audit(0.0:5): avc: denied { read } for comm\u003d\"apexd\" name\u003d\"sessions\" dev\u003d\"sde41\" ino\u003d15 scontext\u003du:r:apexd:s0 tcontext\u003du:object_r:metadata_file:s0 tclass\u003ddir permissive\u003d0\n07-15 02:49:05.859   793   793 I auditd  : type\u003d1400 audit(0.0:8): avc: denied { read } for comm\u003d\"apexd\" name\u003d\"sessions\" dev\u003d\"sde41\" ino\u003d15 scontext\u003du:r:apexd:s0 tcontext\u003du:object_r:metadata_file:s0 tclass\u003ddir permissive\u003d0\n07-15 02:49:06.546   859   859 I auditd  : type\u003d1400 audit(0.0:9): avc: denied { read } for comm\u003d\"apexd\" name\u003d\"sessions\" dev\u003d\"sde41\" ino\u003d15 scontext\u003du:r:apexd:s0 tcontext\u003du:object_r:metadata_file:s0 tclass\u003ddir permissive\u003d0\n07-15 02:49:43.466   793   793 I auditd  : type\u003d1400 audit(0.0:11): avc: denied { read } for comm\u003d\"Binder:793_1\" name\u003d\"sessions\" dev\u003d\"sde41\" ino\u003d15 scontext\u003du:r:apexd:s0 tcontext\u003du:object_r:metadata_file:s0 tclass\u003ddir permissive\u003d0",
+      "revId": "926145161a1419754ea9894442c359f4e41a66f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
