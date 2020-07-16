@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "408587cf_cee606fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-07-16T07:30:05Z",
+      "side": 1,
+      "message": "Seems that this usage is intentional; http://cs/android/test/vts/runners/host/base_test.py?l\u003d69\u0026rcl\u003d0dd79f22f736b397aac7afd8a2e85c08930355f9 I\u0027m not sure if we should fix this.\n\nI\u0027ve added a neverallow rule to restrict write access other than init.",
+      "parentUuid": "fd2590be_dee70dd4",
+      "revId": "9fa174cf5e59b6f1f81e2ed2c176554f6cd1820e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db3c3a81_73740c56",
         "filename": "private/property_contexts",
         "patchSetId": 2
@@ -110,6 +128,30 @@
       "revId": "9fa174cf5e59b6f1f81e2ed2c176554f6cd1820e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dd792a8_b9ea562a",
+        "filename": "private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-07-16T07:30:05Z",
+      "side": 1,
+      "message": "1) It\u0027s set by the vts tradefed with \"setprop\".\n2) init can always set any properties. I\u0027ve added a neverallow rule to restrict write access other than init.",
+      "parentUuid": "59f5b1bf_2aaf8251",
+      "range": {
+        "startLine": 745,
+        "startChar": 0,
+        "endLine": 745,
+        "endChar": 61
+      },
+      "revId": "9fa174cf5e59b6f1f81e2ed2c176554f6cd1820e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
