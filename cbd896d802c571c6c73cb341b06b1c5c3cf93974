@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac1ae224_15a4eacf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-07-16T13:06:35Z",
+      "side": 1,
+      "message": "PTAL. This is a small first step, but useful in flushing out existing apps and blocking new ones with mlstrustedsubject and using [priv_]app_data_file, which is a bad combination.\n\nSee also go/cross-user-app-visibility-proposal.\n\n\u003e Patch Set 3:\n\u003e \n\u003e I\u0027m pretty concerned about this change. Previously the MLS categories protected third party apps from system apps, isolating their private app data and process information using selinux. With this change, we\u0027re back to the old state where only UID separated these apps. We know that UID can be mistakenly/intentionally/maliciously overriden and we moved away from that state because it\u0027s unsafe.\n\nWe discussed offline. This isn\u0027t removing protection from private app data, just changing how it works. Anything with appdomain \u0026 mlstrusted subject automatically loses access, enforced with neverallow.\n",
+      "revId": "cbd896d802c571c6c73cb341b06b1c5c3cf93974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
