@@ -54,6 +54,7 @@ persist.audio.          u:object_r:audio_prop:s0
 persist.bluetooth.      u:object_r:bluetooth_prop:s0
 persist.nfc_cfg.        u:object_r:nfc_prop:s0
 persist.debug.          u:object_r:persist_debug_prop:s0
+logd.                   u:object_r:logd_prop:s0
 persist.logd.           u:object_r:logd_prop:s0
 ro.logd.                u:object_r:logd_prop:s0
 persist.logd.security   u:object_r:device_logging_prop:s0
@@ -179,12 +180,13 @@ heapprofd.              u:object_r:heapprofd_prop:s0
 # hwservicemanager properties
 hwservicemanager.       u:object_r:hwservicemanager_prop:s0
 
-# Common default properties for vendor and odm.
+# Common default properties for vendor, odm, and vendor_dlkm.
 init.svc.odm.           u:object_r:vendor_default_prop:s0
 init.svc.vendor.        u:object_r:vendor_default_prop:s0
 ro.hardware.            u:object_r:vendor_default_prop:s0
 ro.odm.                 u:object_r:vendor_default_prop:s0
 ro.vendor.              u:object_r:vendor_default_prop:s0
+ro.vendor_dlkm.         u:object_r:vendor_default_prop:s0
 odm.                    u:object_r:vendor_default_prop:s0
 persist.odm.            u:object_r:vendor_default_prop:s0
 persist.vendor.         u:object_r:vendor_default_prop:s0
@@ -227,7 +229,9 @@ ro.nnapi.extensions.deny_on_product                u:object_r:nnapi_ext_deny_pro
 ro.cold_boot_done       u:object_r:cold_boot_done_prop:s0
 
 # Charger properties
-ro.charger.             u:object_r:charger_prop:s0
+ro.charger.                 u:object_r:charger_prop:s0
+sys.boot_from_charger_mode  u:object_r:charger_status_prop:s0 exact int
+ro.enable_boot_charger_mode u:object_r:charger_config_prop:s0 exact bool
 
 # Virtual A/B properties
 ro.virtual_ab.enabled   u:object_r:virtual_ab_prop:s0
@@ -342,10 +346,9 @@ dalvik.vm.zygote.max-boot-retry               u:object_r:dalvik_config_prop:s0 e
 
 persist.sys.dalvik.vm.lib.2 u:object_r:dalvik_runtime_prop:s0 exact string
 
-keyguard.no_require_sim u:object_r:exported3_default_prop:s0 exact bool
+keyguard.no_require_sim u:object_r:keyguard_config_prop:s0 exact bool
 
-media.recorder.show_manufacturer_and_model u:object_r:exported3_default_prop:s0 exact bool
-
+media.recorder.show_manufacturer_and_model   u:object_r:media_config_prop:s0 exact bool
 media.stagefright.cache-params               u:object_r:media_config_prop:s0 exact string
 media.stagefright.thumbnail.prefer_hw_codecs u:object_r:media_config_prop:s0 exact bool
 persist.sys.media.avsync                     u:object_r:media_config_prop:s0 exact bool
@@ -417,8 +420,6 @@ external_storage.projid.enabled   u:object_r:storage_config_prop:s0 exact bool
 external_storage.casefold.enabled u:object_r:storage_config_prop:s0 exact bool
 external_storage.sdcardfs.enabled u:object_r:storage_config_prop:s0 exact bool
 
-ro.enable_boot_charger_mode u:object_r:exported3_default_prop:s0 exact bool
-
 ro.lmk.critical                 u:object_r:lmkd_config_prop:s0 exact int
 ro.lmk.critical_upgrade         u:object_r:lmkd_config_prop:s0 exact bool
 ro.lmk.debug                    u:object_r:lmkd_config_prop:s0 exact bool
@@ -485,11 +486,9 @@ sys.usb.ffs.max_write  u:object_r:ffs_config_prop:s0 exact int
 sys.usb.ffs.ready     u:object_r:ffs_control_prop:s0 exact bool
 sys.usb.ffs.mtp.ready u:object_r:ffs_control_prop:s0 exact bool
 
-tombstoned.max_tombstone_count u:object_r:exported3_default_prop:s0 exact int
+tombstoned.max_tombstone_count u:object_r:tombstone_config_prop:s0 exact int
 
 vold.post_fs_data_done u:object_r:vold_config_prop:s0 exact int
-
-vts.native_server.on u:object_r:exported3_default_prop:s0 exact bool
 
 wlan.driver.status u:object_r:exported_wifi_prop:s0 exact enum ok unloaded
 
@@ -619,6 +618,12 @@ ro.product.odm.manufacturer u:object_r:build_odm_prop:s0 exact string
 ro.product.odm.model        u:object_r:build_odm_prop:s0 exact string
 ro.product.odm.name         u:object_r:build_odm_prop:s0 exact string
 
+# All vendor_dlkm build props are set by /vendor_dlkm/build.prop
+ro.vendor_dlkm.build.date                u:object_r:build_vendor_prop:s0 exact string
+ro.vendor_dlkm.build.date.utc            u:object_r:build_vendor_prop:s0 exact int
+ro.vendor_dlkm.build.fingerprint         u:object_r:build_vendor_prop:s0 exact string
+ro.vendor_dlkm.build.version.incremental u:object_r:build_vendor_prop:s0 exact string
+
 # All vendor build props are set by /vendor/build.prop
 ro.vendor.build.date                u:object_r:build_vendor_prop:s0 exact string
 ro.vendor.build.date.utc            u:object_r:build_vendor_prop:s0 exact int
@@ -646,7 +651,6 @@ ro.vendor.redirect_socket_calls u:object_r:vendor_socket_hook_prop:s0 exact bool
 
 service.bootanim.exit u:object_r:exported_system_prop:s0 exact int
 
-sys.boot_from_charger_mode            u:object_r:exported_system_prop:s0 exact int
 sys.init.userspace_reboot.in_progress u:object_r:userspace_reboot_exported_prop:s0 exact bool
 sys.use_memfd                         u:object_r:use_memfd_prop:s0 exact bool
 
@@ -743,7 +747,9 @@ ro.product.vndk.version u:object_r:vndk_prop:s0 exact string
 ro.vndk.lite    u:object_r:vndk_prop:s0 exact bool
 ro.vndk.version u:object_r:vndk_prop:s0 exact string
 
-ro.vts.coverage u:object_r:exported_default_prop:s0 exact int
+ro.vts.coverage u:object_r:vts_config_prop:s0 exact int
+
+vts.native_server.on u:object_r:vts_status_prop:s0 exact bool
 
 wifi.active.interface     u:object_r:exported_wifi_prop:s0 exact string
 wifi.aware.interface      u:object_r:exported_wifi_prop:s0 exact string
@@ -844,6 +850,9 @@ telephony.lteOnCdmaDevice         u:object_r:telephony_config_prop:s0 exact int
 persist.dbg.volte_avail_ovr       u:object_r:telephony_config_prop:s0 exact int
 persist.dbg.vt_avail_ovr          u:object_r:telephony_config_prop:s0 exact int
 persist.dbg.wfc_avail_ovr         u:object_r:telephony_config_prop:s0 exact int
+
+# System locale list filter configuration
+ro.localization.locale_filter u:object_r:localization_prop:s0 exact string
 
 # Graphics related properties
 ro.gfx.driver.0        u:object_r:graphics_config_prop:s0 exact string

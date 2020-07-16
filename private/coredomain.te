@@ -7,15 +7,16 @@ get_prop(coredomain, ffs_config_prop)
 get_prop(coredomain, hdmi_config_prop)
 get_prop(coredomain, init_service_status_private_prop)
 get_prop(coredomain, lmkd_config_prop)
+get_prop(coredomain, localization_prop)
 get_prop(coredomain, pm_prop)
 get_prop(coredomain, surfaceflinger_color_prop)
 get_prop(coredomain, systemsound_config_prop)
 get_prop(coredomain, telephony_config_prop)
-
 get_prop(coredomain, usb_config_prop)
 get_prop(coredomain, usb_control_prop)
 get_prop(coredomain, userspace_reboot_config_prop)
 get_prop(coredomain, vold_config_prop)
+get_prop(coredomain, vts_status_prop)
 
 full_treble_only(`
 neverallow {
@@ -38,6 +39,7 @@ full_treble_only(`
         coredomain
         -appdomain
         -dex2oat
+        -dexoptanalyzer
         -idmap
         -init
         -installd
@@ -54,6 +56,7 @@ full_treble_only(`
         coredomain
         -appdomain
         -dex2oat
+        -dexoptanalyzer
         -idmap
         -init
         -installd
