@@ -34,6 +34,23 @@
       "revId": "56885ca8063e28ec2f2ae1f5afb40944d5465363",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21f4be9a_29861848",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-07-22T01:31:46Z",
+      "side": 1,
+      "message": "prebuilts/api/30.0/public/property_contexts should be identical to public/property_contexts of rvc. \nBut the ro.sanitize.* were removed from rvc by ag/9613676, so there is no point to modify 30.0 prebuilt on AOSP this time.\n\nIf you do want to introduce these properties again on AOSP, please modify system/sepolicy/private/property_contexts, not the 30.0 prebuilt.",
+      "revId": "56885ca8063e28ec2f2ae1f5afb40944d5465363",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
