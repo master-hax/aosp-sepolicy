@@ -20,4 +20,10 @@ userdebug_or_eng(`
   permissive su;
 
   app_domain(su)
+
+  # A keystore2 namespace for the su domain. Mainly used for native tests.
+  type su_key, keystore2_key_type;
+  dontaudit su su_key:keystore2 *;
+  dontaudit su su_key:keystore2_key *;
+
 ')
