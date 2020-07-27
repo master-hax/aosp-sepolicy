@@ -2,6 +2,20 @@
 # the implementation of ActivityManager.isDeviceInTestHarnessMode()
 get_prop(appdomain, test_harness_prop)
 
+<<<<<<< HEAD   (6e4d8d Export ro.vendor.product.cpu.abilist*)
+=======
+get_prop(appdomain, boot_status_prop)
+get_prop(appdomain, dalvik_config_prop)
+get_prop(appdomain, media_config_prop)
+get_prop(appdomain, packagemanager_config_prop)
+get_prop(appdomain, surfaceflinger_color_prop)
+get_prop(appdomain, systemsound_config_prop)
+get_prop(appdomain, telephony_config_prop)
+get_prop(appdomain, userspace_reboot_config_prop)
+get_prop(appdomain, vold_config_prop)
+get_prop(appdomain, adbd_config_prop)
+
+>>>>>>> CHANGE (67c368 Allow vendor_init to set service.adb.tcp.port)
 userdebug_or_eng(`perfetto_producer({ appdomain })')
 
 # Prevent apps from causing presubmit failures.
