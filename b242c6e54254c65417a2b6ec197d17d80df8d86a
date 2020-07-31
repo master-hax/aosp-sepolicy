@@ -16,6 +16,24 @@
       "revId": "b242c6e54254c65417a2b6ec197d17d80df8d86a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c73697d7_8104027f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1623038
+      },
+      "writtenOn": "2020-07-31T18:36:43Z",
+      "side": 1,
+      "message": "I actually understand very little about how sepolicy works.  I just made the changes that seemed to allow the new service in frameworks/base to run.  Any help here would be appreciated.\n\nWe\u0027re bringing up a new service for S that will monitor/estimate power consumption on Android devices.\n\nFor now the service is going to be strictly private with no public APIs.  At this time the only entity that will access this service is the BatteryStatsService.  Do I need other changes to support that access?\n\nThanks!",
+      "parentUuid": "2fc985b4_20309a88",
+      "revId": "b242c6e54254c65417a2b6ec197d17d80df8d86a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
