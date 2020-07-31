@@ -87,6 +87,24 @@
       "revId": "b242c6e54254c65417a2b6ec197d17d80df8d86a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8db0509b_4b1ca2ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1623038
+      },
+      "writtenOn": "2020-07-31T19:12:36Z",
+      "side": 1,
+      "message": "This is what we spoke about earlier in the week.  They\u0027re not straight cherry-picks because some other CLs to device/google/blah-sepolicy went straight to internal master and not AOSP, so me merging mine to AOSP caused an auto-merge issued to internal master.\n\nSo to fix this AOSP build I need to pull in the CLs I merged to internal:\nhttps://googleplex-android-review.git.corp.google.com/q/topic:%22hal_power_stats_service_rename%22+(status:open%20OR%20status:merged)\n\nBut I need to prevent them from auto-merging to internal master since they\u0027re already merged there.  How do I do that?",
+      "parentUuid": "064fb754_87e15096",
+      "revId": "b242c6e54254c65417a2b6ec197d17d80df8d86a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
