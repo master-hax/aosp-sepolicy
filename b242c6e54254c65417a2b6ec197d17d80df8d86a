@@ -123,6 +123,24 @@
       "revId": "b242c6e54254c65417a2b6ec197d17d80df8d86a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ffa3421_62ed7ee0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1623038
+      },
+      "writtenOn": "2020-07-31T19:21:30Z",
+      "side": 1,
+      "message": "I tried to push this CL to internal yesterday and it gave me this error:\n[COMMIT 976d9926e9ac] Add permissions for new PowerStatsService\n[FAILED] aosp_hook\n    \n    The source of truth for \u0027private/compat/30.0/30.0.ignore.cil\u0027 is in AOSP.\n    The source of truth for \u0027private/service_contexts\u0027 is in AOSP.\n    The source of truth for \u0027public/service.te\u0027 is in AOSP.\n    \n    If your change contains no confidential details (such as security fixes), please\n    upload and merge this change at https://android-review.googlesource.com/.\n    \n[FAILED] repohooks for platform/system/sepolicy failed in 0.551s\n\nFATAL: Preupload failed due to above error(s).\nFor more info, please see:\nhttps://android.googlesource.com/platform/tools/repohooks/\n\nWhich is how I wound up on this AOSP path.\n\nAny idea?",
+      "parentUuid": "8db0509b_4b1ca2ee",
+      "revId": "b242c6e54254c65417a2b6ec197d17d80df8d86a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
