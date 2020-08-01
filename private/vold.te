@@ -30,3 +30,15 @@ set_prop(vold, ctl_fuse_prop)
 set_prop(vold, restorecon_prop)
 set_prop(vold, ota_prop)
 set_prop(vold, boottime_prop)
+
+type vold_key, keystore2_key_type;
+allow vold vold_key:keystore2_key {
+    blob
+    delete
+    forced_op
+    info
+    list
+    rebind
+    update
+    use
+};
