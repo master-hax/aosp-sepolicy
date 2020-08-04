@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26157453_5d361167",
+        "filename": "private/vold.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-08-04T20:56:52Z",
+      "side": 1,
+      "message": "Traditionally type declarations go at the top of the file, around line 2. \n\nAlternatively, if there are going to be a bunch of keys, perhaps you want to create a file system/sepolicy/private/keystore_keys.te and put the declarations in that file. By analogy, see system/sepolicy/public/device.te and system/sepolicy/public/file.te . I suspect declaration it at the top of this file will be cleaner but it\u0027s up to you.",
+      "revId": "fb098a428231de9890cfcecc34c5bb7a0236a1b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
