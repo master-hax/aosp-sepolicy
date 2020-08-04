@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2a43b359_8babd265",
+        "filename": "private/access_vectors",
+        "patchSetId": 2
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-08-04T22:11:48Z",
+      "side": 1,
+      "message": "I\u0027ll send you an internal link with the documentation. Eventually this documentation will be on source.android.com. We can add a link here when the doc is released.",
+      "parentUuid": "fe260aca_d8584499",
+      "revId": "ae3c023c8c11cb066d101417efb4eef1b02f0a48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "44a9737d_8fe47edd",
         "filename": "private/access_vectors",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2020-08-04T20:50:56Z",
       "side": 1,
       "message": "The entries in \"access_vectors\" are typically verbs, eg, some action X being performed on the object with the label Y. The word \"blob\" isn\u0027t very clear what its intending to do (the word \"blob\" is usually a noun). Is there a better term we can use here? (Same comment for line 728 and 729).",
+      "revId": "ae3c023c8c11cb066d101417efb4eef1b02f0a48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da46be3c_2a4f8f66",
+        "filename": "private/access_vectors",
+        "patchSetId": 2
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-08-04T22:11:48Z",
+      "side": 1,
+      "message": "Blob gives access to a family of operations that operate on raw Keymint blobs. This is specifically for vold which performs its own key blob management. manage_raw_blob or manage_blob maybe. Its a little unwieldy, do you have a better idea?\n\nforced_op \u003d\u003e req_forced_op? (request forced operation)\ndev_id \u003d\u003e use_dev_id? (This controls whether or not the client can use device_id attestation.)",
+      "parentUuid": "44a9737d_8fe47edd",
       "revId": "ae3c023c8c11cb066d101417efb4eef1b02f0a48",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
