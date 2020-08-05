@@ -116,6 +116,30 @@
       "revId": "492ee0970744a59145ba94a36bba97940988b8a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1ecc528_fe47f77f",
+        "filename": "private/su.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-08-05T16:00:32Z",
+      "side": 1,
+      "message": "There is an error actually. It should be `dontaudit su keystore:keystore2 *;`\nI think I\u0027ll this and the line that you suggested. Or I should make keystore also a keystore2_key_type.\n\nEdit: I made keystore keystore2_key_type like which is actually more consistent. See aosp/1387862 so the line you suggested should cover the `keystore:keystore2 *` case as well.",
+      "parentUuid": "7eaae169_2d77bebf",
+      "range": {
+        "startLine": 26,
+        "startChar": 15,
+        "endLine": 26,
+        "endChar": 21
+      },
+      "revId": "492ee0970744a59145ba94a36bba97940988b8a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
