@@ -1,0 +1,4 @@
+add_service(hal_powerstats_server, hal_powerstats_service)
+binder_call(hal_powerstats_server, servicemanager)
+
+allow hal_powerstats_client hal_powerstats_service:service_manager find;
