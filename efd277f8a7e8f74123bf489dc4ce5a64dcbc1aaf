@@ -34,6 +34,24 @@
       "revId": "efd277f8a7e8f74123bf489dc4ce5a64dcbc1aaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea4c363c_978223eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2020-08-10T21:04:13Z",
+      "side": 1,
+      "message": "Without this change reverting the bug_map entry, DeviceBootTest.DeviceBootTest#SELinuxUncheckedDenialBootTest(from b/160984921)  will not fail when gmscore_app reaches here: https://cs.corp.google.com/chromeos_public/src/aosp/system/core/libcutils/ashmem-dev.cpp?q\u003dashmem-dev.\u0026g\u003d0\u0026l\u003d214\n\nSince this bug_map entry was added for the same bug, we can assume that removing it won\u0027t break anything else? We can add it back once we get the necessary information to debug the issue via logs.",
+      "parentUuid": "90a7b8d1_d0383411",
+      "revId": "efd277f8a7e8f74123bf489dc4ce5a64dcbc1aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
