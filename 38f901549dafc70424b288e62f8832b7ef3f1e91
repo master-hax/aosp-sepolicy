@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "ba8db3e5_0a4174c3",
+        "filename": "apex/com.android.gki-file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-08-10T22:58:28Z",
+      "side": 1,
+      "message": "sure I can do that.",
+      "parentUuid": "3f224442_36aa766b",
+      "revId": "38f901549dafc70424b288e62f8832b7ef3f1e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "525fb059_3dcef7e1",
         "filename": "private/gki_apex_prepostinstall.te",
         "patchSetId": 5
@@ -53,6 +71,30 @@
       "writtenOn": "2020-08-10T21:15:24Z",
       "side": 1,
       "message": "Is this really necessary? Or is it just a bug of apexd not opening /dev/zero with O_CLOEXEC?",
+      "range": {
+        "startLine": 9,
+        "startChar": 30,
+        "endLine": 9,
+        "endChar": 38
+      },
+      "revId": "38f901549dafc70424b288e62f8832b7ef3f1e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50b3990c_db19e629",
+        "filename": "private/gki_apex_prepostinstall.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-08-10T22:58:28Z",
+      "side": 1,
+      "message": "I copied this from the test script. Now that I look at it, it is probably not necessary. Let me delete this line and see what\u0027s going on.",
+      "parentUuid": "525fb059_3dcef7e1",
       "range": {
         "startLine": 9,
         "startChar": 30,
@@ -88,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "6613acfe_92da2e39",
+        "filename": "private/gki_apex_prepostinstall.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-08-10T22:58:28Z",
+      "side": 1,
+      "message": "Yes.\n\nhttps://android-review.googlesource.com/c/platform/system/extras/+/1375334/14/gki/preinstall.sh\n\nthe preinstall script is a shell script, which executes a update_engine_stable_client C++ binary.",
+      "parentUuid": "add48e95_b390515e",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 62
+      },
+      "revId": "38f901549dafc70424b288e62f8832b7ef3f1e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "87cc8f08_cd9314d0",
         "filename": "private/gki_apex_prepostinstall.te",
         "patchSetId": 5
@@ -99,6 +165,30 @@
       "writtenOn": "2020-08-10T21:15:24Z",
       "side": 1,
       "message": "why?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 54
+      },
+      "revId": "38f901549dafc70424b288e62f8832b7ef3f1e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7e996e5_8a67748e",
+        "filename": "private/gki_apex_prepostinstall.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-08-10T22:58:28Z",
+      "side": 1,
+      "message": "This is not necessary and I\u0027ll delete it in the next PS.",
+      "parentUuid": "87cc8f08_cd9314d0",
       "range": {
         "startLine": 20,
         "startChar": 0,
