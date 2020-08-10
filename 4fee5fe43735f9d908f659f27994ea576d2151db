@@ -70,6 +70,24 @@
       "revId": "4fee5fe43735f9d908f659f27994ea576d2151db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2585d05_903bc1b2",
+        "filename": "private/file_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2020-08-10T00:27:10Z",
+      "side": 1,
+      "message": "These files are in the product partition, but actually used as vendor files for the system-only update. It is similar to have /system/vendor in the system partition.\nWe don\u0027t have special rule for the vendor overlays because any vendor files can be overridden by the vendor_overlay.\nI think we may use sepolicy_tests.py to guarantee these files have vendor_files.",
+      "parentUuid": "5c70957f_1c669f62",
+      "revId": "4fee5fe43735f9d908f659f27994ea576d2151db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
