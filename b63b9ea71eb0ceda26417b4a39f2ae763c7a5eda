@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "98a7ff0f_1cd46cbc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T23:04:09Z",
+      "side": 1,
+      "message": "yeah, now that you removed the topic :P :)\n\nbut what I mean is, were you able to get it to work internally with this?",
+      "parentUuid": "3e1149e1_623fcbbc",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "b63b9ea71eb0ceda26417b4a39f2ae763c7a5eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a27109b4_3db06909",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -203,6 +227,30 @@
     },
     {
       "key": {
+        "uuid": "c046895e_cde8a0ad",
+        "filename": "public/attributes",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T23:04:09Z",
+      "side": 1,
+      "message": "If power stats HAL is converted to AIDL, you\u0027ll also need to convert all clients to use the AIDL implementation. We can\u0027t, for instance, remove the HIDL service, and break con_monitor which relies on this data. So, I think either way, this is blocking, right?\n\nIf possible, it would be nice to have a single server on the system side.",
+      "parentUuid": "5c19ce6c_e01eab93",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 27
+      },
+      "revId": "b63b9ea71eb0ceda26417b4a39f2ae763c7a5eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6a9df4f0_6067471d",
         "filename": "public/hal_powerstats.te",
         "patchSetId": 1
@@ -255,6 +303,30 @@
       "side": 1,
       "message": "I did what you asked (I think) in https://android-review.googlesource.com/c/platform/system/sepolicy/+/1395810 but it fails with the following error:\n\nlibsepol.report_failure: neverallow on line 654 of system/sepolicy/public/domain\n.te (or line 12179 of policy.conf) violated by allow con_monitor_app hal_power_s\ntats_vendor_service:service_manager { find };\nlibsepol.check_assertions: 1 neverallow failures occurred\nError while expanding policy\n\nI added you as a reviewer on that CL to see if it is something that is resolvable.",
       "parentUuid": "ad5dfdfd_f9cd427c",
+      "range": {
+        "startLine": 217,
+        "startChar": 5,
+        "endLine": 217,
+        "endChar": 27
+      },
+      "revId": "b63b9ea71eb0ceda26417b4a39f2ae763c7a5eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2584db8_5c4c210b",
+        "filename": "public/service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T23:04:09Z",
+      "side": 1,
+      "message": "yeah, that sounds reasonable. I suppose this could be abandoned then",
+      "parentUuid": "46345cc5_d243f5bc",
       "range": {
         "startLine": 217,
         "startChar": 5,
