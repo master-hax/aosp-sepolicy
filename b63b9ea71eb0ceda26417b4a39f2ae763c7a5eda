@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3e1149e1_623fcbbc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2020-08-11T01:29:31Z",
+      "side": 1,
+      "message": "Additional changes would be required to get this to run on a specific target. I have already tested those out in ag/12287125 but this only contains a portion of those changes.",
+      "parentUuid": "cc383663_b91910a1",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "b63b9ea71eb0ceda26417b4a39f2ae763c7a5eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a27109b4_3db06909",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -114,6 +138,24 @@
     },
     {
       "key": {
+        "uuid": "23d0e3f2_4ad54575",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2020-08-11T01:29:31Z",
+      "side": 1,
+      "message": "There were multiple problems involving merge conflicts as well as duplicated sepolicy types.",
+      "parentUuid": "e95600c2_3565bb2b",
+      "revId": "b63b9ea71eb0ceda26417b4a39f2ae763c7a5eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6556ffa5_4b0f1c25",
         "filename": "public/attributes",
         "patchSetId": 1
@@ -125,6 +167,30 @@
       "writtenOn": "2020-08-11T00:10:58Z",
       "side": 1,
       "message": "re-use this attribute (the client/server can be allowed to get/register (respectively) both the AIDL and HIDL services)\n\nWe want to avoid \u0027power_stats\u0027 vs \u0027powerstats\u0027 meaning \"HIDL Power Stats\" and \"AIDL Power Stats\". It\u0027s too subtle a typographical change for such an important difference (and the convention is to combine them).",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 27
+      },
+      "revId": "b63b9ea71eb0ceda26417b4a39f2ae763c7a5eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c19ce6c_e01eab93",
+        "filename": "public/attributes",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2020-08-11T01:29:31Z",
+      "side": 1,
+      "message": "I wasn\u0027t able to combine them. In fact I already have CLs on internal master doing exactly this (see ag/12295668), which unfortunately resulted in a duplicated type name with https://googleplex-android-review.git.corp.google.com/c/device/google/coral-sepolicy/+/12312688/3/vendor/google/vndservice.te. I was not able to change that type name to another without encountering other problems involving con_monitor. I am currently blocked on the con_monitor team fixing this https://b.corp.google.com/issues/162964335 and this CL is an attempt to unblock myself by creating a new type.",
+      "parentUuid": "6556ffa5_4b0f1c25",
       "range": {
         "startLine": 331,
         "startChar": 0,
