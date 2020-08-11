@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "cc383663_b91910a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T00:10:58Z",
+      "side": 1,
+      "message": "process runs/boots/registers, right?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "b63b9ea71eb0ceda26417b4a39f2ae763c7a5eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a27109b4_3db06909",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -67,6 +90,69 @@
       "side": 1,
       "message": "No difficulty moving to AOSP. The difficulty mentioned involved changes to device/google/*-sepolicy that are included in the topic of ag/12295668.",
       "parentUuid": "01c3081b_be3a3911",
+      "revId": "b63b9ea71eb0ceda26417b4a39f2ae763c7a5eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6556ffa5_4b0f1c25",
+        "filename": "public/attributes",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T00:10:58Z",
+      "side": 1,
+      "message": "re-use this attribute (the client/server can be allowed to get/register (respectively) both the AIDL and HIDL services)\n\nWe want to avoid \u0027power_stats\u0027 vs \u0027powerstats\u0027 meaning \"HIDL Power Stats\" and \"AIDL Power Stats\". It\u0027s too subtle a typographical change for such an important difference (and the convention is to combine them).",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 27
+      },
+      "revId": "b63b9ea71eb0ceda26417b4a39f2ae763c7a5eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a9df4f0_6067471d",
+        "filename": "public/hal_powerstats.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T00:10:58Z",
+      "side": 1,
+      "message": "so these rules would then be about hal_power_stats_server (in the existing file)",
+      "revId": "b63b9ea71eb0ceda26417b4a39f2ae763c7a5eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad5dfdfd_f9cd427c",
+        "filename": "public/service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T00:10:58Z",
+      "side": 1,
+      "message": "but to fix your naming problem 😊 you can call this \"hal_power_stats_vendor_service\" or \"hal_power_stats_platform_service\" or something like that",
+      "range": {
+        "startLine": 217,
+        "startChar": 5,
+        "endLine": 217,
+        "endChar": 27
+      },
       "revId": "b63b9ea71eb0ceda26417b4a39f2ae763c7a5eda",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
