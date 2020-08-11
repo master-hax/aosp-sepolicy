@@ -70,6 +70,24 @@
       "revId": "efd277f8a7e8f74123bf489dc4ce5a64dcbc1aaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7915708_b00cc545",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-08-11T09:45:18Z",
+      "side": 1,
+      "message": "\u003e wait - bug_map entries are _allow_ rules !? (I\u0027ve never used them, and TIL - thanks!). Tracking should be orthogonal to the permission.\n\nBug_map entries are not allow rules. The DeviceBootTests ignores denials that have a tracking bug. The code is still broken, it just will no longer fail SELinuxUncheckedDenialBootTest.\n\n\u003e \n\u003e Either way, sgtm, this won\u0027t break anything.",
+      "parentUuid": "0b0d76ac_6de87004",
+      "revId": "efd277f8a7e8f74123bf489dc4ce5a64dcbc1aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
