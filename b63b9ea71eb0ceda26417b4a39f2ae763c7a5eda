@@ -240,6 +240,30 @@
       "revId": "b63b9ea71eb0ceda26417b4a39f2ae763c7a5eda",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46345cc5_d243f5bc",
+        "filename": "public/service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2020-08-11T04:15:04Z",
+      "side": 1,
+      "message": "I did what you asked (I think) in https://android-review.googlesource.com/c/platform/system/sepolicy/+/1395810 but it fails with the following error:\n\nlibsepol.report_failure: neverallow on line 654 of system/sepolicy/public/domain\n.te (or line 12179 of policy.conf) violated by allow con_monitor_app hal_power_s\ntats_vendor_service:service_manager { find };\nlibsepol.check_assertions: 1 neverallow failures occurred\nError while expanding policy\n\nI added you as a reviewer on that CL to see if it is something that is resolvable.",
+      "parentUuid": "ad5dfdfd_f9cd427c",
+      "range": {
+        "startLine": 217,
+        "startChar": 5,
+        "endLine": 217,
+        "endChar": 27
+      },
+      "revId": "b63b9ea71eb0ceda26417b4a39f2ae763c7a5eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
