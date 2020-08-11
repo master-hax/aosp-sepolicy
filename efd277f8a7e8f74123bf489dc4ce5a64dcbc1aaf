@@ -142,6 +142,24 @@
       "revId": "efd277f8a7e8f74123bf489dc4ce5a64dcbc1aaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "689657d4_aac88123",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2020-08-11T18:47:45Z",
+      "side": 1,
+      "message": "It will not have a run time behavioral change and it will not change whether the bug reproduces. However, the only way we are currently notified of the bug reproducing is via the untracked selinux denial failure(SELinuxUncheckedDenialBootTest) which happens when the bug reproduces. With the bug_map entry, this becomes a tracked selinux failure which means SELinuxUncheckedDenialBootTest will no longer fail and we will get no notification at all when the bug reproduces!",
+      "parentUuid": "df702796_3a9525c6",
+      "revId": "efd277f8a7e8f74123bf489dc4ce5a64dcbc1aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
