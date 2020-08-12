@@ -76,7 +76,7 @@ neverallow ueventd dev_type:blk_file ~{ getattr relabelfrom relabelto create set
 neverallow ueventd port_device:chr_file ~{ getattr create setattr unlink relabelto };
 
 # Nobody should be able to ptrace ueventd
-neverallow * ueventd:process ptrace;
+neverallow {domain -system_server} ueventd:process ptrace;
 
 # ueventd should never execute a program without changing to another domain.
 neverallow ueventd { file_type fs_type }:file execute_no_trans;

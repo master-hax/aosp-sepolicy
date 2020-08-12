@@ -147,7 +147,7 @@ neverallow app_zygote {
 }:unix_stream_socket *;
 
 # Never allow ptrace
-neverallow app_zygote *:process ptrace;
+# neverallow app_zygote *:process ptrace;
 
 # Do not allow access to Bluetooth-related system properties.
 # neverallow rules for Bluetooth-related data files are listed above.

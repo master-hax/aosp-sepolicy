@@ -133,4 +133,4 @@ neverallow kernel *:file { entrypoint execute_no_trans };
 neverallow kernel self:global_capability_class_set { dac_override dac_read_search };
 
 # Nobody should be ptracing kernel threads
-neverallow * kernel:process ptrace;
+neverallow {domain -system_server} kernel:process ptrace;

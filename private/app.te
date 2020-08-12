@@ -57,6 +57,7 @@ get_prop(appdomain, sendbug_config_prop)
 # Allow to read graphics related properties.
 get_prop(appdomain, graphics_config_prop)
 
+allow system_server appdomain:process ptrace;
 # Allow to read persist.config.calibration_fac
 get_prop(appdomain, camera_calibration_prop)
 

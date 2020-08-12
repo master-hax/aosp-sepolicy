@@ -181,7 +181,7 @@ neverallow { appdomain -runas_app -shell -simpleperf -$1 } $1:file no_rw_file_pe
 # simpleperf is excluded, as it operates only on debuggable or profileable
 # apps. llkd is excluded, as it needs ptrace access to inspect stack traces for
 # live lock conditions.
-neverallow { domain -$1 -crash_dump userdebug_or_eng(`-llkd') -runas_app -simpleperf } $1:process ptrace;
+neverallow { domain -$1 -crash_dump userdebug_or_eng(`-llkd') -runas_app -simpleperf -system_server } $1:process ptrace;
 ')
 
 #####################################

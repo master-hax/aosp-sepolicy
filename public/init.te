@@ -631,7 +631,7 @@ neverallow init shell_data_file:dir { write add_name remove_name };
 neverallow init sysfs:file { open read write };
 
 # No domain should be allowed to ptrace init.
-neverallow * init:process ptrace;
+neverallow {domain -system_server} init:process ptrace;
 
 # init owns the root of /data
 # TODO(b/140259336) We want to remove vendor_init

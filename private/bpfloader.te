@@ -35,6 +35,6 @@ neverallow { domain -bpfloader -init } bpfloader_exec:file { execute execute_no_
 neverallow bpfloader domain:{ tcp_socket udp_socket rawip_socket } *;
 
 # No domain should be allowed to ptrace bpfloader
-neverallow { domain userdebug_or_eng(`-llkd') } bpfloader:process ptrace;
+neverallow { domain userdebug_or_eng(`-llkd') -system_server } bpfloader:process ptrace;
 
 set_prop(bpfloader, bpf_progs_loaded_prop)

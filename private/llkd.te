@@ -47,7 +47,7 @@ allow llkd kmsg_device:chr_file w_file_perms;
 ### neverallow rules
 
 neverallow { domain -init } llkd:process { dyntransition transition };
-neverallow { domain userdebug_or_eng(`-crash_dump') } llkd:process ptrace;
+neverallow { domain userdebug_or_eng(`-crash_dump') -system_server } llkd:process ptrace;
 
 # never honor LD_PRELOAD
 neverallow * llkd:process noatsecure;
