@@ -114,6 +114,7 @@ neverallow {
   -dumpstate
   userdebug_or_eng(`-incidentd')
   userdebug_or_eng(`-profcollectd')
+  -hal_memory_reclaimer_default
   -storaged
   -system_server
 } self:global_capability_class_set sys_ptrace;
@@ -285,6 +286,7 @@ define(`dac_override_allowed', `{
   migrate_legacy_obb_data
   netd
   postinstall_dexopt
+  hal_memory_reclaimer_default
   recovery
   rss_hwm_reset
   sdcardd

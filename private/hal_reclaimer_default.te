@@ -1,0 +1,25 @@
+type hal_memory_reclaimer_default, coredomain, domain;
+hal_server_domain(hal_memory_reclaimer_default, hal_memory_reclaimer)
+
+type hal_memory_reclaimer_default_exec, system_file_type, exec_type, file_type;
+init_daemon_domain(hal_memory_reclaimer_default)
+
+# To serve IMemoryReclaimerService.aidl
+binder_use(hal_memory_reclaimer_default)
+add_service(hal_memory_reclaimer_default, fwk_memory_reclaimer_service)
+
+# Allow hal_memory_reclaimer_default to write to /proc/<pid>/*
+allow hal_memory_reclaimer_default domain:file w_file_perms;
+
+# Read /proc/<pid>/* data for all domains
+r_dir_file(hal_memory_reclaimer_default, domain)
+
+# libmeminfo
+allow hal_memory_reclaimer_default proc_kpagecount:file r_file_perms;
+allow hal_memory_reclaimer_default proc_kpageflags:file r_file_perms;
+
+allow hal_memory_reclaimer_default self:global_capability_class_set { dac_override sys_nice sys_ptrace };
+
+# ZRAM
+allow hal_memory_reclaimer_default sysfs_zram:dir search;
+allow hal_memory_reclaimer_default sysfs_zram:file { open write };
