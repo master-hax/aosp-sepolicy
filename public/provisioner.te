@@ -1,0 +1,15 @@
+type provisioner, domain;
+type provisioner_exec, system_file_type, exec_type, file_type;
+
+binder_use(provisioner)
+binder_service(provisioner)
+
+add_service(provisioner, provisioner_service)
+
+allow provisioner shell_exec:file rx_file_perms;
+allow provisioner system_file:file rx_file_perms;
+allow provisioner zygote_exec:file rx_file_perms;
+
+# Read /data/dalvik-cache.
+allow provisioner dalvikcache_data_file:dir { search getattr };
+allow provisioner dalvikcache_data_file:file r_file_perms;
