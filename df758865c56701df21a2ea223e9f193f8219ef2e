@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a964af5_4172dc6f",
+        "filename": "public/property.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2020-08-14T22:27:02Z",
+      "side": 1,
+      "message": "I don\u0027t know SEPolicy particularly well, but \"public\" sounds weird to me.\n\nThe only app that touches an IDumpstateDevice instance\u0027s {get,set}VerboseLoggingEnabled methods is Settings (in EnableVerboseVendorLoggingPreferenceController). Only the IDumpstateDevice HAL itself needs to directly read/write the prop. Can we scope this more tightly?",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 18
+      },
+      "revId": "df758865c56701df21a2ea223e9f193f8219ef2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
