@@ -46,6 +46,30 @@
       "revId": "df758865c56701df21a2ea223e9f193f8219ef2e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b672f689_df55ff25",
+        "filename": "public/property.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-08-15T11:20:56Z",
+      "side": 1,
+      "message": "It should be \"public\" to be writable from domains outside coredomain. Instead, you can add a neverallow rule:\n\nneverallow { -init -dumpstate -hal_dumpstate } hal_dumpstate_config_prop:file no_rw_file_perms;\n\nto make the property accessible only from hal_dumpstate. FYI \"-init -dumpstate\" is also necessary because they should be able to read all properties.",
+      "parentUuid": "93683550_e9ad80dc",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 18
+      },
+      "revId": "df758865c56701df21a2ea223e9f193f8219ef2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
