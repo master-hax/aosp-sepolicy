@@ -473,6 +473,10 @@ allow system_server dropbox_data_file:file create_file_perms;
 allow system_server heapdump_data_file:dir rw_dir_perms;
 allow system_server heapdump_data_file:file create_file_perms;
 
+# Manage /data/system/vcn.
+allow system_server vcn_data_file:dir create_dir_perms;
+allow system_server vcn_data_file:file create_file_perms;
+
 # Manage /data/misc/adb.
 allow system_server adb_keys_file:dir create_dir_perms;
 allow system_server adb_keys_file:file create_file_perms;
