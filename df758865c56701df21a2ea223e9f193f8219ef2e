@@ -87,6 +87,30 @@
       "revId": "df758865c56701df21a2ea223e9f193f8219ef2e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43924c1a_d9d1e03d",
+        "filename": "public/property.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-08-17T17:31:40Z",
+      "side": 1,
+      "message": "system_vendor_config_prop(hal_dumpstate_config_prop)\n\nneverallow {\n  -init\n  -dumpstate\n  -hal_dumpstate\n} hal_dumpstate_config_prop:file no_rw_file_perms;\n\nneverallow on line 172 of system/sepolicy/public/proper\nty.te (or line 26186 of policy.conf) violated by allow hal_dumpstate_default hal\n_dumpstate_config_prop:property_service { set };",
+      "parentUuid": "b672f689_df55ff25",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 18
+      },
+      "revId": "df758865c56701df21a2ea223e9f193f8219ef2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
