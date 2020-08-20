@@ -1,0 +1,11 @@
+# mmeventd service
+typeattribute mmeventd coredomain;
+
+init_daemon_domain(mmeventd)
+
+# Allow mmeventd to create netlink generic socket
+allow mmeventd self:netlink_generic_socket create_socket_perms_no_ioctl;
+
+# Allow mmeventd to read kernel data via netlink socket
+allow mmeventd self:capability net_admin;
+
