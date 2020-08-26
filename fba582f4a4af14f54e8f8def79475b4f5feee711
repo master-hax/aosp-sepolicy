@@ -39,6 +39,30 @@
       "revId": "fba582f4a4af14f54e8f8def79475b4f5feee711",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21dc68c2_e3254e02",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1448822
+      },
+      "writtenOn": "2020-08-26T19:13:47Z",
+      "side": 1,
+      "message": "Hmm, I think you\u0027re right and that the exception isn\u0027t needed. When I run presubmit without that exception though, I get some errors:\n\n\"neverallow on line 1209 of system/sepolicy/private/system_server.te (or line 52962 of policy.conf) violated by allow init userspace_reboot_metadata_file:dir { ioctl read write create getattr setattr relabelfrom relabelto open add_name remove_name search rmdir };\"\n\nI\u0027m a bit confused by this since that allow rule doesn\u0027t seem to exist, so I\u0027m not sure how the violation arises. Any ideas?",
+      "parentUuid": "9403a6d8_ff2fcbee",
+      "range": {
+        "startLine": 1209,
+        "startChar": 20,
+        "endLine": 1209,
+        "endChar": 25
+      },
+      "revId": "fba582f4a4af14f54e8f8def79475b4f5feee711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
