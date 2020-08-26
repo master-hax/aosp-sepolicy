@@ -77,7 +77,7 @@ type proc_zoneinfo, fs_type, proc_type;
 type selinuxfs, fs_type, mlstrustedobject;
 type fusectlfs, fs_type;
 type cgroup, fs_type, mlstrustedobject;
-type cgroup_bpf, fs_type;
+type cgroup_v2, fs_type;
 type sysfs, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_android_usb, fs_type, sysfs_type;
 type sysfs_uio, sysfs_type, fs_type;
@@ -131,6 +131,7 @@ type sdcardfs, sdcard_type, fs_type, mlstrustedobject;
 type vfat, sdcard_type, fs_type, mlstrustedobject;
 type exfat, sdcard_type, fs_type, mlstrustedobject;
 type debugfs, fs_type, debugfs_type;
+type debugfs_kprobes, fs_type, debugfs_type;
 type debugfs_mmc, fs_type, debugfs_type;
 type debugfs_trace_marker, fs_type, debugfs_type, mlstrustedobject;
 type debugfs_tracing, fs_type, debugfs_type, mlstrustedobject;
@@ -510,6 +511,12 @@ type sepolicy_file, system_file_type, file_type;
 # service_contexts file
 type service_contexts_file, system_file_type, file_type;
 
+# keystore2_key_contexts_file
+type keystore2_key_contexts_file, system_file_type, file_type;
+
+# vendor service_contexts file
+type vendor_service_contexts_file, vendor_file_type, file_type;
+
 # nonplat service_contexts file (only accessible on non full-treble devices)
 type nonplat_service_contexts_file, vendor_file_type, file_type;
 
@@ -522,7 +529,7 @@ type vndservice_contexts_file, file_type;
 # Allow files to be created in their appropriate filesystems.
 allow fs_type self:filesystem associate;
 allow cgroup tmpfs:filesystem associate;
-allow cgroup_bpf tmpfs:filesystem associate;
+allow cgroup_v2 tmpfs:filesystem associate;
 allow cgroup_rc_file tmpfs:filesystem associate;
 allow sysfs_type sysfs:filesystem associate;
 allow debugfs_type { debugfs debugfs_tracing debugfs_tracing_debug }:filesystem associate;

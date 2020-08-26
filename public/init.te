@@ -96,7 +96,7 @@ allow init {
     postinstall_mnt_dir
     mirror_data_file
 }:dir mounton;
-allow init cgroup_bpf:dir { create mounton };
+allow init cgroup_v2:dir { mounton create_dir_perms };
 
 # Mount bpf fs on sys/fs/bpf
 allow init fs_bpf:dir mounton;
@@ -376,6 +376,7 @@ allow init {
   proc_cmdline
   proc_kmsg
   proc_net
+  proc_pagetypeinfo
   proc_qtaguid_stat
   proc_slabinfo
   proc_sysrq

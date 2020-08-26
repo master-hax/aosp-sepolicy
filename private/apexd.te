@@ -37,6 +37,7 @@ allowxperm apexd loop_device:blk_file ioctl {
   LOOP_SET_DIRECT_IO
   LOOP_CLR_FD
   BLKFLSBUF
+  LOOP_CONFIGURE
 };
 # allow apexd to access /dev/block
 allow apexd block_device:dir r_dir_perms;
@@ -65,7 +66,7 @@ allow apexd apex_mnt_dir:dir mounton;
 # allow apexd to create symlinks in /apex
 allow apexd apex_mnt_dir:lnk_file create_file_perms;
 # allow apexd to create /apex/apex-info-list.xml and relabel to apex_info_file
-allow apexd apex_mnt_dir:file { create_file_perms relabelfrom };
+allow apexd apex_mnt_dir:file { create_file_perms relabelfrom mounton };
 allow apexd apex_info_file:file relabelto;
 # allow apexd to unlink apex files in /data/apex/active
 # note that apexd won't be able to unlink files in /data/app-staging/session_XXXX,

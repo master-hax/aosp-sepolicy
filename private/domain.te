@@ -74,18 +74,12 @@ get_prop(domain, bq_config_prop);
 not_compatible_property(`
     # DO NOT ADD ANY PROPERTIES HERE
     get_prop(domain, core_property_type)
-    get_prop(domain, exported2_system_prop)
-    get_prop(domain, exported3_default_prop)
-    get_prop(domain, exported3_radio_prop)
     get_prop(domain, exported3_system_prop)
     get_prop(domain, vendor_default_prop)
 ')
 compatible_property_only(`
     # DO NOT ADD ANY PROPERTIES HERE
     get_prop({coredomain appdomain shell}, core_property_type)
-    get_prop({coredomain appdomain shell}, exported2_system_prop)
-    get_prop({coredomain appdomain shell}, exported3_default_prop)
-    get_prop({coredomain appdomain shell}, exported3_radio_prop)
     get_prop({coredomain appdomain shell}, exported3_system_prop)
     get_prop({coredomain appdomain shell}, exported_camera_prop)
     get_prop({coredomain shell}, userspace_reboot_exported_prop)
@@ -111,7 +105,7 @@ allow domain linkerconfig_file:file r_file_perms;
 allow domain boringssl_self_test_marker:dir search;
 
 # Limit ability to ptrace or read sensitive /proc/pid files of processes
-# with other UIDs to these whitelisted domains.
+# with other UIDs to these allowlisted domains.
 neverallow {
   domain
   -vold
@@ -124,6 +118,9 @@ neverallow {
 
 # Limit ability to generate hardware unique device ID attestations to priv_apps
 neverallow { domain -priv_app -gmscore_app } *:keystore_key gen_unique_id;
+neverallow { domain -priv_app -gmscore_app } *:keystore2_key gen_unique_id;
+neverallow { domain -system_server } *:keystore2_key use_dev_id;
+neverallow { domain -system_server } keystore:keystore2 { clear_ns lock reset unlock };
 
 neverallow {
   domain
@@ -214,7 +211,7 @@ neverallow {
 
 #
 # Assert that, to the extent possible, we're not loading executable content from
-# outside the rootfs or /system partition except for a few whitelisted domains.
+# outside the rootfs or /system partition except for a few allowlisted domains.
 # Executable files loaded from /data is a persistence vector
 # we want to avoid. See
 # https://bugs.chromium.org/p/project-zero/issues/detail?id=955 for example.
@@ -331,7 +328,7 @@ neverallow {
     -zygote
 } { fs_type -sdcard_type }:filesystem { mount remount relabelfrom relabelto };
 
-# Limit raw I/O to these whitelisted domains. Do not apply to debug builds.
+# Limit raw I/O to these allowlisted domains. Do not apply to debug builds.
 neverallow {
   domain
   userdebug_or_eng(`-domain')
@@ -365,3 +362,6 @@ neverallow { domain -coredomain } pm_prop:file no_rw_file_perms;
 
 # Do not allow reading the last boot timestamp from system properties
 neverallow { domain -init -system_server -dumpstate } firstboot_prop:file r_file_perms;
+
+# Kprobes should only be used by adb root
+neverallow { domain -init -vendor_init } debugfs_kprobes:file *;
