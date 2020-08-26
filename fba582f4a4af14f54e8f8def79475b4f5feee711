@@ -63,6 +63,30 @@
       "revId": "fba582f4a4af14f54e8f8def79475b4f5feee711",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acd1ec24_5b40c226",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2020-08-26T19:33:31Z",
+      "side": 1,
+      "message": "Interesting.  It looks like it\u0027s allowed by https://source.corp.google.com/android/system/sepolicy/public/init.te;l\u003d175 (and the rule below as well).\n\nUnless there\u0027s a specific need to block the permission, it\u0027s probably better just to allow it and add back the exception.  Sorry about that.",
+      "parentUuid": "21dc68c2_e3254e02",
+      "range": {
+        "startLine": 1209,
+        "startChar": 20,
+        "endLine": 1209,
+        "endChar": 25
+      },
+      "revId": "fba582f4a4af14f54e8f8def79475b4f5feee711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
