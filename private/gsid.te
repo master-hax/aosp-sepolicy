@@ -74,6 +74,8 @@ allow gsid adbd:fd use;
 # Needed when running gsi_tool through "su root" rather than adb root.
 allow gsid adbd:unix_stream_socket rw_socket_perms;
 
+allow gsid { shell su }:fifo_file r_file_perms;
+
 neverallow {
   domain
   -gsid
