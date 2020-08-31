@@ -179,6 +179,7 @@ allow init {
   -misc_logd_file
   -nativetest_data_file
   -privapp_data_file
+  -shell_test_data_file
   -system_app_data_file
   -system_file_type
   -vendor_file_type
@@ -195,6 +196,7 @@ allow init {
   -nativetest_data_file
   -privapp_data_file
   -shell_data_file
+  -shell_test_data_file
   -system_app_data_file
   -system_file_type
   -vendor_file_type
@@ -215,6 +217,7 @@ allow init {
   -privapp_data_file
   -runtime_event_log_tags_file
   -shell_data_file
+  -shell_test_data_file
   -system_app_data_file
   -system_file_type
   -vendor_file_type
@@ -233,6 +236,7 @@ allow init {
   -nativetest_data_file
   -privapp_data_file
   -shell_data_file
+  -shell_test_data_file
   -system_app_data_file
   -system_file_type
   -vendor_file_type
@@ -252,6 +256,7 @@ allow init {
   -nativetest_data_file
   -privapp_data_file
   -shell_data_file
+  -shell_test_data_file
   -system_app_data_file
   -system_file_type
   -vendor_file_type
@@ -465,6 +470,10 @@ allow init vold_data_file:file { getattr };
 # Init creates /data/local/tmp at boot
 allow init shell_data_file:dir { open create read getattr setattr search };
 allow init shell_data_file:file { getattr };
+
+# Init creates /data/local/tests and subdirectories  at boot
+allow init shell_test_data_file:dir { open create read getattr setattr search write add_name };
+allow init shell_test_data_file:file { getattr };
 
 # Set UID, GID, and adjust capability bounding set for services.
 allow init self:global_capability_class_set { setuid setgid setpcap };

@@ -70,6 +70,7 @@ allow kernel asec_image_file:file read;
 userdebug_or_eng(`
   allow kernel update_engine_data_file:file { read write };
   allow kernel nativetest_data_file:file { read write };
+  allow kernel shell_test_data_file:file { read write };
 ')
 
 # Access to /data/media.
