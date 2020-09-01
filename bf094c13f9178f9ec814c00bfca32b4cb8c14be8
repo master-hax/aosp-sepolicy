@@ -69,6 +69,30 @@
       "revId": "bf094c13f9178f9ec814c00bfca32b4cb8c14be8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff1f02e4_e5e7b583",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-09-01T21:43:34Z",
+      "side": 1,
+      "message": "Jiyong, how should I describe \"modules\"? I can say something like:\n\n  This includes updateable modules (including APEXes and APKs) that are stored in the modules partition.\n\nI can of course create a separate set of labels for files inside modules. But for the time being, is it okay to be system_file? If so, I\u0027ll only keep\n\n  /modules(/.*)?   u:object_r:system_file:s0\n\nand leave the rest of labels in a separate CL. I don\u0027t think we have consolidated what lives in it now. Alternatively I can also create a \"modules_file\" as a default label for all files under modules.",
+      "parentUuid": "c6a1559e_4354a426",
+      "range": {
+        "startLine": 482,
+        "startChar": 0,
+        "endLine": 484,
+        "endChar": 55
+      },
+      "revId": "bf094c13f9178f9ec814c00bfca32b4cb8c14be8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
