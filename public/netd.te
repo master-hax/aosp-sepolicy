@@ -174,3 +174,6 @@ dontaudit netd self:capability sys_module;
 dontaudit netd kernel:system module_request;
 
 dontaudit netd appdomain:unix_stream_socket { read write };
+
+#Suppress the denial for netd to use surfaceflinger
+dontaudit netd surfaceflinger:fd use;
