@@ -80,6 +80,10 @@ allow domain ashmem_libcutils_device:chr_file rw_file_perms;
 # /dev/binder can be accessed by ... everyone! :)
 allow { domain -hwservicemanager -vndservicemanager } binder_device:chr_file rw_file_perms;
 
+# BINDER_FREEZE can be accessed by system_server only
+allowxperm { domain -system_server } binder_device:chr_file ioctl ~{ BINDER_FREEZE };
+neverallowxperm { domain -system_server } binder_device:chr_file ioctl { BINDER_FREEZE };
+
 # /dev/binderfs needs to be accessed by everyone too!
 allow domain binderfs:dir { getattr search };
 allow domain binderfs_logs_proc:dir search;
