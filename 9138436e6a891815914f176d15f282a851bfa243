@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab0c081d_612ff0f5",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-09-03T00:32:09Z",
+      "side": 1,
+      "message": "Can you write this as:\n\n  \u003d\u003d\u003d\u003d domain.te \u003d\u003d\u003d\u003d\n  # Restrict binder ioctls to an allowlist. \n  # Additional ioctl commands may be added to individual domains,\n  # but this sets safe defaults for all processes.\n  allowxperm domain binder_device:chr_file ioctl { BINDER_SET_CONTEXT_MGR BINDER_SET_IDLE_PRIORITY BINDER_SET_IDLE_TIMEOUT BINDER_SET_MAX_THREADS BINDER_THREAD_EXIT BINDER_VERSION BINDER_WRITE_READ };\n\n  # BINDER_FREEZE is used to block ipc transactions to\n  # frozen processes, so only system_server must be allowed\n  # to use it. (b/143717177)\n  neverallowxperm { domain -system_server } binder_device:chr_file ioctl { BINDER_FREEZE };\n\n  \u003d\u003d\u003d\u003d system_server.te \u003d\u003d\u003d\u003d\n  allowxperm system_server binder_device:chr_file ioctl { BINDER_FREEZE };\n\nThis avoids a bunch of problems:\n\n1) xperms are applied consistently across all domains, whereas the previous solution didn\u0027t apply xperm restrictions to system_server\n\n2) The SELinux policy compiler does inline expansion of negation rules, which ends up making the policy expansion large.\n\n3) Allowing ~{ BINDER_FREEZE } for ioctls is overly broad.",
+      "revId": "9138436e6a891815914f176d15f282a851bfa243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
