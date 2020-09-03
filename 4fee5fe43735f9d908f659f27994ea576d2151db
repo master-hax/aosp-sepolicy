@@ -106,6 +106,24 @@
       "revId": "4fee5fe43735f9d908f659f27994ea576d2151db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "207a3cd0_63e6d097",
+        "filename": "private/file_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2020-09-03T06:21:32Z",
+      "side": 1,
+      "message": "Sorry for the late update.\nThe test for vendor_overlay is `fs_mgr_vendor_overlay_test`. You can find the document here: https://source.android.com/devices/bootloader/system-as-root#using-vendor-overlay. vendor_overlay files will override the existing vendor files. As in the examples in the doc, they must have the same file context with the original files.\n\nI think we need to update `sepolicy_tests.py` to have both \"system/vendor\" and \"product/vendor_overlay\" (as well as \"system/product/vendor_overlay)\" in `TestVendorTypeViolations()`. But AFAIK, the test script does not check the regex form of the directories. The `TestSystemTypeViolations` passes even without excluding \"system/vendor\" now.",
+      "parentUuid": "f99d6432_e26f53e5",
+      "revId": "4fee5fe43735f9d908f659f27994ea576d2151db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
