@@ -1230,3 +1230,7 @@ neverallow {
   -dumpstate
   -system_server
 } wifi_config_prop:file no_rw_file_perms;
+
+# Only system server can access BINDER_FREEZE
+allowxperm system_server binder_device:chr_file ioctl { BINDER_FREEZE };
+
