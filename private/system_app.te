@@ -145,8 +145,9 @@ allow system_app keystore:keystore2_key {
     use
 };
 
-# settings app reads /proc/version
+# settings app reads /proc/pagetypeinfo and /proc/version
 allow system_app {
+  proc_pagetypeinfo
   proc_version
 }:file r_file_perms;
 
