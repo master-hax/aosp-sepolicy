@@ -165,6 +165,8 @@ allow system_app system_server:udp_socket {
 # Settings app reads ro.oem_unlock_supported
 get_prop(system_app, oem_unlock_prop)
 
+r_dir_file(system_app, sysfs_zram)
+
 ###
 ### Neverallow rules
 ###
