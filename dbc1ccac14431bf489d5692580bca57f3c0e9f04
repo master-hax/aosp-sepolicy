@@ -33,6 +33,24 @@
       "revId": "dbc1ccac14431bf489d5692580bca57f3c0e9f04",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52dfe91b_970fa250",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2020-09-14T17:23:26Z",
+      "side": 1,
+      "message": "I\u0027m quite possibly wrong, but I think I need to add this if something is to be treated as a service in the system server, even if it doesn\u0027t provide any actual Binder API, etc. - e.g. something that tracks the system server lifecycle for services, can be dumped, etc.\n\nThe forcing function is that I want to make the service able to interact with \"adb shell cmd\", which AFAIK means it has to be a service in the system server sense.\n\nDo that sound ok?",
+      "parentUuid": "b6f1982c_12296a52",
+      "revId": "dbc1ccac14431bf489d5692580bca57f3c0e9f04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
