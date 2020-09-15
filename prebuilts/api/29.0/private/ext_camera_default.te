@@ -1,0 +1,9 @@
+type ext_camera_default, coredomain;
+#hal_server_domain(ext_camera_default, hal_camera)
+
+type ext_camera_default_exec, system_file_type, exec_type, file_type;
+init_daemon_domain(ext_camera_default)
+
+# For collecting bugreports.
+#allow ext_camera_default dumpstate:fd use;
+#allow ext_camera_default dumpstate:fifo_file write;
