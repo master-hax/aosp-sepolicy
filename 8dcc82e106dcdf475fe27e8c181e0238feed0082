@@ -141,6 +141,24 @@
       "revId": "8dcc82e106dcdf475fe27e8c181e0238feed0082",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d07231e3_f2b6f630",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2020-09-16T20:49:59Z",
+      "side": 1,
+      "message": "Hi Jeff, \n\nThe DMA-BUF heap framework is a replacement for ION. It is not a Treble violation to use it from framework code since DMA-BUF heaps are guaranteed to be ABI stable because they are part of upstream linux. Moreover, the DMA-BUF system heap will be built into the GKI 2.0 kernel. This patch is to enable codec2(which is currently the only framework ION user) to make the switch to DMA-BUF heaps.\n\nPlease let me know if you have more questions!\n\nThanks,\nHridya",
+      "parentUuid": "d02a3923_ab7db56c",
+      "revId": "8dcc82e106dcdf475fe27e8c181e0238feed0082",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
