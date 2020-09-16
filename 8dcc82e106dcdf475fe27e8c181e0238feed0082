@@ -105,6 +105,24 @@
       "revId": "8dcc82e106dcdf475fe27e8c181e0238feed0082",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d0b91a_e1f6d128",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010110
+      },
+      "writtenOn": "2020-09-16T20:26:36Z",
+      "side": 1,
+      "message": "I believe it has to do with dma-buf heaps having a more pedantic view of reading vs writing on an ioctl compared with ion.\n\nSince the ioctl has to provide the size and flags for the allocation, its effectively writing those values to the kernel, and then reads back the fd of the buffer returned.",
+      "parentUuid": "467c2d0e_2d0dd8af",
+      "revId": "8dcc82e106dcdf475fe27e8c181e0238feed0082",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
