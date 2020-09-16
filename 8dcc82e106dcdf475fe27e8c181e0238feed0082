@@ -70,6 +70,24 @@
       "revId": "8dcc82e106dcdf475fe27e8c181e0238feed0082",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27ff3ecb_7e7c5790",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2020-09-16T20:17:46Z",
+      "side": 1,
+      "message": "Looks like the write permission denials were due to the userspace library(libdmabufheap) trying to open the heap device as RW. Once I corrected this, the write denials went away. I will fix the library and upload a new patch set here. Thanks for catching that Joel!",
+      "parentUuid": "467c2d0e_2d0dd8af",
+      "revId": "8dcc82e106dcdf475fe27e8c181e0238feed0082",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
