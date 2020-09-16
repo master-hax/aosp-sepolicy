@@ -16,6 +16,24 @@
       "revId": "8dcc82e106dcdf475fe27e8c181e0238feed0082",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26565ed7_38783fd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010110
+      },
+      "writtenOn": "2020-09-16T18:36:37Z",
+      "side": 1,
+      "message": "\"/dev/dma_heap/system\" is the devnode for the system dmabuf heap. This is the future replacement for ion, only we have per-heap devnodes (which makes it easier to restrict permissions on a per-heap basis). \n\nAs for the platform_app bit, I\u0027ll defer to Hridya for a precise answer (I\u0027m not super familiar with all the sepolicy types).  But the motivating factor here is trying to allow the codec2 code to use dmabuf heaps when ION is not present. Normally gralloc would be the main user, but codec2 has its own allocation system.  \n\nSo this would likely map very closely to the usage and permissions on /dev/ion.",
+      "parentUuid": "5c3ead4f_b4c91022",
+      "revId": "8dcc82e106dcdf475fe27e8c181e0238feed0082",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
