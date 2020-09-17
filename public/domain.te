@@ -80,6 +80,10 @@ allow domain ashmem_libcutils_device:chr_file rw_file_perms;
 # /dev/binder can be accessed by ... everyone! :)
 allow { domain -hwservicemanager -vndservicemanager } binder_device:chr_file rw_file_perms;
 
+# Restrict binder ioctls to an allowlist. Additional ioctl commands may be
+# added to individual domains, but this sets safe defaults for all processes.
+allowxperm domain binder_device:chr_file ioctl { unpriv_binder_ioctls };
+
 # /dev/binderfs needs to be accessed by everyone too!
 allow domain binderfs:dir { getattr search };
 allow domain binderfs_logs_proc:dir search;
@@ -470,6 +474,10 @@ neverallow {
 neverallow { domain userdebug_or_eng(`-kernel') } nativetest_data_file:file_class_set no_w_file_perms;
 neverallow domain nativetest_data_file:dir no_w_dir_perms;
 neverallow { domain userdebug_or_eng(`-shell') } nativetest_data_file:file no_x_file_perms;
+
+neverallow { domain -shell -init -adbd } shell_test_data_file:file_class_set no_w_file_perms;
+neverallow { domain -shell -init -adbd } shell_test_data_file:dir no_w_dir_perms;
+neverallow { domain -shell -init -adbd } shell_test_data_file:file *;
 
 # Only the init property service should write to /data/property and /dev/__properties__
 neverallow { domain -init } property_data_file:dir no_w_dir_perms;

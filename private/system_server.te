@@ -215,6 +215,7 @@ binder_call(system_server, incidentd)
 binder_call(system_server, iorapd)
 binder_call(system_server, netd)
 binder_call(system_server, notify_traceur)
+userdebug_or_eng(`binder_call(system_server, profcollectd)')
 binder_call(system_server, statsd)
 binder_call(system_server, storaged)
 binder_call(system_server, update_engine)
@@ -776,7 +777,6 @@ allow system_server fingerprintd_service:service_manager find;
 allow system_server gatekeeper_service:service_manager find;
 allow system_server gpu_service:service_manager find;
 allow system_server gsi_service:service_manager find;
-allow system_server hal_fingerprint_service:service_manager find;
 allow system_server idmap_service:service_manager find;
 allow system_server incident_service:service_manager find;
 allow system_server incremental_service:service_manager find;
@@ -1012,6 +1012,9 @@ get_prop(system_server, system_lmk_prop)
 
 get_prop(system_server, wifi_config_prop)
 
+# Only system server can access BINDER_FREEZE and BINDER_GET_FROZEN_INFO
+allowxperm system_server binder_device:chr_file ioctl { BINDER_FREEZE BINDER_GET_FROZEN_INFO };
+
 ###
 ### Neverallow rules
 ###
@@ -1230,3 +1233,9 @@ neverallow {
   -dumpstate
   -system_server
 } wifi_config_prop:file no_rw_file_perms;
+
+# BINDER_FREEZE is used to block ipc transactions to frozen processes, so it
+# can be accessed by system_server only (b/143717177)
+# BINDER_GET_FROZEN_INFO is used by system_server to determine the state of a frozen binder
+# interface
+neverallowxperm { domain -system_server } binder_device:chr_file ioctl { BINDER_FREEZE BINDER_GET_FROZEN_INFO };

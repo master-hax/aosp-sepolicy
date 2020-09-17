@@ -365,11 +365,12 @@ persist.bluetooth.btsnoopenable                u:object_r:exported_bluetooth_pro
 
 persist.radio.multisim.config u:object_r:radio_control_prop:s0 exact string
 
-persist.sys.hdmi.keep_awake              u:object_r:hdmi_config_prop:s0 exact bool
-ro.hdmi.cec_device_types                 u:object_r:hdmi_config_prop:s0 exact string
-ro.hdmi.device_type                      u:object_r:hdmi_config_prop:s0 exact string
-ro.hdmi.wake_on_hotplug                  u:object_r:hdmi_config_prop:s0 exact bool
-ro.hdmi.cec.source.send_standby_on_sleep u:object_r:hdmi_config_prop:s0 exact enum to_tv broadcast none
+persist.sys.hdmi.keep_awake                  u:object_r:hdmi_config_prop:s0 exact bool
+ro.hdmi.cec_device_types                     u:object_r:hdmi_config_prop:s0 exact string
+ro.hdmi.device_type                          u:object_r:hdmi_config_prop:s0 exact string
+ro.hdmi.cec.source.set_menu_language.enabled u:object_r:hdmi_config_prop:s0 exact bool
+ro.hdmi.wake_on_hotplug                      u:object_r:hdmi_config_prop:s0 exact bool
+ro.hdmi.cec.source.send_standby_on_sleep     u:object_r:hdmi_config_prop:s0 exact enum to_tv broadcast none
 
 pm.dexopt.ab-ota                        u:object_r:exported_pm_prop:s0 exact string
 pm.dexopt.bg-dexopt                     u:object_r:exported_pm_prop:s0 exact string
@@ -574,6 +575,9 @@ ro.revision   u:object_r:bootloader_prop:s0 exact string
 
 ro.boot.dynamic_partitions          u:object_r:exported_default_prop:s0 exact string
 ro.boot.dynamic_partitions_retrofit u:object_r:exported_default_prop:s0 exact string
+
+ro.boottime.init.mount.data u:object_r:boottime_public_prop:s0 exact string
+ro.boottime.init.fsck.data  u:object_r:boottime_public_prop:s0 exact string
 
 ro.build.date                        u:object_r:build_prop:s0 exact string
 ro.build.date.utc                    u:object_r:build_prop:s0 exact int
@@ -883,3 +887,9 @@ ro.gfx.angle.supported u:object_r:graphics_config_prop:s0 exact bool
 
 graphics.gpu.profiler.support          u:object_r:graphics_config_prop:s0 exact bool
 graphics.gpu.profiler.vulkan_layer_apk u:object_r:graphics_config_prop:s0 exact string
+
+# surfaceflinger-settable
+graphics.display.kernel_idle_timer.enabled u:object_r:surfaceflinger_display_prop:s0 exact bool
+
+# Disable/enable charger input
+power.battery_input.suspended u:object_r:power_debug_prop:s0 exact bool
