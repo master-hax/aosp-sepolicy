@@ -16,6 +16,24 @@
       "revId": "68c1986c21bfe29cbc81318ae268b57971017ddc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17bb6c84_9afc090b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-18T07:31:28Z",
+      "side": 1,
+      "message": "Well, before this topic, ueventd was reading the firmware file with the absolute path like /apex/com.android.foo/firmware/foo.bin, which was labeled as \"vendor_file\" and it was okay for uevend to open it.\n\nBut now, ueventd tries to glob(/apex/*/firmware/) to list all \"firmware\" directories. It fails without \"read\" permission.\n\n\u003e If you were to instead dontaudit it, what would be the consequences?\n\nI don\u0027t know how to do this.",
+      "parentUuid": "81227590_03897b89",
+      "revId": "68c1986c21bfe29cbc81318ae268b57971017ddc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
