@@ -93,6 +93,30 @@
       "revId": "900d01cd9ea4aab4f6950eb09f814d267ce3fb6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38f60616_b5c5d53d",
+        "filename": "public/service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-09-18T12:15:50Z",
+      "side": 1,
+      "message": "In that case, please remove app_api_service and ephemeral_app_api_service, and add the service manually to the app domain that needs access.\n\nFor example:\nhttps://android-review.googlesource.com/c/platform/system/sepolicy/+/1163839/6/private/priv_app.te\n\nBut don\u0027t assume it\u0027s the \"priv_app\" domain. Actually check the selinux denial. Also, please include the selinux denial in the commit message.",
+      "parentUuid": "9529fb43_8a4752f1",
+      "range": {
+        "startLine": 133,
+        "startChar": 32,
+        "endLine": 133,
+        "endChar": 74
+      },
+      "revId": "900d01cd9ea4aab4f6950eb09f814d267ce3fb6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
