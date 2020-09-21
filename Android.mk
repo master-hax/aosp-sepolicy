@@ -371,8 +371,11 @@ endif
 
 ifdef HAS_SYSTEM_EXT_PUBLIC_SEPOLICY
 LOCAL_REQUIRED_MODULES += \
-    system_ext_mapping_file \
-    $(addprefix system_ext_,$(addsuffix .cil,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS))) \
+    system_ext_mapping_file
+
+system_ext_compat_files := $(addprefix system_ext_,$(addsuffix .cil,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS)))
+
+LOCAL_REQUIRED_MODULES += $(call build_policy, $(system_ext_compat_files), $(SYSTEM_EXT_PUBLIC_POLICY))
 
 endif
 
@@ -397,8 +400,11 @@ endif
 
 ifdef HAS_PRODUCT_PUBLIC_SEPOLICY
 LOCAL_REQUIRED_MODULES += \
-    product_mapping_file \
-    $(addprefix product_,$(addsuffix .cil,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS))) \
+    product_mapping_file
+
+product_compat_files := $(addprefix product_,$(addsuffix .cil,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS)))
+
+LOCAL_REQUIRED_MODULES += $(call build_policy, $(product_compat_files), $(PRODUCT_PUBLIC_POLICY))
 
 endif
 
