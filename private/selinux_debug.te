@@ -1,0 +1,37 @@
+type selinux_debug, domain, coredomain;
+type selinux_debug_exec, system_file_type, exec_type, file_type;
+
+userdebug_or_eng(`
+  init_daemon_domain(selinux_debug)
+
+  allow selinux_debug kmsg_debug_device:chr_file { w_file_perms getattr ioctl };
+  allow selinux_debug shell_exec:file rx_file_perms;
+
+  # Allow to execute simpleperf without a domain transition.
+  allow selinux_debug simpleperf_exec:file rx_file_perms;
+
+  # Allow modification of perf.harden, required by simpleperf.
+  set_prop(selinux_debug, shell_prop)
+
+  # Allow access to tracing and ptrace.
+  allow selinux_debug proc_perf:file write;
+  allow selinux_debug self:global_capability_class_set sys_ptrace;
+  allow selinux_debug debugfs_tracing:dir r_dir_perms;
+  allow selinux_debug debugfs_tracing:file rw_file_perms;
+  allow selinux_debug debugfs_tracing_debug:dir r_dir_perms;
+  allow selinux_debug debugfs_tracing_debug:file rw_file_perms;
+
+  # Allow access to perf_event to setup the tracepoint.
+  allow selinux_debug self:perf_event { open cpu read write kernel tracepoint };
+
+  # Allow access to the script storage files.
+  allow selinux_debug selinux_debug_data_file:file create_file_perms;
+  allow selinux_debug selinux_debug_data_file:dir rw_dir_perms;
+
+  # Allow access to binaries to resolve the symbols.
+  allow selinux_debug system_file_type:file r_file_perms;
+  allow selinux_debug vendor_file_type:file r_file_perms;
+
+  # simpleperf shells out to mv the recorded data.
+  allow selinux_debug toolbox_exec:file x_file_perms;
+')
