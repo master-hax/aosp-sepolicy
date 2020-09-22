@@ -117,6 +117,30 @@
       "revId": "900d01cd9ea4aab4f6950eb09f814d267ce3fb6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96e55080_481eafa3",
+        "filename": "public/service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1749734
+      },
+      "writtenOn": "2020-09-22T10:13:10Z",
+      "side": 1,
+      "message": "Hi Jeffrey, I removed app_api_service and ephemeral_app_api_service from service.te (leaving system_server_service and service_manager_type) but my app was still able to access the service without a selinux error in logcat.\n\nI did have a permission error because there\u0027s a required system app permission checked in java code, but I didn\u0027t think it was related so I removed it to let the call succeed and hopefully get the selinux denial, but it didn\u0027t come.\n\nMy flow is:\n\n// System app\ncontext.getSystemService(MusicRecognitionService.class).foo();\n\nSystem server receives the request, does some audio stuff, then binds to a Service in another app.\n\nOther app responds back through system server, and callback in my system app is invoked.\n\nAny debugging tips?",
+      "parentUuid": "38f60616_b5c5d53d",
+      "range": {
+        "startLine": 133,
+        "startChar": 32,
+        "endLine": 133,
+        "endChar": 74
+      },
+      "revId": "900d01cd9ea4aab4f6950eb09f814d267ce3fb6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
