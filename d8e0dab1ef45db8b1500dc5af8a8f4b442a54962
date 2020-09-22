@@ -70,6 +70,30 @@
       "revId": "d8e0dab1ef45db8b1500dc5af8a8f4b442a54962",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be1b727d_c95d9377",
+        "filename": "public/dumpstate.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2020-09-22T02:07:47Z",
+      "side": 1,
+      "message": "The nfc snoop is logged from Nfc stack in system partition instead of hal. Currently the log is printed from bugreport in \"dumpsys nfc\". But we consider the log is not enough. We try to save more logs, so we would like to dump in a log file when our buffer overflow. And we also want to save the snoop log buffer before nfc service crashed. We plan to limit the file size under 32 MBytes.",
+      "parentUuid": "a4c36f71_e4d2b36f",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 53
+      },
+      "revId": "d8e0dab1ef45db8b1500dc5af8a8f4b442a54962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
