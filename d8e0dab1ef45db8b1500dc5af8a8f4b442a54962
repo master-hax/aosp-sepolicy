@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "041a416b_1cf427d3",
+        "filename": "private/nfc.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2020-09-23T08:52:24Z",
+      "side": 1,
+      "message": "nfc_data_file is another folder \"/data/nfc\" which is used by nfc stack to store and check the hci sessions that established with secure elements.\nnfc_logs_data_file is a new folder \"/data/misc/nfc/logs\" that we plan to create and backup nfc logs here. The logs could be retrieved when users capture bugreports.",
+      "parentUuid": "568b67ee_803c0d94",
+      "revId": "d8e0dab1ef45db8b1500dc5af8a8f4b442a54962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "db4f17f4_acad5676",
         "filename": "public/dumpstate.te",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2020-09-22T17:22:06Z",
       "side": 1,
       "message": "Are these accesses required on user builds and not just userdebug builds?",
+      "revId": "d8e0dab1ef45db8b1500dc5af8a8f4b442a54962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7269bbf8_54d24041",
+        "filename": "public/dumpstate.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2020-09-23T08:52:24Z",
+      "side": 1,
+      "message": "Yes, it is required for user builds and userdebug builds.",
+      "parentUuid": "db4f17f4_acad5676",
       "revId": "d8e0dab1ef45db8b1500dc5af8a8f4b442a54962",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
