@@ -372,6 +372,7 @@ neverallow { domain -init -vendor_init } debugfs_kprobes:file *;
 full_treble_only(`
   neverallow {
     coredomain
+    -adbd
     -appdomain
     -bootanim
     -crash_dump
@@ -420,6 +421,7 @@ full_treble_only(`
     userdebug_or_eng(`-heapprofd')
     userdebug_or_eng(`-profcollectd')
     -shell
+    -adbd
     -system_executes_vendor_violators
     -traced_perf # library/binary access for symbolization
     -ueventd # reads /vendor/ueventd.rc

@@ -40,6 +40,7 @@ full_treble_only(`
     # Limit access to /vendor/app
     neverallow {
         coredomain
+        -adbd
         -appdomain
         -dex2oat
         -dexoptanalyzer
@@ -57,6 +58,7 @@ full_treble_only(`
 full_treble_only(`
     neverallow {
         coredomain
+        -adbd
         -appdomain
         -dex2oat
         -dexoptanalyzer
@@ -77,6 +79,7 @@ full_treble_only(`
     # Limit access to /vendor/overlay
     neverallow {
         coredomain
+        -adbd
         -appdomain
         -idmap
         -init
@@ -97,6 +100,7 @@ full_treble_only(`
 full_treble_only(`
     neverallow {
         coredomain
+        -adbd
         -appdomain
         -idmap
         -init

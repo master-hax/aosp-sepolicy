@@ -200,6 +200,9 @@ allow adbd perfetto_traces_data_file:dir r_dir_perms;
 allow adbd shell:unix_stream_socket { read write shutdown };
 allow adbd shell:fd use;
 
+allow adbd vendor_file_type:file r_file_perms;
+allow adbd vendor_file_type:dir r_dir_perms;
+
 ###
 ### Neverallow rules
 ###
