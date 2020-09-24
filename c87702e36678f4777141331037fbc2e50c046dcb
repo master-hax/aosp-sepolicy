@@ -22,6 +22,30 @@
       "revId": "c87702e36678f4777141331037fbc2e50c046dcb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d45a74a6_8ea4ee87",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1439319
+      },
+      "writtenOn": "2020-09-24T14:59:39Z",
+      "side": 1,
+      "message": "This CL is required to make ag/12585546 work. There, we are renaming a file from /data/app-staging to /data/app folder. Without SELinux permission, we will not be allowed to rename files between these two directories.",
+      "parentUuid": "6d989d0a_33e55501",
+      "range": {
+        "startLine": 569,
+        "startChar": 0,
+        "endLine": 569,
+        "endChar": 71
+      },
+      "revId": "c87702e36678f4777141331037fbc2e50c046dcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
