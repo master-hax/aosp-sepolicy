@@ -222,6 +222,19 @@ else ifneq ($(call math_lt,29,$(PRODUCT_SHIPPING_API_LEVEL)),)
   endif
 endif
 
+enforce_sysprop_owner := true
+ifeq ($(BUILD_BROKEN_ENFORCE_SYSPROP_OWNER),true)
+  enforce_sysprop_owner := false
+endif
+
+ifeq ($(PRODUCT_SHIPPING_API_LEVEL),)
+  #$(warning no product shipping level defined)
+else ifneq ($(call math_lt,30,$(PRODUCT_SHIPPING_API_LEVEL)),)
+  ifneq ($(BUILD_BROKEN_ENFORCE_SYSPROP_OWNER),)
+    $(error BUILD_BROKEN_ENFORCE_SYSPROP_OWNER cannot be set on a device shipping with R or later, and this is tested by CTS.)
+  endif
+endif
+
 # Library extension for host-side tests
 ifeq ($(HOST_OS),darwin)
 SHAREDLIB_EXT=dylib
@@ -528,6 +541,7 @@ $(reqd_policy_mask.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS
 $(reqd_policy_mask.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(reqd_policy_mask.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
 $(reqd_policy_mask.conf): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := $(treble_sysprop_neverallow)
+$(reqd_policy_mask.conf): PRIVATE_ENFORCE_SYSPROP_OWNER := $(enforce_sysprop_owner)
 $(reqd_policy_mask.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(reqd_policy_mask.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -574,6 +588,7 @@ $(pub_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(pub_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(pub_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
 $(pub_policy.conf): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := $(treble_sysprop_neverallow)
+$(pub_policy.conf): PRIVATE_ENFORCE_SYSPROP_OWNER := $(enforce_sysprop_owner)
 $(pub_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(pub_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -603,6 +618,7 @@ $(system_ext_pub_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M
 $(system_ext_pub_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(system_ext_pub_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
 $(system_ext_pub_policy.conf): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := $(treble_sysprop_neverallow)
+$(system_ext_pub_policy.conf): PRIVATE_ENFORCE_SYSPROP_OWNER := $(enforce_sysprop_owner)
 $(system_ext_pub_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(system_ext_pub_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -633,6 +649,7 @@ $(plat_pub_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(plat_pub_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(plat_pub_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
 $(plat_pub_policy.conf): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := $(treble_sysprop_neverallow)
+$(plat_pub_policy.conf): PRIVATE_ENFORCE_SYSPROP_OWNER := $(enforce_sysprop_owner)
 $(plat_pub_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(plat_pub_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -675,6 +692,7 @@ $(plat_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(plat_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(plat_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
 $(plat_policy.conf): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := $(treble_sysprop_neverallow)
+$(plat_policy.conf): PRIVATE_ENFORCE_SYSPROP_OWNER := $(enforce_sysprop_owner)
 $(plat_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(plat_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -721,6 +739,7 @@ $(userdebug_plat_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M
 $(userdebug_plat_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(userdebug_plat_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
 $(userdebug_plat_policy.conf): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := $(treble_sysprop_neverallow)
+$(userdebug_plat_policy.conf): PRIVATE_ENFORCE_SYSPROP_OWNER := $(enforce_sysprop_owner)
 $(userdebug_plat_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(userdebug_plat_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -769,6 +788,7 @@ $(system_ext_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEF
 $(system_ext_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(system_ext_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
 $(system_ext_policy.conf): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := $(treble_sysprop_neverallow)
+$(system_ext_policy.conf): PRIVATE_ENFORCE_SYSPROP_OWNER := $(enforce_sysprop_owner)
 $(system_ext_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(system_ext_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -825,6 +845,7 @@ $(product_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(product_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(product_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
 $(product_policy.conf): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := $(treble_sysprop_neverallow)
+$(product_policy.conf): PRIVATE_ENFORCE_SYSPROP_OWNER := $(enforce_sysprop_owner)
 $(product_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(product_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -998,6 +1019,7 @@ $(vendor_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(vendor_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(vendor_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
 $(vendor_policy.conf): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := $(treble_sysprop_neverallow)
+$(vendor_policy.conf): PRIVATE_ENFORCE_SYSPROP_OWNER := $(enforce_sysprop_owner)
 $(vendor_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(vendor_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -1054,6 +1076,7 @@ $(odm_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS)
 $(odm_policy.conf): PRIVATE_SEPOLICY_SPLIT := $(PRODUCT_SEPOLICY_SPLIT)
 $(odm_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
 $(odm_policy.conf): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := $(treble_sysprop_neverallow)
+$(odm_policy.conf): PRIVATE_ENFORCE_SYSPROP_OWNER := $(enforce_sysprop_owner)
 $(odm_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(odm_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -1381,6 +1404,7 @@ $(LOCAL_BUILT_MODULE): PRIVATE_WITH_ASAN := false
 $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY_SPLIT := cts
 $(LOCAL_BUILT_MODULE): PRIVATE_COMPATIBLE_PROPERTY := cts
 $(LOCAL_BUILT_MODULE): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := cts
+$(LOCAL_BUILT_MODULE): PRIVATE_ENFORCE_SYSPROP_OWNER := cts
 $(LOCAL_BUILT_MODULE): PRIVATE_EXCLUDE_BUILD_TEST := true
 $(LOCAL_BUILT_MODULE): PRIVATE_POLICY_FILES := $(policy_files)
 $(LOCAL_BUILT_MODULE): $(policy_files) $(M4)
@@ -1591,6 +1615,7 @@ $(base_plat_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4DEFS
 $(base_plat_policy.conf): PRIVATE_SEPOLICY_SPLIT := true
 $(base_plat_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
 $(base_plat_policy.conf): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := $(treble_sysprop_neverallow)
+$(base_plat_policy.conf): PRIVATE_ENFORCE_SYSPROP_OWNER := $(enforce_sysprop_owner)
 $(base_plat_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(base_plat_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -1622,6 +1647,7 @@ $(base_plat_pub_policy.conf): PRIVATE_ADDITIONAL_M4DEFS := $(LOCAL_ADDITIONAL_M4
 $(base_plat_pub_policy.conf): PRIVATE_SEPOLICY_SPLIT := true
 $(base_plat_pub_policy.conf): PRIVATE_COMPATIBLE_PROPERTY := $(PRODUCT_COMPATIBLE_PROPERTY)
 $(base_plat_pub_policy.conf): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := $(treble_sysprop_neverallow)
+$(base_plat_pub_policy.conf): PRIVATE_ENFORCE_SYSPROP_OWNER := $(enforce_sysprop_owner)
 $(base_plat_pub_policy.conf): PRIVATE_POLICY_FILES := $(policy_files)
 $(base_plat_pub_policy.conf): $(policy_files) $(M4)
 	$(transform-policy-to-conf)
@@ -1725,6 +1751,7 @@ built_plat_svc :=
 built_vendor_svc :=
 built_plat_sepolicy :=
 treble_sysprop_neverallow :=
+enforce_sysprop_owner :=
 mapping_policy :=
 my_target_arch :=
 pub_policy.cil :=
