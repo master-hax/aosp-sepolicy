@@ -50,6 +50,24 @@
       "revId": "94a183a4f35935f5257bdc701dcb85829c3df814",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64b9be95_473687fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-29T00:45:58Z",
+      "side": 1,
+      "message": "Basically, I wanted to do something like following without \"root\", which is what is happening in the linked bug.\n\n  $ adb shell pm list packages --apex-only -f | tr \":\u003d\" \" \" | cut -d \u0027 \u0027 -f2 | xargs -n1 adb pull\n\nThe test checks if every APEX in a device is not using well-known keys. To do that the test pulls them including APEXes in /vendor partitions.\n\nJiyong suggested that making adb capable of reading vendor files would be okay given that it can extracts /system files.\n\nIf this is not acceptable, there might be several alternatives\n- make the test rely on \"root\". I\u0027m not sure if it\u0027s okay for a CTS test to use \"root\".\n- narrow down the scope of the test so that it only tests /system APEXes.\n- introduce a new test point so that the test can verify that apexes don\u0027t use known keys.",
+      "parentUuid": "2d5dc194_f2932fe0",
+      "revId": "94a183a4f35935f5257bdc701dcb85829c3df814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
