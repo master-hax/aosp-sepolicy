@@ -68,6 +68,24 @@
       "revId": "94a183a4f35935f5257bdc701dcb85829c3df814",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91faad7f_2e5a7450",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-09-29T02:41:35Z",
+      "side": 1,
+      "message": "Hi Jeffrey, \n\nIn my understanding, the reason we generally don\u0027t allow a system process to have access to vendor files is because it\u0027s a Treble violation. But for adbd, I think it\u0027s fine because it doesn\u0027t actually interpret the file contents when it performs adb pull. (please note that we don\u0027t give any write or execute permission to adbd. only read access is given) The final consumer of the files pulled by adbd is neither system nor vendor and actually the consumer is out of scope of Treble.\n\nFrom the perspective of developer convenience, preventing `adb pull /vendor/foo` while allowing `adb pull /system/foo` looks very odd. IMO, it\u0027s just inconvenient without giving any value.",
+      "parentUuid": "64b9be95_473687fc",
+      "revId": "94a183a4f35935f5257bdc701dcb85829c3df814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
