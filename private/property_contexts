@@ -45,7 +45,6 @@ log.tag                 u:object_r:log_tag_prop:s0
 log.tag.WifiHAL         u:object_r:wifi_log_prop:s0
 security.perf_harden    u:object_r:shell_prop:s0
 service.adb.root        u:object_r:shell_prop:s0
-service.adb.tcp.port    u:object_r:shell_prop:s0
 service.adb.tls.port    u:object_r:adbd_prop:s0
 persist.adb.wifi.       u:object_r:adbd_prop:s0
 persist.adb.tls_server.enable  u:object_r:system_adbd_prop:s0
@@ -98,6 +97,9 @@ sys.trace.              u:object_r:system_trace_prop:s0
 # Fastbootd protocol control property
 fastbootd.protocol    u:object_r:fastbootd_protocol_prop:s0 exact enum usb tcp
 
+# adbd protoctl configuration property
+service.adb.tcp.port    u:object_r:adbd_config_prop:s0 exact int
+
 # Boolean property set by system server upon boot indicating
 # if device is fully owned by organization instead of being
 # a personal device.
@@ -129,7 +131,7 @@ ctl.bugreport           u:object_r:ctl_bugreport_prop:s0
 ctl.console             u:object_r:ctl_console_prop:s0
 ctl.                    u:object_r:ctl_default_prop:s0
 
-# Don't allow blind access to all services
+# Don't allow uncontrolled access to all services
 ctl.sigstop_on$         u:object_r:ctl_sigstop_prop:s0
 ctl.sigstop_off$        u:object_r:ctl_sigstop_prop:s0
 ctl.start$              u:object_r:ctl_start_prop:s0
@@ -180,19 +182,18 @@ heapprofd.              u:object_r:heapprofd_prop:s0
 # hwservicemanager properties
 hwservicemanager.       u:object_r:hwservicemanager_prop:s0
 
-# Common default properties for vendor, odm, and vendor_dlkm.
+# Common default properties for vendor, odm, vendor_dlkm, and odm_dlkm.
 init.svc.odm.           u:object_r:vendor_default_prop:s0
 init.svc.vendor.        u:object_r:vendor_default_prop:s0
 ro.hardware.            u:object_r:vendor_default_prop:s0
 ro.odm.                 u:object_r:vendor_default_prop:s0
 ro.vendor.              u:object_r:vendor_default_prop:s0
 ro.vendor_dlkm.         u:object_r:vendor_default_prop:s0
+ro.odm_dlkm.            u:object_r:vendor_default_prop:s0
 odm.                    u:object_r:vendor_default_prop:s0
 persist.odm.            u:object_r:vendor_default_prop:s0
 persist.vendor.         u:object_r:vendor_default_prop:s0
 vendor.                 u:object_r:vendor_default_prop:s0
-# ro.boot. properties are set based on kernel commandline arguments, which are vendor owned.
-ro.boot.                u:object_r:exported2_default_prop:s0
 
 # Properties that relate to time / time zone detection behavior.
 persist.time.           u:object_r:time_prop:s0
@@ -234,9 +235,11 @@ sys.boot_from_charger_mode  u:object_r:charger_status_prop:s0 exact int
 ro.enable_boot_charger_mode u:object_r:charger_config_prop:s0 exact bool
 
 # Virtual A/B properties
-ro.virtual_ab.enabled   u:object_r:virtual_ab_prop:s0
-ro.virtual_ab.retrofit  u:object_r:virtual_ab_prop:s0
+ro.virtual_ab.enabled   u:object_r:virtual_ab_prop:s0 exact bool
+ro.virtual_ab.retrofit  u:object_r:virtual_ab_prop:s0 exact bool
+ro.virtual_ab.compression.enabled  u:object_r:virtual_ab_prop:s0 exact bool
 
+ro.product.ab_ota_partitions u:object_r:ota_prop:s0 exact string
 # Property to set/clear the warm reset flag after an OTA update.
 ota.warm_reset  u:object_r:ota_prop:s0
 
@@ -264,6 +267,8 @@ audio.offload.min.duration.secs u:object_r:audio_config_prop:s0 exact int
 
 ro.audio.ignore_effects  u:object_r:audio_config_prop:s0 exact bool
 ro.audio.monitorRotation u:object_r:audio_config_prop:s0 exact bool
+
+persist.config.calibration_fac u:object_r:camera_calibration_prop:s0 exact string
 
 config.disable_cameraservice u:object_r:camera_config_prop:s0 exact bool
 
@@ -343,6 +348,7 @@ dalvik.vm.restore-dex2oat-threads             u:object_r:dalvik_config_prop:s0 e
 dalvik.vm.usejit                              u:object_r:dalvik_config_prop:s0 exact bool
 dalvik.vm.usejitprofiles                      u:object_r:dalvik_config_prop:s0 exact bool
 dalvik.vm.zygote.max-boot-retry               u:object_r:dalvik_config_prop:s0 exact int
+ro.zygote                                     u:object_r:dalvik_config_prop:s0 exact string
 
 persist.sys.dalvik.vm.lib.2 u:object_r:dalvik_runtime_prop:s0 exact string
 
@@ -358,14 +364,14 @@ persist.bluetooth.a2dp_offload.disabled        u:object_r:bluetooth_a2dp_offload
 persist.bluetooth.bluetooth_audio_hal.disabled u:object_r:bluetooth_audio_hal_prop:s0 exact bool
 persist.bluetooth.btsnoopenable                u:object_r:exported_bluetooth_prop:s0 exact bool
 
-persist.config.calibration_fac u:object_r:exported3_default_prop:s0 exact string
+persist.radio.multisim.config u:object_r:radio_control_prop:s0 exact string
 
-persist.radio.multisim.config u:object_r:exported3_radio_prop:s0 exact string
-
-persist.sys.hdmi.keep_awake u:object_r:hdmi_config_prop:s0 exact bool
-ro.hdmi.cec_device_types    u:object_r:hdmi_config_prop:s0 exact string
-ro.hdmi.device_type         u:object_r:hdmi_config_prop:s0 exact string
-ro.hdmi.wake_on_hotplug     u:object_r:hdmi_config_prop:s0 exact bool
+persist.sys.hdmi.keep_awake                  u:object_r:hdmi_config_prop:s0 exact bool
+ro.hdmi.cec_device_types                     u:object_r:hdmi_config_prop:s0 exact string
+ro.hdmi.device_type                          u:object_r:hdmi_config_prop:s0 exact string
+ro.hdmi.cec.source.set_menu_language.enabled u:object_r:hdmi_config_prop:s0 exact bool
+ro.hdmi.wake_on_hotplug                      u:object_r:hdmi_config_prop:s0 exact bool
+ro.hdmi.cec.source.send_standby_on_sleep     u:object_r:hdmi_config_prop:s0 exact enum to_tv broadcast none
 
 pm.dexopt.ab-ota                        u:object_r:exported_pm_prop:s0 exact string
 pm.dexopt.bg-dexopt                     u:object_r:exported_pm_prop:s0 exact string
@@ -382,7 +388,6 @@ ro.apk_verity.mode u:object_r:apk_verity_prop:s0 exact int
 ro.bluetooth.a2dp_offload.supported u:object_r:bluetooth_a2dp_offload_prop:s0 exact bool
 
 ro.boot.vendor.overlay.theme u:object_r:exported_overlay_prop:s0 exact string
-ro.boot.wificountrycode      u:object_r:exported3_default_prop:s0 exact string
 
 ro.bt.bdaddr_path u:object_r:exported_bluetooth_prop:s0 exact string
 
@@ -396,8 +401,6 @@ ro.config.ringtone            u:object_r:systemsound_config_prop:s0 exact string
 ro.config.system_vol_default  u:object_r:systemsound_config_prop:s0 exact int
 ro.config.system_vol_steps    u:object_r:systemsound_config_prop:s0 exact int
 ro.config.vc_call_vol_default u:object_r:systemsound_config_prop:s0 exact int
-
-ro.config.per_app_memcg u:object_r:exported3_default_prop:s0 exact bool
 
 ro.control_privapp_permissions u:object_r:packagemanager_config_prop:s0 exact enum disable enforce log
 ro.cp_system_other_odex        u:object_r:packagemanager_config_prop:s0 exact bool
@@ -420,6 +423,7 @@ external_storage.projid.enabled   u:object_r:storage_config_prop:s0 exact bool
 external_storage.casefold.enabled u:object_r:storage_config_prop:s0 exact bool
 external_storage.sdcardfs.enabled u:object_r:storage_config_prop:s0 exact bool
 
+ro.config.per_app_memcg         u:object_r:lmkd_config_prop:s0 exact bool
 ro.lmk.critical                 u:object_r:lmkd_config_prop:s0 exact int
 ro.lmk.critical_upgrade         u:object_r:lmkd_config_prop:s0 exact bool
 ro.lmk.debug                    u:object_r:lmkd_config_prop:s0 exact bool
@@ -446,13 +450,11 @@ ro.minui.default_rotation u:object_r:recovery_config_prop:s0 exact string
 ro.minui.overscan_percent u:object_r:recovery_config_prop:s0 exact int
 ro.minui.pixel_format     u:object_r:recovery_config_prop:s0 exact string
 
-ro.oem_unlock_supported u:object_r:exported3_default_prop:s0 exact int
-
-ro.opengles.version u:object_r:exported3_default_prop:s0 exact int
+ro.oem_unlock_supported u:object_r:oem_unlock_prop:s0 exact int
 
 ro.rebootescrow.device u:object_r:rebootescrow_hal_prop:s0 exact string
 
-ro.storage_manager.enabled u:object_r:exported3_default_prop:s0 exact bool
+ro.storage_manager.enabled u:object_r:storagemanager_config_prop:s0 exact bool
 
 ro.vehicle.hal u:object_r:vehicle_hal_prop:s0 exact string
 
@@ -464,9 +466,7 @@ ro.zram.periodic_wb_delay_hours u:object_r:zram_config_prop:s0 exact int
 zram.force_writeback            u:object_r:zram_config_prop:s0 exact bool
 persist.sys.zram_enabled        u:object_r:zram_control_prop:s0 exact bool
 
-ro.zygote u:object_r:exported3_default_prop:s0 exact string
-
-sendbug.preferred.domain u:object_r:exported3_default_prop:s0 exact string
+sendbug.preferred.domain u:object_r:sendbug_config_prop:s0 exact string
 
 persist.sys.usb.usbradio.config u:object_r:usb_control_prop:s0 exact string
 
@@ -489,8 +489,6 @@ sys.usb.ffs.mtp.ready u:object_r:ffs_control_prop:s0 exact bool
 tombstoned.max_tombstone_count u:object_r:tombstone_config_prop:s0 exact int
 
 vold.post_fs_data_done u:object_r:vold_config_prop:s0 exact int
-
-wlan.driver.status u:object_r:exported_wifi_prop:s0 exact enum ok unloaded
 
 apexd.status u:object_r:apexd_prop:s0 exact enum starting activated ready
 
@@ -521,17 +519,20 @@ drm.service.enabled u:object_r:drm_service_config_prop:s0 exact bool
 
 dumpstate.dry_run u:object_r:exported_dumpstate_prop:s0 exact bool
 dumpstate.unroot  u:object_r:exported_dumpstate_prop:s0 exact bool
+persist.dumpstate.verbose_logging.enabled u:object_r:hal_dumpstate_config_prop:s0 exact bool
 
-hal.instrumentation.enable u:object_r:exported2_default_prop:s0 exact bool
+hal.instrumentation.enable u:object_r:hal_instrumentation_prop:s0 exact bool
 
 # default contexts only accessible by coredomain
-init.svc. u:object_r:init_service_status_private_prop:s0 exact string
+init.svc. u:object_r:init_service_status_private_prop:s0 prefix string
 
 # vendor-init-readable init service props
 init.svc.bugreport      u:object_r:init_service_status_prop:s0 exact string
+init.svc.bugreportd     u:object_r:init_service_status_prop:s0 exact string
 init.svc.console        u:object_r:init_service_status_prop:s0 exact string
 init.svc.dumpstatez     u:object_r:init_service_status_prop:s0 exact string
 init.svc.mediadrm       u:object_r:init_service_status_prop:s0 exact string
+init.svc.statsd         u:object_r:init_service_status_prop:s0 exact string
 init.svc.surfaceflinger u:object_r:init_service_status_prop:s0 exact string
 init.svc.tombstoned     u:object_r:init_service_status_prop:s0 exact string
 init.svc.zygote         u:object_r:init_service_status_prop:s0 exact string
@@ -546,28 +547,38 @@ persist.sys.locale       u:object_r:exported_system_prop:s0 exact string
 persist.sys.timezone     u:object_r:exported_system_prop:s0 exact string
 persist.sys.test_harness u:object_r:test_harness_prop:s0 exact bool
 
-ro.arch u:object_r:exported2_default_prop:s0 exact string
+ro.arch u:object_r:build_prop:s0 exact string
 
-ro.baseband u:object_r:exported2_default_prop:s0 exact string
+# ro.boot. properties are set based on kernel commandline arguments, which are vendor owned.
+ro.boot.                   u:object_r:bootloader_prop:s0
+ro.boot.avb_version        u:object_r:bootloader_prop:s0 exact string
+ro.boot.baseband           u:object_r:bootloader_prop:s0 exact string
+ro.boot.bootdevice         u:object_r:bootloader_prop:s0 exact string
+ro.boot.bootloader         u:object_r:bootloader_prop:s0 exact string
+ro.boot.boottime           u:object_r:bootloader_prop:s0 exact string
+ro.boot.console            u:object_r:bootloader_prop:s0 exact string
+ro.boot.hardware           u:object_r:bootloader_prop:s0 exact string
+ro.boot.hardware.color     u:object_r:bootloader_prop:s0 exact string
+ro.boot.hardware.sku       u:object_r:bootloader_prop:s0 exact string
+ro.boot.keymaster          u:object_r:bootloader_prop:s0 exact string
+ro.boot.mode               u:object_r:bootloader_prop:s0 exact string
+ro.boot.revision           u:object_r:bootloader_prop:s0 exact string
+ro.boot.vbmeta.avb_version u:object_r:bootloader_prop:s0 exact string
+ro.boot.verifiedbootstate  u:object_r:bootloader_prop:s0 exact string
+ro.boot.veritymode         u:object_r:bootloader_prop:s0 exact string
 
-ro.boot.avb_version                 u:object_r:exported2_default_prop:s0 exact string
-ro.boot.baseband                    u:object_r:exported2_default_prop:s0 exact string
-ro.boot.bootdevice                  u:object_r:exported2_default_prop:s0 exact string
-ro.boot.bootloader                  u:object_r:exported2_default_prop:s0 exact string
-ro.boot.boottime                    u:object_r:exported2_default_prop:s0 exact string
-ro.boot.console                     u:object_r:exported2_default_prop:s0 exact string
-ro.boot.hardware                    u:object_r:exported2_default_prop:s0 exact string
-ro.boot.hardware.color              u:object_r:exported2_default_prop:s0 exact string
-ro.boot.hardware.sku                u:object_r:exported2_default_prop:s0 exact string
-ro.boot.keymaster                   u:object_r:exported2_default_prop:s0 exact string
-ro.boot.mode                        u:object_r:exported2_default_prop:s0 exact string
-ro.boot.vbmeta.avb_version          u:object_r:exported2_default_prop:s0 exact string
-ro.boot.verifiedbootstate           u:object_r:exported2_default_prop:s0 exact string
-ro.boot.veritymode                  u:object_r:exported2_default_prop:s0 exact string
+# These ro.X properties are set to values of ro.boot.X by property_service.
+ro.baseband   u:object_r:bootloader_prop:s0 exact string
+ro.bootloader u:object_r:bootloader_prop:s0 exact string
+ro.bootmode   u:object_r:bootloader_prop:s0 exact string
+ro.hardware   u:object_r:bootloader_prop:s0 exact string
+ro.revision   u:object_r:bootloader_prop:s0 exact string
+
 ro.boot.dynamic_partitions          u:object_r:exported_default_prop:s0 exact string
 ro.boot.dynamic_partitions_retrofit u:object_r:exported_default_prop:s0 exact string
 
-ro.bootloader u:object_r:exported2_default_prop:s0 exact string
+ro.boottime.init.mount.data u:object_r:boottime_public_prop:s0 exact string
+ro.boottime.init.fsck.data  u:object_r:boottime_public_prop:s0 exact string
 
 ro.build.date                        u:object_r:build_prop:s0 exact string
 ro.build.date.utc                    u:object_r:build_prop:s0 exact int
@@ -606,6 +617,18 @@ ro.product.manufacturer  u:object_r:build_prop:s0 exact string
 ro.product.model         u:object_r:build_prop:s0 exact string
 ro.product.name          u:object_r:build_prop:s0 exact string
 
+# Sanitizer properties
+ro.sanitize.address          u:object_r:build_prop:s0 exact bool
+ro.sanitize.cfi              u:object_r:build_prop:s0 exact bool
+ro.sanitize.default-ub       u:object_r:build_prop:s0 exact bool
+ro.sanitize.fuzzer           u:object_r:build_prop:s0 exact bool
+ro.sanitize.hwaddress        u:object_r:build_prop:s0 exact bool
+ro.sanitize.integer_overflow u:object_r:build_prop:s0 exact bool
+ro.sanitize.safe-stack       u:object_r:build_prop:s0 exact bool
+ro.sanitize.scudo            u:object_r:build_prop:s0 exact bool
+ro.sanitize.thread           u:object_r:build_prop:s0 exact bool
+ro.sanitize.undefined        u:object_r:build_prop:s0 exact bool
+
 # All odm build props are set by /odm/build.prop
 ro.odm.build.date                u:object_r:build_odm_prop:s0 exact string
 ro.odm.build.date.utc            u:object_r:build_odm_prop:s0 exact int
@@ -618,17 +641,24 @@ ro.product.odm.manufacturer u:object_r:build_odm_prop:s0 exact string
 ro.product.odm.model        u:object_r:build_odm_prop:s0 exact string
 ro.product.odm.name         u:object_r:build_odm_prop:s0 exact string
 
-# All vendor_dlkm build props are set by /vendor_dlkm/build.prop
+# All vendor_dlkm build props are set by /vendor_dlkm/etc/build.prop
 ro.vendor_dlkm.build.date                u:object_r:build_vendor_prop:s0 exact string
 ro.vendor_dlkm.build.date.utc            u:object_r:build_vendor_prop:s0 exact int
 ro.vendor_dlkm.build.fingerprint         u:object_r:build_vendor_prop:s0 exact string
 ro.vendor_dlkm.build.version.incremental u:object_r:build_vendor_prop:s0 exact string
+
+# All odm_dlkm build props are set by /odm_dlkm/etc/build.prop
+ro.odm_dlkm.build.date                u:object_r:build_vendor_prop:s0 exact string
+ro.odm_dlkm.build.date.utc            u:object_r:build_vendor_prop:s0 exact int
+ro.odm_dlkm.build.fingerprint         u:object_r:build_vendor_prop:s0 exact string
+ro.odm_dlkm.build.version.incremental u:object_r:build_vendor_prop:s0 exact string
 
 # All vendor build props are set by /vendor/build.prop
 ro.vendor.build.date                u:object_r:build_vendor_prop:s0 exact string
 ro.vendor.build.date.utc            u:object_r:build_vendor_prop:s0 exact int
 ro.vendor.build.fingerprint         u:object_r:build_vendor_prop:s0 exact string
 ro.vendor.build.version.incremental u:object_r:build_vendor_prop:s0 exact string
+ro.vendor.build.version.sdk         u:object_r:build_vendor_prop:s0 exact int
 
 ro.product.board               u:object_r:build_vendor_prop:s0 exact string
 ro.product.first_api_level     u:object_r:build_vendor_prop:s0 exact int
@@ -641,11 +671,7 @@ ro.product.vendor.name         u:object_r:build_vendor_prop:s0 exact string
 ro.crypto.state u:object_r:vold_status_prop:s0 exact enum encrypted unencrypted unsupported
 ro.crypto.type  u:object_r:vold_status_prop:s0 exact enum block file none
 
-ro.hardware u:object_r:exported2_default_prop:s0 exact string
-
-ro.property_service.version u:object_r:exported2_default_prop:s0 exact int
-
-ro.revision u:object_r:exported2_default_prop:s0 exact string
+ro.property_service.version u:object_r:property_service_version_prop:s0 exact int
 
 ro.vendor.redirect_socket_calls u:object_r:vendor_socket_hook_prop:s0 exact bool
 
@@ -681,7 +707,11 @@ ro.boot.slot_suffix          u:object_r:exported_default_prop:s0 exact string
 
 ro.boringcrypto.hwrand u:object_r:exported_default_prop:s0 exact bool
 
-ro.build.ab_update         u:object_r:exported_default_prop:s0 exact string
+# Update related props
+ro.build.ab_update                                u:object_r:exported_default_prop:s0 exact string
+ro.build.ab_update.gki.prevent_downgrade_version  u:object_r:ab_update_gki_prop:s0 exact bool
+ro.build.ab_update.gki.prevent_downgrade_spl      u:object_r:ab_update_gki_prop:s0 exact bool
+
 ro.build.expect.baseband   u:object_r:exported_default_prop:s0 exact string
 ro.build.expect.bootloader u:object_r:exported_default_prop:s0 exact string
 
@@ -751,11 +781,14 @@ ro.vts.coverage u:object_r:vts_config_prop:s0 exact int
 
 vts.native_server.on u:object_r:vts_status_prop:s0 exact bool
 
-wifi.active.interface     u:object_r:exported_wifi_prop:s0 exact string
-wifi.aware.interface      u:object_r:exported_wifi_prop:s0 exact string
-wifi.concurrent.interface u:object_r:exported_default_prop:s0 exact string
-wifi.direct.interface     u:object_r:exported_default_prop:s0 exact string
-wifi.interface            u:object_r:exported_default_prop:s0 exact string
+wifi.active.interface     u:object_r:wifi_hal_prop:s0 exact string
+wifi.aware.interface      u:object_r:wifi_hal_prop:s0 exact string
+wifi.concurrent.interface u:object_r:wifi_hal_prop:s0 exact string
+wifi.direct.interface     u:object_r:wifi_hal_prop:s0 exact string
+wifi.interface            u:object_r:wifi_hal_prop:s0 exact string
+wlan.driver.status        u:object_r:wifi_hal_prop:s0 exact enum ok unloaded
+
+ro.boot.wificountrycode u:object_r:wifi_config_prop:s0 exact string
 
 ro.apex.updatable u:object_r:exported_default_prop:s0 exact bool
 
@@ -769,10 +802,6 @@ init.userspace_reboot.sigterm.timeoutmillis u:object_r:userspace_reboot_config_p
 init.userspace_reboot.started.timeoutmillis u:object_r:userspace_reboot_config_prop:s0 exact int
 init.userspace_reboot.userdata_remount.timeoutmillis u:object_r:userspace_reboot_config_prop:s0 exact int
 init.userspace_reboot.watchdog.timeoutmillis u:object_r:userspace_reboot_config_prop:s0 exact int
-
-ro.boot.revision u:object_r:exported2_default_prop:s0 exact string
-
-ro.bootmode u:object_r:exported2_default_prop:s0 exact string
 
 sys.shutdown.requested u:object_r:exported_system_prop:s0 exact string
 
@@ -838,6 +867,8 @@ cache_key.telephony.                     u:object_r:binder_cache_telephony_serve
 gsm.sim.operator.numeric       u:object_r:telephony_status_prop:s0 exact string
 persist.radio.airplane_mode_on u:object_r:telephony_status_prop:s0 exact bool
 
+ro.cdma.home.operator.alpha       u:object_r:telephony_config_prop:s0 exact string
+ro.cdma.home.operator.numeric     u:object_r:telephony_config_prop:s0 exact string
 ro.com.android.dataroaming        u:object_r:telephony_config_prop:s0 exact bool
 ro.com.android.prov_mobiledata    u:object_r:telephony_config_prop:s0 exact bool
 ro.radio.noril                    u:object_r:telephony_config_prop:s0 exact string
@@ -855,9 +886,17 @@ persist.dbg.wfc_avail_ovr         u:object_r:telephony_config_prop:s0 exact int
 ro.localization.locale_filter u:object_r:localization_prop:s0 exact string
 
 # Graphics related properties
+ro.opengles.version u:object_r:graphics_config_prop:s0 exact int
+
 ro.gfx.driver.0        u:object_r:graphics_config_prop:s0 exact string
 ro.gfx.driver.1        u:object_r:graphics_config_prop:s0 exact string
 ro.gfx.angle.supported u:object_r:graphics_config_prop:s0 exact bool
 
 graphics.gpu.profiler.support          u:object_r:graphics_config_prop:s0 exact bool
 graphics.gpu.profiler.vulkan_layer_apk u:object_r:graphics_config_prop:s0 exact string
+
+# surfaceflinger-settable
+graphics.display.kernel_idle_timer.enabled u:object_r:surfaceflinger_display_prop:s0 exact bool
+
+# Disable/enable charger input
+power.battery_input.suspended u:object_r:power_debug_prop:s0 exact bool

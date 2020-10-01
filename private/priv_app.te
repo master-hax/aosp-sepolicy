@@ -38,6 +38,7 @@ allow priv_app mediadrmserver_service:service_manager find;
 allow priv_app mediaextractor_service:service_manager find;
 allow priv_app mediametrics_service:service_manager find;
 allow priv_app mediaserver_service:service_manager find;
+allow priv_app music_recognition_service:service_manager find;
 allow priv_app network_watchlist_service:service_manager find;
 allow priv_app nfc_service:service_manager find;
 allow priv_app oem_lock_service:service_manager find;
@@ -134,8 +135,7 @@ dontaudit priv_app sysfs:dir read;
 dontaudit priv_app sysfs:file read;
 dontaudit priv_app sysfs_android_usb:file read;
 dontaudit priv_app sysfs_dm:file r_file_perms;
-dontaudit priv_app wifi_prop:file read;
-dontaudit priv_app { wifi_prop exported_wifi_prop }:file read;
+dontaudit priv_app { wifi_prop wifi_hal_prop }:file read;
 
 # allow privileged apps to use UDP sockets provided by the system server but not
 # modify them other than to connect

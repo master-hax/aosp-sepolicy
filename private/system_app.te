@@ -4,7 +4,7 @@
 ### server.
 ###
 
-typeattribute system_app coredomain;
+typeattribute system_app coredomain, mlstrustedsubject;
 
 app_domain(system_app)
 net_domain(system_app)
@@ -44,7 +44,6 @@ set_prop(system_app, debug_prop)
 set_prop(system_app, system_prop)
 set_prop(system_app, exported_bluetooth_prop)
 set_prop(system_app, exported_system_prop)
-set_prop(system_app, exported2_system_prop)
 set_prop(system_app, exported3_system_prop)
 set_prop(system_app, logd_prop)
 set_prop(system_app, net_radio_prop)
@@ -136,6 +135,15 @@ allow system_app keystore:keystore_key {
     user_changed
 };
 
+allow system_app keystore:keystore2_key {
+    delete
+    get_info
+    grant
+    rebind
+    update
+    use
+};
+
 # settings app reads /proc/version
 allow system_app {
   proc_version
@@ -152,6 +160,9 @@ get_prop(system_app, device_logging_prop)
 # modify them other than to connect
 allow system_app system_server:udp_socket {
         connect getattr read recvfrom sendto write getopt setopt };
+
+# Settings app reads ro.oem_unlock_supported
+get_prop(system_app, oem_unlock_prop)
 
 ###
 ### Neverallow rules
