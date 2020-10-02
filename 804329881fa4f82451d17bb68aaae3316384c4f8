@@ -63,6 +63,30 @@
       "revId": "804329881fa4f82451d17bb68aaae3316384c4f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "733287c0_e7d96b2c",
+        "filename": "public/service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-10-02T17:23:21Z",
+      "side": 1,
+      "message": "I misunderstood as well. I thought you meant you were running tests as \"adb shell\". FWIW, CTS has the idea of \"hostside\" tests. See cts/hostside for many many examples. These tests run on the device as the \"adb shell\" user. This is a great place to put tests for privileged functionality that should not be reachable by regular apps. The downside of running your test as a regular CTS test is that it runs in the same sandbox as any other third-party app. So we have to expose privileged functionality to apps which is generally a bad security practice.\n\nWould it be possible to move your test to a hostside test?",
+      "parentUuid": "5937f1ed_cf4c6a08",
+      "range": {
+        "startLine": 186,
+        "startChar": 31,
+        "endLine": 186,
+        "endChar": 46
+      },
+      "revId": "804329881fa4f82451d17bb68aaae3316384c4f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
