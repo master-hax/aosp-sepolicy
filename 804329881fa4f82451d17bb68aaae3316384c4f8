@@ -39,6 +39,30 @@
       "revId": "804329881fa4f82451d17bb68aaae3316384c4f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5937f1ed_cf4c6a08",
+        "filename": "public/service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2020-10-02T17:07:49Z",
+      "side": 1,
+      "message": "Sorry, my selinux knowledge is pretty poor, so I might not understand exactly what you mean / where to put things\n\nI thought the issue here was that the process is running a CTS apk and \"borrowing\" the shell permissions, not that the test is actually running as the shell process. I could be wrong.\n\nFWIW, I tried removing my service.te change and adding the line:\n\n+++ b/public/shell.te\n@@ -89,6 +89,7 @@ allow shell {\n   -vold_service\n   -vr_hwc_service\n   -default_android_service\n+  timezonedetector_service\n }:service_manager find;\n allow shell dumpstate:binder call;\n\n\nto shell.te, but it built but didn\u0027t work.\n\nFYI - I also tried with a leading \"-\" in case my assumptions about the \"-\" syntax meaning \"deny\" were bad, but to no effect.\n\nHere\u0027s the error from logcat (both looked the same):\n\n10-02 17:55:32.909   587   587 E SELinux : avc:  denied  { find } for pid\u003d8918 uid\u003d10270 name\u003dtime_zone_detector scontext\u003du:r:untrusted_app:s0:c14,c257,c512,c768 tcontext\u003du:object_r:timezonedetector_service:s0 tclass\u003dservice_manager permissive\u003d0\n\n\nIs there something else I can try?",
+      "parentUuid": "4215a366_647f6da5",
+      "range": {
+        "startLine": 186,
+        "startChar": 31,
+        "endLine": 186,
+        "endChar": 46
+      },
+      "revId": "804329881fa4f82451d17bb68aaae3316384c4f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
