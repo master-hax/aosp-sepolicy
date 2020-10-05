@@ -201,14 +201,6 @@ recovery_only(`
   allow vendor_init rootfs:file { r_file_perms execute };
 ')
 
-not_compatible_property(`
-    set_prop(vendor_init, {
-      property_type
-      -system_internal_property_type
-      -system_restricted_property_type
-    })
-')
-
 # Get file context
 allow vendor_init file_contexts_file:file r_file_perms;
 

@@ -126,172 +126,168 @@ neverallow {
   userdebug_or_eng(`-su')
 } init_svc_debug_prop:file no_rw_file_perms;
 
-compatible_property_only(`
 # Prevent properties from being set
-  neverallow {
-    domain
-    -coredomain
-    -appdomain
-    -vendor_init
-  } {
-    core_property_type
-    extended_core_property_type
-    exported_config_prop
-    exported_default_prop
-    exported_dumpstate_prop
-    exported_system_prop
-    exported3_system_prop
-    usb_control_prop
-    -nfc_prop
-    -powerctl_prop
-    -radio_prop
-  }:property_service set;
+neverallow {
+  domain
+  -coredomain
+  -appdomain
+  -vendor_init
+} {
+  core_property_type
+  extended_core_property_type
+  exported_config_prop
+  exported_default_prop
+  exported_dumpstate_prop
+  exported_system_prop
+  exported3_system_prop
+  usb_control_prop
+  -nfc_prop
+  -powerctl_prop
+  -radio_prop
+}:property_service set;
 
-  neverallow {
-    domain
-    -coredomain
-    -appdomain
-    -hal_nfc_server
-  } {
-    nfc_prop
-  }:property_service set;
+neverallow {
+  domain
+  -coredomain
+  -appdomain
+  -hal_nfc_server
+} {
+  nfc_prop
+}:property_service set;
 
-  neverallow {
-    domain
-    -coredomain
-    -appdomain
-    -hal_telephony_server
-    -vendor_init
-  } {
-    radio_control_prop
-  }:property_service set;
+neverallow {
+  domain
+  -coredomain
+  -appdomain
+  -hal_telephony_server
+  -vendor_init
+} {
+  radio_control_prop
+}:property_service set;
 
-  neverallow {
-    domain
-    -coredomain
-    -appdomain
-    -hal_telephony_server
-  } {
-    radio_prop
-  }:property_service set;
+neverallow {
+  domain
+  -coredomain
+  -appdomain
+  -hal_telephony_server
+} {
+  radio_prop
+}:property_service set;
 
-  neverallow {
-    domain
-    -coredomain
-    -bluetooth
-    -hal_bluetooth_server
-  } {
-    bluetooth_prop
-  }:property_service set;
+neverallow {
+  domain
+  -coredomain
+  -bluetooth
+  -hal_bluetooth_server
+} {
+  bluetooth_prop
+}:property_service set;
 
-  neverallow {
-    domain
-    -coredomain
-    -bluetooth
-    -hal_bluetooth_server
-    -vendor_init
-  } {
-    exported_bluetooth_prop
-  }:property_service set;
+neverallow {
+  domain
+  -coredomain
+  -bluetooth
+  -hal_bluetooth_server
+  -vendor_init
+} {
+  exported_bluetooth_prop
+}:property_service set;
 
-  neverallow {
-    domain
-    -coredomain
-    -hal_camera_server
-    -cameraserver
-    -vendor_init
-  } {
-    exported_camera_prop
-  }:property_service set;
+neverallow {
+  domain
+  -coredomain
+  -hal_camera_server
+  -cameraserver
+  -vendor_init
+} {
+  exported_camera_prop
+}:property_service set;
 
-  neverallow {
-    domain
-    -coredomain
-    -hal_wifi_server
-    -wificond
-  } {
-    wifi_prop
-  }:property_service set;
+neverallow {
+  domain
+  -coredomain
+  -hal_wifi_server
+  -wificond
+} {
+  wifi_prop
+}:property_service set;
 
-  neverallow {
-    domain
-    -init
-    -dumpstate
-    -hal_wifi_server
-    -wificond
-    -vendor_init
-  } {
-    wifi_hal_prop
-  }:property_service set;
+neverallow {
+  domain
+  -init
+  -dumpstate
+  -hal_wifi_server
+  -wificond
+  -vendor_init
+} {
+  wifi_hal_prop
+}:property_service set;
 
 # Prevent properties from being read
-  neverallow {
-    domain
-    -coredomain
-    -appdomain
-    -vendor_init
-  } {
-    core_property_type
-    dalvik_config_prop
-    extended_core_property_type
-    exported3_system_prop
-    systemsound_config_prop
-    -debug_prop
-    -logd_prop
-    -nfc_prop
-    -powerctl_prop
-    -radio_prop
-  }:file no_rw_file_perms;
+neverallow {
+  domain
+  -coredomain
+  -appdomain
+  -vendor_init
+} {
+  core_property_type
+  dalvik_config_prop
+  extended_core_property_type
+  exported3_system_prop
+  systemsound_config_prop
+  -debug_prop
+  -logd_prop
+  -nfc_prop
+  -powerctl_prop
+  -radio_prop
+}:file no_rw_file_perms;
 
-  neverallow {
-    domain
-    -coredomain
-    -appdomain
-    -hal_nfc_server
-  } {
-    nfc_prop
-  }:file no_rw_file_perms;
+neverallow {
+  domain
+  -coredomain
+  -appdomain
+  -hal_nfc_server
+} {
+  nfc_prop
+}:file no_rw_file_perms;
 
-  neverallow {
-    domain
-    -coredomain
-    -appdomain
-    -hal_telephony_server
-  } {
-    radio_prop
-  }:file no_rw_file_perms;
+neverallow {
+  domain
+  -coredomain
+  -appdomain
+  -hal_telephony_server
+} {
+  radio_prop
+}:file no_rw_file_perms;
 
-  neverallow {
-    domain
-    -coredomain
-    -bluetooth
-    -hal_bluetooth_server
-  } {
-    bluetooth_prop
-  }:file no_rw_file_perms;
+neverallow {
+  domain
+  -coredomain
+  -bluetooth
+  -hal_bluetooth_server
+} {
+  bluetooth_prop
+}:file no_rw_file_perms;
 
-  neverallow {
-    domain
-    -coredomain
-    -hal_wifi_server
-    -wificond
-  } {
-    wifi_prop
-  }:file no_rw_file_perms;
-')
+neverallow {
+  domain
+  -coredomain
+  -hal_wifi_server
+  -wificond
+} {
+  wifi_prop
+}:file no_rw_file_perms;
 
-compatible_property_only(`
-  # Neverallow coredomain to set vendor properties
-  neverallow {
-    coredomain
-    -init
-    -system_writes_vendor_properties_violators
-  } {
-    property_type
-    -system_property_type
-    -extended_core_property_type
-  }:property_service set;
-')
+# Neverallow coredomain to set vendor properties
+neverallow {
+  coredomain
+  -init
+  -system_writes_vendor_properties_violators
+} {
+  property_type
+  -system_property_type
+  -extended_core_property_type
+}:property_service set;
 
 neverallow {
   -coredomain
@@ -394,7 +390,6 @@ neverallow {
   -radio
   -appdomain
   -hal_telephony_server
-  not_compatible_property(`-vendor_init')
 } telephony_status_prop:property_service set;
 
 neverallow {
@@ -458,5 +453,4 @@ neverallow {
   -init
   -dumpstate
   -hal_dumpstate_server
-  not_compatible_property(`-vendor_init')
 } hal_dumpstate_config_prop:file no_rw_file_perms;
