@@ -16,6 +16,24 @@
       "message": "For some context, what exactly is this directory and what does it contain?",
       "revId": "115a7fe5b758547f0fbabe13c1b3bb6740a37086",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bad508bb_751782f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-10-07T18:37:34Z",
+      "side": 1,
+      "message": "I\u0027ll put this in the commit message in the next patchset.\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\nAt build time, the directory is created as an empty directory. At\nruntime, init mounts tmpfs at this path to preserve files from first\nstage init to second stage init.\n\nRight now, first stage init copies the following file to this tmpfs\nbefore switching root:\n- /boot/etc/build.prop -\u003e /second_stage_resources/boot/etc/build.prop\n\nAfter init property service finishes loading all properties, this tmpfs\nis umounted, and this directory is left empty.",
+      "parentUuid": "671c10ca_456df524",
+      "revId": "115a7fe5b758547f0fbabe13c1b3bb6740a37086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
