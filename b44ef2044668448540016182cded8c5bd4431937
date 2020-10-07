@@ -175,6 +175,30 @@
       },
       "revId": "b44ef2044668448540016182cded8c5bd4431937",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50d8a6af_fee7fc5b",
+        "filename": "public/vold.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2020-10-07T17:28:41Z",
+      "side": 1,
+      "message": "How about:\n\n  # Allow securely erasing crypto key files.  F2FS_IOC_SEC_TRIM_FILE is\n  # tried first.  Otherwise, FS_IOC_FIEMAP is needed to get the\n  # location of the file\u0027s blocks on the raw block device to erase.",
+      "parentUuid": "be37a434_59255931",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 45
+      },
+      "revId": "b44ef2044668448540016182cded8c5bd4431937",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
