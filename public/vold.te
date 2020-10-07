@@ -69,7 +69,10 @@ neverallowxperm {
 # Allow securely erasing crypto key files. F2FS_IOC_SEC_TRIM_FILE is
 # tried first. Otherwise, FS_IOC_FIEMAP is needed to get the
 # location of the file's blocks on the raw block device to erase.
-allowxperm vold vold_data_file:file ioctl {
+allowxperm vold {
+  vold_data_file
+  vold_metadata_file
+}:file ioctl {
   F2FS_IOC_SEC_TRIM_FILE
   FS_IOC_FIEMAP
 };
