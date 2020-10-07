@@ -69,6 +69,7 @@ neverallowxperm {
 # Find the location on the raw block device where the
 # crypto key is stored so it can be destroyed
 allowxperm vold vold_data_file:file ioctl {
+  F2FS_IOC_SEC_TRIM_FILE
   FS_IOC_FIEMAP
 };
 
