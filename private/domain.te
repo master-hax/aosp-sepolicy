@@ -439,4 +439,5 @@ full_treble_only(`
 ')
 
 # Only first_stage_init can read files under /boot.
+# first_stage_init runs before SELinux is initialized.
 neverallow domain ramdisk_boot_file:dir_file_class_set *;
