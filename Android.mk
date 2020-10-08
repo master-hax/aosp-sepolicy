@@ -57,6 +57,19 @@ SYSTEM_EXT_PRIVATE_POLICY := $(BOARD_PLAT_PRIVATE_SEPOLICY_DIR)
 PRODUCT_PUBLIC_POLICY := $(PRODUCT_PUBLIC_SEPOLICY_DIRS)
 PRODUCT_PRIVATE_POLICY := $(PRODUCT_PRIVATE_SEPOLICY_DIRS)
 
+# Locations of sepolicy and prebuilts for the extra freeze test respectively
+FREEZE_TEST_EXTRA_DIRS := $(SEPOLICY_FREEZE_TEST_EXTRA_DIRS)
+FREEZE_TEST_EXTRA_PREBUILT_DIRS := $(SEPOLICY_FREEZE_TEST_EXTRA_PREBUILT_DIRS)
+
+ifneq (,$(FREEZE_TEST_EXTRA_DIRS)$(FREEZE_TEST_EXTRA_PREBUILT_DIRS))
+ifeq ($(PLATFORM_SEPOLICY_VERSION),$(TOT_SEPOLICY_VERSION))
+$(error SEPOLICY_FREEZE_TEST_EXTRA_DIRS or SEPOLICY_FREEZE_TEST_EXTRA_PREBUILT_DIRS\
+cannot be set before system/sepolicy freezes.)
+endif # ($(PLATFORM_SEPOLICY_VERSION),$(TOT_SEPOLICY_VERSION))
+
+HAS_EXTRA_FREEZE_TEST := true
+endif # (,$(FREEZE_TEST_EXTRA_DIRS)$(FREEZE_TEST_EXTRA_PREBUILT_DIRS))
+
 ifneq (,$(SYSTEM_EXT_PUBLIC_POLICY)$(SYSTEM_EXT_PRIVATE_POLICY))
 HAS_SYSTEM_EXT_SEPOLICY_DIR := true
 endif
@@ -1694,6 +1707,11 @@ LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
+define ziplist
+$(if $(and $1,$2), "$(firstword $1) $(firstword $2)"\
+  $(call ziplist,$(wordlist 2,$(words $1),$1),$(wordlist 2,$(words $2),$2)))
+endef
+
 base_plat_public := $(LOCAL_PATH)/public
 base_plat_private := $(LOCAL_PATH)/private
 base_plat_public_prebuilt := \
@@ -1708,10 +1726,16 @@ $(LOCAL_BUILT_MODULE): PRIVATE_BASE_PLAT_PUBLIC := $(base_plat_public)
 $(LOCAL_BUILT_MODULE): PRIVATE_BASE_PLAT_PRIVATE := $(base_plat_private)
 $(LOCAL_BUILT_MODULE): PRIVATE_BASE_PLAT_PUBLIC_PREBUILT := $(base_plat_public_prebuilt)
 $(LOCAL_BUILT_MODULE): PRIVATE_BASE_PLAT_PRIVATE_PREBUILT := $(base_plat_private_prebuilt)
+$(LOCAL_BUILT_MODULE): PRIVATE_EXTRA := $(sort $(FREEZE_TEST_EXTRA_DIRS))
+$(LOCAL_BUILT_MODULE): PRIVATE_EXTRA_PREBUILT := $(sort $(FREEZE_TEST_EXTRA_PREBUILT_DIRS))
 $(LOCAL_BUILT_MODULE): $(all_frozen_files)
 ifneq ($(PLATFORM_SEPOLICY_VERSION),$(TOT_SEPOLICY_VERSION))
 	@diff -rq -x bug_map $(PRIVATE_BASE_PLAT_PUBLIC_PREBUILT) $(PRIVATE_BASE_PLAT_PUBLIC)
 	@diff -rq -x bug_map $(PRIVATE_BASE_PLAT_PRIVATE_PREBUILT) $(PRIVATE_BASE_PLAT_PRIVATE)
+ifdef HAS_EXTRA_FREEZE_TEST
+	@for pair in $(call ziplist, $(PRIVATE_EXTRA_PREBUILT), $(PRIVATE_EXTRA));\
+		do diff -rq -x bug_map $$pair; done
+endif # HAS_EXTRA_FREEZE_TEST
 endif # ($(PLATFORM_SEPOLICY_VERSION),$(TOT_SEPOLICY_VERSION))
 	$(hide) touch $@
 
