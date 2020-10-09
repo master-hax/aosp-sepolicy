@@ -29,6 +29,15 @@ allow traced_probes self:global_capability_class_set { sys_nice };
 # Allow procfs access
 r_dir_file(traced_probes, domain)
 
+# Allow to temporarily lift the kptr_restrict setting and build a symbolization
+# map reading /proc/kallsyms (see go/perfetto-kallsyms).
+set_prop(traced_probes, lower_kptr_restrict_prop)
+allow traced_probes proc_kallsyms:file r_file_perms;
+
+# CAP_SYSLOG is required to read /proc/kallsyms when temporarily lowering
+# kptr_restrict (2 -> 1) to symbolize kernel functions in trace events.
+allow traced_probes self:capability2 syslog;
+
 # Allow to read packages.list file.
 allow traced_probes packages_list_file:file r_file_perms;
 
