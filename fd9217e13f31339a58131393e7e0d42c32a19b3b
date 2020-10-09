@@ -16,6 +16,24 @@
       "message": "Why not this?\n@diff -rq -x bug_map $(FREEZE_TEST_EXTRA_PREBUILT_DIRS) $(FREEZE_TEST_EXTRA_DIRS)\n(And maybe sort directories alphabetically beforehand?)",
       "revId": "fd9217e13f31339a58131393e7e0d42c32a19b3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efe44394_1ead84f3",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 1717,
+      "author": {
+        "id": 1611820
+      },
+      "writtenOn": "2020-10-09T23:58:40Z",
+      "side": 1,
+      "message": "FREEZE_TEST_EXTRA_PREBUILT_DIRS is a list of dirs; diff would report \"extra operand\" error if there\u0027re more than two directories.\n\nSorting dirs is a good idea. Ack.\n\nI\u0027m not sure why the current freeze test runs diff on public and private policy respectively. Is there a reason to do so?",
+      "parentUuid": "5c33a47d_68d1dc26",
+      "revId": "fd9217e13f31339a58131393e7e0d42c32a19b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
