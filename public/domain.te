@@ -436,6 +436,11 @@ neverallow { domain -init } usermodehelper:file { append write };
 neverallow { domain -init -ueventd } sysfs_usermodehelper:file { append write };
 neverallow { domain -init -vendor_init } proc_security:file { append open read write };
 
+# /proc/kallsyms, together with security.lower_kptr_restrict, discloses KASLR.
+# Allow the tracing daemon to use kallsyms to symbolize kernel traces, only on
+# userdebug/eng.
+neverallow { domain -init -vendor_init userdebug_or_eng(`-traced_probes')} proc_kallsyms:file { open read };
+
 # Init can't do anything with binder calls. If this neverallow rule is being
 # triggered, it's probably due to a service with no SELinux domain.
 neverallow * init:binder *;
