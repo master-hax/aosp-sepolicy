@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0162ca86_558aa809",
+        "filename": "private/system_server.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 1246,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-10-09T17:32:23Z",
+      "side": 1,
+      "message": "by convention, \"allow\" rules are placed before \"neverallow\" assertions. Can you please move lines 1246-1252 to above line 1023.",
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c25c7d8b_b3ca9ce9",
+        "filename": "private/system_server.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-10-09T17:32:23Z",
+      "side": 1,
+      "message": "systemserver -\u003e system_server",
+      "range": {
+        "startLine": 1247,
+        "startChar": 8,
+        "endLine": 1247,
+        "endChar": 20
+      },
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7c4bf30_9dcb222a",
+        "filename": "private/system_server.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-10-09T17:32:23Z",
+      "side": 1,
+      "message": "IMHO this comment doesn\u0027t add any value, as it just restates what is written on the line below. I would delete this comment, or add more description explaining *why* this rule is being granted. You could also reference a feature bug if you want.",
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e520582c_2aa5fcc0",
+        "filename": "private/system_server.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-10-09T17:32:23Z",
+      "side": 1,
+      "message": "system_server has the ability to read these properties. There are no rules which allow writing these properties, except the implicit rule given to the \"adb root\" and \"su\" commands. I think this is intentional, but I just wanted to double check with you.",
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c5d569f_dcbe5f6f",
+        "filename": "private/system_server.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-10-09T17:32:23Z",
+      "side": 1,
+      "message": "systemserver -\u003e system_server",
+      "range": {
+        "startLine": 1250,
+        "startChar": 8,
+        "endLine": 1250,
+        "endChar": 20
+      },
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8db8957_5c3c26a2",
+        "filename": "private/system_server.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-10-09T17:32:23Z",
+      "side": 1,
+      "message": "IMHO this comment doesn\u0027t add any value, as it just restates what is written on the line below. I would delete this comment, or add more description explaining *why* this rule is being granted. You could also reference a feature bug if you want.",
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93b0d125_09480029",
+        "filename": "private/system_server.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-10-09T17:32:23Z",
+      "side": 1,
+      "message": "this file is only accessible on debuggable builds. Additionally, this file descriptor should be opened in append mode, not write mode. \n\nThis should be written as:\n\n  userdebug_or_eng(`\n    allow system_server kmsg_debug_device:chr_file { open append };\n  \u0027)",
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45b8ff12_a9f624ff",
+        "filename": "public/file.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-10-09T17:32:23Z",
+      "side": 1,
+      "message": "creating a specific label for /data/system/watchdog-timeout-history.txt is unnecessary. By default, every file in /data/system has the system_data_file label, which is intended for the exclusive use of system_server. The permissions added for this new label are largely equivalent to the current rules which are in place today.\n\nThis line, and any reference to framework_watchdog_data_file, can be deleted.",
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
