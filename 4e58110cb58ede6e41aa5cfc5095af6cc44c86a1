@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "330bf8ca_f428c333",
+        "filename": "private/system_server.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 1246,
+      "author": {
+        "id": 1345812
+      },
+      "writtenOn": "2020-10-12T16:41:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0162ca86_558aa809",
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c25c7d8b_b3ca9ce9",
@@ -58,6 +76,48 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58ba3651_b324f080",
+        "filename": "private/system_server.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1345812
+      },
+      "writtenOn": "2020-10-12T16:41:12Z",
+      "side": 1,
+      "message": "Done; I changed it to \"Watchdog reads sysprops framework_watchdog.fatal_* to handle watchdog timeout loop.\"",
+      "parentUuid": "a7c4bf30_9dcb222a",
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1d3692c_f188e7f9",
+        "filename": "private/system_server.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1345812
+      },
+      "writtenOn": "2020-10-12T16:41:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c25c7d8b_b3ca9ce9",
+      "range": {
+        "startLine": 1247,
+        "startChar": 8,
+        "endLine": 1247,
+        "endChar": 20
+      },
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e520582c_2aa5fcc0",
@@ -71,6 +131,24 @@
       "writtenOn": "2020-10-09T17:32:23Z",
       "side": 1,
       "message": "system_server has the ability to read these properties. There are no rules which allow writing these properties, except the implicit rule given to the \"adb root\" and \"su\" commands. I think this is intentional, but I just wanted to double check with you.",
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57ac0aff_d4632be5",
+        "filename": "private/system_server.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 1345812
+      },
+      "writtenOn": "2020-10-12T16:41:12Z",
+      "side": 1,
+      "message": "But without these it will fail with these avc errors:\n\n 10-10 13:05:10.606  1368  1368 W watchdog: type\u003d1400 audit(0.0:6): avc: denied { read } for name\u003d\"u:object_r:framework_watchdog_config_prop:s0\" dev\u003d\"tmpfs\" ino\u003d28024 scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:framework_watchdog_config_prop:s0 tclass\u003dfile permissive\u003d0\n 10-10 13:05:10.606  1368  1368 W watchdog: type\u003d1400 audit(0.0:7): avc: denied { read } for name\u003d\"u:object_r:framework_watchdog_config_prop:s0\" dev\u003d\"tmpfs\" ino\u003d28024 scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:framework_watchdog_config_prop:s0 tclass\u003dfile permissive\u003d0\n\nReasonable to keep this \u0027get_prop\u0027?",
+      "parentUuid": "e520582c_2aa5fcc0",
       "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -115,6 +193,48 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7575d2e2_8e23d99d",
+        "filename": "private/system_server.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1345812
+      },
+      "writtenOn": "2020-10-12T16:41:12Z",
+      "side": 1,
+      "message": "Done; I changed it to \"Watchdog prints debugging log to /dev/kmsg_debug.\"",
+      "parentUuid": "f8db8957_5c3c26a2",
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75850829_5affdae8",
+        "filename": "private/system_server.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1345812
+      },
+      "writtenOn": "2020-10-12T16:41:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c5d569f_dcbe5f6f",
+      "range": {
+        "startLine": 1250,
+        "startChar": 8,
+        "endLine": 1250,
+        "endChar": 20
+      },
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93b0d125_09480029",
@@ -132,6 +252,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3effe68a_82406522",
+        "filename": "private/system_server.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 1345812
+      },
+      "writtenOn": "2020-10-12T16:41:12Z",
+      "side": 1,
+      "message": "Done; also the \u0027getattr\u0027 is required, otherwise there is an avc error like this:\n\n avc: denied { getattr } for comm\u003d\"watchdog\" path\u003d\"/dev/kmsg_debug\" dev\u003d\"tmpfs\" ino\u003d22632 scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:kmsg_debug_device:s0\ntclass\u003dchr_file",
+      "parentUuid": "93b0d125_09480029",
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45b8ff12_a9f624ff",
@@ -145,6 +283,24 @@
       "writtenOn": "2020-10-09T17:32:23Z",
       "side": 1,
       "message": "creating a specific label for /data/system/watchdog-timeout-history.txt is unnecessary. By default, every file in /data/system has the system_data_file label, which is intended for the exclusive use of system_server. The permissions added for this new label are largely equivalent to the current rules which are in place today.\n\nThis line, and any reference to framework_watchdog_data_file, can be deleted.",
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f232744_e5c2696d",
+        "filename": "public/file.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1345812
+      },
+      "writtenOn": "2020-10-12T16:41:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45b8ff12_a9f624ff",
       "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
