@@ -153,6 +153,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7de1ba7a_a6fe050d",
+        "filename": "private/system_server.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-10-12T23:29:28Z",
+      "side": 1,
+      "message": "Sorry, I didn\u0027t express clearly what I was trying to say.\n\nYour rule (which is needed) allows the *reading* of these properties. However, there are no rules which allow *writing* of these properties. As such, these properties are read-only. Did you intend for these properties to be read-only?\n\nIf they are intended to be read-only, then no changes are required. If they are intended to be writable by someone, you may have a bug.",
+      "parentUuid": "57ac0aff_d4632be5",
+      "revId": "4e58110cb58ede6e41aa5cfc5095af6cc44c86a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c5d569f_dcbe5f6f",
