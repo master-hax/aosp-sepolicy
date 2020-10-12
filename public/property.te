@@ -35,6 +35,7 @@ compatible_property_only(`
     system_internal_prop(ctl_restart_prop)
     system_internal_prop(ctl_rildaemon_prop)
     system_internal_prop(ctl_sigstop_prop)
+    system_internal_prop(default_prop)
     system_internal_prop(dynamic_system_prop)
     system_internal_prop(heapprofd_enabled_prop)
     system_internal_prop(llkd_prop)
@@ -91,7 +92,6 @@ compatible_property_only(`
     system_restricted_prop(cppreopt_prop)
     system_restricted_prop(dalvik_prop)
     system_restricted_prop(debuggerd_prop)
-    system_restricted_prop(default_prop)
     system_restricted_prop(device_logging_prop)
     system_restricted_prop(dhcp_prop)
     system_restricted_prop(dumpstate_prop)
@@ -259,6 +259,8 @@ not_compatible_property(`
     system_public_prop(theme_prop)
     system_public_prop(use_memfd_prop)
     system_public_prop(vold_prop)
+
+    typeattribute default_prop core_property_type;
 ')
 
 type vendor_default_prop, property_type;
@@ -282,7 +284,6 @@ typeattribute cppreopt_prop      core_property_type;
 typeattribute dalvik_prop        core_property_type;
 typeattribute debuggerd_prop     core_property_type;
 typeattribute debug_prop         core_property_type;
-typeattribute default_prop       core_property_type;
 typeattribute dhcp_prop          core_property_type;
 typeattribute dumpstate_prop     core_property_type;
 typeattribute logd_prop          core_property_type;
