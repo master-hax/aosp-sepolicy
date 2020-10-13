@@ -134,6 +134,30 @@
       },
       "revId": "94fe93a92abe11a08ca77287e62dc39458338ba0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75e69aff_6b99d475",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1611820
+      },
+      "writtenOn": "2020-10-13T01:18:27Z",
+      "side": 1,
+      "message": "That could work but i see developers would usually assume \"sepolicy\" is the dir they want to add to the build var; rather than \"sepolicy/public sepolicy/private\". And system/sepolicy/prebuilt is the prebuilt for the core policy. I\u0027m trying to be consistent with it.\n\nPerhaps modeling the behavior after PRODUCT_*_POLICY is a better idea? But in that case we would need to define 4 build vars `FREEZE_TEST_EXTRA_PUBLIC_DIRS`, `FREEZE_TEST_EXTRA_PUBLIC_PREBUILT_DIRS`, `FREEZE_TEST_EXTRA_PRIVATE_DIRS`, `FREEZE_TEST_EXTRA_PRIVATE_PREBUILT_DIRS`. Wdyt?\n\n\nRe: Line #321 I still don\u0027t get it. If `sepolicy_freeze_test` is not included in `LOCAL_REQUIRED_MODULES`, then no one uses SEPOLICY_FREEZE_TEST_* build vars. Why does it bother failing the build?",
+      "parentUuid": "3ff97d8b_a56dbe69",
+      "range": {
+        "startLine": 1718,
+        "startChar": 0,
+        "endLine": 1718,
+        "endChar": 91
+      },
+      "revId": "94fe93a92abe11a08ca77287e62dc39458338ba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
