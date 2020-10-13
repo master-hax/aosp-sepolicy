@@ -16,6 +16,75 @@
       "message": "+jeffv PTAL.\nOne q: there is a merge conflict (internal vs aosp) in private/compat/30.0/30.0.ignore.cil\nWhat\u0027s the way to deal with this? SHould I upload this in internal master and then cherry-pick here?",
       "revId": "f5f29cd78460f52f42d76dad01476270c31aea08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad90984a_7be1828a",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-10-13T08:54:09Z",
+      "side": 1,
+      "message": "Does this also leak real pointers into dmesg while kptr_restrict is temporarily lowered?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 79
+      },
+      "revId": "f5f29cd78460f52f42d76dad01476270c31aea08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed3d78b3_85a6f3d2",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-10-13T08:54:09Z",
+      "side": 1,
+      "message": "I\u0027m not convinced that lowering to 1 and granting traced_probes CAP_SYSLOG is safer than lowering to 0 and restricting access to /proc/kallsyms.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 73
+      },
+      "revId": "f5f29cd78460f52f42d76dad01476270c31aea08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86184236_2f0a5a7c",
+        "filename": "public/file.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-10-13T08:54:09Z",
+      "side": 1,
+      "message": "add a neverallow rule restricting read access.",
+      "range": {
+        "startLine": 36,
+        "startChar": 5,
+        "endLine": 36,
+        "endChar": 18
+      },
+      "revId": "f5f29cd78460f52f42d76dad01476270c31aea08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
