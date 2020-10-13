@@ -110,6 +110,30 @@
       },
       "revId": "94fe93a92abe11a08ca77287e62dc39458338ba0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ff97d8b_a56dbe69",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2020-10-13T01:01:01Z",
+      "side": 1,
+      "message": "\u003e For the first part, I tested diffing SEPOLICY_FREEZE_TEST_EXTRA_PREBUILT_DIRS and SEPOLICY_FREEZE_TEST_EXTRA_DIRS this afternoon; it breaks if SEPOLICY_FREEZE_TEST_EXTRA_DIRS points to foo/bar/sepolicy and SEPOLICY_FREEZE_TEST_EXTRA_PREBUILT_DIRS points to foo/bar/sepolicy/prebuilts. So I\u0027d keep enforcing the directory structure.\n\nThis only means that one can\u0027t be a subdirectory of the other and vice versa, right?\nSo if you have:\nfoo/bar/sepolicy\nfoo/bar/sepolicy/public\nfoo/bar/sepolicy/private\nfoo/bar/sepolicy/prebuilts\nfoo/bar/sepolicy/prebuilts/public\nfoo/bar/sepolicy/prebuilts/private\n\nyou have to set the variables as:\n\n SEPOLICY_FREEZE_TEST_EXTRA_DIRS :\u003d \\\n    foo/bar/sepolicy/public \\\n    foo/bar/sepolicy/private\n\t\n SEPOLICY_FREEZE_TEST_EXTRA_PREBUILT_DIRS :\u003d \\\n    foo/bar/sepolicy/prebuilts/public \\\n    foo/bar/sepolicy/prebuilts/private\n\n\u003e I may need some clarification on \"setting build variables iff sepolicy_freeze_test is enabled\". Is there any similar code I can refer to?\n\nLine#321 is what make the build depend on sepolicy_freeze_test. Make it so that the build fails if sepolicy_freeze_test is not depended on AND one of the new build variables is set.",
+      "parentUuid": "159b28a1_47cc00de",
+      "range": {
+        "startLine": 1718,
+        "startChar": 0,
+        "endLine": 1718,
+        "endChar": 91
+      },
+      "revId": "94fe93a92abe11a08ca77287e62dc39458338ba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
