@@ -158,6 +158,30 @@
       },
       "revId": "94fe93a92abe11a08ca77287e62dc39458338ba0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a41958de_8b38d775",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2020-10-13T02:30:44Z",
+      "side": 1,
+      "message": "\u003e That could work but i see developers would usually assume \"sepolicy\" is the dir they want to add to the build var; rather than \"sepolicy/public sepolicy/private\". And system/sepolicy/prebuilt is the prebuilt for the core policy. I\u0027m trying to be consistent with it.\n\nBuild vars usually point to location of *.te files, which isn\u0027t necessarily a directory named \"sepolicy\", e.g. https://android.googlesource.com/device/google/crosshatch-sepolicy/+/refs/heads/master/crosshatch-sepolicy.mk#5\n\n\u003e Perhaps modeling the behavior after PRODUCT_*_POLICY is a better idea? But in that case we would need to define 4 build vars `FREEZE_TEST_EXTRA_PUBLIC_DIRS`, `FREEZE_TEST_EXTRA_PUBLIC_PREBUILT_DIRS`, `FREEZE_TEST_EXTRA_PRIVATE_DIRS`, `FREEZE_TEST_EXTRA_PRIVATE_PREBUILT_DIRS`. Wdyt?\n\nNot every sepolicy location is split into public and private though, e.g. vendor sepolicy. I think giving two list of directories that need to be diffed is going to be most flexible.\n\n\u003e Re: Line #321 I still don\u0027t get it. If `sepolicy_freeze_test` is not included in `LOCAL_REQUIRED_MODULES`, then no one uses SEPOLICY_FREEZE_TEST_* build vars. Why does it bother failing the build?\n\nOnce every release during SDK finalization sepolicy_freeze_test is flipped to enforced. I\u0027d like to avoid any surprises during that process.",
+      "parentUuid": "75e69aff_6b99d475",
+      "range": {
+        "startLine": 1718,
+        "startChar": 0,
+        "endLine": 1718,
+        "endChar": 91
+      },
+      "revId": "94fe93a92abe11a08ca77287e62dc39458338ba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
