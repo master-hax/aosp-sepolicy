@@ -254,6 +254,30 @@
       },
       "revId": "94fe93a92abe11a08ca77287e62dc39458338ba0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6bbe589_59aa2579",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2020-10-13T18:47:01Z",
+      "side": 1,
+      "message": "\u003e I\u0027m not sure if I should get rid of multiple versions of prebuilts. At least for AAOS, we\u0027re working on Q.Car LTS4 (qt-car-dev), R-QPR2 (rvc-qpr-dev), and S (master) at the same time. I\u0027m afraid Automerger could possibly mess it up if we don\u0027t support multiple versions of prebuilts.\n\nYou can still maintain the prebuilts however you want in your project. I don\u0027t see why a particular directory structure should be expected of the build var.\n\nAlso, you would have the exact same automerger problems with the sepolicy files as you would with the prebuilts, since they mirror each other.",
+      "parentUuid": "05540dea_91de24c7",
+      "range": {
+        "startLine": 1718,
+        "startChar": 0,
+        "endLine": 1718,
+        "endChar": 91
+      },
+      "revId": "94fe93a92abe11a08ca77287e62dc39458338ba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
