@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ca708d9_69ecb9ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2020-10-13T11:13:44Z",
+      "side": 1,
+      "message": "Trying that in aosp/1455339. I hope it was just an oversight and there aren\u0027t cascading dependencies to some other internal code.",
+      "parentUuid": "ed1b07d5_2e3437cc",
+      "revId": "f5f29cd78460f52f42d76dad01476270c31aea08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad90984a_7be1828a",
@@ -49,6 +67,30 @@
       "writtenOn": "2020-10-13T08:54:09Z",
       "side": 1,
       "message": "Does this also leak real pointers into dmesg while kptr_restrict is temporarily lowered?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 79
+      },
+      "revId": "f5f29cd78460f52f42d76dad01476270c31aea08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b91b738b_6d31f15b",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2020-10-13T11:13:44Z",
+      "side": 1,
+      "message": "ah interesting question, depends on the notion of \"leak\".\nkptr_restrict effectively changes the behavior of %pK in vsprintf.\nSo the answer here is twofold:\n\n1. For overall /proc and /sys interfaces, where the contents are generated dynamically, it leaks pointer only during the time window and only if the caller has CAP_SYSLOG (if 1, otherwise any caller)\n\n2. For dmesg, my reading is that if a printk(\"%pK\") happens in the 200ms time window when kptr_restrict is lowered, the string will be stored with the full pointer.\nHowever note that:\n 2a: a codesearch suggests that there are very places in the kernel that use %pK, most of cases seem to use %p which dumps the full pointer regardless of kptr_restrict [1]\n 2b: IIRC dmesg is unaccessible in user builds.\n\n[1] $ git grep \u0027printk.*%pK\u0027 | wc -l  -\u003e 258 results\n    $ git grep \u0027printk.*%p\u0027 | wc -l  -\u003e 2547 results",
+      "parentUuid": "ad90984a_7be1828a",
       "range": {
         "startLine": 32,
         "startChar": 0,
@@ -84,6 +126,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa7a0a45_8bf27292",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2020-10-13T11:13:44Z",
+      "side": 1,
+      "message": "see internal DM. My fear is that this can be used for shell-based attacks where an attacker can leverage the knowledge that a trace will tempoarily lower kptr_restrict.\nthe problem is that we can\u0027t prevent shell to read /proc/kallsyms (at least on userdebug) as too many tools outside of tracing/perfetto rely on that.",
+      "parentUuid": "ed3d78b3_85a6f3d2",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 73
+      },
+      "revId": "f5f29cd78460f52f42d76dad01476270c31aea08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "86184236_2f0a5a7c",
         "filename": "public/file.te",
         "patchSetId": 4
@@ -95,6 +161,30 @@
       "writtenOn": "2020-10-13T08:54:09Z",
       "side": 1,
       "message": "add a neverallow rule restricting read access.",
+      "range": {
+        "startLine": 36,
+        "startChar": 5,
+        "endLine": 36,
+        "endChar": 18
+      },
+      "revId": "f5f29cd78460f52f42d76dad01476270c31aea08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14bd97ab_1c08ea54",
+        "filename": "public/file.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2020-10-13T11:13:44Z",
+      "side": 1,
+      "message": "Who should we neverallow though?\nToday this is accessible (% manually lowering kptr_Restrict) to a whole bunch of scripts (simpleperf for sure, but pretty sure a bunch of other things use /proc/kallsyms).\nAt very least we need shell access.\nWould it be fine if this is\nneverallow all -traced_probes -simpleperf -shell ?",
+      "parentUuid": "86184236_2f0a5a7c",
       "range": {
         "startLine": 36,
         "startChar": 5,
