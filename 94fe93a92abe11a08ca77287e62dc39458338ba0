@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfb339ab_29c0cb1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2020-10-13T00:00:39Z",
+      "side": 1,
+      "message": "CC\u0027ing Steven, since this is tangentially Treble related.",
+      "revId": "94fe93a92abe11a08ca77287e62dc39458338ba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5800815e_41bf82ec",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2020-10-13T00:00:39Z",
+      "side": 1,
+      "message": "Since these are intended to be used downstream, could you add a comment describing how to use them?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 78
+      },
+      "revId": "94fe93a92abe11a08ca77287e62dc39458338ba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5398e977_e7e7463b",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2020-10-13T00:00:39Z",
+      "side": 1,
+      "message": "I don\u0027t think we want to enforce a directory structure within external locations. Diffing SEPOLICY_FREEZE_TEST_EXTRA_PREBUILT_DIRS with SEPOLICY_FREEZE_TEST_EXTRA_DIRS should be sufficient.\n\nAlso, we don\u0027t want a situation where FREEZE_TEST_EXTRA_PREBUILT_DIRS was accidentally set in master, and SDK finalization is blocked on having to update extra prebuilt. I think we should make it so that the build variables can only be set iff sepolicy_freeze_test is enable.",
+      "range": {
+        "startLine": 1718,
+        "startChar": 0,
+        "endLine": 1718,
+        "endChar": 91
+      },
+      "revId": "94fe93a92abe11a08ca77287e62dc39458338ba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
