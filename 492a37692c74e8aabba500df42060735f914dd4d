@@ -20,6 +20,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0db3714c_9428c1fa",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-10-13T09:51:04Z",
+      "side": 1,
+      "message": "this hasn\u0027t been allowed since Android Nougat. What\u0027s the logic for exempting really old platform changes? I believe that the actual functionality has now been removed from the platform, since it was a security vulnerability. So if an app is not blocked by selinux, it\u0027ll just fail on the missing properties.",
+      "range": {
+        "startLine": 44,
+        "startChar": 33,
+        "endLine": 44,
+        "endChar": 53
+      },
+      "revId": "492a37692c74e8aabba500df42060735f914dd4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3739e80_5381ccd7",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-10-13T09:51:04Z",
+      "side": 1,
+      "message": "What\u0027s the scope of these changes? I would expect that we would limit it to 1 or maybe 2 targetApi levels since the goal is to assist developers who are actively maintaining their apps.",
+      "range": {
+        "startLine": 54,
+        "startChar": 49,
+        "endLine": 54,
+        "endChar": 63
+      },
+      "revId": "492a37692c74e8aabba500df42060735f914dd4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a6b6df0_7fda7e74",
         "filename": "private/app_neverallows.te",
         "patchSetId": 1
@@ -37,6 +83,93 @@
         "endLine": 61,
         "endChar": 23
       },
+      "revId": "492a37692c74e8aabba500df42060735f914dd4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42db964f_7fff60e9",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-10-13T09:51:04Z",
+      "side": 1,
+      "message": "Neverallow rules are just tests that assert that no allow rules are in violation.",
+      "parentUuid": "9a6b6df0_7fda7e74",
+      "range": {
+        "startLine": 61,
+        "startChar": 2,
+        "endLine": 61,
+        "endChar": 23
+      },
+      "revId": "492a37692c74e8aabba500df42060735f914dd4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecbab854_c80d793a",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-10-13T09:51:04Z",
+      "side": 1,
+      "message": "this is another change that hasn\u0027t been accessible since Android Nougat.",
+      "range": {
+        "startLine": 229,
+        "startChar": 51,
+        "endLine": 229,
+        "endChar": 71
+      },
+      "revId": "492a37692c74e8aabba500df42060735f914dd4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8b3f2c8_fb3e19fb",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-10-13T09:51:04Z",
+      "side": 1,
+      "message": "let\u0027s define latest. 1 targetAPI level?",
+      "range": {
+        "startLine": 47,
+        "startChar": 45,
+        "endLine": 47,
+        "endChar": 63
+      },
+      "revId": "492a37692c74e8aabba500df42060735f914dd4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ddb9c09_863567ca",
+        "filename": "private/untrusted_app_compat.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-10-13T09:51:04Z",
+      "side": 1,
+      "message": "look at untrusted_app_29 to see what was removed in R. You\u0027re missing somethings.",
       "revId": "492a37692c74e8aabba500df42060735f914dd4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
