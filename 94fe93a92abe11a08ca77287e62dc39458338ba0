@@ -206,6 +206,30 @@
       },
       "revId": "94fe93a92abe11a08ca77287e62dc39458338ba0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaa3ca2c_5bafa121",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2020-10-13T18:15:54Z",
+      "side": 1,
+      "message": "\u003e I see. That makes sense for FREEZE_TEST_EXTRA_DIRS. But I still have a concern for FREEZE_TEST_EXTRA_PREBUILT_DIRS. The \"/api/$(PLATFORM_SEPOLICY_VERSION)\" suffix needs to be added after each dir in FREEZE_TEST_EXTRA_PREBUILT_DIRS. As such, \"sepolicy/prebuilt/public\" would become \"sepolicy/prebuilt/public/api/30.0\", rather than \"sepolicy/prebuilt/api/30.0/public\" as in `system/sepolicy`.\n\nThere is no need for multiple versions of prebuilts outside of system/sepolicy. I\u0027d rather not define a directory structure for these build vars unless necessary. Let\u0027s keep it simple and diff FREEZE_TEST_EXTRA_DIRS with FREEZE_TEST_EXTRA_PREBUILT_DIRS.\n\n\u003e I have defined a `HAS_EXTRA_FREEZE_TEST` flag that only runs the extra freeze test when `sepolicy_freeze_test` is included in `LOCAL_REQUIRED_MODULES` and `FREEZE_TEST_EXTRA_*` are not empty. I can make it a separate test if you prefer.\n\nAmending sepolicy_freeze_test is fine.",
+      "parentUuid": "d9af3234_6900ef54",
+      "range": {
+        "startLine": 1718,
+        "startChar": 0,
+        "endLine": 1718,
+        "endChar": 91
+      },
+      "revId": "94fe93a92abe11a08ca77287e62dc39458338ba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
