@@ -39,6 +39,30 @@
       },
       "revId": "c7229c760f7fc179820d2e330e1aa4be764f322f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94847b99_8fe041dc",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-10-14T08:56:21Z",
+      "side": 1,
+      "message": "These are the files in /data/misc/shared_relro.\nBefore my change they are world readable (-r--r--r--, labeled u:object_r:shared_relro_file:s0), and we have these rules:\n\n# Allow any app to read shared RELRO files.\nallow appdomain shared_relro_file:dir search;\nallow appdomain shared_relro_file:file r_file_perms;\n\nSo the change here just ensures that remains true even if the files are now labeled u:object_r:shared_relro_file:s0:c13,c260,c512,c768.\n\nAIUI these are created at boot by the shared_relro process and then read by anything using webview.\n\nFor background see https://docs.google.com/presentation/d/1NzphMfRCLML1vF04-6WXPkb_lFquzZ4lfta7h23uJjk/edit#slide\u003did.g5829f0524_023. \n\nCode to generate them is here: frameworks/base/native/webview/loader/loader.cpp.\nAnd is called from frameworks/base/core/java/android/webkit/WebViewLibraryLoader.java.",
+      "parentUuid": "39234b89_3bfe1c79",
+      "range": {
+        "startLine": 388,
+        "startChar": 72,
+        "endLine": 388,
+        "endChar": 88
+      },
+      "revId": "c7229c760f7fc179820d2e330e1aa4be764f322f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
