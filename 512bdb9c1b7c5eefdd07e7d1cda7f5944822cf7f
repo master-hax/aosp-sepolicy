@@ -39,6 +39,30 @@
       },
       "revId": "512bdb9c1b7c5eefdd07e7d1cda7f5944822cf7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d1ce206_a52a8e42",
+        "filename": "private/file.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2020-10-14T08:22:14Z",
+      "side": 1,
+      "message": "Do we want to actively neverallow this? Today partners can already do the \"cat ... | perfetto - \" so this won\u0027t really prevent them from doing too much.\nMy fear is that it\u0027s just going to make their life harder if they want to do some custom infra (e.g. imagine they want to do some boot tracing, writing into this directory from vendor_init\n might come handy).\nIMHO giving the limited surface (the risk here is only leaking files pushed via shell, which only power users /infra would do) I\u0027d leave this door open to partners for using this.",
+      "parentUuid": "2169f378_0103eec8",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 80
+      },
+      "revId": "512bdb9c1b7c5eefdd07e7d1cda7f5944822cf7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
