@@ -87,6 +87,30 @@
       },
       "revId": "c7229c760f7fc179820d2e330e1aa4be764f322f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cb11308_dbd81eaa",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1021004
+      },
+      "writtenOn": "2020-10-14T15:41:11Z",
+      "side": 1,
+      "message": "Yeah, I\u0027m not familiar with the details of SELinux here (dunno what mlstrustedobject means), but Alan\u0027s description of what these files are for is correct - they are explicitly intended to be readable (and mmapable) by all applications on the device, and are created at boot time and after a WebView update is installed. This is a memory optimisation for the relocations applied to the WebView binary, which is not loaded into the zygote for security reasons so can\u0027t share those pages by inheriting them through fork.",
+      "parentUuid": "d7dc4ac0_a8391427",
+      "range": {
+        "startLine": 388,
+        "startChar": 72,
+        "endLine": 388,
+        "endChar": 88
+      },
+      "revId": "c7229c760f7fc179820d2e330e1aa4be764f322f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
