@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "a3bc9def_6e258abf",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "LGTM from Treble perspective, but Jeffrey might want to take a look. Also, I invited Sandeep who originally worked on sepolicy for Treble.",
       "revId": "94a183a4f35935f5257bdc701dcb85829c3df814",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "bb470d81_faa197b9",
         "filename": "/PATCHSET_LEVEL",
@@ -31,10 +32,10 @@
       "side": 1,
       "message": "Jeffrey and Sandeep, please take a look.",
       "revId": "94a183a4f35935f5257bdc701dcb85829c3df814",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "2d5dc194_f2932fe0",
         "filename": "/PATCHSET_LEVEL",
@@ -48,10 +49,10 @@
       "side": 1,
       "message": "Can you add a motivation/justification for this patch? I doubt that vendors want all of their files to be extractable on production builds.",
       "revId": "94a183a4f35935f5257bdc701dcb85829c3df814",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "64b9be95_473687fc",
         "filename": "/PATCHSET_LEVEL",
@@ -66,10 +67,10 @@
       "message": "Basically, I wanted to do something like following without \"root\", which is what is happening in the linked bug.\n\n  $ adb shell pm list packages --apex-only -f | tr \":\u003d\" \" \" | cut -d \u0027 \u0027 -f2 | xargs -n1 adb pull\n\nThe test checks if every APEX in a device is not using well-known keys. To do that the test pulls them including APEXes in /vendor partitions.\n\nJiyong suggested that making adb capable of reading vendor files would be okay given that it can extracts /system files.\n\nIf this is not acceptable, there might be several alternatives\n- make the test rely on \"root\". I\u0027m not sure if it\u0027s okay for a CTS test to use \"root\".\n- narrow down the scope of the test so that it only tests /system APEXes.\n- introduce a new test point so that the test can verify that apexes don\u0027t use known keys.",
       "parentUuid": "2d5dc194_f2932fe0",
       "revId": "94a183a4f35935f5257bdc701dcb85829c3df814",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "91faad7f_2e5a7450",
         "filename": "/PATCHSET_LEVEL",
@@ -84,10 +85,10 @@
       "message": "Hi Jeffrey, \n\nIn my understanding, the reason we generally don\u0027t allow a system process to have access to vendor files is because it\u0027s a Treble violation. But for adbd, I think it\u0027s fine because it doesn\u0027t actually interpret the file contents when it performs adb pull. (please note that we don\u0027t give any write or execute permission to adbd. only read access is given) The final consumer of the files pulled by adbd is neither system nor vendor and actually the consumer is out of scope of Treble.\n\nFrom the perspective of developer convenience, preventing `adb pull /vendor/foo` while allowing `adb pull /system/foo` looks very odd. IMO, it\u0027s just inconvenient without giving any value.",
       "parentUuid": "64b9be95_473687fc",
       "revId": "94a183a4f35935f5257bdc701dcb85829c3df814",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "3be3200c_1cf81f64",
         "filename": "/PATCHSET_LEVEL",
@@ -102,8 +103,24 @@
       "message": "Thanks for the opinion, Jiyong.\n\nJeffrey, what do you think?",
       "parentUuid": "91faad7f_2e5a7450",
       "revId": "94a183a4f35935f5257bdc701dcb85829c3df814",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7f8cff5_45ed2e26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-10-15T05:00:50Z",
+      "side": 1,
+      "message": "Hi Jeff, \n\nThis is a gentle reminder. Did you have a chance to read my and Jooyung\u0027s responses? Please let us know how you think.",
+      "revId": "94a183a4f35935f5257bdc701dcb85829c3df814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
