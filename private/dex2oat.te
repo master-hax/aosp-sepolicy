@@ -32,6 +32,13 @@ allow dex2oat user_profile_data_file:file { getattr read lock map };
 # the framework.
 allow dex2oat { privapp_data_file app_data_file }:file { getattr read write lock map };
 
+# Allow dex2oat to find files in APEX data directories.
+allow dex2oat apex_module_data_file:dir search;
+
+# Allow zyogte to find and map files created by on device signing.
+allow dex2oat apex_art_data_file:dir { getattr search };
+allow dex2oat apex_art_data_file:file { r_file_perms };
+
 ##################
 # A/B OTA Dexopt #
 ##################
