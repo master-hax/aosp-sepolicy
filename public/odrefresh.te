@@ -1,0 +1,6 @@
+# odrefresh
+type odrefresh, domain;
+type odrefresh_exec, system_file_type, exec_type, file_type;
+
+allow odrefresh apex_module_data_file:dir { search getattr };
+allow odrefresh apex_art_data_file:dir rw_dir_perms;

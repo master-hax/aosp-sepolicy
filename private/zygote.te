@@ -50,6 +50,13 @@ allow zygote resourcecache_data_file:file create_file_perms;
 # is ensured by fsverity protection (checked in art_apex_boot_integrity).
 allow zygote dalvikcache_data_file:file execute;
 
+# Allow zygote to find files in APEX data directories.
+allow zygote apex_module_data_file:dir search;
+
+# Allow zyogte to find and map files created by on device signing.
+allow zygote apex_art_data_file:dir { getattr search };
+allow zygote apex_art_data_file:file { rx_file_perms };
+
 # Bind mount on /data/data and mounted volumes
 allow zygote { system_data_file mnt_expand_file }:dir mounton;
 
@@ -227,10 +234,13 @@ neverallow zygote ~{
   app_zygote
 }:process dyntransition;
 
-# Zygote should never execute anything from /data except for /data/dalvik-cache files.
+# Zygote should never execute anything from /data except for
+# /data/dalvik-cache files or files generated during on-device
+# signing under /data/misc/apexdata/com.android.art/.
 neverallow zygote {
   data_file_type
   -dalvikcache_data_file # map PROT_EXEC
+  -apex_art_data_file # map PROT_EXEC
 }:file no_x_file_perms;
 
 # Do not allow access to Bluetooth-related system properties and files
