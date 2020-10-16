@@ -45,6 +45,11 @@ domain_auto_trans(shell, perfetto_exec, perfetto)
 # Allow to send SIGINT to perfetto when daemonized.
 allow shell perfetto:process signal;
 
+# Allow shell to exec odrefresh.
+#allow shell apex_art_data_file:dir r_dir_perms;
+# allow shell apex_art_data_file:file rx_file_perms;
+userdebug_or_eng(`domain_auto_trans(shell, odrefresh_exec, odrefresh)')
+
 # Allow shell to run adb shell cmd stats commands. Needed for CTS.
 binder_call(shell, statsd);
 
