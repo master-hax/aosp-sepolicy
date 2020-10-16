@@ -1,0 +1,8 @@
+# odrefresh
+type odrefresh, domain, coredomain;
+type odrefresh_exec, system_file_type, exec_type, file_type;
+
+# Allow odrefresh to create files and directories for on device signing.
+allow odrefresh apex_module_data_file:dir r_dir_perms;
+allow odrefresh apex_art_data_file:dir create_dir_perms;
+allow odrefresh apex_art_data_file:file create_file_perms;
