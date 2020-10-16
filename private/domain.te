@@ -270,6 +270,29 @@ neverallow {
   -otapreopt_slot
 } dalvikcache_data_file:dir no_w_dir_perms;
 
+# Only authorized processes should be writing to /data/misc/apexdata/com.android.art
+neverallow {
+  domain
+  # art processes
+  -dex2oat
+  -odrefresh
+  # others
+  -apexd
+  -init
+  -vold_prepare_subdirs
+} apex_art_data_file:file no_w_file_perms;
+
+neverallow {
+  domain
+  # art processes
+  -dex2oat
+  -odrefresh
+  # others
+  -apexd
+  -init
+  -vold_prepare_subdirs
+} apex_art_data_file:dir no_w_dir_perms;
+
 # Minimize dac_override and dac_read_search.
 # Instead of granting them it is usually better to add the domain to
 # a Unix group or change the permissions of a file.

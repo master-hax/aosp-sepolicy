@@ -19,6 +19,9 @@ tmpfs_domain(dexoptanalyzer)
 allow dexoptanalyzer dalvikcache_data_file:dir { getattr search };
 allow dexoptanalyzer dalvikcache_data_file:file r_file_perms;
 allow dexoptanalyzer dalvikcache_data_file:lnk_file read;
+allow dexoptanalyzer apex_module_data_file:dir { getattr search };
+allow dexoptanalyzer apex_art_data_file:dir { getattr search };
+allow dexoptanalyzer apex_art_data_file:file r_file_perms;
 
 allow dexoptanalyzer installd:fd use;
 allow dexoptanalyzer installd:fifo_file { getattr write };
