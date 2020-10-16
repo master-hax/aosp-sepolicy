@@ -1,0 +1,26 @@
+# odrefresh
+type odrefresh, domain, coredomain;
+type odrefresh_exec, system_file_type, exec_type, file_type;
+
+# Allow odrefresh to create files and directories for on device signing.
+allow odrefresh apex_module_data_file:dir r_dir_perms;
+allow odrefresh apex_art_data_file:dir create_dir_perms;
+allow odrefresh apex_art_data_file:file create_file_perms;
+
+# Run dex2oat in its own sandbox.
+domain_auto_trans(odrefresh, dex2oat_exec, dex2oat)
+
+# Run dexoptanalyzer in its own sandbox.
+domain_auto_trans(odrefresh, dexoptanalyzer_exec, dexoptanalyzer)
+
+# Allow odrefresh to be use resources from su.
+allow odrefresh { adbd shell }:fd use;
+allow odrefresh devpts:chr_file rw_file_perms;
+allow odrefresh adbd:unix_stream_socket { getattr read write };
+
+# Allow odrefresh to read /apex/apex-info-list.xml to determine
+# whether current apex is in /system or /data.
+allow odrefresh apex_info_file:file r_file_perms;
+
+# Only allow odrfresh being called by su (and in future on ods)
+neverallow { domain -odrefresh -su } odrefresh_exec:file { execute execute_no_trans };
