@@ -32,6 +32,22 @@ allow dex2oat user_profile_data_file:file { getattr read lock map };
 # the framework.
 allow dex2oat { privapp_data_file app_data_file }:file { getattr read write lock map };
 
+# Allow dex2oat to find files and directories under /data/misc/apexdata/com.android.runtime.
+allow dex2oat apex_module_data_file:dir search;
+
+# Allow dex2oat to use file descriptors passed from odrefresh.
+allow dex2oat odrefresh:fd use;
+
+# Allow dex2oat to write to file descriptors from odrefresh for files
+# under /data/misc/apexdata/com.android.runtime. These file descriptors
+# have the file context apex_art_data_file. Once dex2oat has finished writing
+# the descriptors, the context of the files is changed to apex_art_image_data_file
+# which can be opened, read, etc. This arrangement avoids dex2oat needing write
+# permission and open permission for art_apex_data_file.
+allow dex2oat apex_art_data_file:dir r_dir_perms;
+allow dex2oat apex_art_data_file:file { getattr map read write unlink };
+allow dex2oat apex_art_image_data_file:file r_file_perms;
+
 ##################
 # A/B OTA Dexopt #
 ##################
@@ -78,3 +94,7 @@ allow dex2oat apexd:fd use;
 ##############
 
 neverallow dex2oat { privapp_data_file app_data_file }:notdevfile_class_set open;
+
+# Do not allow dex2oat to open apex_art_data_file files. dex2oat
+writes to these with file descriptors from odrefresh.
+neverallow dex2oat apex_art_data_file:file open
