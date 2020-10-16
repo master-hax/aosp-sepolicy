@@ -27,6 +27,11 @@ allow appdomain zygote:process sigchld;
 allow appdomain dalvikcache_data_file:dir { search getattr };
 allow appdomain dalvikcache_data_file:file r_file_perms;
 
+# Read /data/misc/apexdata/com.android.art
+allow appdomain apex_module_data_file:dir r_dir_perms;
+allow appdomain apex_art_data_file:dir r_dir_perms;
+allow appdomain apex_art_data_file:file r_file_perms;
+
 # Read the /sdcard and /mnt/sdcard symlinks
 allow { appdomain -isolated_app } rootfs:lnk_file r_file_perms;
 allow { appdomain -isolated_app } tmpfs:lnk_file r_file_perms;
@@ -556,6 +561,7 @@ neverallow {
   system_app
 } {
   data_file_type
+  -apex_art_data_file
   -dalvikcache_data_file
   -system_data_file # shared libs in apks
   -apk_data_file
