@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7096ab27_55b5cf0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2020-10-16T23:03:40Z",
+      "side": 1,
+      "message": "Will any process other than system_server ever need access to /data/misc/vcn ?\n\nIf the answer is \"no\", then it would be much better to store these files in system_server\u0027s home directory, which is /data/system. If you just create the directory /data/system/vcn then no system/sepolicy change is required. /data/system (and subdirectories) are reserved for system_server\u0027s exclusive use.",
+      "revId": "5983b5b716b9abb39addcccec397622ff1b4dd59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9d589fe_ee91c4f1",
