@@ -1409,6 +1409,7 @@ neverallow {
   -hal_codec2_server
   -hal_omx_server
 } hal_codec2_hwservice:hwservice_manager add;
+<<<<<<< HEAD   (fa3b25 Set expandattribute false for property attributes in prebuil)
 
 # Only apps targetting < Q are allowed to open /dev/ashmem directly.
 # Apps must use ASharedMemory NDK API. Native code must use libcutils API.
@@ -1418,3 +1419,5 @@ neverallow {
   -untrusted_app_25
   -untrusted_app_27
 } ashmem_device:chr_file open;
+=======
+>>>>>>> BRANCH (4561fc Allow toolbox to rm -rf /data/per_boot)
