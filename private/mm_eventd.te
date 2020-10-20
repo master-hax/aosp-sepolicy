@@ -1,0 +1,16 @@
+# mm_eventd service
+typeattribute mm_eventd coredomain;
+
+init_daemon_domain(mm_eventd)
+
+# Allow mm_eventd to read mm_event trace pipe
+allow mm_eventd debugfs_tracing_instances:dir search;
+allow mm_eventd debugfs_tracing_instances:file { open read getattr };
+
+# Allow mm_eventd to read vmstat
+allow mm_eventd proc_vmstat:file { open read getattr };
+
+# Allow mm_event to dump in system data
+allow mm_eventd mm_events_data_file:dir rw_dir_perms;
+allow mm_eventd mm_events_data_file:file create_file_perms;
+
