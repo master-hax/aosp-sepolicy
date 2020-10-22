@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "732847f5_0aa77fe5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2020-10-22T15:21:18Z",
+      "side": 1,
+      "message": "Jeff mind taking another look? Updated this to be userdebug/eng only for now",
+      "revId": "3be133f8776164c52ab3e229d14f078a2f00783b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc724e31_ff1e09c3",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2020-10-22T15:21:18Z",
+      "side": 1,
+      "message": "If you ask me \"why -init -vendor_init\" it\u0027s because without this I get the following error:\n\nlibsepol.report_failure: neverallow on line 442 of system/sepolicy/public/domain.te (or line 11908 of policy.conf) violated by allow vendor_init proc_kallsyms:file { read open };\n\nIt\u0027s weird because there is no place that does \"allow vendor_init proc_kallsyms:file \"\nI suppose there\u0027s some rule somewhere that tries to enforce that init doesn\u0027t get locked out?\nNo idea.",
+      "range": {
+        "startLine": 442,
+        "startChar": 20,
+        "endLine": 442,
+        "endChar": 39
+      },
+      "revId": "3be133f8776164c52ab3e229d14f078a2f00783b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
