@@ -44,3 +44,8 @@ allow vold vold_key:keystore2_key {
     use
 };
 
+# Add support for Android R Ext4 external storage.
+allow vold mnt_media_rw_file:dir relabelto;
+allow vold mnt_media_rw_file:file relabelto;
+allow vold mnt_media_rw_stub_file:dir relabelfrom;
+

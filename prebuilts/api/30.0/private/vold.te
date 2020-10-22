@@ -17,3 +17,8 @@ domain_trans(vold, fsck_exec, fsck_untrusted);
 # from accidentally writing when the mount point isn't present.
 type_transition vold storage_file:dir storage_stub_file;
 type_transition vold mnt_media_rw_file:dir mnt_media_rw_stub_file;
+
+# Add support for Android R Ext4 external storage.
+allow vold mnt_media_rw_file:dir relabelto;
+allow vold mnt_media_rw_file:file relabelto;
+allow vold mnt_media_rw_stub_file:dir relabelfrom;

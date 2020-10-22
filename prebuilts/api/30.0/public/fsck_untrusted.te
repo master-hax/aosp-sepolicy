@@ -47,3 +47,7 @@ neverallow fsck_untrusted {
 neverallow { domain -vold } fsck_untrusted:process transition;
 neverallow * fsck_untrusted:process dyntransition;
 neverallow fsck_untrusted { file_type fs_type -fsck_exec }:file entrypoint;
+
+# Add support for Ext4 filesystem support
+allow fsck_untrusted media_rw_data_file:dir getattr;
+allow fsck_untrusted vold_device:blk_file ioctl;
