@@ -53,3 +53,9 @@ neverallow {
     -apexd
     -gsid
 } vold_service:service_manager find;
+
+# Add support for Android R Ext4 external storage.
+allow vold mnt_media_rw_file:dir relabelto;
+allow vold mnt_media_rw_file:file relabelto;
+allow vold mnt_media_rw_stub_file:dir relabelfrom;
+

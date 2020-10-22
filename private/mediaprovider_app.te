@@ -52,3 +52,8 @@ allow mediaprovider_app proc_filesystems:file r_file_perms;
 get_prop(mediaprovider_app, storage_config_prop)
 
 get_prop(mediaprovider_app, drm_service_config_prop)
+
+# Allow MediaProvider to support EXT4 file format with AOSP patch.
+allow mediaprovider_app { mnt_media_rw_file }:dir { read getattr open search };
+allow mediaprovider_app { mnt_media_rw_file }:file { read getattr open };
+
