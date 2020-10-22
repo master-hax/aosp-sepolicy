@@ -20,6 +20,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d201d233_97871f5d",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-10-22T17:06:08Z",
+      "side": 1,
+      "message": "Probably shouldn\u0027t include a google-internal doc in an AOSP comment.",
+      "range": {
+        "startLine": 33,
+        "startChar": 29,
+        "endLine": 33,
+        "endChar": 55
+      },
+      "revId": "3be133f8776164c52ab3e229d14f078a2f00783b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90d7fe8c_fa02ef85",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-10-22T17:06:08Z",
+      "side": 1,
+      "message": "Is there any reason to put this line inside the userdebug_or_eng() statement? If you leave it outside, then we\u0027ll be able to take advantage of kallsyms on user builds that have new kernels without any sepolicy modifications. (Or sooner if we backport https://elixir.bootlin.com/linux/v5.9.1/source/kernel/kallsyms.c#L681)",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 52
+      },
+      "revId": "3be133f8776164c52ab3e229d14f078a2f00783b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc724e31_ff1e09c3",
         "filename": "public/domain.te",
         "patchSetId": 6
@@ -31,6 +77,30 @@
       "writtenOn": "2020-10-22T15:21:18Z",
       "side": 1,
       "message": "If you ask me \"why -init -vendor_init\" it\u0027s because without this I get the following error:\n\nlibsepol.report_failure: neverallow on line 442 of system/sepolicy/public/domain.te (or line 11908 of policy.conf) violated by allow vendor_init proc_kallsyms:file { read open };\n\nIt\u0027s weird because there is no place that does \"allow vendor_init proc_kallsyms:file \"\nI suppose there\u0027s some rule somewhere that tries to enforce that init doesn\u0027t get locked out?\nNo idea.",
+      "range": {
+        "startLine": 442,
+        "startChar": 20,
+        "endLine": 442,
+        "endChar": 39
+      },
+      "revId": "3be133f8776164c52ab3e229d14f078a2f00783b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "452bbda4_c118fb07",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-10-22T17:06:08Z",
+      "side": 1,
+      "message": "Here\u0027s the issue: https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/vendor_init.te;l\u003d135\n\nI think it\u0027s fine to exempt init in the neverallow rule.",
+      "parentUuid": "dc724e31_ff1e09c3",
       "range": {
         "startLine": 442,
         "startChar": 20,
