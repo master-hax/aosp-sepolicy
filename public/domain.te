@@ -248,8 +248,9 @@ allow domain vendor_data_file:dir { getattr search };
 # required by the dynamic linker
 allow domain proc:lnk_file { getattr read };
 
-# /proc/cpuinfo
+# /proc/cpuinfo and /sys/device/soc0/{family,machine,revision,soc_id}
 allow domain proc_cpuinfo:file r_file_perms;
+allow domain sysfs_socinfo:file r_file_perms;
 
 # /dev/cpu_variant:.*
 allow domain dev_cpu_variant:file r_file_perms;
