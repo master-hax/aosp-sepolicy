@@ -916,3 +916,7 @@ graphics.display.kernel_idle_timer.enabled u:object_r:surfaceflinger_display_pro
 
 # Disable/enable charger input
 power.battery_input.suspended u:object_r:power_debug_prop:s0 exact bool
+
+# Enable Keystore 2.0.
+# TODO remove this propertye when Keystore 2.0 migration is complete b/171563717
+ro.android.security.keystore2.enable    u:object_r:keystore2_enable_prop:s0 exact bool
