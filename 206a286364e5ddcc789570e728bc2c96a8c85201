@@ -46,6 +46,30 @@
       },
       "revId": "206a286364e5ddcc789570e728bc2c96a8c85201",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae053391_f79b6e76",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-10-23T17:24:23Z",
+      "side": 1,
+      "message": "\u003e AFAIK, this is just for test code. The code I know about is here: \n\u003e \n\u003e https://android.googlesource.com/platform/packages/apps/Settings/+/refs/heads/master/src/com/android/settings/network/telephony/cdma/CdmaSubscriptionPreferenceController.java\n\nThat looks like it is reading the property not writing it, so you shouldn\u0027t need set_prop.\n\n\u003e But, it looks like the test using this function is in CTS, so I guess it can also run on user builds? SongFerng, can you comment please?\n\nAFAICT those test files aren\u0027t part of CTS. And CTS tests wouldn\u0027t be running as system_app, I believe, so this change wouldn\u0027t help them.\n\nThe bug shows this audit message though, which does show it coming from system_app. Curious.\n\nauditd  : type\u003d1107 audit(0.0:484): uid\u003d0 auid\u003d4294967295 ses\u003d4294967295 subj\u003du:r:init:s0 msg\u003d\u0027avc: denied { set } for property\u003dril.subscription.types pid\u003d14068 uid\u003d1000 gid\u003d1000 scontext\u003du:r:system_app:s0 tcontext\u003du:object_r:radio_prop:s0 tclass\u003dproperty_service permissive\u003d0\u0027",
+      "parentUuid": "de99f9c0_2f8ff2f1",
+      "range": {
+        "startLine": 10,
+        "startChar": 15,
+        "endLine": 10,
+        "endChar": 29
+      },
+      "revId": "206a286364e5ddcc789570e728bc2c96a8c85201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
