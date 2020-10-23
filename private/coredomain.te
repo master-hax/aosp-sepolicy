@@ -21,6 +21,9 @@ get_prop(coredomain, userspace_reboot_config_prop)
 get_prop(coredomain, vold_config_prop)
 get_prop(coredomain, vts_status_prop)
 
+# TODO Remove this property when Keystore 2.0 migration is complete b/171563717
+get_prop(coredomain, keystore2_enable_prop)
+
 full_treble_only(`
 neverallow {
     coredomain
