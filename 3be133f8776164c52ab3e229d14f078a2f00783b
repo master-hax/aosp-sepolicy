@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "245dd784_71770304",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2020-10-23T13:04:40Z",
+      "side": 1,
+      "message": "Yeah I know but this is a tough one because google.com drive doesn\u0027t allow to share docs publicly. The doc itself does not contain any secret. This issue comes up frequently, even in our repo. It\u0027s a tradeioff between:\n1. Not attaching docs at all and leaving less context\n2. Attaching docs like this, make it work for googlers, leaving non-googlers with less context.\n\n(same situation for b/ links)\n\nIn our repo we ended up opting for 2. It\u0027s not ideal but seem no worse than 1.\n\nRemoved it here.",
+      "parentUuid": "d201d233_97871f5d",
+      "range": {
+        "startLine": 33,
+        "startChar": 29,
+        "endLine": 33,
+        "endChar": 55
+      },
+      "revId": "3be133f8776164c52ab3e229d14f078a2f00783b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90d7fe8c_fa02ef85",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-10-22T17:06:08Z",
       "side": 1,
       "message": "Is there any reason to put this line inside the userdebug_or_eng() statement? If you leave it outside, then we\u0027ll be able to take advantage of kallsyms on user builds that have new kernels without any sepolicy modifications. (Or sooner if we backport https://elixir.bootlin.com/linux/v5.9.1/source/kernel/kallsyms.c#L681)",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 52
+      },
+      "revId": "3be133f8776164c52ab3e229d14f078a2f00783b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33d79e41_94f7c092",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2020-10-23T13:04:40Z",
+      "side": 1,
+      "message": "ah sure thing. Makes sense. Done.",
+      "parentUuid": "90d7fe8c_fa02ef85",
       "range": {
         "startLine": 36,
         "startChar": 0,
@@ -101,6 +149,30 @@
       "side": 1,
       "message": "Here\u0027s the issue: https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/vendor_init.te;l\u003d135\n\nI think it\u0027s fine to exempt init in the neverallow rule.",
       "parentUuid": "dc724e31_ff1e09c3",
+      "range": {
+        "startLine": 442,
+        "startChar": 20,
+        "endLine": 442,
+        "endChar": 39
+      },
+      "revId": "3be133f8776164c52ab3e229d14f078a2f00783b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48935f3f_5f8e2db5",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2020-10-23T13:04:40Z",
+      "side": 1,
+      "message": "Ahhhhh yeah I thought it was something like that. I even codesearched for that, but I didn\u0027t think about the multiline case, so my regex failed.",
+      "parentUuid": "452bbda4_c118fb07",
       "range": {
         "startLine": 442,
         "startChar": 20,
