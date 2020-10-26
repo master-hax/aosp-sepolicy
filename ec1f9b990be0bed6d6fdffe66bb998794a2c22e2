@@ -16,6 +16,24 @@
       "message": "Settings app setting a property for the radio HAL seems quite wrong, and (likely?) a Treble violation.\n\nHopefully the Inseob or Jiyong can chime in here.",
       "revId": "ec1f9b990be0bed6d6fdffe66bb998794a2c22e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23d097a5_804e4c6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-10-26T02:02:57Z",
+      "side": 1,
+      "message": "Nothing but the test app seems to be setting the sysprop. \n\nhttps://source.corp.google.com/search?q\u003dset.*ril.subscription.types%20-f:cpuinfo\u0026sq\u003dpackage:%5Eandroid$\n\nIt looks like the test is setting the sysprop just to verify the behavior of https://source.corp.google.com/android/packages/apps/Settings/src/com/android/settings/network/telephony/cdma/CdmaSubscriptionPreferenceController.java;rcl\u003d341975bb7c70f0d9b5656e4fd0490365c1acc6de;l\u003d80.\n\nI think they could use mocking to do that.",
+      "parentUuid": "18f62665_733fddcb",
+      "revId": "ec1f9b990be0bed6d6fdffe66bb998794a2c22e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
