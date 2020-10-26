@@ -39,6 +39,30 @@
       },
       "revId": "c0fc0eb6791778c70f344b0ae8a79cc76b35f770",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37e90b5b_fb83e1f4",
+        "filename": "private/coredomain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-10-26T23:20:23Z",
+      "side": 1,
+      "message": "I am happy to reduce access. This should not be public API and and it is supposed to be removed once the Keystore 2.0 migration is complete.\n\nThis needs to be readable by systemserver, system_app, and zygote before it transitions to any app context. It may need to be readable by select HAL services like wpa_supplicant. But as I said, it should never be stable API and need to be removed before the next release.",
+      "parentUuid": "00994756_5f42ef33",
+      "range": {
+        "startLine": 25,
+        "startChar": 9,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "c0fc0eb6791778c70f344b0ae8a79cc76b35f770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
