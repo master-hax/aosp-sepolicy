@@ -79,13 +79,9 @@ allow zygote mirror_data_file:dir r_dir_perms;
 
 # Get inode of data directories
 allow zygote {
+  app_data_file_type
+  -system_app_data_file  # Wuh?
   system_data_file
-  radio_data_file
-  app_data_file
-  shell_data_file
-  bluetooth_data_file
-  privapp_data_file
-  nfc_data_file
   mnt_expand_file
 }:dir getattr;
 
@@ -242,7 +238,4 @@ neverallow zygote {
 }:file create_file_perms;
 
 # Zygote should not be able to access app private data.
-neverallow zygote {
-  privapp_data_file
-  app_data_file
-}:dir ~getattr;
+neverallow zygote app_data_file_type:dir ~getattr;
