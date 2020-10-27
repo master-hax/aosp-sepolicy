@@ -33,6 +33,24 @@
       "message": "Nice!\n\nIt really seems like there should be a way to enforce this with neverallow rules, but I really can\u0027t seem to come up with a way to do that :/",
       "revId": "1b8b1f648cd6ded165c8b8163e77b1370f91332e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b2dbd39_e9fa1e15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-10-27T05:24:48Z",
+      "side": 1,
+      "message": "Is it possible to manually edit cil files? e.g.\n\n(typeattribute sysprop_owner_violators)\n(typeattributeset sysprop_owner_violators (and (system_property_type ) (vendor_property_type )))\n(neverallow sysprop_owner_violators property_type (file (write create setattr relabelfrom append unlink link rename execute execute_no_trans)))",
+      "parentUuid": "e69a8a25_56e26e7b",
+      "revId": "1b8b1f648cd6ded165c8b8163e77b1370f91332e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
