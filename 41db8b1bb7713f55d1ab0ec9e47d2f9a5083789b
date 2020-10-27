@@ -16,6 +16,24 @@
       "message": "Can you add a neverallow rule to restrict access? At the very least, all untrusted_apps, priv_app, bluetooth, etc should not have access.",
       "revId": "41db8b1bb7713f55d1ab0ec9e47d2f9a5083789b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0a76a7e_89c8a9ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-10-27T16:05:36Z",
+      "side": 1,
+      "message": "I\u0027ve added a bunch of neverallows, along the lines of the existing ones we have for uevent, netlink etc.\n\nIs there a specific reason for wanting bluetooth? We don\u0027t have many neverallows for it at the moment.\n\nWe clearly want to allow some apps to be able to talk to it, but I\u0027m not sure I have any clear picture of which ones definitely shouldn\u0027t.\n\nI suppose we could apply the neverallow to { coredomain -exemptions }, but perhaps we should do that for other things too? But then that seems quite a lot of scope creep for this CL.",
+      "parentUuid": "501e4362_11df506d",
+      "revId": "41db8b1bb7713f55d1ab0ec9e47d2f9a5083789b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
