@@ -16,6 +16,24 @@
       "message": "Now nothing can access the property. What\u0027s the intent of this change? What process should be setting it, and which process(es) should be reading it?",
       "revId": "8633462d85766012f08ba40cb481037db0b7ae28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a2c8a95_d0847428",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1345812
+      },
+      "writtenOn": "2020-10-27T00:55:14Z",
+      "side": 1,
+      "message": "It will be set by /vendor/build.prop, and read by rootdir/init.zygote*.rc (e.g.: https://android-review.googlesource.com/c/platform/system/core/+/1202249/13/rootdir/init.zygote64.rc)\n\n  service zygote ...\n    ...\n    critical window\u003d${zygote.critical_window.minute:-off} ...",
+      "parentUuid": "a22eb7f0_ac206c5a",
+      "revId": "8633462d85766012f08ba40cb481037db0b7ae28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
