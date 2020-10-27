@@ -63,6 +63,30 @@
       },
       "revId": "c0fc0eb6791778c70f344b0ae8a79cc76b35f770",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7ded356_14b6cb5a",
+        "filename": "private/coredomain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-10-27T01:28:40Z",
+      "side": 1,
+      "message": "Then maybe we want to make sure only those can read:\n\nget_prop(system_server, keystore2_enable_prop) # in private/system_server.te\nget_prop(system_app, keystore2_enable_prop)    # in private/system_app.te\nget_prop(zygote, keystore2_enable_prop)        # in private/zygote.te\n\nneverallow { -init -dumpstate -system_server -system_app -zygote } keystore2_enable_prop:file no_rw_file_perms; # in private/property.te",
+      "parentUuid": "37e90b5b_fb83e1f4",
+      "range": {
+        "startLine": 25,
+        "startChar": 9,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "c0fc0eb6791778c70f344b0ae8a79cc76b35f770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
