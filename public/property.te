@@ -55,6 +55,7 @@ compatible_property_only(`
 
 # Properties which can't be written outside system
 system_restricted_prop(aac_drc_prop)
+system_restricted_prop(adbd_config_prop)
 system_restricted_prop(binder_cache_bluetooth_server_prop)
 system_restricted_prop(binder_cache_system_server_prop)
 system_restricted_prop(binder_cache_telephony_server_prop)
@@ -112,7 +113,6 @@ compatible_property_only(`
 
 # Properties which can be written only by vendor_init
 system_vendor_config_prop(aaudio_config_prop)
-system_vendor_config_prop(adbd_config_prop)
 system_vendor_config_prop(apk_verity_prop)
 system_vendor_config_prop(audio_config_prop)
 system_vendor_config_prop(build_odm_prop)
