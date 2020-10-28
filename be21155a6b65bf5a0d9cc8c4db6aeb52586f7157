@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cfdadef_245b5189",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-10-28T18:12:31Z",
+      "side": 1,
+      "message": "WDYT?\nI\u0027ve not added any new allow rules to the policy here - but I\u0027ve left comments on a couple of places where it seems that it would make sense to do so.",
+      "revId": "be21155a6b65bf5a0d9cc8c4db6aeb52586f7157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abef9c6b_47be9e83",
+        "filename": "private/zygote.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-10-28T18:12:31Z",
+      "side": 1,
+      "message": "I suggest we delete this. Although it doesn\u0027t seem to be generating any denials at the moment, which makes me wonder whether this allow rule is needed at all.",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 31
+      },
+      "revId": "be21155a6b65bf5a0d9cc8c4db6aeb52586f7157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "938298ff_7cc2441f",
+        "filename": "public/iorap_inode2filename.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-10-28T18:12:31Z",
+      "side": 1,
+      "message": "I suggest we allow access to shell_data_file and nfc_data_file here.\nThese are currently causing denials - although that seems to be relatively harmless.\n(There are other types that iorap_inode2filename is also trying but failing to access.)",
+      "range": {
+        "startLine": 24,
+        "startChar": 48,
+        "endLine": 24,
+        "endChar": 79
+      },
+      "revId": "be21155a6b65bf5a0d9cc8c4db6aeb52586f7157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
