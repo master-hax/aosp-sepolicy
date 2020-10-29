@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85e77679_118e4136",
+        "filename": "private/adbd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2020-10-29T21:18:43Z",
+      "side": 0,
+      "message": "Could we allow this property to be set by both system and vendor? Our devices don\u0027t have USB adb. So we can enable TCP adb by your test commands. We have to allow vendor to decide which adb protocol to use.",
+      "range": {
+        "startLine": 109,
+        "startChar": 15,
+        "endLine": 109,
+        "endChar": 31
+      },
+      "revId": "e28e447c3c59d9c7bf4ed65b2eed6eb79d74159b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9febbd5_a221436c",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2020-10-29T21:18:43Z",
+      "side": 0,
+      "message": "ditto. We have to allow vendor_init to set it too.",
+      "range": {
+        "startLine": 115,
+        "startChar": 26,
+        "endLine": 115,
+        "endChar": 42
+      },
+      "revId": "e28e447c3c59d9c7bf4ed65b2eed6eb79d74159b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
