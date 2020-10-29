@@ -121,6 +121,24 @@
       "message": "Hi Jeff, \n\nThis is a gentle reminder. Did you have a chance to read my and Jooyung\u0027s responses? Please let us know how you think.",
       "revId": "94a183a4f35935f5257bdc701dcb85829c3df814",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3b721ce_fca47103",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-10-29T09:17:00Z",
+      "side": 1,
+      "message": "I still disagree with this change. We know that partners sometimes want files on device which are not trivially extractable. This patch makes it impossible for them to use the vendor partition to do that. And from experience, this will force them to do fragile DRM-y things to protect their files. FWIW, adb has access to \"system_file\" not \"system_file_type\" so we or partners can likewise make files on /system inaccessible to adb.\n\nMy preference is that you grant access to the specific files or directories that you want. That way partners can continue to choose whether or not to expose files to adb.",
+      "parentUuid": "3be3200c_1cf81f64",
+      "revId": "94a183a4f35935f5257bdc701dcb85829c3df814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
