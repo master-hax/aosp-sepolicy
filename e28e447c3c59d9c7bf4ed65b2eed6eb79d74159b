@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "885ce220_7892312b",
+        "filename": "private/adbd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2020-10-30T01:57:42Z",
+      "side": 0,
+      "message": "Yes, system_public_prop should allow both system and vendor to set it.",
+      "parentUuid": "dbc6dee6_b5b59218",
+      "range": {
+        "startLine": 109,
+        "startChar": 15,
+        "endLine": 109,
+        "endChar": 31
+      },
+      "revId": "e28e447c3c59d9c7bf4ed65b2eed6eb79d74159b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c9febbd5_a221436c",
         "filename": "public/property.te",
         "patchSetId": 3
@@ -85,6 +109,30 @@
       "side": 0,
       "message": "system_vendor_config_prop has a neverallow that makes it so that only init and vendor_init can set the property:\n\n  neverallow { domain -init -vendor_init } $1:property_service set;",
       "parentUuid": "c9febbd5_a221436c",
+      "range": {
+        "startLine": 115,
+        "startChar": 26,
+        "endLine": 115,
+        "endChar": 42
+      },
+      "revId": "e28e447c3c59d9c7bf4ed65b2eed6eb79d74159b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f6d0998_4798f281",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2020-10-30T01:57:42Z",
+      "side": 0,
+      "message": "system_public_prop should be okay to both cases.",
+      "parentUuid": "aa16efdf_1085b11c",
       "range": {
         "startLine": 115,
         "startChar": 26,
