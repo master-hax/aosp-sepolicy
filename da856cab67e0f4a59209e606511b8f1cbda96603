@@ -52,6 +52,29 @@
       "parentUuid": "7f90e096_0aacebca",
       "revId": "da856cab67e0f4a59209e606511b8f1cbda96603",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67353107_b16277a1",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2020-10-30T05:17:02Z",
+      "side": 1,
+      "message": "I think we can do the following changes. By doing this, both your case and my cases should work.\n\n1. remove \"system_vendor_config_prop(adbd_config_prop)\" from public/property.te\n\n2. add \"set_prop(adbd, adbd_config_prop)\" to private/adbd.te\n\n3. add \"neverallow { domain -init -adbd -vendor_init } adbd_config_prop:property_service set;\" to private/property.te\n\n4. add \"set_prop(vendor_init, adbd_config_prop)\" to private/vendor_init.te",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 40
+      },
+      "revId": "da856cab67e0f4a59209e606511b8f1cbda96603",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
