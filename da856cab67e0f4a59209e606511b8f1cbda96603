@@ -71,6 +71,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df565e8b_151ac759",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2020-11-02T17:04:39Z",
+      "side": 1,
+      "message": "The background is that the default adbd protocol is USB adb, and \"service.adb.tcp.port\" property is set, adbd will be started with TCP protocol.\n\nWe have two cases. \n\n@Josh, please correct me if anything is wrong.\n\n1. The device has USB adb. In this case, \"adb tcp 5555\" command will restart adbd and adbd will set \"service.adb.tcp.port\" property before it\u0027s restarted. After the adbd is restarted, the TCP adb protocol will be used. To support this command, adbd must be able to set this property.\n\n2. The device doesn\u0027t have USB adb. In this case, we need the adbd to be started with TCP protocol while booting up. To do that, we want vendor_init to set \"service.adb.tcp.port\" property.",
+      "parentUuid": "e1fe3b11_d8d1201e",
+      "revId": "da856cab67e0f4a59209e606511b8f1cbda96603",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67353107_b16277a1",
