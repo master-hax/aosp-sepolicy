@@ -52,6 +52,42 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0aceace_d3388ad2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-02T17:49:51Z",
+      "side": 1,
+      "message": "No - it\u0027s to make it easier for OEMs to allocate their own type for apps that need to be mlstrustedsubject and hence can\u0027t use app_data_file.\n\nI\u0027ve got some mls rules coming in a while though, for compat purposes.",
+      "parentUuid": "5173f640_caf739a5",
+      "revId": "be21155a6b65bf5a0d9cc8c4db6aeb52586f7157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92059032_7d2a5cdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-02T17:49:51Z",
+      "side": 1,
+      "message": "I quite like the idea, but there are quite a lot of existing domains that would need to be exempted - at least:\nadbd\ndumpstate\nheapprofd\ninit\ninstalld\niorap_prefetcherd\nrs\nsystem_server\nuncrypt\n\nPart of the problem is that some of the existing types are used not just for app data. adbd has access to shell_data_file, for example, and init to bluetooh_data_file.\n\nIn any case I\u0027m not entirely convinced that a vendor app\u0027s data files should never be accessible to, say, a companion daemon.",
+      "parentUuid": "2b27c94e_28074628",
+      "revId": "be21155a6b65bf5a0d9cc8c4db6aeb52586f7157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0f48cc7_3e774f0b",
@@ -75,6 +111,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63efc1b8_4b8b13ea",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-02T17:49:51Z",
+      "side": 1,
+      "message": "¯\\_(ツ)_/¯\n\nprivate/system_server.te says:\n\n# Manage /data/misc/sms.\n# TODO:  Split into a separate type?\nallow system_server radio_data_file:dir create_dir_perms;\nallow system_server radio_data_file:file create_file_perms;\n\n# Populate com.android.providers.settings/databases/settings.db.\nallow system_server system_app_data_file:dir create_dir_perms;\nallow system_server system_app_data_file:file create_file_perms;\n\n\nThe latter one seems slightly more legit given the shared UID.\n\nAgain the root of the problem is we use the same label for certain app data files and other vaguely related files.",
+      "parentUuid": "d0f48cc7_3e774f0b",
+      "range": {
+        "startLine": 1029,
+        "startChar": 0,
+        "endLine": 1030,
+        "endChar": 18
+      },
+      "revId": "be21155a6b65bf5a0d9cc8c4db6aeb52586f7157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abef9c6b_47be9e83",
@@ -88,6 +148,30 @@
       "writtenOn": "2020-10-28T18:12:31Z",
       "side": 1,
       "message": "I suggest we delete this. Although it doesn\u0027t seem to be generating any denials at the moment, which makes me wonder whether this allow rule is needed at all.",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 31
+      },
+      "revId": "be21155a6b65bf5a0d9cc8c4db6aeb52586f7157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ecae881_baf26447",
+        "filename": "private/zygote.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-02T17:49:51Z",
+      "side": 1,
+      "message": "Oh, I remembered why we have this - and improved the comment.\nTechnically we don\u0027t need system_app_data_file because system server UID is exempt from Ricky\u0027s app data isolation work.\nBut it seems neater, and means less attribute expansion I think, if we ignore that.",
+      "parentUuid": "abef9c6b_47be9e83",
       "range": {
         "startLine": 83,
         "startChar": 2,
@@ -145,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a126c5e8_2fcbc773",
+        "filename": "public/iorap_inode2filename.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-02T17:49:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ee6d4d8_8725308c",
+      "range": {
+        "startLine": 24,
+        "startChar": 48,
+        "endLine": 24,
+        "endChar": 79
+      },
+      "revId": "be21155a6b65bf5a0d9cc8c4db6aeb52586f7157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b0b6748_f7b053ad",
@@ -158,6 +266,30 @@
       "writtenOn": "2020-11-02T09:57:28Z",
       "side": 1,
       "message": "Should we also test that type does not have mlstrustedobject?",
+      "range": {
+        "startLine": 329,
+        "startChar": 12,
+        "endLine": 329,
+        "endChar": 30
+      },
+      "revId": "be21155a6b65bf5a0d9cc8c4db6aeb52586f7157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64370597_74d5e1d9",
+        "filename": "tools/check_seapp.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-02T17:49:51Z",
+      "side": 1,
+      "message": "A few of them do have mlstrustedobject:\nsystem_app_data_file, radio_data_file, radio_vendor_data_file (aka vendor_radio_data_file)\n\nFor the more specific app_data_file_types we only grant access to a small number of domains at the TE level, so I think that\u0027s ok?",
+      "parentUuid": "8b0b6748_f7b053ad",
       "range": {
         "startLine": 329,
         "startChar": 12,
