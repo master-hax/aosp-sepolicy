@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afb1f1bf_7f503abb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1651020
+      },
+      "writtenOn": "2020-11-02T15:44:14Z",
+      "side": 1,
+      "message": "HdmiControlManager is SystemApi and only exports SystemApi, however it appears that system_api_service does not allow CTS hostside test instrumentation tests to access the system service (we\u0027re getting an sepolicy denied in that case).\n\nIf this the wrong approach, happy to discuss about the use case.",
+      "revId": "9c9ed8c2739f15e41301cede849c2f687d4b98f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
