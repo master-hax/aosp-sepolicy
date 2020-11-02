@@ -65,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27d5aa44_c8cb925f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-02T22:10:53Z",
+      "side": 1,
+      "message": "I added a more relevant test in PS3.",
+      "parentUuid": "4d2e0564_832fb406",
+      "revId": "1823d665ca1577f817e8c11ac6ac8b47a1f75a3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66f07d90_56f2dc1c",
@@ -102,6 +120,30 @@
       "side": 1,
       "message": "\u003e This seems to be enough to allow shell to execute the file - but it will execute it still within the shell domain, which probably isn\u0027t enough to do any real work.\n\u003e To execute it in the dex2oat domain you would need a variant of this: \n\u003e \n\u003e # Run dex2oat in its own sandbox.\n\u003e domain_auto_trans(installd, dex2oat_exec, dex2oat)\n\u003e \n\u003e (https://source.corp.google.com/android/system/sepolicy/private/installd.te;rcl\u003d927ee38d794eb652d15de7cf22bc1c2af58d5c1f;l\u003d10)\n\u003e \n\u003e But this all makes me a bit nervous.\n\u003e \n\u003e What exactly do you need dex2oat to be able to do for the tests?\n\nWe use `dex2oat` to compile a test Dex file into an Oat file (within `/data/local/tmp` on device). I\u0027ll check whether the currently proposed change is enough to achieve that.\n\n\u003e If it\u0027s for tests, can it be userdebug-or-eng-only?\n\nWe\u0027d like to be able to run `dex2oat` on `user` build devices as well (in particular on non-Google devices) as part of MTS.",
       "parentUuid": "66f07d90_56f2dc1c",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 44
+      },
+      "revId": "1823d665ca1577f817e8c11ac6ac8b47a1f75a3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6606a5ea_98ebd7cf",
+        "filename": "private/shell.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-02T22:10:53Z",
+      "side": 1,
+      "message": "\u003e \u003e This seems to be enough to allow shell to execute the file - but it will execute it still within the shell domain, which probably isn\u0027t enough to do any real work.\n\u003e \u003e To execute it in the dex2oat domain you would need a variant of this: \n\u003e \u003e \n\u003e \u003e # Run dex2oat in its own sandbox.\n\u003e \u003e domain_auto_trans(installd, dex2oat_exec, dex2oat)\n\u003e \u003e \n\u003e \u003e (https://source.corp.google.com/android/system/sepolicy/private/installd.te;rcl\u003d927ee38d794eb652d15de7cf22bc1c2af58d5c1f;l\u003d10)\n\u003e \u003e \n\u003e \u003e But this all makes me a bit nervous.\n\u003e \u003e \n\u003e \u003e What exactly do you need dex2oat to be able to do for the tests?\n\u003e \n\u003e We use `dex2oat` to compile a test Dex file into an Oat file (within `/data/local/tmp` on device). I\u0027ll check whether the currently proposed change is enough to achieve that.\n\nIt does work – I had to apply a small fix the ART run-test TradeFed test runner (https://android-review.googlesource.com/c/platform/tools/tradefederation/+/1484277), but otherwise the tests is able to invoke `dex2oat` and produce the expected result(s) in the (temporary) test directory.",
+      "parentUuid": "aea18dac_eb3dd414",
       "range": {
         "startLine": 78,
         "startChar": 0,
