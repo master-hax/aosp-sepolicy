@@ -22,6 +22,30 @@
       },
       "revId": "e19547bcefe90b38812c18f78ff811a147e734aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "528bc757_adf2b042",
+        "filename": "private/property.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-11-02T05:22:07Z",
+      "side": 1,
+      "message": "It depends on what will set the property. e.g. if it\u0027s init (system/build.prop or init.*.rc under system partition), you can use\n\nneverallow { domain -init } suspend_prop:property_service set;",
+      "parentUuid": "46940578_229c3a4c",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 14
+      },
+      "revId": "e19547bcefe90b38812c18f78ff811a147e734aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
