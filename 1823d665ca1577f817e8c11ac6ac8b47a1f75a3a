@@ -22,6 +22,70 @@
       },
       "revId": "1823d665ca1577f817e8c11ac6ac8b47a1f75a3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "753f1be2_caaecc49",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-02T14:28:00Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "bfcc29c8_8816bac4",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 40
+      },
+      "revId": "1823d665ca1577f817e8c11ac6ac8b47a1f75a3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d2e0564_832fb406",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-02T14:28:00Z",
+      "side": 1,
+      "message": "I\u0027m not convinced that is a sufficient test - see below",
+      "revId": "1823d665ca1577f817e8c11ac6ac8b47a1f75a3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66f07d90_56f2dc1c",
+        "filename": "private/shell.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-02T14:28:00Z",
+      "side": 1,
+      "message": "This seems to be enough to allow shell to execute the file - but it will execute it still within the shell domain, which probably isn\u0027t enough to do any real work.\nTo execute it in the dex2oat domain you would need a variant of this: \n\n# Run dex2oat in its own sandbox.\ndomain_auto_trans(installd, dex2oat_exec, dex2oat)\n\n(https://source.corp.google.com/android/system/sepolicy/private/installd.te;rcl\u003d927ee38d794eb652d15de7cf22bc1c2af58d5c1f;l\u003d10)\n\nBut this all makes me a bit nervous.\n\nWhat exactly do you need dex2oat to be able to do for the tests?\nIf it\u0027s for tests, can it be userdebug-or-eng-only?",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 44
+      },
+      "revId": "1823d665ca1577f817e8c11ac6ac8b47a1f75a3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
