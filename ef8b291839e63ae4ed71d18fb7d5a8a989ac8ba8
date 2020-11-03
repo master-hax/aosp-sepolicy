@@ -22,6 +22,30 @@
       },
       "revId": "ef8b291839e63ae4ed71d18fb7d5a8a989ac8ba8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aed07616_15895ca1",
+        "filename": "private/property.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-11-03T00:31:15Z",
+      "side": 1,
+      "message": "Whether we should use init or vendor_init depends on how and where we set the property. For example, if the property goes into the vendor partition, (e.g. PRODUCT_VENDOR_PROPERTIES [1] or some rc file installed to vendor/etc/init [2]) then it should be vendor_init. Otherwise it should be init.\n\nbsschwar@, PTAL\n\n[1]: http://cs/aosp-master/build/make/target/product/full_x86.mk?l\u003d31\u0026rcl\u003deb49b34b1ea81259e78e1e50d16f087e16a25837\n[2]: http://cs/aosp-master/device/google/cuttlefish/shared/config/init.vendor.rc?l\u003d10\u0026rcl\u003d95166270fed52532e08fde35fcb08574b5dee708",
+      "parentUuid": "5912b9f6_882eb8f9",
+      "range": {
+        "startLine": 291,
+        "startChar": 5,
+        "endLine": 291,
+        "endChar": 9
+      },
+      "revId": "ef8b291839e63ae4ed71d18fb7d5a8a989ac8ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
