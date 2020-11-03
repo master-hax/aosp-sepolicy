@@ -16,6 +16,24 @@
       "message": "Actually, I think I have to invite Jeffrey. In terms of Treble, this looks fine as mediaswcodec HAS BEEN a system process, but at the same time, this CL might allow a number of things that are only possible for coredomain. mediaswcodec has been fine without the extra privileges, so this sounds like against the general policy that we shouldn\u0027t allow more than it\u0027s necessary.",
       "revId": "e54d2283ed5b46902daf920531eb1a66c44d5a96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c807c6cb_798382d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-03T16:48:20Z",
+      "side": 1,
+      "message": "{ domain -coredomain } is considered vendor, and \u0027coredomain\u0027 is considered system.\n\nFor instance:\n\n     neverallow {\n         coredomain\n         ...\n     } vndbinder_device:chr_file rw_file_perms;\n\nAnd many similar rules. This is an enormous hole in Treble. Definitely, I\u0027d be in favor of a cleaner way to have a domain split, but this is what we have.",
+      "parentUuid": "2e9f1505_b9806c82",
+      "revId": "e54d2283ed5b46902daf920531eb1a66c44d5a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
