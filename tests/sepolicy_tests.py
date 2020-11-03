@@ -8,6 +8,78 @@ import sys
 #############################################################
 # Tests
 #############################################################
+def TestRootfsViolations(pol):
+    known_roots = [
+        "/acct",
+        "/adb_keys",
+        "/apex",
+        "/bin",
+        "/bugreports",
+        "/build.prop",
+        "/cache/",
+        "/charger",
+        "/config",
+        "/d",
+        "/data",
+        "/data_mirror",
+        "/debug_ramdisk",
+        "/default.prop",
+        "/dev/",
+        "/etc",
+        "/fstab",
+        "/init",
+        "/lib",
+        "/lost+found",
+        "/mapping_sepolicy.cil",
+        "/metadata/",
+        "/mnt",
+        "/nonplat_file_contexts",
+        "/nonplat_hwservice_contexts",
+        "/nonplat_property_contexts",
+        "/nonplat_seapp_contexts",
+        "/nonplat_sepolicy.cil",
+        "/nonplat_service_contexts",
+        "/odm/",
+        "/odm_dlkm",
+        "/oem/",
+        "/plat_file_contexts",
+        "/plat_hwservice_contexts",
+        "/plat_keystore2_key_contexts",
+        "/plat_property_contexts",
+        "/plat_seapp_contexts",
+        "/plat_sepolicy.cil",
+        "/plat_service_contexts",
+        "/postinstall",
+        "/postinstall/",
+        "/proc",
+        "/product/",
+        "/product_file_contexts",
+        "/product_property_contexts",
+        "/res",
+        "/sbin",
+        "/sdcard",
+        "/sdcard/",
+        "/seapp_contexts",
+        "/second_stage_resources",
+        "/selinux_version",
+        "/sepolicy",
+        "/sepolicy",
+        "/sys",
+        "/system/",
+        "/ts_snap.txt", # FIXME: from cuttlefish
+        "/ueventd",
+        "/vendor",
+        "/vendor_dlkm",
+        "/vendor_file_contexts",
+        "/vendor_hwservice_contexts",
+        "/vendor_property_contexts",
+        "/vendor_seapp_contexts",
+        "/vendor_service_contexts",
+        "/verity_key",
+        "/vndservice_contexts",
+    ]
+    return pol.AssertPathTypesHaveAttr(["/"], known_roots, "no_fs_type")
+
 def TestDataTypeViolations(pol):
     return pol.AssertPathTypesHaveAttr(["/data/"], [], "data_file_type")
 
@@ -127,6 +199,8 @@ if __name__ == '__main__':
 
     results = ""
     # If an individual test is not specified, run all tests.
+    if options.test is None or "TestRootfsViolations" in options.test:
+        results += TestRootfsViolations(pol)
     if options.test is None or "TestDataTypeViolations" in options.test:
         results += TestDataTypeViolations(pol)
     if options.test is None or "TestProcTypeViolations" in options.test:
