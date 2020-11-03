@@ -70,6 +70,53 @@
       },
       "revId": "ef8b291839e63ae4ed71d18fb7d5a8a989ac8ba8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aab9a360_33ba18b9",
+        "filename": "private/property.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-11-03T00:39:40Z",
+      "side": 1,
+      "message": "Yeah, then this is all good. I don\u0027t have any opinion either.",
+      "parentUuid": "11a363ae_7646c117",
+      "range": {
+        "startLine": 291,
+        "startChar": 5,
+        "endLine": 291,
+        "endChar": 9
+      },
+      "revId": "ef8b291839e63ae4ed71d18fb7d5a8a989ac8ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55e3436d_7b8e0937",
+        "filename": "private/property_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-11-03T00:39:40Z",
+      "side": 1,
+      "message": "nit; can we explicitly list all individual properties? e.g.\n\nsuspend_hal.max_sleep_time.msec            u:object_r:suspend_prop:s0 exact int\nsuspend_hal.sleep_time_scale_factor        u:object_r:suspend_prop:s0 exact double\nsuspend_hal.failed_suspend_backoff.enabled u:object_r:suspend_prop:s0 exact bool\n\nFor system only properties we don\u0027t strongly enforce this, but I highly recommend adding them.",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 50
+      },
+      "revId": "ef8b291839e63ae4ed71d18fb7d5a8a989ac8ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
