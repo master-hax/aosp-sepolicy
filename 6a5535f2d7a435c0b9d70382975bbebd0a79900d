@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1537f4a_9aeb8938",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013508
+      },
+      "writtenOn": "2020-11-04T15:33:54Z",
+      "side": 1,
+      "message": "Thank you for writing this CL, but unfortunately complex filesystems (such as ext4) cannot be mounted directly from untrusted media, due to the potential security vulnerabilities in these complex filesystems.\n\nThe only safe way to mount these complex filesystems is when they\u0027ve been wrapped in an encryption layer (such as offered by Adoptable Storage) to ensure that a malicious actor cannot tamper with the contents.\n\nYou can find more details here:\n\nhttps://source.android.com/devices/storage/adoptable\n\n",
+      "revId": "6a5535f2d7a435c0b9d70382975bbebd0a79900d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
