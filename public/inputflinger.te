@@ -9,6 +9,10 @@ binder_call(inputflinger, system_server)
 
 wakelock_use(inputflinger)
 
+# Allow to read /sys/class/power_supply directory and files
+allow system_server sysfs_type:dir r_dir_perms;
+r_dir_file(system_server, sysfs_power_supply)
+
 allow inputflinger input_device:dir r_dir_perms;
 allow inputflinger input_device:chr_file rw_file_perms;
 

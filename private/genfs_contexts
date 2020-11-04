@@ -113,6 +113,11 @@ genfscon sysfs /class/android_usb                 u:object_r:sysfs_android_usb:s
 genfscon sysfs /class/extcon                      u:object_r:sysfs_extcon:s0
 genfscon sysfs /class/leds                        u:object_r:sysfs_leds:s0
 genfscon sysfs /class/net                         u:object_r:sysfs_net:s0
+#SONY: This will break sysfs_batteryinfo and doesn't change the SELinux contexts for dynamic files.
+#      Without a separate sysfs_power_supply, we will have to provide system_server access to sysfs,
+#      which might be too permissive.
+#      Not sure what's the right approach is.
+#genfscon sysfs /class/power_supply                u:object_r:sysfs_power_supply:s0
 genfscon sysfs /class/rfkill/rfkill0/state        u:object_r:sysfs_bluetooth_writable:s0
 genfscon sysfs /class/rfkill/rfkill1/state        u:object_r:sysfs_bluetooth_writable:s0
 genfscon sysfs /class/rfkill/rfkill2/state        u:object_r:sysfs_bluetooth_writable:s0
