@@ -65,6 +65,11 @@ allow update_engine_common dm_device:chr_file rw_file_perms;
 # apply / verify updates on devices mapped via device mapper
 allow update_engine_common dm_device:blk_file rw_file_perms;
 
+# read /dev, so that we can inotify wait for /dev/dm-user to appear, as it is
+# created asynchronously by ueventd.
+allow update_engine device:dir r_dir_perms;
+allow update_engine dm_user_device:dir r_dir_perms;
+
 # read / write metadata on super device to resize partitions
 allow update_engine_common super_block_device_type:blk_file rw_file_perms;
 
@@ -88,3 +93,7 @@ get_prop(update_engine_common, build_bootimage_prop)
 allow update_engine_common metadata_file:dir search;
 allow update_engine_common ota_metadata_file:dir rw_dir_perms;
 allow update_engine_common ota_metadata_file:file create_file_perms;
+
+# Allow to communicate with the snapuserd service, for dm-user snapshots.
+allow update_engine snapuserd:unix_stream_socket connectto;
+allow update_engine snapuserd_socket:sock_file write;
