@@ -21,7 +21,7 @@ system_internal_prop(userspace_reboot_log_prop)
 system_internal_prop(userspace_reboot_test_prop)
 
 # TODO Remove this property when Keystore 2.0 migration is complete b/171563717
-system_internal_prop(keystore2_enable_prop)
+system_public_prop(keystore2_enable_prop)
 
 ###
 ### Neverallow rules
@@ -476,9 +476,12 @@ neverallow {
 
 # TODO Remove this property when Keystore 2.0 migration is complete b/171563717
 neverallow {
+  domain
+  -appdomain
   -init
   -dumpstate
   -system_app
   -system_server
+  -vendor_init
   -zygote
 } keystore2_enable_prop:file no_rw_file_perms;
