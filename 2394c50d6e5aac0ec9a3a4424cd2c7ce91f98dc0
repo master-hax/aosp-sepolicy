@@ -22,6 +22,30 @@
       },
       "revId": "2394c50d6e5aac0ec9a3a4424cd2c7ce91f98dc0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b059f1c8_02e29ecd",
+        "filename": "private/property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-11T15:38:34Z",
+      "side": 1,
+      "message": "It is read only. It would only be set during build, never during runtime. Frankly, I intentionally left it here to indicate that it is not public API, it just needs to be read by hidden library code, that happens to run inside the app. I think it may be better if I leave the property as-is and instead have a zygote set a local variable that propagates the value of the property.",
+      "parentUuid": "d1378f24_a4bfc6ed",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 41
+      },
+      "revId": "2394c50d6e5aac0ec9a3a4424cd2c7ce91f98dc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
