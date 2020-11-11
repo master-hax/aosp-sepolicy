@@ -22,6 +22,30 @@
       },
       "revId": "f0f047aeaa2a0347fb53df1eb31e3bd582f5a06c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cf7df81_e1b63d48",
+        "filename": "private/otapreopt_chroot.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2020-11-11T16:21:47Z",
+      "side": 1,
+      "message": "We need to query ro.cold_boot_done prop only during apexd-bootstrap. As part of b/165948777 libapexmount will provide a way to specify special logic for handling loop creation, otapreopt_chroot will be using the default one, while apexd-bootstrap will keep querying ro.cold_boot_done prop.",
+      "parentUuid": "0837c4a2_cca68f99",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 83
+      },
+      "revId": "f0f047aeaa2a0347fb53df1eb31e3bd582f5a06c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
