@@ -84,7 +84,6 @@ neverallow * {
   -dalvik_prop
   -debuggerd_prop
   -debug_prop
-  -default_prop
   -dhcp_prop
   -dumpstate_prop
   -fingerprint_prop
@@ -515,3 +514,7 @@ neverallow {
 neverallow {
   -init
 } setupwizard_prop:property_service set;
+
+neverallow {
+  -init
+} default_prop:property_service set;
