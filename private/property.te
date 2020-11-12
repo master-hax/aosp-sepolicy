@@ -1,5 +1,6 @@
 # Properties used only in /system
 system_internal_prop(adbd_prop)
+system_internal_prop(default_prop)
 system_internal_prop(device_config_profcollect_native_boot_prop)
 system_internal_prop(device_config_storage_native_boot_prop)
 system_internal_prop(device_config_sys_traced_prop)
@@ -84,7 +85,6 @@ neverallow * {
   -dalvik_prop
   -debuggerd_prop
   -debug_prop
-  -default_prop
   -dhcp_prop
   -dumpstate_prop
   -fingerprint_prop
@@ -515,3 +515,7 @@ neverallow {
 neverallow {
   -init
 } setupwizard_prop:property_service set;
+
+neverallow {
+  -init
+} default_prop:property_service set;
