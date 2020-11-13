@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4df0cb35_6a461c10",
+        "filename": "private/property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-13T02:20:14Z",
+      "side": 1,
+      "message": "this exception (and the shell rule - I assume that\u0027s why this exception is added) shouldn\u0027t be needed, can you:\n- use \u0027adb shell /vendor/bin/sh -c \"setprop ...\"\u0027 to get access to a vendor context\n- use \u0027adb root\u0027\n\nWith this exception, we open up the possibility for arbitrary vendor domains to be given the permission to read these properties.",
+      "range": {
+        "startLine": 308,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 30
+      },
+      "revId": "04d5027efdc454b26cd1b9b130d1437f978d2248",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
