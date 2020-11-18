@@ -91,6 +91,7 @@ neverallow traced {
   # subsequent neverallow. Currently only getattr and search are allowed.
   -vendor_data_file
   -zoneinfo_data_file
+  -font_data_file
   with_native_coverage(`-method_trace_data_file')
 }:dir *;
 neverallow traced { system_data_file }:dir ~{ getattr search };
@@ -101,6 +102,7 @@ neverallow traced {
   -zoneinfo_data_file
   -perfetto_traces_data_file
   -trace_data_file
+  -font_data_file
   with_native_coverage(`-method_trace_data_file')
 }:file ~write;
 

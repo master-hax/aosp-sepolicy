@@ -1021,6 +1021,15 @@ userdebug_or_eng(`
 # Watchdog reads sysprops framework_watchdog.fatal_* to handle watchdog timeout loop.
 get_prop(system_server, framework_watchdog_config_prop)
 
+
+# Font files are written by system server
+allow system_server { font_data_file }:file create_file_perms;
+allow system_server { font_data_file }:dir rw_dir_perms;
+# Allow system process to setup and measure fs-verity for font files
+allowxperm system_server { font_data_file }:file ioctl {
+  FS_IOC_ENABLE_VERITY FS_IOC_MEASURE_VERITY
+};
+
 ###
 ### Neverallow rules
 ###
