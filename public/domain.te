@@ -225,6 +225,10 @@ allow domain sysfs:lnk_file { getattr read };
 allow domain { system_zoneinfo_file zoneinfo_data_file }:file r_file_perms;
 allow domain { system_zoneinfo_file zoneinfo_data_file }:dir r_dir_perms;
 
+# Allow font file read by apps.
+allow domain { font_data_file }:file r_file_perms;
+allow domain { font_data_file }:dir r_dir_perms;
+
 # Lots of processes access current CPU information
 r_dir_file(domain, sysfs_devices_system_cpu)
 
@@ -851,6 +855,7 @@ full_treble_only(`
     # These functions are considered vndk-stable and thus must be allowed for
     # all processes.
     -zoneinfo_data_file
+    -font_data_file
     with_native_coverage(`-method_trace_data_file')
   }:file_class_set ~{ append getattr ioctl read write map };
   neverallow {
@@ -860,6 +865,7 @@ full_treble_only(`
     core_data_file_type
     -unencrypted_data_file
     -zoneinfo_data_file
+    -font_data_file
     with_native_coverage(`-method_trace_data_file')
   }:file_class_set ~{ append getattr ioctl read write map };
   # vendor init needs to be able to read unencrypted_data_file to create directories with FBE.
@@ -880,6 +886,7 @@ full_treble_only(`
     -system_data_root_file
     -vendor_data_file
     -zoneinfo_data_file
+    -font_data_file
     with_native_coverage(`-method_trace_data_file')
   }:dir *;
   neverallow {
@@ -892,6 +899,7 @@ full_treble_only(`
     -system_data_root_file
     -vendor_data_file
     -zoneinfo_data_file
+    -font_data_file
     with_native_coverage(`-method_trace_data_file')
   }:dir *;
   # vendor init needs to be able to read unencrypted_data_file to create directories with FBE.
@@ -1399,3 +1407,7 @@ neverallow {
 } ashmem_device:chr_file open;
 
 neverallow { domain -traced_probes -init -vendor_init } debugfs_tracing_printk_formats:file *;
+
+# Only system server can write the font files.
+neverallow { domain -init -system_server } font_data_file:file no_w_file_perms;
+neverallow { domain -init -system_server } font_data_file:dir no_w_dir_perms;
