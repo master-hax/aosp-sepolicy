@@ -86,6 +86,7 @@ neverallow perfetto {
   # neverallow. Currently only getattr and search are allowed.
   -vendor_data_file
   -zoneinfo_data_file
+  -font_data_file
   -perfetto_traces_data_file
   -perfetto_configs_data_file
   with_native_coverage(`-method_trace_data_file')
@@ -98,5 +99,6 @@ neverallow perfetto {
   -zoneinfo_data_file
   -perfetto_traces_data_file
   -perfetto_configs_data_file
+  -font_data_file
   with_native_coverage(`-method_trace_data_file')
 }:file ~write;
