@@ -76,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e86afa8_d5c76728",
+        "filename": "prebuilts/api/30.0/private/file_contexts",
+        "patchSetId": 12
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-19T16:42:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aec8716a_3b67e8dd",
+      "range": {
+        "startLine": 523,
+        "startChar": 23,
+        "endLine": 523,
+        "endChar": 24
+      },
+      "revId": "71f2c6ea6ee8eed7f697280501966d49857abc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae69b319_a927f3ba",
@@ -89,6 +113,30 @@
       "writtenOn": "2020-11-19T10:49:35Z",
       "side": 1,
       "message": "Why do you need to relabel? Will these files exist anywhere other than in the relevant apexdata dir?\n(The same question applies to some of the other types below. There\u0027s probably a reason, would be nice to capture it in the comment.)",
+      "range": {
+        "startLine": 15,
+        "startChar": 54,
+        "endLine": 15,
+        "endChar": 63
+      },
+      "revId": "71f2c6ea6ee8eed7f697280501966d49857abc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12e7b2c9_060a98da",
+        "filename": "private/apexd.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-19T16:42:40Z",
+      "side": 1,
+      "message": "apexd creates manages these APEX data directories and relabels them so they can be used by code in the APEX. If there is a new ART apex (or any other apex using data directories), the old ART data directory will be squirreled away by apexd and a new one created for the new ART apex. apexd should delete the old directory when it\u0027s happy the mainline updates are sticking (or roll back to it if not).\n\nThe apexd behaviour here is quite cool: we do not have to manage the contents ourselves, e.g. check whether the artifacts are compatible with the currently mounted APEX: they are always in sync.\n\nThere is a comment above which we can expand, but otherwise we\u0027re just following the pattern in go/apex-data-directories.",
+      "parentUuid": "ae69b319_a927f3ba",
       "range": {
         "startLine": 15,
         "startChar": 54,
@@ -122,6 +170,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86a90cc4_57760025",
+        "filename": "private/dex2oat.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-19T16:42:40Z",
+      "side": 1,
+      "message": "Ack, but only for output files.",
+      "parentUuid": "17ff3a62_51fb45a5",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 29
+      },
+      "revId": "71f2c6ea6ee8eed7f697280501966d49857abc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d73a6340_32bfd011",
@@ -145,6 +217,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79087525_2ea50c85",
+        "filename": "private/dex2oat.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-19T16:42:40Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "d73a6340_32bfd011",
+      "range": {
+        "startLine": 38,
+        "startChar": 8,
+        "endLine": 38,
+        "endChar": 14
+      },
+      "revId": "71f2c6ea6ee8eed7f697280501966d49857abc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38b79526_3120b61a",
@@ -158,6 +254,30 @@
       "writtenOn": "2020-11-19T10:49:35Z",
       "side": 1,
       "message": "?",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 7
+      },
+      "revId": "71f2c6ea6ee8eed7f697280501966d49857abc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e80f7940_20961a0a",
+        "filename": "private/dexoptanalyzer.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-19T16:42:40Z",
+      "side": 1,
+      "message": "Done.\n\n[ I\u0027m puzzled why this isn\u0027t necessary, but no denials when commented out or removed. ]",
+      "parentUuid": "38b79526_3120b61a",
       "range": {
         "startLine": 22,
         "startChar": 2,
@@ -239,6 +359,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c47bf5b_c4d03a3e",
+        "filename": "private/domain.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-19T16:42:40Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "d737da90_72b1bb6a",
+      "range": {
+        "startLine": 273,
+        "startChar": 38,
+        "endLine": 273,
+        "endChar": 45
+      },
+      "revId": "71f2c6ea6ee8eed7f697280501966d49857abc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a6f659a_38aa8eec",
@@ -252,6 +396,30 @@
       "writtenOn": "2020-11-19T10:50:53Z",
       "side": 1,
       "message": "I think you\u0027re missing a transition rule so that running odrefresh_exec moves into the odrefresh domain.",
+      "range": {
+        "startLine": 3,
+        "startChar": 5,
+        "endLine": 3,
+        "endChar": 19
+      },
+      "revId": "71f2c6ea6ee8eed7f697280501966d49857abc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee4bad13_c50a2953",
+        "filename": "private/odrefresh.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-19T16:42:40Z",
+      "side": 1,
+      "message": "Thanks. In the long run ods should be transitioning, for now I\u0027ve just added this to su.te which reveals a few problems that need to be fixed on the ART side.",
+      "parentUuid": "4a6f659a_38aa8eec",
       "range": {
         "startLine": 3,
         "startChar": 5,
@@ -285,6 +453,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3dc327d_f6771c8b",
+        "filename": "private/shell.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-19T16:42:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a44e717b_404350be",
+      "range": {
+        "startLine": 77,
+        "startChar": 2,
+        "endLine": 77,
+        "endChar": 8
+      },
+      "revId": "71f2c6ea6ee8eed7f697280501966d49857abc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffa0cf8c_69310001",
@@ -308,6 +500,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a8de26c_300f4cf5",
+        "filename": "private/zygote.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-19T16:42:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffa0cf8c_69310001",
+      "range": {
+        "startLine": 56,
+        "startChar": 8,
+        "endLine": 56,
+        "endChar": 14
+      },
+      "revId": "71f2c6ea6ee8eed7f697280501966d49857abc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78d2fd8b_fc8b8ed8",
@@ -321,6 +537,30 @@
       "writtenOn": "2020-11-19T10:49:35Z",
       "side": 1,
       "message": "zygote -\u003e crash_dump",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 12
+      },
+      "revId": "71f2c6ea6ee8eed7f697280501966d49857abc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00b25ef8_348326bf",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-19T16:42:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78d2fd8b_fc8b8ed8",
       "range": {
         "startLine": 32,
         "startChar": 6,
