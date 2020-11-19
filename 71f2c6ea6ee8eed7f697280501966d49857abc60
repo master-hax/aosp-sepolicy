@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aded6f1d_170bcd44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-19T14:19:11Z",
+      "side": 1,
+      "message": "Sorry, this CL should have come with more explanation.\n\nIn Android S, ART becomes an updatable Mainline module. In the module there is a program called odrefresh which recompiles the parts of the boot class path that are not in the ART apex themselves (e.g. frameworks.jar) and the system server jars. There is also a component called ods (http://ag/12685324) which signs the artifacts and checks their signatures on subsequent boots. ods drives odrefresh to check the artifacts for existence and freshness and to recompile if necessary. \n\nThere are two main things going on in this CL:\n\n1) enabling zygote to load the updated artifacts from the ART APEX data directory /data/misc/apexdata/com.android.art (go/apex-data-directories).\n2) enabling odrefresh to write artifacts.\n\nThe path in 1 mostly tries to follow what we do currently for the dalvik-cache. The path in 2 mostly tries to copy what we do for installd, e.g. do not allow dex2oat to write artifacts directly but have odrefresh create the descriptors and pass them to dex2oat.\n\nIt might make this easier to review if we split 1 and 2 out into separate CLs?",
+      "revId": "71f2c6ea6ee8eed7f697280501966d49857abc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aec8716a_3b67e8dd",
@@ -146,6 +163,30 @@
       "writtenOn": "2020-11-19T10:49:35Z",
       "side": 1,
       "message": "Should you be constraining read too?",
+      "range": {
+        "startLine": 273,
+        "startChar": 38,
+        "endLine": 273,
+        "endChar": 45
+      },
+      "revId": "71f2c6ea6ee8eed7f697280501966d49857abc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72e3f9f0_db3a0bc6",
+        "filename": "private/domain.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-19T14:19:11Z",
+      "side": 1,
+      "message": "The data directory here will contain signed AOT compilation artifacts of system server and boot class path extensions following an update of the ART APEX through a Mainline update. We map the files into all managed processes (through zygotes) and various diagnostic tools need to be able to read them.\n\nThe change here was based on the example of the dalvikcache immediately above as this is AOT artifacts.\n\nShould we try locking this down further?",
+      "parentUuid": "57f1785d_5f650890",
       "range": {
         "startLine": 273,
         "startChar": 38,
