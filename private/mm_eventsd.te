@@ -1,0 +1,12 @@
+typeattribute mm_eventsd coredomain;
+
+init_daemon_domain(mm_eventsd)
+
+allow mm_eventsd debugfs_tracing_instances:dir search;
+allow mm_eventsd debugfs_mm_events_tracing:dir search;
+allow mm_eventsd debugfs_mm_events_tracing:file r_file_perms;
+
+allow mm_eventsd proc_vmstat:file r_file_perms;
+
+allow mm_eventsd mm_events_data_file:dir rw_dir_perms;
+allow mm_eventsd mm_events_data_file:file create_file_perms;

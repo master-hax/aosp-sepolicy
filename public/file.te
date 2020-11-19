@@ -136,6 +136,7 @@ type exfat, sdcard_type, fs_type, mlstrustedobject;
 type debugfs, fs_type, debugfs_type;
 type debugfs_kprobes, fs_type, debugfs_type;
 type debugfs_mmc, fs_type, debugfs_type;
+type debugfs_mm_events_tracing, fs_type, debugfs_type;
 type debugfs_trace_marker, fs_type, debugfs_type, mlstrustedobject;
 type debugfs_tracing, fs_type, debugfs_type, mlstrustedobject;
 type debugfs_tracing_debug, fs_type, debugfs_type, mlstrustedobject;
@@ -272,6 +273,8 @@ type drm_data_file, file_type, data_file_type, core_data_file_type;
 type adb_data_file, file_type, data_file_type, core_data_file_type;
 # /data/anr - ANR traces
 type anr_data_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
+# /data/mm_events - MM Events Data
+type mm_events_data_file, file_type, data_file_type, core_data_file_type;
 # /data/tombstones - core dumps
 type tombstone_data_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
 # /data/vendor/tombstones/wifi - vendor wifi dumps

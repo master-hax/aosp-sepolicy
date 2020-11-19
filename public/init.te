@@ -282,6 +282,9 @@ allow init debugfs_tracing_instances:dir create_dir_perms;
 allow init debugfs_tracing_instances:file w_file_perms;
 allow init debugfs_wifi_tracing:file w_file_perms;
 
+# Allow init to enable/disable mm trace events (see mm_eventsd.rc)
+allow init debugfs_mm_events_tracing:file write;
+
 # chown/chmod on pseudo files.
 allow init {
   fs_type
