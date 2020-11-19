@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17cfea12_91908d98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-19T14:28:31Z",
+      "side": 1,
+      "message": "\u003e There are two main things going on in this CL:\n\nThanks, that\u0027s very helpful.\n\n\u003e It might make this easier to review if we split 1 and 2 out into separate CLs?\n\nPossibly, although it\u0027s going to be quite tricky anyway.",
+      "parentUuid": "aded6f1d_170bcd44",
+      "revId": "71f2c6ea6ee8eed7f697280501966d49857abc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aec8716a_3b67e8dd",
@@ -187,6 +205,30 @@
       "side": 1,
       "message": "The data directory here will contain signed AOT compilation artifacts of system server and boot class path extensions following an update of the ART APEX through a Mainline update. We map the files into all managed processes (through zygotes) and various diagnostic tools need to be able to read them.\n\nThe change here was based on the example of the dalvikcache immediately above as this is AOT artifacts.\n\nShould we try locking this down further?",
       "parentUuid": "57f1785d_5f650890",
+      "range": {
+        "startLine": 273,
+        "startChar": 38,
+        "endLine": 273,
+        "endChar": 45
+      },
+      "revId": "71f2c6ea6ee8eed7f697280501966d49857abc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d737da90_72b1bb6a",
+        "filename": "private/domain.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-19T14:28:31Z",
+      "side": 1,
+      "message": "I think that\u0027s up to you, but if all untrusted apps need read access then it isn\u0027t as much of a concern.\nWrite access is obviously crucial.",
+      "parentUuid": "72e3f9f0_db3a0bc6",
       "range": {
         "startLine": 273,
         "startChar": 38,
