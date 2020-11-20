@@ -10,3 +10,9 @@ allow mm_eventsd proc_vmstat:file r_file_perms;
 
 allow mm_eventsd mm_events_data_file:dir rw_dir_perms;
 allow mm_eventsd mm_events_data_file:file create_file_perms;
+
+get_prop(mm_eventsd, mm_eventsd_config_prop)
+
+# NOTE: dumpstate is allowed to read any system property
+neverallow { domain -init -vendor_init -mm_eventsd -dumpstate }
+    mm_eventsd_config_prop:file no_rw_file_perms;
