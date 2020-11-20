@@ -136,6 +136,11 @@ ro.build.fingerprint    u:object_r:fingerprint_prop:s0 exact string
 
 ro.persistent_properties.ready  u:object_r:persistent_properties_ready_prop:s0
 
+# mm_eventsd properties
+mm_eventsd.buffer_capacity.kb               u:object_r:mm_eventsd_config_prop:s0 exact uint
+mm_eventsd.snapshot_compression.enabled     u:object_r:mm_eventsd_config_prop:s0 exact bool
+mm_eventsd.snapshot_interval.ms             u:object_r:mm_eventsd_config_prop:s0 exact uint
+
 # ctl properties
 ctl.bootanim            u:object_r:ctl_bootanim_prop:s0
 ctl.dumpstate           u:object_r:ctl_dumpstate_prop:s0
