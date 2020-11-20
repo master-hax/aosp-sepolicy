@@ -20,3 +20,7 @@ get_prop(mm_eventsd, mm_eventsd_prop)
 
 # Only allow init / vendor_init to set mm_eventsd_prop
 neverallow { domain -init -vendor_init } mm_eventsd_prop:property_service set;
+
+# Allow mm_eventsd to serve IMmEventsService
+binder_use(mm_eventsd)
+add_service(mm_eventsd, mm_events_service)
