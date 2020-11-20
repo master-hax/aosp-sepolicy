@@ -19,6 +19,16 @@ userdebug_or_eng(`
 # Allow dumpstate to make binder calls to incidentd
 binder_call(dumpstate, incidentd)
 
+# Allow dumpstate to make binder calls to mm_eventsd
+binder_call(dumpstate, mm_eventsd)
+
+# Allow dumpstate to read mm_events data files
+allow dumpstate mm_events_data_file:dir r_dir_perms;
+allow dumpstate mm_events_data_file:file r_file_perms;
+
+# Allow dumpstate to execute mm_eventsd for dumping
+allow dumpstate mm_eventsd_exec:file rx_file_perms;
+
 # Allow dumpstate to make binder calls to storaged service
 binder_call(dumpstate, storaged)
 

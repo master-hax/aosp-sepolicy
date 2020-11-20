@@ -19,3 +19,6 @@ neverallow { domain -init -vendor_init -mm_eventsd -dumpstate }
 
 binder_use(mm_eventsd)
 add_service(mm_eventsd, mm_events_service)
+
+allow mm_eventsd dumpstate:fd use;
+allow mm_eventsd dumpstate:fifo_file write;
