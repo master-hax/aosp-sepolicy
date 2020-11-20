@@ -24,3 +24,7 @@ neverallow { domain -init -vendor_init } mm_eventsd_prop:property_service set;
 # Allow mm_eventsd to serve IMmEventsService
 binder_use(mm_eventsd)
 add_service(mm_eventsd, mm_events_service)
+
+# Needed for dumpstate to dump mm events
+allow mm_eventsd dumpstate:fd use;
+allow mm_eventsd dumpstate:fifo_file write;
