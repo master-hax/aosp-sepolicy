@@ -14,3 +14,9 @@ allow mm_eventsd proc_vmstat:file r_file_perms;
 # Allow mm_eventsd to dump its history in /data/mm_events/*
 allow mm_eventsd mm_events_data_file:dir rw_dir_perms;
 allow mm_eventsd mm_events_data_file:file create_file_perms;
+
+# Allow mm_eventsd to read mm_eventsd system properties
+get_prop(mm_eventsd, mm_eventsd_prop)
+
+# Only allow init / vendor_init to set mm_eventsd_prop
+neverallow { domain -init -vendor_init } mm_eventsd_prop:property_service set;
