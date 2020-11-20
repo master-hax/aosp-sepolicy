@@ -16,3 +16,6 @@ get_prop(mm_eventsd, mm_eventsd_config_prop)
 # NOTE: dumpstate is allowed to read any system property
 neverallow { domain -init -vendor_init -mm_eventsd -dumpstate }
     mm_eventsd_config_prop:file no_rw_file_perms;
+
+binder_use(mm_eventsd)
+add_service(mm_eventsd, mm_events_service)
