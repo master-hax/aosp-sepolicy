@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b25486d1_bb9db841",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-24T19:28:10Z",
+      "side": 1,
+      "message": "Jeff, can you take a look? I\u0027m not familiar with all of these things.",
+      "revId": "24effb56aca47b20d5b73753bf14b0e5d6a70445",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a2ee977_5c522a4e",
         "filename": "private/mm_eventsd.te",
         "patchSetId": 2
@@ -26,6 +43,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9129dc43_4a3a6e14",
+        "filename": "private/mm_eventsd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-24T19:28:10Z",
+      "side": 1,
+      "message": "please do start this conversation if you haven\u0027t already, but we of course can/should get this in to unblock.",
+      "parentUuid": "8a2ee977_5c522a4e",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 30
+      },
+      "revId": "24effb56aca47b20d5b73753bf14b0e5d6a70445",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33e9c333_2c084008",
+        "filename": "public/file.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-24T19:28:10Z",
+      "side": 1,
+      "message": "Things which have access to debugfs_tracing_instances will lose access to this, and it seems like this is an anti-pattern that already exists. Would it be a problem if tools like atrace lost access to this? Can you maybe file a follow-up bug?",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 54
+      },
+      "revId": "24effb56aca47b20d5b73753bf14b0e5d6a70445",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4542bd75_bb6b2d0b",
         "filename": "public/mm_eventsd.te",
         "patchSetId": 2
@@ -37,6 +101,30 @@
       "writtenOn": "2020-11-24T19:23:07Z",
       "side": 1,
       "message": "delete",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 19
+      },
+      "revId": "24effb56aca47b20d5b73753bf14b0e5d6a70445",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5da938a_7e5ac837",
+        "filename": "public/mm_eventsd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-24T19:28:10Z",
+      "side": 1,
+      "message": "no need to expire TH+V for this.",
+      "parentUuid": "4542bd75_bb6b2d0b",
       "range": {
         "startLine": 1,
         "startChar": 0,
