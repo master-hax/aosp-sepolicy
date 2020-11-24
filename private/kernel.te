@@ -1,6 +1,7 @@
 typeattribute kernel coredomain;
 
 domain_auto_trans(kernel, init_exec, init)
+domain_auto_trans(kernel, snapuserd_exec, snapuserd)
 
 # Allow the kernel to read otapreopt_chroot's file descriptors and files under
 # /postinstall, as it uses apexd logic to mount APEX packages in /postinstall/apex.
