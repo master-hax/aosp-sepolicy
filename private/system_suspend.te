@@ -16,6 +16,19 @@ r_dir_file(system_suspend, sysfs_wakeup)
 # To resolve arbitrary sysfs paths from /sys/class/wakeup/* symlinks.
 allow system_suspend sysfs_type:dir search;
 
+<<<<<<< HEAD   (6ddd05 Merge "Revert "Reland "Add persist.dumpstate.verbose_logging)
+=======
+# Access to suspend_hal system properties
+get_prop(system_suspend, suspend_prop)
+
+# To call BTAA registered callbacks
+allow system_suspend bluetooth:binder call;
+
+# For adding `dumpsys syspend_control` output to bugreport
+allow system_suspend dumpstate:fd use;
+allow system_suspend dumpstate:fifo_file write;
+
+>>>>>>> CHANGE (215751 Sepolicy for dumsys suspend_control in bugreport)
 neverallow {
     domain
     -atrace # tracing
