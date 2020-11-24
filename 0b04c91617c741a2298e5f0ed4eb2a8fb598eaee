@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d694661_039f4d05",
+        "filename": "private/dex2oat.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-11-24T12:34:07Z",
+      "side": 1,
+      "message": "Is the goal here is to only allow writing to files received by file descriptor? The problem is that line #41 (r_file_perms) grants permission to open all of these files, which bypasses this restriction. I suspect that you actually need two labels here, which might be simplest to do as two directories. One dir with on-device-signed files that dex2oat has \"r_file_perms\" and another dir with these other file types that you expect dex2oat to modify via fd, but not allow directly opening.\n\nCan you expand this comment to describe why dex2oat is writing to files here?",
+      "range": {
+        "startLine": 38,
+        "startChar": 63,
+        "endLine": 39,
+        "endChar": 47
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94c27660_4cce9a4f",
+        "filename": "private/domain.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-11-24T12:34:07Z",
+      "side": 1,
+      "message": "see my note about multiple data types here. Is there any reason to allow dex2oat modify the signed artifacts?",
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ffafa08_4ec34619",
+        "filename": "private/domain.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-11-24T12:34:07Z",
+      "side": 1,
+      "message": "why is dex2oat exempted? It only reads.",
+      "range": {
+        "startLine": 289,
+        "startChar": 3,
+        "endLine": 289,
+        "endChar": 10
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "586c6bd9_860ccdf0",
+        "filename": "private/odrefresh.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-11-24T12:34:07Z",
+      "side": 1,
+      "message": "is just \"search\" sufficient?",
+      "range": {
+        "startLine": 6,
+        "startChar": 42,
+        "endLine": 6,
+        "endChar": 53
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21fa5636_1c62c3c4",
+        "filename": "private/odrefresh.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-11-24T12:34:07Z",
+      "side": 1,
+      "message": "are these  (lines 17-20)strictly necessary, or are they just an artifact of shell not opening these objects with O_CLOEXEC? What breaks when they\u0027re not granted?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 55
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9a131a0_11d4ee61",
+        "filename": "private/webview_zygote.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-11-24T12:34:07Z",
+      "side": 1,
+      "message": "why r_dir_perms here, but just \"search\" for normal zygote? It looks like you only need directory traversal, so \"search\" should be sufficient.",
+      "range": {
+        "startLine": 34,
+        "startChar": 47,
+        "endLine": 34,
+        "endChar": 58
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a7afabd_06bfd708",
+        "filename": "private/zygote.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-11-24T12:34:07Z",
+      "side": 1,
+      "message": "probably better you just use { r_file_perms execute } like you did in webview_zygote since that allows mapping executable libraries, but not calling execv() on binaries.",
+      "range": {
+        "startLine": 58,
+        "startChar": 39,
+        "endLine": 58,
+        "endChar": 52
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26be2267_307d8ef2",
+        "filename": "public/app.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-11-24T12:34:07Z",
+      "side": 1,
+      "message": "search?",
+      "range": {
+        "startLine": 31,
+        "startChar": 42,
+        "endLine": 31,
+        "endChar": 53
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4e4caeb_54ebf6c7",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-11-24T12:34:07Z",
+      "side": 1,
+      "message": "crash_dump?",
+      "range": {
+        "startLine": 35,
+        "startChar": 6,
+        "endLine": 35,
+        "endChar": 12
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b3907c2_467b4ff2",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-11-24T12:34:07Z",
+      "side": 1,
+      "message": "crash_dump?",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 12
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5a108bd_4a7dc581",
+        "filename": "public/file.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-11-24T12:34:07Z",
+      "side": 1,
+      "message": "Is there an expectation that partners will need to customize this type? If not, we should consider moving this into private/file.te. Once you do that, any reference to it must also move into private policy. e.g. the change in public/crash_dump.te must move to private/crash_dump.te.\n\nIn the long run, this will make your life easier because it means that partners have limited ability to access this type, enforced by selinux policy.",
+      "range": {
+        "startLine": 366,
+        "startChar": 0,
+        "endLine": 366,
+        "endChar": 72
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
