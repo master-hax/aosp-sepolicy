@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d0e9851_94baeb36",
+        "filename": "private/dex2oat.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T19:47:38Z",
+      "side": 1,
+      "message": "Thanks, I\u0027ve updated the comment. Does this help?\n\nI\u0027m confused about the \u0027open\u0027 permission in r_dir_perms. Does this cover all open(2) modes? This would make it a super set of \u0027create\u0027 and \u0027append\u0027. I\u0027ve not found a doc that explains \u0027open\u0027, but took it that the three operations suggested different flags to open(2). Assumption is the mother of all mistakes...",
+      "parentUuid": "2d694661_039f4d05",
+      "range": {
+        "startLine": 38,
+        "startChar": 63,
+        "endLine": 39,
+        "endChar": 47
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94c27660_4cce9a4f",
         "filename": "private/domain.te",
         "patchSetId": 15
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46f76983_7041c434",
+        "filename": "private/domain.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T19:47:38Z",
+      "side": 1,
+      "message": "Thanks. I\u0027ve tried to explain in response to the comment about multiple data types.\n\nThe relationship borrows from the pattern of installd and dex2oat (L250-260).",
+      "parentUuid": "94c27660_4cce9a4f",
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1ffafa08_4ec34619",
         "filename": "private/domain.te",
         "patchSetId": 15
@@ -54,6 +96,30 @@
       "writtenOn": "2020-11-24T12:34:07Z",
       "side": 1,
       "message": "why is dex2oat exempted? It only reads.",
+      "range": {
+        "startLine": 289,
+        "startChar": 3,
+        "endLine": 289,
+        "endChar": 10
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c3bbc8b_1f42237a",
+        "filename": "private/domain.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T19:47:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ffafa08_4ec34619",
       "range": {
         "startLine": 289,
         "startChar": 3,
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d620f74c_62871feb",
+        "filename": "private/odrefresh.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T19:47:38Z",
+      "side": 1,
+      "message": "Done. getattr and search suffice.",
+      "parentUuid": "586c6bd9_860ccdf0",
+      "range": {
+        "startLine": 6,
+        "startChar": 42,
+        "endLine": 6,
+        "endChar": 53
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21fa5636_1c62c3c4",
@@ -100,6 +190,30 @@
       "writtenOn": "2020-11-24T12:34:07Z",
       "side": 1,
       "message": "are these  (lines 17-20)strictly necessary, or are they just an artifact of shell not opening these objects with O_CLOEXEC? What breaks when they\u0027re not granted?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 55
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ca356ee_9ec1a943",
+        "filename": "private/odrefresh.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T19:47:38Z",
+      "side": 1,
+      "message": "Changed to dontaudit rules since it looks like nothing breaks if these go. I\u0027d just followed the pattern for these that other domains are using.\n\nJFYI, Suppressing \"allow odrefresh adbd:unix_stream_socket { read write };\" yields:\n\n11-24 16:27:58.140  3219  3219 W odrefresh: type\u003d1400 audit(0.0:95): avc: denied { ioctl } for path\u003d\"socket:[53225]\" dev\u003d\"sockfs\" ino\n\u003d53225 ioctlcmd\u003d0x5401 scontext\u003du:r:odrefresh:s0 tcontext\u003du:r:su:s0 tclass\u003dunix_stream_socket permissive\u003d0\n\n(avc denials for this batch of allows come from adb, shell, and su contexts).",
+      "parentUuid": "21fa5636_1c62c3c4",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -133,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b62b64e_cce9befe",
+        "filename": "private/webview_zygote.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T19:47:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9a131a0_11d4ee61",
+      "range": {
+        "startLine": 34,
+        "startChar": 47,
+        "endLine": 34,
+        "endChar": 58
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a7afabd_06bfd708",
@@ -146,6 +284,30 @@
       "writtenOn": "2020-11-24T12:34:07Z",
       "side": 1,
       "message": "probably better you just use { r_file_perms execute } like you did in webview_zygote since that allows mapping executable libraries, but not calling execv() on binaries.",
+      "range": {
+        "startLine": 58,
+        "startChar": 39,
+        "endLine": 58,
+        "endChar": 52
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83b3ec0c_e16e34b6",
+        "filename": "private/zygote.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T19:47:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a7afabd_06bfd708",
       "range": {
         "startLine": 58,
         "startChar": 39,
@@ -179,6 +341,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2943cbda_56c1dad2",
+        "filename": "public/app.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T19:47:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26be2267_307d8ef2",
+      "range": {
+        "startLine": 31,
+        "startChar": 42,
+        "endLine": 31,
+        "endChar": 53
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4e4caeb_54ebf6c7",
@@ -192,6 +378,30 @@
       "writtenOn": "2020-11-24T12:34:07Z",
       "side": 1,
       "message": "crash_dump?",
+      "range": {
+        "startLine": 35,
+        "startChar": 6,
+        "endLine": 35,
+        "endChar": 12
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "854cf797_768abc1e",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T19:47:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4e4caeb_54ebf6c7",
       "range": {
         "startLine": 35,
         "startChar": 6,
@@ -225,6 +435,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9d5ed49_b96cbfc4",
+        "filename": "public/crash_dump.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T19:47:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b3907c2_467b4ff2",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 12
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5a108bd_4a7dc581",
@@ -238,6 +472,30 @@
       "writtenOn": "2020-11-24T12:34:07Z",
       "side": 1,
       "message": "Is there an expectation that partners will need to customize this type? If not, we should consider moving this into private/file.te. Once you do that, any reference to it must also move into private policy. e.g. the change in public/crash_dump.te must move to private/crash_dump.te.\n\nIn the long run, this will make your life easier because it means that partners have limited ability to access this type, enforced by selinux policy.",
+      "range": {
+        "startLine": 366,
+        "startChar": 0,
+        "endLine": 366,
+        "endChar": 72
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c9065c0_aed285e4",
+        "filename": "public/file.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T19:47:38Z",
+      "side": 1,
+      "message": "This is a good call.\n\nI\u0027m not sure what to do with the neverallow rules, e.g. the change in public/domain.te here. If removed, this breaks for webview_zygote (in the first instance). Something to look at tomorrow.",
+      "parentUuid": "c5a108bd_4a7dc581",
       "range": {
         "startLine": 366,
         "startChar": 0,
