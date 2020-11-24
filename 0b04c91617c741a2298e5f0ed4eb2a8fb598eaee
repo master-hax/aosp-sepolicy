@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f76d667c_25888dba",
+        "filename": "private/dex2oat.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-11-24T21:11:27Z",
+      "side": 1,
+      "message": "We\u0027re talking about \"r_file_perms\", not \"r_dir_perms\".\n\n\"open\" is necessary to call open(2). In addition to open, things like \"read\" are needed for the read mode, \"write\" for the write mode, etc.\n\nThe reason why I\u0027m asking is that the normal installd --\u003e dex2oat flow involves installd opening files with \"read\" and/or \"write\" modes, and then passing that FD to dex2oat over exec(). So, dex2oat has \"read\" and \"write\" permissions, but not \"open\" since it does not  to open these files. This setup has an important security property for processing untrusted dex files from apps. You\u0027re losing that property by using \"r_file_perms\" which includes the \"open\" permission.\n\nIt\u0027s unclear\n1. if it\u0027s necessary that you grant r_file_perms instead of just { getattr read write }\n2. or if we even care about this when processing apex art files since it\u0027s not coming from an app.",
+      "parentUuid": "8d0e9851_94baeb36",
+      "range": {
+        "startLine": 38,
+        "startChar": 63,
+        "endLine": 39,
+        "endChar": 47
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94c27660_4cce9a4f",
         "filename": "private/domain.te",
         "patchSetId": 15
