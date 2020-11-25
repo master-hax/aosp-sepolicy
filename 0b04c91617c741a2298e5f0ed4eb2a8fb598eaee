@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "50179082_99807543",
+        "filename": "private/dex2oat.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-25T15:21:25Z",
+      "side": 1,
+      "message": "I\u0027ve sent a meeting invite for next week (please move if necessary: I\u0027m OOO until Monday).\n\nWhen doing on-device compilation dex2oat modifies one half of the boot image. With Mainline there is the boot image proper which is a binary that ships in the ART APEX and is the image associated with the jars in the ART APEX: libcore et al (core-oj, ok-http, etc). When re-compiling after an update we recompile the \"boot image extensions\" which are jars from the device in the DEX2OATBOOTCLASSPATH: this is frameworks.jar et al. The inputs are all jars from paths that Android and partners have put on the device.\n\nThe code in ART around image spaces is super gnarly and hard to plumb fd\u0027s through in a consistent way. I think we\u0027d be fine with two labels if we wanted to lock this down more, but we can discuss next week.",
+      "parentUuid": "9594ad78_44b5ab75",
+      "range": {
+        "startLine": 38,
+        "startChar": 63,
+        "endLine": 39,
+        "endChar": 47
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94c27660_4cce9a4f",
         "filename": "private/domain.te",
         "patchSetId": 15
