@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92c1fe39_9114dafb",
+        "filename": "private/mm_eventsd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-11-25T02:59:17Z",
+      "side": 1,
+      "message": "The daemon sleeps most of the time. It only wake periodically if there is memory pressure, so I think we can keep as a separate process. I\u0027ll start the system health review process. Thanks for pointing that out.",
+      "parentUuid": "9129dc43_4a3a6e14",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 30
+      },
+      "revId": "24effb56aca47b20d5b73753bf14b0e5d6a70445",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "33e9c333_2c084008",
         "filename": "public/file.te",
         "patchSetId": 2
@@ -78,6 +102,30 @@
       "writtenOn": "2020-11-24T19:28:10Z",
       "side": 1,
       "message": "Things which have access to debugfs_tracing_instances will lose access to this, and it seems like this is an anti-pattern that already exists. Would it be a problem if tools like atrace lost access to this? Can you maybe file a follow-up bug?",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 54
+      },
+      "revId": "24effb56aca47b20d5b73753bf14b0e5d6a70445",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "480e1477_58f77660",
+        "filename": "public/file.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-11-25T02:59:17Z",
+      "side": 1,
+      "message": "I think this should be OK. You can have access to the root tracing dir (debugfs_tracing or debugfs_tracing_debug), which is the \"main tracing instance\", what atrace and most other things will use. The instances folder (debugfs_tracing_instances) in the root tracing dir has the custom instances. Because of the way new tracing instances are created (mkdir \u003cinstance-name\u003e from root context), init needs access to debugfs_tracing_instances to create directories (tracing instances). The other reason for access to debugfs_tracing_instances it to find a custom tracing instance. So I think it\u0027s OK that a process can have access to debugfs_tracing_instances and not inherit access to custom tracing instance(s). WDYT?",
+      "parentUuid": "33e9c333_2c084008",
       "range": {
         "startLine": 139,
         "startChar": 0,
