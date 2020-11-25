@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9594ad78_44b5ab75",
+        "filename": "private/dex2oat.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-11-25T14:09:05Z",
+      "side": 1,
+      "message": "\u003e The issue here for odrefresh and installd will be the part of the boot image in the apex data directory (the other part is in the ART apex itself). It looks like we need two labels as you suggest or to extend dex2oat so it can read the boot image files a file descriptor.\n\nAs I said, I\u0027m not sure that this is a property that needs to be preserved (I\u0027m asking, not telling). It\u0027s an important property for 3p apps because it prevents an app from compromising dex2oat (via a malicious dex file) and using dex2oat to compromise other apps or system components. So perhaps we do need this since we need to prevent a compromised dex2oat from modifying the bootimage?\n\nDoes dex2oat modify the boot image?\n\nI\u0027m wondering if this discussion would be more productive as a short meeting.",
+      "parentUuid": "ea941703_19ead146",
+      "range": {
+        "startLine": 38,
+        "startChar": 63,
+        "endLine": 39,
+        "endChar": 47
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94c27660_4cce9a4f",
         "filename": "private/domain.te",
         "patchSetId": 15
