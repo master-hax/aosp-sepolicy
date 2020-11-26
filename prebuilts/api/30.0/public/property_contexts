@@ -1,5 +1,7 @@
+<<<<<<< HEAD   (0842f2 Merge branch android10-qpr3-release)
+=======
 # vendor-init-readable
-persist.radio.airplane_mode_on u:object_r:exported2_radio_prop:s0 exact int
+persist.radio.airplane_mode_on u:object_r:exported2_radio_prop:s0 exact bool
 
 # vendor-init-settable
 af.fast_track_multiplier u:object_r:exported3_default_prop:s0 exact int
@@ -21,6 +23,7 @@ dalvik.vm.dex2oat-cpu-set u:object_r:exported_dalvik_prop:s0 exact string
 dalvik.vm.dex2oat-filter u:object_r:exported_dalvik_prop:s0 exact string
 dalvik.vm.dex2oat-flags u:object_r:exported_dalvik_prop:s0 exact string
 dalvik.vm.dex2oat-threads u:object_r:exported_dalvik_prop:s0 exact int
+dalvik.vm.dex2oat64.enabled u:object_r:exported_dalvik_prop:s0 exact bool
 dalvik.vm.dexopt.secondary u:object_r:exported_dalvik_prop:s0 exact bool
 dalvik.vm.execution-mode u:object_r:exported_dalvik_prop:s0 exact string
 dalvik.vm.extra-opts u:object_r:exported_dalvik_prop:s0 exact string
@@ -65,11 +68,16 @@ dalvik.vm.method-trace-file u:object_r:exported_dalvik_prop:s0 exact string
 dalvik.vm.method-trace-file-siz u:object_r:exported_dalvik_prop:s0 exact int
 dalvik.vm.method-trace-stream u:object_r:exported_dalvik_prop:s0 exact bool
 dalvik.vm.profilesystemserver u:object_r:exported_dalvik_prop:s0 exact bool
-dalvik.vm.profilebootimage u:object_r:exported_dalvik_prop:s0 exact bool
+dalvik.vm.profilebootclasspath u:object_r:exported_dalvik_prop:s0 exact bool
+dalvik.vm.restore-dex2oat-cpu-set u:object_r:exported_dalvik_prop:s0 exact string
+dalvik.vm.restore-dex2oat-threads u:object_r:exported_dalvik_prop:s0 exact int
 dalvik.vm.usejit u:object_r:exported_dalvik_prop:s0 exact bool
 dalvik.vm.usejitprofiles u:object_r:exported_dalvik_prop:s0 exact bool
 dalvik.vm.zygote.max-boot-retry u:object_r:exported_dalvik_prop:s0 exact int
 drm.service.enabled u:object_r:exported3_default_prop:s0 exact bool
+external_storage.projid.enabled u:object_r:storage_config_prop:s0 exact bool
+external_storage.casefold.enabled u:object_r:storage_config_prop:s0 exact bool
+external_storage.sdcardfs.enabled u:object_r:storage_config_prop:s0 exact bool
 keyguard.no_require_sim u:object_r:exported3_default_prop:s0 exact bool
 media.recorder.show_manufacturer_and_model u:object_r:exported3_default_prop:s0 exact bool
 media.stagefright.cache-params u:object_r:exported3_default_prop:s0 exact string
@@ -99,6 +107,7 @@ pm.dexopt.inactive u:object_r:exported_pm_prop:s0 exact string
 pm.dexopt.install u:object_r:exported_pm_prop:s0 exact string
 pm.dexopt.shared u:object_r:exported_pm_prop:s0 exact string
 ro.af.client_heap_size_kbyte u:object_r:exported3_default_prop:s0 exact int
+ro.apk_verity.mode u:object_r:apk_verity_prop:s0 exact int
 ro.audio.monitorRotation u:object_r:exported3_default_prop:s0 exact bool
 ro.bluetooth.a2dp_offload.supported u:object_r:bluetooth_a2dp_offload_prop:s0 exact bool
 ro.boot.vendor.overlay.theme u:object_r:exported_overlay_prop:s0 exact string
@@ -106,6 +115,8 @@ ro.boot.wificountrycode u:object_r:exported3_default_prop:s0 exact string
 ro.bt.bdaddr_path u:object_r:exported_bluetooth_prop:s0 exact string
 ro.camera.notify_nfc u:object_r:exported3_default_prop:s0 exact int
 ro.camera.enableLazyHal u:object_r:exported3_default_prop:s0 exact bool
+ro.cdma.home.operator.alpha u:object_r:exported3_default_prop:s0 exact string
+ro.cdma.home.operator.numeric u:object_r:exported3_default_prop:s0 exact string
 ro.com.android.dataroaming u:object_r:exported3_default_prop:s0 exact bool
 ro.com.android.prov_mobiledata u:object_r:exported3_default_prop:s0 exact bool
 ro.config.alarm_alert u:object_r:exported2_config_prop:s0 exact string
@@ -116,11 +127,16 @@ ro.config.ringtone u:object_r:exported2_config_prop:s0 exact string
 ro.control_privapp_permissions u:object_r:exported3_default_prop:s0 exact string
 ro.cp_system_other_odex u:object_r:exported3_default_prop:s0 exact int
 ro.crypto.allow_encrypt_override u:object_r:exported2_vold_prop:s0 exact bool
+ro.crypto.dm_default_key.options_format.version u:object_r:exported2_vold_prop:s0 exact int
 ro.crypto.fde_algorithm u:object_r:exported2_vold_prop:s0 exact string
 ro.crypto.fde_sector_size u:object_r:exported2_vold_prop:s0 exact int
 ro.crypto.scrypt_params u:object_r:exported2_vold_prop:s0 exact string
+ro.crypto.set_dun u:object_r:exported2_vold_prop:s0 exact bool
 ro.crypto.volume.contents_mode u:object_r:exported2_vold_prop:s0 exact string
 ro.crypto.volume.filenames_mode u:object_r:exported2_vold_prop:s0 exact string
+ro.crypto.volume.metadata.encryption u:object_r:exported2_vold_prop:s0 exact string
+ro.crypto.volume.metadata.method u:object_r:exported2_vold_prop:s0 exact string
+ro.crypto.volume.options u:object_r:exported2_vold_prop:s0 exact string
 ro.dalvik.vm.native.bridge u:object_r:exported_dalvik_prop:s0 exact string
 ro.enable_boot_charger_mode u:object_r:exported3_default_prop:s0 exact bool
 ro.gfx.driver.0 u:object_r:exported3_default_prop:s0 exact string
@@ -135,7 +151,11 @@ ro.lmk.kill_heaviest_task u:object_r:exported3_default_prop:s0 exact bool
 ro.lmk.kill_timeout_ms u:object_r:exported3_default_prop:s0 exact int
 ro.lmk.low u:object_r:exported3_default_prop:s0 exact int
 ro.lmk.medium u:object_r:exported3_default_prop:s0 exact int
+ro.lmk.psi_partial_stall_ms u:object_r:exported3_default_prop:s0 exact int
+ro.lmk.psi_complete_stall_ms u:object_r:exported3_default_prop:s0 exact int
 ro.lmk.swap_free_low_percentage u:object_r:exported3_default_prop:s0 exact int
+ro.lmk.thrashing_limit u:object_r:exported3_default_prop:s0 exact int
+ro.lmk.thrashing_limit_decay u:object_r:exported3_default_prop:s0 exact int
 ro.lmk.use_minfree_levels u:object_r:exported3_default_prop:s0 exact bool
 ro.lmk.upgrade_pressure u:object_r:exported3_default_prop:s0 exact int
 ro.minui.default_rotation u:object_r:exported3_default_prop:s0 exact string
@@ -144,6 +164,7 @@ ro.minui.pixel_format u:object_r:exported3_default_prop:s0 exact string
 ro.oem_unlock_supported u:object_r:exported3_default_prop:s0 exact int
 ro.opengles.version u:object_r:exported3_default_prop:s0 exact int
 ro.radio.noril u:object_r:exported3_default_prop:s0 exact string
+ro.rebootescrow.device u:object_r:rebootescrow_hal_prop:s0 exact string
 ro.retaildemo.video_path u:object_r:exported3_default_prop:s0 exact string
 ro.statsd.enable u:object_r:exported3_default_prop:s0 exact bool
 ro.sf.disable_triple_buffer u:object_r:exported3_default_prop:s0 exact bool
@@ -152,9 +173,11 @@ ro.storage_manager.enabled u:object_r:exported3_default_prop:s0 exact bool
 ro.telephony.call_ring.multiple u:object_r:exported3_default_prop:s0 exact bool
 ro.telephony.default_cdma_sub u:object_r:exported3_default_prop:s0 exact int
 ro.telephony.default_network u:object_r:exported3_default_prop:s0 exact string
-ro.url.legal u:object_r:exported3_default_prop:s0 exact string
-ro.url.legal.android_privacy u:object_r:exported3_default_prop:s0 exact string
+ro.vehicle.hal u:object_r:vehicle_hal_prop:s0 exact string
 ro.vendor.build.security_patch u:object_r:vendor_security_patch_level_prop:s0 exact string
+ro.media.xml_variant.codecs u:object_r:media_variant_prop:s0 exact string
+ro.media.xml_variant.codecs_performance u:object_r:media_variant_prop:s0 exact string
+ro.media.xml_variant.profiles u:object_r:media_variant_prop:s0 exact string
 ro.zram.mark_idle_delay_mins u:object_r:exported3_default_prop:s0 exact int
 ro.zram.first_wb_delay_mins u:object_r:exported3_default_prop:s0 exact int
 ro.zram.periodic_wb_delay_hours u:object_r:exported3_default_prop:s0 exact int
@@ -168,13 +191,15 @@ sys.usb.mtp.device_type u:object_r:exported2_system_prop:s0 exact int
 sys.usb.ffs.mtp.ready u:object_r:exported_ffs_prop:s0 exact bool
 sys.usb.state u:object_r:exported2_system_prop:s0 exact string
 telephony.lteOnCdmaDevice u:object_r:exported3_default_prop:s0 exact int
+telephony.active_modems.max_count u:object_r:exported3_default_prop:s0 exact int
 tombstoned.max_tombstone_count u:object_r:exported3_default_prop:s0 exact int
 vold.post_fs_data_done u:object_r:exported2_vold_prop:s0 exact int
 vts.native_server.on u:object_r:exported3_default_prop:s0 exact bool
 wlan.driver.status u:object_r:exported_wifi_prop:s0 exact enum ok unloaded
+zram.force_writeback u:object_r:exported3_default_prop:s0 exact bool
 
 # vendor-init-readable
-apexd.status u:object_r:apexd_prop:s0 exact enum starting ready
+apexd.status u:object_r:apexd_prop:s0 exact enum starting activated ready
 dev.bootcomplete u:object_r:exported3_system_prop:s0 exact bool
 persist.sys.device_provisioned u:object_r:exported3_system_prop:s0 exact string
 persist.sys.theme u:object_r:theme_prop:s0 exact string
@@ -195,12 +220,14 @@ aac_drc_cut u:object_r:exported2_default_prop:s0 exact int
 aac_drc_enc_target_level u:object_r:exported2_default_prop:s0 exact int
 aac_drc_heavy u:object_r:exported2_default_prop:s0 exact int
 aac_drc_reference_level u:object_r:exported2_default_prop:s0 exact int
+build.version.extensions. u:object_r:module_sdkextensions_prop:s0 prefix int
 ro.aac_drc_effect_type u:object_r:exported2_default_prop:s0 exact int
 drm.64bit.enabled u:object_r:exported2_default_prop:s0 exact bool
 dumpstate.dry_run u:object_r:exported_dumpstate_prop:s0 exact bool
 dumpstate.unroot u:object_r:exported_dumpstate_prop:s0 exact bool
 hal.instrumentation.enable u:object_r:exported2_default_prop:s0 exact bool
 init.svc.bugreport u:object_r:exported2_default_prop:s0 exact string
+init.svc.bugreportd u:object_r:exported2_default_prop:s0 exact string
 init.svc.console u:object_r:exported2_default_prop:s0 exact string
 init.svc.dumpstatez u:object_r:exported2_default_prop:s0 exact string
 init.svc.mediadrm u:object_r:exported2_default_prop:s0 exact string
@@ -210,10 +237,11 @@ init.svc.zygote u:object_r:exported2_default_prop:s0 exact string
 libc.debug.malloc.options u:object_r:exported2_default_prop:s0 exact string
 libc.debug.malloc.program u:object_r:exported2_default_prop:s0 exact string
 libc.debug.hooks.enable u:object_r:exported2_default_prop:s0 exact string
+net.redirect_socket_calls.hooked u:object_r:socket_hook_prop:s0 exact bool
 persist.sys.locale u:object_r:exported_system_prop:s0 exact string
 persist.sys.timezone u:object_r:exported_system_prop:s0 exact string
 persist.sys.test_harness u:object_r:test_harness_prop:s0 exact bool
-ro.adb.secure u:object_r:exported_secure_prop:s0 exact int
+ro.adb.secure u:object_r:exported_secure_prop:s0 exact bool
 ro.arch u:object_r:exported2_default_prop:s0 exact string
 ro.audio.ignore_effects u:object_r:exported2_default_prop:s0 exact bool
 ro.baseband u:object_r:exported2_default_prop:s0 exact string
@@ -222,6 +250,8 @@ ro.boot.baseband u:object_r:exported2_default_prop:s0 exact string
 ro.boot.bootdevice u:object_r:exported2_default_prop:s0 exact string
 ro.boot.bootloader u:object_r:exported2_default_prop:s0 exact string
 ro.boot.boottime u:object_r:exported2_default_prop:s0 exact string
+ro.boottime.init.mount.data u:object_r:boottime_public_prop:s0 exact string
+ro.boottime.init.fsck.data u:object_r:boottime_public_prop:s0 exact string
 ro.boot.console u:object_r:exported2_default_prop:s0 exact string
 ro.boot.hardware u:object_r:exported2_default_prop:s0 exact string
 ro.boot.hardware.color u:object_r:exported2_default_prop:s0 exact string
@@ -250,10 +280,11 @@ ro.build.version.codename u:object_r:exported2_default_prop:s0 exact string
 ro.build.version.incremental u:object_r:exported2_default_prop:s0 exact string
 ro.build.version.preview_sdk u:object_r:exported2_default_prop:s0 exact int
 ro.build.version.release u:object_r:exported2_default_prop:s0 exact string
+ro.build.version.release_or_codename u:object_r:exported2_default_prop:s0 exact string
 ro.build.version.sdk u:object_r:exported2_default_prop:s0 exact int
 ro.build.version.security_patch u:object_r:exported2_default_prop:s0 exact string
-ro.crypto.state u:object_r:exported_vold_prop:s0 exact string
-ro.crypto.type u:object_r:exported_vold_prop:s0 exact string
+ro.crypto.state u:object_r:exported_vold_prop:s0 exact enum encrypted unencrypted unsupported
+ro.crypto.type u:object_r:exported_vold_prop:s0 exact enum block file none
 ro.debuggable u:object_r:exported2_default_prop:s0 exact int
 ro.hardware u:object_r:exported2_default_prop:s0 exact string
 ro.product.brand u:object_r:exported2_default_prop:s0 exact string
@@ -266,8 +297,10 @@ ro.product.name u:object_r:exported2_default_prop:s0 exact string
 ro.property_service.version u:object_r:exported2_default_prop:s0 exact int
 ro.revision u:object_r:exported2_default_prop:s0 exact string
 ro.secure u:object_r:exported_secure_prop:s0 exact int
+ro.vendor.redirect_socket_calls u:object_r:vendor_socket_hook_prop:s0 exact bool
 service.bootanim.exit u:object_r:exported_system_prop:s0 exact int
 sys.boot_from_charger_mode u:object_r:exported_system_prop:s0 exact int
+sys.init.userspace_reboot.in_progress u:object_r:userspace_reboot_exported_prop:s0 exact bool
 sys.use_memfd u:object_r:use_memfd_prop:s0 exact bool
 vold.decrypt u:object_r:exported_vold_prop:s0 exact string
 
@@ -278,6 +311,7 @@ aaudio.mixer_bursts u:object_r:exported_default_prop:s0 exact int
 aaudio.mmap_exclusive_policy u:object_r:exported_default_prop:s0 exact int
 aaudio.mmap_policy u:object_r:exported_default_prop:s0 exact int
 aaudio.wakeup_delay_usec u:object_r:exported_default_prop:s0 exact int
+config.disable_cameraservice u:object_r:exported_camera_prop:s0 exact bool
 gsm.sim.operator.numeric u:object_r:exported_radio_prop:s0 exact string
 media.mediadrmservice.enable u:object_r:exported_default_prop:s0 exact bool
 persist.rcs.supported u:object_r:exported_default_prop:s0 exact int
@@ -288,12 +322,16 @@ ro.bionic.arch u:object_r:cpu_variant_prop:s0 exact string
 ro.bionic.cpu_variant u:object_r:cpu_variant_prop:s0 exact string
 ro.board.platform u:object_r:exported_default_prop:s0 exact string
 ro.boot.fake_battery u:object_r:exported_default_prop:s0 exact int
+ro.boot.fstab_suffix u:object_r:exported_default_prop:s0 exact string
 ro.boot.hardware.revision u:object_r:exported_default_prop:s0 exact string
 ro.boot.product.hardware.sku u:object_r:exported_default_prop:s0 exact string
+ro.boot.product.vendor.sku u:object_r:exported_default_prop:s0 exact string
 ro.boot.slot_suffix u:object_r:exported_default_prop:s0 exact string
 ro.bootimage.build.date u:object_r:exported_default_prop:s0 exact string
 ro.bootimage.build.date.utc u:object_r:exported_default_prop:s0 exact int
 ro.bootimage.build.fingerprint u:object_r:exported_default_prop:s0 exact string
+ro.boringcrypto.hwrand u:object_r:exported_default_prop:s0 exact bool
+ro.build.ab_update u:object_r:exported_default_prop:s0 exact string
 ro.build.expect.baseband u:object_r:exported_default_prop:s0 exact string
 ro.build.expect.bootloader u:object_r:exported_default_prop:s0 exact string
 ro.carrier u:object_r:exported_default_prop:s0 exact string
@@ -344,6 +382,7 @@ ro.hwui.use_vulkan u:object_r:exported_default_prop:s0 exact bool
 ro.kernel.qemu u:object_r:exported_default_prop:s0 exact bool
 ro.kernel.qemu. u:object_r:exported_default_prop:s0
 ro.kernel.android.bootanim u:object_r:exported_default_prop:s0 exact int
+ro.kernel.ebpf.supported u:object_r:exported_default_prop:s0 exact bool
 ro.odm.build.date u:object_r:exported_default_prop:s0 exact string
 ro.odm.build.date.utc u:object_r:exported_default_prop:s0 exact int
 ro.odm.build.fingerprint u:object_r:exported_default_prop:s0 exact string
@@ -363,28 +402,26 @@ ro.product.vendor.device u:object_r:exported_default_prop:s0 exact string
 ro.product.vendor.manufacturer u:object_r:exported_default_prop:s0 exact string
 ro.product.vendor.model u:object_r:exported_default_prop:s0 exact string
 ro.product.vendor.name u:object_r:exported_default_prop:s0 exact string
+ro.product.vndk.version u:object_r:vndk_prop:s0 exact string
 ro.telephony.iwlan_operation_mode u:object_r:exported_radio_prop:s0 exact enum default legacy AP-assisted
 ro.vendor.build.date u:object_r:exported_default_prop:s0 exact string
 ro.vendor.build.date.utc u:object_r:exported_default_prop:s0 exact int
 ro.vendor.build.fingerprint u:object_r:exported_default_prop:s0 exact string
 ro.vendor.build.version.incremental u:object_r:exported_default_prop:s0 exact string
-<<<<<<< HEAD   (0842f2 Merge branch android10-qpr3-release)
-ro.vndk.lite u:object_r:exported_default_prop:s0 exact bool
-ro.vndk.version u:object_r:exported_default_prop:s0 exact string
-=======
 ro.vendor.build.version.sdk u:object_r:exported_default_prop:s0 exact int
 ro.vendor.product.cpu.abilist   u:object_r:exported_default_prop:s0 exact string
 ro.vendor.product.cpu.abilist32 u:object_r:exported_default_prop:s0 exact string
 ro.vendor.product.cpu.abilist64 u:object_r:exported_default_prop:s0 exact string
 ro.vndk.lite u:object_r:vndk_prop:s0 exact bool
 ro.vndk.version u:object_r:vndk_prop:s0 exact string
->>>>>>> CHANGE (6e4d8d Export ro.vendor.product.cpu.abilist*)
 ro.vts.coverage u:object_r:exported_default_prop:s0 exact int
 wifi.active.interface u:object_r:exported_wifi_prop:s0 exact string
+wifi.aware.interface u:object_r:exported_wifi_prop:s0 exact string
 wifi.concurrent.interface u:object_r:exported_default_prop:s0 exact string
 wifi.direct.interface u:object_r:exported_default_prop:s0 exact string
 wifi.interface u:object_r:exported_default_prop:s0 exact string
 ro.apex.updatable u:object_r:exported_default_prop:s0 exact bool
+ro.init.userspace_reboot.is_supported u:object_r:userspace_reboot_config_prop:s0 exact bool
 
 # public-readable
 ro.boot.revision u:object_r:exported2_default_prop:s0 exact string
@@ -399,8 +436,10 @@ ro.surface_flinger.force_hwc_copy_for_virtual_displays u:object_r:exported_defau
 ro.surface_flinger.has_HDR_display u:object_r:exported_default_prop:s0 exact bool
 ro.surface_flinger.has_wide_color_display u:object_r:exported_default_prop:s0 exact bool
 ro.surface_flinger.max_frame_buffer_acquired_buffers u:object_r:exported_default_prop:s0 exact int
+ro.surface_flinger.max_graphics_height u:object_r:exported3_default_prop:s0 exact int
+ro.surface_flinger.max_graphics_width u:object_r:exported3_default_prop:s0 exact int
 ro.surface_flinger.max_virtual_display_dimension u:object_r:exported_default_prop:s0 exact int
-ro.surface_flinger.primary_display_orientation u:object_r:exported_default_prop:s0 exact string
+ro.surface_flinger.primary_display_orientation u:object_r:exported_default_prop:s0 exact enum ORIENTATION_0 ORIENTATION_180 ORIENTATION_270 ORIENTATION_90
 ro.surface_flinger.present_time_offset_from_vsync_ns u:object_r:exported_default_prop:s0 exact int
 ro.surface_flinger.running_without_sync_framework u:object_r:exported_default_prop:s0 exact bool
 ro.surface_flinger.start_graphics_allocator_service u:object_r:exported_default_prop:s0 exact bool
@@ -421,5 +460,30 @@ ro.surface_flinger.set_touch_timer_ms u:object_r:exported_default_prop:s0 exact 
 ro.surface_flinger.set_display_power_timer_ms u:object_r:exported_default_prop:s0 exact int
 ro.surface_flinger.support_kernel_idle_timer u:object_r:exported_default_prop:s0 exact bool
 ro.surface_flinger.use_smart_90_for_video u:object_r:exported_default_prop:s0 exact bool
+ro.surface_flinger.use_content_detection_for_refresh_rate u:object_r:exported_default_prop:s0 exact bool
 ro.surface_flinger.color_space_agnostic_dataspace u:object_r:exported_default_prop:s0 exact int
 ro.surface_flinger.refresh_rate_switching u:object_r:exported_default_prop:s0 exact bool
+
+# Binder cache properties.  These are world-readable
+cache_key.app_inactive                   u:object_r:binder_cache_system_server_prop:s0
+cache_key.is_compat_change_enabled       u:object_r:binder_cache_system_server_prop:s0
+cache_key.get_packages_for_uid           u:object_r:binder_cache_system_server_prop:s0
+cache_key.has_system_feature             u:object_r:binder_cache_system_server_prop:s0
+cache_key.is_interactive                 u:object_r:binder_cache_system_server_prop:s0
+cache_key.is_power_save_mode             u:object_r:binder_cache_system_server_prop:s0
+cache_key.is_user_unlocked               u:object_r:binder_cache_system_server_prop:s0
+cache_key.volume_list                    u:object_r:binder_cache_system_server_prop:s0
+cache_key.display_info                   u:object_r:binder_cache_system_server_prop:s0
+cache_key.location_enabled               u:object_r:binder_cache_system_server_prop:s0
+cache_key.package_info                   u:object_r:binder_cache_system_server_prop:s0
+
+cache_key.bluetooth.                     u:object_r:binder_cache_bluetooth_server_prop:s0 prefix string
+cache_key.system_server.                 u:object_r:binder_cache_system_server_prop:s0 prefix string
+cache_key.telephony.                     u:object_r:binder_cache_telephony_server_prop:s0 prefix string
+
+# Graphics related properties
+graphics.gpu.profiler.support          u:object_r:graphics_config_prop:s0 exact bool
+graphics.gpu.profiler.vulkan_layer_apk u:object_r:graphics_config_prop:s0 exact string
+
+ro.cpuvulkan.version u:object_r:graphics_config_prop:s0 exact int
+>>>>>>> CHANGE (6e4d8d Export ro.vendor.product.cpu.abilist*)
