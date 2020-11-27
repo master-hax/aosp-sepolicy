@@ -1,0 +1,26 @@
+# odsign - Binary for signing ART artifacts.
+
+typeattribute odsign coredomain;
+
+init_daemon_domain(odsign)
+
+# talk to keymaster
+hal_client_domain(odsign, hal_keymaster)
+
+# Allow to read /proc/keys for searching key id.
+allow odsign proc_keys:file r_file_perms;
+
+# Kernel only prints the keys that can be accessed and only kernel keyring is needed here.
+dontaudit odsign init:key view;
+dontaudit odsign vold:key view;
+dontaudit odsign fsverity_init:key view;
+allow odsign kernel:key { view search write setattr };
+allow odsign odsign:key { view search write };
+
+# For apex data dir access
+allow odsign apex_module_data_file:dir { getattr search };
+allow odsign apex_art_data_file:dir create_dir_perms;
+allow odsign apex_art_data_file:file create_file_perms;
+
+# Run odrefresh
+domain_auto_trans(odsign, odrefresh_exec, odrefresh)

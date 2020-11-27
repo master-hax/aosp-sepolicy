@@ -13,6 +13,10 @@ domain_auto_trans(odrefresh, dex2oat_exec, dex2oat)
 # Run dexoptanalyzer in its own sandbox.
 domain_auto_trans(odrefresh, dexoptanalyzer_exec, dexoptanalyzer)
 
+# Use devpts and fd from odsign (which exec()'s odrefresh)
+allow odrefresh devpts:chr_file rw_file_perms;
+allow odrefresh odsign:fd use;
+
 # Do not audit unused resources from parent processes (adb, shell, su).
 # These appear to be unnecessary for odrefresh.
 dontaudit odrefresh { adbd shell }:fd use;
@@ -23,5 +27,5 @@ dontaudit odrefresh adbd:unix_stream_socket { getattr read write };
 # whether current apex is in /system or /data.
 allow odrefresh apex_info_file:file r_file_perms;
 
-# Only allow odrfresh being called by su (and in future on ods)
-neverallow { domain -odrefresh -su } odrefresh_exec:file { execute execute_no_trans };
+# Only allow odrfresh being called by su and odsign
+neverallow { domain -odrefresh -su -odsign} odrefresh_exec:file { execute execute_no_trans };

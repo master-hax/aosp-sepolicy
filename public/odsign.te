@@ -1,0 +1,15 @@
+# odsign - on-device signing.
+type odsign, domain;
+type odsign_exec, exec_type, file_type, system_file_type;
+
+# Allow using persistent storage in /data/odsign
+allow odsign odsign_data_file:dir create_dir_perms;
+allow odsign odsign_data_file:file create_file_perms;
+
+# Create and use pty created by android_fork_execvp().
+allow odsign devpts:chr_file rw_file_perms;
+
+# FS_IOC_ENABLE_VERITY and FS_IOC_MEASURE_VERITY
+allowxperm odsign apex_art_data_file:file ioctl {
+  FS_IOC_ENABLE_VERITY FS_IOC_MEASURE_VERITY FS_IOC_GETFLAGS
+};
