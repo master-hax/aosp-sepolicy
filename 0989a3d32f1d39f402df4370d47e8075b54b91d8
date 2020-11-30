@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d41ad5a6_e936d6d6",
+        "filename": "private/dex2oat.te",
+        "patchSetId": 21
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-30T11:55:44Z",
+      "side": 1,
+      "message": "This still seems problematic - with open + write you can write to any existing file here.\n(The directory permissions do mean you can\u0027t create new ones.)",
+      "range": {
+        "startLine": 48,
+        "startChar": 40,
+        "endLine": 48,
+        "endChar": 58
+      },
+      "revId": "0989a3d32f1d39f402df4370d47e8075b54b91d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edd2b288_a012122f",
+        "filename": "private/dexoptanalyzer.te",
+        "patchSetId": 21
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-30T11:55:44Z",
+      "side": 1,
+      "message": "Will they be apex_art_data_file?",
+      "range": {
+        "startLine": 25,
+        "startChar": 30,
+        "endLine": 25,
+        "endChar": 46
+      },
+      "revId": "0989a3d32f1d39f402df4370d47e8075b54b91d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f26787a2_d997f979",
+        "filename": "private/odrefresh.te",
+        "patchSetId": 21
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-30T11:55:44Z",
+      "side": 1,
+      "message": "Doesn\u0027t this block you from accessing stdin/stdout etc?\nOtherwise I\u0027m curious what the fds are, and if they should be O_CLOEXEC.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 41
+      },
+      "revId": "0989a3d32f1d39f402df4370d47e8075b54b91d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a4376b8_8ac75b5e",
+        "filename": "private/odrefresh.te",
+        "patchSetId": 21
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-30T11:55:44Z",
+      "side": 1,
+      "message": "Why exempt odrefresh?",
+      "range": {
+        "startLine": 27,
+        "startChar": 21,
+        "endLine": 27,
+        "endChar": 30
+      },
+      "revId": "0989a3d32f1d39f402df4370d47e8075b54b91d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "860bd4ba_25900aef",
+        "filename": "private/su.te",
+        "patchSetId": 21
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-30T11:55:44Z",
+      "side": 1,
+      "message": "Comment is misleading, since currently only adb root has this.",
+      "range": {
+        "startLine": 16,
+        "startChar": 46,
+        "endLine": 16,
+        "endChar": 90
+      },
+      "revId": "0989a3d32f1d39f402df4370d47e8075b54b91d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82b4788a_bac2f965",
+        "filename": "public/app.te",
+        "patchSetId": 21
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-30T11:55:44Z",
+      "side": 1,
+      "message": "Seems like this will be needed? (Also execute?)",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 17
+      },
+      "revId": "0989a3d32f1d39f402df4370d47e8075b54b91d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
