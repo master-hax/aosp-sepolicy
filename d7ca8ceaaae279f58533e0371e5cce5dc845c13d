@@ -51,6 +51,92 @@
       "parentUuid": "dd1161ec_09c99db5",
       "revId": "d7ca8ceaaae279f58533e0371e5cce5dc845c13d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1922e3e_2c2c65f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-30T12:29:25Z",
+      "side": 1,
+      "message": "(This is mostly me just trying to understand the CL at this point.)",
+      "revId": "d7ca8ceaaae279f58533e0371e5cce5dc845c13d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "425fcc39_44ccafb3",
+        "filename": "private/odrefresh.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-30T12:29:25Z",
+      "side": 1,
+      "message": "I don\u0027t really understand this, but should odsign use create_pty, so this grant can be more specific?",
+      "range": {
+        "startLine": 17,
+        "startChar": 16,
+        "endLine": 17,
+        "endChar": 31
+      },
+      "revId": "d7ca8ceaaae279f58533e0371e5cce5dc845c13d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "713ed424_b77305a7",
+        "filename": "private/odsign.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-30T12:29:25Z",
+      "side": 1,
+      "message": "Should this be { domain -kernel -odsign } ?\nAnd should there be a similar neverallow?",
+      "range": {
+        "startLine": 14,
+        "startChar": 17,
+        "endLine": 14,
+        "endChar": 25
+      },
+      "revId": "d7ca8ceaaae279f58533e0371e5cce5dc845c13d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd34da65_70f12543",
+        "filename": "public/odsign.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-11-30T12:29:25Z",
+      "side": 1,
+      "message": "I\u0027m not convinced all/most of this needs to be public.\nodsign_exec particularly.",
+      "range": {
+        "startLine": 3,
+        "startChar": 5,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "d7ca8ceaaae279f58533e0371e5cce5dc845c13d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
