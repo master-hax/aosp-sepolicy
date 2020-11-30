@@ -62,6 +62,9 @@ allow init snapuserd:unix_stream_socket connectto;
 # Allow for libsnapshot's use of flock() on /metadata/ota.
 allow init ota_metadata_file:dir lock;
 
+# Allow init to read linkerconfig by symlink
+allow init linkerconfig_exec:lnk_file read;
+
 # Only init is allowed to set the sysprop indicating whether perf_event_open()
 # SELinux hooks were detected.
 set_prop(init, init_perf_lsm_hooks_prop)
