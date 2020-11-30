@@ -44,6 +44,7 @@ log.                    u:object_r:log_prop:s0
 log.tag                 u:object_r:log_tag_prop:s0
 log.tag.WifiHAL         u:object_r:wifi_log_prop:s0
 security.perf_harden    u:object_r:shell_prop:s0
+security.lower_kptr_restrict u:object_r:lower_kptr_restrict_prop:s0
 service.adb.root        u:object_r:shell_prop:s0
 service.adb.tls.port    u:object_r:adbd_prop:s0
 persist.adb.wifi.       u:object_r:adbd_prop:s0
@@ -77,6 +78,7 @@ persist.traced.enable   u:object_r:traced_enabled_prop:s0
 traced.lazy.            u:object_r:traced_lazy_prop:s0
 persist.heapprofd.enable u:object_r:heapprofd_enabled_prop:s0
 persist.traced_perf.enable u:object_r:traced_perf_enabled_prop:s0
+persist.vendor.debug.wifi. u:object_r:persist_vendor_debug_wifi_prop:s0
 persist.vendor.overlay.  u:object_r:overlay_prop:s0
 ro.boot.vendor.overlay.  u:object_r:overlay_prop:s0
 ro.boottime.             u:object_r:boottime_prop:s0
@@ -93,6 +95,16 @@ test.sys.boot.reason    u:object_r:test_boot_reason_prop:s0
 test.userspace_reboot.requested u:object_r:userspace_reboot_test_prop:s0
 sys.lmk.                u:object_r:system_lmk_prop:s0
 sys.trace.              u:object_r:system_trace_prop:s0
+wrap.                   u:object_r:zygote_wrap_prop:s0 prefix string
+
+# Suspend service properties
+suspend.max_sleep_time_millis u:object_r:suspend_prop:s0 exact uint
+suspend.base_sleep_time_millis u:object_r:suspend_prop:s0 exact uint
+suspend.backoff_threshold_count u:object_r:suspend_prop:s0 exact uint
+suspend.short_suspend_threshold_millis u:object_r:suspend_prop:s0 exact uint
+suspend.sleep_time_scale_factor u:object_r:suspend_prop:s0 exact double
+suspend.failed_suspend_backoff_enabled u:object_r:suspend_prop:s0 exact bool
+suspend.short_suspend_backoff_enabled u:object_r:suspend_prop:s0 exact bool
 
 # Fastbootd protocol control property
 fastbootd.protocol    u:object_r:fastbootd_protocol_prop:s0 exact enum usb tcp
@@ -114,6 +126,9 @@ selinux.restorecon_recursive   u:object_r:restorecon_prop:s0
 # data partition encryption properties
 vold.                   u:object_r:vold_prop:s0
 ro.crypto.              u:object_r:vold_prop:s0
+
+# TODO(b/141677108): Remove once true everywhere
+ro.vold.level_from_user          u:object_r:vold_config_prop:s0
 
 # ro.build.fingerprint is either set in /system/build.prop, or is
 # set at runtime by system_server.
@@ -157,6 +172,11 @@ ctl.stop$apexd          u:object_r:ctl_apexd_prop:s0
 # Restrict access to restart dumpstate
 ctl.interface_restart$android.hardware.dumpstate u:object_r:ctl_dumpstate_prop:s0
 
+# Restrict access to control snapuserd
+ctl.start$snapuserd     u:object_r:ctl_snapuserd_prop:s0
+ctl.stop$snapuserd      u:object_r:ctl_snapuserd_prop:s0
+ctl.restart$snapuserd   u:object_r:ctl_snapuserd_prop:s0
+
 # NFC properties
 nfc.                    u:object_r:nfc_prop:s0
 
@@ -199,17 +219,20 @@ vendor.                 u:object_r:vendor_default_prop:s0
 persist.time.           u:object_r:time_prop:s0
 
 # Properties that relate to server configurable flags
-device_config.reset_performed           u:object_r:device_config_reset_performed_prop:s0
+device_config.reset_performed                       u:object_r:device_config_reset_performed_prop:s0
 persist.device_config.activity_manager_native_boot. u:object_r:device_config_activity_manager_native_boot_prop:s0
-persist.device_config.attempted_boot_count        u:object_r:device_config_boot_count_prop:s0
-persist.device_config.input_native_boot. u:object_r:device_config_input_native_boot_prop:s0
-persist.device_config.netd_native.           u:object_r:device_config_netd_native_prop:s0
-persist.device_config.runtime_native.        u:object_r:device_config_runtime_native_prop:s0
-persist.device_config.runtime_native_boot.   u:object_r:device_config_runtime_native_boot_prop:s0
-persist.device_config.media_native.          u:object_r:device_config_media_native_prop:s0
-persist.device_config.storage_native_boot.   u:object_r:device_config_storage_native_boot_prop:s0
-persist.device_config.window_manager_native_boot. u:object_r:device_config_window_manager_native_boot_prop:s0
-persist.device_config.configuration. u:object_r:device_config_configuration_prop:s0
+persist.device_config.attempted_boot_count          u:object_r:device_config_boot_count_prop:s0
+persist.device_config.configuration.                u:object_r:device_config_configuration_prop:s0
+persist.device_config.input_native_boot.            u:object_r:device_config_input_native_boot_prop:s0
+persist.device_config.media_native.                 u:object_r:device_config_media_native_prop:s0
+persist.device_config.netd_native.                  u:object_r:device_config_netd_native_prop:s0
+persist.device_config.profcollect_native_boot.      u:object_r:device_config_profcollect_native_boot_prop:s0
+persist.device_config.runtime_native.               u:object_r:device_config_runtime_native_prop:s0
+persist.device_config.runtime_native_boot.          u:object_r:device_config_runtime_native_boot_prop:s0
+persist.device_config.statsd_native.                u:object_r:device_config_statsd_native_prop:s0
+persist.device_config.statsd_native_boot.           u:object_r:device_config_statsd_native_boot_prop:s0
+persist.device_config.storage_native_boot.          u:object_r:device_config_storage_native_boot_prop:s0
+persist.device_config.window_manager_native_boot.   u:object_r:device_config_window_manager_native_boot_prop:s0
 
 # Properties that relate to legacy server configurable flags
 persist.device_config.global_settings.sys_traced u:object_r:device_config_sys_traced_prop:s0
@@ -284,6 +307,8 @@ dalvik.vm.backgroundgctype                    u:object_r:dalvik_config_prop:s0 e
 dalvik.vm.boot-dex2oat-cpu-set                u:object_r:dalvik_config_prop:s0 exact string
 dalvik.vm.boot-dex2oat-threads                u:object_r:dalvik_config_prop:s0 exact int
 dalvik.vm.boot-image                          u:object_r:dalvik_config_prop:s0 exact string
+dalvik.vm.bgdexopt.new-classes-percent        u:object_r:dalvik_config_prop:s0 exact int
+dalvik.vm.bgdexopt.new-methods-percent        u:object_r:dalvik_config_prop:s0 exact int
 dalvik.vm.checkjni                            u:object_r:dalvik_config_prop:s0 exact bool
 dalvik.vm.dex2oat-Xms                         u:object_r:dalvik_config_prop:s0 exact string
 dalvik.vm.dex2oat-Xmx                         u:object_r:dalvik_config_prop:s0 exact string
@@ -356,6 +381,12 @@ keyguard.no_require_sim u:object_r:keyguard_config_prop:s0 exact bool
 
 media.recorder.show_manufacturer_and_model   u:object_r:media_config_prop:s0 exact bool
 media.stagefright.cache-params               u:object_r:media_config_prop:s0 exact string
+media.stagefright.enable-aac                 u:object_r:media_config_prop:s0 exact bool
+media.stagefright.enable-fma2dp              u:object_r:media_config_prop:s0 exact bool
+media.stagefright.enable-http                u:object_r:media_config_prop:s0 exact bool
+media.stagefright.enable-player              u:object_r:media_config_prop:s0 exact bool
+media.stagefright.enable-qcp                 u:object_r:media_config_prop:s0 exact bool
+media.stagefright.enable-scan                u:object_r:media_config_prop:s0 exact bool
 media.stagefright.thumbnail.prefer_hw_codecs u:object_r:media_config_prop:s0 exact bool
 persist.sys.media.avsync                     u:object_r:media_config_prop:s0 exact bool
 
@@ -430,6 +461,7 @@ ro.lmk.debug                    u:object_r:lmkd_config_prop:s0 exact bool
 ro.lmk.downgrade_pressure       u:object_r:lmkd_config_prop:s0 exact int
 ro.lmk.kill_heaviest_task       u:object_r:lmkd_config_prop:s0 exact bool
 ro.lmk.kill_timeout_ms          u:object_r:lmkd_config_prop:s0 exact int
+ro.lmk.log_stats                u:object_r:lmkd_config_prop:s0 exact bool
 ro.lmk.low                      u:object_r:lmkd_config_prop:s0 exact int
 ro.lmk.medium                   u:object_r:lmkd_config_prop:s0 exact int
 ro.lmk.psi_partial_stall_ms     u:object_r:lmkd_config_prop:s0 exact int
@@ -454,7 +486,8 @@ ro.oem_unlock_supported u:object_r:oem_unlock_prop:s0 exact int
 
 ro.rebootescrow.device u:object_r:rebootescrow_hal_prop:s0 exact string
 
-ro.storage_manager.enabled u:object_r:storagemanager_config_prop:s0 exact bool
+ro.storage_manager.enabled     u:object_r:storagemanager_config_prop:s0 exact bool
+ro.storage_manager.show_opt_in u:object_r:storagemanager_config_prop:s0 exact bool
 
 ro.vehicle.hal u:object_r:vehicle_hal_prop:s0 exact string
 
@@ -580,35 +613,96 @@ ro.boot.dynamic_partitions_retrofit u:object_r:exported_default_prop:s0 exact st
 ro.boottime.init.mount.data u:object_r:boottime_public_prop:s0 exact string
 ro.boottime.init.fsck.data  u:object_r:boottime_public_prop:s0 exact string
 
-ro.build.date                        u:object_r:build_prop:s0 exact string
-ro.build.date.utc                    u:object_r:build_prop:s0 exact int
-ro.build.description                 u:object_r:build_prop:s0 exact string
-ro.build.display.id                  u:object_r:build_prop:s0 exact string
-ro.build.host                        u:object_r:build_prop:s0 exact string
-ro.build.id                          u:object_r:build_prop:s0 exact string
-ro.build.product                     u:object_r:build_prop:s0 exact string
-ro.build.system_root_image           u:object_r:build_prop:s0 exact bool
-ro.build.tags                        u:object_r:build_prop:s0 exact string
-ro.build.type                        u:object_r:build_prop:s0 exact string
-ro.build.user                        u:object_r:build_prop:s0 exact string
-ro.build.version.base_os             u:object_r:build_prop:s0 exact string
-ro.build.version.codename            u:object_r:build_prop:s0 exact string
-ro.build.version.incremental         u:object_r:build_prop:s0 exact string
-ro.build.version.preview_sdk         u:object_r:build_prop:s0 exact int
-ro.build.version.release             u:object_r:build_prop:s0 exact string
-ro.build.version.release_or_codename u:object_r:build_prop:s0 exact string
-ro.build.version.sdk                 u:object_r:build_prop:s0 exact int
-ro.build.version.security_patch      u:object_r:build_prop:s0 exact string
+ro.build.characteristics                  u:object_r:build_prop:s0 exact string
+ro.build.date                             u:object_r:build_prop:s0 exact string
+ro.build.date.utc                         u:object_r:build_prop:s0 exact int
+ro.build.description                      u:object_r:build_prop:s0 exact string
+ro.build.display.id                       u:object_r:build_prop:s0 exact string
+ro.build.flavor                           u:object_r:build_prop:s0 exact string
+ro.build.host                             u:object_r:build_prop:s0 exact string
+ro.build.id                               u:object_r:build_prop:s0 exact string
+ro.build.product                          u:object_r:build_prop:s0 exact string
+ro.build.system_root_image                u:object_r:build_prop:s0 exact bool
+ro.build.tags                             u:object_r:build_prop:s0 exact string
+ro.build.type                             u:object_r:build_prop:s0 exact string
+ro.build.user                             u:object_r:build_prop:s0 exact string
+ro.build.version.all_codenames            u:object_r:build_prop:s0 exact string
+ro.build.version.base_os                  u:object_r:build_prop:s0 exact string
+ro.build.version.codename                 u:object_r:build_prop:s0 exact string
+ro.build.version.incremental              u:object_r:build_prop:s0 exact string
+ro.build.version.min_supported_target_sdk u:object_r:build_prop:s0 exact int
+ro.build.version.preview_sdk              u:object_r:build_prop:s0 exact int
+ro.build.version.preview_sdk_fingerprint  u:object_r:build_prop:s0 exact string
+ro.build.version.release                  u:object_r:build_prop:s0 exact string
+ro.build.version.release_or_codename      u:object_r:build_prop:s0 exact string
+ro.build.version.sdk                      u:object_r:build_prop:s0 exact int
+ro.build.version.security_patch           u:object_r:build_prop:s0 exact string
+
+ro.actionable_compatible_property.enabled u:object_r:build_prop:s0 exact bool
 
 ro.debuggable u:object_r:build_prop:s0 exact bool
+
+ro.treble.enabled u:object_r:build_prop:s0 exact bool
 
 ro.product.cpu.abi       u:object_r:build_prop:s0 exact string
 ro.product.cpu.abilist   u:object_r:build_prop:s0 exact string
 ro.product.cpu.abilist32 u:object_r:build_prop:s0 exact string
 ro.product.cpu.abilist64 u:object_r:build_prop:s0 exact string
 
+ro.product.system.brand        u:object_r:build_prop:s0 exact string
+ro.product.system.device       u:object_r:build_prop:s0 exact string
+ro.product.system.manufacturer u:object_r:build_prop:s0 exact string
+ro.product.system.model        u:object_r:build_prop:s0 exact string
+ro.product.system.name         u:object_r:build_prop:s0 exact string
+
+ro.system.build.date                        u:object_r:build_prop:s0 exact string
+ro.system.build.date.utc                    u:object_r:build_prop:s0 exact int
+ro.system.build.fingerprint                 u:object_r:build_prop:s0 exact string
+ro.system.build.id                          u:object_r:build_prop:s0 exact string
+ro.system.build.tags                        u:object_r:build_prop:s0 exact string
+ro.system.build.type                        u:object_r:build_prop:s0 exact string
+ro.system.build.version.incremental         u:object_r:build_prop:s0 exact string
+ro.system.build.version.release             u:object_r:build_prop:s0 exact string
+ro.system.build.version.release_or_codename u:object_r:build_prop:s0 exact string
+ro.system.build.version.sdk                 u:object_r:build_prop:s0 exact int
+
 ro.adb.secure u:object_r:build_prop:s0 exact bool
 ro.secure     u:object_r:build_prop:s0 exact int
+
+ro.product.system_ext.brand        u:object_r:build_prop:s0 exact string
+ro.product.system_ext.device       u:object_r:build_prop:s0 exact string
+ro.product.system_ext.manufacturer u:object_r:build_prop:s0 exact string
+ro.product.system_ext.model        u:object_r:build_prop:s0 exact string
+ro.product.system_ext.name         u:object_r:build_prop:s0 exact string
+
+ro.system_ext.build.date                        u:object_r:build_prop:s0 exact string
+ro.system_ext.build.date.utc                    u:object_r:build_prop:s0 exact int
+ro.system_ext.build.fingerprint                 u:object_r:build_prop:s0 exact string
+ro.system_ext.build.id                          u:object_r:build_prop:s0 exact string
+ro.system_ext.build.tags                        u:object_r:build_prop:s0 exact string
+ro.system_ext.build.type                        u:object_r:build_prop:s0 exact string
+ro.system_ext.build.version.incremental         u:object_r:build_prop:s0 exact string
+ro.system_ext.build.version.release             u:object_r:build_prop:s0 exact string
+ro.system_ext.build.version.release_or_codename u:object_r:build_prop:s0 exact string
+ro.system_ext.build.version.sdk                 u:object_r:build_prop:s0 exact int
+
+# These ro.product.product.* and ro.product.build.* are set by /product/etc/build.prop
+ro.product.product.brand        u:object_r:build_prop:s0 exact string
+ro.product.product.device       u:object_r:build_prop:s0 exact string
+ro.product.product.manufacturer u:object_r:build_prop:s0 exact string
+ro.product.product.model        u:object_r:build_prop:s0 exact string
+ro.product.product.name         u:object_r:build_prop:s0 exact string
+
+ro.product.build.date                        u:object_r:build_prop:s0 exact string
+ro.product.build.date.utc                    u:object_r:build_prop:s0 exact int
+ro.product.build.fingerprint                 u:object_r:build_prop:s0 exact string
+ro.product.build.id                          u:object_r:build_prop:s0 exact string
+ro.product.build.tags                        u:object_r:build_prop:s0 exact string
+ro.product.build.type                        u:object_r:build_prop:s0 exact string
+ro.product.build.version.incremental         u:object_r:build_prop:s0 exact string
+ro.product.build.version.release             u:object_r:build_prop:s0 exact string
+ro.product.build.version.release_or_codename u:object_r:build_prop:s0 exact string
+ro.product.build.version.sdk                 u:object_r:build_prop:s0 exact int
 
 # These 5 properties are set by property_service
 ro.product.brand         u:object_r:build_prop:s0 exact string
@@ -642,23 +736,40 @@ ro.product.odm.model        u:object_r:build_odm_prop:s0 exact string
 ro.product.odm.name         u:object_r:build_odm_prop:s0 exact string
 
 # All vendor_dlkm build props are set by /vendor_dlkm/etc/build.prop
-ro.vendor_dlkm.build.date                u:object_r:build_vendor_prop:s0 exact string
-ro.vendor_dlkm.build.date.utc            u:object_r:build_vendor_prop:s0 exact int
-ro.vendor_dlkm.build.fingerprint         u:object_r:build_vendor_prop:s0 exact string
-ro.vendor_dlkm.build.version.incremental u:object_r:build_vendor_prop:s0 exact string
+ro.vendor_dlkm.build.date                        u:object_r:build_vendor_prop:s0 exact string
+ro.vendor_dlkm.build.date.utc                    u:object_r:build_vendor_prop:s0 exact int
+ro.vendor_dlkm.build.fingerprint                 u:object_r:build_vendor_prop:s0 exact string
+ro.vendor_dlkm.build.id                          u:object_r:build_vendor_prop:s0 exact string
+ro.vendor_dlkm.build.tags                        u:object_r:build_vendor_prop:s0 exact string
+ro.vendor_dlkm.build.type                        u:object_r:build_vendor_prop:s0 exact string
+ro.vendor_dlkm.build.version.incremental         u:object_r:build_vendor_prop:s0 exact string
+ro.vendor_dlkm.build.version.release             u:object_r:build_vendor_prop:s0 exact string
+ro.vendor_dlkm.build.version.release_or_codename u:object_r:build_vendor_prop:s0 exact string
+ro.vendor_dlkm.build.version.sdk                 u:object_r:build_vendor_prop:s0 exact int
 
 # All odm_dlkm build props are set by /odm_dlkm/etc/build.prop
-ro.odm_dlkm.build.date                u:object_r:build_vendor_prop:s0 exact string
-ro.odm_dlkm.build.date.utc            u:object_r:build_vendor_prop:s0 exact int
-ro.odm_dlkm.build.fingerprint         u:object_r:build_vendor_prop:s0 exact string
-ro.odm_dlkm.build.version.incremental u:object_r:build_vendor_prop:s0 exact string
+ro.old_dlkm.build.date                        u:object_r:build_vendor_prop:s0 exact string
+ro.old_dlkm.build.date.utc                    u:object_r:build_vendor_prop:s0 exact int
+ro.old_dlkm.build.fingerprint                 u:object_r:build_vendor_prop:s0 exact string
+ro.old_dlkm.build.id                          u:object_r:build_vendor_prop:s0 exact string
+ro.old_dlkm.build.tags                        u:object_r:build_vendor_prop:s0 exact string
+ro.old_dlkm.build.type                        u:object_r:build_vendor_prop:s0 exact string
+ro.old_dlkm.build.version.incremental         u:object_r:build_vendor_prop:s0 exact string
+ro.old_dlkm.build.version.release             u:object_r:build_vendor_prop:s0 exact string
+ro.old_dlkm.build.version.release_or_codename u:object_r:build_vendor_prop:s0 exact string
+ro.old_dlkm.build.version.sdk                 u:object_r:build_vendor_prop:s0 exact int
 
 # All vendor build props are set by /vendor/build.prop
-ro.vendor.build.date                u:object_r:build_vendor_prop:s0 exact string
-ro.vendor.build.date.utc            u:object_r:build_vendor_prop:s0 exact int
-ro.vendor.build.fingerprint         u:object_r:build_vendor_prop:s0 exact string
-ro.vendor.build.version.incremental u:object_r:build_vendor_prop:s0 exact string
-ro.vendor.build.version.sdk         u:object_r:build_vendor_prop:s0 exact int
+ro.vendor.build.date                        u:object_r:build_vendor_prop:s0 exact string
+ro.vendor.build.date.utc                    u:object_r:build_vendor_prop:s0 exact int
+ro.vendor.build.fingerprint                 u:object_r:build_vendor_prop:s0 exact string
+ro.vendor.build.id                          u:object_r:build_vendor_prop:s0 exact string
+ro.vendor.build.tags                        u:object_r:build_vendor_prop:s0 exact string
+ro.vendor.build.type                        u:object_r:build_vendor_prop:s0 exact string
+ro.vendor.build.version.incremental         u:object_r:build_vendor_prop:s0 exact string
+ro.vendor.build.version.release             u:object_r:build_vendor_prop:s0 exact string
+ro.vendor.build.version.release_or_codename u:object_r:build_vendor_prop:s0 exact string
+ro.vendor.build.version.sdk                 u:object_r:build_vendor_prop:s0 exact int
 
 ro.product.board               u:object_r:build_vendor_prop:s0 exact string
 ro.product.first_api_level     u:object_r:build_vendor_prop:s0 exact int
@@ -667,6 +778,27 @@ ro.product.vendor.device       u:object_r:build_vendor_prop:s0 exact string
 ro.product.vendor.manufacturer u:object_r:build_vendor_prop:s0 exact string
 ro.product.vendor.model        u:object_r:build_vendor_prop:s0 exact string
 ro.product.vendor.name         u:object_r:build_vendor_prop:s0 exact string
+
+# Boot image build props set by /{second_stage_resources/,}boot/etc/build.prop
+ro.bootimage.build.date                        u:object_r:build_bootimage_prop:s0 exact string
+ro.bootimage.build.date.utc                    u:object_r:build_bootimage_prop:s0 exact int
+ro.bootimage.build.fingerprint                 u:object_r:build_bootimage_prop:s0 exact string
+ro.bootimage.build.id                          u:object_r:build_bootimage_prop:s0 exact string
+ro.bootimage.build.tags                        u:object_r:build_bootimage_prop:s0 exact string
+ro.bootimage.build.type                        u:object_r:build_bootimage_prop:s0 exact string
+ro.bootimage.build.version.incremental         u:object_r:build_bootimage_prop:s0 exact string
+ro.bootimage.build.version.release             u:object_r:build_bootimage_prop:s0 exact string
+ro.bootimage.build.version.release_or_codename u:object_r:build_bootimage_prop:s0 exact string
+ro.bootimage.build.version.sdk                 u:object_r:build_bootimage_prop:s0 exact int
+
+ro.product.bootimage.brand        u:object_r:build_bootimage_prop:s0 exact string
+ro.product.bootimage.device       u:object_r:build_bootimage_prop:s0 exact string
+ro.product.bootimage.manufacturer u:object_r:build_bootimage_prop:s0 exact string
+ro.product.bootimage.model        u:object_r:build_bootimage_prop:s0 exact string
+ro.product.bootimage.name         u:object_r:build_bootimage_prop:s0 exact string
+
+# ro.product.property_source_order is settable from any build.prop
+ro.product.property_source_order u:object_r:build_config_prop:s0 exact string
 
 ro.crypto.state u:object_r:vold_status_prop:s0 exact enum encrypted unencrypted unsupported
 ro.crypto.type  u:object_r:vold_status_prop:s0 exact enum block file none
@@ -839,6 +971,7 @@ ro.surface_flinger.use_smart_90_for_video                 u:object_r:surfaceflin
 ro.surface_flinger.use_content_detection_for_refresh_rate u:object_r:surfaceflinger_prop:s0 exact bool
 ro.surface_flinger.color_space_agnostic_dataspace         u:object_r:surfaceflinger_prop:s0 exact int
 ro.surface_flinger.refresh_rate_switching                 u:object_r:surfaceflinger_prop:s0 exact bool
+ro.surface_flinger.update_device_product_info_on_hotplug_reconnect u:object_r:surfaceflinger_prop:s0 exact bool
 
 ro.sf.disable_triple_buffer u:object_r:surfaceflinger_prop:s0 exact bool
 ro.sf.lcd_density           u:object_r:surfaceflinger_prop:s0 exact int
@@ -864,6 +997,10 @@ cache_key.bluetooth.                     u:object_r:binder_cache_bluetooth_serve
 cache_key.system_server.                 u:object_r:binder_cache_system_server_prop:s0 prefix string
 cache_key.telephony.                     u:object_r:binder_cache_telephony_server_prop:s0 prefix string
 
+# Framework watchdog configuration properties.
+framework_watchdog.fatal_count                u:object_r:framework_watchdog_config_prop:s0 exact int
+framework_watchdog.fatal_window.second        u:object_r:framework_watchdog_config_prop:s0 exact int
+
 gsm.sim.operator.numeric       u:object_r:telephony_status_prop:s0 exact string
 persist.radio.airplane_mode_on u:object_r:telephony_status_prop:s0 exact bool
 
@@ -888,15 +1025,61 @@ ro.localization.locale_filter u:object_r:localization_prop:s0 exact string
 # Graphics related properties
 ro.opengles.version u:object_r:graphics_config_prop:s0 exact int
 
-ro.gfx.driver.0        u:object_r:graphics_config_prop:s0 exact string
-ro.gfx.driver.1        u:object_r:graphics_config_prop:s0 exact string
-ro.gfx.angle.supported u:object_r:graphics_config_prop:s0 exact bool
+ro.gfx.driver.0          u:object_r:graphics_config_prop:s0 exact string
+ro.gfx.driver.1          u:object_r:graphics_config_prop:s0 exact string
+ro.gfx.angle.supported   u:object_r:graphics_config_prop:s0 exact bool
+ro.gfx.driver_build_time u:object_r:graphics_config_prop:s0 exact int
 
 graphics.gpu.profiler.support          u:object_r:graphics_config_prop:s0 exact bool
 graphics.gpu.profiler.vulkan_layer_apk u:object_r:graphics_config_prop:s0 exact string
+
+ro.cpuvulkan.version u:object_r:graphics_config_prop:s0 exact int
 
 # surfaceflinger-settable
 graphics.display.kernel_idle_timer.enabled u:object_r:surfaceflinger_display_prop:s0 exact bool
 
 # Disable/enable charger input
 power.battery_input.suspended u:object_r:power_debug_prop:s0 exact bool
+
+# zygote config property
+zygote.critical_window.minute u:object_r:zygote_config_prop:s0 exact int
+
+# Enable Keystore 2.0.
+# TODO remove this propertye when Keystore 2.0 migration is complete b/171563717
+ro.android.security.keystore2.enable    u:object_r:keystore2_enable_prop:s0 exact bool
+
+partition.system.verified     u:object_r:verity_status_prop:s0 exact string
+partition.system_ext.verified u:object_r:verity_status_prop:s0 exact string
+partition.product.verified    u:object_r:verity_status_prop:s0 exact string
+partition.vendor.verified     u:object_r:verity_status_prop:s0 exact string
+
+ro.setupwizard.enterprise_mode u:object_r:setupwizard_prop:s0 exact bool
+ro.setupwizard.esim_cid_ignore u:object_r:setupwizard_prop:s0 exact string
+ro.setupwizard.rotation_locked u:object_r:setupwizard_prop:s0 exact bool
+ro.setupwizard.wifi_on_exit    u:object_r:setupwizard_prop:s0 exact bool
+
+setupwizard.enable_assist_gesture_training                         u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.avoid_duplicate_tos                            u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.baseline_setupwizard_enabled                   u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.day_night_mode_enabled                         u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.deferred_setup_low_ram_filter                  u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.deferred_setup_notification                    u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.deferred_setup_suggestion                      u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.device_default_dark_mode                       u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.esim_enabled                                   u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.google_services_deferred_setup_pretend_not_suw u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.lock_mobile_data                               u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.lock_mobile_data.carrier-1                     u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.portal_notification                            u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.predeferred_enabled                            u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.return_partner_customization_bundle            u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.show_pixel_tos                                 u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.use_biometric_lock                             u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.feature.wallpaper_suggestion_after_restore             u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.logging                                                u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.metrics_debug_mode                                     u:object_r:setupwizard_prop:s0 exact bool
+setupwizard.theme                                                  u:object_r:setupwizard_prop:s0 exact string
+
+db.log.detailed               u:object_r:sqlite_log_prop:s0 exact bool
+db.log.slow_query_threshold   u:object_r:sqlite_log_prop:s0 exact int
+db.log.slow_query_threshold.* u:object_r:sqlite_log_prop:s0 prefix int

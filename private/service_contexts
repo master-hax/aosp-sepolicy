@@ -1,10 +1,14 @@
+android.hardware.automotive.audiocontrol.IAudioControl/default       u:object_r:hal_audiocontrol_service:s0
+android.hardware.biometrics.face.IFace/default                       u:object_r:hal_face_service:s0
 android.hardware.biometrics.fingerprint.IFingerprint/default         u:object_r:hal_fingerprint_service:s0
+android.hardware.gnss.IGnss/default                                  u:object_r:hal_gnss_service:s0
 android.hardware.identity.IIdentityCredentialStore/default           u:object_r:hal_identity_service:s0
 android.hardware.light.ILights/default                               u:object_r:hal_light_service:s0
 android.hardware.power.IPower/default                                u:object_r:hal_power_service:s0
-android.hardware.powerstats.IPowerStats/default                      u:object_r:hal_power_stats_service:s0
+android.hardware.power.stats.IPowerStats/default                      u:object_r:hal_power_stats_service:s0
 android.hardware.rebootescrow.IRebootEscrow/default                  u:object_r:hal_rebootescrow_service:s0
 android.hardware.vibrator.IVibrator/default                          u:object_r:hal_vibrator_service:s0
+android.hardware.vibrator.IVibratorManager/default                   u:object_r:hal_vibrator_service:s0
 
 accessibility                             u:object_r:accessibility_service:s0
 account                                   u:object_r:account_service:s0
@@ -18,8 +22,8 @@ android.os.UpdateEngineService            u:object_r:update_engine_service:s0
 android.os.UpdateEngineStableService      u:object_r:update_engine_stable_service:s0
 android.security.identity                 u:object_r:credstore_service:s0
 android.security.keystore                 u:object_r:keystore_service:s0
-android.security.keystore2                u:object_r:keystore_service:s0
 android.service.gatekeeper.IGateKeeperService    u:object_r:gatekeeper_service:s0
+android.system.keystore2                  u:object_r:keystore_service:s0
 app_binding                               u:object_r:app_binding_service:s0
 app_integrity                             u:object_r:app_integrity_service:s0
 app_prediction                            u:object_r:app_prediction_service:s0
@@ -68,6 +72,7 @@ device_config                             u:object_r:device_config_service:s0
 device_policy                             u:object_r:device_policy_service:s0
 device_identifiers                        u:object_r:device_identifiers_service:s0
 deviceidle                                u:object_r:deviceidle_service:s0
+device_state                              u:object_r:device_state_service:s0
 devicestoragemonitor                      u:object_r:devicestoragemonitor_service:s0
 diskstats                                 u:object_r:diskstats_service:s0
 display                                   u:object_r:display_service:s0
@@ -173,6 +178,7 @@ phone1                                    u:object_r:radio_service:s0
 phone2                                    u:object_r:radio_service:s0
 phone                                     u:object_r:radio_service:s0
 pinner                                    u:object_r:pinner_service:s0
+power_stats                               u:object_r:power_stats_service:s0
 power                                     u:object_r:power_service:s0
 print                                     u:object_r:print_service:s0
 processinfo                               u:object_r:processinfo_service:s0
@@ -216,7 +222,9 @@ storaged_pri                              u:object_r:storaged_service:s0
 storagestats                              u:object_r:storagestats_service:s0
 SurfaceFlinger                            u:object_r:surfaceflinger_service:s0
 suspend_control                           u:object_r:system_suspend_control_service:s0
+suspend_control_internal                  u:object_r:system_suspend_control_internal_service:s0
 system_config                             u:object_r:system_config_service:s0
+system_server_dumper                      u:object_r:system_server_dumper_service:s0
 system_update                             u:object_r:system_update_service:s0
 task                                      u:object_r:task_service:s0
 telecom                                   u:object_r:telecom_service:s0
@@ -240,7 +248,9 @@ uri_grants                                u:object_r:uri_grants_service:s0
 usagestats                                u:object_r:usagestats_service:s0
 usb                                       u:object_r:usb_service:s0
 user                                      u:object_r:user_service:s0
+vcn_management                            u:object_r:vcn_management_service:s0
 vibrator                                  u:object_r:vibrator_service:s0
+vibrator_manager                          u:object_r:vibrator_manager_service:s0
 virtual_touchpad                          u:object_r:virtual_touchpad_service:s0
 voiceinteraction                          u:object_r:voiceinteraction_service:s0
 vold                                      u:object_r:vold_service:s0

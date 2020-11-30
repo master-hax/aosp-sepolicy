@@ -84,6 +84,7 @@ allow shell {
   -installd_service
   -iorapd_service
   -netd_service
+  -system_suspend_control_internal_service
   -system_suspend_control_service
   -virtual_touchpad_service
   -vold_service
@@ -121,6 +122,9 @@ allow shell {
 allow shell sysfs_net:dir r_dir_perms;
 
 r_dir_file(shell, cgroup)
+allow shell cgroup_desc_file:file r_file_perms;
+allow shell cgroup_desc_api_file:file r_file_perms;
+allow shell vendor_cgroup_desc_file:file r_file_perms;
 allow shell domain:dir { search open read getattr };
 allow shell domain:{ file lnk_file } { open read getattr };
 

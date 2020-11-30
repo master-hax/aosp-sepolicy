@@ -37,7 +37,6 @@ set_prop(vold, boottime_public_prop)
 allow vold vold_key:keystore2_key {
     delete
     get_info
-    list
     manage_blob
     rebind
     req_forced_op
@@ -45,3 +44,12 @@ allow vold vold_key:keystore2_key {
     use
 };
 
+neverallow {
+    domain
+    -system_server
+    -vdc
+    -vold
+    -update_verifier
+    -apexd
+    -gsid
+} vold_service:service_manager find;
