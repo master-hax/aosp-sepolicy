@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85601c7b_f35b4cfd",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-12-01T09:47:16Z",
+      "side": 0,
+      "message": "A side-effect of this is that you will start to see denials accessing your app data file directories - /data/data/com.google.android.networkstack etc.\n(See go/fixing-levelfrom-none)\nI don\u0027t think you have any significant usage of those app data directories, but the denials might cause boot test failures.\nAdding mlstrustedsubject as suggested above seems like the right solution here; we did the same thing for similar domains in aosp/1232917.",
+      "range": {
+        "startLine": 148,
+        "startChar": 61,
+        "endLine": 148,
+        "endChar": 75
+      },
+      "revId": "476ef10ed8925b08c5733dd66e899d1d35f4d7bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
