@@ -50,6 +50,24 @@
       "message": "[   43.350400] type\u003d1400 audit(1606809405.372:91): avc: denied { read } for comm\u003d54696D652D6C696D69746564207465 name\u003d\"map_offload_tether_ingress_map\" dev\u003d\"bpf\" ino\u003d12451 scontext\u003du:r:network_stack:s0:c49,c260,c512,c768 tcontext\u003du:object_r:fs_bpf:s0 tclass\u003dfile permissive\u003d0\n\nread is not constrained by the MLS rules\nhttps://cs.android.com/android/platform/superproject/+/master:system/sepolicy/private/mls;l\u003d80?q\u003dmls",
       "revId": "6c5fef1bd6ba2c33a0ac3f63787a793986471bc0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c96be6d_0e48c591",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2020-12-01T08:49:47Z",
+      "side": 1,
+      "message": "(the actual crazy failure was wrt. \u0027write\u0027, the \u0027read\u0027 failure above is from tests with selinux not permitting read either, so really replace \u0027read\u0027 above with \u0027write\u0027 for the crazy errors)",
+      "parentUuid": "cd9cfe40_53237b89",
+      "revId": "6c5fef1bd6ba2c33a0ac3f63787a793986471bc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
