@@ -74,6 +74,30 @@
       },
       "revId": "4c110ff19b751c237819ac5fed3471277a74c07d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3b59021_ab2de385",
+        "filename": "private/attributes",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-12-01T10:56:17Z",
+      "side": 1,
+      "message": "Note, the neverallow test failures would only occur in CTS, not during build. You can verify if the attribute will get optimized away by doing an \"adb pull /sys/fs/selinux/policy\" and then \"sepolicy-analyze policy attribute -l | grep system_and_vendor_property_type\" if the attribute isn\u0027t listed in policy it will cause a CTS failure.",
+      "parentUuid": "4eaff96d_41ecec7a",
+      "range": {
+        "startLine": 11,
+        "startChar": 10,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "4c110ff19b751c237819ac5fed3471277a74c07d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
