@@ -16,6 +16,23 @@
       "message": "Per Jeff V:\n\nwe should probably remove levelFrom\u003dall from https://android.googlesource.com/platform/system/sepolicy/+/refs/heads/master/private/seapp_contexts#148\n\nIt determines how those categories are applied\nWhich then determines what restrictions selinux enforces on the process\nIt\u0027s useful for things like 3p apps because it ensures that selinux is being used to sandbox apps from each other. So if you do a ps -AZ, you\u0027ll see multiple apps running as \"untrusted_app\". Since all the apps are running in the same context, the categories are used to separate them from each other.",
       "revId": "6c5fef1bd6ba2c33a0ac3f63787a793986471bc0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "444fbb30_e4fb03ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2020-12-01T08:43:34Z",
+      "side": 1,
+      "message": "and that indeed fixes the problem where \u0027read\u0027 permission would work, but \u0027write\u0027 permission would not.",
+      "revId": "6c5fef1bd6ba2c33a0ac3f63787a793986471bc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
