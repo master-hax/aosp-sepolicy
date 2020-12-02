@@ -16,6 +16,41 @@
       "message": "It affects /system/etc/selinux/plat_property_contexts, which is still used even if a debug ramdisk is applied.",
       "revId": "49525ce273b9063009343e0fac9a385582b78e73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "770c8766_0d3c1d65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-12-02T11:29:11Z",
+      "side": 1,
+      "message": "Yeah it\u0027s correct. But the error was because \"ro.cpuvulkan.version\" exists both on plat_property_contexts and vendor_property_contexts. Given that \"ro.cpuvulkan.version\" doesn\u0027t exist on other property_contexts, this should be fine.",
+      "parentUuid": "604e9ac1_9000a16e",
+      "revId": "49525ce273b9063009343e0fac9a385582b78e73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d60bf2d8_4270a7b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-12-02T11:29:11Z",
+      "side": 1,
+      "message": "This shouldn\u0027t break the old R devices.",
+      "revId": "49525ce273b9063009343e0fac9a385582b78e73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
