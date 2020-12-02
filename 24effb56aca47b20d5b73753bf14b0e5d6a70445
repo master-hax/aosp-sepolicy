@@ -106,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54808648_e32c8be0",
+        "filename": "private/mm_eventsd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-02T17:27:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "92c1fe39_9114dafb",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 30
+      },
+      "revId": "24effb56aca47b20d5b73753bf14b0e5d6a70445",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33e9c333_2c084008",
@@ -143,6 +167,30 @@
       "side": 1,
       "message": "I think this should be OK. You can have access to the root tracing dir (debugfs_tracing or debugfs_tracing_debug), which is the \"main tracing instance\", what atrace and most other things will use. The instances folder (debugfs_tracing_instances) in the root tracing dir has the custom instances. Because of the way new tracing instances are created (mkdir \u003cinstance-name\u003e from root context), init needs access to debugfs_tracing_instances to create directories (tracing instances). The other reason for access to debugfs_tracing_instances it to find a custom tracing instance. So I think it\u0027s OK that a process can have access to debugfs_tracing_instances and not inherit access to custom tracing instance(s). WDYT?",
       "parentUuid": "33e9c333_2c084008",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 54
+      },
+      "revId": "24effb56aca47b20d5b73753bf14b0e5d6a70445",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79961fa6_1cc68795",
+        "filename": "public/file.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-02T17:27:22Z",
+      "side": 1,
+      "message": "I think this makes sense, though you may email perfetto people to check (it\u0027s an existing bug though if it\u0027s a problem, so +2)",
+      "parentUuid": "480e1477_58f77660",
       "range": {
         "startLine": 139,
         "startChar": 0,
