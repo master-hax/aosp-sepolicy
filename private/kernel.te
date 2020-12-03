@@ -1,8 +1,71 @@
 typeattribute kernel coredomain;
 
 domain_auto_trans(kernel, init_exec, init)
+domain_auto_trans(kernel, snapuserd_exec, snapuserd)
 
 # Allow the kernel to read otapreopt_chroot's file descriptors and files under
 # /postinstall, as it uses apexd logic to mount APEX packages in /postinstall/apex.
 allow kernel otapreopt_chroot:fd use;
 allow kernel postinstall_file:file read;
+
+# The following sections are for the transition period during a Virtual A/B
+# OTA. Once sepolicy is loaded, snapuserd must be re-launched in the correct
+# context, and with properly labelled devices. This must be done before
+# enabling enforcement, eg, in permissive mode while still in the kernel
+# context. Since relabelling and re-launching snapuserd generates a bunch of
+# audits, we silence them with dontaudits below.
+#
+# Additional dontaudits are also needed for initial snapuserd process, since
+# it runs in the kernel context. This process is killed before enforcing mode
+# is enabled.
+
+# For traversing the root filesystem to relabel, and for initial snapuserd's
+# file and block device access.
+dontaudit kernel tmpfs:dir r_dir_perms;
+dontaudit kernel tmpfs:blk_file { getattr read relabelfrom };
+dontaudit kernel tmpfs:lnk_file { getattr relabelfrom };
+dontaudit kernel tmpfs:chr_file { r_file_perms relabelfrom };
+dontaudit kernel tmpfs:chr_file { relabelfrom };
+dontaudit kernel tmpfs:dir relabelfrom;
+
+# init will relabel specific entries in /dev and /dev/block that are needed
+# to re-execute snapuserd.
+dontaudit kernel block_device:blk_file relabelto;
+dontaudit kernel block_device:dir { r_dir_perms relabelto };
+dontaudit kernel block_device:lnk_file relabelto;
+dontaudit kernel metadata_block_device:lnk_file relabelto;
+dontaudit kernel null_device:chr_file relabelto;
+dontaudit kernel random_device:chr_file relabelto;
+dontaudit kernel super_block_device:lnk_file relabelto;
+dontaudit kernel userdata_block_device:lnk_file relabelto;
+
+# When booting into an unmerged OTA, snapuserd will perform writes to the
+# super partition.
+dontaudit kernel dm_user_device:dir { rw_dir_perms relabelto };
+dontaudit kernel dm_user_device:chr_file { create_file_perms relabelto };
+dontaudit kernel dm_device:blk_file { rw_file_perms relabelto };
+dontaudit kernel dm_device:chr_file { rw_file_perms relabelto };
+
+# As the initial snapuserd (in the kernel context) shuts down, it logs to
+# /dev/kmsg, so allow relabelling and writing to it.
+dontaudit kernel kmsg_device:chr_file { relabelto write };
+
+# For regeneration and polling of uevents during snapuserd transitions.
+dontaudit kernel sysfs:dir r_dir_perms;
+dontaudit kernel sysfs:file rw_file_perms ;
+dontaudit kernel self:netlink_kobject_uevent_socket create;
+
+# To relaunch snapuserd, init must create a SnapshotManager which reads from
+# /metadata/ota and /metadata/gsi.
+dontaudit kernel metadata_file:dir r_dir_perms;
+dontaudit kernel gsi_metadata_file:dir search;
+dontaudit kernel ota_metadata_file:dir { r_dir_perms setattr };
+dontaudit kernel ota_metadata_file:file r_file_perms;
+
+# For creating and relabelling the snapuserd socket in first-stage init.
+dontaudit kernel self:process { setsockcreate setfscreate };
+dontaudit kernel socket_device:dir { relabelto rw_dir_perms };
+dontaudit kernel socket_device:sock_file { create_file_perms relabelfrom };
+dontaudit kernel snapuserd_socket:sock_file { create getattr setattr relabelto write unlink };
+dontaudit kernel snapuserd_socket:unix_stream_socket { bind connectto create };
+dontaudit kernel self:capability { chown fowner fsetid dac_override net_admin mknod setgid };
