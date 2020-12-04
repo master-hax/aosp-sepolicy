@@ -209,3 +209,6 @@ allow shell apex_info_file:file r_file_perms;
 # Allow shell (the vm tool) the access to vsock created by virtualization
 # service
 allow shell virtualizationservice:vsock_socket { read write };
+
+# Allow shell to write GWP-ASan properties even on user builds.
+set_prop(shell, gwp_asan_prop)

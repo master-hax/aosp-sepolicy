@@ -392,14 +392,15 @@ neverallow {
   libc_debug_prop
 }:property_service set;
 
-# Allow the shell to set MTE props, so that non-root users with adb shell
-# access can control the settings on their device.
+# Allow the shell to set MTE & GWP-ASan props, so that non-root users with adb
+# shell access can control the settings on their device.
 neverallow {
   domain
   -init
   -shell
 } {
   arm64_memtag_prop
+  gwp_asan_prop
 }:property_service set;
 
 neverallow {
