@@ -118,9 +118,9 @@ allow installd app_data_file_type:notdevfile_class_set { create_file_perms relab
 allow installd labeledfs:filesystem unmount;
 
 # Similar for the files under /data/misc/profiles/
-allow installd user_profile_data_file:dir create_dir_perms;
+allow installd { user_profile_root_file user_profile_data_file}:dir create_dir_perms;
 allow installd user_profile_data_file:file create_file_perms;
-allow installd user_profile_data_file:dir rmdir;
+allow installd { user_profile_root_file user_profile_data_file}:dir rmdir;
 allow installd user_profile_data_file:file unlink;
 
 # Files created/updated by profman dumps.
