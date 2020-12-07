@@ -5,6 +5,9 @@ type permissioncontroller_app, domain, coredomain;
 
 app_domain(permissioncontroller_app)
 
+allow permissioncontroller_app app_api_service:service_manager find;
+allow permissioncontroller_app system_api_service:service_manager find;
+
 # Allow interaction with gpuservice
 binder_call(permissioncontroller_app, gpuservice)
 allow permissioncontroller_app gpu_service:service_manager find;
