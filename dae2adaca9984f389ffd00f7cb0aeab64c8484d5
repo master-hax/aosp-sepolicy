@@ -39,6 +39,30 @@
       },
       "revId": "dae2adaca9984f389ffd00f7cb0aeab64c8484d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e1964c7_a55e5c8d",
+        "filename": "private/network_stack.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2020-12-07T23:11:16Z",
+      "side": 1,
+      "message": "atm, nothing, since the transition of all the bpf related code out of netd and into mainline is still in flight.\n\nIn general though synchronizeKernelRCU breaks, which means stuff gets racy (rcu grace period is needed to make sure all other cores in system have finished running any active bpf programs and are no longer scribbling on inactive maps).  This will affect bw accounting for example.",
+      "parentUuid": "f3f57cf2_59668920",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 43
+      },
+      "revId": "dae2adaca9984f389ffd00f7cb0aeab64c8484d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
