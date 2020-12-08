@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d249a18_43a90e40",
+        "filename": "private/postinstall_dexopt.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-12-08T10:05:42Z",
+      "side": 1,
+      "message": "is this the correct approach,or should we be running postinstall_dexopt with categories?",
+      "range": {
+        "startLine": 6,
+        "startChar": 45,
+        "endLine": 6,
+        "endChar": 62
+      },
+      "revId": "4799d37bf08e833987100efc0c48046b4e774241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "444d77cf_26a69511",
+        "filename": "private/vold_prepare_subdirs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-12-08T10:05:42Z",
+      "side": 1,
+      "message": "It also seems odd that vold_prepare_subdirs would need these permissions on both and not just one or the other.",
+      "range": {
+        "startLine": 48,
+        "startChar": 29,
+        "endLine": 48,
+        "endChar": 51
+      },
+      "revId": "4799d37bf08e833987100efc0c48046b4e774241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "179f6d86_089b390a",
+        "filename": "private/zygote.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-12-08T10:05:42Z",
+      "side": 1,
+      "message": "does zygote need mounton for both of these? It seems like it should be one or the other.",
+      "range": {
+        "startLine": 64,
+        "startChar": 38,
+        "endLine": 64,
+        "endChar": 60
+      },
+      "revId": "4799d37bf08e833987100efc0c48046b4e774241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d73ee48_8e7157b7",
+        "filename": "public/app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-12-08T10:05:42Z",
+      "side": 1,
+      "message": "brackets are not needed",
+      "range": {
+        "startLine": 173,
+        "startChar": 52,
+        "endLine": 173,
+        "endChar": 53
+      },
+      "revId": "4799d37bf08e833987100efc0c48046b4e774241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca4efcf1_4f6433fe",
+        "filename": "public/installd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-12-08T10:05:42Z",
+      "side": 1,
+      "message": "rmdir is already included in create_dir_perms (above).",
+      "range": {
+        "startLine": 123,
+        "startChar": 68,
+        "endLine": 123,
+        "endChar": 73
+      },
+      "revId": "4799d37bf08e833987100efc0c48046b4e774241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3fd5ddc_9254a343",
+        "filename": "public/installd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-12-08T10:05:42Z",
+      "side": 1,
+      "message": "Should installd modifying the root file at all? Should this be managed by vold_create_subdirs?",
+      "range": {
+        "startLine": 123,
+        "startChar": 17,
+        "endLine": 123,
+        "endChar": 39
+      },
+      "revId": "4799d37bf08e833987100efc0c48046b4e774241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
