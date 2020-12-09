@@ -22,6 +22,30 @@
       },
       "revId": "9de7d6d002450fe41eeab074293178d653607c99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "069a8dae_211cd1ba",
+        "filename": "private/kernel.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2020-12-09T18:22:47Z",
+      "side": 1,
+      "message": "Good point... I\u0027ve been trying to find an alternative but nothing comes to mind yet. Right now we wait until policy is loaded, do the snapuserd transition, and then set enforcement. The audits all happen in permissive mode, and by the time we set enforcing on, everything is clean. What I was trying to do here is eliminate the resulting console spam.\n\nSo, maybe I could silence the selinux logs during the restorecons? It looks like we could do that with a scoped set/unset of selinux_set_callback.\n\nTrying to do the transition before we load policy looks really difficult, we\u0027d have to hardcode all the labels involved or something.",
+      "parentUuid": "c4185d62_c2008e30",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 9
+      },
+      "revId": "9de7d6d002450fe41eeab074293178d653607c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
