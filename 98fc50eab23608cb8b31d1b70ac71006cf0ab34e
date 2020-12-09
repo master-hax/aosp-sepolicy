@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b9aaf09_dd237d9c",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1351609
+      },
+      "writtenOn": "2020-12-09T01:10:21Z",
+      "side": 1,
+      "message": "Should this one be removed? I\u0027m not sure why this entry for binder_call gpuservice was added.",
+      "revId": "98fc50eab23608cb8b31d1b70ac71006cf0ab34e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d5d37ad_11931877",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1351609
+      },
+      "writtenOn": "2020-12-09T01:10:21Z",
+      "side": 1,
+      "message": "type gpu_service,               app_api_service, ephemeral_app_api_service, service_manager_type;\n\nCan this line be removed even if we may still need the binder_call gpuservice line?",
+      "revId": "98fc50eab23608cb8b31d1b70ac71006cf0ab34e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1edfb7ff_e7ae8c49",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1351609
+      },
+      "writtenOn": "2020-12-09T01:10:21Z",
+      "side": 1,
+      "message": "type radio_service,             service_manager_type;\n\nWhat does service_manager_type? Should this be removed or kept as-is?",
+      "revId": "98fc50eab23608cb8b31d1b70ac71006cf0ab34e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
