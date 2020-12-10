@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53dd0d3b_23180458",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448822
+      },
+      "writtenOn": "2020-12-10T18:05:43Z",
+      "side": 1,
+      "message": "Security review tracked at b/162584874",
+      "parentUuid": "5184443e_5f662991",
+      "revId": "3321fdb4e1984991590413631bf2e674d092b926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1ab395aa_adb4ee77",
         "filename": "public/service.te",
         "patchSetId": 2
@@ -55,6 +73,30 @@
       "side": 1,
       "message": "Possibly. Or maybe narrower than that.\nWhat exactly is going to use this service?",
       "parentUuid": "1ab395aa_adb4ee77",
+      "range": {
+        "startLine": 159,
+        "startChar": 31,
+        "endLine": 159,
+        "endChar": 46
+      },
+      "revId": "3321fdb4e1984991590413631bf2e674d092b926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d803fc01_62b5b306",
+        "filename": "public/service.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1448822
+      },
+      "writtenOn": "2020-12-10T18:05:43Z",
+      "side": 1,
+      "message": "It will be used by privileged installer apps such as Play (that also have the REBOOT permission). It will also be used by the test app to test the System APIs exposed by this new service. Initial internal implementation at ag/13184859",
+      "parentUuid": "f439c8d2_72508eab",
       "range": {
         "startLine": 159,
         "startChar": 31,
