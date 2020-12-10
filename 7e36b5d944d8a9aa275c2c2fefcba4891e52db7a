@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cdcff0c_6d97c371",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439319
+      },
+      "writtenOn": "2020-12-10T23:44:39Z",
+      "side": 1,
+      "message": "aosp/1521618 wasn\u0027t enough to give PlayStore access to /data/app-staging folder. I had selinux disabled while debugging, so didn\u0027t notice this before. Realized I have to update the Selinux policy too while writing the test.\n\nWrote a GTS test to ensure Playstore can now access /data/app-staging: ag/13204176\nWrote a CTS test to ensure Non-priv apps can\u0027t access /data/app-staging: aosp/1525118",
+      "revId": "7e36b5d944d8a9aa275c2c2fefcba4891e52db7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
