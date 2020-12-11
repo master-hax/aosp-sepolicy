@@ -4,3 +4,9 @@ typeattribute cameraserver camera_service_server;
 
 init_daemon_domain(cameraserver)
 tmpfs_domain(cameraserver)
+
+# Allow shell commands from ADB for dumping stream buffers
+userdebug_or_eng(`
+  allow cameraserver cameraserver_data_file:dir create_dir_perms;
+  allow cameraserver cameraserver_data_file:file create_file_perms;
+')
