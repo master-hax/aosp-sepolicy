@@ -24,6 +24,9 @@ binder_use(perfetto)
 binder_call(perfetto, system_server)
 allow perfetto dropbox_service:service_manager find;
 
+# Allow perfetto to access the proxy service for notifying Traceur.
+allow perfetto tracingproxy_service:service_manager find;
+
 # Allow perfetto to read the trace config from /data/misc/perfetto-configs.
 # shell and adb can write files into that directory.
 allow perfetto perfetto_configs_data_file:dir r_dir_perms;
