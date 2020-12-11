@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "95db3289_16184c05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-12-11T09:48:52Z",
+      "side": 1,
+      "message": "Yeah, but has it happened? It\u0027s supposed to precede implementation.",
+      "parentUuid": "53dd0d3b_23180458",
+      "revId": "3321fdb4e1984991590413631bf2e674d092b926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1ab395aa_adb4ee77",
         "filename": "public/service.te",
         "patchSetId": 2
@@ -97,6 +115,30 @@
       "side": 1,
       "message": "It will be used by privileged installer apps such as Play (that also have the REBOOT permission). It will also be used by the test app to test the System APIs exposed by this new service. Initial internal implementation at ag/13184859",
       "parentUuid": "f439c8d2_72508eab",
+      "range": {
+        "startLine": 159,
+        "startChar": 31,
+        "endLine": 159,
+        "endChar": 46
+      },
+      "revId": "3321fdb4e1984991590413631bf2e674d092b926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9ab8149_fbbef925",
+        "filename": "public/service.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2020-12-11T09:48:52Z",
+      "side": 1,
+      "message": "If it\u0027s only for use by priv apps then ideally this would be system_api_service.\n\nBut that would then block your CTS test from accessing it.\n\nOTOH: Would it be harmful to expose at least some of the API as public? isReadyToReboot say.",
+      "parentUuid": "d803fc01_62b5b306",
       "range": {
         "startLine": 159,
         "startChar": 31,
