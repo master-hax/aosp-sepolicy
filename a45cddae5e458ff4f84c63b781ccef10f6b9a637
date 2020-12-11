@@ -22,6 +22,30 @@
       },
       "revId": "a45cddae5e458ff4f84c63b781ccef10f6b9a637",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d41d4207_6d1adc60",
+        "filename": "private/priv_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1439319
+      },
+      "writtenOn": "2020-12-11T11:27:05Z",
+      "side": 1,
+      "message": "\u003e Do you need more than just search here?\n\nYes.\n\nBasically, we send phonesky a path to a sub-directory of /data/app-staging to verify: /data/app-staging/session_\u003csession-id\u003e. \n\nIn that folder (/data/app-staging/session_xyz), phonesky needs to be able to search the directory (to figure out if there is a single apk or multiple split apk files), read the files and open them. So phonesky needs { search read getattr open }.\n\nThe only thing \"extra\" we are getting from r_dir_perms is ioctl.",
+      "parentUuid": "e914d273_aa26356a",
+      "range": {
+        "startLine": 160,
+        "startChar": 37,
+        "endLine": 160,
+        "endChar": 48
+      },
+      "revId": "a45cddae5e458ff4f84c63b781ccef10f6b9a637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
