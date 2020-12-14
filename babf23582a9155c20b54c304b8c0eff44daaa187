@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccbab3e7_7c90bf4c",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-12-14T08:28:32Z",
+      "side": 1,
+      "message": "1. to check neverallow rules.\n2. to build recovery policies.",
+      "parentUuid": "6712ede0_15734bd3",
+      "range": {
+        "startLine": 123,
+        "startChar": 21,
+        "endLine": 123,
+        "endChar": 28
+      },
+      "revId": "babf23582a9155c20b54c304b8c0eff44daaa187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a4a1056_f3a9effb",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-12-14T06:14:48Z",
       "side": 1,
       "message": "same here",
+      "range": {
+        "startLine": 125,
+        "startChar": 18,
+        "endLine": 125,
+        "endChar": 25
+      },
+      "revId": "babf23582a9155c20b54c304b8c0eff44daaa187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84636bed_40ba8871",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-12-14T08:28:32Z",
+      "side": 1,
+      "message": "1. to check neverallow rules.\n2. to build recovery policies.",
+      "parentUuid": "6a4a1056_f3a9effb",
       "range": {
         "startLine": 125,
         "startChar": 18,
@@ -100,6 +148,30 @@
       "writtenOn": "2020-12-14T06:14:48Z",
       "side": 1,
       "message": "How are these used? It looks like there are used in prebuilt_policy.mk, but it\u0027s included before this line.",
+      "range": {
+        "startLine": 801,
+        "startChar": 0,
+        "endLine": 801,
+        "endChar": 43
+      },
+      "revId": "babf23582a9155c20b54c304b8c0eff44daaa187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20e9f3ca_76c19dfa",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-12-14T08:28:32Z",
+      "side": 1,
+      "message": "prebuilt_policy.mk doesn\u0027t use this. This will be used by vendor_sepolicy.cil and odm_sepolicy.cil.\n\n1. \"pub_policy_$(BOARD_SEPOLICY_VERS).cil\" will be used when building vendor\u0027s cil\n2. If BOARD_SEPOLICY_VERS \u003d\u003d PLATFORM_SEPOLICY_VERSION, it will be \"pub_policy.cil\" which is built from the current policy files. Otherwise, it will be, say, \"pub_policy.30.0.cil\" built from prebuilt policy files, by prebuilt_policy.mk.",
+      "parentUuid": "f464fad3_0ff4fa35",
       "range": {
         "startLine": 801,
         "startChar": 0,
