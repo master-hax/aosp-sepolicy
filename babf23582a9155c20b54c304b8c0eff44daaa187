@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6102c8b1_429dc91d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2020-12-14T10:08:15Z",
+      "side": 1,
+      "message": "Thanks Inseob, I agree that modifying the *.mk here wasn\u0027t an easy job.\nI was just thinking how to make the review more smooth.\n\nNot sure does breaking this CL into smaller CLs help review or not (just brainstorming, no worry if it does not make sense)?",
+      "parentUuid": "d9d4e8f1_61701c3b",
+      "revId": "babf23582a9155c20b54c304b8c0eff44daaa187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6712ede0_15734bd3",
@@ -114,6 +132,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "853b878b_6b81bbf8",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2020-12-14T10:08:15Z",
+      "side": 1,
+      "message": "How about defining a variable for this condition?\n\nAs the comparison of $(PLATFORM_SEPOLICY_VERSION) and $(BOARD_SEPOLICY_VERS) occurs in multiple places.\n\ne.g.,\n\n  ifneq ($(PLATFORM_SEPOLICY_VERSION),$(BOARD_SEPOLICY_VERS))\n    MIXED_BUILD_SEPOLICY :\u003d true\n  endif",
+      "range": {
+        "startLine": 592,
+        "startChar": 0,
+        "endLine": 592,
+        "endChar": 59
+      },
+      "revId": "babf23582a9155c20b54c304b8c0eff44daaa187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5342d715_12c6ae5e",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2020-12-14T10:08:15Z",
+      "side": 1,
+      "message": "With \u0027mixed_build_sepolicy\u0027, we can have:\n\n  ifeq ($(mixed_build_sepolicy),true)",
+      "range": {
+        "startLine": 616,
+        "startChar": 0,
+        "endLine": 616,
+        "endChar": 58
+      },
+      "revId": "babf23582a9155c20b54c304b8c0eff44daaa187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c479d63_98149d35",
         "filename": "Android.mk",
         "patchSetId": 3
@@ -130,6 +194,29 @@
         "startChar": 0,
         "endLine": 626,
         "endChar": 53
+      },
+      "revId": "babf23582a9155c20b54c304b8c0eff44daaa187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a67da09c_b30b1f66",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2020-12-14T10:08:15Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 683,
+        "startChar": 0,
+        "endLine": 683,
+        "endChar": 59
       },
       "revId": "babf23582a9155c20b54c304b8c0eff44daaa187",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -177,6 +264,29 @@
         "startChar": 0,
         "endLine": 801,
         "endChar": 43
+      },
+      "revId": "babf23582a9155c20b54c304b8c0eff44daaa187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78fc09e0_633d3f93",
+        "filename": "compat.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2020-12-14T10:08:15Z",
+      "side": 1,
+      "message": "How about: ifneq ($(MIXED_BUILD_SEPOLICY),true)",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 58
       },
       "revId": "babf23582a9155c20b54c304b8c0eff44daaa187",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
