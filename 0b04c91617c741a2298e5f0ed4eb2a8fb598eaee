@@ -168,6 +168,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "839909f1_4dfe3555",
+        "filename": "private/dex2oat.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-12-14T09:13:08Z",
+      "side": 1,
+      "message": "Switched to two file_contexts.\n\nThe writable by dex2oat is apex_art_staging_data_file, the openable / readable one for other purposes is apex_art_data_file.\n\nPTAL.",
+      "parentUuid": "50179082_99807543",
+      "range": {
+        "startLine": 38,
+        "startChar": 63,
+        "endLine": 39,
+        "endChar": 47
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94c27660_4cce9a4f",
@@ -199,6 +223,24 @@
       "side": 1,
       "message": "Thanks. I\u0027ve tried to explain in response to the comment about multiple data types.\n\nThe relationship borrows from the pattern of installd and dex2oat (L250-260).",
       "parentUuid": "94c27660_4cce9a4f",
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b5a71f1_fe925c06",
+        "filename": "private/domain.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-12-14T09:13:08Z",
+      "side": 1,
+      "message": "Fixed. dex2oat writes files of type apex_art_staging_data_file which is only openable by odrefresh with descriptors passed to dex2oat.",
+      "parentUuid": "46f76983_7041c434",
       "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -640,6 +682,30 @@
       "side": 1,
       "message": "Sorry, forgot to reply to this. For each neverallow rule that\u0027s impacted, you can just move the entire neverallow into private policy. So for each file public/foo.te, just move the neverallow to private/foo.te.",
       "parentUuid": "7c9065c0_aed285e4",
+      "range": {
+        "startLine": 366,
+        "startChar": 0,
+        "endLine": 366,
+        "endChar": 72
+      },
+      "revId": "0b04c91617c741a2298e5f0ed4eb2a8fb598eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94c0d331_412fe25f",
+        "filename": "public/file.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-12-14T09:13:08Z",
+      "side": 1,
+      "message": "Thanks, done in the latest PS.",
+      "parentUuid": "dedaea02_a1cb428b",
       "range": {
         "startLine": 366,
         "startChar": 0,
