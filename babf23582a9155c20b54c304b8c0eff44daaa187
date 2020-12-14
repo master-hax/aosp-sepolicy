@@ -85,6 +85,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "082c3d0a_c981f25f",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-12-14T11:08:35Z",
+      "side": 1,
+      "message": "1. shouldn\u0027t such neverallow rule be in public? Otherwise, what\u0027s the point of separating public and private?\n\n2. I don\u0027t understand how recovery is related with this. Can you elaborate?",
+      "parentUuid": "ccbab3e7_7c90bf4c",
+      "range": {
+        "startLine": 123,
+        "startChar": 21,
+        "endLine": 123,
+        "endChar": 28
+      },
+      "revId": "babf23582a9155c20b54c304b8c0eff44daaa187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a4a1056_f3a9effb",
         "filename": "Android.mk",
         "patchSetId": 3
@@ -259,6 +283,30 @@
       "side": 1,
       "message": "prebuilt_policy.mk doesn\u0027t use this. This will be used by vendor_sepolicy.cil and odm_sepolicy.cil.\n\n1. \"pub_policy_$(BOARD_SEPOLICY_VERS).cil\" will be used when building vendor\u0027s cil\n2. If BOARD_SEPOLICY_VERS \u003d\u003d PLATFORM_SEPOLICY_VERSION, it will be \"pub_policy.cil\" which is built from the current policy files. Otherwise, it will be, say, \"pub_policy.30.0.cil\" built from prebuilt policy files, by prebuilt_policy.mk.",
       "parentUuid": "f464fad3_0ff4fa35",
+      "range": {
+        "startLine": 801,
+        "startChar": 0,
+        "endLine": 801,
+        "endChar": 43
+      },
+      "revId": "babf23582a9155c20b54c304b8c0eff44daaa187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aeabaf8_fde3eb44",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-12-14T11:08:35Z",
+      "side": 1,
+      "message": "Got it.",
+      "parentUuid": "20e9f3ca_76c19dfa",
       "range": {
         "startLine": 801,
         "startChar": 0,
