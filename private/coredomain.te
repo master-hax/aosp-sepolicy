@@ -225,3 +225,9 @@ neverallow coredomain {
 full_treble_only(`
   neverallow coredomain tee_device:chr_file { open read append write ioctl };
 ')
+
+neverallow coredomain {
+   dmabuf_heap_device_type
+   - dmabuf_system_heap_device
+   - dmabuf_system_secure_heap_device
+}:chr_file no_rw_file_perms;
