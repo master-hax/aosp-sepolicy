@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b55c418_56ca553e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-12-15T16:42:16Z",
+      "side": 1,
+      "message": "Jeff / Alan\n\nWould it be preferable to move to a similar pattern to odsign (https://r.android.com/1513029), ie rather than have relabel permissions for odrefresh let init set the contexts? As-is we need to add a special hook that the art module calls (https://r.android.com/c/platform/system/libartpalette/+/1518042/4/palette_android.cc) and this might be a path for abuse (that library is loaded into every app as part of ART runtime).\n\nThanks\nOrion",
+      "revId": "cdbfbf12d746160cc6a8a02b797149c1e8e91019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
