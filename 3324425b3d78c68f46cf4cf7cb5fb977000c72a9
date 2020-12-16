@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5919481_27ae1ea1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1088085
+      },
+      "writtenOn": "2020-12-16T01:00:42Z",
+      "side": 1,
+      "message": "I actually have some issue bring up the keystore2 service on crosshatch by running `/system/bin/keystore2 /data/misc/keystore ` The message I got says\n\n12-16 00:41:52.082  3673  3673 E keystore2: keystore2_main: panicked at \u0027Failed to create service android.system.keystore2 because of While trying to create IKeystoreSecurityLevel\n12-16 00:41:52.082  3673  3673 E keystore2: \n12-16 00:41:52.082  3673  3673 E keystore2: Caused by:\n12-16 00:41:52.082  3673  3673 E keystore2:     Could not get KeyMint instance: android.hardware.keymint.IKeyMintDevice/default failed with error code NAME_NOT_FOUND.\u0027, system/security/keystore2/src/keystore2_main.rs:49:9\n12-16 00:41:52.097     1     1 I init    : Service \u0027keystore2\u0027 (pid 3673) exited with status 101",
+      "revId": "3324425b3d78c68f46cf4cf7cb5fb977000c72a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
