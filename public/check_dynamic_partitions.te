@@ -1,0 +1,7 @@
+type check_dynamic_partitions_exec, system_file_type, exec_type, file_type;
+
+# The path /product/bin/check_dynamic_partitions should never be executed
+# directly. The binary should only be executed when the updated product
+# partition is mounted under /postinstall during the postinstall step before
+# reboot.
+neverallow domain check_dynamic_partitions_exec:file no_x_file_perms;
