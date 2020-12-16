@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17d455be_677cdb42",
+        "filename": "private/coredomain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2020-12-16T18:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1de847b_2bfeb5f1",
+      "range": {
+        "startLine": 222,
+        "startChar": 5,
+        "endLine": 222,
+        "endChar": 6
+      },
+      "revId": "4e1951ec0830b7d9ef8f166b6a11dad4af0c6063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "268def11_c65ed7b3",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "672b576b_b1fe5184",
+        "filename": "private/coredomain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2020-12-16T18:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "268def11_c65ed7b3",
+      "range": {
+        "startLine": 223,
+        "startChar": 5,
+        "endLine": 223,
+        "endChar": 6
+      },
+      "revId": "4e1951ec0830b7d9ef8f166b6a11dad4af0c6063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2723149_1421171f",
@@ -60,6 +108,30 @@
       "writtenOn": "2020-12-16T08:05:18Z",
       "side": 1,
       "message": "Does anything have access to these? It seems odd to be creating the mappings without granting anything access.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 91
+      },
+      "revId": "4e1951ec0830b7d9ef8f166b6a11dad4af0c6063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13e9d174_c60f225e",
+        "filename": "public/device.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2020-12-16T18:20:22Z",
+      "side": 1,
+      "message": "Thanks for taking a look Jeff!\n\ndmabuf_heap_device and dmabuf_system_heap_device have AOSP users that have access to them. dmabuf_system_secure_heap_device does not have an AOSP user since cuttlefish does not use it but we need it to define the ABI for the system-secure heap and exclude it from the never-allow statement here: https://android-review.googlesource.com/c/platform/system/sepolicy/+/1530664/3/private/coredomain.te#223 Let me ping you some additional context as well!\n\nThanks,\nHridya",
+      "parentUuid": "c2723149_1421171f",
       "range": {
         "startLine": 48,
         "startChar": 0,
