@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7207c39_861ed883",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2020-12-17T03:20:23Z",
+      "side": 1,
+      "message": "I followed the template in aosp/1514944, when creating this CL.\n\nHowever, it is not very clear to me the reason behind these policy changes.\n\nGoal of this CL is to: \ni) allow Keystore2 to register IKeystoreAuthorization aidl service\nii) allow service manager to look up and connect to the service\n\n- Based on least privilege access, this might not be relevant, but do I have to do anything to prevent any other app or vendor component from looking up and connecting to the service?\n\nPlease let me know if I have missed anything that is required and have added anything that is not required in this CL to achieve above goals.\n\nThank you.\n",
+      "revId": "dcd10dcf41e9863105c977c28a447425058d86bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
