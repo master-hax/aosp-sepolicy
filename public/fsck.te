@@ -29,6 +29,8 @@ allowxperm fsck dev_type:blk_file ioctl {
   BLKROGET
 };
 
+allowxperm fsck dm_device:blk_file ioctl { SG_IO BLKDISCARD BLKSECDISCARD };
+
 # To determine if it is safe to run fsck on a filesystem, e2fsck
 # must first determine if the filesystem is mounted. To do that,
 # e2fsck scans through /proc/mounts and collects all the mounted
@@ -43,8 +45,11 @@ allow fsck dev_type:blk_file getattr;
 allow fsck {
   proc_mounts
   proc_swaps
+  sysfs_dm
 }:file r_file_perms;
 allow fsck rootfs:dir r_dir_perms;
+allow fsck sysfs_dm:dir r_dir_perms;
+allow fsck self:capability sys_rawio;
 
 ###
 ### neverallow rules

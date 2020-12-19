@@ -38,6 +38,7 @@ allow vold self:process setexec;
 
 # For formatting adoptable storage devices
 allow vold e2fs_exec:file rx_file_perms;
+allow vold self:capability sys_rawio;
 
 # Run fstrim on mounted partitions
 # allowxperm still requires the ioctl permission for the individual type
@@ -153,7 +154,7 @@ allow vold vold_device:blk_file { create setattr unlink rw_file_perms };
 allowxperm vold vold_device:blk_file ioctl { BLKDISCARD BLKGETSIZE };
 allow vold dm_device:chr_file rw_file_perms;
 allow vold dm_device:blk_file rw_file_perms;
-allowxperm vold dm_device:blk_file ioctl BLKSECDISCARD;
+allowxperm vold dm_device:blk_file ioctl { SG_IO BLKDISCARD BLKSECDISCARD };
 # For vold Process::killProcessesWithOpenFiles function.
 allow vold domain:dir r_dir_perms;
 allow vold domain:{ file lnk_file } r_file_perms;
