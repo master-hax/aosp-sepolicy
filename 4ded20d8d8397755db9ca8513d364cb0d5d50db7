@@ -22,6 +22,30 @@
       },
       "revId": "4ded20d8d8397755db9ca8513d364cb0d5d50db7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b2ff036_d998fcdf",
+        "filename": "Android.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-12-21T14:04:40Z",
+      "side": 1,
+      "message": "I think this doesn\u0027t. The reason is:\n\n- In normal build (BOARD_SEPOLICY_VERS is equal to PLATFORM_SEPOLICY_VERSION), nothing is changed, and sepolicy build process will be the same. CTS will be built in such environment, so CTS won\u0027t be affected.\n\n- In mixed build, this might impact the sepolicy rules and result CTS. But we won\u0027t build CTS in mixed build environment.",
+      "parentUuid": "648e6b7f_b2135fad",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 24
+      },
+      "revId": "4ded20d8d8397755db9ca8513d364cb0d5d50db7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
