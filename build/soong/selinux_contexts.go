@@ -379,6 +379,103 @@ func (m *selinuxContextsModule) buildHwServiceContexts(ctx android.ModuleContext
 func (m *selinuxContextsModule) buildPropertyContexts(ctx android.ModuleContext, inputs android.Paths) android.Path {
 	builtCtxFile := m.buildGeneralContexts(ctx, inputs)
 
+	shippingApiLevel := ctx.DeviceConfig().ShippingApiLevel()
+
+	ApiLevelQ := android.ApiLevelOrPanic(ctx, "Q")
+	ApiLevelR := android.ApiLevelOrPanic(ctx, "R")
+
+	// vendor/odm properties are enforced for devices launching with Android Q or later.
+	// So, if vendor/odm, make sure that only vendor/odm properties exist
+	if (ctx.SocSpecific() || ctx.DeviceSpecific()) && shippingApiLevel.GreaterThanOrEqualTo(ApiLevelQ) {
+		rule := android.NewRuleBuilder(pctx, ctx)
+
+		// dot is escaped so they can be fed to grep
+		allowedPropertyPrefixes := []string{
+			"ctl\\.odm\\.",
+			"ctl\\.vendor\\.",
+			"ctl\\.start\\$odm\\.",
+			"ctl\\.start\\$vendor\\.",
+			"ctl\\.stop\\$odm\\.",
+			"ctl\\.stop\\$vendor\\.",
+			"init\\.svc\\.odm\\.",
+			"init\\.svc\\.vendor\\.",
+			"ro\\.boot\\.",
+			"ro\\.hardware\\.",
+			"ro\\.odm\\.",
+			"ro\\.vendor\\.",
+			"odm\\.",
+			"persist\\.odm\\.",
+			"persist\\.vendor\\.",
+			"vendor\\.",
+			"#", // comment
+		}
+
+		// persist.camera is also allowed for devices launching with R or eariler
+		if shippingApiLevel.LessThanOrEqualTo(ApiLevelR) {
+			allowedPropertyPrefixes = append(allowedPropertyPrefixes, "persist\\.camera\\.")
+		}
+
+		// This regex checks if each line starts with one of allowed prefixes or is empty, after
+		// trimming.
+		allowedPropertyRegex := "^\\s*\\(\\(" + strings.Join(allowedPropertyPrefixes, "\\|") + "\\)\\|$\\)"
+
+		invalidPropertyMsg := `******************************\n` +
+			`WARNING: ` + ctx.ModuleName() + ` contains properties which are not vendor or odm namespaced.\n` +
+			`For devices launching with Android Q or later, every property in ` + ctx.ModuleName() + ` should start with vendor or odm prefixes.\n` +
+			`This is enforced by VTS, so please fix such offending properties.\n` +
+			`Lists are:\n`
+
+		// "grep -qv allowedPropertyRegex" will grep all ill-formed lines.
+		// Thus, "! grep -qv allowedPropertyRegex" fails if any such lines exist.
+		rule.Command().
+			Text("( ").
+			Text("! grep").
+			Flag("-qv").Flag(`"` + allowedPropertyRegex + `"`).
+			Input(builtCtxFile).
+			Text(" || ( echo").Flag("-e").
+			Flag(`"` + invalidPropertyMsg + `"`).
+			Text("; grep -v").
+			Flag(`"` + allowedPropertyRegex + `"`).
+			Input(builtCtxFile).
+			Text(`; echo "******************************") )`)
+
+		// Starting from Android R, vendor contexts are also enforced by VtsTrebleSysPropTest.
+		if shippingApiLevel.GreaterThanOrEqualTo(ApiLevelR) {
+			allowedContextPrefixes := []string{
+				"vendor_",
+				"odm_",
+			}
+
+			// This regex checks if each line has allowed property context name or is empty.
+			allowedContextRegex := "^\\s*\\(#.*\\)\\?$\\|" + "\\su:object_r:\\(" + strings.Join(allowedContextPrefixes, "\\|") + "\\)"
+
+			invalidContextMsg := `******************************\n` +
+				`WARNING: ` + ctx.ModuleName() + ` contains property contexts which are not vendor or odm namespaced.\n` +
+				`For devices launching with Android R or later, every context used in ` + ctx.ModuleName() + ` should start with vendor_ or odm_.\n` +
+				`This is enforced by VTS, so please fix such offending property contexts.\n` +
+				`Lists are:\n`
+
+			// "grep -qv allowedContextRegex" will grep all ill-formed lines.
+			// Thus, "! grep -qv allowedContextRegex" fails if any such lines exist.
+			rule.Command().
+				Text("( ").
+				Text("! grep").
+				Flag("-qv").Flag(`"` + allowedContextRegex + `"`).
+				Input(builtCtxFile).
+				Text(" || ( echo").Flag("-e").
+				Flag(`"` + invalidContextMsg + `"`).
+				Text("; grep -v").
+				Flag(`"` + allowedContextRegex + `"`).
+				Input(builtCtxFile).
+				Text(`; echo "******************************") )`)
+		}
+
+		out := android.PathForModuleGen(ctx, ctx.ModuleName()+"_namespace_checked")
+		rule.Command().Text("cp -f").Input(builtCtxFile).Output(out)
+		rule.Build("property_contexts_check_namespace", "checking vendor/odm namespace: "+ctx.ModuleName())
+		builtCtxFile = out
+	}
+
 	var apiFiles android.Paths
 	ctx.VisitDirectDepsWithTag(syspropLibraryDepTag, func(c android.Module) {
 		i, ok := c.(interface{ CurrentSyspropApiFile() android.Path })
