@@ -46,6 +46,30 @@
       },
       "revId": "3159eeea23dbb1bdf1fa9cddab349d5652a88eb4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "567f48d2_b9c9a9d6",
+        "filename": "public/radio.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-23T02:46:02Z",
+      "side": 1,
+      "message": "\u003e /data/misc/sms(/.*)?            u:object_r:radio_data_file:s0\n\nyeah, I think this should probably be marked radio_data_file or a new type, that is specific to this, depending on the granularity you want to restrict file reader/writers",
+      "parentUuid": "9a85e026_260c3ab4",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 39
+      },
+      "revId": "3159eeea23dbb1bdf1fa9cddab349d5652a88eb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
