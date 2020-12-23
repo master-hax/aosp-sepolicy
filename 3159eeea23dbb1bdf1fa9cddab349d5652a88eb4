@@ -142,6 +142,30 @@
       },
       "revId": "3159eeea23dbb1bdf1fa9cddab349d5652a88eb4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad0890e0_e9865e25",
+        "filename": "public/radio.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2020-12-23T15:06:55Z",
+      "side": 1,
+      "message": "Right, but it\u0027s also covered by other rules, e.g., \n\nallow { appdomain -isolated_app } radio_data_file:file { read write getattr };\n\nThis is what Jeff was getting at with his comment.  Was that intentional?",
+      "parentUuid": "cd2e59cd_756b7bce",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 39
+      },
+      "revId": "3159eeea23dbb1bdf1fa9cddab349d5652a88eb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
