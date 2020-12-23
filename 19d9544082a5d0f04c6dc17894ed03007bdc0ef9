@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b424888f_b9a8a8df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2020-12-23T08:44:25Z",
+      "side": 1,
+      "message": "This file was intentionally move in ag/2435720 because radio is generally (although unfortunately not always) a vendor process and thus should reside under /data/vendor. Also, radio_data_file is actually an app data type. If this file is needed, I recommend giving it a new selinux type (i.e. not radio_data_file) and then granting it to only the processes that need access.",
+      "revId": "19d9544082a5d0f04c6dc17894ed03007bdc0ef9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
