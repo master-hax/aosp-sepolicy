@@ -118,6 +118,30 @@
       },
       "revId": "3159eeea23dbb1bdf1fa9cddab349d5652a88eb4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd2e59cd_756b7bce",
+        "filename": "public/radio.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1304263
+      },
+      "writtenOn": "2020-12-23T05:56:10Z",
+      "side": 1,
+      "message": "The current configuration combine with exisiting radio_data_file permission. I can verify the design works as expected, so I think we should be fine with existing one? IIUC, it\u0027s covered in create_file_perms marco.\n\nallow radio radio_data_file:dir create_dir_perms;\nallow radio radio_data_file:notdevfile_class_set create_file_perms;",
+      "parentUuid": "802781b9_59b6546b",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 39
+      },
+      "revId": "3159eeea23dbb1bdf1fa9cddab349d5652a88eb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
