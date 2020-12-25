@@ -159,6 +159,7 @@ neverallow {
     -fastbootd
     -recovery
     -vold
+    -system_server
 } gsi_metadata_file:dir *;
 
 neverallow {
@@ -167,6 +168,7 @@ neverallow {
     -gsid
     -fastbootd
     -vold
+    -system_server
 } gsi_metadata_file:notdevfile_class_set ~{ relabelto getattr };
 
 neverallow {
@@ -175,6 +177,7 @@ neverallow {
     -gsid
     -fastbootd
     -vold
+    -system_server
 } { gsi_data_file gsi_metadata_file }:notdevfile_class_set *;
 
 neverallow {
