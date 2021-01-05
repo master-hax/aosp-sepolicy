@@ -67,6 +67,24 @@
       "message": "ZRAM data actually shows in settings app and is used. Go to developer options-\u003ememory-\u003ememory used in total apps-\u003eselect an app and you will see zram usage of the denial is fixed.\n\nhttps://ftp.bmp.ovh/imgs/2020/09/3eb3d34ec13070b8.jpg",
       "revId": "02df32f9e5e96afa19687be5f92f1c3ed479d1a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8d391e2_ff1d5f14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-05T23:47:26Z",
+      "side": 1,
+      "message": "Great - I can confirm this on a Pixel device:\n\n10-07 18:46:15.583  3726  3726 W ndroid.settings: type\u003d1400 audit(0.0:21): avc: denied { read } for name\u003d\"pagetypeinfo\" dev\u003d\"proc\" ino\u003d4026532169 scontext\u003du:r:system_app:s0 tcontext\u003du:object_r:proc_pagetypeinfo:s0 tclass\u003dfile permissive\u003d0\n\nJeff (jeffv), do you know anyone who is more familiar w/ Settings who can TAL? I think this is a real regression. Also +gkaiser, in case Go team is interested in this stat.",
+      "parentUuid": "0e78fc44_aef22e35",
+      "revId": "02df32f9e5e96afa19687be5f92f1c3ed479d1a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
