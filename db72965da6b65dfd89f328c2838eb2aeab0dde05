@@ -34,6 +34,161 @@
       "parentUuid": "02d865d1_49fbbcaf",
       "revId": "db72965da6b65dfd89f328c2838eb2aeab0dde05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c50fe06c_20759c4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2021-01-05T23:22:59Z",
+      "side": 1,
+      "message": "Can you elaborate on why these are needed now, when they apparently weren\u0027t needed before?  What changed?",
+      "revId": "db72965da6b65dfd89f328c2838eb2aeab0dde05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fea95fd1_8a8cb4ba",
+        "filename": "public/fsck.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2021-01-05T23:22:59Z",
+      "side": 1,
+      "message": "SG_IO is insecure and is not supported by the Android kernels, so why is it needed?",
+      "range": {
+        "startLine": 32,
+        "startChar": 43,
+        "endLine": 32,
+        "endChar": 48
+      },
+      "revId": "db72965da6b65dfd89f328c2838eb2aeab0dde05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c87e06c_06d3352a",
+        "filename": "public/fsck.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2021-01-05T23:22:59Z",
+      "side": 1,
+      "message": "Should this actually be part of the existing allowxperm statement above?  Or is the difference between dev_type and dm_device important here?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 40
+      },
+      "revId": "db72965da6b65dfd89f328c2838eb2aeab0dde05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb1a34cb_961b5f8a",
+        "filename": "public/fsck.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2021-01-05T23:22:59Z",
+      "side": 1,
+      "message": "Why is this needed?  The commit title only mentions ioctls, but this isn\u0027t an ioctl.",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 10
+      },
+      "revId": "db72965da6b65dfd89f328c2838eb2aeab0dde05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6675b42d_be5879ca",
+        "filename": "public/fsck.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2021-01-05T23:22:59Z",
+      "side": 1,
+      "message": "Why is the rawio capability needed?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 37
+      },
+      "revId": "db72965da6b65dfd89f328c2838eb2aeab0dde05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53903f7f_e6de866e",
+        "filename": "public/vold.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2021-01-05T23:22:59Z",
+      "side": 1,
+      "message": "Why is the rawio capability needed?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 37
+      },
+      "revId": "db72965da6b65dfd89f328c2838eb2aeab0dde05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d5eb4f7_d982c828",
+        "filename": "public/vold.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2021-01-05T23:22:59Z",
+      "side": 1,
+      "message": "Why is SG_IO needed, and how could it work when the Android kernels don\u0027t support it?",
+      "range": {
+        "startLine": 157,
+        "startChar": 43,
+        "endLine": 157,
+        "endChar": 48
+      },
+      "revId": "db72965da6b65dfd89f328c2838eb2aeab0dde05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
