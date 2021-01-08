@@ -103,6 +103,24 @@
       "message": "+Jeff as FYI for the SELinux changes. ",
       "revId": "83abb9d136a2b1a77a8f1675918821b5f332c161",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3b88e4c_bf3b8e2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1453063
+      },
+      "writtenOn": "2021-01-08T18:28:19Z",
+      "side": 1,
+      "message": "\u003e 1. Where is the property \"memtag.*\" read? I can\u0027t see actual codes reading it.\n\nI\u0027ve added the corresponding libc changes to the topic.\n\n\u003e 2. It seems that this property is only for arm64. Unless \"memtag.*\" becomes universal, it\u0027d be better if we add a hint. In addition, if it\u0027s for debugging only, how about adding \"debug\"?\n\n`debug`-prefixed flags are generally world read/writeable, and we really don\u0027t want to be doing that (to prevent apps from being able to control the behaviour of things outside its context).\n\nInternal design doc: https://docs.google.com/document/d/14i3a19Rg7JqEICnYwpwNj9iGAnT0OH0GpvrzmbBlbeQ/edit?resourcekey\u003d0-x0HkzVe_ibUJ1ZKWru3SiQ#heading\u003dh.uyapcdb8vmu2\n\nI\u0027d prefer to keep \u0027libc\u0027 out of it (even though the flag is parsed by libc) because in future, this won\u0027t be a heap-only change. \u0027arm64.memtag.*\u0027 sounds possible - @eugenis/@serbanc, your thoughts?",
+      "parentUuid": "e9b9d6d0_2a841bf5",
+      "revId": "83abb9d136a2b1a77a8f1675918821b5f332c161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
