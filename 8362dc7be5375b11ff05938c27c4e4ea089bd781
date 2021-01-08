@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "654d3235_9fc82f30",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-01-08T01:20:18Z",
+      "side": 1,
+      "message": "This doesn\u0027t work no matter how big the message is, as long as the message is a warning. I think it\u0027s better to make this an error and provide a switch for people can explicitly use to suppress it.",
+      "range": {
+        "startLine": 12,
+        "startChar": 7,
+        "endLine": 12,
+        "endChar": 44
+      },
+      "revId": "8362dc7be5375b11ff05938c27c4e4ea089bd781",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f7e134c0_71fe812e",
@@ -14,6 +37,46 @@
       "writtenOn": "2021-01-07T13:09:11Z",
       "side": 1,
       "message": "Regarding b/175526482, it will take a long time to fix all violations and enforce this. So I made this print a warning for all vts_treble_sys_prop_test violations.\n\nInstead of running vts_treble_sys_prop_test on host, I chose a simple grep.",
+      "revId": "8362dc7be5375b11ff05938c27c4e4ea089bd781",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14491aeb_550d02e5",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-01-08T01:20:18Z",
+      "side": 1,
+      "message": "The added block isn\u0027t about building property contexts file, but about sanity check. I suggest making it as a separate function.",
+      "revId": "8362dc7be5375b11ff05938c27c4e4ea089bd781",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15084c81_8b58eaa9",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-01-08T01:20:18Z",
+      "side": 1,
+      "message": "I wish the escaping is done in a separate function so that we can keep this hard-coded list plain.",
+      "range": {
+        "startLine": 392,
+        "startChar": 12,
+        "endLine": 392,
+        "endChar": 19
+      },
       "revId": "8362dc7be5375b11ff05938c27c4e4ea089bd781",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
