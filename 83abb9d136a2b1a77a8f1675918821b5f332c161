@@ -69,6 +69,23 @@
       "parentUuid": "90f718cf_cf64f6d0",
       "revId": "83abb9d136a2b1a77a8f1675918821b5f332c161",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9b9d6d0_2a841bf5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-01-08T05:55:43Z",
+      "side": 1,
+      "message": "Nits\n\n1. Where is the property \"memtag.*\" read? I can\u0027t see actual codes reading it.\n\n2. It seems that this property is only for arm64. Unless \"memtag.*\" becomes universal, it\u0027d be better if we add a hint. In addition, if it\u0027s for debugging only, how about adding \"debug\"?\n\ne.g. \"libc.debug.memtag.*\", \"arm64.mte.memtag.*\", or any other names considering above.",
+      "revId": "83abb9d136a2b1a77a8f1675918821b5f332c161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
