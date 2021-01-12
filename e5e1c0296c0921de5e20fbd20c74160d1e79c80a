@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f53dff5_341699d9",
+        "filename": "private/file_contexts",
+        "patchSetId": 8
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1125653
+      },
+      "writtenOn": "2021-01-12T18:57:11Z",
+      "side": 1,
+      "message": "Do not use the \"sys/\" in the path, just use \"/dev/block/by-*\" or \"/dev/fs/by-*\"\n\nThese need to be device nodes, NOT sysfs symlinks.  Do not cross-link the filesystems, they are independent.",
+      "parentUuid": "1fa15c92_97d080b1",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 9
+      },
+      "revId": "e5e1c0296c0921de5e20fbd20c74160d1e79c80a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5f63f0d4_d4e00450",
         "filename": "public/userdata_sysdev.te",
         "patchSetId": 8
@@ -192,6 +216,24 @@
       "side": 1,
       "message": "https://lore.kernel.org/linux-f2fs-devel/20200722191026.GA583549@kroah.com/#t\n\nPer your comment, kernel should not provide the link, but userpsace/distro should take care of it. And, I chose \"/dev\" in Android, since there\u0027re already existing several sysfs symlinks.",
       "parentUuid": "3606af59_83737b08",
+      "revId": "e5e1c0296c0921de5e20fbd20c74160d1e79c80a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4a3cb97_e10b9e23",
+        "filename": "public/userdata_sysdev.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1125653
+      },
+      "writtenOn": "2021-01-12T18:57:11Z",
+      "side": 1,
+      "message": "I was saying that /dev is for device nodes, NOT links to sysfs files/directories.\n\nPlease don\u0027t cross-link the filesystems, they are independent.",
+      "parentUuid": "3634b285_d95b8009",
       "revId": "e5e1c0296c0921de5e20fbd20c74160d1e79c80a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
