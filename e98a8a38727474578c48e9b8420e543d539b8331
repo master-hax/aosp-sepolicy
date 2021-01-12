@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38ef80fc_fe3e3686",
+        "filename": "private/priv_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2021-01-12T14:11:40Z",
+      "side": 1,
+      "message": "I thought to this but, given this is for bugreports, and vendors tend to have their own infrastructure around that, I think it\u0027s fine if OEMs allow their own binaries.\nHere\u0027s the nice thing about this design: even with the selinux permissions, you cannot slurp arbitrary traces. You have to declare upfront that a trace is \"okay to be stolen by bugreport\" (i.e. setting bugreport_score\u003e0).\nBUt then, if something has the power to start traces with bugreport_score\u003e0, they have also the power to get the data in the first place (so accessing this folder shouldn\u0027t give them any advantage, I think)",
+      "parentUuid": "515d1924_936453ba",
+      "range": {
+        "startLine": 74,
+        "startChar": 15,
+        "endLine": 74,
+        "endChar": 55
+      },
+      "revId": "e98a8a38727474578c48e9b8420e543d539b8331",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f922c69_1d669ae4",
         "filename": "public/dumpstate.te",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-12T12:12:23Z",
       "side": 1,
       "message": "can you move this to private policy?\n\nThere\u0027s a \"tmpfs_domain()\" macro. Should you use that?",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 32
+      },
+      "revId": "e98a8a38727474578c48e9b8420e543d539b8331",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7328f6d_5ca84ed1",
+        "filename": "public/dumpstate.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2021-01-12T14:11:40Z",
+      "side": 1,
+      "message": "\u003e can you move this to private policy?\n\nDone\n\n\u003e There\u0027s a \"tmpfs_domain()\" macro. Should you use that?\n\nHmm just looked into that and I think: (i) is mainly for sharing memory; (2) might have too many unpredictable side effects for dumpstate.\n\n1. this seems really designed to relabel shared memory regions for services that intend to export them and expose to other processes. This is not the case here, this is really just for passing a file (/dev/null), which due to subtle linux internals, looks like a tmpfs file (as if every process had its own /dev/null). \n\n2. What really worries me is the fact that adding that statement will relabel all dumpstate pipes as well. Given that dumpstate executes a bazilion processes, I fear some unpredictable cascading effects which will require a bunch of other allows in various places across system and vendor. Even worse, because dumpstate is a \"leaf\" component (nothing at runtime depends on its output), if this is the case nothing will break, but people will start missing data from bugreports, potentially noticing when it\u0027s too late.",
+      "parentUuid": "4f922c69_1d669ae4",
       "range": {
         "startLine": 4,
         "startChar": 0,
