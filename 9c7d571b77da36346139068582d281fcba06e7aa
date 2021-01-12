@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaed9139_59463156",
+        "filename": "prebuilts/api/30.0/plat_pub_versioned.cil",
+        "patchSetId": 3
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2021-01-12T09:55:37Z",
+      "side": 1,
+      "message": "IIRC, this file (plat_pub_versioned.cil) shouldn\u0027t be modified after the API is frozen.\n\nOn a device, this file is in /vendor/etc/selinux/.\n\nSo R vendor.img from various devices won\u0027t get this update even of this CL is merged.",
+      "revId": "9c7d571b77da36346139068582d281fcba06e7aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47f8ce26_c71bdba1",
+        "filename": "private/compat/30.0/30.0.cil",
+        "patchSetId": 3
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2021-01-12T09:55:37Z",
+      "side": 1,
+      "message": "IIRC, no need to change this file if you\u0027re also changing private/compat/30.0/30.0.ignore.cil, which means the new type (proc_locks) can be ignored in R vendor.img.\n\nAssuming /locks does not exist in R device builds (boot.img, vendor.img), right?",
+      "revId": "9c7d571b77da36346139068582d281fcba06e7aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
