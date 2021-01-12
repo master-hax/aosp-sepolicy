@@ -120,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8cbaaa5a_aa646a6d",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-01-12T10:23:25Z",
+      "side": 1,
+      "message": "I hope so. InstallInRecovery returning false for a recovery variant (which will actually be installed in recovery partition) doesn\u0027t sound right, which is a type of confusions that this CL tries to fix.",
+      "parentUuid": "8bb8c979_af8c6263",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 51
+      },
+      "revId": "3c67269d455985f4b95e256c9ffb1922bbedb73e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc58f10a_dcad7021",
         "filename": "build/soong/selinux_contexts.go",
         "patchSetId": 2
@@ -167,6 +191,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c5d862e6_d83c764c",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-01-12T10:23:25Z",
+      "side": 1,
+      "message": "If we don\u0027t override Name() for selinuxContextsModule, which is the case, m.Name() should be the same as ctx.ModuleName() right?\n\nI am not opposed to doing this, but I think it should be done in a separate CL. We have other places where m.Name() is used in this file.",
+      "parentUuid": "bc14883a_00e02452",
+      "range": {
+        "startLine": 122,
+        "startChar": 33,
+        "endLine": 122,
+        "endChar": 49
+      },
+      "revId": "3c67269d455985f4b95e256c9ffb1922bbedb73e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "77718227_b0953ce2",
         "filename": "build/soong/selinux_contexts.go",
         "patchSetId": 2
@@ -202,6 +250,30 @@
       "side": 1,
       "message": "In arch mutator, recovery variants are disabled if they are not MultilibFirst. This is to avoid it.",
       "parentUuid": "77718227_b0953ce2",
+      "range": {
+        "startLine": 182,
+        "startChar": 75,
+        "endLine": 182,
+        "endChar": 80
+      },
+      "revId": "3c67269d455985f4b95e256c9ffb1922bbedb73e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9411591c_e9215d1d",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-01-12T10:23:25Z",
+      "side": 1,
+      "message": "Hmm, shouldn\u0027t we fix there then? I think First and Common should be allowed.",
+      "parentUuid": "9c695d2f_0d467493",
       "range": {
         "startLine": 182,
         "startChar": 75,
