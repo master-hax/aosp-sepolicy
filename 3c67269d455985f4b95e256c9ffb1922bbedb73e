@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "26a872e5_64fb461b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-01-12T09:54:15Z",
+      "side": 1,
+      "message": "selinuxContextsMutator used to create its own image variant. This refactors selinux contexts modules so they can use ImageInterface functions.",
+      "parentUuid": "126ef670_7efcad45",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 53
+      },
+      "revId": "3c67269d455985f4b95e256c9ffb1922bbedb73e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c7027212_41da9e81",
@@ -72,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8bb8c979_af8c6263",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-01-12T09:54:15Z",
+      "side": 1,
+      "message": "InstallInRecovery is true when \"recovery: true\", and this can be true if \"recovery_available: true\".\n\nWell.. maybe we want to rename all \"InstallIn{partition}\" functions?",
+      "parentUuid": "57f4479c_2c543aad",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 51
+      },
+      "revId": "3c67269d455985f4b95e256c9ffb1922bbedb73e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc58f10a_dcad7021",
         "filename": "build/soong/selinux_contexts.go",
         "patchSetId": 2
@@ -83,6 +131,30 @@
       "writtenOn": "2021-01-12T09:41:38Z",
       "side": 1,
       "message": "What do this and the below fix?",
+      "range": {
+        "startLine": 122,
+        "startChar": 33,
+        "endLine": 122,
+        "endChar": 49
+      },
+      "revId": "3c67269d455985f4b95e256c9ffb1922bbedb73e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc14883a_00e02452",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-01-12T09:54:15Z",
+      "side": 1,
+      "message": "1) I added AddFarVariationDependencies call in DepsMutator. There I used ctx.ModuleName() because I once heard it\u0027s better than m.Name().\n\n2) I changed m.Name() call to ctx.ModuleName() to match them with DepsMutator.",
+      "parentUuid": "dc58f10a_dcad7021",
       "range": {
         "startLine": 122,
         "startChar": 33,
@@ -106,6 +178,30 @@
       "writtenOn": "2021-01-12T09:41:38Z",
       "side": 1,
       "message": "Why? selinux context modules are arch-neutral, aren\u0027t they?",
+      "range": {
+        "startLine": 182,
+        "startChar": 75,
+        "endLine": 182,
+        "endChar": 80
+      },
+      "revId": "3c67269d455985f4b95e256c9ffb1922bbedb73e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c695d2f_0d467493",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-01-12T09:54:15Z",
+      "side": 1,
+      "message": "In arch mutator, recovery variants are disabled if they are not MultilibFirst. This is to avoid it.",
+      "parentUuid": "77718227_b0953ce2",
       "range": {
         "startLine": 182,
         "startChar": 75,
