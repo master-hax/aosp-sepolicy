@@ -193,6 +193,30 @@
       },
       "revId": "d22a15d75d1945f76c30bacf04c5ddf038f7aeb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cc8cbcc_5793a6ca",
+        "filename": "public/dumpstate.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-01-13T22:27:47Z",
+      "side": 1,
+      "message": "From the app side, the ParcelFileDescriptor has to be opened specifically with WRITE_ONLY|APPEND mode [1, 2], but I\u0027m not 100% sure that answers your question.\n\nThis is starting to exceed my knowledge of SELinux and file descriptors, but if there\u0027s a way to tighten this particular rule up (without breaking BugreportManager functionality) do let me know. Jeff?\n\n[1] http://cs/android/frameworks/base/core/java/android/os/BugreportManager.java?l\u003d146-149\u0026rcl\u003d78e646695492ebb6d7d5882bf8e674f3b8839302\n[2] http://cs/android/frameworks/base/core/tests/bugreports/src/com/android/os/bugreports/tests/BugreportManagerTest.java?l\u003d335-338\u0026rcl\u003d78e646695492ebb6d7d5882bf8e674f3b8839302",
+      "parentUuid": "849c10b3_69b980c1",
+      "range": {
+        "startLine": 45,
+        "startChar": 36,
+        "endLine": 45,
+        "endChar": 49
+      },
+      "revId": "d22a15d75d1945f76c30bacf04c5ddf038f7aeb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
