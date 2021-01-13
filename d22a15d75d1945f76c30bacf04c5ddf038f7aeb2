@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22b081df_13255a45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-01-13T18:38:26Z",
+      "side": 1,
+      "message": "FYI this feature",
+      "revId": "d22a15d75d1945f76c30bacf04c5ddf038f7aeb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf353d7d_a777af31",
@@ -61,6 +78,30 @@
       "writtenOn": "2021-01-13T18:29:46Z",
       "side": 1,
       "message": "Which data specifically? I thought bugreports needed to try to avoid this kind of data. Can we scope it down? (Jeff?)",
+      "range": {
+        "startLine": 45,
+        "startChar": 36,
+        "endLine": 45,
+        "endChar": 49
+      },
+      "revId": "d22a15d75d1945f76c30bacf04c5ddf038f7aeb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "206d38da_bf4df428",
+        "filename": "public/dumpstate.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-01-13T18:38:26Z",
+      "side": 1,
+      "message": "I will highlight that we\u0027re already limiting in what can be done with the file (append-only).\n\nFor some background here, BugreportManager is the ultimate API we\u0027re affecting, and we\u0027re working to make it so that some non-privapps from the Play Store can use the API when they hold the right permissions. BugreportManager accepts a ParcelFileDescriptor from the app, which (if the user consents to sharing the BR with the app) dumpstate copies the final BR file back to.\n\nWe need to change this code so that dumpstate can also write the final file for those non-privapp callers. If there\u0027s a way to do this that\u0027s more tightly scoped, I\u0027m open to suggestions - this CL is pretty much the extent of my SEPolicy knowledge :)",
+      "parentUuid": "2222981b_61bac6cf",
       "range": {
         "startLine": 45,
         "startChar": 36,
