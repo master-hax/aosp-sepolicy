@@ -22,6 +22,30 @@
       },
       "revId": "d22a15d75d1945f76c30bacf04c5ddf038f7aeb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41cd2f41_a431533e",
+        "filename": "public/dumpstate.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-01-13T18:21:08Z",
+      "side": 1,
+      "message": "That\u0027s beyond my limited knowledge of SELinux, but I can find plenty of other examples of configs only using {privapp_data_file app_data_file}.\n\nThere are a handful of configs that use {privapp_data_file app_data_file system_app_data_file}, but it seems that\u0027s less prevalent. And wouldn\u0027t Shell count as a signature app? If so, I\u0027d imagine the existing policy is working as we need, right? Since the shell does access BugreportManager and gets a non-null instance already.\n\nhttps://source.corp.google.com/search?q\u003d(priv)%3Fapp_data_file%5C%20(priv)%3Fapp_data_file%20f:te$\u0026sq\u003dpackage:%5Eandroid$",
+      "parentUuid": "cf353d7d_a777af31",
+      "range": {
+        "startLine": 44,
+        "startChar": 33,
+        "endLine": 44,
+        "endChar": 37
+      },
+      "revId": "d22a15d75d1945f76c30bacf04c5ddf038f7aeb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
