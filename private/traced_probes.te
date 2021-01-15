@@ -134,3 +134,8 @@ neverallow traced_probes {
 # Only init is allowed to enter the traced_probes domain via exec()
 neverallow { domain -init } traced_probes:process transition;
 neverallow * traced_probes:process dyntransition;
+
+# MM Events Tracing Instance
+allow traced_probes debugfs_tracing_instances:dir search;
+allow traced_probes debugfs_mm_events_tracing:dir search;
+allow traced_probes debugfs_mm_events_tracing:file rw_file_perms;
