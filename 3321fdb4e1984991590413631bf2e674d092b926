@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "532b7685_44789f8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448822
+      },
+      "writtenOn": "2021-01-15T11:11:39Z",
+      "side": 1,
+      "message": "Security review has been completed",
+      "parentUuid": "95db3289_16184c05",
+      "revId": "3321fdb4e1984991590413631bf2e674d092b926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ab395aa_adb4ee77",
@@ -139,6 +157,30 @@
       "side": 1,
       "message": "If it\u0027s only for use by priv apps then ideally this would be system_api_service.\n\nBut that would then block your CTS test from accessing it.\n\nOTOH: Would it be harmful to expose at least some of the API as public? isReadyToReboot say.",
       "parentUuid": "d803fc01_62b5b306",
+      "range": {
+        "startLine": 159,
+        "startChar": 31,
+        "endLine": 159,
+        "endChar": 46
+      },
+      "revId": "3321fdb4e1984991590413631bf2e674d092b926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fbaa1be_3391cf67",
+        "filename": "public/service.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1448822
+      },
+      "writtenOn": "2021-01-15T11:11:39Z",
+      "side": 1,
+      "message": "Due to CTS considerations we probably need to keep this as-is, unfortunately.\n\nI don\u0027t think any of the API should be exposed as public, since the API should only be used for the purpose of applying updates.",
+      "parentUuid": "d9ab8149_fbbef925",
       "range": {
         "startLine": 159,
         "startChar": 31,
