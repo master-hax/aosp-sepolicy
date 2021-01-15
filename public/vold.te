@@ -19,6 +19,9 @@ allow vold {
   sysfs_fs_f2fs
 }:file w_file_perms;
 
+# Access the IncFS list of features
+r_dir_file(vold, sysfs_fs_incfs_features);
+
 r_dir_file(vold, rootfs)
 r_dir_file(vold, metadata_file)
 allow vold {
