@@ -5,6 +5,8 @@ init_daemon_domain(apexd)
 # Allow creating, reading and writing of APEX files/dirs in the APEX data dir
 allow apexd apex_data_file:dir create_dir_perms;
 allow apexd apex_data_file:file create_file_perms;
+# Allow apexd hardlink from /data/apex/decompressed to /data/apex/active
+allow apexd apex_data_file:file link;
 
 # Allow creating, reading and writing of APEX files/dirs in the APEX metadata dir
 allow apexd metadata_file:dir search;
