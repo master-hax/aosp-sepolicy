@@ -16,6 +16,29 @@
       "message": "LG from my side but I have no powerz here 😊\nI suggest adding jeffv@ as he is the most familiar with tracing-related selinux, mainly because we keep pestering him :)",
       "revId": "8c16d88ab6a55b00067db1378a738a68734d444e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9f02450_2d8142ff",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2021-01-22T23:26:50Z",
+      "side": 1,
+      "message": "These rules are fine, but they shouldn\u0027t go here: the bottom of the file is for neverallow rules (see the comment around line 90).  So move them above that.\n\nIn this case, they should probably go around line 17 since those are the similar rules (e.g., the the nearby lines in genfs_contexts).",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 65
+      },
+      "revId": "8c16d88ab6a55b00067db1378a738a68734d444e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
