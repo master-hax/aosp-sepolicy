@@ -88,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf3e56f8_3f0832de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-01-22T06:14:50Z",
+      "side": 1,
+      "message": "Thanks a lot Jeffery!",
+      "parentUuid": "a6497df6_a0038f9a",
+      "revId": "8d0e338a86ea922da7565e1f4210dffaa845333f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63159211_967e5cc4",
@@ -101,6 +119,30 @@
       "writtenOn": "2021-01-22T01:37:01Z",
       "side": 1,
       "message": "if we do this, we should neverallow anything else modifying these files (that will at least give us a build time error if some vendor component is already using these)",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 358,
+        "endChar": 49
+      },
+      "revId": "8d0e338a86ea922da7565e1f4210dffaa845333f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "430eed11_78780733",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-01-22T06:14:50Z",
+      "side": 1,
+      "message": "I\u0027ve moved the allow rules to inputflinger.te, and added neverallow rules in there:\n\n# Only allow system server to write uhid sysfs files\nneverallow {\n    domain\n    -init\n    -system_server\n    -ueventd\n    -vendor_init\n} sysfs_uhid:file no_w_file_perms;",
+      "parentUuid": "63159211_967e5cc4",
       "range": {
         "startLine": 357,
         "startChar": 0,
