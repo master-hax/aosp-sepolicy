@@ -986,9 +986,14 @@ full_treble_only(`
       -same_process_hal_file
       -vndk_sp_file
       -vendor_app_file
+      -vendor_public_framework_file
       -vendor_public_lib_file
     }:file execute;
 ')
+
+# Allow core apps read / execute access to vendor public for system libraries.
+allow coredomain vendor_public_framework_file:dir r_dir_perms;
+allow coredomain vendor_public_framework_file:file { execute read open getattr map };
 
 full_treble_only(`
     neverallow {
