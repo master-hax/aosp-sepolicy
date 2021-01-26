@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14605806_ba999d02",
+        "filename": "private/compat/30.0/30.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-01-26T12:10:12Z",
+      "side": 1,
+      "message": "It depends on whether there\u0027s an analogue of this in the old policy. I guess this could be mapped to either vendor_public_lib_file or vendor_framework_file, again depending on whether or not we would like to fix this retroactively. I personally prefer fixing it.",
+      "parentUuid": "25b4d611_ef2be205",
+      "revId": "58c65933227c838d247a511cb2c8b97f9c73b6e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8db58f52_79fe7ddb",
         "filename": "public/domain.te",
         "patchSetId": 1
@@ -73,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5c667de_2d316edf",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-01-26T12:10:12Z",
+      "side": 1,
+      "message": "coredomain and apps installed in /system are not equal. either of them is a subset of the other. coredomain can include both app processes (java) and native processes. In addition, some /system apps don\u0027t have the coredomain attribute.\n\nSince we have been allowing vendor_framework_file and vendor_public_lib_file to appdomain, not to coredomain, I think this new type should also be for appdomain.",
+      "parentUuid": "6f18c4a2_299dfea4",
+      "revId": "58c65933227c838d247a511cb2c8b97f9c73b6e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7e24d4af_02853550",
         "filename": "public/domain.te",
         "patchSetId": 1
@@ -120,6 +156,24 @@
       "side": 1,
       "message": "Wouldn\u0027t that prevent the system apps access to vendor libs? Or we want to allow it only for non full treble case?",
       "parentUuid": "04f69487_0acd0d63",
+      "revId": "58c65933227c838d247a511cb2c8b97f9c73b6e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "396debfd_b0f08656",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-01-26T12:10:12Z",
+      "side": 1,
+      "message": "{coredomain -appdomain} means native processes started from /system. I am not sure which of the processes would need access to the vendor framework libraries. Since they are native processes, most of them won\u0027t need the access to the java libraries.",
+      "parentUuid": "b5c4b458_49b67c09",
       "revId": "58c65933227c838d247a511cb2c8b97f9c73b6e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
