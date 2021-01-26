@@ -116,6 +116,9 @@ hwbinder_use(netd)
 get_prop(netd, hwservicemanager_prop)
 get_prop(netd, device_config_netd_native_prop)
 
+# Allow netd to get adb port from property service.adb.tcp.port
+get_prop(netd, adbd_config_prop)
+
 ###
 ### Neverallow rules
 ###
