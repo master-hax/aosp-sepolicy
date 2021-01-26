@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f18c4a2_299dfea4",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1659435
+      },
+      "writtenOn": "2021-01-26T10:25:31Z",
+      "side": 1,
+      "message": "The bug states \"Apps belonging to coredomain is not allowed to execute\" vendor libs, allowing appdomain would technically make vendor_public_framework_file the same as vendor_public_lib_file, also taking in consideration the next comment. Is this intentional, or is there a way to better label the system apps?",
+      "parentUuid": "f7d6e305_d40be0f0",
+      "revId": "58c65933227c838d247a511cb2c8b97f9c73b6e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7e24d4af_02853550",
         "filename": "public/domain.te",
         "patchSetId": 1
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "Yes. You can modify this rule to be `{ vendor_public_lib_file vendor_public_framework_file }:file`",
       "parentUuid": "7e24d4af_02853550",
+      "revId": "58c65933227c838d247a511cb2c8b97f9c73b6e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5c4b458_49b67c09",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1659435
+      },
+      "writtenOn": "2021-01-26T10:25:31Z",
+      "side": 1,
+      "message": "Wouldn\u0027t that prevent the system apps access to vendor libs? Or we want to allow it only for non full treble case?",
+      "parentUuid": "04f69487_0acd0d63",
       "revId": "58c65933227c838d247a511cb2c8b97f9c73b6e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
