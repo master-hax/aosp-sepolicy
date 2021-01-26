@@ -17,6 +17,13 @@ allow netd bpfloader:bpf { prog_run map_read map_write };
 # TODO: Remove this permission when 4.9 kernel is deprecated.
 allow netd self:key_socket create;
 
+<<<<<<< HEAD   (6e4d8d Export ro.vendor.product.cpu.abilist*)
+=======
+set_prop(netd, ctl_mdnsd_prop)
+set_prop(netd, netd_stable_secret_prop)
+
+get_prop(netd, adbd_config_prop)
+>>>>>>> CHANGE (d3e8f6 Fix sepolicy to netd.)
 get_prop(netd, bpf_progs_loaded_prop)
 
 # Allow netd to write to statsd.
