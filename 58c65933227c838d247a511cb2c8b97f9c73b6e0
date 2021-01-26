@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2413fb89_8bb19b1c",
+        "filename": "private/compat/30.0/30.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1659435
+      },
+      "writtenOn": "2021-01-26T13:16:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14605806_ba999d02",
+      "revId": "58c65933227c838d247a511cb2c8b97f9c73b6e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8db58f52_79fe7ddb",
@@ -107,6 +125,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95be84e1_9361cc5f",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1659435
+      },
+      "writtenOn": "2021-01-26T13:16:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5c667de_2d316edf",
+      "revId": "58c65933227c838d247a511cb2c8b97f9c73b6e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e24d4af_02853550",
@@ -174,6 +210,24 @@
       "side": 1,
       "message": "{coredomain -appdomain} means native processes started from /system. I am not sure which of the processes would need access to the vendor framework libraries. Since they are native processes, most of them won\u0027t need the access to the java libraries.",
       "parentUuid": "b5c4b458_49b67c09",
+      "revId": "58c65933227c838d247a511cb2c8b97f9c73b6e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0df9856b_8bf14a9d",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1659435
+      },
+      "writtenOn": "2021-01-26T13:16:04Z",
+      "side": 1,
+      "message": "Done. Though atm vendor_public_framework_file and vendor_public_lib_file have the same functionality. Would adding a neverallow rule to prevent non system apps using vendor_public_framework_file be desired at this point?",
+      "parentUuid": "396debfd_b0f08656",
       "revId": "58c65933227c838d247a511cb2c8b97f9c73b6e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
