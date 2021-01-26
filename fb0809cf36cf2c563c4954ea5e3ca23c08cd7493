@@ -16,6 +16,29 @@
       "message": "gentle ping ",
       "revId": "fb0809cf36cf2c563c4954ea5e3ca23c08cd7493",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b557ebb_a62d3be7",
+        "filename": "private/mediatuner.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-01-26T10:56:29Z",
+      "side": 1,
+      "message": "I recommend that you use the binder_call() macro. That way if we need to make any changes to binder permissions we can fix it in one place instead of scattered throughout policy.\n\nbinder_call(mediatuner, system_server)",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 43
+      },
+      "revId": "fb0809cf36cf2c563c4954ea5e3ca23c08cd7493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
