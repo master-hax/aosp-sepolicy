@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7d6e305_d40be0f0",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-01-26T01:47:56Z",
+      "side": 1,
+      "message": "I think this should be `allow appdomain ...` in public/app.te.",
+      "parentUuid": "8db58f52_79fe7ddb",
+      "revId": "58c65933227c838d247a511cb2c8b97f9c73b6e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7e24d4af_02853550",
         "filename": "public/domain.te",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2021-01-25T14:05:38Z",
       "side": 1,
       "message": "Would something similar be needed for vendor_public_framework_file? (e.g. neverallow {coredomain -appdomain} vendor_public_framework_file)",
+      "revId": "58c65933227c838d247a511cb2c8b97f9c73b6e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04f69487_0acd0d63",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-01-26T01:47:56Z",
+      "side": 1,
+      "message": "Yes. You can modify this rule to be `{ vendor_public_lib_file vendor_public_framework_file }:file`",
+      "parentUuid": "7e24d4af_02853550",
       "revId": "58c65933227c838d247a511cb2c8b97f9c73b6e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
