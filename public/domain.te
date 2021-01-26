@@ -116,6 +116,7 @@ get_prop(domain, libc_debug_prop)
 get_prop(domain, logd_prop)
 get_prop(domain, mediadrm_config_prop)
 get_prop(domain, property_service_version_prop)
+get_prop(domain, soc_prop)
 get_prop(domain, socket_hook_prop)
 get_prop(domain, surfaceflinger_prop)
 get_prop(domain, telephony_status_prop)
@@ -552,6 +553,7 @@ neverallow * hidl_base_hwservice:hwservice_manager find;
 neverallow { domain -init -vendor_init } default_prop:property_service set;
 neverallow { domain -init -vendor_init } mmc_prop:property_service set;
 neverallow { domain -init -vendor_init } vndk_prop:property_service set;
+neverallow { domain -init -vendor_init } soc_prop:property_service set;
 
 compatible_property_only(`
     neverallow { domain -init } default_prop:property_service set;
