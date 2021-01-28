@@ -22,6 +22,30 @@
       },
       "revId": "c97a7c0f37af5ce2f98b92ffb640b597e056b952",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dce94d35_bab93b0b",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1439319
+      },
+      "writtenOn": "2021-01-28T18:09:59Z",
+      "side": 1,
+      "message": "This is the labeling:\n\n```\n/data/apex(/.*)?\t\tu:object_r:apex_data_file:s0\n/data/apex/active/(.*)?\t\tu:object_r:staging_data_file:s0\n/data/apex/decompressed/(.*)?    u:object_r:staging_data_file:s0\n```\n\nWe have already given apexd permission to link staging_data_file in line-82 \n\n```allow apexd staging_data_file:file { r_file_perms link };```\n\nYet, it\u0027s not enough. We get the following denial:\n\n`apexd   : type\u003d1400 audit(0.0:15): avc: denied { link } for name\u003d\"com.android.apex.compressed@1.apex\" dev\u003d\"dm-9\" ino\u003d4109 scontext\u003du:r:apexd:s0 tcontext\u003du:object_r:apex_data_file:s0 tclass\u003dfile permissive\u003d0`\n\nBased on this, I realized, apexd doesn\u0027t have permission under the parent folder (/data/apex/*). At line-174 we have \n`neverallow { domain -apexd } apex_info_file:file no_w_file_perms;`\nthat prevents linking under apex_data_file. This line counters that restriction.\n\nWith this line here, I don\u0027t get any selinux denial.",
+      "parentUuid": "516133e6_ec7d0f23",
+      "range": {
+        "startLine": 9,
+        "startChar": 12,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "c97a7c0f37af5ce2f98b92ffb640b597e056b952",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
