@@ -4,7 +4,7 @@ type bpfloader_exec, system_file_type, exec_type, file_type;
 typeattribute bpfloader coredomain;
 
 # These permissions are required to pin ebpf maps & programs.
-allow bpfloader fs_bpf:dir { search write add_name };
+allow bpfloader fs_bpf:dir { create search write add_name };
 allow bpfloader fs_bpf:file { create setattr read };
 
 # Allow bpfloader to create bpf maps and programs.
@@ -18,7 +18,7 @@ allow bpfloader self:capability { chown sys_admin };
 
 # TODO: get rid of init & vendor_init
 neverallow { domain -init -vendor_init } fs_bpf:dir setattr;
-neverallow { domain -bpfloader } fs_bpf:dir { write add_name };
+neverallow { domain -bpfloader } fs_bpf:dir { create write add_name };
 neverallow domain fs_bpf:dir { reparent rename rmdir };
 
 # TODO: get rid of init & vendor_init
@@ -27,8 +27,8 @@ neverallow { domain -bpfloader } fs_bpf:file create;
 neverallow domain fs_bpf:file { rename unlink };
 
 neverallow { domain -bpfloader } *:bpf { map_create prog_load };
-neverallow { domain -bpfloader -gpuservice -netd -netutils_wrapper -system_server } *:bpf prog_run;
-neverallow { domain -bpfloader -gpuservice -netd -system_server } *:bpf { map_read map_write };
+neverallow { domain -bpfloader -gpuservice -netd -netutils_wrapper -network_stack -system_server } *:bpf prog_run;
+neverallow { domain -bpfloader -gpuservice -netd -network_stack -system_server } *:bpf { map_read map_write };
 
 neverallow { domain -bpfloader -init } bpfloader_exec:file { execute execute_no_trans };
 

@@ -41,8 +41,8 @@ allow dumpstate anr_data_file:file create_file_perms;
 # TODO: scope this down.
 allow dumpstate system_data_file:file r_file_perms;
 
-# Allow dumpstate to append into privileged apps private files.
-allow dumpstate privapp_data_file:file append;
+# Allow dumpstate to append into apps' private files.
+allow dumpstate { privapp_data_file app_data_file }:file append;
 
 # Read dmesg
 allow dumpstate self:global_capability2_class_set syslog;
@@ -134,6 +134,7 @@ allow dumpstate { cache_file rootfs }:lnk_file { getattr read };
 
 # Read /dev/cpuctl and /dev/cpuset
 r_dir_file(dumpstate, cgroup)
+r_dir_file(dumpstate, cgroup_v2)
 
 # Allow dumpstate to make binder calls to any binder service
 binder_call(dumpstate, binderservicedomain)
@@ -148,6 +149,9 @@ dump_hal(hal_thermal)
 dump_hal(hal_power)
 dump_hal(hal_power_stats)
 dump_hal(hal_identity)
+dump_hal(hal_face)
+dump_hal(hal_fingerprint)
+dump_hal(hal_gnss)
 
 # Vibrate the device after we are done collecting the bugreport
 hal_client_domain(dumpstate, hal_vibrator)
@@ -171,6 +175,10 @@ allow dumpstate zygote_exec:file rx_file_perms;
 allow dumpstate bluetooth_data_file:dir search;
 allow dumpstate bluetooth_logs_data_file:dir r_dir_perms;
 allow dumpstate bluetooth_logs_data_file:file r_file_perms;
+
+# For Nfc
+allow dumpstate nfc_logs_data_file:dir r_dir_perms;
+allow dumpstate nfc_logs_data_file:file r_file_perms;
 
 # Dumpstate calls screencap, which grabs a screenshot. Needs gpu access
 allow dumpstate gpu_device:chr_file rw_file_perms;
@@ -222,7 +230,7 @@ allow dumpstate update_engine_log_data_file:file r_file_perms;
 
 # Access /data/misc/profiles/{cur,ref}/
 userdebug_or_eng(`
-  allow dumpstate user_profile_data_file:dir r_dir_perms;
+  allow dumpstate { user_profile_root_file user_profile_data_file}:dir r_dir_perms;
   allow dumpstate user_profile_data_file:file r_file_perms;
 ')
 
@@ -287,6 +295,9 @@ allow dumpstate proc_stat:file r_file_perms;
 allow dumpstate proc_pressure_cpu:file r_file_perms;
 allow dumpstate proc_pressure_mem:file r_file_perms;
 allow dumpstate proc_pressure_io:file r_file_perms;
+
+# Allow dumpstate to run ps
+allow dumpstate proc_pid_max:file r_file_perms;
 
 # Allow dumpstate to talk to installd over binder
 binder_call(dumpstate, installd);

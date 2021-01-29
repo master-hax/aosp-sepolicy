@@ -467,6 +467,12 @@ define(`non_system_app_set', `{ appdomain -system_app }')
 define(`recovery_only', ifelse(target_recovery, `true', $1, ))
 
 #####################################
+# Not recovery
+# SELinux rules which apply only to non-recovery (normal) mode
+#
+define(`not_recovery', ifelse(target_recovery, `true', , $1))
+
+#####################################
 # Full TREBLE only
 # SELinux rules which apply only to full TREBLE devices
 #
@@ -594,6 +600,7 @@ define(`use_keystore', `
   allow keystore $1:dir search;
   allow keystore $1:file { read open };
   allow keystore $1:process getattr;
+  allow $1 apc_service:service_manager find;
   allow $1 keystore_service:service_manager find;
   binder_call($1, keystore)
   binder_call(keystore, $1)
@@ -692,40 +699,9 @@ define(`hal_attribute_service', `
 
 ###################################
 # can_profile_heap(domain)
-# Allow processes within the domain to have their heap profiled by heapprofd.
-#
-# Note that profiling is performed differently between debug and user builds.
-# There are two modes for profiling:
-# * forked
-# * central.
-# On user builds, the default is to allow only forked mode. If it is desired
-# to allow central mode as well for a domain, use can_profile_heap_central.
-# On userdebug, this macro allows both forked and central.
-define(`can_profile_heap', `
-  # Allow central daemon to send signal for client initialization.
-  allow heapprofd $1:process signal;
-
-  # Allow executing a private heapprofd process to handle profiling on
-  # user builds (also debug builds for testing & development purposes).
-  allow $1 heapprofd_exec:file rx_file_perms;
-
-  # Allow directory & file read to the central heapprofd daemon, as it scans
-  # /proc/[pid]/cmdline for by-process-name profiling configs.
-  # Note that this excludes /proc/[pid]/mem, as it requires ptrace capabilities.
-  allow heapprofd $1:file r_file_perms;
-  allow heapprofd $1:dir r_dir_perms;
-
-  # Profilability on user implies profilability on userdebug and eng.
-  userdebug_or_eng(`
-    can_profile_heap_central($1)
-  ')
-')
-
-###################################
-# can_profile_heap_central(domain)
 # Allow processes within the domain to have their heap profiled by central
 # heapprofd.
-define(`can_profile_heap_central', `
+define(`can_profile_heap', `
   # Allow central daemon to send signal for client initialization.
   allow heapprofd $1:process signal;
   # Allow connecting to the daemon.
@@ -816,24 +792,43 @@ define(`dump_hal', `
 
 #####################################
 # treble_sysprop_neverallow(rules)
-# SELinux neverallow rules which enforces the owner of each property and accessibility
+# SELinux neverallow rules which enforces the accessibility of each property
 # outside the owner.
 #
-# For devices launching with R or later, all properties must be explicitly marked as one of:
-# system_property_type, vendor_property_type, or product_property_type.
-# Also, exported properties must be explicitly marked as "restricted" or "public",
-# depending on the accessibility outside the owner.
+# For devices launching with R or later, exported properties must be explicitly marked as
+# "restricted" or "public", depending on the accessibility outside the owner.
 # For devices launching with Q or eariler, this neverallow rules can be relaxed with defining
 # BUILD_BROKEN_TREBLE_SYSPROP_NEVERALLOW := true on BoardConfig.mk.
 # See {partition}_{accessibility}_prop macros below.
 #
 # CTS uses these rules only for devices launching with R or later.
 #
+# TODO(b/131162102): deprecate BUILD_BROKEN_TREBLE_SYSPROP_NEVERALLOW
+#
 define(`treble_sysprop_neverallow', ifelse(target_treble_sysprop_neverallow, `true', $1,
 ifelse(target_treble_sysprop_neverallow, `cts',
 # BEGIN_LAUNCHING_WITH_R_ONLY -- this marker is used by CTS -- do not modify
 $1
 # END_LAUNCHING_WITH_R_ONLY -- this marker is used by CTS -- do not modify
+, )))
+
+#####################################
+# enforce_sysprop_owner(rules)
+# SELinux neverallow rules which enforces the owner of each property.
+#
+# For devices launching with S or later, all properties must be explicitly marked as one of:
+# system_property_type, vendor_property_type, or product_property_type.
+# For devices launching with R or eariler, this neverallow rules can be relaxed with defining
+# BUILD_BROKEN_ENFORCE_SYSPROP_OWNER := true on BoardConfig.mk.
+# See {partition}_{accessibility}_prop macros below.
+#
+# CTS uses these ules only for devices launching with S or later.
+#
+define(`enforce_sysprop_owner', ifelse(target_enforce_sysprop_owner, `true', $1,
+ifelse(target_enforce_sysprop_owner, `cts',
+# BEGIN_LAUNCHING_WITH_S_ONLY -- this marker is used by CTS -- do not modify
+$1
+# END_LAUNCHING_WITH_S_ONLY -- this marker is used by CTS -- do not modify
 , )))
 
 ###########################################

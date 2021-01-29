@@ -51,6 +51,13 @@ binder_call(shell, statsd);
 # Allow shell to read and unlink traces stored in /data/misc/perfetto-traces.
 allow shell perfetto_traces_data_file:dir rw_dir_perms;
 allow shell perfetto_traces_data_file:file { r_file_perms unlink };
+# ... and /data/misc/perfetto-traces/bugreport/ .
+allow shell perfetto_traces_bugreport_data_file:dir rw_dir_perms;
+allow shell perfetto_traces_bugreport_data_file:file { r_file_perms unlink };
+
+# Allow shell to create/remove configs stored in /data/misc/perfetto-configs.
+allow shell perfetto_configs_data_file:dir rw_dir_perms;
+allow shell perfetto_configs_data_file:file create_file_perms;
 
 # Allow shell to run adb shell cmd gpu commands.
 binder_call(shell, gpuservice);
@@ -68,6 +75,10 @@ allow shell system_linker_exec:file rx_file_perms;
 # Renderscript host side tests depend on being able to execute
 # /system/bin/bcc (b/126388046)
 allow shell rs_exec:file rx_file_perms;
+
+# Allow (host-driven) ART run-tests to execute dex2oat, in order to
+# check ART's compiler.
+allow shell dex2oat_exec:file rx_file_perms;
 
 # Allow shell to start and comminicate with lpdumpd.
 set_prop(shell, lpdumpd_prop);
@@ -119,6 +130,7 @@ set_prop(shell, heapprofd_enabled_prop)
 set_prop(shell, traced_perf_enabled_prop)
 # Allow shell to start/stop gsid via ctl.start|stop|restart gsid.
 set_prop(shell, ctl_gsid_prop)
+set_prop(shell, ctl_snapuserd_prop)
 # Allow shell to enable Dynamic System Update
 set_prop(shell, dynamic_system_prop)
 # Allow shell to mock an OTA using persist.pm.mock-upgrade
@@ -141,6 +153,9 @@ get_prop(shell, system_boot_reason_prop)
 # Allow reading the outcome of perf_event_open LSM support test for CTS.
 get_prop(shell, init_perf_lsm_hooks_prop)
 
+# Allow shell to read boot image timestamps and fingerprints.
+get_prop(shell, build_bootimage_prop)
+
 userdebug_or_eng(`set_prop(shell, persist_debug_prop)')
 
 # Allow to issue control commands to profcollectd binder service.
@@ -153,3 +168,12 @@ allow shell keystore2_key_contexts_file:file r_file_perms;
 
 # Allow shell to access the keystore2_key namespace shell_key. Mainly used for native tests.
 allow shell shell_key:keystore2_key { delete rebind use get_info update };
+
+# Allow shell to write db.log.detailed, db.log.slow_query_threshold*
+set_prop(shell, sqlite_log_prop)
+
+# Allow shell to write MTE properties even on user builds.
+set_prop(shell, arm64_memtag_prop)
+
+# Allow shell to read the dm-verity props on user builds.
+get_prop(shell, verity_status_prop)

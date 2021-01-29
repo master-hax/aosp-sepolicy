@@ -55,6 +55,7 @@ compatible_property_only(`
 
 # Properties which can't be written outside system
 system_restricted_prop(aac_drc_prop)
+system_restricted_prop(arm64_memtag_prop)
 system_restricted_prop(binder_cache_bluetooth_server_prop)
 system_restricted_prop(binder_cache_system_server_prop)
 system_restricted_prop(binder_cache_telephony_server_prop)
@@ -62,6 +63,7 @@ system_restricted_prop(boot_status_prop)
 system_restricted_prop(bootloader_prop)
 system_restricted_prop(boottime_public_prop)
 system_restricted_prop(bq_config_prop)
+system_restricted_prop(build_bootimage_prop)
 system_restricted_prop(build_prop)
 system_restricted_prop(charger_status_prop)
 system_restricted_prop(fingerprint_prop)
@@ -76,6 +78,7 @@ system_restricted_prop(provisioned_prop)
 system_restricted_prop(restorecon_prop)
 system_restricted_prop(retaildemo_prop)
 system_restricted_prop(socket_hook_prop)
+system_restricted_prop(sqlite_log_prop)
 system_restricted_prop(surfaceflinger_display_prop)
 system_restricted_prop(system_boot_reason_prop)
 system_restricted_prop(system_jvmti_agent_prop)
@@ -91,7 +94,6 @@ compatible_property_only(`
     system_restricted_prop(cppreopt_prop)
     system_restricted_prop(dalvik_prop)
     system_restricted_prop(debuggerd_prop)
-    system_restricted_prop(default_prop)
     system_restricted_prop(device_logging_prop)
     system_restricted_prop(dhcp_prop)
     system_restricted_prop(dumpstate_prop)
@@ -111,9 +113,9 @@ compatible_property_only(`
 
 # Properties which can be written only by vendor_init
 system_vendor_config_prop(aaudio_config_prop)
-system_vendor_config_prop(adbd_config_prop)
 system_vendor_config_prop(apk_verity_prop)
 system_vendor_config_prop(audio_config_prop)
+system_vendor_config_prop(build_config_prop)
 system_vendor_config_prop(build_odm_prop)
 system_vendor_config_prop(build_vendor_prop)
 system_vendor_config_prop(camera_calibration_prop)
@@ -126,6 +128,7 @@ system_vendor_config_prop(exported_camera_prop)
 system_vendor_config_prop(exported_config_prop)
 system_vendor_config_prop(exported_default_prop)
 system_vendor_config_prop(ffs_config_prop)
+system_vendor_config_prop(framework_watchdog_config_prop)
 system_vendor_config_prop(graphics_config_prop)
 system_vendor_config_prop(hdmi_config_prop)
 system_vendor_config_prop(incremental_prop)
@@ -138,6 +141,7 @@ system_vendor_config_prop(oem_unlock_prop)
 system_vendor_config_prop(packagemanager_config_prop)
 system_vendor_config_prop(recovery_config_prop)
 system_vendor_config_prop(sendbug_config_prop)
+system_vendor_config_prop(soc_prop)
 system_vendor_config_prop(storage_config_prop)
 system_vendor_config_prop(storagemanager_config_prop)
 system_vendor_config_prop(surfaceflinger_prop)
@@ -155,8 +159,10 @@ system_vendor_config_prop(vts_config_prop)
 system_vendor_config_prop(vold_config_prop)
 system_vendor_config_prop(wifi_config_prop)
 system_vendor_config_prop(zram_config_prop)
+system_vendor_config_prop(zygote_config_prop)
 
 # Properties with no restrictions
+system_public_prop(adbd_config_prop)
 system_public_prop(audio_prop)
 system_public_prop(bluetooth_a2dp_offload_prop)
 system_public_prop(bluetooth_audio_hal_prop)
@@ -197,8 +203,13 @@ system_public_prop(wifi_log_prop)
 system_public_prop(wifi_prop)
 system_public_prop(zram_control_prop)
 
+# Properties which don't have entries on property_contexts
+system_internal_prop(default_prop)
+
 # Properties used in default HAL implementations
 vendor_internal_prop(rebootescrow_hal_prop)
+
+vendor_public_prop(persist_vendor_debug_wifi_prop)
 
 # Properties which are public for devices launching with Android O or earlier
 # This should not be used for any new properties.
@@ -243,7 +254,6 @@ not_compatible_property(`
     system_public_prop(cppreopt_prop)
     system_public_prop(dalvik_prop)
     system_public_prop(debuggerd_prop)
-    system_public_prop(default_prop)
     system_public_prop(device_logging_prop)
     system_public_prop(dhcp_prop)
     system_public_prop(dumpstate_prop)
@@ -261,7 +271,13 @@ not_compatible_property(`
     system_public_prop(vold_prop)
 ')
 
-type vendor_default_prop, property_type;
+not_compatible_property(`
+    vendor_public_prop(vendor_default_prop)
+')
+
+compatible_property_only(`
+    vendor_internal_prop(vendor_default_prop)
+')
 
 typeattribute log_prop log_property_type;
 typeattribute log_tag_prop log_property_type;
@@ -282,7 +298,6 @@ typeattribute cppreopt_prop      core_property_type;
 typeattribute dalvik_prop        core_property_type;
 typeattribute debuggerd_prop     core_property_type;
 typeattribute debug_prop         core_property_type;
-typeattribute default_prop       core_property_type;
 typeattribute dhcp_prop          core_property_type;
 typeattribute dumpstate_prop     core_property_type;
 typeattribute logd_prop          core_property_type;

@@ -71,12 +71,6 @@ allow system_app anr_data_file:file create_file_perms;
 # Settings need to access app name and icon from asec
 allow system_app asec_apk_file:file r_file_perms;
 
-# Allow system_app (adb data loader) to write data to /data/incremental
-allow system_app apk_data_file:file write;
-
-# Allow system app (adb data loader) to read logs
-allow system_app incremental_control_file:file r_file_perms;
-
 # Allow system apps (like Settings) to interact with statsd
 binder_call(system_app, statsd)
 
@@ -97,6 +91,7 @@ allow system_app {
   -iorapd_service
   -lpdump_service
   -netd_service
+  -system_suspend_control_internal_service
   -system_suspend_control_service
   -virtual_touchpad_service
   -vold_service
@@ -114,6 +109,9 @@ dontaudit system_app {
   vold_service
   vr_hwc_service
 }:service_manager find;
+
+# suppress denials caused by debugfs_tracing
+dontaudit system_app debugfs_tracing:file rw_file_perms;
 
 allow system_app keystore:keystore_key {
     get_state
@@ -151,6 +149,7 @@ allow system_app {
 
 # Settings app writes to /dev/stune/foreground/tasks.
 allow system_app cgroup:file w_file_perms;
+allow system_app cgroup_v2:file w_file_perms;
 
 control_logd(system_app)
 read_runtime_log_tags(system_app)
@@ -163,6 +162,9 @@ allow system_app system_server:udp_socket {
 
 # Settings app reads ro.oem_unlock_supported
 get_prop(system_app, oem_unlock_prop)
+
+# TODO Remove this property when Keystore 2.0 migration is complete b/171563717
+get_prop(system_app, keystore2_enable_prop)
 
 ###
 ### Neverallow rules

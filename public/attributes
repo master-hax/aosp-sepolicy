@@ -34,6 +34,11 @@ expandattribute data_file_type false;
 attribute core_data_file_type;
 expandattribute core_data_file_type false;
 
+# All types used for app private data files in seapp_contexts.
+# Such types should not be applied to any other files.
+attribute app_data_file_type;
+expandattribute app_data_file_type false;
+
 # All types in /system
 attribute system_file_type;
 
@@ -143,6 +148,9 @@ attribute ephemeral_app_api_service;
 
 # services which export only system_api
 attribute system_api_service;
+
+# services which are explicitly disallowed for untrusted apps to access
+attribute protected_service;
 
 # services which served by vendor and also using the copy of libbinder on
 # system (for instance via libbinder_ndk). services using a different copy
@@ -326,6 +334,7 @@ hal_attribute(identity);
 hal_attribute(input_classifier);
 hal_attribute(ir);
 hal_attribute(keymaster);
+hal_attribute(keymint);
 hal_attribute(light);
 hal_attribute(lowpan);
 hal_attribute(memtrack);
@@ -372,3 +381,7 @@ attribute wifi_keystore_service_server;
 
 # All types used for super partition block devices.
 attribute super_block_device_type;
+
+# All types used for DMA-BUF heaps
+attribute dmabuf_heap_device_type;
+expandattribute dmabuf_heap_device_type false;

@@ -1288,7 +1288,8 @@
 (typeattributeset debugfs_mmc_30_0 (debugfs_mmc))
 (typeattributeset debugfs_trace_marker_30_0 (debugfs_trace_marker))
 (typeattributeset debugfs_tracing_30_0 (debugfs_tracing))
-(typeattributeset debugfs_tracing_debug_30_0 (debugfs_tracing_debug))
+(typeattributeset debugfs_tracing_debug_30_0 (debugfs_tracing_debug
+                                              debugfs_tracing_printk_formats))
 (typeattributeset debugfs_tracing_instances_30_0 (debugfs_tracing_instances))
 (typeattributeset debugfs_wakeup_sources_30_0 (debugfs_wakeup_sources))
 (typeattributeset debugfs_wifi_tracing_30_0 (debugfs_wifi_tracing))
@@ -1296,7 +1297,15 @@
 (typeattributeset default_android_hwservice_30_0 (default_android_hwservice))
 (typeattributeset default_android_service_30_0 (default_android_service))
 (typeattributeset default_android_vndservice_30_0 (default_android_vndservice))
-(typeattributeset default_prop_30_0 (default_prop init_service_status_private_prop))
+(typeattributeset default_prop_30_0 (
+    default_prop
+    build_config_prop
+    init_service_status_private_prop
+    setupwizard_prop
+    sqlite_log_prop
+    verity_status_prop
+    zygote_wrap_prop
+))
 (typeattributeset dev_cpu_variant_30_0 (dev_cpu_variant))
 (typeattributeset device_30_0 (device))
 (typeattributeset device_config_activity_manager_native_boot_prop_30_0 (device_config_activity_manager_native_boot_prop))
@@ -1403,6 +1412,7 @@
 (typeattributeset exported_default_prop_30_0
   ( exported_default_prop
     aaudio_config_prop
+    build_bootimage_prop
     build_odm_prop
     build_vendor_prop
     surfaceflinger_prop
@@ -1990,7 +2000,7 @@
 (typeattributeset surfaceflinger_service_30_0 (surfaceflinger_service))
 (typeattributeset surfaceflinger_tmpfs_30_0 (surfaceflinger_tmpfs))
 (typeattributeset swap_block_device_30_0 (swap_block_device))
-(typeattributeset sysfs_30_0 (sysfs))
+(typeattributeset sysfs_30_0 (sysfs sysfs_fs_incfs_features))
 (typeattributeset sysfs_android_usb_30_0 (sysfs_android_usb))
 (typeattributeset sysfs_batteryinfo_30_0 (sysfs_batteryinfo))
 (typeattributeset sysfs_bluetooth_writable_30_0 (sysfs_bluetooth_writable))
@@ -2145,7 +2155,10 @@
 (typeattributeset usbd_exec_30_0 (usbd_exec))
 (typeattributeset usbfs_30_0 (usbfs))
 (typeattributeset use_memfd_prop_30_0 (use_memfd_prop))
-(typeattributeset user_profile_data_file_30_0 (user_profile_data_file))
+(typeattributeset user_profile_data_file_30_0
+  ( user_profile_data_file
+    user_profile_root_file
+))
 (typeattributeset user_service_30_0 (user_service))
 (typeattributeset userdata_block_device_30_0 (userdata_block_device))
 (typeattributeset usermodehelper_30_0 (usermodehelper))
@@ -2172,7 +2185,9 @@
 (typeattributeset vendor_misc_writer_30_0 (vendor_misc_writer))
 (typeattributeset vendor_misc_writer_exec_30_0 (vendor_misc_writer_exec))
 (typeattributeset vendor_overlay_file_30_0 (vendor_overlay_file))
-(typeattributeset vendor_public_lib_file_30_0 (vendor_public_lib_file))
+(typeattributeset vendor_public_lib_file_30_0
+    ( vendor_public_framework_file
+      vendor_public_lib_file))
 (typeattributeset vendor_security_patch_level_prop_30_0 (vendor_security_patch_level_prop))
 (typeattributeset vendor_shell_30_0 (vendor_shell))
 (typeattributeset vendor_shell_exec_30_0 (vendor_shell_exec))
