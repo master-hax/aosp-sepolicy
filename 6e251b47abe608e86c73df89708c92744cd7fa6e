@@ -54,6 +54,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0aecf95f_897313e8",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-01T22:28:06Z",
+      "side": 1,
+      "message": "\u0027~\u0027 is really rare in Android - did I miss any PSA? will wait for Jeff. I thought there was some reason for this.",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 12
+      },
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "40d3d00b_32ea5c20",
         "filename": "private/bpfloader.te",
         "patchSetId": 1
@@ -195,6 +218,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "20c63bf7_e67f3c9b",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-01T22:28:06Z",
+      "side": 1,
+      "message": "+1, name things according to their definition, not in terms of their (current) purpose.",
+      "parentUuid": "f4efa6a4_3195d878",
+      "range": {
+        "startLine": 350,
+        "startChar": 24,
+        "endLine": 350,
+        "endChar": 54
+      },
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5587a594_ad4bd051",
         "filename": "private/network_stack.te",
         "patchSetId": 1
@@ -282,6 +329,29 @@
         "startChar": 11,
         "endLine": 51,
         "endChar": 13
+      },
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f7429c6_210baa3b",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-01T22:28:06Z",
+      "side": 1,
+      "message": "should we copy attribute system, to make this work like sysfs/sysfs_type?\n\nI think the primary disadvantage of the current rules is that we need to make several rules based on fs_bpf + fs_bpf_tethering. By introducing an attribute, we could have a way to apply that logic in the future (sure - with 2 types it\u0027s manageable, but we wouldn\u0027t want to rewrite the policy again, I think)",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 50
       },
       "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
