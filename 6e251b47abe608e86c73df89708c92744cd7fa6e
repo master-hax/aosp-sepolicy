@@ -77,6 +77,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e986560d_20a4be5f",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2021-02-01T20:14:11Z",
+      "side": 1,
+      "message": "That would run into problems if we ever want to ship iptables xt_bpf programs in the module.  This seems more future proof.",
+      "parentUuid": "40d3d00b_32ea5c20",
+      "range": {
+        "startLine": 31,
+        "startChar": 71,
+        "endLine": 31,
+        "endChar": 84
+      },
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "22a09e3d_7862e02c",
         "filename": "private/bpfloader.te",
         "patchSetId": 1
@@ -123,6 +147,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f4efa6a4_3195d878",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2021-02-01T20:14:11Z",
+      "side": 1,
+      "message": "I considered that... but the apex is called tethering and not network stack,\nand we pin stuff to /sys/fs/bpf/tethering...\n\nhttp://cs/aosp-master/system/bpf/bpfloader/BpfLoader.cpp?l\u003d60\u0026rcl\u003dd8a4578f30dd1a355591a7b18d139a9ac0a48f72\n\n// Tethering mainline module\n        {\n                .dir \u003d \"/apex/com.android.tethering/etc/bpf/\",\n                .prefix \u003d \"tethering/\",\n        },\n\nI think when/if we ever want to ship other programs via an other module (like Connectivity, we\u0027ll need to add another?",
+      "parentUuid": "9b10bcdc_c9064b5b",
+      "range": {
+        "startLine": 350,
+        "startChar": 24,
+        "endLine": 350,
+        "endChar": 54
+      },
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5587a594_ad4bd051",
         "filename": "private/network_stack.te",
         "patchSetId": 1
@@ -146,6 +194,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29f9e80a_ef52b91a",
+        "filename": "private/network_stack.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2021-02-01T20:14:11Z",
+      "side": 1,
+      "message": "They have the privs that they are not neverallowed down below.\nThey\u0027re not terribly worrying, but they shouldn\u0027t actually need anything.\n\nSo they have:\n  dir { getattr open read search setattr }\n  file { map open read setattr }\n\nOf which really only setattr is problematic, but they seem to get these via some generic rules AFAICT.  There\u0027s a TODO to figure out how to remove this in the bpfloader.te",
+      "parentUuid": "5587a594_ad4bd051",
+      "range": {
+        "startLine": 50,
+        "startChar": 33,
+        "endLine": 50,
+        "endChar": 62
+      },
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c7a5805f_2764370d",
         "filename": "private/network_stack.te",
         "patchSetId": 1
@@ -157,6 +229,30 @@
       "writtenOn": "2021-02-01T14:01:04Z",
       "side": 1,
       "message": "For those not familiar with selinux, what does this mean? That anything could potentially use getattr on the directory, but only bpfloader, init, etc. can do anything else?",
+      "range": {
+        "startLine": 51,
+        "startChar": 11,
+        "endLine": 51,
+        "endChar": 13
+      },
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e32f8bb_ffa56ed9",
+        "filename": "private/network_stack.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2021-02-01T20:14:11Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "c7a5805f_2764370d",
       "range": {
         "startLine": 51,
         "startChar": 11,
