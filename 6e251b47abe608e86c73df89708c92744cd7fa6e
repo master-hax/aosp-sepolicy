@@ -242,6 +242,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4fbc15d3_87c228ae",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2021-02-01T22:42:21Z",
+      "side": 1,
+      "message": "Steven, I\u0027m not sure exactly what you\u0027re +1\u0027ing.\nLorenzo, I\u0027m also not clear on what the future plans are here wrt. network stack, connectivity and tethering mainline modules.",
+      "parentUuid": "20c63bf7_e67f3c9b",
+      "range": {
+        "startLine": 350,
+        "startChar": 24,
+        "endLine": 350,
+        "endChar": 54
+      },
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5587a594_ad4bd051",
         "filename": "private/network_stack.te",
         "patchSetId": 1
@@ -347,6 +371,30 @@
       "writtenOn": "2021-02-01T22:28:06Z",
       "side": 1,
       "message": "should we copy attribute system, to make this work like sysfs/sysfs_type?\n\nI think the primary disadvantage of the current rules is that we need to make several rules based on fs_bpf + fs_bpf_tethering. By introducing an attribute, we could have a way to apply that logic in the future (sure - with 2 types it\u0027s manageable, but we wouldn\u0027t want to rewrite the policy again, I think)",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 50
+      },
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59852a8f_a7d688a3",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2021-02-01T22:42:21Z",
+      "side": 1,
+      "message": "I\u0027d love to... but I\u0027d need some guidance.\nI\u0027m not sure where to make what changes.",
+      "parentUuid": "1f7429c6_210baa3b",
       "range": {
         "startLine": 83,
         "startChar": 0,
