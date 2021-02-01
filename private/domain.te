@@ -11,7 +11,7 @@ allow domain crash_dump:process sigchld;
 # necessary SELinux permissions.
 get_prop(domain, heapprofd_prop);
 # Allow heap profiling on debug builds.
-userdebug_or_eng(`can_profile_heap_central({
+userdebug_or_eng(`can_profile_heap({
   domain
   -bpfloader
   -init
@@ -53,6 +53,10 @@ userdebug_or_eng(`can_profile_perf({
 allow domain cgroup:dir search;
 allow { domain -appdomain -rs } cgroup:dir w_dir_perms;
 allow { domain -appdomain -rs } cgroup:file w_file_perms;
+
+allow domain cgroup_v2:dir search;
+allow { domain -appdomain -rs } cgroup_v2:dir w_dir_perms;
+allow { domain -appdomain -rs } cgroup_v2:file w_file_perms;
 
 allow domain cgroup_rc_file:dir search;
 allow domain cgroup_rc_file:file r_file_perms;
@@ -196,7 +200,7 @@ neverallow {
 # that these files cannot be accessed by other domains to ensure that the files
 # do not change between system_server staging the files and apexd processing
 # the files.
-neverallow { domain -init -system_server -apexd -installd -iorap_inode2filename } staging_data_file:dir *;
+neverallow { domain -init -system_server -apexd -installd -iorap_inode2filename -priv_app } staging_data_file:dir *;
 neverallow { domain -init -system_app -system_server -apexd -kernel -installd -iorap_inode2filename -priv_app } staging_data_file:file *;
 neverallow { domain -init -system_server -installd} staging_data_file:dir no_w_dir_perms;
 # apexd needs the link and unlink permissions, so list every `no_w_file_perms`
@@ -271,6 +275,40 @@ neverallow {
   -otapreopt_slot
 } dalvikcache_data_file:dir no_w_dir_perms;
 
+# Only authorized processes should be writing to /data/misc/apexdata/com.android.art as it
+# contains boot class path and system server AOT artifacts following an ART APEX Mainline update.
+neverallow {
+  domain
+  # art processes
+  -odrefresh
+  # others
+  -apexd
+  -init
+  -vold_prepare_subdirs
+} apex_art_data_file:file no_w_file_perms;
+
+neverallow {
+  domain
+  # art processes
+  -odrefresh
+  # others
+  -apexd
+  -init
+  -vold_prepare_subdirs
+} apex_art_data_file:dir no_w_dir_perms;
+
+# Protect most domains from executing arbitrary content from /data.
+neverallow {
+  domain
+  -appdomain
+} {
+  data_file_type
+  -apex_art_data_file
+  -dalvikcache_data_file
+  -system_data_file # shared libs in apks
+  -apk_data_file
+}:file no_x_file_perms;
+
 # Minimize dac_override and dac_read_search.
 # Instead of granting them it is usually better to add the domain to
 # a Unix group or change the permissions of a file.
@@ -307,7 +345,7 @@ neverallow ~{
   iorap_prefetcherd
   traced_perf
   traced_probes
-  userdebug_or_eng(`heapprofd')
+  heapprofd
 } self:global_capability_class_set dac_read_search;
 
 # Limit what domains can mount filesystems or change their mount flags.
@@ -414,7 +452,7 @@ full_treble_only(`
     -iorap_inode2filename
     -iorap_prefetcherd
     -kernel # loads /vendor/firmware
-    userdebug_or_eng(`-heapprofd')
+    -heapprofd
     userdebug_or_eng(`-profcollectd')
     -shell
     -system_executes_vendor_violators
@@ -433,6 +471,7 @@ full_treble_only(`
     -vendor_keychars_file
     -vendor_keylayout_file
     -vendor_overlay_file
+    -vendor_public_framework_file
     -vendor_public_lib_file
     -vendor_task_profiles_file
     -vndk_sp_file

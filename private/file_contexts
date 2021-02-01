@@ -93,7 +93,10 @@
 /dev/bus/usb(.*)?       u:object_r:usb_device:s0
 /dev/console		u:object_r:console_device:s0
 /dev/cpu_variant:.*     u:object_r:dev_cpu_variant:s0
+/dev/dma_heap(/.*)?     u:object_r:dmabuf_heap_device:s0
 /dev/dma_heap/system    u:object_r:dmabuf_system_heap_device:s0
+/dev/dma_heap/system-uncached    u:object_r:dmabuf_system_heap_device:s0
+/dev/dma_heap/system-secure	 u:object_r:dmabuf_system_secure_heap_device:s0
 /dev/dm-user(/.*)?	u:object_r:dm_user_device:s0
 /dev/device-mapper	u:object_r:dm_device:s0
 /dev/eac		u:object_r:audio_device:s0
@@ -257,6 +260,7 @@
 /system/bin/mediaextractor	u:object_r:mediaextractor_exec:s0
 /system/bin/mediaswcodec	u:object_r:mediaswcodec_exec:s0
 /system/bin/mediatranscoding	u:object_r:mediatranscoding_exec:s0
+/system/bin/mediatuner	        u:object_r:mediatuner_exec:s0
 /system/bin/mdnsd	u:object_r:mdnsd_exec:s0
 /system/bin/installd	u:object_r:installd_exec:s0
 /system/bin/otapreopt_chroot   u:object_r:otapreopt_chroot_exec:s0
@@ -543,14 +547,21 @@
 /data/preloads/demo(/.*)?	u:object_r:preloads_media_file:s0
 /data/server_configurable_flags(/.*)? u:object_r:server_configurable_flags_data_file:s0
 /data/app-staging(/.*)?		u:object_r:staging_data_file:s0
+# Ensure we have the same labels as /data/app or /data/apex/active
+# to avoid restorecon conflicts
+/data/rollback/\d+/[^/]+/.*\.apk  u:object_r:apk_data_file:s0
+/data/rollback/\d+/[^/]+/.*\.apex u:object_r:staging_data_file:s0
+/data/fonts/files(/.*)?     u:object_r:font_data_file:s0
 
 # Misc data
 /data/misc/adb(/.*)?            u:object_r:adb_keys_file:s0
 /data/misc/apexdata(/.*)?       u:object_r:apex_module_data_file:s0
+/data/misc/apexdata/com\.android\.art(/.*)?    u:object_r:apex_art_data_file:s0
 /data/misc/apexdata/com\.android\.permission(/.*)?    u:object_r:apex_permission_data_file:s0
 /data/misc/apexdata/com\.android\.wifi(/.*)?    u:object_r:apex_wifi_data_file:s0
 /data/misc/apexrollback(/.*)?   u:object_r:apex_rollback_data_file:s0
 /data/misc/apns(/.*)?           u:object_r:radio_data_file:s0
+/data/misc/appcompat(/.*)?      u:object_r:appcompat_data_file:s0
 /data/misc/audio(/.*)?          u:object_r:audio_data_file:s0
 /data/misc/audioserver(/.*)?    u:object_r:audioserver_data_file:s0
 /data/misc/audiohal(/.*)?       u:object_r:audiohal_data_file:s0
@@ -577,10 +588,12 @@
 /data/misc/net(/.*)?            u:object_r:net_data_file:s0
 /data/misc/network_watchlist(/.*)? u:object_r:network_watchlist_data_file:s0
 /data/misc/nfc/logs(/.*)?       u:object_r:nfc_logs_data_file:s0
-/data/misc/perfetto-traces(/.*)? u:object_r:perfetto_traces_data_file:s0
-/data/misc/perfetto-configs(/.*)? u:object_r:perfetto_configs_data_file:s0
+/data/misc/perfetto-traces/bugreport(.*)? u:object_r:perfetto_traces_bugreport_data_file:s0
+/data/misc/perfetto-traces(/.*)?          u:object_r:perfetto_traces_data_file:s0
+/data/misc/perfetto-configs(/.*)?         u:object_r:perfetto_configs_data_file:s0
 /data/misc/prereboot(/.*)?      u:object_r:prereboot_data_file:s0
 /data/misc/profcollectd(/.*)?   u:object_r:profcollectd_data_file:s0
+/data/misc/radio(/.*)?          u:object_r:radio_core_data_file:s0
 /data/misc/recovery(/.*)?       u:object_r:recovery_data_file:s0
 /data/misc/shared_relro(/.*)?   u:object_r:shared_relro_file:s0
 /data/misc/sms(/.*)?            u:object_r:radio_data_file:s0
@@ -609,7 +622,8 @@
 /data/misc/wmtrace(/.*)?        u:object_r:wm_trace_data_file:s0
 # TODO(calin) label profile reference differently so that only
 # profman run as a special user can write to them
-/data/misc/profiles/cur(/.*)?       u:object_r:user_profile_data_file:s0
+/data/misc/profiles/cur(/[0-9]+)?   u:object_r:user_profile_root_file:s0
+/data/misc/profiles/cur/[0-9]+/.*   u:object_r:user_profile_data_file:s0
 /data/misc/profiles/ref(/.*)?       u:object_r:user_profile_data_file:s0
 /data/misc/profman(/.*)?        u:object_r:profman_dump_data_file:s0
 /data/vendor(/.*)?              u:object_r:vendor_data_file:s0
@@ -656,6 +670,7 @@
 /data/incremental(/.*)?                                 u:object_r:apk_data_file:s0
 /data/incremental/MT_[^/]+/mount/.pending_reads         u:object_r:incremental_control_file:s0
 /data/incremental/MT_[^/]+/mount/.log                   u:object_r:incremental_control_file:s0
+/data/incremental/MT_[^/]+/mount/.blocks_written        u:object_r:incremental_control_file:s0
 
 #############################
 # Expanded data files
@@ -744,6 +759,7 @@
 /metadata/bootstat(/.*)?  u:object_r:metadata_bootstat_file:s0
 /metadata/staged-install(/.*)?    u:object_r:staged_install_file:s0
 /metadata/userspacereboot(/.*)?    u:object_r:userspace_reboot_metadata_file:s0
+/metadata/watchdog(/.*)?    u:object_r:watchdog_metadata_file:s0
 
 #############################
 # asec containers

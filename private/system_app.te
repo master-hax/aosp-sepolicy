@@ -71,12 +71,6 @@ allow system_app anr_data_file:file create_file_perms;
 # Settings need to access app name and icon from asec
 allow system_app asec_apk_file:file r_file_perms;
 
-# Allow system_app (adb data loader) to write data to /data/incremental
-allow system_app apk_data_file:file write;
-
-# Allow system app (adb data loader) to read logs
-allow system_app incremental_control_file:file r_file_perms;
-
 # Allow system apps (like Settings) to interact with statsd
 binder_call(system_app, statsd)
 
@@ -116,6 +110,9 @@ dontaudit system_app {
   vr_hwc_service
 }:service_manager find;
 
+# suppress denials caused by debugfs_tracing
+dontaudit system_app debugfs_tracing:file rw_file_perms;
+
 allow system_app keystore:keystore_key {
     get_state
     get
@@ -152,6 +149,7 @@ allow system_app {
 
 # Settings app writes to /dev/stune/foreground/tasks.
 allow system_app cgroup:file w_file_perms;
+allow system_app cgroup_v2:file w_file_perms;
 
 control_logd(system_app)
 read_runtime_log_tags(system_app)

@@ -120,8 +120,8 @@ r_dir_file(appdomain, vendor_overlay_file)
 r_dir_file(appdomain, vendor_framework_file)
 
 # Allow apps read / execute access to vendor public libraries.
-allow appdomain vendor_public_lib_file:dir r_dir_perms;
-allow appdomain vendor_public_lib_file:file { execute read open getattr map };
+allow appdomain {vendor_public_framework_file vendor_public_lib_file}:dir r_dir_perms;
+allow appdomain {vendor_public_framework_file vendor_public_lib_file}:file { execute read open getattr map };
 
 # Read/write wallpaper file (opened by system).
 allow appdomain wallpaper_file:file { getattr read write map };
@@ -170,6 +170,7 @@ allow appdomain incidentd:fifo_file { write getattr };
 unix_socket_send(appdomain, statsdw, statsd)
 
 # Write profiles /data/misc/profiles
+allow appdomain user_profile_root_file:dir search;
 allow appdomain user_profile_data_file:dir { search write add_name };
 allow appdomain user_profile_data_file:file create_file_perms;
 
@@ -309,6 +310,7 @@ allowxperm { appdomain -bluetooth } self:{ rawip_socket tcp_socket udp_socket }
 
 allow { appdomain -isolated_app } ion_device:chr_file r_file_perms;
 allow { appdomain -isolated_app } dmabuf_system_heap_device:chr_file r_file_perms;
+allow { appdomain -isolated_app } dmabuf_system_secure_heap_device:chr_file r_file_perms;
 
 # Allow AAudio apps to use shared memory file descriptors from the HAL
 allow { appdomain -isolated_app } hal_audio:fd use;
@@ -473,10 +475,10 @@ neverallow appdomain system_data_file:dir_file_class_set
 # Write to various other parts of /data.
 neverallow appdomain drm_data_file:dir_file_class_set
     { create write setattr relabelfrom relabelto append unlink link rename };
-neverallow { appdomain -platform_app -system_app }
+neverallow { appdomain -platform_app }
     apk_data_file:dir_file_class_set
     { create write setattr relabelfrom relabelto append unlink link rename };
-neverallow { appdomain -platform_app -system_app }
+neverallow { appdomain -platform_app }
     apk_tmp_file:dir_file_class_set
     { create write setattr relabelfrom relabelto append unlink link rename };
 neverallow { appdomain -platform_app }
@@ -543,23 +545,6 @@ neverallow appdomain {
   system_file
   tmpfs
 }:lnk_file no_w_file_perms;
-
-# Sensitive app domains are not allowed to execute from /data
-# to prevent persistence attacks and ensure all code is executed
-# from read-only locations.
-neverallow {
-  bluetooth
-  isolated_app
-  nfc
-  radio
-  shared_relro
-  system_app
-} {
-  data_file_type
-  -dalvikcache_data_file
-  -system_data_file # shared libs in apks
-  -apk_data_file
-}:file no_x_file_perms;
 
 # Applications should use the activity model for receiving events
 neverallow {

@@ -126,6 +126,8 @@ allow vold mnt_expand_file:dir { create_dir_perms mounton };
 allow vold apk_data_file:dir { create getattr setattr };
 allow vold shell_data_file:dir { create getattr setattr };
 
+# Access the IncFS list of features
+r_dir_file(vold, sysfs_fs_incfs_features);
 # Allow to mount incremental file system on /data/incremental and create files
 allow vold apk_data_file:dir { mounton rw_dir_perms };
 # Allow to create and write files in /data/incremental
@@ -153,7 +155,7 @@ allow vold vold_device:blk_file { create setattr unlink rw_file_perms };
 allowxperm vold vold_device:blk_file ioctl { BLKDISCARD BLKGETSIZE };
 allow vold dm_device:chr_file rw_file_perms;
 allow vold dm_device:blk_file rw_file_perms;
-allowxperm vold dm_device:blk_file ioctl BLKSECDISCARD;
+allowxperm vold dm_device:blk_file ioctl { BLKDISCARD BLKSECDISCARD };
 # For vold Process::killProcessesWithOpenFiles function.
 allow vold domain:dir r_dir_perms;
 allow vold domain:{ file lnk_file } r_file_perms;
@@ -280,7 +282,7 @@ allow vold app_fuse_file:file { read write open getattr append };
 allow vold toolbox_exec:file rx_file_perms;
 
 # Prepare profile dir for users.
-allow vold user_profile_data_file:dir create_dir_perms;
+allow vold { user_profile_data_file user_profile_root_file }:dir create_dir_perms;
 
 # Raw writes to misc block device
 allow vold misc_block_device:blk_file w_file_perms;
@@ -293,6 +295,9 @@ dontaudit vold self:global_capability_class_set sys_resource;
 # vold needs to know whether we're running a GSI.
 allow vold gsi_metadata_file:dir r_dir_perms;
 allow vold gsi_metadata_file:file r_file_perms;
+
+# vold might need to search loopback apex files
+allow vold vendor_apex_file:file r_file_perms;
 
 neverallow {
     domain
