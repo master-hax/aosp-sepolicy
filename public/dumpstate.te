@@ -342,6 +342,11 @@ binder_call(dumpstate, mediaswcodec);
 binder_call(dumpstate, hal_rebootescrow_server)
 allow hal_rebootescrow_server dumpstate:fifo_file write;
 allow hal_rebootescrow_server dumpstate:fd use;
+binder_call(dumpstate, hal_authsecret_server)
+binder_call(dumpstate, hal_keymint_server)
+binder_call(dumpstate, hal_memtrack_server)
+binder_call(dumpstate, hal_oemlock_server)
+binder_call(dumpstate, hal_weaver_server)
 
 #Access /data/misc/snapshotctl_log
 allow dumpstate snapshotctl_log_data_file:dir r_dir_perms;
