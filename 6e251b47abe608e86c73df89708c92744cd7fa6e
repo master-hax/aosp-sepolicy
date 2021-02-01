@@ -33,6 +33,138 @@
       "message": "Also note that this applies not only to:\n  /sys/fs/bpf/tethering\n  /sys/fs/bpf/tethering/...\nbut also to:\n  /sys/fs/bpf/tetheringfoo\n\nNot sure if that\u0027s a problem, and/or how to fix that if it is.",
       "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f44fefcf_8c6045f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2021-02-01T14:01:04Z",
+      "side": 1,
+      "message": "LGTM in principle but the I\u0027m not very familiar with the precise selinux mechanics being used here. Someone like Jeff should take a look.",
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40d3d00b_32ea5c20",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2021-02-01T14:01:04Z",
+      "side": 1,
+      "message": "While system_server and netutils wrappers do need to accesss fs_bpf (but why can netutils_wrapper write to it, I wonder), should we disallow access to fs_bpf_tethering?",
+      "range": {
+        "startLine": 31,
+        "startChar": 71,
+        "endLine": 31,
+        "endChar": 84
+      },
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22a09e3d_7862e02c",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2021-02-01T14:01:04Z",
+      "side": 1,
+      "message": "Out of curiosity, why is this rule here? Is it so that absolutely nothing can perform any operation other than these on fs_bpf and fs_bpf_tethering? What operations are we concerned about here?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 86
+      },
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b10bcdc_c9064b5b",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2021-02-01T14:01:04Z",
+      "side": 1,
+      "message": "Given that this change is moderately involved, I wonder if we should use a name here that\u0027s not specific to tethering, such as fs_bpf_network_stack, for consistency with the network_stack type which is the domain in which the networkstack process runs?",
+      "range": {
+        "startLine": 350,
+        "startChar": 24,
+        "endLine": 350,
+        "endChar": 54
+      },
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5587a594_ad4bd051",
+        "filename": "private/network_stack.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2021-02-01T14:01:04Z",
+      "side": 1,
+      "message": "Can you elaborate a bit here? Does it mean that init and vendor init (which are OEM and vendor code) will be able to access the maps? If so, what can they do, and why? What breaks if they are not allowed? Will it just policy compilation, or will it break at runtime, or...?",
+      "range": {
+        "startLine": 50,
+        "startChar": 33,
+        "endLine": 50,
+        "endChar": 62
+      },
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7a5805f_2764370d",
+        "filename": "private/network_stack.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2021-02-01T14:01:04Z",
+      "side": 1,
+      "message": "For those not familiar with selinux, what does this mean? That anything could potentially use getattr on the directory, but only bpfloader, init, etc. can do anything else?",
+      "range": {
+        "startLine": 51,
+        "startChar": 11,
+        "endLine": 51,
+        "endChar": 13
+      },
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
