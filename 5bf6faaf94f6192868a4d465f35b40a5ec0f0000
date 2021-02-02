@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c32f8fb_c38a956a",
+        "filename": "public/dumpstate.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-02T18:24:23Z",
+      "side": 1,
+      "message": "Ah - I guess hal_attribute_service has a -dumpstate exception. We could probably replace all these (and other calls) with dump_hal, and that could simplify the neverallow, but it would also be overly permissive. I think this is still way better.",
+      "range": {
+        "startLine": 342,
+        "startChar": 0,
+        "endLine": 364,
+        "endChar": 41
+      },
+      "revId": "5bf6faaf94f6192868a4d465f35b40a5ec0f0000",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
