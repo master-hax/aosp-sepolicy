@@ -1,0 +1,5 @@
+# Allow clients to use IPC
+
+binder_use(hal_stats_client);
+allow hal_stats_client fwk_stats_service:service_manager find;
+
