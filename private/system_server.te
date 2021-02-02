@@ -8,6 +8,8 @@ typeattribute system_server mlstrustedsubject;
 typeattribute system_server scheduler_service_server;
 typeattribute system_server sensor_service_server;
 typeattribute system_server stats_service_server;
+# TODO: this should be replaced with hal_domain_server() b/179799335
+typeattribute system_server hal_stats_server;
 
 # Define a type for tmpfs-backed ashmem regions.
 tmpfs_domain(system_server)
@@ -263,6 +265,7 @@ hal_client_domain(system_server, hal_power)
 hal_client_domain(system_server, hal_power_stats)
 hal_client_domain(system_server, hal_rebootescrow)
 hal_client_domain(system_server, hal_sensors)
+hal_client_domain(system_server, hal_stats)
 hal_client_domain(system_server, hal_tetheroffload)
 hal_client_domain(system_server, hal_thermal)
 hal_client_domain(system_server, hal_tv_cec)

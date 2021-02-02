@@ -155,6 +155,8 @@ allow incidentd {
   system_api_service
 }:service_manager find;
 
+hal_client_domain(incidentd, hal_stats)
+
 # Only incidentd can publish the binder service
 add_service(incidentd, incident_service)
 
@@ -199,4 +201,3 @@ neverallow { domain -incidentd -init -vold } incident_data_file:file {
 neverallow { domain -incidentd -init -vold -system_server } incident_data_file:file r_file_perms;
 # limited access to the directory itself
 neverallow { domain -incidentd -init -vold } incident_data_file:dir create_dir_perms;
-
