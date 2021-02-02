@@ -16,6 +16,24 @@
       "message": "Do you have any immediate use for this? I don\u0027t have any objections, but \"we might need this in the future\" is a fairly weak justification.",
       "revId": "00ec1a6138abfdbe1079b9bf1e26d53a5b19d631",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "311df0c4_b0092490",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-02T15:55:34Z",
+      "side": 1,
+      "message": "Sorry, I should have been more explicit in my commit message.\n\nIn Android S, ART is becoming an updatable Mainline module. This module will include `dex2oat` as well. In the future, we may need want to run experiments or test new features using the Android Experiments framework. Such experiments/features are enabled via features flags, implemented as Android system properties for native code.\n\nTo be able to read such properties, we need to give the read permission to the relevant binaries. At the moment, this can only be done in the SELinux policy of the Android platform, which cannot be updated via Mainline as far as I understand. To give us the opportunity to conduct such experiments in `dex2oat` via an ART Mainline Module update after Android S has shipped (e.g. by having `dex2oat` query a system property in `persist.device_config.runtime_native.*` ), we need to have this permission set in the Android S platform now.",
+      "parentUuid": "103a8670_2ed2a874",
+      "revId": "00ec1a6138abfdbe1079b9bf1e26d53a5b19d631",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
