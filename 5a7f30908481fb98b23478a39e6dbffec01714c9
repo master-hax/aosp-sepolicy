@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1705ebeb_1ce0d5ad",
+        "filename": "private/service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-02T21:26:39Z",
+      "side": 1,
+      "message": "Sorry to comment on this - saw thread, and this is the first framework HAL. We should keep this consistent w/ HIDL framework HALs (analogue of fwk_stats_hwservice):\n- s/hal_/fwk_/\n- move to public/service.te (so this can be used by vendor.img clients, otherwise it shouldn\u0027t be a HAL)\n- mark as vendor_service\n- (consider) fwk_stats_client attribute, if there are any permissions that would be associated with using this. Specifically, the problem we are running into now, because this wasn\u0027t done before, is you need to find everything that was a client of fwk_stats_hwservice and make it a client of fwk_stats_service (since - IIRC or that is assuming: the client code is abstracted in a library? people don\u0027t call the HIDL directly?).\n\nPlease do check this in with an example of a client actually using this (this service can\u0027t be used with the current policy). I\u0027m also happy to help/chat if there any other issues with this, since it is the first fwk_ AIDL HAL that I know of.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 80
+      },
+      "revId": "5a7f30908481fb98b23478a39e6dbffec01714c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
