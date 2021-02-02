@@ -1,0 +1,6 @@
+binder_use(hal_stats_client);
+hal_attribute_service(hal_stats, fwk_stats_service)
+
+# The corresponding HIDL service is not attached to this for historical
+# reasons.
+# hal_attribute_hwservice(hal_stats, fwk_stats_hwservice)
