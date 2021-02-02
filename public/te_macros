@@ -217,12 +217,14 @@ expandattribute hal_$1_client true;
 attribute hal_$1_server;
 expandattribute hal_$1_server false;
 
-neverallow { hal_$1_server -halserverdomain } domain:process fork;
+# TODO: the exception -system_server need to be removed b/179799335
+neverallow { hal_$1_server -halserverdomain -system_server } domain:process fork;
 # hal_*_client and halclientdomain attributes are always expanded for
 # performance reasons. Neverallow rules targeting expanded attributes can not be
 # verified by CTS since these attributes are already expanded by that time.
 build_test_only(`
-neverallow { hal_$1_server -hal_$1 } domain:process fork;
+# TODO: the exception -system_server need to be removed b/179799335
+neverallow { hal_$1_server -hal_$1 -system_server } domain:process fork;
 neverallow { hal_$1_client -halclientdomain } domain:process fork;
 ')
 ')
