@@ -34,6 +34,24 @@
       "parentUuid": "7194f5f7_a355c9e5",
       "revId": "3d1bfdc9fa66caf1bb10eddd25760d9f3b22e377",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29cb16e1_42cde947",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2021-02-03T00:08:05Z",
+      "side": 1,
+      "message": "I put some thoughts in https://b.corp.google.com/issues/178863641#comment2 about the initial purpose of this bug: finding attributes in the vendor policy that are missing a corresponding mapping in the system mapping files.\n\n(Note, that comment is more for finding these issues on actual mixed builds, not within a single AOSP build. I\u0027m not sure how you could solve this in AOSP alone without actually creating mixed-release builds, because any test fully run inside AOSP release N which relies on checked-in files for release N-k will be useless if release N-k is updated independently from N, e.g. the QPR process.)",
+      "parentUuid": "71afdb17_ae254789",
+      "revId": "3d1bfdc9fa66caf1bb10eddd25760d9f3b22e377",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
