@@ -70,6 +70,30 @@
       },
       "revId": "5a7f30908481fb98b23478a39e6dbffec01714c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5367d187_cde8cc76",
+        "filename": "private/service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-03T01:11:19Z",
+      "side": 1,
+      "message": "All lg to me. I assume this test client is running as root? I\u0027m curious if it\u0027s possible to also show the client policy here (or in a separate CL).\n\nThe reason I ask this is that currently a client of this HAL requires two policy lines:\n- allow ... fwk_stats_hwservice:hwservice_manager find;\n- binder_call(..., statsd);\n\nI believe after that, we\u0027ll need to update all those old places with something ****like****:\n- allow ... fwk_stats_service:hwservice_manager find;\n- binder_call(..., system_server);\n\nIf this requirement needs to apply everywhere simultaneously, then it would be worth doing the effort to introduce the client attribute, since although this would have to be applied to all of the existing clients, it would prevent this problem in the future.\n\nIf it is an internal client in review, that\u0027s fine, but I\u0027d like to see what it looks like. Maybe no change is required here, in which case we can just +2.",
+      "parentUuid": "b5b61d13_2f6139c1",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 80
+      },
+      "revId": "5a7f30908481fb98b23478a39e6dbffec01714c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
