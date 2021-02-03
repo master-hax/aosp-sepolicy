@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfbede46_251268a2",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-02-03T14:59:57Z",
+      "side": 1,
+      "message": "I think most of the checks done here can be better expressed in a script. The script can accept shipping api level and the path to the ctx file as parameters and prints an error message and exits with a nonzero value when the check fails. Then we can keep the prefixes and the messages inside the script.",
+      "revId": "936733366fc72995617fc7542a775b1e8e774855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
