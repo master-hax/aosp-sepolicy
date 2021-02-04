@@ -344,6 +344,10 @@ with_asan(`allow domain system_asan_options_file:file r_file_perms;')
 allow domain apex_mnt_dir:dir { getattr search };
 allow domain apex_mnt_dir:lnk_file r_file_perms;
 
+# Allow access to tombstones if an fd to one is given to you.
+# This is restricted by unix permissions, so an app must go through system_server to get one.
+allow appdomain tombstone_data_file:file { read };
+
 ###
 ### neverallow rules
 ###
