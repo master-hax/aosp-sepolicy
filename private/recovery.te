@@ -31,6 +31,13 @@ recovery_only(`
   allow recovery self:tcp_socket { create ioctl };
   allowxperm recovery self:tcp_socket ioctl { SIOCGIFFLAGS SIOCSIFFLAGS };
 
+  # Start snapuserd for merging VABC updates
+  set_prop(recovery, ctl_snapuserd_prop)
+
+  # Needed to communicate with snapuserd to complete merges.
+  allow recovery snapuserd_socket:sock_file write;
+  allow recovery snapuserd:unix_stream_socket connectto;
+
   # Set fastbootd protocol property
   set_prop(recovery, fastbootd_protocol_prop)
 
