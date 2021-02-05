@@ -41,3 +41,42 @@ neverallow { appdomain -mediaprovider_app } storage_config_prop:file no_rw_file_
 
 # Allow to read graphics related properties.
 get_prop(appdomain, graphics_config_prop)
+<<<<<<< HEAD   (6e4d8d Export ro.vendor.product.cpu.abilist*)
+=======
+
+# Allow to read persist.config.calibration_fac
+get_prop(appdomain, camera_calibration_prop)
+
+# Allow to read db.log.detailed, db.log.slow_query_threshold*
+get_prop(appdomain, sqlite_log_prop)
+
+# Allow font file read by apps.
+allow appdomain font_data_file:file r_file_perms;
+allow appdomain font_data_file:dir r_dir_perms;
+
+# Read /data/misc/apexdata/com.android.art
+allow appdomain { apex_art_data_file apex_module_data_file }:dir search;
+allow appdomain apex_art_data_file:file r_file_perms;
+
+# Allow APFE device info to read Virtual A/B props.
+get_prop(appdomain, virtual_ab_prop)
+
+# Sensitive app domains are not allowed to execute from /data
+# to prevent persistence attacks and ensure all code is executed
+# from read-only locations.
+neverallow {
+  bluetooth
+  isolated_app
+  nfc
+  radio
+  shared_relro
+  system_app
+} {
+  data_file_type
+  -apex_art_data_file
+  -dalvikcache_data_file
+  -system_data_file # shared libs in apks
+  -apk_data_file
+}:file no_x_file_perms;
+
+>>>>>>> CHANGE (809eb7 Allow CTS DeviceInfo to read VAB prop.)
