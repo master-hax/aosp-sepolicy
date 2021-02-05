@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64ae43e6_66beea76",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-05T10:16:20Z",
+      "side": 1,
+      "message": "this should go in private/app.te.\n\nCan you also add a neverallow rule that disallows apps from directly accessing these files.\n\ne.g.\nneverallow appdomain tombstone_data_file:file ~{ getattr read };\n\nOr perhaps there should be a broader rule that disallows anyone but tombstoned or system_server from accessing them (I\u0027m surprised there doesn\u0027t currently appear to be one).",
+      "range": {
+        "startLine": 349,
+        "startChar": 6,
+        "endLine": 349,
+        "endChar": 15
+      },
+      "revId": "8a3d8b724e789f7b48f43dc75f662b8aaeb6b3f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
