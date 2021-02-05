@@ -16,6 +16,75 @@
       "message": "Hey Jeff, please take a look. Some background on this is available at go/traceur-perfetto-interfact",
       "revId": "442f7ffe9b90f5f64e0a89f49ae0aa9d34c1b2c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ce6c6f1_ae3814e3",
+        "filename": "private/traced.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-05T18:25:16Z",
+      "side": 1,
+      "message": "I suspect that you actually need to use the \"binder_use()\" macro instead of this: https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/te_macros;l\u003d336?q\u003dbinder_use%20te_mac",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 36
+      },
+      "revId": "442f7ffe9b90f5f64e0a89f49ae0aa9d34c1b2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5b41e51_f309bdb3",
+        "filename": "public/service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-05T18:25:16Z",
+      "side": 1,
+      "message": "Perhaps this should be declared within private/service.te. If this service is completely within private policy (i.e. doesn\u0027t need to be used across the Treble boundary) then you can also remove the entry in private/compat/30.0/30.0.ignore.cil.",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 71
+      },
+      "revId": "442f7ffe9b90f5f64e0a89f49ae0aa9d34c1b2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f79957c_9f982ace",
+        "filename": "public/service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-05T18:25:16Z",
+      "side": 1,
+      "message": "Just to confirm... This service lives in system_server?",
+      "range": {
+        "startLine": 204,
+        "startChar": 27,
+        "endLine": 204,
+        "endChar": 48
+      },
+      "revId": "442f7ffe9b90f5f64e0a89f49ae0aa9d34c1b2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
