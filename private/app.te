@@ -41,3 +41,6 @@ neverallow { appdomain -mediaprovider_app } storage_config_prop:file no_rw_file_
 
 # Allow to read graphics related properties.
 get_prop(appdomain, graphics_config_prop)
+
+# Allow APFE device info to read Virtual A/B props.
+get_prop(appdomain, virtual_ab_prop)
