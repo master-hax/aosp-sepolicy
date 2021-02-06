@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7c096a5_cf82bacd",
+        "filename": "public/attributes",
+        "patchSetId": 5
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-06T00:36:27Z",
+      "side": 1,
+      "message": "yeah - I suppose this turns out to be the the less-needed attribute, given AIDL conversion, and there isn\u0027t really a precedent for the client.\n\nIt\u0027s a bit confusing that we mix \u0027hal_\u0027 prefix with \u0027fwk_\u0027, but I see bufferhub already does this.",
+      "range": {
+        "startLine": 369,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 41
+      },
+      "revId": "b2ff3017baaed9f040297929f7bec2653f28b514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6e0254f_0b7ba114",
+        "filename": "public/fwk_stats_service.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-06T00:36:27Z",
+      "side": 1,
+      "message": "delete comment, also this file should be called \u0027hal_stats.te\u0027 for consistency",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 26
+      },
+      "revId": "b2ff3017baaed9f040297929f7bec2653f28b514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c114475_dfdc21f0",
+        "filename": "public/fwk_stats_service.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-06T00:36:27Z",
+      "side": 1,
+      "message": "and this should be:\n    hal_attribute_service(hal_stats, fwk_stats_service)\n\nThen clients should use hal_server_domain and hal_client_domain to attach themselves to this attribute (the effect of all of this is putting a few neverallow rules in place which make sure all these types are used as they should be).\n\nYou might also add a comment here:\n     # The corresponding HIDL service is not attached to this for historical\n     # reasons.\n     # hal_attribute_hwservice(hal_stats, fwk_stats_hwservice)\n\n(if you want to do the work to associate the HIDL service with the attribute, it might be best to do cleanup after this change)",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 62
+      },
+      "revId": "b2ff3017baaed9f040297929f7bec2653f28b514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
