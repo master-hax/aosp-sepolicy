@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3cbfe4a0_e8078136",
+        "filename": "public/fwk_stats_service.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1827146
+      },
+      "writtenOn": "2021-02-06T01:57:30Z",
+      "side": 1,
+      "message": "the hal_attribute_service leads to the errors\nsystem/sepolicy/public/hal_stats.te (or line 20376 of policy.conf) violated by allow incidentd fwk_stats_service:service_manager { find };\nsystem/sepolicy/public/hal_stats.te (or line 20376 of policy.conf) violated by allow system_server fwk_stats_service:service_manager { find };\nsystem/sepolicy/public/hal_stats.te (or line 20342 of policy.conf) violated by allow system_server fwk_stats_service:service_manager { add };\n\nThe find permission could be fixed by:\nhal_client_domain(incidentd, hal_stats)\nhal_client_domain(system_server, hal_stats)\n\nHowever could not find what should be added to enable add permission for the system_server",
+      "parentUuid": "d6e0254f_0b7ba114",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 26
+      },
+      "revId": "b2ff3017baaed9f040297929f7bec2653f28b514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c114475_dfdc21f0",
         "filename": "public/fwk_stats_service.te",
         "patchSetId": 5
@@ -84,6 +108,30 @@
       "writtenOn": "2021-02-06T00:36:27Z",
       "side": 1,
       "message": "and this should be:\n    hal_attribute_service(hal_stats, fwk_stats_service)\n\nThen clients should use hal_server_domain and hal_client_domain to attach themselves to this attribute (the effect of all of this is putting a few neverallow rules in place which make sure all these types are used as they should be).\n\nYou might also add a comment here:\n     # The corresponding HIDL service is not attached to this for historical\n     # reasons.\n     # hal_attribute_hwservice(hal_stats, fwk_stats_hwservice)\n\n(if you want to do the work to associate the HIDL service with the attribute, it might be best to do cleanup after this change)",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 62
+      },
+      "revId": "b2ff3017baaed9f040297929f7bec2653f28b514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bf0270f_5a7d3c7c",
+        "filename": "public/fwk_stats_service.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1827146
+      },
+      "writtenOn": "2021-02-06T01:57:30Z",
+      "side": 1,
+      "message": "I think we can perform the corresponding sepolicies clean up during HIDL deprecation - when all current clients would be migrated to the AIDL version",
+      "parentUuid": "9c114475_dfdc21f0",
       "range": {
         "startLine": 4,
         "startChar": 0,
