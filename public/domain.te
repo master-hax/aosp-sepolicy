@@ -403,13 +403,12 @@ neverallow * kernel:security setbool;
 # that could be set from init.rc.
 neverallow { domain -init } kernel:security setsecparam;
 
-# Only init, ueventd, shell and system_server should be able to access HW RNG
+# Only ueventd and shell (for testing) should be able to access HW RNG
 neverallow {
   domain
-  -init
+  -init # TODO: why do i get a build error if i remove this?
   -shell # For CTS and is restricted to getattr in shell.te
-  -system_server
-  -ueventd
+  -ueventd # To set permissions only
 } hw_random_device:chr_file *;
 # b/78174219 b/64114943
 neverallow {
