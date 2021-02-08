@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24df12ff_bef8fad9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-08T11:54:37Z",
+      "side": 1,
+      "message": "Is this a new file i.e. it did not exist on existing devices? If so, I would recommend creating it in private/file.te and avoiding having to map it in the compat/* files altogether.",
+      "revId": "bddb073fdb208ff3d42042b95cbbf10e36ae5386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23f3601d_8d49bbed",
+        "filename": "private/compat/30.0/30.0.cil",
+        "patchSetId": 2
+      },
+      "lineNbr": 2020,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-08T11:54:37Z",
+      "side": 1,
+      "message": "This isn\u0027t correct. You\u0027re supposed to map this type to what it was previously labeled as which will prevent old vendor images from breaking if they attempt to access it. See for example:\nhttps://android-review.googlesource.com/c/platform/system/sepolicy/+/1572220/2/private/compat/30.0/30.0.cil#1301\n\nI think you would need to map this to debugfs_tracing_30.",
+      "range": {
+        "startLine": 2020,
+        "startChar": 0,
+        "endLine": 2020,
+        "endChar": 83
+      },
+      "revId": "bddb073fdb208ff3d42042b95cbbf10e36ae5386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "406d0f08_ce24f509",
+        "filename": "private/compat/30.0/30.0.ignore.cil",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-08T11:54:37Z",
+      "side": 1,
+      "message": "You should not be including this in both 30.0.cil and 30.0.ignore.cil.",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 32
+      },
+      "revId": "bddb073fdb208ff3d42042b95cbbf10e36ae5386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
