@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a61a70a_9985daea",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 1377,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-09T20:51:06Z",
+      "side": 1,
+      "message": "Aha! this is where to add it. I was trying to find the right place.\n\nCould we have something like this:\n\n    local_flags :\u003d ...\n    # disable dontaudits (comment out to disable)\n    # local_flags +\u003d -D\n    ...\n    ... $local_flags\n    ...\n    local_flags :\u003d\n\nThen I think anyone could find it if they are running into a problem like this.",
+      "range": {
+        "startLine": 1377,
+        "startChar": 0,
+        "endLine": 1377,
+        "endChar": 101
+      },
+      "revId": "b82030e4d04f8c35f7bc7ef6881baa1eb512091c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
