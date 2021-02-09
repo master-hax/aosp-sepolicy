@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1a9395a_ac98cac6",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-09T18:01:44Z",
+      "side": 1,
+      "message": "if i try to remove this line i get build-time errors about a conflict with a setattr rule, but the only filename/line number in the error message points here, and i can\u0027t find where the conflict is?",
+      "revId": "4e5e534336172aeadcf9107f87aa1702f83728cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79634176_656de952",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-09T18:01:44Z",
+      "side": 1,
+      "message": "supplementary question: i\u0027m going to change the ueventd.rc file to say root:root and set the permissions to 0000, but one obvious alternative is to just delete this line and delete the ueventd.rc line? the trade off being that the kernel default is root:root 0600 but then fewer domains have any ability to do anything. let me know which you think makes more sense...",
+      "revId": "4e5e534336172aeadcf9107f87aa1702f83728cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
