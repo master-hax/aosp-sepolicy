@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e2d2bb6_99f0ba8f",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-09T18:07:25Z",
+      "side": 1,
+      "message": "I think you\u0027re hitting this line:\nhttps://cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/init.te;l\u003d324?q\u003dinit%20setattr%20dev_type%20chr_file\u0026ss\u003dandroid%2Fplatform%2Fsuperproject:system%2Fsepolicy%2F\n\nYou could add a -hw_random_device there so that init can be removed here.",
+      "parentUuid": "b1a9395a_ac98cac6",
+      "revId": "4e5e534336172aeadcf9107f87aa1702f83728cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "79634176_656de952",
         "filename": "public/domain.te",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2021-02-09T18:01:44Z",
       "side": 1,
       "message": "supplementary question: i\u0027m going to change the ueventd.rc file to say root:root and set the permissions to 0000, but one obvious alternative is to just delete this line and delete the ueventd.rc line? the trade off being that the kernel default is root:root 0600 but then fewer domains have any ability to do anything. let me know which you think makes more sense...",
+      "revId": "4e5e534336172aeadcf9107f87aa1702f83728cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c53d619_e8aff97f",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-09T18:07:25Z",
+      "side": 1,
+      "message": "Let\u0027s just leave the kernel defaults. It\u0027s pretty well locked down in selinux policy.",
+      "parentUuid": "79634176_656de952",
       "revId": "4e5e534336172aeadcf9107f87aa1702f83728cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
