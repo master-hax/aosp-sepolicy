@@ -1374,7 +1374,7 @@ $(LOCAL_BUILT_MODULE): PRIVATE_CIL_FILES := $(all_cil_files)
 # Neverallow checks are skipped in a mixed build target.
 $(LOCAL_BUILT_MODULE): PRIVATE_NEVERALLOW_ARG := $(if $(filter $(PLATFORM_SEPOLICY_VERSION),$(BOARD_SEPOLICY_VERS)),$(NEVERALLOW_ARG),-N)
 $(LOCAL_BUILT_MODULE): $(HOST_OUT_EXECUTABLES)/secilc $(all_cil_files) $(built_sepolicy_neverallows)
-	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -m -M true -G -c $(POLICYVERS) $(PRIVATE_NEVERALLOW_ARG) \
+	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -D -m -M true -G -c $(POLICYVERS) $(PRIVATE_NEVERALLOW_ARG) \
 		$(PRIVATE_CIL_FILES) -o $@ -f /dev/null
 
 built_precompiled_sepolicy := $(LOCAL_BUILT_MODULE)
