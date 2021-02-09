@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c7cd4f5_b5bfc98a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-09T18:03:11Z",
+      "side": 1,
+      "message": "specifically, here\u0027s the build error if i remove the line marked TODO too:\n```\nFAILED: out/target/product/vsoc_x86_64/obj/FAKE/sepolicy_neverallows_intermediates/sepolicy_neverallows\n/bin/bash -c \"(ASAN_OPTIONS\u003ddetect_leaks\u003d0 out/host/linux-x86/bin/checkpolicy -M -c \t\t30 -o out/target/product/vsoc_x86_64/obj/FAKE/sepolicy_neverallows_intermediates/sepolicy_neverallows.tmp out/target/product/vsoc_x86_64/obj/FAKE/sepolicy_neverallows_intermediates/policy.conf ) \u0026\u0026 (out/host/linux-x86/bin/sepolicy-analyze out/target/product/vsoc_x86_64/obj/FAKE/sepolicy_neverallows_intermediates/sepolicy_neverallows.tmp neverallow -w -f out/target/product/vsoc_x86_64/obj/FAKE/sepolicy_neverallows_intermediates/policy_2.conf || \t  ( echo \\\"\\\" 1\u003e\u00262; \t    echo \\\"sepolicy-analyze failed. This is most likely due to the use\\\" 1\u003e\u00262; \t    echo \\\"of an expanded attribute in a neverallow assertion. Please fix\\\" 1\u003e\u00262; \t    echo \\\"the policy.\\\" 1\u003e\u00262; \t    exit 1 ) ) \u0026\u0026 (touch out/target/product/vsoc_x86_64/obj/FAKE/sepolicy_neverallows_intermediates/sepolicy_neverallows.tmp ) \u0026\u0026 (mv out/target/product/vsoc_x86_64/obj/FAKE/sepolicy_neverallows_intermediates/sepolicy_neverallows.tmp out/target/product/vsoc_x86_64/obj/FAKE/sepolicy_neverallows_intermediates/sepolicy_neverallows )\"\nlibsepol.report_failure: neverallow on line 411 of system/sepolicy/public/domain.te (or line 11924 of policy.conf) violated by allow init hw_random_device:chr_file { setattr };\nlibsepol.check_assertions: 1 neverallow failures occurred\n```",
+      "revId": "4e5e534336172aeadcf9107f87aa1702f83728cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1a9395a_ac98cac6",
