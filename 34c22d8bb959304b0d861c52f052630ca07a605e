@@ -22,6 +22,30 @@
       },
       "revId": "34c22d8bb959304b0d861c52f052630ca07a605e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a3619fd_e8a23620",
+        "filename": "public/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-09T18:56:11Z",
+      "side": 1,
+      "message": "yes, but i have to fix ueventd and CTS before i can do that, and i thought i\u0027d get this much in first?\n\nup to you though... i can go away and do those and then come back. that might help ensure we don\u0027t forget this, so i\u0027ll -1 myself and do it that way round :-)\n\n\n-*-\n\nthere might be a catch-22 though because of L112-L136 here:\n\nhttps://source.corp.google.com/android/cts/hostsidetests/security/src/android/security/cts/FileSystemPermissionTest.java;l\u003d112?q\u003dhw_random%20file:cts\u0026sq\u003dpackage:%5Eandroid$\n\nsince i\u0027m assuming we\u0027ll want to replace that with a \"nobody but shell [for this test] has any sepolicy abilities here\"?\n\n-*-\n\nthe other alternative here (which tomcherry didn\u0027t like the sound of, for one user) would be to add the functionality to ueventd to say \"unlink this device\". then we could have CTS say \"there is no such file\", delete the rest of the CTS test, and presumably remove all the sepolicy mentions of it completely?",
+      "parentUuid": "1d7095e3_771f8b39",
+      "range": {
+        "startLine": 410,
+        "startChar": 0,
+        "endLine": 410,
+        "endChar": 36
+      },
+      "revId": "34c22d8bb959304b0d861c52f052630ca07a605e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
