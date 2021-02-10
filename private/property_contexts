@@ -1127,3 +1127,6 @@ ro.soc.model        u:object_r:soc_prop:s0 exact string
 # set to true when running rollback tests to disable fallback-to-copy when enabling rollbacks
 # to detect failures where hard linking should work otherwise
 persist.rollback.is_test u:object_r:rollback_test_prop:s0 exact bool
+
+#Power related properties
+ro.power.fixed_performance_scale_factor u:object_r:exported_default_prop:s0 exact int
