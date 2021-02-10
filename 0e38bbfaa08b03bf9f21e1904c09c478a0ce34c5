@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c8c99597_86e8dff4",
+        "filename": "private/system_server.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1827146
+      },
+      "writtenOn": "2021-02-10T18:57:51Z",
+      "side": 1,
+      "message": "As outcome of an offline discussion with Steven decided to try below approach to unblock my original task:\n- still create the fwk_stats_service\n- add an add_service line like this:\nhttp://cs/android/system/sepolicy/public/stats_service_server.te?l\u003d1\u0026rcl\u003de1040dfac98c086f7bcdb15954f485e1ce4dc2ca\n- allow clients to talk to stats_service_server (not to talk to system_server specifically)",
+      "parentUuid": "2df89bc7_204256ae",
+      "range": {
+        "startLine": 12,
+        "startChar": 28,
+        "endLine": 12,
+        "endChar": 44
+      },
+      "revId": "0e38bbfaa08b03bf9f21e1904c09c478a0ce34c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc88e843_0c8f7018",
         "filename": "public/attributes",
         "patchSetId": 9
