@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "574fdcc7_83221f68",
+        "filename": "private/system_server.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-10T07:58:57Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we just be using the existing stats_service_server (from above)?\n\nWould we ever grant access to stats_service_server but not to hal_stats_server?",
+      "range": {
+        "startLine": 12,
+        "startChar": 28,
+        "endLine": 12,
+        "endChar": 44
+      },
+      "revId": "0e38bbfaa08b03bf9f21e1904c09c478a0ce34c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc88e843_0c8f7018",
+        "filename": "public/attributes",
+        "patchSetId": 9
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-10T07:58:57Z",
+      "side": 1,
+      "message": "for consistency reasons, should this be treated like the attributes below (line 374) or should we instead move those to use the hal_attribute() macro?",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 21
+      },
+      "revId": "0e38bbfaa08b03bf9f21e1904c09c478a0ce34c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
