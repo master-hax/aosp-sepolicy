@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a370a9c_3fe26e79",
+        "filename": "private/system_server.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1827146
+      },
+      "writtenOn": "2021-02-10T17:16:57Z",
+      "side": 1,
+      "message": "These are two different services - stats_service_server based on HIDL implementation and the hal_stats_server based on the AIDL implementation. They need to have two different set of policies - due to difference in their behavior (HIDL does not need ServiceManager allow rules, and AIDL does not need HWServiceManger allow rules)",
+      "parentUuid": "574fdcc7_83221f68",
+      "range": {
+        "startLine": 12,
+        "startChar": 28,
+        "endLine": 12,
+        "endChar": 44
+      },
+      "revId": "0e38bbfaa08b03bf9f21e1904c09c478a0ce34c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc88e843_0c8f7018",
         "filename": "public/attributes",
         "patchSetId": 9
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-10T07:58:57Z",
       "side": 1,
       "message": "for consistency reasons, should this be treated like the attributes below (line 374) or should we instead move those to use the hal_attribute() macro?",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 21
+      },
+      "revId": "0e38bbfaa08b03bf9f21e1904c09c478a0ce34c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c92cce1_7f42f439",
+        "filename": "public/attributes",
+        "patchSetId": 9
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1827146
+      },
+      "writtenOn": "2021-02-10T17:16:57Z",
+      "side": 1,
+      "message": "hal_attribute(stats) defines client domain - hal_stats_client, to which we attach appropriate set of permissions (https://r.android.com/c/platform/system/sepolicy/+/1570880/9/public/hal_stats.te#1). and then all clients are added to this domain. It could be done for the HIDL implementation as well. On the other hand the HIDL service is going to be marked as deprecated - which suggests lower priority in comparison to AIDL for the refactoring its sepolicies. The aspects of historical reasons for current HIDL sepolicies definition would be addressed at b/179814542",
+      "parentUuid": "cc88e843_0c8f7018",
       "range": {
         "startLine": 350,
         "startChar": 0,
