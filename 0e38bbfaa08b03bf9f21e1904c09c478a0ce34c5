@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2df89bc7_204256ae",
+        "filename": "private/system_server.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-10T18:33:17Z",
+      "side": 1,
+      "message": "I missed this, talking offline, but:\n\nso there are two options here:\n1. factor \u0027hal_\u0027 out of all of those macros, so that we also have \u0027stats_service_client\u0027 and can re-use this attribute\n2. re-use the server attribute and forget about hal_client_domain\n\nIf Vova decides to do (2), I\u0027ll file a bug to do (1).",
+      "parentUuid": "ff5ea64b_e998412c",
+      "range": {
+        "startLine": 12,
+        "startChar": 28,
+        "endLine": 12,
+        "endChar": 44
+      },
+      "revId": "0e38bbfaa08b03bf9f21e1904c09c478a0ce34c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc88e843_0c8f7018",
         "filename": "public/attributes",
         "patchSetId": 9
