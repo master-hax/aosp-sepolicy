@@ -105,6 +105,9 @@ allow shell profcollectd_exec:file rx_file_perms;
 allow shell self:perf_event { open read write kernel };
 neverallow shell self:perf_event ~{ open read write kernel };
 
+# Allow shell to start the drop caches service.
+allow shell ctl_drop_caches_prop:property_service set;
+
 # Set properties.
 set_prop(shell, shell_prop)
 set_prop(shell, ctl_bugreport_prop)
