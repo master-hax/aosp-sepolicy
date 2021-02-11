@@ -1,0 +1,5 @@
+type drop_caches, domain;
+typeattribute drop_caches coredomain;
+
+allow drop_caches toolbox_exec:file rx_file_perms;
+allow drop_caches proc_drop_caches:file write;
