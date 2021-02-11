@@ -175,6 +175,9 @@ ctl.start$snapuserd     u:object_r:ctl_snapuserd_prop:s0
 ctl.stop$snapuserd      u:object_r:ctl_snapuserd_prop:s0
 ctl.restart$snapuserd   u:object_r:ctl_snapuserd_prop:s0
 
+# Restrict access to starting drop_caches.
+ctl.start$drop_caches   u:object_r:ctl_drop_caches_prop:s0
+
 # NFC properties
 nfc.                    u:object_r:nfc_prop:s0
 
