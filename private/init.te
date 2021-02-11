@@ -19,6 +19,7 @@ recovery_only(`
 ')
 domain_trans(init, shell_exec, shell)
 domain_trans(init, init_exec, ueventd)
+domain_trans(init, init_exec, drop_caches)
 domain_trans(init, init_exec, vendor_init)
 domain_trans(init, { rootfs toolbox_exec }, modprobe)
 userdebug_or_eng(`
@@ -36,6 +37,9 @@ userdebug_or_eng(`
 # since it potentially requires tearing down dm-devices (e.g. dm-bow, dm-crypto)
 # that userdata is mounted onto.
 allow init sysfs_dm:file read;
+
+# Allow init to write to the drop_caches file.
+allow init proc_drop_caches:file w_file_perms;
 
 # Allow the BoringSSL self test to request a reboot upon failure
 set_prop(init, powerctl_prop)
