@@ -111,6 +111,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4097d729_3b74109e",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-11T08:56:07Z",
+      "side": 1,
+      "message": "Please keep it as { domain -init -vendor_init }. Only processes can perform these actions, there\u0027s no reason to include non-processes. Running neverallow checks is rather time consuming, so this will cut down on test time during build and CTS.\n\nCan you do the same below too?",
+      "parentUuid": "0aecf95f_897313e8",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 12
+      },
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "40d3d00b_32ea5c20",
         "filename": "private/bpfloader.te",
         "patchSetId": 1
@@ -430,6 +454,30 @@
       "side": 1,
       "message": "Yes.",
       "parentUuid": "c7a5805f_2764370d",
+      "range": {
+        "startLine": 51,
+        "startChar": 11,
+        "endLine": 51,
+        "endChar": 13
+      },
+      "revId": "6e251b47abe608e86c73df89708c92744cd7fa6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efb7bdb3_bd275a5e",
+        "filename": "private/network_stack.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-11T08:56:07Z",
+      "side": 1,
+      "message": "Same here { domain -bpfloader... }",
+      "parentUuid": "5e32f8bb_ffa56ed9",
       "range": {
         "startLine": 51,
         "startChar": 11,
