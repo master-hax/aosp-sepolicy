@@ -192,6 +192,22 @@ neverallow {
   -installd
 } { privapp_data_file app_data_file }:dir_file_class_set { relabelfrom relabelto };
 
+# Profile files, which may contain private usage data, should only be accessed by
+# apps (only their own, enforced by DAC permissions) or the processes that manage
+# them.
+neverallow {
+  domain
+  -appdomain
+  -dex2oat
+  userdebug_or_eng(`-dumpstate')  
+  -init
+  -installd
+  -iorap_prefetcherd
+  -postinstall_dexopt
+  -profman
+  -system_server
+} user_profile_data_file:file no_rw_file_perms;
+
 # The staging directory contains APEX and APK files. It is important to ensure
 # that these files cannot be accessed by other domains to ensure that the files
 # do not change between system_server staging the files and apexd processing
