@@ -21,6 +21,9 @@ allowxperm hal_wifi_supplicant self:packet_socket ioctl { unpriv_sock_ioctls pri
 
 use_keystore(hal_wifi_supplicant)
 
+# To connect to KeyStore 2
+binder_use(hal_wifi_supplicant_server)
+
 # Allow the WI-FI HAL to use keys in the keystore namespace wifi_key.
 allow hal_wifi_supplicant wifi_key:keystore2_key {
     get_info
