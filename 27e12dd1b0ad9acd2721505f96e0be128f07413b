@@ -16,6 +16,24 @@
       "message": "looks like i misunderstood how this works --- ueventd gets a request from the kernel to create the file, but it does the creation:\n```\n03-15 21:15:57.216   626   626 I auditd  : type\u003d1400 audit(0.0:4): avc: denied { create } for comm\u003d\"ueventd\" name\u003d\"hw_random\" scontext\u003du:r:ueventd:s0 tcontext\u003du:object_r:hw_random_device:s0 tclass\u003dchr_file permissive\u003d0\n```\n\nshould i revert this part of the change so ueventd has power over all dev_type:chr_files, or should i separate out hw_random_device and give it just create?",
       "revId": "27e12dd1b0ad9acd2721505f96e0be128f07413b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ba28829_751bccbc",
+        "filename": "public/ueventd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-12T07:45:24Z",
+      "side": 1,
+      "message": "revert sgtm.",
+      "parentUuid": "5cfe5c13_8c6ba2d9",
+      "revId": "27e12dd1b0ad9acd2721505f96e0be128f07413b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
