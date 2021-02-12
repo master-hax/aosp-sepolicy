@@ -16,6 +16,29 @@
       "message": "Done, thanks, PTAL!",
       "revId": "0fef3d077e04f1d314cb2c1ca0c67a17971105e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ec0c44d_01a0a071",
+        "filename": "public/hal_wifi_supplicant.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-12T23:16:03Z",
+      "side": 1,
+      "message": "hmmm, I suppose this is diverging because of b/179907868. fwk_stats_service is an AIDL example of how these (HAL/HIDL/stable AIDL) services are exposed to vendor. L22 should probably include this (it should be safe that we give the permission for vendor as well as system to access non-stable-AIDL services, since it would fail the stability checks in the bug, but without the bug, it\u0027s broken).",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 38
+      },
+      "revId": "0fef3d077e04f1d314cb2c1ca0c67a17971105e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
