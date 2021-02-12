@@ -889,7 +889,8 @@ allowxperm system_server frp_block_device:blk_file ioctl { BLKSECDISCARD BLKDISC
 
 # Clean up old cgroups
 allow system_server cgroup:dir { remove_name rmdir };
-allow system_server cgroup_v2:dir { remove_name rmdir };
+allow system_server cgroup_v2:dir { create_dir_perms remove_name rmdir };
+allow system_server cgroup_v2:file { r_file_perms setattr };
 
 # /oem access
 r_dir_file(system_server, oemfs)
