@@ -22,6 +22,30 @@
       },
       "revId": "d392add75b50fddac155d24400d14388e8578e5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "932a128f_a6d7ee9f",
+        "filename": "private/file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1439319
+      },
+      "writtenOn": "2021-02-15T10:42:15Z",
+      "side": 1,
+      "message": "This directory will be jointly owned by update_engine and apexd. The idea is when there is an OTA:\n\n1. update_engine will download metadata and notice that there is compressed APEX inside OTA.\n2. It will reserve appropriate amount of space on /data by writing a file at this directory.\n3. The actual OTA is then downloaded and device rebooted to apply it.\n4. During boot, apexd will remove the reserved file to open up space in /data and decompress new compressed APEX in the freed up space.\n\nSince apexd will be acting on this directory more often (in future we will have apexd decompress before reboot for AB OTA using post install script and we will reuse /data/apex/reserverd directory for that use case too), we thought it will ideal to place it inside /data/apex/.\n\n@kelvin Seems like this block instructions all belong to /data/misc. Let\u0027s move this line to somewhere near Line#521 along with other /data/apex instructions?",
+      "parentUuid": "0c6b5636_6a08f61e",
+      "range": {
+        "startLine": 621,
+        "startChar": 0,
+        "endLine": 621,
+        "endChar": 11
+      },
+      "revId": "d392add75b50fddac155d24400d14388e8578e5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
