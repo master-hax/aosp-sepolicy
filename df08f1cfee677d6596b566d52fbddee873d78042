@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90dead32_2577b2fc",
+        "filename": "vendor/untrusted_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-16T19:10:47Z",
+      "side": 1,
+      "message": "sorry - we should also move this to public/app.te, next to some other lines like this:\n\n    # Allow AAudio apps to use shared memory file descriptors from the HAL\n    allow { appdomain -isolated_app } hal_audio:fd use;\n\nOtherwise lgtm",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 59
+      },
+      "revId": "df08f1cfee677d6596b566d52fbddee873d78042",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
