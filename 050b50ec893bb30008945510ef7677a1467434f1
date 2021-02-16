@@ -16,6 +16,98 @@
       "message": "Could any one please help review this sepolicy change today? It\u0027s a blocker of a feature targeting IC 21.02(tomorrow). Thank you!",
       "revId": "050b50ec893bb30008945510ef7677a1467434f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99647127_bf2dd93c",
+        "filename": "vendor/untrusted_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-16T18:35:50Z",
+      "side": 1,
+      "message": "it sounds like from the commit message, this should be from any app. Maybe remove the comment or modify it to say \u0027users of the Tuner SDK\u0027",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 53
+      },
+      "revId": "050b50ec893bb30008945510ef7677a1467434f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e76c395_61194ba7",
+        "filename": "vendor/untrusted_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-16T18:35:50Z",
+      "side": 1,
+      "message": "we\u0027ll want to use \u0027hal_tv_tuner_server\u0027 so that it works for any HAL implementation",
+      "range": {
+        "startLine": 2,
+        "startChar": 20,
+        "endLine": 2,
+        "endChar": 40
+      },
+      "revId": "050b50ec893bb30008945510ef7677a1467434f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "480c887f_0626cde8",
+        "filename": "vendor/untrusted_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-16T18:35:50Z",
+      "side": 1,
+      "message": "can you share details about the FD being shared (or if this is copied from HIDL policy, where that rule is now) - specifically will the same FD be given to multiple apps? what is the FD used for?",
+      "range": {
+        "startLine": 2,
+        "startChar": 41,
+        "endLine": 2,
+        "endChar": 43
+      },
+      "revId": "050b50ec893bb30008945510ef7677a1467434f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "437ed2d8_11b779d8",
+        "filename": "vendor/untrusted_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-16T18:35:50Z",
+      "side": 1,
+      "message": "I think this should be `{appdomain -isolated_app}` or otherwise, certain types of apps would be unnecessarily restricted",
+      "range": {
+        "startLine": 2,
+        "startChar": 6,
+        "endLine": 2,
+        "endChar": 19
+      },
+      "revId": "050b50ec893bb30008945510ef7677a1467434f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
