@@ -16,6 +16,24 @@
       "message": "Is there a more specific bug that explains the context for this? The relationship to reboot readiness isn\u0027t immediately obvious.\nAlso, can you point me at the corresponding code changes that make use of this?\n(Especially the vold changes, which should also be in aosp \u0026 I\u0027d have expected to be in the same topic)",
       "revId": "cd3bb575ab1164d1e3df43472706a8141688046a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "870af1c2_53bf9c16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448822
+      },
+      "writtenOn": "2021-02-17T16:46:13Z",
+      "side": 1,
+      "message": "We don\u0027t have a more specific bug for this. The reboot readiness logic lives within the new device scheduling module. These changes are being made to allow the scheduling module to write to its own system DE data directory. \n\nSee go/apex-data-directories (in the \"design details\" section) for more information. The apexd and vold changes in this CL are required to allow the apex data directory to be rolled back.",
+      "parentUuid": "0ca035e3_90076eab",
+      "revId": "cd3bb575ab1164d1e3df43472706a8141688046a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
