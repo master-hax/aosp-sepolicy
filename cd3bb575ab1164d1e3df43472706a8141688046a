@@ -34,6 +34,47 @@
       "parentUuid": "0ca035e3_90076eab",
       "revId": "cd3bb575ab1164d1e3df43472706a8141688046a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42b883d4_57838bed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-02-17T17:08:39Z",
+      "side": 1,
+      "message": "Hmm, so this is needed to support the existing code in eg prepare_apex_subdirs() for this new label?",
+      "parentUuid": "870af1c2_53bf9c16",
+      "revId": "cd3bb575ab1164d1e3df43472706a8141688046a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0f930f2_67ed6ae4",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-02-17T17:08:39Z",
+      "side": 1,
+      "message": "If we\u0027re going to be introducing these various specific labels for directories under /data/misc/apexdata, and then have to make matching changes in each of these .te files, I wonder if it isn\u0027t time to refactor and introduce a common attribute for them?\n\nSomething like:\ntype apex_scheduling_data_file, file_type, data_file_type, core_data_file_type, apex_module_data_file_type;\n\n(Also, and related, there\u0027s enough of these now that maybe they should be separated out under their own comment.)\n\nI don\u0027t think either needs to block this CL, but they would make improve readability \u0026 maintainability.",
+      "range": {
+        "startLine": 384,
+        "startChar": 5,
+        "endLine": 384,
+        "endChar": 30
+      },
+      "revId": "cd3bb575ab1164d1e3df43472706a8141688046a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
