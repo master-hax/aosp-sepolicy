@@ -18,6 +18,11 @@ r_dir_file(system_suspend, sysfs_wakeup_reasons)
 # To resolve arbitrary sysfs paths from /sys/class/wakeup/* symlinks.
 allow system_suspend sysfs_type:dir search;
 
+# To allow syste_suspend to read those sysfs nodes (/sys/bus/i2c/devices/*/name)
+allow system_suspend sysfs_i2cdevname:file open;
+allow system_suspend sysfs_i2cdevname:file read;
+allow system_suspend sysfs_i2cdevname:file getattr;
+
 # Access to suspend_hal system properties
 get_prop(system_suspend, suspend_prop)
 
