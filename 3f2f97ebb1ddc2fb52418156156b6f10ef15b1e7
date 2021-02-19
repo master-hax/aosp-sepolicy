@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12d1be14_c30fd6e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-19T19:48:05Z",
+      "side": 1,
+      "message": "a",
+      "revId": "3f2f97ebb1ddc2fb52418156156b6f10ef15b1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f545e16c_c20b20bc",
@@ -156,6 +173,30 @@
       "side": 1,
       "message": "I see the log in the kernel logs of two of the failing presubmit tests:\nasit/ota/incremental_from_ab on aosp_cf_x86_64_phone-userdebug on aosp-master\nasit/ota/incremental_with_resume on aosp_cf_x86_64_phone-userdebug on aosp-master\nUnder the \"Artifacts\" tab. Example: kernel_1718120716085863378.log_2445566214896233791.txt\n\nI haven\u0027t figured out how to run these atp tests locally. Any tips for where to start? I can make the other changes you suggested, upload, and use forrest to just run one of those tests.",
       "parentUuid": "5727d419_913c75f8",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 60
+      },
+      "revId": "3f2f97ebb1ddc2fb52418156156b6f10ef15b1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f997ffa_ef6870db",
+        "filename": "vendor/hal_bootctl_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-19T19:48:05Z",
+      "side": 1,
+      "message": "The config files for this are a tangled mess! (look for acpt .gcl for these internally) but 5 links in, I believe they point to AndroidTest.xml for ab-incremental-base-new which you should in theory be able to run w/ atest (???).\n\nI would:\n- try using this/figure out update-url parameter\n- file engprod/samccone@ bug to include local repro command on these ACPT links (we don\u0027t have this \u003d constant problem)\n- ask elsk@ how to do an OTA locally, download the OTA image, and forget this hullabaloo\n\nPlease don\u0027t skip FR tho :D",
+      "parentUuid": "23f9929f_b27ce079",
       "range": {
         "startLine": 10,
         "startChar": 0,
