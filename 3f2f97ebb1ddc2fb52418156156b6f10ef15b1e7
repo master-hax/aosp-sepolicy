@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f545e16c_c20b20bc",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-19T19:03:14Z",
+      "side": 1,
+      "message": "don\u0027t break alphabetical order (unless it is causing a merge conflict, is it?), same elsewhere",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 55
+      },
+      "revId": "3f2f97ebb1ddc2fb52418156156b6f10ef15b1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a0489a1_7fdcb100",
+        "filename": "public/vold.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-19T19:03:14Z",
+      "side": 1,
+      "message": "this CL is a great example of how this bug could be fixed :D",
+      "range": {
+        "startLine": 25,
+        "startChar": 7,
+        "endLine": 25,
+        "endChar": 65
+      },
+      "revId": "3f2f97ebb1ddc2fb52418156156b6f10ef15b1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "09a0064b_8e7840b9",
         "filename": "vendor/hal_bootctl_default.te",
         "patchSetId": 2
@@ -38,6 +84,30 @@
       "side": 1,
       "message": "I guess it might just be on the ota tests. Does the vendor_boot_hal need something special to handle ota updates?",
       "parentUuid": "09a0064b_8e7840b9",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 60
+      },
+      "revId": "3f2f97ebb1ddc2fb52418156156b6f10ef15b1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f63ab0aa_c7ce87e6",
+        "filename": "vendor/hal_bootctl_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-19T19:03:14Z",
+      "side": 1,
+      "message": "Vendor images are prebuilts on AOSP. Either land this internally (branch???) and contact byi@ to get them updated (overkill???), or switch this to be in public/ sepolicy and apply it to hal_bootctl_server instead (I think that should do it).\n\nprobably not this case: Consider making yourself root (for dmesg in logcat, or just view dmesg), http://aosp/1580706, or adjusting rate limiting `auditctl -r 1000` to show more denials.",
+      "parentUuid": "54c104e0_12cc65b2",
       "range": {
         "startLine": 10,
         "startChar": 0,
