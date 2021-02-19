@@ -17,6 +17,16 @@ r_dir_file(system_suspend, sysfs_wakeup_reasons)
 # To resolve arbitrary sysfs paths from /sys/class/wakeup/* symlinks.
 allow system_suspend sysfs_type:dir search;
 
+# To allow system_suspend to read those sysfs nodes (/sys/bus/i2c/devices/*/name)
+allow system_suspend sysfs_i2cdevname_type:file {open read getattr};
+
+# To allow system_suspend to check access using selinux_check_access()
+allow system_suspend selinuxfs:file rw_file_perms;
+allow system_suspend selinuxfs:dir r_dir_perms;
+allow system_suspend kernel:security compute_av;
+allow system_suspend self:netlink_selinux_socket create;
+allow system_suspend self:netlink_selinux_socket bind;
+
 # Access to suspend_hal system properties
 get_prop(system_suspend, suspend_prop)
 
