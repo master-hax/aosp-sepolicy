@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09a0064b_8e7840b9",
+        "filename": "vendor/hal_bootctl_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-02-19T16:31:57Z",
+      "side": 1,
+      "message": "I\u0027m still getting some selinux permission problems with this, so it looks like I\u0027m missing something. I\u0027m not able to see any of these messages booting my local builds.\n\n```\n[   15.202054] type\u003d1400 audit(1613693334.795:17): avc: denied { read } for comm\u003d\"android.hardwar\" name\u003d\"bootconfig\" dev\u003d\"proc\" ino\u003d4026532040 scontext\u003du:r:hal_bootctl_default:s0 tcontext\u003du:object_r:proc:s0 tclass\u003dfile permissive\u003d0\n```",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 60
+      },
+      "revId": "3f2f97ebb1ddc2fb52418156156b6f10ef15b1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
