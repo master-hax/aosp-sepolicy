@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1feefae_cd09979d",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-02-19T23:42:41Z",
+      "side": 1,
+      "message": "Not seeing a merge conflict. Done.",
+      "parentUuid": "f545e16c_c20b20bc",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 55
+      },
+      "revId": "3f2f97ebb1ddc2fb52418156156b6f10ef15b1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a0489a1_7fdcb100",
@@ -197,6 +221,30 @@
       "side": 1,
       "message": "The config files for this are a tangled mess! (look for acpt .gcl for these internally) but 5 links in, I believe they point to AndroidTest.xml for ab-incremental-base-new which you should in theory be able to run w/ atest (???).\n\nI would:\n- try using this/figure out update-url parameter\n- file engprod/samccone@ bug to include local repro command on these ACPT links (we don\u0027t have this \u003d constant problem)\n- ask elsk@ how to do an OTA locally, download the OTA image, and forget this hullabaloo\n\nPlease don\u0027t skip FR tho :D",
       "parentUuid": "23f9929f_b27ce079",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 60
+      },
+      "revId": "3f2f97ebb1ddc2fb52418156156b6f10ef15b1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44e36d6a_7c3db110",
+        "filename": "vendor/hal_bootctl_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-02-19T23:42:41Z",
+      "side": 1,
+      "message": "Filed the FR. b/180756731.\nDoing an OTA locally with update_device.py didn\u0027t cause any denials with patchset 2 after `auditctl -r 1000`. Maybe because I\u0027m not using the prebuilts locally.\nI\u0027m just running this single test in Forrest on the latest patchset.",
+      "parentUuid": "7f997ffa_ef6870db",
       "range": {
         "startLine": 10,
         "startChar": 0,
