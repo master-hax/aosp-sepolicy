@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9357cbb6_e546372c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-02-22T16:59:34Z",
+      "side": 1,
+      "message": "No longer seeing denials on the tests failing presubmit. But, 2/3 of the tests are still broken on ToT.\nP0 bugs for the broken tests. No progress as of this comment.\nhttps://b.corp.google.com/issues/180664488\nhttps://b.corp.google.com/issues/180664006\n\nThe other test on git_master looks like it might have been fixed this morning. I\u0027m rerunning it in Forrest.\n",
+      "revId": "70a31f501561ea091a1caaae742ba2e6c07e6456",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9010f9f6_203495c7",
@@ -14,6 +31,30 @@
       "writtenOn": "2021-02-22T05:09:32Z",
       "side": 1,
       "message": "Why does init need to setattr /proc/bootconfig? Could you let me know where in aosp/1580792 does that?",
+      "range": {
+        "startLine": 384,
+        "startChar": 0,
+        "endLine": 395,
+        "endChar": 15
+      },
+      "revId": "70a31f501561ea091a1caaae742ba2e6c07e6456",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17b01c45_9102f6a4",
+        "filename": "public/init.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-02-22T16:59:34Z",
+      "side": 1,
+      "message": "In first_stage_init.cpp we call chmod on the file.\nhttps://android-review.googlesource.com/c/platform/system/core/+/1580792/6/init/first_stage_init.cpp",
+      "parentUuid": "9010f9f6_203495c7",
       "range": {
         "startLine": 384,
         "startChar": 0,
