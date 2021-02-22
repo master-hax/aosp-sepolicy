@@ -120,6 +120,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "447aa443_f821affc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1855559
+      },
+      "writtenOn": "2021-02-22T20:55:30Z",
+      "side": 1,
+      "message": "I found out sysfs_vibrator \u0026 sysfs_wlc used by following modules:\n\nsysfs_vibrator:\n---------------------\n- dumpstate\n- system_server\n- hal_vibrator\n- init\n- crash_dump\n- lbs_dbg\n- aee_aedv\n- factory\n\nsysfs_wlc:\n---------------\n- pixelstats_vendor\n- hal_health_default\n- hal_wlc\n- hal_dumpstate_impl\n- hal_sensors_default\n\nI will go ahead and check any of these accessing /sys/bus/i2c/devices/*/name, then we can go ahead because then my changes won\u0027t stomp on any other modules.\n\nPlease correct if you think otherwise.",
+      "parentUuid": "06e397b1_959b60d6",
+      "range": {
+        "startLine": 13,
+        "startChar": 154,
+        "endLine": 13,
+        "endChar": 168
+      },
+      "revId": "524525ba7d8e1a82bf054715227f3e50feedcfb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9e8cff94_d45e7c07",
