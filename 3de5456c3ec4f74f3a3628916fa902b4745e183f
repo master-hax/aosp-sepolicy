@@ -16,6 +16,24 @@
       "message": "What exactly is this service and why do things need access to it?",
       "revId": "3de5456c3ec4f74f3a3628916fa902b4745e183f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b2839f5_4b948310",
+        "filename": "public/te_macros",
+        "patchSetId": 5
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-02-23T20:59:56Z",
+      "side": 1,
+      "message": "vpn used to use keystore\u0027s put/get api to store its profiles in keystore. Keystore 2.0 does not have this API, so we need an alternative service to make these profiles available to VPN. I was going to only give system_server access to the service but the VPN CTS test directly calls into this service which used to work because anyone can use keystore\u0027s the put/get API. The service implementation maintains individual namespaces per caller uid, so it is safe to allow basically any keystore user to use this API.",
+      "parentUuid": "c6a0880c_71a005a0",
+      "revId": "3de5456c3ec4f74f3a3628916fa902b4745e183f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
