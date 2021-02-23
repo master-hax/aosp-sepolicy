@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cd13d488_46dacc05",
+        "filename": "private/drop_caches.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1131148
+      },
+      "writtenOn": "2021-02-23T22:56:16Z",
+      "side": 1,
+      "message": "When I don\u0027t include this, I get the follow denial:\n\n```\nW init    : type\u003d1400 audit(0.0:87): avc: denied { entrypoint } for path\u003d\"/system/bin/toybox\" dev\u003d\"dm-5\" ino\u003d493 scontext\u003du:r:drop_caches:s0 tcontext\u003du:object_r:toolbox_exec:s0 tclass\u003dfile permissive\u003d0\n```\n\nThe userdebug build didn\u0027t get built with Forrest because of some outage, so I don\u0027t have access to logs in dmesg, but I\u0027ll make sure it does for this patch set.",
+      "parentUuid": "342970a7_297219be",
+      "range": {
+        "startLine": 4,
+        "startChar": 38,
+        "endLine": 4,
+        "endChar": 48
+      },
+      "revId": "00a217383524d769485291640abdfa6b80820c18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7193bb76_f79ac756",
         "filename": "private/init.te",
         "patchSetId": 7
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-23T21:31:06Z",
       "side": 1,
       "message": "and write",
+      "range": {
+        "startLine": 41,
+        "startChar": 16,
+        "endLine": 41,
+        "endChar": 20
+      },
+      "revId": "00a217383524d769485291640abdfa6b80820c18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "979a7f93_51808bef",
+        "filename": "private/init.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1131148
+      },
+      "writtenOn": "2021-02-23T22:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7193bb76_f79ac756",
       "range": {
         "startLine": 41,
         "startChar": 16,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2be5dd76_392f0eef",
+        "filename": "private/init.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1131148
+      },
+      "writtenOn": "2021-02-23T22:56:16Z",
+      "side": 1,
+      "message": "It doesn\u0027t need read, so I think w_file_perms will suffice. I didn\u0027t intentionally not grant those permissions; I just didn\u0027t grant them because they weren\u0027t needed. Is it preferable to use *_file_perms, even if not all permissions are necessary?",
+      "parentUuid": "0e609eb1_37a678ef",
+      "range": {
+        "startLine": 42,
+        "startChar": 33,
+        "endLine": 42,
+        "endChar": 47
+      },
+      "revId": "00a217383524d769485291640abdfa6b80820c18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "41777bb0_b13c9c89",
         "filename": "private/property.te",
         "patchSetId": 7
@@ -83,6 +155,24 @@
       "writtenOn": "2021-02-23T21:31:06Z",
       "side": 1,
       "message": "Nit: Alphabetize",
+      "revId": "00a217383524d769485291640abdfa6b80820c18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8560bf77_ea2c0d22",
+        "filename": "private/property.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1131148
+      },
+      "writtenOn": "2021-02-23T22:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41777bb0_b13c9c89",
       "revId": "00a217383524d769485291640abdfa6b80820c18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
