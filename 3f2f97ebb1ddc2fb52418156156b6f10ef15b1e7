@@ -301,6 +301,30 @@
       },
       "revId": "3f2f97ebb1ddc2fb52418156156b6f10ef15b1e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c894ad6_620b935e",
+        "filename": "vendor/hal_bootctl_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-02-23T20:17:32Z",
+      "side": 1,
+      "message": "I guess this test is downgrading the system image to an older version which removes the sepolicy changes.\nSounds like solutions would be:\n1) Submit the sepolicy changes by themselves, wait some number of days until the \u0027old\u0027 system image has the changes, then try and submit this topic.\n2) disable these tests for cuttlefish\nWorking with the test owners on choosing a solution.",
+      "parentUuid": "ae7acab7_df51b7d4",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 60
+      },
+      "revId": "3f2f97ebb1ddc2fb52418156156b6f10ef15b1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
