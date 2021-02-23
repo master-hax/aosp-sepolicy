@@ -1,0 +1,15 @@
+
+# Domain for derive_classpath
+type derive_classpath, domain, coredomain;
+type derive_classpath_exec, system_file_type, exec_type, file_type;
+init_daemon_domain(derive_classpath)
+
+# Read /apex
+# allow derive_classpath apex_mnt_dir:dir r_dir_perms;
+allow derive_classpath apex_module_data_file:dir r_dir_perms;
+allow derive_classpath apex_sdkext_data_file:dir r_dir_perms;
+allow derive_classpath apex_sdkext_data_file:file {create_file_perms rw_file_perms };
+
+allow derive_classpath system_data_file:dir r_dir_perms;
+allow derive_classpath classpath_file:dir r_dir_perms;
+allow derive_classpath classpath_file:file create_file_perms;
