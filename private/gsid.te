@@ -140,6 +140,7 @@ allow gsid system_server:binder call;
 neverallow {
     domain
     -init
+    -ueventd
     -gsid
     -fastbootd
     -recovery
