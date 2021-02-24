@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ccde9fc_2724ee3a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-24T08:09:41Z",
+      "side": 1,
+      "message": "What is a DSU?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 62
+      },
+      "revId": "cd45801c02df7c34453fede9826a43cf88ccad92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc4d6cfe_6f49a581",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-24T08:09:41Z",
+      "side": 1,
+      "message": "How does this change in any way add a sandbox? What\u0027s an \"emulated writable pdb service?\"",
+      "revId": "cd45801c02df7c34453fede9826a43cf88ccad92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "93d37322_f38b5155",
@@ -14,6 +54,23 @@
       "writtenOn": "2021-02-24T07:24:47Z",
       "side": 1,
       "message": "+ more experts to comment",
+      "revId": "cd45801c02df7c34453fede9826a43cf88ccad92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4661e685_73517157",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-24T08:09:41Z",
+      "side": 1,
+      "message": "I really do not understand the purpose of this change, but it raises a lot of red flags for me.\n\nIt\u0027s not at all obvious why this functionality lives in system_server. The only other processes which currently have permission to modify these files are init and gsid. Should it live there instead?",
       "revId": "cd45801c02df7c34453fede9826a43cf88ccad92",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -43,6 +100,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e1e23a96_03f091a9",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-24T08:09:41Z",
+      "side": 1,
+      "message": "Are you intentionally making this write-only? If so, probably best to leave it as-is.",
+      "parentUuid": "1252f804_9f92773a",
+      "range": {
+        "startLine": 1252,
+        "startChar": 42,
+        "endLine": 1252,
+        "endChar": 60
+      },
+      "revId": "cd45801c02df7c34453fede9826a43cf88ccad92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce11949b_354f0a50",
         "filename": "private/system_server.te",
         "patchSetId": 2
@@ -54,6 +135,30 @@
       "writtenOn": "2021-02-24T07:24:47Z",
       "side": 1,
       "message": "maybe just create_file_perms?\n\n+more sepolicy experts",
+      "range": {
+        "startLine": 1253,
+        "startChar": 42,
+        "endLine": 1253,
+        "endChar": 72
+      },
+      "revId": "cd45801c02df7c34453fede9826a43cf88ccad92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "834ea037_5c6af111",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-02-24T08:09:41Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "ce11949b_354f0a50",
       "range": {
         "startLine": 1253,
         "startChar": 42,
