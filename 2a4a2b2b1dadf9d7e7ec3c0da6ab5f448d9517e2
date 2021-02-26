@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "581a654c_3d67d4da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-02-26T16:58:34Z",
+      "side": 1,
+      "message": "It\u0027s always helpful to link to the code that actually needs the change - ag/13473187 in this case, I think?",
+      "revId": "2a4a2b2b1dadf9d7e7ec3c0da6ab5f448d9517e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b6aa1e2_06a6c787",
@@ -19,6 +36,29 @@
         "startChar": 0,
         "endLine": 1123,
         "endChar": 41
+      },
+      "revId": "2a4a2b2b1dadf9d7e7ec3c0da6ab5f448d9517e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "722ef222_9e070c31",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1124,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-02-26T16:58:34Z",
+      "side": 1,
+      "message": "Naming should be more like\n\npersist.rollback.is_test\n\nSee https://source.android.com/devices/architecture/configuration/add-system-properties#property-name\n\nWhy shell_prop? Could you instead define \u0026 use rollback_config_prop?\n\nDo you need to test on user builds, or could this be userdebug_or_eng ?",
+      "range": {
+        "startLine": 1124,
+        "startChar": 0,
+        "endLine": 1124,
+        "endChar": 54
       },
       "revId": "2a4a2b2b1dadf9d7e7ec3c0da6ab5f448d9517e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
