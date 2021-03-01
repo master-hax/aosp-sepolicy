@@ -46,6 +46,7 @@ allow vold vold_key:keystore2_key {
 };
 
 # vold needs to find keystore2 services
+allow vold keystore_service:service_manager find;
 allow vold keystore_maintenance_service:service_manager find;
 
 # vold needs to be able to call earlyBootEnded()
