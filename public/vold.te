@@ -225,6 +225,9 @@ add_service(vold, vold_service)
 binder_call(vold, system_server)
 allow vold permission_service:service_manager find;
 
+# Allow vold to use keystore
+allow vold keystore:binder call;
+
 # talk to batteryservice
 binder_call(vold, healthd)
 
@@ -354,6 +357,7 @@ neverallow vold {
   -iorapd_service
   -servicemanager
   -system_server
+  -keystore
   userdebug_or_eng(`-su')
 }:binder call;
 
