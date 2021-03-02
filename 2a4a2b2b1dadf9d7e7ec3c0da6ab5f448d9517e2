@@ -86,6 +86,30 @@
       },
       "revId": "2a4a2b2b1dadf9d7e7ec3c0da6ab5f448d9517e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b816b3d_9527a9d7",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1124,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-02T03:04:34Z",
+      "side": 1,
+      "message": "+1 to adding new context, rather than reusing shell_prop for properties not related with \"shell\"\n\n\u003e The property is used here: https://googleplex-android-review.git.corp.google.com/c/platform/frameworks/base/+/13473187/2/tests/RollbackTest/StagedRollbackTest.xml.\n\nCan we update the name on the xml too? It\u0027d be much better if we make the property name organized, like the Alan\u0027s suggestion.\n\n\u003e If we define rollback_config_prop, we still need to grant the property to shell for setprop to work, right?\n\nRight.",
+      "parentUuid": "f5b501c0_0d6b44c8",
+      "range": {
+        "startLine": 1124,
+        "startChar": 0,
+        "endLine": 1124,
+        "endChar": 54
+      },
+      "revId": "2a4a2b2b1dadf9d7e7ec3c0da6ab5f448d9517e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
