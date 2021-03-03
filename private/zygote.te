@@ -76,6 +76,9 @@ allow zygote tmpfs:dir { create_dir_perms mounton };
 # Goes into media directory and bind mount obb directory
 allow zygote media_rw_data_file:dir { getattr search };
 
+# Ignore zygote triggers sdcardfs to read and open media_rw_data_file dir
+dontaudit zygote media_rw_data_file:dir { read open };
+
 # Read if sdcardfs is supported
 allow zygote proc_filesystems:file r_file_perms;
 
