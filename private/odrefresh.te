@@ -5,7 +5,7 @@ type odrefresh_exec, system_file_type, exec_type, file_type;
 # Allow odrefresh to create files and directories for on device signing.
 allow odrefresh apex_module_data_file:dir { getattr search };
 allow odrefresh apex_art_data_file:dir { create_dir_perms relabelfrom };
-allow odrefresh apex_art_data_file:file { open create write read getattr unlink };
+allow odrefresh apex_art_data_file:file create_file_perms;
 
 # Staging area labels (/data/misc/apexdata/com.android.art/staging). odrefresh
 # sets up files here and passes file descriptors for dex2oat to write to.
@@ -17,6 +17,10 @@ domain_auto_trans(odrefresh, dex2oat_exec, dex2oat)
 
 # Run dexoptanalyzer in its own sandbox.
 domain_auto_trans(odrefresh, dexoptanalyzer_exec, dexoptanalyzer)
+
+# Use devpts and fd from odsign (which exec()'s odrefresh)
+allow odrefresh odsign_devpts:chr_file { read write };
+allow odrefresh odsign:fd use;
 
 # Do not audit unused resources from parent processes (adb, shell, su).
 # These appear to be unnecessary for odrefresh.

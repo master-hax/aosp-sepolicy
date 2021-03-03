@@ -309,7 +309,6 @@ allow init {
   devpts
   dm_device
   hwbinder_device
-  hw_random_device
   input_device
   kmsg_device
   null_device
@@ -324,6 +323,7 @@ allow init {
 # chown/chmod on devices.
 allow init {
   dev_type
+  -hw_random_device
   -keychord_device
   -port_device
 }:chr_file setattr;
@@ -350,6 +350,7 @@ userdebug_or_eng(`
 
 allow init {
   proc # b/67049235 processes /proc/<pid>/* files are mislabeled.
+  proc_bootconfig
   proc_cmdline
   proc_diskstats
   proc_kmsg # Open /proc/kmsg for logd service.
@@ -383,6 +384,7 @@ allow init {
 # init chmod/chown access to /proc files.
 allow init {
   proc_cmdline
+  proc_bootconfig
   proc_kmsg
   proc_net
   proc_pagetypeinfo
@@ -533,10 +535,6 @@ allow init kernel:process { getsched setsched };
 # system/core/fs_mgr/fs_mgr.c - fs_mgr_swapon_all
 allow init swap_block_device:blk_file rw_file_perms;
 
-# Read from /dev/hw_random if present.
-# system/core/init/init.c - mix_hwrng_into_linux_rng_action
-allow init hw_random_device:chr_file r_file_perms;
-
 # Create and access /dev files without a specific type,
 # e.g. /dev/.coldboot_done, /dev/.booting
 # TODO:  Move these files into their own type unless they are
@@ -603,6 +601,9 @@ allow init system_bootstrap_lib_file:file { execute read open getattr map };
 
 # stat the root dir of fuse filesystems (for the mount handler)
 allow init fuse:dir { search getattr };
+
+# allow filesystem tuning
+allow init userdata_sysdev:file create_file_perms;
 
 ###
 ### neverallow rules
