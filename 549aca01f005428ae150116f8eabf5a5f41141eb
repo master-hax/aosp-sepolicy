@@ -70,6 +70,30 @@
       },
       "revId": "549aca01f005428ae150116f8eabf5a5f41141eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42921077_8d8f276d",
+        "filename": "private/otapreopt_chroot.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-04T18:24:34Z",
+      "side": 1,
+      "message": "Currently I have:\n\n03-04 09:19:08.378 20436 20436 I otapreopt_chroot: Activated 0 packages. Skipped: 0\n03-04 09:19:08.376 20495 20495 I otapreopt_chroo: type\u003d1400 audit(0.0:283): avc: denied { execute } for name\u003d\"linkerconfig\" dev\u003d\"loop51\" ino\u003d19 scontext\u003du:r:otapreopt_chroot:s0 tcontext\u003du:object_r:linkerconfig_exec:s0 t\nclass\u003dfile permissive\u003d1\n03-04 09:19:08.376 20495 20495 I otapreopt_chroo: type\u003d1400 audit(0.0:283): avc: denied { read open } for path\u003d\"/apex/com.android.runtime/bin/linkerconfig\" dev\u003d\"loop51\" ino\u003d19 scontext\u003du:r:otapreopt_chroot:s0 tcontext\u003du\n:object_r:linkerconfig_exec:s0 tclass\u003dfile permissive\u003d1\n03-04 09:19:08.376 20495 20495 I otapreopt_chroo: type\u003d1400 audit(0.0:283): avc: denied { execute_no_trans } for path\u003d\"/apex/com.android.runtime/bin/linkerconfig\" dev\u003d\"loop51\" ino\u003d19 scontext\u003du:r:otapreopt_chroot:s0 tco\nntext\u003du:object_r:linkerconfig_exec:s0 tclass\u003dfile permissive\u003d1\n03-04 09:19:08.376 20495 20495 I linkerconfig: type\u003d1400 audit(0.0:283): avc: denied { map } for path\u003d\"/apex/com.android.runtime/bin/linkerconfig\" dev\u003d\"loop51\" ino\u003d19 scontext\u003du:r:otapreopt_chroot:s0 tcontext\u003du:object_r\n:linkerconfig_exec:s0 tclass\u003dfile permissive\u003d1\n03-04 09:19:08.421 20495 20495 E linkerconfig: Failed to scan APEX modules : Can\u0027t read /apex/apex-info-list.xml: No such file or directory\n03-04 09:19:08.416 20495 20495 I linkerconfig: type\u003d1400 audit(0.0:284): avc: denied { write } for name\u003d\"kmsg\" dev\u003d\"tmpfs\" ino\u003d5 scontext\u003du:r:otapreopt_chroot:s0 tcontext\u003du:object_r:kmsg_device:s0 tclass\u003dchr_file permis\nsive\u003d1\n\nBut the ota is still not working even with setenforce 0 (linker errors) so there might be more in the future.",
+      "parentUuid": "f8a8ddbf_258ed2ef",
+      "range": {
+        "startLine": 39,
+        "startChar": 74,
+        "endLine": 39,
+        "endChar": 86
+      },
+      "revId": "549aca01f005428ae150116f8eabf5a5f41141eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
