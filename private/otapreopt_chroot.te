@@ -35,7 +35,8 @@ allow otapreopt_chroot update_engine:fd use;
 allow otapreopt_chroot update_engine:fifo_file write;
 
 # Allow to transition to postinstall_dexopt, to run otapreopt in its own sandbox.
-domain_auto_trans(otapreopt_chroot, postinstall_file, postinstall_dexopt)
+# Allow to transition to linkerconfig, to run linkerconfig in its own sandbox.
+domain_auto_trans(otapreopt_chroot, postinstall_file, postinstall_dexopt, linkerconfig)
 
 # Allow otapreopt_chroot to create loop devices with /dev/loop-control.
 allow otapreopt_chroot loop_control_device:chr_file rw_file_perms;
