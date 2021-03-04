@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "335cd61e_41e1a5c5",
+        "filename": "private/otapreopt_chroot.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-04T08:37:39Z",
+      "side": 1,
+      "message": "does this work? the macro for this only takes 3 arguments. Seems like a bug that this even compiles. https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/te_macros?q\u003ddomain_auto_trans\n\nI also don\u0027t think that domain_auto_trans() macro is also not what you want. Simply adding something like the following should be sufficient:\n\notapreopt_chroot linkerconfig_exec:file rx_file_perms;",
+      "range": {
+        "startLine": 39,
+        "startChar": 74,
+        "endLine": 39,
+        "endChar": 86
+      },
+      "revId": "549aca01f005428ae150116f8eabf5a5f41141eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
