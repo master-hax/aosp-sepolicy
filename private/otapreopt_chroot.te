@@ -1,6 +1,9 @@
 # otapreopt_chroot executable
 type otapreopt_chroot, domain, coredomain;
 type otapreopt_chroot_exec, system_file_type, exec_type, file_type;
+type otapreopt_chroot_tmpfs, file_type;
+
+tmpfs_domain(otapreopt_chroot)
 
 # Chroot preparation and execution.
 # We need to create an unshared mount namespace, and then mount /data.
@@ -63,6 +66,7 @@ allow otapreopt_chroot postinstall_apex_mnt_dir:dir relabelto;
 
 # Allow otapreopt_chroot to manipulate directory /postinstall/apex.
 allow otapreopt_chroot postinstall_apex_mnt_dir:dir create_dir_perms;
+allow otapreopt_chroot postinstall_apex_mnt_dir:file create_file_perms;
 # Allow otapreopt_chroot to mount APEX packages in /postinstall/apex.
 allow otapreopt_chroot postinstall_apex_mnt_dir:dir mounton;
 
@@ -77,3 +81,6 @@ allow otapreopt_chroot postinstall_file:lnk_file r_file_perms;
 # This is a temporary solution to make sure that otapreopt_chroot doesn't block indefinetelly.
 # TODO(b/165948777): remove this once otapreopt_chroot is migrated to libapexmount.
 get_prop(otapreopt_chroot, cold_boot_done_prop)
+
+# allow otapreopt_chroot to run the linkerconfig from the new image.
+allow otapreopt_chroot linkerconfig_exec:file rx_file_perms;
