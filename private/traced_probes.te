@@ -86,6 +86,9 @@ allow traced_probes {
 hal_client_domain(traced_probes, hal_health)
 hal_client_domain(traced_probes, hal_power_stats)
 
+# Allow access to the IPowerStats AIDL interface
+binder_call(traced_probes, servicemanager)
+
 # Allow access to Atrace HAL for enabling vendor/device specific tracing categories.
 hal_client_domain(traced_probes, hal_atrace)
 
