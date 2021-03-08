@@ -33,6 +33,29 @@
       "message": "What\u0027s confusing about this change is that you\u0027re using \"sandbox\" very differently from how it\u0027s typically used on Android. On Android a \"sandbox\" pretty much exclusively refers to a something used to isolate/contain a process or set of processes, whereas here you\u0027re referring to some kind of scratchpad for writing data. This is leading to confusion. I recommend you use a different word. Feel free to use \"scratchpad\" or anything else, but I would prefer to have sandbox unambiguously refer to the isolation meaning.",
       "revId": "b13968ab1ae95cc03544370c62a422b33afb1b67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e646c57_61e27929",
+        "filename": "private/file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2021-03-08T08:56:24Z",
+      "side": 1,
+      "message": "Since this is split from /data/gsi, we should probably update the mapping file, e.g., 30.0.cil as well?\n\ne.g., (a reference example):\nhttps://android-review.googlesource.com/c/platform/system/sepolicy/+/1556299/3/private/compat/30.0/30.0.cil",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 536,
+        "endChar": 29
+      },
+      "revId": "b13968ab1ae95cc03544370c62a422b33afb1b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
