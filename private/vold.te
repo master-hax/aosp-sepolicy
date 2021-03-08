@@ -44,6 +44,9 @@ allow vold vold_key:keystore2_key {
     use
 };
 
+# vold needs to be able to get wrapped ephemeral keys from wrapepd storage keys
+allow vold keystore:keystore2 convert_storage_key_to_ephemeral;
+
 neverallow {
     domain
     -system_server
