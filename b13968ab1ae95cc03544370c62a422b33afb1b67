@@ -16,6 +16,23 @@
       "message": "According to the discussion in aosp/1535676. I move the backing file to the /data partition with a new created file label. Also I keep the read permission because it\u0027s reasonable for the PersistentDataBlock to read the data in the backing file. ",
       "revId": "b13968ab1ae95cc03544370c62a422b33afb1b67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09ccefe2_26f126b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-08T08:20:21Z",
+      "side": 1,
+      "message": "What\u0027s confusing about this change is that you\u0027re using \"sandbox\" very differently from how it\u0027s typically used on Android. On Android a \"sandbox\" pretty much exclusively refers to a something used to isolate/contain a process or set of processes, whereas here you\u0027re referring to some kind of scratchpad for writing data. This is leading to confusion. I recommend you use a different word. Feel free to use \"scratchpad\" or anything else, but I would prefer to have sandbox unambiguously refer to the isolation meaning.",
+      "revId": "b13968ab1ae95cc03544370c62a422b33afb1b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
