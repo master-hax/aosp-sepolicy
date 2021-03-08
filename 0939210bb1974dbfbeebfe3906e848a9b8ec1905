@@ -56,6 +56,30 @@
       },
       "revId": "0939210bb1974dbfbeebfe3906e848a9b8ec1905",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eeb81238_d28e1492",
+        "filename": "private/traced_probes.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1339259
+      },
+      "writtenOn": "2021-03-08T20:33:33Z",
+      "side": 1,
+      "message": "I don\u0027t think so? I thought service manager is different, but I could be wrong. However, AServiceManager_getService is a required call to check AIDL service availability, and it requires this selinux rule.\n\nlet me cc Steven for an opinion here.",
+      "parentUuid": "bf8fe449_9fea9f8e",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 42
+      },
+      "revId": "0939210bb1974dbfbeebfe3906e848a9b8ec1905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
