@@ -44,6 +44,9 @@ recovery_only(`
     userdata_block_device
   }:blk_file { w_file_perms getattr ioctl };
 
+  # Fetch vendor_boot partition
+  allow fastbootd boot_block_device:blk_file r_file_perms;
+
   # For disabling/wiping GSI, and for modifying/deleting files created via
   # libfiemap.
   allow fastbootd metadata_block_device:blk_file r_file_perms;
