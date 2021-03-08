@@ -32,5 +32,11 @@ dontaudit odrefresh adbd:unix_stream_socket { getattr read write };
 # whether current apex is in /system or /data.
 allow odrefresh apex_info_file:file r_file_perms;
 
+# Allow odrefresh to stat the currently mounted ART APEX.
+allow odrefresh apex_data_file:dir { getattr search };
+allow odrefresh apex_data_file:file getattr;
+allow odrefresh staging_data_file:dir { getattr search };
+allow odrefresh staging_data_file:file getattr;
+
 # No other processes should be creating files in the staging area.
 neverallow { domain -init -odrefresh } apex_art_staging_data_file:file open;
