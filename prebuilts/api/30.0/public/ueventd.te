@@ -11,6 +11,8 @@ allow ueventd device:file create_file_perms;
 
 r_dir_file(ueventd, rootfs)
 
+# Access to /metadata/gsi/dsu/booted file
+allow ueventd gsi_metadata_file:dir search;
 # ueventd needs write access to files in /sys to regenerate uevents
 allow ueventd sysfs_type:file w_file_perms;
 r_dir_file(ueventd, sysfs_type)
