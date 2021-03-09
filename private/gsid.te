@@ -132,8 +132,14 @@ allow gsid {
 
 allow gsid {
     gsi_metadata_file
+    gsi_public_metadata_file
     ota_metadata_file
 }:file create_file_perms;
+
+# Allow restorecon to fix gsi_public_metadata_file file context.
+allow gsid file_contexts_file:file r_file_perms;
+allow gsid gsi_metadata_file:file relabelfrom;
+allow gsid gsi_public_metadata_file:file relabelto;
 
 allow gsid {
       gsi_data_file
@@ -160,7 +166,7 @@ neverallow {
     -fastbootd
     -recovery
     -vold
-} gsi_metadata_file:dir *;
+} gsi_metadata_file:dir ~{ search };
 
 neverallow {
     domain
@@ -169,6 +175,14 @@ neverallow {
     -fastbootd
     -vold
 } gsi_metadata_file:notdevfile_class_set ~{ relabelto getattr };
+
+neverallow {
+    domain
+    -init
+    -gsid
+    -fastbootd
+    -vold
+} gsi_public_metadata_file:notdevfile_class_set ~{ r_file_perms };
 
 neverallow {
     domain

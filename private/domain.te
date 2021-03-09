@@ -97,6 +97,12 @@ compatible_property_only(`
 allow domain kernel:key search;
 # Allow access to keys in the fsverity keyring that were installed at boot.
 allow domain fsverity_init:key search;
+
+# Allow path_resolution within /metadata.
+allow domain { metadata_file gsi_metadata_file }:dir search;
+# Allow reading public DSU metadata file, for libfstab to work.
+allow domain gsi_public_metadata_file:file r_file_perms;
+
 # For testing purposes, allow access to keys installed with su.
 userdebug_or_eng(`
   allow domain su:key search;
