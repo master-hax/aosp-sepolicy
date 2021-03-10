@@ -111,6 +111,30 @@
       },
       "revId": "f6589302a07f6a7c1053b35644655197bb06f783",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2175e97_c1f060c2",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-03-10T23:02:49Z",
+      "side": 1,
+      "message": "I can restrict this to debuggable builds since the feature is allowed on debuggable builds only.\n\nhttps://android-review.googlesource.com/c/platform/system/core/+/1591338/10/fastboot/device/commands.cpp#48\n\nFB_ENABLE_FETCH is only set on debuggable builds: \n\nhttps://android-review.googlesource.com/c/platform/system/core/+/1595295/9/fastboot/Android.bp\n\nJeff, Bowgo, does that sound okay?",
+      "parentUuid": "c06bff0f_f809a268",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 35
+      },
+      "revId": "f6589302a07f6a7c1053b35644655197bb06f783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
