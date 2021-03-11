@@ -14,6 +14,9 @@ r_dir_file(dexoptanalyzer, vendor_app_file)
 # processes.
 tmpfs_domain(dexoptanalyzer)
 
+# Define a type for userfaultfd and allow using one.
+uffd_type(dexoptanalyzer)
+
 # Allow dexoptanalyzer to read files in the dalvik cache.
 allow dexoptanalyzer dalvikcache_data_file:dir { getattr search };
 allow dexoptanalyzer dalvikcache_data_file:file r_file_perms;

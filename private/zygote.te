@@ -24,6 +24,9 @@ allow zygote app_zygote:process dyntransition;
 allow zygote appdomain:dir { getattr search };
 allow zygote appdomain:file { r_file_perms };
 
+# Define a type for userfaultfd and allow using one.
+uffd_type(zygote)
+
 # Move children into the peer process group.
 allow zygote system_server:process { getpgid setpgid };
 allow zygote appdomain:process { getpgid setpgid };
