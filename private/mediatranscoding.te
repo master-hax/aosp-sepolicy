@@ -43,6 +43,16 @@ unix_socket_send(mediatranscoding, statsdw, statsd)
 # domain transition
 neverallow mediatranscoding { file_type fs_type }:file execute_no_trans;
 
+# Allow mediatranscoding service to access media-related system properties
+get_prop(mediatranscoding, media_config_prop)
+
+# Allow mediatranscoding service to use DMA-BUF
+allow mediatranscoding dmabuf_system_heap_device:chr_file r_file_perms;
+
+# Allow mediatranscoding service to access the GPU
+allow mediatranscoding gpu_device:dir search;
+allow mediatranscoding gpu_device:chr_file rw_file_perms;
+
 # The goal of the mediaserver split is to place media processing code into
 # restrictive sandboxes with limited responsibilities and thus limited
 # permissions. Example: Audioserver is only responsible for controlling audio
