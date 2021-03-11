@@ -10,6 +10,9 @@ typeattribute webview_zygote mlstrustedsubject;
 # a domain macro.
 tmpfs_domain(webview_zygote);
 
+# Define a type for userfaultfd and allow using one
+uffd_use(webview_zygote)
+
 # Allow reading/executing installed binaries to enable preloading the
 # installed WebView implementation.
 allow webview_zygote apk_data_file:dir r_dir_perms;
