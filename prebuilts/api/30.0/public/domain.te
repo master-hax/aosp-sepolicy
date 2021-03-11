@@ -898,7 +898,7 @@ full_treble_only(`
     -data_between_core_and_vendor_violators # TODO(b/34980020) Remove once all violators have been cleaned up
     } {
       system_data_file # default label for files on /data. Covered below
-    }:dir ~{ getattr search };
+    }:dir ~{ getattr ioctl search read open };
 ')
 
 full_treble_only(`

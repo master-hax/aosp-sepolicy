@@ -42,7 +42,7 @@ allowxperm vendor_init data_file_type:dir ioctl {
   FS_IOC_SET_ENCRYPTION_POLICY
 };
 
-allow vendor_init system_data_file:dir getattr;
+allow vendor_init system_data_file:dir { getattr ioctl open read };
 
 allow vendor_init {
   file_type
