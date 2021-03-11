@@ -12,6 +12,9 @@ typeattribute system_server stats_service_server;
 # Define a type for tmpfs-backed ashmem regions.
 tmpfs_domain(system_server)
 
+# Define a type for userfaultfd and allow using one
+uffd_use(system_server)
+
 # Create a socket for connections from crash_dump.
 type_transition system_server system_data_file:sock_file system_ndebug_socket "ndebugsocket";
 
