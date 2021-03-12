@@ -158,6 +158,30 @@
       },
       "revId": "6239315ccfe71152e57e09b9a7bfc1d28270818b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f673e5f1_21798d25",
+        "filename": "private/adbd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1293738
+      },
+      "writtenOn": "2021-03-12T06:38:04Z",
+      "side": 1,
+      "message": "I think this socket class might require upstream changes to Linux to be labeled. \n\nI\u0027m not sure it\u0027s a use case that\u0027s been considered previously.\n\nCF does what it does in local sepolicy today because we were previously told to label sockets and have not had time to investigate this problem further; IOW, it is not a good precedent to follow.",
+      "parentUuid": "da468808_174da928",
+      "range": {
+        "startLine": 49,
+        "startChar": 11,
+        "endLine": 49,
+        "endChar": 20
+      },
+      "revId": "6239315ccfe71152e57e09b9a7bfc1d28270818b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
