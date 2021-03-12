@@ -134,6 +134,30 @@
       },
       "revId": "6239315ccfe71152e57e09b9a7bfc1d28270818b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da468808_174da928",
+        "filename": "private/adbd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-12T06:26:32Z",
+      "side": 1,
+      "message": "To be clear, the code for the socket manipulation is here:\n\nhttp://cs/android/packages/modules/adb/daemon/transport_local.cpp?l\u003d75\u0026rcl\u003d22a32a99e75d86aa52bf4f93e48d04a694252f42\n\nListening socket is a vsock, and a socket returned by accept() is unlabeled. I tried calling getpeercon() but it failed with \"Protocol not available\".\n\ne.g. looking through our source tree, cuttlefish is already doing similar: aosp/930616",
+      "parentUuid": "865cfd46_66a46eb4",
+      "range": {
+        "startLine": 49,
+        "startChar": 11,
+        "endLine": 49,
+        "endChar": 20
+      },
+      "revId": "6239315ccfe71152e57e09b9a7bfc1d28270818b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
