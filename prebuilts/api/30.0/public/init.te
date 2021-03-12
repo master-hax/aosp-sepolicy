@@ -161,6 +161,10 @@ allow init contextmount_type:filesystem relabelto;
 allow init contextmount_type:dir r_dir_perms;
 allow init contextmount_type:notdevfile_class_set r_file_perms;
 
+# Access to FUSE control filesystem to hard-abort FUSE mounts
+allow init fusectlfs:file rw_file_perms;
+allow init fusectlfs:dir rw_dir_perms;
+
 # restorecon /adb_keys or any other rootfs files and directories to a more
 # specific type.
 allow init rootfs:{ dir file } relabelfrom;
