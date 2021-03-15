@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e133ae39_6680e18d",
+        "filename": "build/soong/build_files.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-15T11:19:46Z",
+      "side": 1,
+      "message": "This is fragile, as the order comes from the \u0027dirs\u0027 variable. You need to either define their relative order by defining Less(), or add an assert that adjacent entries in it satisfies p1.partition \u003c p2.partition || (p1.partitio \u003d\u003d p2.partition \u0026\u0026 p1.scope \u003c p2.scope)",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 33
+      },
+      "revId": "1c253696a636a2d84ecd50d6d542e0ea03be4c5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
