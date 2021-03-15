@@ -46,6 +46,30 @@
       },
       "revId": "15cc4606c0c04fed7aea5519ebb53a9e6b8d580f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58cae326_40bd0478",
+        "filename": "prebuilts/api/30.0/public/ueventd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2021-03-15T09:58:45Z",
+      "side": 1,
+      "message": "I mean the commit message claims to do something like\n  allow ueventd gsi_metadata_file:file r_file_perms;\nbut what you actually did is\n  allow ueventd gsi_metadata_file:dir search;\nSo I suppose the commit message is inaccurate?\n\nAlso the comment here should be along the lines of \"check the existence of /metadata/gsi/dsu/booted\", as you only allow path_resolution for \"/metadata/gsi/dsu/\" and not read-access to \"/metadata/gsi/dsu/booted\"\n\nActually I have a ongoing change to fix this gsi_metadata_file access issue systematically (aosp/1620650), so if you can wait until it gets merged then you won\u0027t need this change. Thoughts? (You\u0027ll still need the one in android11-dev though as aosp/1620650 is going to be submitted to master only.)",
+      "parentUuid": "782f166c_4579d9d5",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 43
+      },
+      "revId": "15cc4606c0c04fed7aea5519ebb53a9e6b8d580f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
