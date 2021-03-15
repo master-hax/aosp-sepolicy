@@ -50,6 +50,24 @@
       "message": "Just found that this change is relevant to aosp/1600874.\n\nBut Yo\u0027s change here seems fix the fundamental issue rather than allowing specific domain (e.g., ueventd) to access gsi_public_metadata_file.\n\nThought?",
       "revId": "6419a14732601049dceeaaf56b6bace796e9ccd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e714895_9118c9ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2021-03-15T05:52:15Z",
+      "side": 1,
+      "message": "Yeah aosp/1600874 seems to be fixing the same issue for the \"dumpstate\" process. However it is only allowing \"gsi_metadata_file:dir search\" but not \"gsi_metadata_file:file read\" so I suspect the fix (aosp/1600874) alone is not enough to make the denials go away.\n\nI\u0027d like to submit this change so we don\u0027t need to add rules to specific domain every time we see a new denial, and we can avoid the case like aosp/1600874 where some allow rules are missed.",
+      "parentUuid": "224183b1_63f1a48f",
+      "revId": "6419a14732601049dceeaaf56b6bace796e9ccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
