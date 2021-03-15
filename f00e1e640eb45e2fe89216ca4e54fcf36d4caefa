@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4da0bb1a_19388719",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-15T09:14:49Z",
+      "side": 1,
+      "message": "why don\u0027t you embed these also in the go file? These will never change.",
+      "range": {
+        "startLine": 742,
+        "startChar": 0,
+        "endLine": 762,
+        "endChar": 24
+      },
+      "revId": "f00e1e640eb45e2fe89216ca4e54fcf36d4caefa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee46f3ef_27bd9b96",
+        "filename": "build/soong/build_files.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-15T09:14:49Z",
+      "side": 1,
+      "message": "separate go packages and android packages",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 10
+      },
+      "revId": "f00e1e640eb45e2fe89216ca4e54fcf36d4caefa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a52a6934_3aa03406",
+        "filename": "build/soong/build_files.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-15T09:14:49Z",
+      "side": 1,
+      "message": "add a description about se_build_files as a comment, so that it can be published to the doc",
+      "revId": "f00e1e640eb45e2fe89216ca4e54fcf36d4caefa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2efcffc6_432349b2",
+        "filename": "build/soong/build_files.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-15T09:14:49Z",
+      "side": 1,
+      "message": "move this near to OutputFiles",
+      "revId": "f00e1e640eb45e2fe89216ca4e54fcf36d4caefa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84fc0f6e_1229813f",
+        "filename": "build/soong/build_files.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-15T09:14:49Z",
+      "side": 1,
+      "message": "I find these hard to follow and errorprone. The complexity and duplication will increase as we add more partitions. I wish that the rules for grouping and sorting  the dirs are explicitly coded instead. For example:\n\n```\ntype part int\n\nconst (\n   system      part \u003d iota,\n   system_ext,\n   product,\n   ...\n)\n\nfunc (p part) String() string {\n   switch p {\n   case system: \"plat\"\n   case system_ext: \"system_ext\"\n   ...\n}\n\ntype dir struct {\n    partition part\n    public    bool\n    paths     []string\n}\n    \ntype dirs []dir\n\nfunc (d dirs) Len() int {\n    return len(d)\n}\n\nfunc (d dirs) Swap(i, j int) {\n    d[i], d[j] \u003d d[j], d[i]\n}\n\nfunc (d dirs) Less(i, j int) bool {\n    if d[i].partition \u003c d[j].partition {\n        return true\n    } else if d[i].partition \u003d\u003d d[j].partition {\n        return d[i].public\n    } else {\n        return false\n    }        \n}\n\nallDirs \u003d []dir {\n  dir{.partition\u003dsystem, .public\u003dtrue, .paths\u003dxxx},\n  dir{.partition\u003dsystem, .public\u003dfalse, .paths\u003dyyy},\n  dir{.partition\u003dsystem_ext, .public\u003dtrue, .paths\u003dzzz},\n  ...\n}\n\nfunc gatherDirsFor(partition part, public bool) []string {\n  var gathered []dirs\n  for _, d :\u003d range allDirs {\n     if d.partition \u003c\u003d partition {\n        if !public || (public \u0026\u0026 d.public) {\n            gathered \u003d append(gathered, d)\n        }\n     }\n  }\n  sort.Sort(gathered)\n  var result []string\n  for _, d :\u003d range gathered {\n    result \u003d append(result, d.paths...)\n  }\n  return result\n}\n\nfor _, p :\u003d range []part{system, system_ext, product} {\n   b.srcs[\".\"+p.String()] \u003d findSrcsInDirs(ctx,\n          gatherDirsFor(p, false)...)\n   b.srcs[\".\"+p.String()+\"_public\"] \u003d findSrcsInDirs(ctx, \n          append(gatherDirsFor(p, true), reqdMaskDir)...)\n}\n```",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 98
+      },
+      "revId": "f00e1e640eb45e2fe89216ca4e54fcf36d4caefa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
