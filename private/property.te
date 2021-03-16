@@ -301,6 +301,13 @@ compatible_property_only(`
   } {
     suspend_prop
   }:property_service set;
+
+  neverallow {
+    domain
+    -init
+  } {
+    exported_suspend_prop
+  }:property_service set;
 ')
 
 compatible_property_only(`
