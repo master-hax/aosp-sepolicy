@@ -33,6 +33,42 @@
       "message": "Instead of granting access to 3p apps, can we instead cts-root?\n\nb/170076836#comment5",
       "revId": "2a1682a7972231f326a2b445db6a21ecb6dc7269",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a210e701_922b9239",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1491633
+      },
+      "writtenOn": "2021-03-16T15:48:01Z",
+      "side": 1,
+      "message": "All APIs are protected with one of the following permissions:\nACCESS_KEYGUARD_SECURE_STORAGE, MANAGE_BIOMETRIC, READ_CONTACTS, SET_AND_VERIFY_LOCKSCREEN_CREDENTIALS",
+      "parentUuid": "9d786731_159bd1dc",
+      "revId": "2a1682a7972231f326a2b445db6a21ecb6dc7269",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac523b0a_3810e41c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1491633
+      },
+      "writtenOn": "2021-03-16T15:48:01Z",
+      "side": 1,
+      "message": "I don\u0027t think that would work in this case if my understanding of the bug you linked is correct. The reason I want to expose this service is to allow KeyguardManager APIs that set and verify lock settings to be used in tests as helper testAPIs. Currently these tests rely on using adb commands to do so, we are trying to replace all usage of adb commands in our tests with API calls to avoid various issues we\u0027ve been facing from using adb commands.\nSo these testAPIs need to be accessible to all tests not just a specific test that we can put om cts-root.",
+      "parentUuid": "215fb96c_de862d0d",
+      "revId": "2a1682a7972231f326a2b445db6a21ecb6dc7269",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
