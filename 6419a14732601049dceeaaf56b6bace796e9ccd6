@@ -139,6 +139,30 @@
       },
       "revId": "6419a14732601049dceeaaf56b6bace796e9ccd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "463994fa_e602abb3",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2021-03-16T13:20:59Z",
+      "side": 1,
+      "message": "(1) Since libfstab is linkable by any domain, and libfstab reads these files, I thought it\u0027s reasonable to make these files world-readable, like \"/vendor/etc/fstab\" is already world-readable.\n(2) I cannot modify the vendor policies. This access denial happens when testing CTS-on-GSI, where system in S GSI and vendor is S, R, Q. Adding this allow rule to domain solves this problem without modifying vendor policies.",
+      "parentUuid": "bb8a63b4_18a06f09",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 41
+      },
+      "revId": "6419a14732601049dceeaaf56b6bace796e9ccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
