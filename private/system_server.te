@@ -737,6 +737,9 @@ get_prop(system_server, packagemanager_config_prop)
 # Read the net.464xlat.cellular.enabled property (written by init).
 get_prop(system_server, net_464xlat_fromvendor_prop)
 
+# Read the net.tcp.default_init_rwnd property (written by init).
+get_prop(system_server, net_connectivity_prop)
+
 # Create a socket for connections from debuggerd.
 allow system_server system_ndebug_socket:sock_file create_file_perms;
 
