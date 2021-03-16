@@ -211,6 +211,30 @@
       },
       "revId": "6419a14732601049dceeaaf56b6bace796e9ccd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "869eab78_60cd015e",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2021-03-16T14:06:11Z",
+      "side": 1,
+      "message": "\u003e Can you point me to the API\u0027s documentation or API council review that shows that this is a public API that 3p apps should have access to? Is there a CTS test that\u0027s broken without this? If not, then please don\u0027t grant access. Unnecessary access to undocumented APIs is a major source of app-compat issues.\n\n\nI don\u0027t think this is a public API, and the makefile (https://cs.android.com/android/platform/superproject/+/master:system/core/fs_mgr/Android.bp;drc\u003dd69ad69a938a27021adfcc2435dc1fd2ad0c8e1a;l\u003d166) even says that this is not a stable interface.\nNo test is broken, but our test infra and development workflow is broken. The linked bug is a scenario where the administrative process \"ramdump\" accidentally bricks the device under test because it has read a wrong fstab.\nOur test bench suffered from device unresponsive error, though it is workarounded at the moment, but our development workflow is still broken.\n\nI agree these APIs should be mandated, but the problem now is that these APIs are already statically linked and used by vendor processes.\n\nAnother point is that, libfstab being vendor_available makes us not possible to track the users of libfstab, and also not possible to grant access to vendor domain due to the neverallow rules.\n\n\nHow about we schedule a meeting so I can explain my intention clearer?",
+      "parentUuid": "db3bbd79_f4f7e83c",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 41
+      },
+      "revId": "6419a14732601049dceeaaf56b6bace796e9ccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
