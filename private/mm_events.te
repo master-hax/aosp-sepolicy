@@ -1,0 +1,23 @@
+type mm_events, domain, coredomain;
+type mm_events_exec, system_file_type, exec_type, file_type;
+
+init_daemon_domain(mm_events)
+
+allow mm_events shell_exec:file rx_file_perms;
+allow mm_events toolbox_exec:file rx_file_perms;
+
+allow mm_events perfetto_exec:file rx_file_perms;
+
+domain_auto_trans(mm_events, perfetto_exec, perfetto)
+
+allow perfetto mm_events:fd use;
+allow perfetto mm_events:fifo_file { read getattr };
+
+# Only allow init and vendor_init to read/write mm_events properties
+# NOTE: dumpstate is allowed to read any system property
+neverallow {
+  domain
+  -init
+  -vendor_init
+  -dumpstate
+} mm_events_config_prop:file no_rw_file_perms;
