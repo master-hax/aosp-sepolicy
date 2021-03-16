@@ -187,6 +187,30 @@
       },
       "revId": "6419a14732601049dceeaaf56b6bace796e9ccd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db3bbd79_f4f7e83c",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-16T13:42:23Z",
+      "side": 1,
+      "message": "Can you point me to the API\u0027s documentation or API council review that shows that this is a public API that 3p apps should have access to? Is there a CTS test that\u0027s broken without this? If not, then please don\u0027t grant access. Unnecessary access to undocumented APIs is a major source of app-compat issues.\n\n\u003e I mean, I think gsi_public_metadata_file should be world readable like /vendor/etc/fstab, because they are accessed at the same time.\n\u003e granting a domain only the read access of fstab but not gsi metadata files doesn\u0027t make sense\n\nProcesses unnecessarily having access to files and libraries that they don\u0027t use isn\u0027t a good reason to grant them access to more things that they don\u0027t need.",
+      "parentUuid": "463994fa_e602abb3",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 41
+      },
+      "revId": "6419a14732601049dceeaaf56b6bace796e9ccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
