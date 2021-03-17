@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f756d192_f4f262f3",
+        "filename": "build/soong/policy.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-17T11:01:33Z",
+      "side": 1,
+      "message": "For userdebug_plat_policy (http://cs/android/system/sepolicy/Android.mk?l\u003d961\u0026rcl\u003dedf30e6e0b9a0a6ca52fab4f1c3dbb8cfe45f913) and sepolicy for CTS (http://cs/android/system/sepolicy/Android.mk?l\u003d1696\u0026rcl\u003dedf30e6e0b9a0a6ca52fab4f1c3dbb8cfe45f913)",
+      "parentUuid": "b64d798c_36c2f412",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 22
+      },
+      "revId": "d9c53fdcc67b474d03014646ea00c82b74c5cb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03c985e9_c1a2b056",
         "filename": "build/soong/policy.go",
         "patchSetId": 1
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "313986df_d2b4c4d4",
+        "filename": "build/soong/policy.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-17T11:01:33Z",
+      "side": 1,
+      "message": "There is a macro \"build_test_only\" in system/sepolicy. This is for that.",
+      "parentUuid": "03c985e9_c1a2b056",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 25
+      },
+      "revId": "d9c53fdcc67b474d03014646ea00c82b74c5cb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70bb45cd_42d6ebe4",
         "filename": "build/soong/policy.go",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2021-03-17T10:52:57Z",
       "side": 1,
       "message": "Who will set this to true?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 10
+      },
+      "revId": "d9c53fdcc67b474d03014646ea00c82b74c5cb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0143af9c_6826bc85",
+        "filename": "build/soong/policy.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-17T11:01:33Z",
+      "side": 1,
+      "message": "The policy for CTS (http://cs/android/system/sepolicy/Android.mk?l\u003d1696\u0026rcl\u003dedf30e6e0b9a0a6ca52fab4f1c3dbb8cfe45f913)",
+      "parentUuid": "70bb45cd_42d6ebe4",
       "range": {
         "startLine": 54,
         "startChar": 0,
@@ -118,6 +190,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d3a25002_d9f777da",
+        "filename": "build/soong/policy.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-17T11:01:33Z",
+      "side": 1,
+      "message": "IMO no. This is copied from system/sepolicy/definitions.mk\n\n  # Command to turn collection of policy files into a policy.conf file to be\n  # processed by checkpolicy\n  define transform-policy-to-conf\n  @mkdir -p $(dir $@)\n  $(hide) $(M4) --fatal-warnings $(PRIVATE_ADDITIONAL_M4DEFS) \\\n      -D mls_num_sens\u003d$(PRIVATE_MLS_SENS) -D mls_num_cats\u003d$(PRIVATE_MLS_CATS) \\\n      -D target_build_variant\u003d$(PRIVATE_TARGET_BUILD_VARIANT) \\\n      -D target_with_dexpreopt\u003d$(WITH_DEXPREOPT) \\\n  ...",
+      "parentUuid": "3021e5ff_e01e4617",
+      "range": {
+        "startLine": 70,
+        "startChar": 57,
+        "endLine": 70,
+        "endChar": 69
+      },
+      "revId": "d9c53fdcc67b474d03014646ea00c82b74c5cb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5d7b44ce_81d0d52a",
         "filename": "build/soong/policy.go",
         "patchSetId": 1
@@ -129,6 +225,30 @@
       "writtenOn": "2021-03-17T10:52:57Z",
       "side": 1,
       "message": "Which interface is this for? Please clarify it as a comment",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 1
+      },
+      "revId": "d9c53fdcc67b474d03014646ea00c82b74c5cb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd6c6b52_84578ce9",
+        "filename": "build/soong/policy.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-17T11:01:33Z",
+      "side": 1,
+      "message": "Just copied from other modules, maybe we don\u0027t need to do this. I\u0027ll fix it.",
+      "parentUuid": "5d7b44ce_81d0d52a",
       "range": {
         "startLine": 79,
         "startChar": 0,
