@@ -16,6 +16,184 @@
       "message": "Jeff, just in case you missed it, the list of permissions in mlsconstrain still doesn\u0027t cover all the permissions as per private/access_vectors file. Please let me know if you want me to add the remaining as well.",
       "revId": "0cc156f3c07b3f229ae4913c2f33285727ab65b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5fde9a8_a4b26762",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-17T08:52:37Z",
+      "side": 1,
+      "message": "It\u0027s looking good! A bit more name/comment bikeshedding 😊",
+      "revId": "0cc156f3c07b3f229ae4913c2f33285727ab65b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23c7e97f_0949c6ee",
+        "filename": "private/dex2oat.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-17T08:52:37Z",
+      "side": 1,
+      "message": "I would prefer that we change the macro to \"userfaultfd_use()\". It\u0027s more readable, still concise, and we can delete the comment since it\u0027s not adding any information that\u0027s not already included in the macro name.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 17
+      },
+      "revId": "0cc156f3c07b3f229ae4913c2f33285727ab65b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1c12369_7811bc64",
+        "filename": "public/te_macros",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-17T08:52:37Z",
+      "side": 1,
+      "message": "userfaultfd_use()",
+      "range": {
+        "startLine": 167,
+        "startChar": 2,
+        "endLine": 167,
+        "endChar": 11
+      },
+      "revId": "0cc156f3c07b3f229ae4913c2f33285727ab65b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8726a450_fbd673dc",
+        "filename": "public/te_macros",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-17T08:52:37Z",
+      "side": 1,
+      "message": "create/use",
+      "range": {
+        "startLine": 168,
+        "startChar": 18,
+        "endLine": 168,
+        "endChar": 21
+      },
+      "revId": "0cc156f3c07b3f229ae4913c2f33285727ab65b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb1868bc_435e99ed",
+        "filename": "public/te_macros",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-17T08:52:37Z",
+      "side": 1,
+      "message": "userfaultfd_use",
+      "range": {
+        "startLine": 169,
+        "startChar": 8,
+        "endLine": 169,
+        "endChar": 16
+      },
+      "revId": "0cc156f3c07b3f229ae4913c2f33285727ab65b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0a6a1c0_70a7318b",
+        "filename": "public/te_macros",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-17T08:52:37Z",
+      "side": 1,
+      "message": "why don\u0027t use the \"_t\" in Android for types. How about we just leave this as $1_userfaultfd ?",
+      "range": {
+        "startLine": 172,
+        "startChar": 40,
+        "endLine": 172,
+        "endChar": 42
+      },
+      "revId": "0cc156f3c07b3f229ae4913c2f33285727ab65b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55991ea0_0c9829c3",
+        "filename": "public/te_macros",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-17T08:52:37Z",
+      "side": 1,
+      "message": "userfaultfd",
+      "range": {
+        "startLine": 172,
+        "startChar": 36,
+        "endLine": 172,
+        "endChar": 40
+      },
+      "revId": "0cc156f3c07b3f229ae4913c2f33285727ab65b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fdceb3b_051ace61",
+        "filename": "public/te_macros",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-17T08:52:37Z",
+      "side": 1,
+      "message": "userfaultfd",
+      "range": {
+        "startLine": 174,
+        "startChar": 12,
+        "endLine": 174,
+        "endChar": 18
+      },
+      "revId": "0cc156f3c07b3f229ae4913c2f33285727ab65b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
