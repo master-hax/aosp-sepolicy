@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4211856a_d42f9df4",
+        "filename": "public/te_macros",
+        "patchSetId": 5
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-17T10:08:19Z",
+      "side": 1,
+      "message": "Feel free to address this in a follow up change, we should also include tests that enforce that permissions cannot be added to share these between domains e.g.:\n\n# Other domains may not use userfaultfd anon_inodes created by this domain.\nneverallow { domain -$1 } $1_userfaultfd:anon_inode *;\n# This domain may not use use userfaultfd anon_inodes created by other domains.\nneverallow $1 ~$1_userfaultfd:anon_inode *;",
+      "revId": "8e04525c9ca67805e8448947f3d4a7919772d7f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
