@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3277b69a_3280b328",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2021-03-17T22:18:27Z",
+      "side": 1,
+      "message": "It looks like search permission was forgotten. ApexServiceTestForCompressedApex::ReserveSpaceForCompressedApex is failing with the following error:\n\n```\n03-17 16:25:24.493  8194  8194 I ApexTestCases: \u003d\u003d\u003d ApexServiceTestForCompressedApex::ReserveSpaceForCompressedApex (system/apex/apexd/apexservice_test.cpp:3074)\n03-17 16:25:24.554     0     0 I apexd   : Scanning /system/apex for pre-installed ApexFiles\n03-17 16:25:24.559     0     0 I apexd   : Scanning /system_ext/apex for pre-installed ApexFiles\n03-17 16:25:24.561     0     0 I apexd   : Scanning /product/apex for pre-installed ApexFiles\n03-17 16:25:24.561     0     0 I apexd   : Scanning /vendor/apex for pre-installed ApexFiles\n03-17 16:25:24.561     0     0 W apexd   : /vendor/apex does not exist. Skipping\n03-17 16:25:24.564     0     0 I apexd   : Scanning /data/apex/temp_prebuilt for pre-installed ApexFiles\n03-17 16:25:24.565     0     0 I apexd   : Scanning /data/apex/active for data ApexFiles\n03-17 16:25:24.508  8194  8194 I ApexTestCases: \u003d\u003d\u003d Apex/ApexFileTest::GetOffsetOfSimplePackage/0 (system/apex/apexd/apex_file_test.cpp:53)\n03-17 16:25:24.503  8294  8294 W Binder:8294_3: type\u003d1400 audit(0.0:208): avc: denied { search } for name\u003d\"ota_reserved\" dev\u003d\"dm-8\" ino\u003d34 scontext\u003du:r:apexd:s0 tcontext\u003du:object_r:apex_ota_reserved_file:s0 tclass\u003ddir permissive\u003d0\n```",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 58
+      },
+      "revId": "a3b0227840d2d8eb2547f205483a04b82cd540b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
