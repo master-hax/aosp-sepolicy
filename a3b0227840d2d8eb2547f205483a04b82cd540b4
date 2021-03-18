@@ -22,6 +22,30 @@
       },
       "revId": "a3b0227840d2d8eb2547f205483a04b82cd540b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bc70e58_0baafb4d",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1439319
+      },
+      "writtenOn": "2021-03-18T13:28:26Z",
+      "side": 1,
+      "message": "We provided apexd with create_dir_perms. It includes rw_dir_perms-\u003er_dir_perms-\u003esearch.\n\nGlobal macro reference: https://source.corp.google.com/android/system/sepolicy/public/global_macros;l\u003d37?q\u003dglobal_macros%20create_dir%20package:android$\n\nThough, I am starting to feel we might have provided too much permission to apexd. I don\u0027t think we have plans to create directories inside ota_reserved directory.",
+      "parentUuid": "3277b69a_3280b328",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 58
+      },
+      "revId": "a3b0227840d2d8eb2547f205483a04b82cd540b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
