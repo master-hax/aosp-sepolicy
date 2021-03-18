@@ -138,6 +138,7 @@ full_treble_only(`
   neverallow {
     coredomain
     -init
+    userdebug_or_eng(`-profcollectd')
     -ueventd
     -vold
   } sysfs:file no_rw_file_perms;
