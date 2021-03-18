@@ -129,6 +129,78 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a437b81_159bff22",
+        "filename": "private/property_contexts",
+        "patchSetId": 9
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1131148
+      },
+      "writtenOn": "2021-03-18T22:29:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "260d664e_6a1012c4",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 4
+      },
+      "revId": "e472c02606b929c3abbaa8bfeedf92a00100cda3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68551c33_7e0ac97f",
+        "filename": "private/property_contexts",
+        "patchSetId": 9
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1131148
+      },
+      "writtenOn": "2021-03-18T22:29:26Z",
+      "side": 1,
+      "message": "/proc/sys/vm/drop_caches can accept 1, 2, and 3. For now, we\u0027re using 3, so I made the property reflect that value. I used `exact uint` here instead of `exact bool`; is that correct? Can it accept only 1, 2, and 3, like `exact enum` supports?",
+      "parentUuid": "b7cfb3c4_5144aeee",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 54
+      },
+      "revId": "e472c02606b929c3abbaa8bfeedf92a00100cda3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad1dc542_8ffcedbd",
+        "filename": "private/property_contexts",
+        "patchSetId": 9
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1131148
+      },
+      "writtenOn": "2021-03-18T22:29:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d57c5375_193c731b",
+      "range": {
+        "startLine": 264,
+        "startChar": 35,
+        "endLine": 264,
+        "endChar": 51
+      },
+      "revId": "e472c02606b929c3abbaa8bfeedf92a00100cda3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4df68b8c_11fba9ec",
@@ -142,6 +214,30 @@
       "writtenOn": "2021-03-18T11:01:44Z",
       "side": 1,
       "message": "please also add a neverallow rule on both set/get of this property. e.g.\n\nneverallow { domain -shell -init } drop_caches_prop:property_service set;\nneverallow { domain -shell -init } drop_caches_prop:file read;",
+      "range": {
+        "startLine": 121,
+        "startChar": 16,
+        "endLine": 121,
+        "endChar": 32
+      },
+      "revId": "e472c02606b929c3abbaa8bfeedf92a00100cda3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6e15d68_da46afeb",
+        "filename": "private/shell.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1131148
+      },
+      "writtenOn": "2021-03-18T22:29:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4df68b8c_11fba9ec",
       "range": {
         "startLine": 121,
         "startChar": 16,
