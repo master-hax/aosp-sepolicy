@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "defa206c_1999561e",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-18T07:57:23Z",
+      "side": 1,
+      "message": "This is causing microdroid_precompiled_sepolicy failure, but I don\u0027t know why. I\u0027ll investigate more.",
+      "range": {
+        "startLine": 622,
+        "startChar": 28,
+        "endLine": 622,
+        "endChar": 54
+      },
+      "revId": "9fd446666bcb30dc17e1b9927eab5c64482bfb16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a7cc3f33_cb52e11e",
         "filename": "Android.bp",
         "patchSetId": 1
@@ -14,6 +37,30 @@
       "writtenOn": "2021-03-18T03:28:33Z",
       "side": 1,
       "message": "Note to myself: filter_out modifies plat_pub_policy.cil in place. We need a copy.",
+      "range": {
+        "startLine": 678,
+        "startChar": 9,
+        "endLine": 678,
+        "endChar": 121
+      },
+      "revId": "9fd446666bcb30dc17e1b9927eab5c64482bfb16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdb76415_1e82c7ee",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-18T07:57:23Z",
+      "side": 1,
+      "message": "Nope, we even don\u0027t need a copy. We can just use \"plat_pub_policy.cil\" and remove \"build_policy filter_out\" because it\u0027s already filtered out.\n\nI\u0027ll update this.",
+      "parentUuid": "a7cc3f33_cb52e11e",
       "range": {
         "startLine": 678,
         "startChar": 9,
