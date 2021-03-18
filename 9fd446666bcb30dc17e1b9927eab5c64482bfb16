@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db0c4567_590b71f0",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-18T10:55:38Z",
+      "side": 1,
+      "message": "The reason is microdroid only uses plat policy, so it should use plat_pub_policy.cil, not pub_policy (which includes system_ext and product).\n\nFixed.",
+      "parentUuid": "defa206c_1999561e",
+      "range": {
+        "startLine": 622,
+        "startChar": 28,
+        "endLine": 622,
+        "endChar": 54
+      },
+      "revId": "9fd446666bcb30dc17e1b9927eab5c64482bfb16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7cc3f33_cb52e11e",
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "Nope, we even don\u0027t need a copy. We can just use \"plat_pub_policy.cil\" and remove \"build_policy filter_out\" because it\u0027s already filtered out.\n\nI\u0027ll update this.",
       "parentUuid": "a7cc3f33_cb52e11e",
+      "range": {
+        "startLine": 678,
+        "startChar": 9,
+        "endLine": 678,
+        "endChar": 121
+      },
+      "revId": "9fd446666bcb30dc17e1b9927eab5c64482bfb16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e50d28f_fcf44aeb",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-18T10:55:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdb76415_1e82c7ee",
       "range": {
         "startLine": 678,
         "startChar": 9,
