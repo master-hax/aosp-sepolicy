@@ -85,6 +85,53 @@
       },
       "revId": "e472c02606b929c3abbaa8bfeedf92a00100cda3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d57c5375_193c731b",
+        "filename": "private/property_contexts",
+        "patchSetId": 9
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-18T11:01:44Z",
+      "side": 1,
+      "message": "Yeah, the build failure is telling you that the type is not defined. You need to declare it in private/property.te.",
+      "parentUuid": "39ec941e_bcf0e0aa",
+      "range": {
+        "startLine": 264,
+        "startChar": 35,
+        "endLine": 264,
+        "endChar": 51
+      },
+      "revId": "e472c02606b929c3abbaa8bfeedf92a00100cda3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4df68b8c_11fba9ec",
+        "filename": "private/shell.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-18T11:01:44Z",
+      "side": 1,
+      "message": "please also add a neverallow rule on both set/get of this property. e.g.\n\nneverallow { domain -shell -init } drop_caches_prop:property_service set;\nneverallow { domain -shell -init } drop_caches_prop:file read;",
+      "range": {
+        "startLine": 121,
+        "startChar": 16,
+        "endLine": 121,
+        "endChar": 32
+      },
+      "revId": "e472c02606b929c3abbaa8bfeedf92a00100cda3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
