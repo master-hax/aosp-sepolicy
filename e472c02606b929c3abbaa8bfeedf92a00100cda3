@@ -246,6 +246,30 @@
       },
       "revId": "e472c02606b929c3abbaa8bfeedf92a00100cda3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02fba57e_ef4198e0",
+        "filename": "private/shell.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1131148
+      },
+      "writtenOn": "2021-03-18T22:52:46Z",
+      "side": 1,
+      "message": "I also needed to add -dumpstate to the 2nd line to get this compiling. Otherwise, I was getting this error message:\n\n```\nFAILED: out/target/product/coral/obj/FAKE/sepolicy_neverallows_intermediates/sepolicy_neverallows\n/bin/bash -c \"(ASAN_OPTIONS\u003ddetect_leaks\u003d0 out/host/linux-x86/bin/checkpolicy -M -c             30 -o out/target/product/coral/obj/FAKE/sepolicy_neverallows_intermediates/sepolicy_neverallows.tmp out/target/product/coral/obj/FAKE/sepolicy_neverallows_intermediates/policy.conf ) \u0026\u0026 (out/host/linux-x86/bin/sepolicy-analyze out/target/product/coral/obj/FAKE/sepolicy_neverallows_intermediates/sepolicy_neverallows.tmp neverallow -w -f out/target/product/coral/obj/FAKE/sepolicy_neverallows_intermediates/policy_2.conf ||    ( echo \\\"\\\" 1\u003e\u00262;         echo \\\"sepolicy-analyze failed. This is most likely due to the use\\\" 1\u003e\u00262;         echo \\\"of an expanded attribute in a neverallow assertion. Please fix\\\" 1\u003e\u00262;      echo \\\"the policy.\\\" 1\u003e\u00262;      exit 1 ) ) \u0026\u0026 (touch out/target/product/coral/obj/FAKE/sepolicy_neverallows_intermediates/sepolicy_neverallows.tmp ) \u0026\u0026 (mv out/target/product/coral/obj/FAKE/sepolicy_neverallows_intermediates/sepolicy_neverallows.tmp out/target/product/coral/obj/FAKE/sepolicy_neverallows_intermediates/sepolicy_neverallows )\"\nlibsepol.report_failure: neverallow on line 196 of system/sepolicy/private/shell.te (or line 51851 of policy.conf) violated by allow dumpstate perf_drop_caches_prop:file { read };\nlibsepol.check_assertions: 1 neverallow failures occurred\nError while expanding policy\n[  7% 11/150] build out/target/product/coral/obj/ETC/sepolicy.recovery_intermediates/sepolicy\nFAILED: out/target/product/coral/obj/ETC/sepolicy.recovery_intermediates/sepolicy\n/bin/bash -c \"(ASAN_OPTIONS\u003ddetect_leaks\u003d0 out/host/linux-x86/bin/checkpolicy -M -c             30 -o out/target/product/coral/obj/ETC/sepolicy.recovery_intermediates/sepolicy.tmp out/target/product/coral/obj/ETC/sepolicy.recovery_intermediates/sepolicy.recovery.conf ) \u0026\u0026 (out/host/linux-x86/bin/sepolicy-analyze out/target/product/coral/obj/ETC/sepolicy.recovery_intermediates/sepolicy.tmp permissive \u003e out/target/product/coral/obj/ETC/sepolicy.recovery_intermediates/sepolicy.permissivedomains ) \u0026\u0026 (if [ \\\"userdebug\\\" \u003d \\\"user\\\" -a -s out/target/product/coral/obj/ETC/sepolicy.recovery_intermediates/sepolicy.permissivedomains ]; then              echo \\\"\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\\\" 1\u003e\u00262;               echo \\\"ERROR: permissive domains not allowed in user builds\\\" 1\u003e\u00262;                echo \\\"List of invalid domains:\\\" 1\u003e\u00262;                 cat out/target/product/coral/obj/ETC/sepolicy.recovery_intermediates/sepolicy.permissivedomains 1\u003e\u00262;              exit 1;                 fi ) \u0026\u0026 (mv out/target/product/coral/obj/ETC/sepolicy.recovery_intermediates/sepolicy.tmp out/target/product/coral/obj/ETC/sepolicy.recovery_intermediates/sepolicy )\"\nlibsepol.report_failure: neverallow on line 196 of system/sepolicy/private/shell.te (or line 54622 of policy.conf) violated by allow dumpstate perf_drop_caches_prop:file { read };\nlibsepol.check_assertions: 1 neverallow failures occurred\n```",
+      "parentUuid": "b6e15d68_da46afeb",
+      "range": {
+        "startLine": 121,
+        "startChar": 16,
+        "endLine": 121,
+        "endChar": 32
+      },
+      "revId": "e472c02606b929c3abbaa8bfeedf92a00100cda3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
