@@ -60,6 +60,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b876010d_e0f6d8c6",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-19T07:58:53Z",
+      "side": 1,
+      "message": "Do you know what\u0027s causing this? How does apexd get an fd from otapreopt_chroot?\n\nOften when we see this, it means that a file is being opened without O_CLOEXEC. Could that be the cause here? What breaks when it\u0027s not allowed?",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 36
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "34416a65_ec66ca1d",
         "filename": "private/apexd.te",
         "patchSetId": 1
@@ -71,6 +94,30 @@
       "writtenOn": "2021-03-19T02:35:49Z",
       "side": 1,
       "message": "I\u0027m not an expert in selinux, but I think we can use create_dir_perms to define create/read/search/write.",
+      "range": {
+        "startLine": 182,
+        "startChar": 12,
+        "endLine": 182,
+        "endChar": 40
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67e704cf_7295c47d",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-19T07:58:53Z",
+      "side": 1,
+      "message": "agreed. perhaps { create_dir_perms mounton }",
+      "parentUuid": "34416a65_ec66ca1d",
       "range": {
         "startLine": 182,
         "startChar": 12,
@@ -99,6 +146,29 @@
         "startChar": 12,
         "endLine": 183,
         "endChar": 41
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5482a0b_4af86dd9",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-19T07:58:53Z",
+      "side": 1,
+      "message": "r_file_perms",
+      "range": {
+        "startLine": 184,
+        "startChar": 34,
+        "endLine": 184,
+        "endChar": 55
       },
       "revId": "a4195d23316260037196cb53c86afee2874ca11e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -152,6 +222,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac8035d3_91021b56",
+        "filename": "private/linkerconfig.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-19T07:58:53Z",
+      "side": 1,
+      "message": "r_dir_perms",
+      "range": {
+        "startLine": 24,
+        "startChar": 48,
+        "endLine": 24,
+        "endChar": 68
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "730e7772_3b51c834",
+        "filename": "private/linkerconfig.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-19T07:58:53Z",
+      "side": 1,
+      "message": "r_file_perms",
+      "range": {
+        "startLine": 25,
+        "startChar": 49,
+        "endLine": 25,
+        "endChar": 70
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3231bbd2_0d716b3c",
         "filename": "private/otapreopt_chroot.te",
         "patchSetId": 1
@@ -168,6 +284,99 @@
         "startChar": 0,
         "endLine": 14,
         "endChar": 47
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8a1ba02_fe92cdd6",
+        "filename": "private/otapreopt_chroot.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-19T07:58:53Z",
+      "side": 1,
+      "message": "It\u0027s not at all clear why these are needed. I seems like bug.",
+      "parentUuid": "3231bbd2_0d716b3c",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 47
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e79482a9_94591a8d",
+        "filename": "private/postinstall.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-19T07:58:53Z",
+      "side": 1,
+      "message": "r_dir_perms",
+      "range": {
+        "startLine": 5,
+        "startChar": 29,
+        "endLine": 5,
+        "endChar": 42
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9de5f4bc_526a4300",
+        "filename": "private/postinstall_dexopt.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-19T07:58:53Z",
+      "side": 1,
+      "message": "r_file_perms\n\nI wonder if lines 21-23 should also be updated.",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 24,
+        "endChar": 58
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b99bed61_cb31ebfc",
+        "filename": "private/update_engine_common.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-19T07:58:53Z",
+      "side": 1,
+      "message": "Can you explain this? Where/why is this happening?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 53
       },
       "revId": "a4195d23316260037196cb53c86afee2874ca11e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -198,6 +407,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89b8ed3e_aa0650c2",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-19T07:58:53Z",
+      "side": 1,
+      "message": "I don\u0027t think this is actually necessary, or at least I don\u0027t see why it would be. Perhaps we should meet to discuss what\u0027s going on and if there might be alternatives.",
+      "parentUuid": "a4289372_ca5d08cf",
+      "range": {
+        "startLine": 508,
+        "startChar": 26,
+        "endLine": 508,
+        "endChar": 44
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "439d3e9e_17fc567b",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-19T07:58:53Z",
+      "side": 1,
+      "message": "can these all go in private/file.te ?",
+      "range": {
+        "startLine": 375,
+        "startChar": 0,
+        "endLine": 379,
+        "endChar": 43
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf8b8a83_8a77acf3",
         "filename": "public/otapreopt_chroot.te",
         "patchSetId": 1
@@ -214,6 +470,53 @@
         "startChar": 0,
         "endLine": 3,
         "endChar": 67
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "427769c6_5748290b",
+        "filename": "public/otapreopt_chroot.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-19T07:58:53Z",
+      "side": 1,
+      "message": "+1, these should stay in private. If we absolutely have to keep the neverallow rule exemption for otapreopt_chroot, then we could just move the entire neverallow rule to private/domain.te.",
+      "parentUuid": "bf8b8a83_8a77acf3",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 67
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46c8d49d_26333e9e",
+        "filename": "public/update_engine_common.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-19T07:58:53Z",
+      "side": 1,
+      "message": "what\u0027s causing this?",
+      "range": {
+        "startLine": 36,
+        "startChar": 49,
+        "endLine": 36,
+        "endChar": 63
       },
       "revId": "a4195d23316260037196cb53c86afee2874ca11e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
