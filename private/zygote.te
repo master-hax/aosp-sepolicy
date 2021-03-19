@@ -126,6 +126,9 @@ allow zygote tmpfs:filesystem { mount unmount };
 allow zygote fuse:filesystem { unmount };
 allow zygote sdcardfs:filesystem { unmount };
 
+# Allow unmounting mounted data and obb for app data isolation.
+allow zygote labeledfs:filesystem { unmount };
+
 # Allow creating user-specific storage source if started before vold.
 allow zygote mnt_user_file:dir { create_dir_perms mounton };
 allow zygote mnt_user_file:lnk_file create_file_perms;
