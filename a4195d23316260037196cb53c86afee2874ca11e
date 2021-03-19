@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aef10b96_1ecc6607",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-19T23:11:34Z",
+      "side": 1,
+      "message": "I\u0027m not really sure myself. I just add what audit2allow says :P",
+      "parentUuid": "1fd5de0d_1bf21e28",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 30
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b876010d_e0f6d8c6",
         "filename": "private/apexd.te",
         "patchSetId": 1
@@ -71,6 +95,30 @@
       "writtenOn": "2021-03-19T07:58:53Z",
       "side": 1,
       "message": "Do you know what\u0027s causing this? How does apexd get an fd from otapreopt_chroot?\n\nOften when we see this, it means that a file is being opened without O_CLOEXEC. Could that be the cause here? What breaks when it\u0027s not allowed?",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 36
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "584d420e_9ca635bf",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-19T23:11:34Z",
+      "side": 1,
+      "message": "I believe this might be stdin/out/err? We need the same thing in dexopt so that would make sense. I\u0027ll try closing those before exec.",
+      "parentUuid": "b876010d_e0f6d8c6",
       "range": {
         "startLine": 181,
         "startChar": 0,
@@ -128,6 +176,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2ec6b0b_1eae2444",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-19T23:11:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67e704cf_7295c47d",
+      "range": {
+        "startLine": 182,
+        "startChar": 12,
+        "endLine": 182,
+        "endChar": 40
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1611d128_7a8eb433",
@@ -151,6 +223,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21e31c84_ee6ef009",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-19T23:11:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1611d128_7a8eb433",
+      "range": {
+        "startLine": 183,
+        "startChar": 12,
+        "endLine": 183,
+        "endChar": 41
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5482a0b_4af86dd9",
@@ -164,6 +260,30 @@
       "writtenOn": "2021-03-19T07:58:53Z",
       "side": 1,
       "message": "r_file_perms",
+      "range": {
+        "startLine": 184,
+        "startChar": 34,
+        "endLine": 184,
+        "endChar": 55
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6a3a72d_ce1dd615",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-19T23:11:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5482a0b_4af86dd9",
       "range": {
         "startLine": 184,
         "startChar": 34,
@@ -220,6 +340,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ea6e9f1_365e29fc",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-19T23:11:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "396d608c_89cf2040",
+      "range": {
+        "startLine": 803,
+        "startChar": 47,
+        "endLine": 803,
+        "endChar": 48
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac8035d3_91021b56",
@@ -243,6 +387,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "542690fa_e278b84f",
+        "filename": "private/linkerconfig.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-19T23:11:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac8035d3_91021b56",
+      "range": {
+        "startLine": 24,
+        "startChar": 48,
+        "endLine": 24,
+        "endChar": 68
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "730e7772_3b51c834",
@@ -256,6 +424,30 @@
       "writtenOn": "2021-03-19T07:58:53Z",
       "side": 1,
       "message": "r_file_perms",
+      "range": {
+        "startLine": 25,
+        "startChar": 49,
+        "endLine": 25,
+        "endChar": 70
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76cdaa41_0b1db961",
+        "filename": "private/linkerconfig.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-19T23:11:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "730e7772_3b51c834",
       "range": {
         "startLine": 25,
         "startChar": 49,
@@ -360,6 +552,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e5b5992_6625007a",
+        "filename": "private/postinstall.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-19T23:11:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e79482a9_94591a8d",
+      "range": {
+        "startLine": 5,
+        "startChar": 29,
+        "endLine": 5,
+        "endChar": 42
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9de5f4bc_526a4300",
@@ -383,6 +599,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0bd4d1f_07e56aef",
+        "filename": "private/postinstall_dexopt.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-19T23:11:34Z",
+      "side": 1,
+      "message": "Probably. I was wondering if there\u0027s a good way to prune permissions or is it just delete and test?",
+      "parentUuid": "9de5f4bc_526a4300",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 24,
+        "endChar": 58
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b99bed61_cb31ebfc",
@@ -396,6 +636,30 @@
       "writtenOn": "2021-03-19T07:58:53Z",
       "side": 1,
       "message": "Can you explain this? Where/why is this happening?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 53
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac0b7ab5_2640cf22",
+        "filename": "private/update_engine_common.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-19T23:11:34Z",
+      "side": 1,
+      "message": "update_engine will also exec things for /vendor update.",
+      "parentUuid": "b99bed61_cb31ebfc",
       "range": {
         "startLine": 8,
         "startChar": 0,
