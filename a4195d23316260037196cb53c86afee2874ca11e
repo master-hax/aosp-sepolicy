@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d68de876_bbaa2a25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2021-03-19T02:35:49Z",
+      "side": 1,
+      "message": "apexd-related sepolicy changes look good to me (modulo some nits I left). Adding Jiyong to take a look as well, since he knows more about selinux than me.",
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fd5de0d_1bf21e28",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2021-03-19T02:35:49Z",
+      "side": 1,
+      "message": "If possible, please add some more detailed comments about all the lines below. It will help futures readers.\n\nEspecially about the proc_filesystems, I\u0027m a little bit lost why we need it :)",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 30
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34416a65_ec66ca1d",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2021-03-19T02:35:49Z",
+      "side": 1,
+      "message": "I\u0027m not an expert in selinux, but I think we can use create_dir_perms to define create/read/search/write.",
+      "range": {
+        "startLine": 182,
+        "startChar": 12,
+        "endLine": 182,
+        "endChar": 40
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1611d128_7a8eb433",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2021-03-19T02:35:49Z",
+      "side": 1,
+      "message": "I think you can use create_file_perms. You\u0027ll also need relabelfrom (or maybe relabelto, I always keep mixing them) for apexd to correctly label /apex/apex-info-list.xml.",
+      "range": {
+        "startLine": 183,
+        "startChar": 12,
+        "endLine": 183,
+        "endChar": 41
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
