@@ -74,6 +74,30 @@
       },
       "revId": "9816f969659190cec4cff12a667f8d245a6f9bd4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "279af9c3_4093af9e",
+        "filename": "private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1859295
+      },
+      "writtenOn": "2021-03-19T06:29:09Z",
+      "side": 1,
+      "message": "From patchset 3, Denny\u0027s solution is to completely split out the short_suspend_threshold_millis property into exported_suspend_prop and give system_suspend with access to exported_suspend_prop.\n\nI\u0027m thinking about that we may keep suspend_prop access to all property items and create separate access to the short_suspend_threshold_millis property. The suspend_prop users may expect to get access to all suspend property items when they grant suspend_prop access for themselves.\n\ne.g.\n# Suspend service properties\n...\nsuspend.short_suspend_threshold_millis u:object_r:suspend_prop:s0 exact uint\n...\n\n# Exported(Exposed?) suspend service properties\nsuspend.short_suspend_threshold_millis u:object_r:exported_suspend_prop:s0 exact uint",
+      "parentUuid": "e40b7150_8897982b",
+      "range": {
+        "startLine": 104,
+        "startChar": 39,
+        "endLine": 104,
+        "endChar": 74
+      },
+      "revId": "9816f969659190cec4cff12a667f8d245a6f9bd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
