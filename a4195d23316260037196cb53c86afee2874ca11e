@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff776eca_8542a19f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-19T03:04:37Z",
+      "side": 1,
+      "message": "This is beyond my territory in sepolicy. So, I\u0027d like to hand the review over to Jeffrey. I have a few comments, but if Jeffrey is happy with this change, so am I.",
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fd5de0d_1bf21e28",
@@ -82,6 +99,121 @@
         "startChar": 12,
         "endLine": 183,
         "endChar": 41
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7003696_7a51de00",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-19T03:04:37Z",
+      "side": 1,
+      "message": "I don\u0027t think you need to label these differently.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 61
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "396d608c_89cf2040",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-19T03:04:37Z",
+      "side": 1,
+      "message": "nit: align the types to the same column",
+      "range": {
+        "startLine": 803,
+        "startChar": 47,
+        "endLine": 803,
+        "endChar": 48
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3231bbd2_0d716b3c",
+        "filename": "private/otapreopt_chroot.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-19T03:04:37Z",
+      "side": 1,
+      "message": "I am not sure if these are better than what we have done so far. This gives too much power to otapreopt_chroot, though it actually need to do this only in the chroot environment.\n\nI think it\u0027s probably out of scope of this CL, but I wish we had a dedicated (and a standalone) sepolicy for the chroot environment.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 47
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4289372_ca5d08cf",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-19T03:04:37Z",
+      "side": 1,
+      "message": "This IMHO is an unfortunate setback. Jeffrey might have a different opinion.",
+      "range": {
+        "startLine": 508,
+        "startChar": 26,
+        "endLine": 508,
+        "endChar": 44
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf8b8a83_8a77acf3",
+        "filename": "public/otapreopt_chroot.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-19T03:04:37Z",
+      "side": 1,
+      "message": "Why are these moved from private to public?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 67
       },
       "revId": "a4195d23316260037196cb53c86afee2874ca11e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
