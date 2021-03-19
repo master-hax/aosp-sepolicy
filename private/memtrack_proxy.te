@@ -1,0 +1,9 @@
+type memtrack_proxy, domain, coredomain;
+type memtrack_proxy_exec, system_file_type, exec_type, file_type;
+
+binder_use(memtrack_proxy)
+add_service(memtrack_proxy, memtrack_proxy_service)
+
+hal_client_domain(memtrack_proxy, hal_memtrack)
+
+init_daemon_domain(memtrack_proxy)
