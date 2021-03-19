@@ -315,6 +315,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0a609a8_672ee401",
+        "filename": "private/otapreopt_chroot.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-19T18:35:17Z",
+      "side": 1,
+      "message": "It\u0027s needed because (inside of the mount namespace) it needs to setup the /sys /vendor etc. These are all actually bind-mounts to the real /sys etc but the folders they are mounted on are the OTAs /sys etc so have that selinux tag. Previously this worked because the context\u003d mount option overrode the selinux contexts.",
+      "parentUuid": "c8a1ba02_fe92cdd6",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 47
+      },
+      "revId": "a4195d23316260037196cb53c86afee2874ca11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e79482a9_94591a8d",
         "filename": "private/postinstall.te",
         "patchSetId": 1
