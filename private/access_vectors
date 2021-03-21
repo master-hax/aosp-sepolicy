@@ -182,6 +182,9 @@ inherits file
 	entrypoint
 }
 
+class anon_inode
+inherits file
+
 class lnk_file
 inherits file
 
@@ -718,6 +721,7 @@ class keystore2
 	change_user
 	clear_ns
 	clear_uid
+	get_auth_token
 	get_state
 	list
 	lock
