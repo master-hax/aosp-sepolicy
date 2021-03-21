@@ -52,6 +52,24 @@
       "parentUuid": "522321be_4c6d2234",
       "revId": "487d7e13abe444fba6ea6cddd5383e5ab9306bee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aee760e5_9b890836",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-21T23:33:11Z",
+      "side": 1,
+      "message": "Thank you Ben for the detailed and clear explanation. It must have been tough to trace the root cause back. I wonder how they managed to execute `mkdir /data/system` in their Q build. I don\u0027t understand how the absence of aosp/1109000 made that possible. Figuring that out may not be an important issue here though.\n\nI think this should be fixed by the OEM in their vendor partition. We can\u0027t loosen the Treble restriction just to grant an exemption to a specific OEM. It will take some time (how long?), but as you said in the doc, it\u0027s the right way. In the meantime, for our local development, one may build GSI by themselves with this patch, or we could provide a special variant of GSI until the issue is fixed by the OEM.",
+      "parentUuid": "5c8bfa11_f0cf9ae1",
+      "revId": "487d7e13abe444fba6ea6cddd5383e5ab9306bee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
