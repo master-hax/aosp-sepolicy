@@ -164,8 +164,6 @@ neverallow {
     -init
     -gsid
     -fastbootd
-    -recovery
-    -vold
 } gsi_metadata_file_type:dir ~{ search };
 
 neverallow {
@@ -173,7 +171,6 @@ neverallow {
     -init
     -gsid
     -fastbootd
-    -vold
 } { gsi_metadata_file_type -gsi_public_metadata_file }:file_class_set *;
 
 neverallow {
@@ -181,7 +178,6 @@ neverallow {
     -init
     -gsid
     -fastbootd
-    -vold
 } gsi_public_metadata_file:file_class_set ~{ r_file_perms };
 
 neverallow {
@@ -194,8 +190,6 @@ neverallow {
     domain
     -init
     -gsid
-    -fastbootd
-    -vold
 } gsi_data_file:file_class_set *;
 
 neverallow {
