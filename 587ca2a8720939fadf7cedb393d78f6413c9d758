@@ -217,6 +217,30 @@
       },
       "revId": "587ca2a8720939fadf7cedb393d78f6413c9d758",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db9c02f3_187cd13d",
+        "filename": "private/gsid.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2021-03-22T09:07:02Z",
+      "side": 1,
+      "message": "I\u0027m loosening this because fs_mgr_fstab needs to read gsi_public_metadata_file to infer the exact fstab, but that code (fs_mgr_fstab) could be called from vendor processes. Thus I don\u0027t know who to exclude from the neverallow?\n\nI\u0027m also not sure if 3p apps would ever need to know the device fstab? I guess not. So I think it\u0027s reasonable to block 3p apps from reading this. Can I do something like \"neverallow {domain -preinstalled_process}\" to block 3p apps?",
+      "parentUuid": "6e2bbcff_fe739989",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 58
+      },
+      "revId": "587ca2a8720939fadf7cedb393d78f6413c9d758",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
