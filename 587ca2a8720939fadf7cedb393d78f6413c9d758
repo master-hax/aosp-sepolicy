@@ -289,6 +289,30 @@
       },
       "revId": "587ca2a8720939fadf7cedb393d78f6413c9d758",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5716ea39_8f261613",
+        "filename": "private/gsid.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2021-03-22T10:16:47Z",
+      "side": 1,
+      "message": "fs_mgr_fstab calls access(\"/metadata/gsi/dsu/booted\", F_OK) to determine if the device is in \"DSU running\" state. (https://cs.android.com/android/platform/superproject/+/master:system/core/fs_mgr/fs_mgr_fstab.cpp;l\u003d696;drc\u003d20b74257a62c7a46290d1fedb9d6598595e3f7fb)\n\nIf within DSU, then read \"/metadata/gsi/dsu/active\" and \"/metadata/gsi/dsu/lp_names\" to determine the fstab entries.\n\nSo if a process only needs to read the fstab within a non-DSU system, it needs\npath resolution rights of metadata_file and gsi_metadata_file, for access(\"/metadata/gsi/dsu/booted\")\n\nIf a process needs to read the fstab within a DSU system, then it needs\npath resolution rights of metadata_file and gsi_metadata_file, and r_file_perms of gsi_public_metadata_file",
+      "parentUuid": "0d044dcf_5a54f411",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 58
+      },
+      "revId": "587ca2a8720939fadf7cedb393d78f6413c9d758",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
