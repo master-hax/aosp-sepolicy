@@ -123,7 +123,7 @@ allow gsid userdata_block_device:blk_file r_file_perms;
 #
 allow gsid metadata_file:dir { search getattr };
 allow gsid {
-    gsi_metadata_file
+    gsi_metadata_file_type
 }:dir create_dir_perms;
 
 allow gsid {
@@ -131,9 +131,13 @@ allow gsid {
 }:dir rw_dir_perms;
 
 allow gsid {
-    gsi_metadata_file
+    gsi_metadata_file_type
     ota_metadata_file
 }:file create_file_perms;
+
+# Allow restorecon to fix the fix context of gsi_public_metadata_file.
+allow gsid file_contexts_file:file r_file_perms;
+allow gsid gsi_metadata_file_type:file { relabelfrom relabelto };
 
 allow gsid {
       gsi_data_file
@@ -153,6 +157,8 @@ allowxperm gsid {
 
 allow gsid system_server:binder call;
 
+# Allow path resolution to gsi_public_metadata_file, so that
+# access(gsi_public_metadata_file, F_OK) could be allowed.
 neverallow {
     domain
     -init
@@ -160,7 +166,7 @@ neverallow {
     -fastbootd
     -recovery
     -vold
-} gsi_metadata_file:dir *;
+} gsi_metadata_file_type:dir ~{ search };
 
 neverallow {
     domain
@@ -168,7 +174,15 @@ neverallow {
     -gsid
     -fastbootd
     -vold
-} gsi_metadata_file:file_class_set *;
+} { gsi_metadata_file_type -gsi_public_metadata_file }:file_class_set *;
+
+neverallow {
+    domain
+    -init
+    -gsid
+    -fastbootd
+    -vold
+} gsi_public_metadata_file:file_class_set ~{ r_file_perms };
 
 neverallow {
     domain
