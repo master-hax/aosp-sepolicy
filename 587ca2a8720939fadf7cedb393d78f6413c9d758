@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa8d2851_d9db7936",
+        "filename": "private/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-22T08:37:50Z",
+      "side": 1,
+      "message": "Can\u0027t these 4 lines be expressed as a single line?\n/metadata/gsi/dsu(/.*)?  u:object_r:gsi_public_metadata_file:s0\n\nAm I missing something here?",
+      "revId": "587ca2a8720939fadf7cedb393d78f6413c9d758",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28281163_891d943e",
+        "filename": "private/gsid.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-22T08:37:50Z",
+      "side": 1,
+      "message": "delete?",
+      "range": {
+        "startLine": 138,
+        "startChar": 25,
+        "endLine": 138,
+        "endChar": 34
+      },
+      "revId": "587ca2a8720939fadf7cedb393d78f6413c9d758",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54ba719d_88ff4683",
+        "filename": "private/gsid.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-22T08:37:50Z",
+      "side": 1,
+      "message": "This seems a little bit dangerous because it allows gsid to relabel any of these types to any other of these types. Is that really necessary? Or should this be limited to just the relabels that are needed?",
+      "range": {
+        "startLine": 140,
+        "startChar": 11,
+        "endLine": 140,
+        "endChar": 33
+      },
+      "revId": "587ca2a8720939fadf7cedb393d78f6413c9d758",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "127c5ea9_583af0f1",
+        "filename": "private/gsid.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-22T08:37:50Z",
+      "side": 1,
+      "message": "By who? Do we really want to allow (e.g.) 3p apps to call access(, F_OK) here? That seems unnecessarily permissive and allows apps to see device state that they should not be allowed to see.",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 58
+      },
+      "revId": "587ca2a8720939fadf7cedb393d78f6413c9d758",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
