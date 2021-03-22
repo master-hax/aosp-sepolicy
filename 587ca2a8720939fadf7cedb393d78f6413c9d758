@@ -313,6 +313,30 @@
       },
       "revId": "587ca2a8720939fadf7cedb393d78f6413c9d758",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0088f31_8718a47a",
+        "filename": "private/gsid.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-22T12:00:34Z",
+      "side": 1,
+      "message": "If that\u0027s the case, then it seems like your neverallow rule will be too strict.\n\nPerhaps we can replace this with neverallows that restrict write access for non allow-listed domains, and all access for apps.\n\n# Prevent most processes from writing to gsi_metadata_file_type.\nneverallow { domain -\u003clist exeception\u003e } gsi_metadata_file_type:file no_w_file_perms;\nneverallow { domain -\u003clist exeception\u003e } gsi_metadata_file_type:dir no_w_dir_perms;\n\n# Prevent apps from accessing gsi_metadata_file_type.\nneverallow appdomain gsi_metadata_file_type:dir *;\nneverallow appdomain gsi_metadata_file_type:file *;",
+      "parentUuid": "5716ea39_8f261613",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 58
+      },
+      "revId": "587ca2a8720939fadf7cedb393d78f6413c9d758",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
