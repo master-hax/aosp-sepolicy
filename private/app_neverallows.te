@@ -71,6 +71,16 @@ neverallow {
   -untrusted_app_27
 } dex2oat_exec:file no_x_file_perms;
 
+# Do not allow untrusted apps to read ro.debuggable.
+# Exempt legacy apps (targetApi<=30) for compatibility.
+neverallow {
+  all_untrusted_apps
+  -untrusted_app_25
+  -untrusted_app_27
+  -untrusted_app_29
+  -untrusted_app_30
+} debuggable_prop:file read;
+
 # Do not allow untrusted apps to be assigned mlstrustedsubject.
 # This would undermine the per-user isolation model being
 # enforced via levelFrom=user in seapp_contexts and the mls
