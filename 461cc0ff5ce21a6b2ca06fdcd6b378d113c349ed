@@ -16,6 +16,23 @@
       "message": "To avoid reverting again... I\u0027m now investigating why sc-arc failed.",
       "revId": "461cc0ff5ce21a6b2ca06fdcd6b378d113c349ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b75218ae_0cc967db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-23T11:19:17Z",
+      "side": 1,
+      "message": "Somehow, build variables for plat_sepolicy.cil and vendor_sepolicy.cil differs.\n\n  3,4d2\n  \u003c -D target_build_variant\u003duserdebug\n  \u003c -D target_with_dexpreopt\u003dtrue\n  8c6,7\n  \u003c -D target_full_treble\u003dfalse\n  ---\n  \u003e -D target_build_variant\u003duserdebug\n  \u003e -D target_full_treble\u003dtrue\n  12,13c11,12\n  \u003c -D target_exclude_build_test\u003d\n  \u003c -D target_requires_insecure_execmem_for_swiftshader\u003d\n  ---\n  \u003e -D target_exclude_build_test\u003dfalse\n  \u003e -D target_requires_insecure_execmem_for_swiftshader\u003dfalse",
+      "revId": "461cc0ff5ce21a6b2ca06fdcd6b378d113c349ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
