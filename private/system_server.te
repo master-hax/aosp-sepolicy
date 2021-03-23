@@ -267,7 +267,6 @@ hal_client_domain(system_server, hal_health)
 hal_client_domain(system_server, hal_input_classifier)
 hal_client_domain(system_server, hal_ir)
 hal_client_domain(system_server, hal_light)
-hal_client_domain(system_server, hal_memtrack)
 hal_client_domain(system_server, hal_neuralnetworks)
 hal_client_domain(system_server, hal_oemlock)
 hal_client_domain(system_server, hal_omx)
@@ -1219,6 +1218,10 @@ allow system_server apex_mnt_dir:dir r_dir_perms;
 
 # Allow system server to read /apex/apex-info-list.xml
 allow system_server apex_info_file:file r_file_perms;
+
+# Allow system server to communicate with memtrack_proxy
+allow system_server memtrack_proxy_service:service_manager find;
+binder_call(system_server, memtrack_proxy)
 
 # Allow system server to communicate to system-suspend's control interface
 allow system_server system_suspend_control_internal_service:service_manager find;
