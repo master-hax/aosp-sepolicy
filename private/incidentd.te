@@ -26,7 +26,9 @@ allow incidentd proc_version:file r_file_perms;
 allow incidentd proc_pagetypeinfo:file r_file_perms;
 
 # section id 2002, allow reading /d/wakeup_sources
+no_debugfs_restriction(`
 allow incidentd debugfs_wakeup_sources:file r_file_perms;
+')
 
 # section id 2003, allow executing top
 allow incidentd proc_meminfo:file { open read };
