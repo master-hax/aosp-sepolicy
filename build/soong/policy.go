@@ -154,6 +154,7 @@ func (c *policyConf) transformPolicyToConf(ctx android.ModuleContext) android.Ou
 		FlagWithArg("-D target_enforce_sysprop_owner=", c.enforceSyspropOwner(ctx)).
 		FlagWithArg("-D target_exclude_build_test=", strconv.FormatBool(proptools.Bool(c.properties.Exclude_build_test))).
 		FlagWithArg("-D target_requires_insecure_execmem_for_swiftshader=", strconv.FormatBool(ctx.DeviceConfig().RequiresInsecureExecmemForSwiftshader())).
+		FlagWithArg("-D target_enforce_debugfs_restriction=", strconv.FormatBool(ctx.DeviceConfig().BuildDebugfsRestrictionsEnabled())).
 		Flag("-s").
 		Inputs(android.PathsForModuleSrc(ctx, c.properties.Srcs)).
 		Text("> ").Output(conf)
