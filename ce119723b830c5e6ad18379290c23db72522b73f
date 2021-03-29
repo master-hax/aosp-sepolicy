@@ -33,6 +33,98 @@
       "message": "Oh, and can someone tell me: what\u0027s the proper way to ensure that only the `crosvm` domain can access /dev/kvm? We\u0027d like to make it accessibly by any UID, but only by the `crosvm` domain. Is it denied by default to everything else, or do I need to add a rule somewhere for that? And what about the filesystem permissions?",
       "revId": "ce119723b830c5e6ad18379290c23db72522b73f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0c37a43_9bb39430",
+        "filename": "private/virtmanager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-29T17:31:54Z",
+      "side": 1,
+      "message": "selinux policy is organized by scontext, so things where crosvm is the scontext should go into private/crosmv.te",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 57
+      },
+      "revId": "ce119723b830c5e6ad18379290c23db72522b73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a07c3a00_b1ed857f",
+        "filename": "private/virtmanager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-29T17:31:54Z",
+      "side": 1,
+      "message": "tmpfs_domain(crosvm) (in private/crosvm.te)",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 43
+      },
+      "revId": "ce119723b830c5e6ad18379290c23db72522b73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a1ec9c7_fd6c3f3e",
+        "filename": "private/virtmanager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-29T17:31:54Z",
+      "side": 1,
+      "message": "rw_file_perms",
+      "range": {
+        "startLine": 28,
+        "startChar": 33,
+        "endLine": 28,
+        "endChar": 58
+      },
+      "revId": "ce119723b830c5e6ad18379290c23db72522b73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d5bd162_f5732574",
+        "filename": "public/device.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-03-29T17:31:54Z",
+      "side": 1,
+      "message": "Do we expect anything other than crosvm to access this? If not, then you can put it into private/file.t.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 26
+      },
+      "revId": "ce119723b830c5e6ad18379290c23db72522b73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
