@@ -33,6 +33,24 @@
       "message": "For some of these allow rules, did you consider b/178038565 instead?",
       "revId": "5854941f631f47f4316e1f17bea415ef9d2a7fbd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88ae6a18_bbc6cd09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2021-03-31T08:14:32Z",
+      "side": 1,
+      "message": "I did consider something similar to b/178038565, but then I found it too much mental burden to figure out the individual needs of each process, especially when I don\u0027t know most of these processes are doing. (You can see that I was granting more fine-grained allows / dontaudits in previous revisions)\nI then changed to just grant \"read_fstab\" to any domains that are calling ReadDefaultFstab() or ReadFstabFromFile(), since it seems like they really need these permissions (else presubmit boot test would fail)\n\nImplementing b/178038565 or not, I still think we should land this change first. We can tighten the rules afterwards if b/178038565 introduces any new API. Right now I\u0027ll be granting ReadDefaultFstab() callers \"read_fstab(domain)\", else the ReadDefaultFstab() call would fail",
+      "parentUuid": "f8d34c4b_babb15f1",
+      "revId": "5854941f631f47f4316e1f17bea415ef9d2a7fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
