@@ -1,0 +1,360 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77917db4_8ef2be7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-31T12:32:47Z",
+      "side": 1,
+      "message": "I welcome this kind of change because we definitely need to provide a way for partners to customize/extend/maintain their own sepolicy and backwards compatibility. But we still need a detailed design to introduce these changes.\n\nCurrently system/system_ext/product policy are regarded as bundled, or platform policy. And we have plat_pub_versioned.cil in vendor, which is basically a merged public policy (system public + system_ext public + product public). Given that, rather than creating three separate tests, I think one test including all prebuilt files (system prebuilt + system_ext prebuilt + product prebuilt) will be enough. What\u0027s the point of having system_ext_pub_versioned.cil, product_pub_versioned.cil, etc. ?\n\nnote: We may need to be careful about product, because IIUC product is different with system_ext because product could be unbundled in the future, just like the system API enforcements or AIDL enforcements, which is not the case for system_ext which are always together with system. But let\u0027s forget this for now...",
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a887274_1b52d755",
+        "filename": "Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-31T12:32:47Z",
+      "side": 1,
+      "message": "I see that system_ext and product test are filtered by 30.0 version. Do we need this?",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 0
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92c8875b_715c51de",
+        "filename": "Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-31T12:32:47Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 324,
+        "endChar": 0
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c403594e_bf490ac6",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-31T12:32:47Z",
+      "side": 1,
+      "message": "nit; one space",
+      "range": {
+        "startLine": 16,
+        "startChar": 26,
+        "endLine": 16,
+        "endChar": 28
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5244a602_5886e376",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-31T12:32:47Z",
+      "side": 1,
+      "message": "nit; one space",
+      "range": {
+        "startLine": 19,
+        "startChar": 23,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1ac1eae_28629c22",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-31T12:32:47Z",
+      "side": 1,
+      "message": "Can you remove these trivial whitespace changes?",
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc8a9696_d8b12604",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-31T12:32:47Z",
+      "side": 1,
+      "message": "Shouldn\u0027t any versions greater than or equal to 30.0 be fine?",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 34
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89ed8d1e_ebdaf7f5",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-31T12:32:47Z",
+      "side": 1,
+      "message": "Reorder?\n\n  ifneq ($(filter 30.0,$(version)),)\n  ifneq (,$(SYSTEM_EXT_PREBUILT_POLICY))\n  $(version)_SYSTEM_EXT_PUBLIC_POLICY :\u003d $(SYSTEM_EXT_PREBUILT_POLICY)/prebuilts/api/$(version)/public\n  $(version)_SYSTEM_EXT_PRIVATE_POLICY :\u003d $(SYSTEM_EXT_PREBUILT_POLICY)/prebuilts/api/$(version)/private",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 38
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b3a7298_34097f6c",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-31T12:32:47Z",
+      "side": 1,
+      "message": "Can you adjust this line width within 100? It\u0027s hard to read.",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 95
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8647ca6c_3e9d20fd",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-31T12:32:47Z",
+      "side": 1,
+      "message": "We don\u0027t have technical_debt.cil in system_ext.",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 84
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75f4d610_8ef6d4d9",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-31T12:32:47Z",
+      "side": 1,
+      "message": "Although these are just intermediate, it\u0027d be better not to make the name conflicts between system_ext and product.",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 19
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e7591f4_01b3b6f3",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-31T12:32:47Z",
+      "side": 1,
+      "message": "We don\u0027t have system_ext_pub_versioned.cil",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 5
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c14780a2_9e8487f5",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-31T12:32:47Z",
+      "side": 1,
+      "message": "Seems that these whole blocks are result of %s/plat/system_ext? (copy-and-paste-and-then-find-and-replace)\n\nHow can we test that these code work?",
+      "range": {
+        "startLine": 198,
+        "startChar": 24,
+        "endLine": 198,
+        "endChar": 38
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa6cf01b_801dc7f8",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-31T12:32:47Z",
+      "side": 1,
+      "message": "Pleaes remove tabs except for build rules.",
+      "range": {
+        "startLine": 246,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 4
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b2a57c4_ec5b18b7",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-31T12:32:47Z",
+      "side": 1,
+      "message": "We don\u0027t have technical_debt.cil in product policy.",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 81
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9c5fa21_b4c778dd",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-03-31T12:32:47Z",
+      "side": 1,
+      "message": "We don\u0027t have product_pub_versioned.cil",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 67
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
