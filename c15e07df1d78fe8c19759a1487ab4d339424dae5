@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "809b3a3e_0d84a28d",
+        "filename": "private/system_suspend.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1855559
+      },
+      "writtenOn": "2021-03-31T06:01:53Z",
+      "side": 1,
+      "message": "\"rw_file_perms\" seems like a red flag to me, unfortunately without this I keep getting following avc denied as I use selinux_check_access() to check access.\n\ntype\u003d1400 audit(1617158345.635:7): avc: denied { write } for comm\u003d\"Binder:590_2\" name\u003d\"access\" dev\u003d\"selinuxfs\" ino\u003d6 scontext\u003du:r:system_suspend:s0 \n\nOpen for a better suggestion.",
+      "revId": "c15e07df1d78fe8c19759a1487ab4d339424dae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
