@@ -16,6 +16,46 @@
       "message": "Jeff will have to +2 this.",
       "revId": "3561b5b6aeffeb693daa30ee5608635ebee53c42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "798a7782_911047a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-04-01T17:54:30Z",
+      "side": 1,
+      "message": "Feel free to address my comment in a follow up change.",
+      "revId": "3561b5b6aeffeb693daa30ee5608635ebee53c42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dafd20da_b82435e0",
+        "filename": "private/file.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-04-01T17:54:30Z",
+      "side": 1,
+      "message": "Should we have some neverallow rules around who can access /dev/kvm? Should anything other than crosvm ever access it? If not, let\u0027s add\n\nneverallow { domain -crosvm } kvm_device:chr_file *;",
+      "range": {
+        "startLine": 61,
+        "startChar": 5,
+        "endLine": 61,
+        "endChar": 15
+      },
+      "revId": "3561b5b6aeffeb693daa30ee5608635ebee53c42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
