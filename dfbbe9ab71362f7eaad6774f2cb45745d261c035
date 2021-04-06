@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ba43c34_f8df3dc8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-04-06T10:47:33Z",
+      "side": 1,
+      "message": "I\u0027m having difficulty understanding this change. no_debugfs_restriction, enforce_debugfs_restriction makes it difficult to reason about when these rules are actually enforced. It\u0027s also unclear how this change will map to CTS, which currently packages up neverallow rules in order to test them as part of CTS.\n\nI wonder if it would be cleaner to test these new restrictions elsewhere.",
+      "revId": "dfbbe9ab71362f7eaad6774f2cb45745d261c035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63d2c850_3f9463b3",
@@ -111,6 +128,52 @@
         "startChar": 0,
         "endLine": 120,
         "endChar": 46
+      },
+      "revId": "dfbbe9ab71362f7eaad6774f2cb45745d261c035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8edcd2b4_e47e088a",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-04-06T10:47:33Z",
+      "side": 1,
+      "message": "Do we need a test that enforces that tracefs types have this attribute? e.g.: https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/tests/sepolicy_tests.py;l\u003d41",
+      "range": {
+        "startLine": 145,
+        "startChar": 55,
+        "endLine": 145,
+        "endChar": 67
+      },
+      "revId": "dfbbe9ab71362f7eaad6774f2cb45745d261c035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c926025b_d1ea6e86",
+        "filename": "public/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-04-06T10:47:33Z",
+      "side": 1,
+      "message": "{ create_file_perms relabelfrom }",
+      "range": {
+        "startLine": 243,
+        "startChar": 29,
+        "endLine": 243,
+        "endChar": 95
       },
       "revId": "dfbbe9ab71362f7eaad6774f2cb45745d261c035",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
