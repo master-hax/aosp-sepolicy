@@ -56,6 +56,30 @@
       },
       "revId": "3561b5b6aeffeb693daa30ee5608635ebee53c42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b578efa0_c640403c",
+        "filename": "private/file.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-04-06T15:08:23Z",
+      "side": 1,
+      "message": "If I add that then I get a bunch of build errors:\n\nlibsepol.report_failure: neverallow on line 63 of system/sepolicy/private/file.te (or line 42763 of policy.conf) violated by allow vendor_init kvm_device:chr_file { setattr };\nlibsepol.report_failure: neverallow on line 63 of system/sepolicy/private/file.te (or line 42763 of policy.conf) violated by allow ueventd kvm_device:chr_file { create getattr setattr unlink };\nlibsepol.report_failure: neverallow on line 63 of system/sepolicy/private/file.te (or line 42763 of policy.conf) violated by allow init kvm_device:chr_file { setattr };\nlibsepol.report_failure: neverallow on line 63 of system/sepolicy/private/file.te (or line 42763 of policy.conf) violated by allow shell kvm_device:chr_file { getattr };",
+      "parentUuid": "dafd20da_b82435e0",
+      "range": {
+        "startLine": 61,
+        "startChar": 5,
+        "endLine": 61,
+        "endChar": 15
+      },
+      "revId": "3561b5b6aeffeb693daa30ee5608635ebee53c42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
