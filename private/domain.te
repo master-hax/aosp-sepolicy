@@ -517,9 +517,12 @@ neverallow {
   -traced_perf
 } proc_kallsyms:file { open read };
 
+# exclude vendor_modprobe from the restriction since the kernel modules it loads may create
+# debugfs files in its context.
 enforce_debugfs_restriction(`
   neverallow {
     domain
+    -vendor_modprobe
     userdebug_or_eng(`
       -init
       -hal_dumpstate
