@@ -27,12 +27,14 @@
 /data_mirror        u:object_r:mirror_data_file:s0
 /debug_ramdisk      u:object_r:tmpfs:s0
 /mnt                u:object_r:tmpfs:s0
-/postinstall        u:object_r:postinstall_mnt_dir:s0
-/postinstall/apex   u:object_r:postinstall_apex_mnt_dir:s0
 /proc               u:object_r:rootfs:s0
 /second_stage_resources u:object_r:tmpfs:s0
 /sys                u:object_r:sysfs:s0
 /apex               u:object_r:apex_mnt_dir:s0
+
+# Postinstall directories
+/postinstall         u:object_r:postinstall_mnt_dir:s0
+/postinstall/apex    u:object_r:postinstall_apex_mnt_dir:s0
 
 /apex/(\.(bootstrap|default)-)?apex-info-list.xml u:object_r:apex_info_file:s0
 
@@ -205,6 +207,7 @@
 /system/apex/com.android.art	u:object_r:art_apex_dir:s0
 /system/lib(64)?(/.*)?		u:object_r:system_lib_file:s0
 /system/lib(64)?/bootstrap(/.*)? u:object_r:system_bootstrap_lib_file:s0
+/system/bin/mm_events		u:object_r:mm_events_exec:s0
 /system/bin/atrace	u:object_r:atrace_exec:s0
 /system/bin/auditctl	u:object_r:auditctl_exec:s0
 /system/bin/bcc                 u:object_r:rs_exec:s0
@@ -797,3 +800,9 @@
 #############################
 # mount point for read-write product partitions
 /mnt/product(/.*)?          u:object_r:mnt_product_file:s0
+
+#############################
+# /postinstall file contexts
+/(system|product)/bin/check_dynamic_partitions  u:object_r:postinstall_exec:s0
+/(system|product)/bin/otapreopt_script          u:object_r:postinstall_exec:s0
+/(system|product)/bin/otapreopt                 u:object_r:postinstall_dexopt_exec:s0
