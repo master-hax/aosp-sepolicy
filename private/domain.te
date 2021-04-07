@@ -505,9 +505,12 @@ neverallow {
   -dumpstate
 } mm_events_config_prop:file no_rw_file_perms;
 
+# exclude vendor_modprobe from the restriction since the kernel modules it loads may create
+# debugfs files in its context.
 enforce_debugfs_restriction(`
   neverallow {
     domain
+    -vendor_modprobe
     userdebug_or_eng(`
       -init
       -hal_dumpstate
