@@ -61,6 +61,9 @@ allow priv_app cache_file:lnk_file r_file_perms;
 allow priv_app media_rw_data_file:dir create_dir_perms;
 allow priv_app media_rw_data_file:file create_file_perms;
 
+# Access to /mnt/media_rw/<vol> (limited by DAC to apps with external_storage gid)
+allow priv_app mnt_media_rw_file:dir search;
+
 # Used by Finsky / Android "Verify Apps" functionality when
 # running "adb install foo.apk".
 allow priv_app shell_data_file:file r_file_perms;
