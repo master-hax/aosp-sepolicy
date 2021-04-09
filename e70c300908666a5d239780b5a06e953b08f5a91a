@@ -22,6 +22,30 @@
       },
       "revId": "e70c300908666a5d239780b5a06e953b08f5a91a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d43e283d_5e513793",
+        "filename": "private/network_stack.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2021-04-09T14:51:18Z",
+      "side": 1,
+      "message": "That\u0027s a much larger policy change.\nMuch harder to predict the consequences.\n\nAllowing isSocket$ will just immediately end up in isLingerSocket getting called (since it is a socket after all, even though not a tcp socket), etc...\n\nI don\u0027t know if there are any potentially dangerous/exploitable/etc getsockopt\u0027s that can be called on a key socket, and I don\u0027t want to try figuring that out, since it\u0027s simply an unnecessary distraction.  (this is not to say there are, and if we needed it I\u0027d add it, but since we don\u0027t actually need it, I\u0027m against adding it when we can also just dontaudit it)\n\nYou\u0027ll note that:\n\nhttp://cs/aosp-master/packages/modules/Connectivity/Tethering/apishim/31/com/android/networkstack/tethering/apishim/api31/BpfCoordinatorShimImpl.java?l\u003d465\u0026rcl\u003d9b8c60629f014bca6b3324cc806c47d4f42dd3a4\n\nonly calls\nOs.close(Os.socket(AF_KEY, OsConstants.SOCK_RAW | OsConstants.SOCK_CLOEXEC, PF_KEY_V2));\n\nHence this shouldn\u0027t even be getting triggered in the first place.  It\u0027s really a Java bug, but since Java just randomly decides to call extra system calls on file descriptors, it seems like a bad idea to allow it anything more then what we actually need (why give it more rope to hang itself).\n\nNote: while not actually confirmed, I agree with Lorenzo\u0027s belief that Os.close() is calling into:\n\nhttps://source.corp.google.com/aosp-master/libcore/luni/src/main/java/libcore/io/BlockGuardOs.java;l\u003d100\n\nwhich then hits:\n\nJNIEXPORT jboolean JNICALL FileDescriptor_isSocket(JNIEnv *env, jclass ignored, jint fd) {\n    int error;\n    socklen_t error_length \u003d sizeof(error);\n    return TEMP_FAILURE_RETRY(getsockopt(fd, SOL_SOCKET, SO_ERROR, \u0026error, \u0026error_length)) \u003d\u003d 0;\n}\n\nbtw. see https://linux.die.net/man/7/socket - SO_ERROR - Get and clear the pending socket error. This socket option is read-only. Expects an integer.\n\nSo it seems like isSocket is outright buggy and it might break Os.close() error return semantics - at least at the syscall level... but that\u0027s a whole other can of worms.  isSocket() should have probably used SO_DOMAIN...\n\nWorry about stuff like the above is why I argued synchronizeKernelRCU() should be in jni and not Java in the first place.  C wouldn\u0027t do this to you.  :-)",
+      "parentUuid": "80309459_bbdb8cec",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 9
+      },
+      "revId": "e70c300908666a5d239780b5a06e953b08f5a91a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
