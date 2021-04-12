@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5a2d4b83_dfc31aff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1346941
+      },
+      "writtenOn": "2021-04-12T10:37:44Z",
+      "side": 1,
+      "message": "I removed the TODO and added more details to the commit msg. I think it\u0027s fine for all apps to have \u0027search\u0027 access on /mnt/media_rw, since the mounted volumes are DAC protected and there is a runtime permission any app can request to gain DAC access. \n\nDo I just add this rule to appdomain and remove it from priv and untrusted?\n\nThanks",
+      "parentUuid": "ee3e8d70_b69a2d73",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "bb6640688296e56d11c647f1f4f786b9480bc787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a66b7740_6253f068",
         "filename": "private/priv_app.te",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-12T09:20:43Z",
       "side": 1,
       "message": "nit: this rule of itself doesn\u0027t care about the gids.\n\nMaybe: \n# Access to /mnt/media_rw/\u003cvol\u003e (limited by DAC to apps with external_storage gid)\n\nWould also be useful to include the motivation for the grant from your commit message.",
+      "range": {
+        "startLine": 64,
+        "startChar": 32,
+        "endLine": 64,
+        "endChar": 35
+      },
+      "revId": "bb6640688296e56d11c647f1f4f786b9480bc787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06524f13_0239161a",
+        "filename": "private/priv_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1346941
+      },
+      "writtenOn": "2021-04-12T10:37:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a66b7740_6253f068",
       "range": {
         "startLine": 64,
         "startChar": 32,
