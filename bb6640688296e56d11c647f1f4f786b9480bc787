@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee3e8d70_b69a2d73",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-04-12T09:20:43Z",
+      "side": 1,
+      "message": "True, but there\u0027s a TODO: \"narrow this to just MediaProvider\"\n(http://cs/android/system/sepolicy/private/untrusted_app_all.te?l\u003d88\u0026rcl\u003dccba3be84b71a196a0b97c7a06692e02cb85d50f)\n\nIs that TODO still an aspiration, or are we ok with pretty much every app having this access for ever? It would be good to either remove or implement that TODO.\n\nBypassing the FUSE daemon seems like a bad thing, but IDK the details.\n\n(If we do want every app to have access, should we just grant it to appdomain?)",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "bb6640688296e56d11c647f1f4f786b9480bc787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a66b7740_6253f068",
+        "filename": "private/priv_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-04-12T09:20:43Z",
+      "side": 1,
+      "message": "nit: this rule of itself doesn\u0027t care about the gids.\n\nMaybe: \n# Access to /mnt/media_rw/\u003cvol\u003e (limited by DAC to apps with external_storage gid)\n\nWould also be useful to include the motivation for the grant from your commit message.",
+      "range": {
+        "startLine": 64,
+        "startChar": 32,
+        "endLine": 64,
+        "endChar": 35
+      },
+      "revId": "bb6640688296e56d11c647f1f4f786b9480bc787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
