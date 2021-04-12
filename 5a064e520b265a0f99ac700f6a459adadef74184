@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43556668_591b95e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-04-12T13:26:39Z",
+      "side": 1,
+      "message": "Before doing this you need to make sure that the service implementation, NetworkWatchlistService, is correctly protected against arbitrary apps accessing it.\n\nCurrently some of the calls check the caller is SYSTEM_UID (which should really be a permission check); but some do not.",
+      "revId": "5a064e520b265a0f99ac700f6a459adadef74184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd0c6cd3_cb98fc3b",
+        "filename": "public/service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-04-12T13:26:39Z",
+      "side": 1,
+      "message": "Ephemeral apps definitely don\u0027t need access to this service.\nIs there not a way to grant access to your apex without also granting it to all apps?",
+      "range": {
+        "startLine": 109,
+        "startChar": 49,
+        "endLine": 109,
+        "endChar": 74
+      },
+      "revId": "5a064e520b265a0f99ac700f6a459adadef74184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
