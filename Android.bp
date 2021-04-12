@@ -80,6 +80,41 @@ se_filegroup {
 }
 
 se_filegroup {
+    name: "26.0.board.compat.cil",
+    srcs: [
+        "compat/26.0/26.0.compat.cil",
+    ],
+}
+
+se_filegroup {
+    name: "27.0.board.compat.cil",
+    srcs: [
+        "compat/27.0/27.0.compat.cil",
+    ],
+}
+
+se_filegroup {
+    name: "28.0.board.compat.cil",
+    srcs: [
+        "compat/28.0/28.0.compat.cil",
+    ],
+}
+
+se_filegroup {
+    name: "29.0.board.compat.cil",
+    srcs: [
+        "compat/29.0/29.0.compat.cil",
+    ],
+}
+
+se_filegroup {
+    name: "30.0.board.compat.cil",
+    srcs: [
+        "compat/30.0/30.0.compat.cil",
+    ],
+}
+
+se_filegroup {
     name: "26.0.board.ignore.map",
     srcs: [
         "compat/26.0/26.0.ignore.cil",
@@ -287,6 +322,81 @@ prebuilt_etc {
     name: "30.0.compat.cil",
     src: "private/compat/30.0/30.0.compat.cil",
     sub_dir: "selinux/mapping",
+}
+
+genrule {
+    name: "system_ext_26.0.compat.cil_gen",
+    srcs: [":26.0.board.compat.cil{.system_ext}"],
+    out: ["system_ext_26.0.compat.cil_gen"],
+    cmd: "cat $(in) > $(out)",
+}
+
+prebuilt_etc {
+    name: "system_ext_26.0.compat.cil",
+    src: ":system_ext_26.0.compat.cil_gen",
+    filename: "26.0.compat.cil",
+    relative_install_path: "selinux/mapping",
+    system_ext_specific: true,
+}
+
+genrule {
+    name: "system_ext_27.0.compat.cil_gen",
+    srcs: [":27.0.board.compat.cil{.system_ext}"],
+    out: ["system_ext_27.0.compat.cil_gen"],
+    cmd: "cat $(in) > $(out)",
+}
+
+prebuilt_etc {
+    name: "system_ext_27.0.compat.cil",
+    src: ":system_ext_27.0.compat.cil_gen",
+    filename: "27.0.compat.cil",
+    relative_install_path: "selinux/mapping",
+    system_ext_specific: true,
+}
+
+genrule {
+    name: "system_ext_28.0.compat.cil_gen",
+    srcs: [":28.0.board.compat.cil{.system_ext}"],
+    out: ["system_ext_28.0.compat.cil_gen"],
+    cmd: "cat $(in) > $(out)",
+}
+
+prebuilt_etc {
+    name: "system_ext_28.0.compat.cil",
+    src: ":system_ext_28.0.compat.cil_gen",
+    filename: "28.0.compat.cil",
+    relative_install_path: "selinux/mapping",
+    system_ext_specific: true,
+}
+
+genrule {
+    name: "system_ext_29.0.compat.cil_gen",
+    srcs: [":29.0.board.compat.cil{.system_ext}"],
+    out: ["system_ext_29.0.compat.cil_gen"],
+    cmd: "cat $(in) > $(out)",
+}
+
+prebuilt_etc {
+    name: "system_ext_29.0.compat.cil",
+    src: ":system_ext_29.0.compat.cil_gen",
+    filename: "29.0.compat.cil",
+    relative_install_path: "selinux/mapping",
+    system_ext_specific: true,
+}
+
+genrule {
+    name: "system_ext_30.0.compat.cil_gen",
+    srcs: [":30.0.board.compat.cil{.system_ext}"],
+    out: ["system_ext_30.0.compat.cil_gen"],
+    cmd: "cat $(in) > $(out)",
+}
+
+prebuilt_etc {
+    name: "system_ext_30.0.compat.cil",
+    src: ":system_ext_30.0.compat.cil_gen",
+    filename: "30.0.compat.cil",
+    relative_install_path: "selinux/mapping",
+    system_ext_specific: true,
 }
 
 se_filegroup {
