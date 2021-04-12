@@ -15,6 +15,9 @@
 package selinux
 
 import (
+	"fmt"
+	"strings"
+
 	"android/soong/android"
 	"path/filepath"
 )
@@ -58,6 +61,19 @@ type fileGroup struct {
 	vendorSrcs         android.Paths
 	vendorReqdMaskSrcs android.Paths
 	odmSrcs            android.Paths
+
+	srcs map[string]android.Paths
+}
+
+// se_filegroup behaves like a filegroup when a tag is provided to select the searched directory.
+// Supported tags are: "system_ext".
+var _ android.OutputFileProducer = (*fileGroup)(nil)
+
+func (fg *fileGroup) OutputFiles(tag string) (android.Paths, error) {
+	if paths, ok := fg.srcs[tag]; ok {
+		return paths, nil
+	}
+	return nil, fmt.Errorf("unknown tag %q. Supported tags are: %q", tag, strings.Join(android.SortedStringKeys(fg.srcs), " "))
 }
 
 // Source files from system/sepolicy/public
@@ -149,4 +165,7 @@ func (fg *fileGroup) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 	fg.vendorReqdMaskSrcs = fg.findSrcsInDirs(ctx, ctx.DeviceConfig().BoardReqdMaskPolicy())
 	fg.vendorSrcs = fg.findSrcsInDirs(ctx, ctx.DeviceConfig().VendorSepolicyDirs())
 	fg.odmSrcs = fg.findSrcsInDirs(ctx, ctx.DeviceConfig().OdmSepolicyDirs())
+
+	fg.srcs = make(map[string]android.Paths)
+	fg.srcs[".system_ext"] = fg.systemExtPrivateSrcs
 }
