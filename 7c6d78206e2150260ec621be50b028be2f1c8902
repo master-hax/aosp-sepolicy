@@ -69,6 +69,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f01b1f6_0c623823",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1596832
+      },
+      "writtenOn": "2021-04-13T07:53:23Z",
+      "side": 1,
+      "message": "Thanks Inseob Kim for review, I can address all your comment except \"We don\u0027t have system_ext_pub_versioned.cil\".\n\nIn system_ext_pub_versioned.cil we define versioned attribute and types for system_ext partition similar to plat_pub_versioned.cil .\n\nSo if we should don\u0027t use system_ext_pub_versioned.cil file then which file should we use ?\n\nShould we extend plat_pub_versined.cil file and define the versioned attribute for system_ext partition also in plat_pub_versioned.cil file ? \n\nCan you please comment on this .",
+      "parentUuid": "c11508cd_6f777da3",
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a887274_1b52d755",
@@ -318,6 +336,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f4a0b520_b4a4e357",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1596832
+      },
+      "writtenOn": "2021-04-13T07:53:23Z",
+      "side": 1,
+      "message": "in system_ext_pub_versioned.cil , type and versioned attribute will de defined for system_ext partition similar to plat_pub_versioned.cil file . \n\nIs there any issue with  system_ext_pub_versioned.cil  ? \nIf we can\u0027t use  system_ext_pub_versioned.cil then which file should we use ?",
+      "parentUuid": "7e7591f4_01b3b6f3",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 5
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c14780a2_9e8487f5",
         "filename": "treble_sepolicy_tests_for_release.mk",
         "patchSetId": 3
@@ -398,6 +440,30 @@
       "writtenOn": "2021-03-31T12:32:47Z",
       "side": 1,
       "message": "We don\u0027t have product_pub_versioned.cil",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 67
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93b14e25_d8c619a2",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1596832
+      },
+      "writtenOn": "2021-04-13T07:53:23Z",
+      "side": 1,
+      "message": "in product_pub_versioned.cil , type and versioned attribute will de defined for product partition similar to plat_pub_versioned.cil file . \n\nIs there any issue with product_pub_versioned.cil  ? \nIf we can\u0027t use  product_pub_versioned.cil then which file should we use ?",
+      "parentUuid": "c9c5fa21_b4c778dd",
       "range": {
         "startLine": 298,
         "startChar": 0,
