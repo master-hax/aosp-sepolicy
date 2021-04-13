@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45f5417d_364a6f13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2021-04-13T03:22:11Z",
+      "side": 1,
+      "message": "Addressed the comment. PTAL, Thanks!",
+      "revId": "2a1610b4e00761d1d3c5ccd220aa8a9750bfb24e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "498f08f0_ae681ed1",
@@ -14,6 +31,30 @@
       "writtenOn": "2021-04-12T23:11:20Z",
       "side": 1,
       "message": "I can\u0027t easily find the design doc.  What exactly is this service and why is it app_api but not e.g., ephemeral_app_api?",
+      "range": {
+        "startLine": 223,
+        "startChar": 18,
+        "endLine": 223,
+        "endChar": 33
+      },
+      "revId": "2a1610b4e00761d1d3c5ccd220aa8a9750bfb24e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0943ff6b_4c0a4f9d",
+        "filename": "public/service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2021-04-13T03:22:11Z",
+      "side": 1,
+      "message": "The design doc for this change is here: https://docs.google.com/document/d/1QJ9l628tc25_Q0fjHoSowZgJ7dTN4hOgjUAn-bzPvh0/edit\n\nThere are links to design doc for the entire UWB stack in the above doc.\n\nUwbManager API surface (which is the API surface for this service) is here: https://source.corp.google.com/android/frameworks/base/core/java/android/uwb/UwbManager.java\n\n\nThis does not need to be an ephemeral API surface since I don\u0027t think we want to support UWB for instant apps.",
+      "parentUuid": "498f08f0_ae681ed1",
       "range": {
         "startLine": 223,
         "startChar": 18,
