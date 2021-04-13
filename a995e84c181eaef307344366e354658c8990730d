@@ -22,6 +22,30 @@
       },
       "revId": "a995e84c181eaef307344366e354658c8990730d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9e5f9a1_a0231bd4",
+        "filename": "private/file_contexts",
+        "patchSetId": 7
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-04-13T13:37:31Z",
+      "side": 1,
+      "message": "It\u0027s a character device, which the VMM (i.e. crosvm) uses to set the guest CID and enable the vsock device in the guest. It\u0027s used by the policy in crosvm.te.\n\nThis seems to be the location that is used for it everywhere else, so I\u0027m not sure why we\u0027d want to move it. It makes sense for it to be alongside /dev/kvm.\n\nI think it makes sense for it to have the same context as /dev/kvm, as it is used by the same process (crosvm) as part of the same operation (running a VM). This seems to be a common patten, as several other devices above also have the same context applied to them.",
+      "parentUuid": "33d2e2e0_9800ee99",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 41
+      },
+      "revId": "a995e84c181eaef307344366e354658c8990730d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
