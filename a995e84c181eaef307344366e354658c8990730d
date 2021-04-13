@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33d2e2e0_9800ee99",
+        "filename": "private/file_contexts",
+        "patchSetId": 7
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-04-13T12:42:40Z",
+      "side": 1,
+      "message": "Is this actually a character device or is it a vsock_socket? Where is this used in your policy? Labeling this as kvm_device doesn\u0027t seem right. I would expect something like kvm_socket.\n\nAlso, is the location of this configurable? Typically sockets go into /dev/sockets/",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 41
+      },
+      "revId": "a995e84c181eaef307344366e354658c8990730d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
