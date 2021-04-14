@@ -46,6 +46,30 @@
       },
       "revId": "ab3500c9f38519b214c7208aa0bbbc9bd811a826",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f354a7bf_397d8dd1",
+        "filename": "vendor/hal_health_storage_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-04-14T18:08:39Z",
+      "side": 1,
+      "message": "All health storage HAL will likely need to read fstab. Since we are restricting what processes can read fstab, I think we should be adding hal_health_storage_server here instead (I forgot the exact name)",
+      "parentUuid": "cc3230ce_c3507c07",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 38
+      },
+      "revId": "ab3500c9f38519b214c7208aa0bbbc9bd811a826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
