@@ -22,6 +22,30 @@
       },
       "revId": "ab3500c9f38519b214c7208aa0bbbc9bd811a826",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc3230ce_c3507c07",
+        "filename": "vendor/hal_health_storage_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2021-04-14T12:23:27Z",
+      "side": 1,
+      "message": "Judging from this code (https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/health/storage/impl_common/impl_common.cpp;l\u003d37;drc\u003d356c8371caf16fdaf895c0845fb6cc6d154fd2a4), I think it\u0027s for the default impl only, and I believe device can use their own implementations. The domain \"hal_health_storage_default\" is for default implementation of the health_storage_hal, correct? +elsk",
+      "parentUuid": "07a0a1bb_aafeaca9",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 38
+      },
+      "revId": "ab3500c9f38519b214c7208aa0bbbc9bd811a826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
