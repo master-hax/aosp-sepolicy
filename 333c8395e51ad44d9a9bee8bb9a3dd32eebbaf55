@@ -16,6 +16,24 @@
       "message": "When you re-land this later, please highlight the forward-fix changes.",
       "revId": "333c8395e51ad44d9a9bee8bb9a3dd32eebbaf55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80b1c56a_c457b0ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2021-04-14T02:55:28Z",
+      "side": 1,
+      "message": "I think the actual failure is happening here (https://cs.android.com/android/platform/superproject/+/master:external/selinux/secilc/secilc.c;l\u003d272;drc\u003df7cb5901f1fb8be8fd038d64e54b5627bca5b88b), seems like secilc assumes input file to be non-empty (st_size \u003e 0). Not sure if this is intended?\n\nI should either fix this by 1. patching secilc to handle empty cil files, or 2. ensure these files are non-empty by including a header consists of comment \";; \u003cblah\u003e\"",
+      "parentUuid": "c59783f8_5f6d1d29",
+      "revId": "333c8395e51ad44d9a9bee8bb9a3dd32eebbaf55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
