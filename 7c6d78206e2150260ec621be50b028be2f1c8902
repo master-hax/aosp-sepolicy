@@ -456,6 +456,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1560d3a_b483d6dd",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-04-14T05:10:28Z",
+      "side": 1,
+      "message": "What I wanted to say is partners don\u0027t need to depend on prebuilts/api/{version}/plat_pub_versioned.cil. I\u0027m thinking either\n\n1) letting vendors set their own plat_pub_versioned.cil installed to vendor\n\n    BOARD_PLAT_PUB_VERSIONED_POLICY :\u003d path_to_plat_pub_versioned_of_vendor\n\n2) or building plat_pub_versioned.cil from prebuilts.\n\n    $(version)_plat_pub_versioned.cil:\n        (some rules reading PREBUILT directories and writing plat_pub_versioned.cil)\n\nAgain, prebuilts/api/{version}/plat_pub_versioned.cil contains only platform policies, but actual plat_pub_versioned.cil installed to vendor contains platform / system_ext / product policies. We should be consistent here. If we introduce system_ext_pub_versioned.cil and product_pub_versioned.cil which are only be used for tests, then what\u0027s for the tests? We want the actual policy files installed to device to be tested, right?\n\nSuppose we really want to introduce system_ext_pub_versioned.cil and product_pub_versioned.cil. Then we have to work on these too:\n\n- init should be able to handle system_ext_pub_versioned.cil and product_pub_versioned.cil\n- system/sepolicy/Android.bp should build system_ext_pub_versioned.cil and product_pub_versioned.cil\n\nIn conclusion, let\u0027s change the test so we can test platform+system_ext+product at once. OR let\u0027s introduce those two pub versioned files to init and system/sepolicy/Android.bp too.",
+      "parentUuid": "d8665ad3_00456a56",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 5
+      },
+      "revId": "7c6d78206e2150260ec621be50b028be2f1c8902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c14780a2_9e8487f5",
         "filename": "treble_sepolicy_tests_for_release.mk",
         "patchSetId": 3
