@@ -364,6 +364,7 @@ neverallow {
     -update_engine
     -vold
     -zygote
+    -fastbootd
 } { fs_type -sdcard_type }:filesystem { mount remount relabelfrom relabelto };
 
 # Limit raw I/O to these allowlisted domains. Do not apply to debug builds.
