@@ -954,9 +954,9 @@ ro.hw_timeout_multiplier u:object_r:hw_timeout_multiplier_prop:s0 exact int
 
 ro.hwui.use_vulkan u:object_r:exported_default_prop:s0 exact bool
 
-ro.kernel.qemu             u:object_r:exported_default_prop:s0 exact bool
-ro.kernel.qemu.            u:object_r:exported_default_prop:s0
-ro.kernel.android.bootanim u:object_r:exported_default_prop:s0 exact int
+# ro.kernel.* properties are emulator specific and deprecated. Do not use.
+# Should be retired once presubmit allows.
+ro.kernel.                 u:object_r:exported_default_prop:s0
 
 ro.oem.key1 u:object_r:exported_default_prop:s0 exact string
 
