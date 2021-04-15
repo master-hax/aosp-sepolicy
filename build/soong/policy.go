@@ -145,6 +145,7 @@ func (c *policyConf) transformPolicyToConf(ctx android.ModuleContext) android.Ou
 		FlagWithArg("-D mls_num_cats=", strconv.Itoa(MlsCats)).
 		FlagWithArg("-D target_arch=", ctx.DeviceConfig().DeviceArch()).
 		FlagWithArg("-D target_with_asan=", c.withAsan(ctx)).
+		FlagWithArg("-D target_with_dexpreopt=", strconv.FormatBool(ctx.DeviceConfig().WithDexpreopt())).
 		FlagWithArg("-D target_with_native_coverage=", strconv.FormatBool(ctx.DeviceConfig().ClangCoverageEnabled() || ctx.DeviceConfig().GcovCoverageEnabled())).
 		FlagWithArg("-D target_build_variant=", c.buildVariant(ctx)).
 		FlagWithArg("-D target_full_treble=", c.sepolicySplit(ctx)).
@@ -316,7 +317,12 @@ func (c *policyCil) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 	conf := android.PathForModuleSrc(ctx, *c.properties.Src)
 	cil := c.compileConfToCil(ctx, conf)
 
-	c.installPath = android.PathForModuleInstall(ctx, "etc", "selinux")
+	if c.InstallInDebugRamdisk() {
+		// for userdebug_plat_sepolicy.cil
+		c.installPath = android.PathForModuleInstall(ctx)
+	} else {
+		c.installPath = android.PathForModuleInstall(ctx, "etc", "selinux")
+	}
 	c.installSource = cil
 	ctx.InstallFile(c.installPath, c.stem(), c.installSource)
 

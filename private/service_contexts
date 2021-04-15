@@ -15,10 +15,12 @@ android.hardware.security.keymint.IKeyMintDevice/default             u:object_r:
 android.hardware.security.keymint.IRemotelyProvisionedComponent/default u:object_r:hal_remotelyprovisionedcomponent_service:s0
 android.hardware.security.secureclock.ISecureClock/default             u:object_r:hal_secureclock_service:s0
 android.hardware.security.sharedsecret.ISharedSecret/default             u:object_r:hal_sharedsecret_service:s0
+android.hardware.soundtrigger3.ISoundTriggerHw/default               u:object_r:hal_audio_service:s0
 android.hardware.vibrator.IVibrator/default                          u:object_r:hal_vibrator_service:s0
 android.hardware.vibrator.IVibratorManager/default                   u:object_r:hal_vibrator_service:s0
 android.hardware.weaver.IWeaver/default                              u:object_r:hal_weaver_service:s0
 android.frameworks.stats.IStats/default                              u:object_r:fwk_stats_service:s0
+android.system.keystore2.IKeystoreService/default                    u:object_r:keystore_service:s0
 
 accessibility                             u:object_r:accessibility_service:s0
 account                                   u:object_r:account_service:s0
@@ -39,7 +41,6 @@ android.security.maintenance              u:object_r:keystore_maintenance_servic
 android.security.remoteprovisioning       u:object_r:remoteprovisioning_service:s0
 android.security.vpnprofilestore          u:object_r:vpnprofilestore_service:s0
 android.service.gatekeeper.IGateKeeperService    u:object_r:gatekeeper_service:s0
-android.system.keystore2                  u:object_r:keystore_service:s0
 app_binding                               u:object_r:app_binding_service:s0
 app_hibernation                           u:object_r:app_hibernation_service:s0
 app_integrity                             u:object_r:app_integrity_service:s0
@@ -69,6 +70,7 @@ cacheinfo                                 u:object_r:cacheinfo_service:s0
 carrier_config                            u:object_r:radio_service:s0
 clipboard                                 u:object_r:clipboard_service:s0
 com.android.net.IProxyService             u:object_r:IProxyService_service:s0
+android.system.virtmanager                u:object_r:virtualization_service:s0
 companiondevice                           u:object_r:companion_device_service:s0
 platform_compat                           u:object_r:platform_compat_service:s0
 platform_compat_native                    u:object_r:platform_compat_service:s0
@@ -175,6 +177,7 @@ media_resource_monitor                    u:object_r:media_session_service:s0
 media_router                              u:object_r:media_router_service:s0
 media_session                             u:object_r:media_session_service:s0
 meminfo                                   u:object_r:meminfo_service:s0
+memtrack.proxy                            u:object_r:memtrackproxy_service:s0
 midi                                      u:object_r:midi_service:s0
 mount                                     u:object_r:mount_service:s0
 music_recognition                         u:object_r:music_recognition_service:s0
@@ -194,6 +197,7 @@ pac_proxy                                 u:object_r:pac_proxy_service:s0
 package                                   u:object_r:package_service:s0
 package_native                            u:object_r:package_native_service:s0
 people                                    u:object_r:people_service:s0
+performance_hint                          u:object_r:hint_service:s0
 permission                                u:object_r:permission_service:s0
 permissionmgr                             u:object_r:permissionmgr_service:s0
 persistent_data_block                     u:object_r:persistent_data_block_service:s0
@@ -280,6 +284,7 @@ uri_grants                                u:object_r:uri_grants_service:s0
 usagestats                                u:object_r:usagestats_service:s0
 usb                                       u:object_r:usb_service:s0
 user                                      u:object_r:user_service:s0
+uwb                                       u:object_r:uwb_service:s0
 vcn_management                            u:object_r:vcn_management_service:s0
 vibrator                                  u:object_r:vibrator_service:s0
 vibrator_manager                          u:object_r:vibrator_manager_service:s0

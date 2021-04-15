@@ -275,6 +275,14 @@ allow domain debugfs_tracing:dir search;
 allow domain debugfs_tracing_debug:dir search;
 allow domain debugfs_trace_marker:file w_file_perms;
 
+# Linux lockdown mode offers coarse-grained definitions for access controls.
+# The "confidentiality" level detects access to tracefs or the perf subsystem.
+# This overlaps with more precise declarations in Android's policy. The
+# debugfs_trace_marker above is an example in which all processes should have
+# some access to tracefs. Therefore, allow all domains to access this level.
+# The "integrity" level is however enforced.
+allow domain self:lockdown confidentiality;
+
 # Filesystem access.
 allow domain fs_type:filesystem getattr;
 allow domain fs_type:dir getattr;
@@ -438,17 +446,6 @@ neverallow { domain -init } usermodehelper:file { append write };
 neverallow { domain -init -ueventd } sysfs_usermodehelper:file { append write };
 neverallow { domain -init -vendor_init } proc_security:file { append open read write };
 
-# Allow the tracing daemon and callstack sampler to use kallsyms to symbolize
-# kernel traces. Addresses are not disclosed, they are repalced with symbol
-# names (if available). Traces don't disclose KASLR.
-neverallow {
-  domain
-  -init
-  -vendor_init
-  -traced_probes
-  -traced_perf
-} proc_kallsyms:file { open read };
-
 # Init can't do anything with binder calls. If this neverallow rule is being
 # triggered, it's probably due to a service with no SELinux domain.
 neverallow * init:binder *;
@@ -506,7 +503,6 @@ neverallow { domain -kernel with_asan(`-asan_extract') } { system_file_type vend
 
 # Don't allow mounting on top of /system files or directories
 neverallow * exec_type:dir_file_class_set mounton;
-neverallow { domain -init } { system_file_type vendor_file_type }:dir_file_class_set mounton;
 
 # Nothing should be writing to files in the rootfs.
 neverallow * rootfs:file { create write setattr relabelto append unlink link rename };
@@ -1068,6 +1064,9 @@ neverallow {
 neverallow { domain -dumpstate -incidentd -system_server } tombstoned_intercept_socket:sock_file write;
 neverallow { domain -dumpstate -incidentd -system_server } tombstoned_intercept_socket:unix_stream_socket connectto;
 
+# Never allow anyone but system_server to read heapdumps in /data/system/heapdump.
+neverallow { domain -init -system_server } heapdump_data_file:file read;
+
 # Android does not support System V IPCs.
 #
 # The reason for this is due to the fact that, by design, they lead to global
@@ -1396,3 +1395,6 @@ neverallow {
 } ashmem_device:chr_file open;
 
 neverallow { domain -traced_probes -init -vendor_init } debugfs_tracing_printk_formats:file *;
+
+# Linux lockdown "integrity" level is enforced for user builds.
+neverallow { domain userdebug_or_eng(`-domain') } self:lockdown integrity;

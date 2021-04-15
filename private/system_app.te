@@ -21,9 +21,6 @@ allow system_app system_app_data_file:{ file lnk_file } create_file_perms;
 allow system_app misc_user_data_file:dir create_dir_perms;
 allow system_app misc_user_data_file:file create_file_perms;
 
-# Access to vold-mounted storage for measuring free space
-allow system_app mnt_media_rw_file:dir search;
-
 # Access to apex files stored on /data (b/136063500)
 # Needed so that Settings can access NOTICE files inside apex
 # files located in the assets/ directory.
@@ -171,9 +168,6 @@ allow system_app system_server:udp_socket {
 
 # Settings app reads ro.oem_unlock_supported
 get_prop(system_app, oem_unlock_prop)
-
-# TODO Remove this property when Keystore 2.0 migration is complete b/171563717
-get_prop(system_app, keystore2_enable_prop)
 
 ###
 ### Neverallow rules

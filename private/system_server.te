@@ -905,6 +905,16 @@ allow system_server resume_on_reboot_key:keystore2_key {
 	use
 };
 
+# Allow lock_settings service to manage locksettings keys (e.g. the synthetic password key).
+allow system_server locksettings_key:keystore2_key {
+	delete
+	get_info
+	rebind
+	update
+	use
+};
+
+
 # Allow system server to search and write to the persistent factory reset
 # protection partition. This block device does not get wiped in a factory reset.
 allow system_server block_device:dir search;
@@ -1270,6 +1280,10 @@ allow system_server watchdog_metadata_file:file create_file_perms;
 allow system_server gsi_persistent_data_file:dir rw_dir_perms;
 allow system_server gsi_persistent_data_file:file create_file_perms;
 
+# Allow system server read and remove files under /data/misc/odrefresh
+allow system_server odrefresh_data_file:dir rw_dir_perms;
+allow system_server odrefresh_data_file:file { r_file_perms unlink };
+
 # Allow system server r access to /system/bin/surfaceflinger for PinnerService.
 allow system_server surfaceflinger_exec:file r_file_perms;
 
@@ -1289,9 +1303,6 @@ neverallow {
 
 # Read/Write /proc/pressure/memory
 allow system_server proc_pressure_mem:file rw_file_perms;
-
-# TODO Remove this property when Keystore 2.0 migration is complete b/171563717
-get_prop(system_server, keystore2_enable_prop)
 
 # dexoptanalyzer is currently used only for secondary dex files which
 # system_server should never access.
