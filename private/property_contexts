@@ -635,6 +635,8 @@ ro.boot.hardware.color     u:object_r:bootloader_prop:s0 exact string
 ro.boot.hardware.sku       u:object_r:bootloader_prop:s0 exact string
 ro.boot.keymaster          u:object_r:bootloader_prop:s0 exact string
 ro.boot.mode               u:object_r:bootloader_prop:s0 exact string
+# Populated on Android Studio Emulator (for emulator specific workarounds)
+ro.boot.qemu               u:object_r:bootloader_prop:s0 exact bool
 ro.boot.revision           u:object_r:bootloader_prop:s0 exact string
 ro.boot.vbmeta.avb_version u:object_r:bootloader_prop:s0 exact string
 ro.boot.verifiedbootstate  u:object_r:bootloader_prop:s0 exact string
@@ -949,10 +951,6 @@ ro.hardware.vulkan               u:object_r:exported_default_prop:s0 exact strin
 ro.hw_timeout_multiplier u:object_r:hw_timeout_multiplier_prop:s0 exact int
 
 ro.hwui.use_vulkan u:object_r:exported_default_prop:s0 exact bool
-
-ro.kernel.qemu             u:object_r:exported_default_prop:s0 exact bool
-ro.kernel.qemu.            u:object_r:exported_default_prop:s0
-ro.kernel.android.bootanim u:object_r:exported_default_prop:s0 exact int
 
 ro.oem.key1 u:object_r:exported_default_prop:s0 exact string
 
