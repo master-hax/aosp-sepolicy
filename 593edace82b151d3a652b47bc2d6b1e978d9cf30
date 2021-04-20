@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7db3e351_7a6b210d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-04-20T14:43:15Z",
+      "side": 1,
+      "message": "Presumably this is specified somewhere in CDD?",
+      "range": {
+        "startLine": 10,
+        "startChar": 60,
+        "endLine": 10,
+        "endChar": 64
+      },
+      "revId": "593edace82b151d3a652b47bc2d6b1e978d9cf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "958bfd6b_7dee54de",
@@ -14,6 +37,121 @@
       "writtenOn": "2021-04-19T20:48:24Z",
       "side": 1,
       "message": "Build changes LGTM",
+      "revId": "593edace82b151d3a652b47bc2d6b1e978d9cf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79c15405_ade6c07c",
+        "filename": "Android.mk",
+        "patchSetId": 12
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-04-20T14:43:15Z",
+      "side": 1,
+      "message": "The relentless duplication here scares me - especially since the various copies are subtly different (eg enforce_sysprop_owner only appears sometimes).\nI\u0027m assuming you\u0027ve managed to work out the correct set of places where the new flag should appear. (Everywhere seems like a safe default, anyway.)",
+      "range": {
+        "startLine": 647,
+        "startChar": 0,
+        "endLine": 647,
+        "endChar": 96
+      },
+      "revId": "593edace82b151d3a652b47bc2d6b1e978d9cf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7874329_b05d47a9",
+        "filename": "private/domain.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-04-20T14:43:15Z",
+      "side": 1,
+      "message": "Why exempt debugfs_tracing_debug here? It should probably get its own neverallow to avoid weakening the protection on it.\n\nnit: convention seems to be to not have a space after \"-\".",
+      "range": {
+        "startLine": 372,
+        "startChar": 21,
+        "endLine": 372,
+        "endChar": 42
+      },
+      "revId": "593edace82b151d3a652b47bc2d6b1e978d9cf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43592bd6_ed5888c4",
+        "filename": "public/init.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-04-20T14:43:15Z",
+      "side": 1,
+      "message": "We could add a neverallow for this, rather than just not allowing it.\nBut TBF that seems out of scope for your change.",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 161,
+        "endChar": 64
+      },
+      "revId": "593edace82b151d3a652b47bc2d6b1e978d9cf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d97be596_81fb5cc4",
+        "filename": "public/te_macros",
+        "patchSetId": 12
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-04-20T14:43:15Z",
+      "side": 1,
+      "message": "Is it worth commenting why \"cts\" is a valid value, and why we need this?\n(Is there actually any mechanism for setting it to cts? You don\u0027t seem to have anything similar to http://cs/android/system/sepolicy/build/soong/policy.go?l\u003d131\u0026rcl\u003da00eca674e9ac171dcc59ec093239dfc88b0ca7c)",
+      "range": {
+        "startLine": 513,
+        "startChar": 2,
+        "endLine": 513,
+        "endChar": 29
+      },
+      "revId": "593edace82b151d3a652b47bc2d6b1e978d9cf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "043f9cc3_4db6800f",
+        "filename": "public/te_macros",
+        "patchSetId": 12
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-04-20T14:43:15Z",
+      "side": 1,
+      "message": "Unused?",
+      "range": {
+        "startLine": 522,
+        "startChar": 8,
+        "endLine": 522,
+        "endChar": 30
+      },
       "revId": "593edace82b151d3a652b47bc2d6b1e978d9cf30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
