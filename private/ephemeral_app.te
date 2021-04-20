@@ -100,3 +100,8 @@ neverallow ephemeral_app { sdcard_type media_rw_data_file }:dir search;
 # Avoid reads to proc_net, it contains too much device wide information about
 # ongoing connections.
 neverallow ephemeral_app proc_net:file no_rw_file_perms;
+
+# Allow binding to netlink route sockets and sending RTM_GETLINK messages.
+# This makes the corresponding rule in public/net.te a no-op. It can be overwritten by the
+# private/ policy for devices running a system image for API level >= 30.
+allow untrusted_app_all self:netlink_route_socket { bind nlmsg_readpriv };
