@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f90cbf1_ee7c4dd9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2021-04-21T06:45:18Z",
+      "side": 1,
+      "message": "The requirement that R-launching devices and newer must not ship with debugfs mounted is a GMS requirement(https://docs.partner.android.com/gms/policies/domains/treble) and is enforced by a GTS test. The neverallow statements being added will only come into effect for S launching devices and newer which are devices that are already subject to the requirement to not mount debugfs in their production builds.\n\nAOSP contains provisions to allow userdebug/eng(non-production) builds to mount debugfs for certain usecases like bugreport collection and development/testing with adb root and shell. The neverallow statements being added are to prevent accidental introduction of debugfs dependencies into these builds during development.",
+      "parentUuid": "7db3e351_7a6b210d",
+      "range": {
+        "startLine": 10,
+        "startChar": 60,
+        "endLine": 10,
+        "endChar": 64
+      },
+      "revId": "593edace82b151d3a652b47bc2d6b1e978d9cf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "958bfd6b_7dee54de",
@@ -89,6 +113,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6b54c0d_5b1bdd17",
+        "filename": "private/domain.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2021-04-21T06:45:18Z",
+      "side": 1,
+      "message": "Ah yes you are right, I have added a separate neverallow statement for debugfs_tracing_debug to match the one on L356. The reason for exempting the label from the new neverallow statement in L369 is because the label is unfortunately used for tracefs files irrespective of whether the fs is mounted at /sys/kernel/tracing or /sys/kernel/debug/tracing. Hence, adding the label to the neverallow here would break tracefs clients even if they are using it correctly by accessing tracefs from /sys/kernel/tracing.",
+      "parentUuid": "b7874329_b05d47a9",
+      "range": {
+        "startLine": 372,
+        "startChar": 21,
+        "endLine": 372,
+        "endChar": 42
+      },
+      "revId": "593edace82b151d3a652b47bc2d6b1e978d9cf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "43592bd6_ed5888c4",
         "filename": "public/init.te",
         "patchSetId": 12
@@ -100,6 +148,30 @@
       "writtenOn": "2021-04-20T14:43:15Z",
       "side": 1,
       "message": "We could add a neverallow for this, rather than just not allowing it.\nBut TBF that seems out of scope for your change.",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 161,
+        "endChar": 64
+      },
+      "revId": "593edace82b151d3a652b47bc2d6b1e978d9cf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae2891c4_ce03ec9e",
+        "filename": "public/init.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2021-04-21T06:45:18Z",
+      "side": 1,
+      "message": "Yes, I am not aware of the context behind this change so I would prefer that we make the improvement in a separate patch.",
+      "parentUuid": "43592bd6_ed5888c4",
       "range": {
         "startLine": 161,
         "startChar": 2,
@@ -135,6 +207,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cc61b3a4_5dbdaffd",
+        "filename": "public/te_macros",
+        "patchSetId": 12
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2021-04-21T06:45:18Z",
+      "side": 1,
+      "message": "For some reason, I assumed that this is automatically set by the build system. Sorry about that, fixed in the next PS.",
+      "parentUuid": "d97be596_81fb5cc4",
+      "range": {
+        "startLine": 513,
+        "startChar": 2,
+        "endLine": 513,
+        "endChar": 29
+      },
+      "revId": "593edace82b151d3a652b47bc2d6b1e978d9cf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "043f9cc3_4db6800f",
         "filename": "public/te_macros",
         "patchSetId": 12
@@ -146,6 +242,30 @@
       "writtenOn": "2021-04-20T14:43:15Z",
       "side": 1,
       "message": "Unused?",
+      "range": {
+        "startLine": 522,
+        "startChar": 8,
+        "endLine": 522,
+        "endChar": 30
+      },
+      "revId": "593edace82b151d3a652b47bc2d6b1e978d9cf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "775302fb_7c01939b",
+        "filename": "public/te_macros",
+        "patchSetId": 12
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2021-04-21T06:45:18Z",
+      "side": 1,
+      "message": "I am sorry, I did not understand Alan. Did you mean to rename it to unused_debugfs_restriction?",
+      "parentUuid": "043f9cc3_4db6800f",
       "range": {
         "startLine": 522,
         "startChar": 8,
