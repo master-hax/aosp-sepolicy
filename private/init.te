@@ -48,6 +48,8 @@ set_prop(init, powerctl_prop)
 set_prop(init, userspace_reboot_exported_prop)
 neverallow { domain -init } userspace_reboot_exported_prop:property_service set;
 
+set_prop(init, vold_post_fs_data_prop)
+
 # Second-stage init performs a test for whether the kernel has SELinux hooks
 # for the perf_event_open() syscall. This is done by testing for the syscall
 # outcomes corresponding to this policy.
