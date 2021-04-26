@@ -1,0 +1,8 @@
+# increment_entropy_count executable
+type increment_entropy_count, domain, coredomain;
+type increment_entropy_count_exec, system_file_type, exec_type, file_type;
+
+allow increment_entropy_count keystore:fd use;
+allow increment_entropy_count self:capability sys_admin;
+
+neverallow { -keystore -increment_entropy_count } increment_entropy_count_exec:file execute;
