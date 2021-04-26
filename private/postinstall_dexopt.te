@@ -15,6 +15,11 @@ domain_auto_trans(postinstall_dexopt, dex2oat_exec, dex2oat)
 #   with the `postinstall_file` type by update_engine.
 domain_auto_trans(postinstall_dexopt, postinstall_file, dex2oat)
 
+# Run derive_classpath to get the current BCP.
+domain_auto_trans(postinstall_dexopt, derive_classpath_exec, derive_classpath)
+# Allow postinstall_dexopt to make a tempfile for derive_classpath to write into
+allow postinstall_dexopt tmpfs:file { getattr open };
+
 allow postinstall_dexopt self:global_capability_class_set { chown dac_override dac_read_search fowner fsetid setgid setuid };
 
 allow postinstall_dexopt postinstall_file:filesystem getattr;
