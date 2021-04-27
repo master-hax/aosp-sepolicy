@@ -22,6 +22,30 @@
       },
       "revId": "13ee65392ed620d04fd6ab71725da6d9b4dd1cc4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e45307b_bf2f9787",
+        "filename": "private/app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-27T19:39:33Z",
+      "side": 1,
+      "message": "Yes, they are protected by fs-verity and signed. We delete the files on boot if their signature is incorrect (system/security/on-device-signing).\n\nBefore we had the ART APEX the AOT files here would have just been on /system and not subject to update. I think we really just have the one awkward jar that this is required for.",
+      "parentUuid": "1e357a84_0583bde1",
+      "range": {
+        "startLine": 77,
+        "startChar": 40,
+        "endLine": 77,
+        "endChar": 53
+      },
+      "revId": "13ee65392ed620d04fd6ab71725da6d9b4dd1cc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
