@@ -188,6 +188,30 @@
       },
       "revId": "810538ee480fee69ff506aa2888e1b86d602e5e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25362489_0e93f3b0",
+        "filename": "public/property.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-04-28T14:44:33Z",
+      "side": 1,
+      "message": "Depending on what you\u0027re using this property for, allowing vendors to set it seems like it could be fragile. What happens if they set it too early? What if multiple processes are trying to set it to different values? It looks like if you use system_restricted_prop() vendors can read it, but not set it. That\u0027s seems safer.",
+      "parentUuid": "d0177524_5e89adcb",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 18
+      },
+      "revId": "810538ee480fee69ff506aa2888e1b86d602e5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
