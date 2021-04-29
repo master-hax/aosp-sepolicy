@@ -46,3 +46,7 @@ set_prop(mediaprovider, ffs_control_prop)
 
 # DownloadManager may retrieve DRM status
 get_prop(mediaprovider, drm_service_config_prop)
+
+allow mediaprovider gpu_device:dir r_dir_perms;
+allow mediaprovider gpu_device:chr_file r_file_perms;
+allow mediaprovider graphics_device:chr_file r_file_perms;

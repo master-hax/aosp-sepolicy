@@ -22,3 +22,7 @@ unix_socket_connect(traceur_app, traced_consumer, traced)
 dontaudit traceur_app debugfs_tracing_debug:file audit_access;
 
 set_prop(traceur_app, debug_prop)
+
+allow traceur_app gpu_device:dir r_dir_perms;
+allow traceur_app gpu_device:chr_file r_file_perms;
+allow traceur_app graphics_device:chr_file r_file_perms;
