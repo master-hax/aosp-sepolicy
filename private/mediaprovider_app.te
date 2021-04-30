@@ -52,3 +52,10 @@ allow mediaprovider_app proc_filesystems:file r_file_perms;
 get_prop(mediaprovider_app, storage_config_prop)
 
 get_prop(mediaprovider_app, drm_service_config_prop)
+
+# Allow MediaProvider to set system properties.
+# This is required to let other services know that FUSE passthrough is enabled
+# on the device (b/186635810).
+allow mediaprovider_app property_socket:sock_file write;
+allow mediaprovider_app init:unix_stream_socket connectto;
+allow mediaprovider_app system_prop:property_service set;
