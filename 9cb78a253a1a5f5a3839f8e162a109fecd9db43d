@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6e1ab0dc_f695cf94",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1082465
+      },
+      "writtenOn": "2021-04-30T23:10:19Z",
+      "side": 1,
+      "message": "Will all devices also be expected to define a gpu_device?",
+      "parentUuid": "6a8f48a2_ee84b1c9",
+      "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7fbbbd9b_50848e35",
         "filename": "private/permissioncontroller_app.te",
         "patchSetId": 3
@@ -138,6 +156,24 @@
       "side": 1,
       "message": "permissioncontroller_app(and the other domains in this patch) are not public domains though. They are not available for use with vendor sepolicy currently, which is why I added them here. Does it really need the access to graphics_device Lingfeng?",
       "parentUuid": "04f9a858_b616502c",
+      "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e7a9c92_b61a7992",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1082465
+      },
+      "writtenOn": "2021-04-30T23:10:19Z",
+      "side": 1,
+      "message": "True, permissioncontroller_app doesn\u0027t look like it needs graphics_device. That was more because it was simpler to use the single gpu_access macro.",
+      "parentUuid": "8a949146_08c287b5",
       "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
