@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6a8f48a2_ee84b1c9",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2021-04-30T20:42:52Z",
+      "side": 1,
+      "message": "This should already be allowed for all apps.",
+      "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7fbbbd9b_50848e35",
         "filename": "private/permissioncontroller_app.te",
         "patchSetId": 3
@@ -49,6 +66,24 @@
       "side": 1,
       "message": "Thanks Joel. the original patch which added the permission to system_ext(aosp/1344276) cites b/146515640 and b/158011535 as reasons for adding the permission. Without moving the permission here, cuttlefish will fail several CTS-on-GSI tests(for example: b/186116877).",
       "parentUuid": "7fbbbd9b_50848e35",
+      "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef3033fe_200a9a3c",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2021-04-30T20:42:52Z",
+      "side": 1,
+      "message": "Thanks, that\u0027s interesting.  I only see denials for gpu_device in those, though; do you know if graphics_device is also needed?",
+      "parentUuid": "5a004bc8_efb138cc",
       "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
