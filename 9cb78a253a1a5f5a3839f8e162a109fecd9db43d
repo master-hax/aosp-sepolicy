@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14baee94_4a020ced",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2021-04-30T23:19:23Z",
+      "side": 1,
+      "message": "Thank Joel, deleted the statement for both permissioncontroller_app and mediaprovider_app. Lingfeng, sorry I do not know the answer to that. The type itself is pulbic though so my guess is that it should be ok for a device to not define it.",
+      "parentUuid": "6e1ab0dc_f695cf94",
+      "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7fbbbd9b_50848e35",
         "filename": "private/permissioncontroller_app.te",
         "patchSetId": 3
@@ -174,6 +192,24 @@
       "side": 1,
       "message": "True, permissioncontroller_app doesn\u0027t look like it needs graphics_device. That was more because it was simpler to use the single gpu_access macro.",
       "parentUuid": "8a949146_08c287b5",
+      "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8784b00_f9866d6f",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2021-04-30T23:19:23Z",
+      "side": 1,
+      "message": "Thanks Lingfeng, deleted the perms to graphic_device here and added back the gpu_access(*) permissions to the cf system_ext sepolicy just to be safe.",
+      "parentUuid": "2e7a9c92_b61a7992",
       "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
