@@ -33,6 +33,24 @@
       "message": "Do you know why these are needed?",
       "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a004bc8_efb138cc",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2021-04-30T20:31:58Z",
+      "side": 1,
+      "message": "Thanks Joel. the original patch which added the permission to system_ext(aosp/1344276) cites b/146515640 and b/158011535 as reasons for adding the permission. Without moving the permission here, cuttlefish will fail several CTS-on-GSI tests(for example: b/186116877).",
+      "parentUuid": "7fbbbd9b_50848e35",
+      "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
