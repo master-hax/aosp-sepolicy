@@ -428,6 +428,24 @@
       "parentUuid": "1c239a8f_66733a33",
       "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1865cf5c_7ffaa2ee",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2021-05-03T20:28:13Z",
+      "side": 1,
+      "message": "So far, cuttlefish had this permission as part of its system_ext sepolicy(https://cs.android.com/android/platform/superproject/+/master:device/google/cuttlefish/shared/sepolicy/system_ext/private/permissioncontroller_app.te) However, when a device boots GSI it is not allowed to load device-specific system_ext sepolicy. All device-specific sepolicy perms needed for CTS/VTS-on-GSI compliance must live in vendor sepolicy which will still come into effect for GSI testing. Vendor sepolicy(unlike system-ext sepolicy) does not have visibility into the private domains of system/sepolicy though(hence the need for the permissions to be in system/sepolicy).",
+      "parentUuid": "db9760ef_93b0c505",
+      "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
