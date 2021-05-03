@@ -284,6 +284,24 @@
       "parentUuid": "4acf3b03_c2baeff3",
       "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87ab066d_30094ded",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2021-05-03T17:43:55Z",
+      "side": 1,
+      "message": "Note the \"tclass\u003ddir\" part there.  That means it\u0027s trying to access the directory, not the files themselves (to which it presumably already granted access).  Nothing else in core or Pixel policy has these permissions, so they\u0027re quite uncommon.  Is there anything in the logs about what files or directories they\u0027re trying to access?",
+      "parentUuid": "c45476ed_3faa4918",
+      "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
