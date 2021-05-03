@@ -266,6 +266,24 @@
       "parentUuid": "c836c2f7_7ecdec16",
       "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c45476ed_3faa4918",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1082465
+      },
+      "writtenOn": "2021-05-03T17:26:49Z",
+      "side": 1,
+      "message": "I\u0027m not sure what is meant by directory versus file; I was also under the impression all apps should have access to gpu device, but maybe things work differently for permissioncontroller and other apps?\n\n```\n04-30 17:01:58.680  1646  1646 W RenderThread: type\u003d1400 audit(0.0:139): avc: denied { search } for name\u003d\"dri\" dev\u003d\"tmpfs\" ino\u003d333 scontext\u003du:r:permissioncontroller_app:s0:c126,c256,c512,c768 tcontext\u003du:object_r:gpu_device:s0 tclass\u003ddir permissive\u003d0 app\u003dcom.android.permissioncontroller\n```\n\nThis was the denial message, btw. My understanding is if you can\u0027t access the gpu device, then you can\u0027t render, since you can\u0027t initialize EGL contexts and so forth.",
+      "parentUuid": "4acf3b03_c2baeff3",
+      "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
