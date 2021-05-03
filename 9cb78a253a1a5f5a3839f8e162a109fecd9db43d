@@ -356,6 +356,24 @@
       "parentUuid": "4424405b_29006d92",
       "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1313692_13676d7e",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1082465
+      },
+      "writtenOn": "2021-05-03T19:44:26Z",
+      "side": 1,
+      "message": "https://android.googlesource.com/platform/external/minigbm/+/refs/heads/master/cros_gralloc/cros_gralloc_driver.cc#74 This would be where the denial is triggered in this case. A test open is done on the DRM_DIR_NAME.\n\nThis is going to happen for any user of the minigbm mapper/allocator driver, not limited to Cuttlefish.",
+      "parentUuid": "20cdf9ae_c860df07",
+      "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
