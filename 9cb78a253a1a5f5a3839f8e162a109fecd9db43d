@@ -392,6 +392,24 @@
       "parentUuid": "d1313692_13676d7e",
       "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c239a8f_66733a33",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2021-05-03T20:10:46Z",
+      "side": 1,
+      "message": "That is correct, when booting GSI, only the vendor sepolicy comes into effect. All the domains in this patch are private though(not visible on the vendor side of the Treble boundary). Hence, we do not have a way to add these permissions to CF\u0027s vendor sepolicy.",
+      "parentUuid": "8d65d7ac_ba588e53",
+      "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
