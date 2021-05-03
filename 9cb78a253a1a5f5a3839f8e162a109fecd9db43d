@@ -410,6 +410,24 @@
       "parentUuid": "8d65d7ac_ba588e53",
       "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db9760ef_93b0c505",
+        "filename": "private/permissioncontroller_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2021-05-03T20:16:58Z",
+      "side": 1,
+      "message": "Ooh, nice find.  Still, it looks like Cuttlefish is currently the only user of that library.  Is that intended to change in the future?  Because currently this does still seem like device-specific policy.\n\nAs for GSI, what exactly is the issue?  Obviously all devices including Cuttlefish will still need to load device-specific policy (e.g., for hardware nodes that have different names on different devices).  Is it just that no one will be allowed to modify private types?",
+      "parentUuid": "1c239a8f_66733a33",
+      "revId": "9cb78a253a1a5f5a3839f8e162a109fecd9db43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
