@@ -110,6 +110,30 @@
       },
       "revId": "4b00fe0fcaa1e20bba199e8593a425964210321a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "284f59bf_aaec9d4b",
+        "filename": "private/mediaprovider_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-05-04T11:54:00Z",
+      "side": 1,
+      "message": "system_prop is too general, and this is a good chance to add a new context just for the fuse related properties. https://source.android.com/devices/architecture/configuration/add-system-properties shows how to. Specifically you\u0027ll need to\n\n1) create a new context, e.g. \"fuse_passthrough_prop\", \"fuse_config_prop\", etc. whatever name you like.\n2) grant appropriate read/write access (by allow and neverallow)\n3) add it to compat file, system/sepolicy/private/compat/30.0/30.0.cil\n  (typeattributeset system_prop_30_0 (system_prop)) \u003d\u003e (typeattributeset system_prop_30_0 (system_prop {new_context_name_here}))",
+      "parentUuid": "36014d3a_07fc7631",
+      "range": {
+        "startLine": 61,
+        "startChar": 28,
+        "endLine": 61,
+        "endChar": 39
+      },
+      "revId": "4b00fe0fcaa1e20bba199e8593a425964210321a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
