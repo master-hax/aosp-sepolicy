@@ -5,8 +5,6 @@
 define(`all_untrusted_apps',`{
   ephemeral_app
   isolated_app
-  mediaprovider
-  mediaprovider_app
   untrusted_app
   untrusted_app_25
   untrusted_app_27
@@ -35,12 +33,6 @@ neverallow all_untrusted_apps service_manager_type:service_manager add;
 # Do not allow untrusted apps to use VendorBinder
 neverallow all_untrusted_apps vndbinder_device:chr_file *;
 neverallow all_untrusted_apps vndservice_manager_type:service_manager *;
-
-# Do not allow untrusted apps to connect to the property service
-# or set properties. b/10243159
-neverallow { all_untrusted_apps -mediaprovider } property_socket:sock_file write;
-neverallow { all_untrusted_apps -mediaprovider } init:unix_stream_socket connectto;
-neverallow { all_untrusted_apps -mediaprovider } property_type:property_service set;
 
 # net.dns properties are not a public API. Disallow untrusted apps from reading this property.
 neverallow { all_untrusted_apps } net_dns_prop:file read;
