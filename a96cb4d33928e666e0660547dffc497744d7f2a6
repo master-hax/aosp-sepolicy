@@ -16,6 +16,29 @@
       "message": "Applied suggestion from the sepolicy mail thread\nSince IStats service defined with AIDL Stable it could be marked as app_api_service\n\nThank you",
       "revId": "a96cb4d33928e666e0660547dffc497744d7f2a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4352c0b_c982399d",
+        "filename": "public/service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-05-07T09:52:46Z",
+      "side": 1,
+      "message": "calling this \"app_api\" service is somewhat misleading as the service doesn\u0027t implement any of the Android APIs. But I don\u0027t have a better idea.",
+      "range": {
+        "startLine": 121,
+        "startChar": 24,
+        "endLine": 121,
+        "endChar": 39
+      },
+      "revId": "a96cb4d33928e666e0660547dffc497744d7f2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
