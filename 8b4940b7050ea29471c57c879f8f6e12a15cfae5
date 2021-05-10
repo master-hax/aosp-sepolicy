@@ -34,6 +34,179 @@
       "parentUuid": "390ab375_ffb03359",
       "revId": "8b4940b7050ea29471c57c879f8f6e12a15cfae5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f04df3fd_2c87d842",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-05-10T05:42:27Z",
+      "side": 1,
+      "message": "Just a few nits now. Bowgo and Jeffrey, any other opinions?",
+      "revId": "8b4940b7050ea29471c57c879f8f6e12a15cfae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d344b1af_cd135e79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-05-10T05:42:27Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "c925da57_e7637f58",
+      "revId": "8b4940b7050ea29471c57c879f8f6e12a15cfae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8d48cd0_ff10b23e",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-05-10T05:42:27Z",
+      "side": 1,
+      "message": "where do these come from?",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 103
+      },
+      "revId": "8b4940b7050ea29471c57c879f8f6e12a15cfae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "965c66ec_13ba8a48",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-05-10T05:42:27Z",
+      "side": 1,
+      "message": "where do these come from?",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 37
+      },
+      "revId": "8b4940b7050ea29471c57c879f8f6e12a15cfae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25eb171f_17faef52",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-05-10T05:42:27Z",
+      "side": 1,
+      "message": "nit; how about this?\n\n  cil_files :\u003d $(built_plat_cil)\n\n  ifneq (,$(SYSTEM_EXT_PREBUILT_POLICY)\n  cil_files +\u003d $(built_system_ext_cil)\n  endif\n  ifneq (,$(PRODUCT_PREBUILT_POLICY)\n  cil_files +\u003d $(built_product_cil)\n  endif\n\n  cil_files +\u003d $($(version)_mapping_cil) $($(version)_nonplat)\n\n  $($(version)_compat): PRIVATE_CIL_FILES :\u003d $(cil_files)\n  $($(version)_compat): $(HOST_OUT_EXECUTABLES)/secilc $(cil_files)\n  ...",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 47
+      },
+      "revId": "8b4940b7050ea29471c57c879f8f6e12a15cfae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58e59b83_b7fa1d3a",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-05-10T05:42:27Z",
+      "side": 1,
+      "message": "we also need system_ext here?",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 4
+      },
+      "revId": "8b4940b7050ea29471c57c879f8f6e12a15cfae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61f90120_742205df",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-05-10T05:42:27Z",
+      "side": 1,
+      "message": "nit; like above, consider creating separate variables for PLAT_SEPOLICY and PLAT_PUB_SEPOLICY, rather than duplicating the entire build rule, to make it less errorprone",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 49
+      },
+      "revId": "8b4940b7050ea29471c57c879f8f6e12a15cfae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89705106_7e80c378",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-05-10T05:42:27Z",
+      "side": 1,
+      "message": "nit; don\u0027t need ifneq",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 37
+      },
+      "revId": "8b4940b7050ea29471c57c879f8f6e12a15cfae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
