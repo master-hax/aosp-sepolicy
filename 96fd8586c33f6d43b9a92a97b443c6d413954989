@@ -54,6 +54,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "163d8459_059d0cc7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-05-12T07:02:19Z",
+      "side": 1,
+      "message": "I don\u0027t think this is the right approach, and I share Eric\u0027s concerns about the problems of two HALs having conflicting access to the same driver.\n\nI think a better approach (if it\u0027s possible) is to give /dev/snd/pcmC1D24p a different label in device-specific policy. That way we can ensure that:\n- only the vibrator HAL may access it.\n- the vibrator HAL cannot access other audio resources\n- The audio HAL cannot unintentionally access vibrator resources.",
+      "revId": "96fd8586c33f6d43b9a92a97b443c6d413954989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a17ec83c_4e165bd7",
