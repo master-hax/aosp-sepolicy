@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7236dc1_2d8bef4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1870616
+      },
+      "writtenOn": "2021-05-12T00:53:34Z",
+      "side": 1,
+      "message": "For now, Vibrator HAL will access\n\n1. /dev/snd/pcmC0D24p or /dev/snd/pcmC1D24p, the hostless FrontEnd to enable the haptic pcm amplifier\n\n2. the /dev/snd/controlC0 or /dev/snd/controlC1 to send the mixer control to configure the TDM setting of the haptic amplifier and clock.\n\nSo we can say #1 is for vibrator HAL only but regarding #2, both vibrator HAL and Audio HAL needs to access it.\n\nIf we have concern on accessing #2, then we can also try to move the ALSA commands of controlling the haptic TDM setting to the mixer_paths.xml table of the Audio HAL. In this case, the vibrator HAL only needs to access #1.",
+      "parentUuid": "1b1f4faa_7347d7cb",
+      "revId": "96fd8586c33f6d43b9a92a97b443c6d413954989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a17ec83c_4e165bd7",
