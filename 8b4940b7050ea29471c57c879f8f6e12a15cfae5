@@ -94,6 +94,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e62a2bef_1c17ba0c",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1596832
+      },
+      "writtenOn": "2021-05-13T05:14:37Z",
+      "side": 1,
+      "message": "system_ext_30.0.cil gets built from https://opengrok.qualcomm.com/source/xref/LA.QSSI.12.0/system/sepolicy/Android.bp#184 from sepolicies  defined in 30.0.cil of system_ext partition.\nsystem_ext_$(version).ignore.cil gets built from \nhttps://opengrok.qualcomm.com/source/xref/LA.QSSI.12.0/system/sepolicy/Android.bp#291 from sepolicies  defined in 30.0.ignore.cil of system_ext partition.",
+      "parentUuid": "f8d48cd0_ff10b23e",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 103
+      },
+      "revId": "8b4940b7050ea29471c57c879f8f6e12a15cfae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "965c66ec_13ba8a48",
@@ -117,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28a5b010_2352d53f",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1596832
+      },
+      "writtenOn": "2021-05-13T05:14:37Z",
+      "side": 1,
+      "message": "These files gets built from system/sepolicy/Android.bp like above from sepolicies code of 30.0.cil and 30.0.ignore.cil file of product partition.",
+      "parentUuid": "965c66ec_13ba8a48",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 37
+      },
+      "revId": "8b4940b7050ea29471c57c879f8f6e12a15cfae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25eb171f_17faef52",
@@ -130,6 +178,30 @@
       "writtenOn": "2021-05-10T05:42:27Z",
       "side": 1,
       "message": "nit; how about this?\n\n  cil_files :\u003d $(built_plat_cil)\n\n  ifneq (,$(SYSTEM_EXT_PREBUILT_POLICY)\n  cil_files +\u003d $(built_system_ext_cil)\n  endif\n  ifneq (,$(PRODUCT_PREBUILT_POLICY)\n  cil_files +\u003d $(built_product_cil)\n  endif\n\n  cil_files +\u003d $($(version)_mapping_cil) $($(version)_nonplat)\n\n  $($(version)_compat): PRIVATE_CIL_FILES :\u003d $(cil_files)\n  $($(version)_compat): $(HOST_OUT_EXECUTABLES)/secilc $(cil_files)\n  ...",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 47
+      },
+      "revId": "8b4940b7050ea29471c57c879f8f6e12a15cfae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0c176a0_a904d853",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1596832
+      },
+      "writtenOn": "2021-05-13T05:14:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25eb171f_17faef52",
       "range": {
         "startLine": 122,
         "startChar": 0,
@@ -210,6 +282,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc7b8cfd_b1a4ddbf",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1596832
+      },
+      "writtenOn": "2021-05-13T05:14:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61f90120_742205df",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 49
+      },
+      "revId": "8b4940b7050ea29471c57c879f8f6e12a15cfae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89705106_7e80c378",
@@ -223,6 +319,30 @@
       "writtenOn": "2021-05-10T05:42:27Z",
       "side": 1,
       "message": "nit; don\u0027t need ifneq",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 37
+      },
+      "revId": "8b4940b7050ea29471c57c879f8f6e12a15cfae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7873c0d_72645dc6",
+        "filename": "treble_sepolicy_tests_for_release.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1596832
+      },
+      "writtenOn": "2021-05-13T05:14:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89705106_7e80c378",
       "range": {
         "startLine": 192,
         "startChar": 0,
