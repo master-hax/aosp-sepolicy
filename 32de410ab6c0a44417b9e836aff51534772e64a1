@@ -16,6 +16,24 @@
       "message": "do we need to add these as APIs? It sounds like these are used for development/testing. If these are used in production, it sounds like a device would fail vts_treble_vintf_vendor_test. If they are only used for testing, can we make them userdebug_or_eng?",
       "revId": "32de410ab6c0a44417b9e836aff51534772e64a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "132865cb_ca61963a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1344895
+      },
+      "writtenOn": "2021-05-18T21:11:10Z",
+      "side": 1,
+      "message": "Made it impossible to set them on release builds, but they still need to be accessible release builds to avoid avc denials. I hope that\u0027s okay.\n\nAlso, this won\u0027t necessarily cause vts_treble_vintf_vendor_test failure. This will simply instruct the framework to ignore its XML config for HILD HALs, this has nothing to do with VINTF XML fragments. But I agree, the main point of this is to simplify development and testing.",
+      "parentUuid": "ba60051f_5eeac832",
+      "revId": "32de410ab6c0a44417b9e836aff51534772e64a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
