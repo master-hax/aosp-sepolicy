@@ -602,3 +602,18 @@ neverallow {
   -profcollectd
 } profcollectd_node_id_prop:file r_file_perms;
 
+neverallow {
+  # Only allow init and vendor_init to set biometrics_debug_prop.
+  domain
+  userdebug_or_eng(`-init')
+  userdebug_or_eng(`-vendor_init')
+} biometrics_debug_prop:property_service set;
+
+neverallow {
+  # Disallow all vendor processes except for vendor_init to read
+  # biometrics_debug_prop.
+  domain
+  -coredomain
+  -vendor_init
+} biometrics_debug_prop:file no_rw_file_perms;
+
