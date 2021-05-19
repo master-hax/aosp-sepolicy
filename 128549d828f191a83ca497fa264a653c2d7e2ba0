@@ -22,6 +22,30 @@
       },
       "revId": "128549d828f191a83ca497fa264a653c2d7e2ba0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aa68d87_758fd65e",
+        "filename": "private/coredomain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-19T14:46:27Z",
+      "side": 1,
+      "message": "Things like art tooling (dex2oat, dexoptanalyzer, postinstall_dexopt, the new odrefresh etc...) will need it. Separately installd may also need to read some of this properties in the interim. \n\nIf I don\u0027t need the coredomain for those I think I can remove it but ideally these ones will be readable where `dalvik_config_prop` is readable.",
+      "parentUuid": "288de31a_d03133ff",
+      "range": {
+        "startLine": 31,
+        "startChar": 9,
+        "endLine": 31,
+        "endChar": 19
+      },
+      "revId": "128549d828f191a83ca497fa264a653c2d7e2ba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
