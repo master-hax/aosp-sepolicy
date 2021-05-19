@@ -13,5 +13,12 @@ add_service(virtmanager, virtualization_service)
 # When virtmanager execs a file with the crosvm_exec label, run it in the crosvm domain.
 domain_auto_trans(virtmanager, crosvm_exec, crosvm)
 
+# Let virtmanager exec files with the same domain (e.g. mk_cdisk).
+allow virtmanager virtmanager_exec:file execute_no_trans;
+
 # Let virtmanager kill crosvm.
 allow virtmanager crosvm:process sigkill;
+
+# Let virtmanager access its data directory.
+allow virtmanager virtualizationservice_data_file:file create_file_perms;
+allow virtmanager virtualizationservice_data_file:dir rw_dir_perms;
