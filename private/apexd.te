@@ -52,6 +52,9 @@ allowxperm apexd loop_device:blk_file ioctl {
 # allow apexd to access /dev/block
 allow apexd block_device:dir r_dir_perms;
 
+#allow apexd to access virtual disks
+allow apexd vd_device:blk_file r_file_perms;
+
 # allow apexd to access /dev/block/dm-* (device-mapper entries)
 allow apexd dm_device:chr_file rw_file_perms;
 allow apexd dm_device:blk_file rw_file_perms;
@@ -183,6 +186,13 @@ neverallow { domain -apexd -init } apexd_prop:property_service set;
 
 # only apexd can write apex-info-list.xml
 neverallow { domain -apexd } apex_info_file:file no_w_file_perms;
+
+# Only apexd and init should be allowed to manage /apex mounts
+# A note on otapreopt_chroot. It used to mount APEXes during postainstall stage of A/B OTAs,
+# but starting from S it just calls into apexd to prepare /apex for otapreoprt. Once the sepolicies
+# around otapreopt_chroot are cleaned up we should be able to remove it from the lists below.
+neverallow { domain -apexd -init -otapreopt_chroot } apex_mnt_dir:filesystem { mount unmount };
+neverallow { domain -apexd -init -otapreopt_chroot } apex_mnt_dir:dir { mounton };
 
 # Allow for use in postinstall
 allow apexd otapreopt_chroot:fd use;
