@@ -87,6 +87,30 @@
       },
       "revId": "bd9d0d0bc432e569f0cc19704c92aa0a3c7f5640",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cadc638_862c8d55",
+        "filename": "private/property_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-20T17:32:09Z",
+      "side": 1,
+      "message": "Np, thanks for the clarification.\n\nThe ART module will never write the properties (as we don\u0027t have standalone processes, the code runs inside the app / system server process etc).\n\nHowever we want to be able to read new ones without having to configure the selpolicy for each individual one.\n\nThese \"new properties\" can be passed down as:\n1) device config. These are persist.device_config.runtime_native. and persist.device_config.runtime_native_boot. which are already defined as prefix. This will satisfy the need to react to server side experiments / configuration.\n\n2) system property. After more thinking, having a prefix here is probably not strictly needed because we already have 1). However it will be pretty beneficial because:\na) consistency: all device config properties have a system property counterpart, so that it can be set with a default value when a server side config is not available.\nb) development/debug: it will be much easier for us when testing new feature to set system properties without having to create sepolicy CLs.\n\n\nTo answer your direct questions\n\"Do you mean that the ART module can be updated independently, with introducing some new properties?\" \nYes, the goal for example is that in Module version X we introduce a feature that requires server side configuration. In ART module we will simply add the code to read that property without having to update sepolicies. The server side can configure the device_config or an OEM could set that property on an older platform knowing that a new module, may leverage it.\n\n\"If the properties are only for the ART module, (e.g. vendor doesn\u0027t set the properties) we could use prefix entries, but we should use system_internal_prop.\"\n\nFor the dalvik.vm.* properties, I think it\u0027s beneficial to let vendor still set them.\n\n\"If the new property can be read/written outside the ART module, how can the other components recognize the new properties and use them?\"\n\nThe new properties will only be writable by system server / vendor (same way as the current properties). But only the code in ART will consume them (which is part of the module).\n\n\nLemme know if this clarifies things. And also, what\u0027s the disadvantage to have the prefix notation for dalvik.vm.* ? I understand that an exact definition is more controllable, but I don\u0027t think in our case it can lead to silent breakages because these props are usually advisory to how ART works.",
+      "parentUuid": "52d23c48_c3fb3077",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 0
+      },
+      "revId": "bd9d0d0bc432e569f0cc19704c92aa0a3c7f5640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
