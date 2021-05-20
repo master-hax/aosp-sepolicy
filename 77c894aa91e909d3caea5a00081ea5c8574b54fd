@@ -16,6 +16,52 @@
       "message": "I\u0027m about to rename VirtManager to VirtualizationService, hence the weird mix of names here.",
       "revId": "77c894aa91e909d3caea5a00081ea5c8574b54fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3b04efc_68334297",
+        "filename": "private/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-05-20T14:37:31Z",
+      "side": 1,
+      "message": "Long name is long\nvirtmanager_data_file ?\n\n(Arguably the directory name should be /data/misc/virtmanager - see .../vold, /iorapd for analogous usage.)",
+      "range": {
+        "startLine": 61,
+        "startChar": 5,
+        "endLine": 61,
+        "endChar": 36
+      },
+      "revId": "77c894aa91e909d3caea5a00081ea5c8574b54fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7623a28a_eb2cdbd0",
+        "filename": "private/virtmanager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-05-20T14:37:31Z",
+      "side": 1,
+      "message": "This label should be just for the virtmanager executable itself.\nI think you can just use system_file:file here.",
+      "range": {
+        "startLine": 17,
+        "startChar": 18,
+        "endLine": 17,
+        "endChar": 34
+      },
+      "revId": "77c894aa91e909d3caea5a00081ea5c8574b54fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
