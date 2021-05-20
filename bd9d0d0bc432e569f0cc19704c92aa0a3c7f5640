@@ -63,6 +63,30 @@
       },
       "revId": "bd9d0d0bc432e569f0cc19704c92aa0a3c7f5640",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52d23c48_c3fb3077",
+        "filename": "private/property_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-05-20T15:44:33Z",
+      "side": 1,
+      "message": "Sorry for confusion. What I meant is that we recommend using exact entries whenever possible, not the prefix entries. (which reduces the number of entries) One reason to do that is compatibility. I see some of the `dalvik.vm.*` properties written by vendor. Such properties should be exact to avoid silent breakage.\n\n\u003e Unfortunately we can\u0027t use exact entries because that would block us introducing any new property in the ART module without updating the unupdatable selinux rules defying one of the module goals.\n\nDo you mean that the ART module can be updated independently, with introducing some new properties? If the properties are only for the ART module, (e.g. vendor doesn\u0027t set the properties) we could use prefix entries, but we should use system_internal_prop. If the new property can be read/written outside the ART module, how can the other components recognize the new properties and use them?",
+      "parentUuid": "777fb0dc_f6557993",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 0
+      },
+      "revId": "bd9d0d0bc432e569f0cc19704c92aa0a3c7f5640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
