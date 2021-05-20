@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c112fee0_6a07fe12",
+        "filename": "private/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-05-20T16:54:41Z",
+      "side": 1,
+      "message": "I\u0027m not sure what these directories are used for, but I don\u0027t think it\u0027s necessary. There will be only one instance of VirtualizationService running on a device, and each VM is already handled independently. As far as it is concerned, each call to `startVm` is a separate client, and nothing from that is shared with any other client (unless the client chooses to explicitly share the returned IVirtualMachine binder object with some other process).",
+      "parentUuid": "158c3855_056b3596",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 34
+      },
+      "revId": "77c894aa91e909d3caea5a00081ea5c8574b54fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3b04efc_68334297",
