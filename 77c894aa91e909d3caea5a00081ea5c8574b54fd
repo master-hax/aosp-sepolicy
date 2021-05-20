@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "133e9fcd_207d23b0",
+        "filename": "private/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-05-20T15:01:20Z",
+      "side": 1,
+      "message": "Composite disk images for VMs, created on behalf of clients. A client will pass a file descriptor for each partition, then VirtualizationService will use `mk_cdisk` to create a composite disk image that refers to all of them, plus a header and footer. And then possibly a QCOW2 image wrapping that. VirtualizationService will then open these files and pass them to crosvm by file descriptor. VirtualizationService will remove the files when the VM exits.",
+      "parentUuid": "1797070d_99067e08",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 34
+      },
+      "revId": "77c894aa91e909d3caea5a00081ea5c8574b54fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3b04efc_68334297",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-05-20T14:37:31Z",
       "side": 1,
       "message": "Long name is long\nvirtmanager_data_file ?\n\n(Arguably the directory name should be /data/misc/virtmanager - see .../vold, /iorapd for analogous usage.)",
+      "range": {
+        "startLine": 61,
+        "startChar": 5,
+        "endLine": 61,
+        "endChar": 36
+      },
+      "revId": "77c894aa91e909d3caea5a00081ea5c8574b54fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f65a281_6c755924",
+        "filename": "private/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-05-20T15:01:20Z",
+      "side": 1,
+      "message": "As per my comment above, the plan is to rename VirtManager to VirtualizationService because some people don\u0027t like VirtManager, so I\u0027m using the new name already here. Is there a problem with long names?",
+      "parentUuid": "d3b04efc_68334297",
       "range": {
         "startLine": 61,
         "startChar": 5,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "daaeb178_3bb3dde9",
+        "filename": "private/virtmanager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-05-20T15:01:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7623a28a_eb2cdbd0",
+      "range": {
+        "startLine": 17,
+        "startChar": 18,
+        "endLine": 17,
+        "endChar": 34
+      },
+      "revId": "77c894aa91e909d3caea5a00081ea5c8574b54fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a6fdc35_2d1d862e",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-05-20T14:51:58Z",
       "side": 1,
       "message": "might as well have this be create_dir_perms so that virtmanager can create subdirs.",
+      "range": {
+        "startLine": 24,
+        "startChar": 54,
+        "endLine": 24,
+        "endChar": 66
+      },
+      "revId": "77c894aa91e909d3caea5a00081ea5c8574b54fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "938efc57_26e443bd",
+        "filename": "private/virtmanager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-05-20T15:01:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a6fdc35_2d1d862e",
       "range": {
         "startLine": 24,
         "startChar": 54,
