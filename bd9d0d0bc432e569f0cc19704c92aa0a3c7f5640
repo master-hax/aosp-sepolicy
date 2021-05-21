@@ -159,6 +159,30 @@
       },
       "revId": "bd9d0d0bc432e569f0cc19704c92aa0a3c7f5640",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d328d0ef_8a1effca",
+        "filename": "private/property_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-21T14:55:08Z",
+      "side": 1,
+      "message": "Thanks for the feedback Inseob, Jiyong.\n\nWhat sort of backwards compatibility concerns you have?\n\nI view the system properties that concerns ART as hint towards the runtime which will tune certain features. Alll dalvik.vm. props should only be used to configured or tune runtime behaviour and not other parts of the system.\n\nART never really offered a contract that a given property will be honored and the interpretation of some properties did change release after release.\n\nYes, vendors are allowed to set the properties, and should still be able to so. Using a prefix only allows us for example to a offer a new tunable feature in a module update without having to wait for a platform release (part of the module goals).\n\nAre you concerned that for example vendors might use dalvik.vm.* properties for things that are ART-unrelated?\n\nI am happy for example to introduce a new \"art.vm.\" prefix if you think that\u0027s better and removes your concerns (though they are quite equivalent).",
+      "parentUuid": "4ae1c925_57bb205b",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 0
+      },
+      "revId": "bd9d0d0bc432e569f0cc19704c92aa0a3c7f5640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
