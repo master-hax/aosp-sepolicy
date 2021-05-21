@@ -135,6 +135,30 @@
       },
       "revId": "bd9d0d0bc432e569f0cc19704c92aa0a3c7f5640",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ae1c925_57bb205b",
+        "filename": "private/property_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-05-21T03:56:25Z",
+      "side": 1,
+      "message": "dalvik_config_prop is defined as system_vendor_config_prop, which means those system properties are shared with the vendor. So we need to keep the system properties backwards compatible, just like other APIs used across the ART module boundaries. Otherwise, an ART update has a risk to break the vendor partition.\n\nHaving these exact matching rules is one way of keeping tracking of the backwards compatibility.\n\nAfter you remove these exact matching rules here, how will you going to keep the backwards compatibility of the properties within ART?",
+      "parentUuid": "ca1cba3d_08798d4b",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 0
+      },
+      "revId": "bd9d0d0bc432e569f0cc19704c92aa0a3c7f5640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
