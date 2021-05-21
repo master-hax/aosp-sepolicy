@@ -111,6 +111,30 @@
       },
       "revId": "bd9d0d0bc432e569f0cc19704c92aa0a3c7f5640",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca1cba3d_08798d4b",
+        "filename": "private/property_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-05-21T02:53:18Z",
+      "side": 1,
+      "message": "\u003e Yes, the goal for example is that in Module version X we introduce a feature that requires server side configuration. In ART module we will simply add the code to read that property without having to update sepolicies. The server side can configure the device_config or an OEM could set that property on an older platform knowing that a new module, may leverage it.\n\n\u003e The new properties will only be writable by system server / vendor (same way as the current properties). But only the code in ART will consume them (which is part of the module).\n\n\u003e Lemme know if this clarifies things. And also, what\u0027s the disadvantage to have the prefix notation for dalvik.vm.* ? I understand that an exact definition is more controllable, but I don\u0027t think in our case it can lead to silent breakages because these props are usually advisory to how ART works.\n\nThis sounds as if ART could add implicit APIs between system server and vendor. We want any properties crossing the Treble boundary to be defined clearly.\n\nIf you\u0027re 100% sure that this won\u0027t break and won\u0027t cause any problems, I\u0027d like to at least have the properties documented (maybe in a comment somewhere, or README.md under ART directories, etc.), and then keep the access minimal by adding neverallow rules.\n\nJiyong and Jeffrey, any comments?",
+      "parentUuid": "1cadc638_862c8d55",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 0
+      },
+      "revId": "bd9d0d0bc432e569f0cc19704c92aa0a3c7f5640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
