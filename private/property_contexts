@@ -272,10 +272,11 @@ persist.config.calibration_fac u:object_r:camera_calibration_prop:s0 exact strin
 
 config.disable_cameraservice u:object_r:camera_config_prop:s0 exact bool
 
-camera.disable_zsl_mode u:object_r:camera_config_prop:s0 exact bool
-camera.fifo.disable     u:object_r:camera_config_prop:s0 exact bool
-ro.camera.notify_nfc    u:object_r:camera_config_prop:s0 exact bool
-ro.camera.enableLazyHal u:object_r:camera_config_prop:s0 exact bool
+camera.disable_zsl_mode       u:object_r:camera_config_prop:s0 exact bool
+camera.fifo.disable           u:object_r:camera_config_prop:s0 exact bool
+ro.camera.notify_nfc          u:object_r:camera_config_prop:s0 exact bool
+ro.camera.enableLazyHal       u:object_r:camera_config_prop:s0 exact bool
+ro.camera.enableCamera1MaxZsl u:object_r:camera_config_prop:s0 exact bool
 
 # Should always_debuggable be bool? It's checked against the string "1".
 dalvik.vm.always_debuggable                   u:object_r:dalvik_config_prop:s0 exact int
