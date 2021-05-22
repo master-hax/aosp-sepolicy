@@ -207,6 +207,30 @@
       },
       "revId": "bd9d0d0bc432e569f0cc19704c92aa0a3c7f5640",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "225acbb4_c248737d",
+        "filename": "private/property_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-05-22T08:03:44Z",
+      "side": 1,
+      "message": "\u003e ART never really offered a contract that a given property will be honored and the interpretation of some properties did change release after release\n\nOk. I now understand where this came from. I didn\u0027t know that those properties have been just hints, but I am not sure if that\u0027s the right policy even after ART becomes a Google-owned updatable module. When ART was part of the platform, OEMs have the full responsibility of the device\u0027s performance and health and they had a chance to adjust to the changes we have made to the knobs in the new release.\n\nNow, part (most?) of the responsibility is on us. If the knobs are unreliable (for example, a knob can be removed or renamed), how would we make sure that an ART update doesn\u0027t regress the performance and health?\n\nI think we need to have a minimal set of system properties that we guarantee their existence and semantic over a couple of years. We may use sepolicy to keep the guarantee, but if the ART team has their own way of doing that I don\u0027t object to it.",
+      "parentUuid": "731e123f_ded44b66",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 0
+      },
+      "revId": "bd9d0d0bc432e569f0cc19704c92aa0a3c7f5640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
