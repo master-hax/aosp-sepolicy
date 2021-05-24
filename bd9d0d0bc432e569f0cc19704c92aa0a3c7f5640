@@ -231,6 +231,30 @@
       },
       "revId": "bd9d0d0bc432e569f0cc19704c92aa0a3c7f5640",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acf418b3_cdf9343f",
+        "filename": "private/property_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-24T15:21:35Z",
+      "side": 1,
+      "message": "I don\u0027t really have an issue with fixing some properties in the selinux config, as long as we also have a prefix notations to give us the flexible to move forward. \n\nWe could leave the ones already defined as is, and just add an extra `dalvik.vm.` or `art.vm.` if we cannot defined both, prefix, and fixed property in selinux.\n\nThat\u0027s a bit redundant IMO but I can understand Jiyong concerns.\n\nOrion/Nicolas what are your thoughts on this?",
+      "parentUuid": "225acbb4_c248737d",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 0
+      },
+      "revId": "bd9d0d0bc432e569f0cc19704c92aa0a3c7f5640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
