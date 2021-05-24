@@ -16,6 +16,24 @@
       "message": "consider adding a neverallow rule if only gmscore_app is supposed to be able to read these sysprops.",
       "revId": "77c10eff1e3143361ebce22413f56d2a13f1e353",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fea9a7e7_60a0e11b",
+        "filename": "private/gmscore_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1872967
+      },
+      "writtenOn": "2021-05-24T21:09:53Z",
+      "side": 1,
+      "message": "Hi Jiyong,\n\nIs it needed if the macro for system_vendor_config_prop() already has it?\n\nhttps://source.corp.google.com/aosp-master/system/sepolicy/public/te_macros;rcl\u003da885dd84c7c214609ce17305a0f07d2e6fbcbecb;l\u003d914\n\nNot quiet sure since this is the first time I\u0027m doing this.",
+      "parentUuid": "10c411d0_46617ba7",
+      "revId": "77c10eff1e3143361ebce22413f56d2a13f1e353",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
