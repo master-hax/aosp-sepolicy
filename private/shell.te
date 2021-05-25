@@ -65,6 +65,10 @@ allow shell perfetto_traces_bugreport_data_file:file { r_file_perms unlink };
 allow shell perfetto_configs_data_file:dir rw_dir_perms;
 allow shell perfetto_configs_data_file:file create_file_perms;
 
+# For f2fs-compression support
+allow shell sysfs_fs_f2fs:dir { search open read };
+allow shell sysfs_fs_f2fs:file r_file_perms;
+
 # Allow shell to run adb shell cmd gpu commands.
 binder_call(shell, gpuservice);
 

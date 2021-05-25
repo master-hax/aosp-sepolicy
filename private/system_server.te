@@ -49,6 +49,26 @@ allowxperm system_server apk_data_file:file ioctl {
 # For Incremental Service to check incfs metrics
 allow system_server sysfs_fs_incfs_metrics:file r_file_perms;
 
+# For f2fs-compression support
+allow system_server sysfs_fs_f2fs:dir { search open read };
+allow system_server sysfs_fs_f2fs:file r_file_perms;
+
+allowxperm system_server apk_data_file:file ioctl {
+  F2FS_IOC_GET_FEATURES
+  F2FS_IOC_GET_COMPRESS_BLOCKS
+  F2FS_IOC_COMPRESS_FILE
+  F2FS_IOC_DECOMPRESS_FILE
+  F2FS_IOC_RELEASE_COMPRESS_BLOCKS
+  F2FS_IOC_RESERVE_COMPRESS_BLOCKS
+  FS_IOC_SETFLAGS
+  FS_IOC_GETFLAGS
+};
+
+allowxperm system_server apk_tmp_file:file ioctl {
+  F2FS_IOC_RELEASE_COMPRESS_BLOCKS
+  FS_IOC_GETFLAGS
+};
+
 # For art.
 allow system_server { apex_art_data_file dalvikcache_data_file }:dir r_dir_perms;
 allow system_server { apex_art_data_file dalvikcache_data_file }:file r_file_perms;
