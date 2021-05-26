@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "63752e6a_807f657b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1101609
+      },
+      "writtenOn": "2021-05-26T16:47:57Z",
+      "side": 1,
+      "message": "Sorry, the latest patchset was granting to /data/misc instead of /data/misc_ce. Fixed.",
+      "parentUuid": "6e13e0d6_de464c19",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 59
+      },
+      "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0f787b37_a341c7e0",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -83,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9da873dd_2d0ccfef",
+        "filename": "private/apexd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1101609
+      },
+      "writtenOn": "2021-05-26T16:47:57Z",
+      "side": 1,
+      "message": "Sorry, I\u0027m not familiar with selinux rules --- are you suggesting to change all of the apex_*_data_file_dir statements in this block to a single one called apex_module_data_file_type? That won\u0027t cause apexes to be able to read each others\u0027 misc_ces will they?",
+      "parentUuid": "395abdd3_f1e76d19",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 11
+      },
+      "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "456d2c7d_595a781f",
         "filename": "private/compat/30.0/30.0.ignore.cil",
         "patchSetId": 2
@@ -106,6 +154,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b3b8adb8_90481f5e",
+        "filename": "private/compat/30.0/30.0.ignore.cil",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1101609
+      },
+      "writtenOn": "2021-05-26T16:47:57Z",
+      "side": 1,
+      "message": "I\u0027m not sure, could you point me to an example I could follow? I\u0027m not familiar with selinux so I was just following ag/1588354 which doesn\u0027t seem to have these things.",
+      "parentUuid": "456d2c7d_595a781f",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 28
+      },
+      "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7782d081_7f66e1bc",
         "filename": "private/system_server.te",
         "patchSetId": 2
@@ -117,6 +189,30 @@
       "writtenOn": "2021-05-26T16:08:28Z",
       "side": 1,
       "message": "Ah, I missed that the difference between apex_appsearch_data_file and apex_module_data_file is that system server shouldn\u0027t have full access to arbitrary modules\u0027 data, only the ones where the module code runs in system server.\n\nBut that doesn\u0027t imply we need a separate label for each such apex.\n\nCan we have a standard label for any apex data where system server needs access, but there are no apex-specific processes that do?",
+      "range": {
+        "startLine": 1262,
+        "startChar": 5,
+        "endLine": 1262,
+        "endChar": 6
+      },
+      "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef5ca2b7_a11bacf8",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1101609
+      },
+      "writtenOn": "2021-05-26T16:47:57Z",
+      "side": 1,
+      "message": "If this question is directed to me -- could you point me to an example to follow? Is a \"label\" apex_appsearch_data_file?",
+      "parentUuid": "7782d081_7f66e1bc",
       "range": {
         "startLine": 1262,
         "startChar": 5,
