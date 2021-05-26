@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e13e0d6_de464c19",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-05-26T08:53:52Z",
+      "side": 1,
+      "message": "This CL doesn\u0027t seem to do that. In fact, it seems to be a no-op.\nWe change the label on these files, and then grant all the permissions that were previously granted.\n\nLooking at go/apex-data-directories, this follows that structure, except for the all-important:\n\n# Allow module to access its own data\nallow \u003cmodule process\u003e apex_\u003cmodule\u003e_data_file \u003cas required\u003e;\n\nI also can\u0027t find that for some of the other types - e.g. apex_permission_data_file.\n\nIf the only processes that access this data run as system_server, what\u0027s the point of adding the new label?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 59
+      },
+      "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f787b37_a341c7e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-05-26T08:53:52Z",
+      "side": 1,
+      "message": "I\u0027m probably missing something here, but this doesn\u0027t make much sense to me.",
+      "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "395abdd3_f1e76d19",
+        "filename": "private/apexd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-05-26T08:53:52Z",
+      "side": 1,
+      "message": "This is all getting very repetitive. If we are going to keep adding these fine-grained apex data labels, they need an attribute so the common rules only need to be writtent once.\n\napex_module_data_file_type, say.",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 11
+      },
+      "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "456d2c7d_595a781f",
+        "filename": "private/compat/30.0/30.0.ignore.cil",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-05-26T08:53:52Z",
+      "side": 1,
+      "message": "These files already existed, labeled apex_module_data_file - so it\u0027s not a type that \"has no analogue in older policy\". Don\u0027t you have to add a compatibility shim, to make sure old vendor policy doesn\u0027t break?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 28
+      },
+      "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
