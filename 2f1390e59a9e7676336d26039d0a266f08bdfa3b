@@ -155,6 +155,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4cb76294_ec23aa8c",
+        "filename": "private/apexd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1101609
+      },
+      "writtenOn": "2021-05-26T18:00:27Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure it\u0027s not the case that the system service can access all these paths: here\u0027s an example of an selinux denial from the system service without this change.\n\n05-26 16:25:02.845  1780  1780 W pool-9-thread-1: type\u003d1400 audit(0.0:16): avc: denied { write } for name\u003d\"com.android.appsearch\" dev\u003d\"dm-8\" ino\u003d3195 scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:apex_module_data_file:s0 tclass\u003ddir permissive\u003d0",
+      "parentUuid": "1d532eec_da46bbc8",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 11
+      },
+      "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "456d2c7d_595a781f",
         "filename": "private/compat/30.0/30.0.ignore.cil",
         "patchSetId": 2
