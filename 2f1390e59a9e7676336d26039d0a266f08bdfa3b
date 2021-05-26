@@ -131,6 +131,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1d532eec_da46bbc8",
+        "filename": "private/apexd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-05-26T17:04:13Z",
+      "side": 1,
+      "message": "System server can already read all of them, and that\u0027s where the code is running.\n\nI\u0027m suggesting a refactoring so that adding a new case like this involves fewer changes.",
+      "parentUuid": "9da873dd_2d0ccfef",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 11
+      },
+      "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "456d2c7d_595a781f",
         "filename": "private/compat/30.0/30.0.ignore.cil",
         "patchSetId": 2
@@ -213,6 +237,30 @@
       "side": 1,
       "message": "If this question is directed to me -- could you point me to an example to follow? Is a \"label\" apex_appsearch_data_file?",
       "parentUuid": "7782d081_7f66e1bc",
+      "range": {
+        "startLine": 1262,
+        "startChar": 5,
+        "endLine": 1262,
+        "endChar": 6
+      },
+      "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4b1b363_221b1d97",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-05-26T17:04:13Z",
+      "side": 1,
+      "message": "That\u0027s mostly directed at Oli and Jeff.\n\nHaving a specific label for each apex\u0027s data files doesn\u0027t seem to be buying us much, and adding a new one is way too complicated.\n\nWe should either have a single label for all of the apexes whose data is fully accessible to system server. Or if we want multiple labels, they should have an attribute applied so that adding news ones is simplified.\n\nNone of this is really your problem - there should probably be a separate bug to resolve this.",
+      "parentUuid": "ef5ca2b7_a11bacf8",
       "range": {
         "startLine": 1262,
         "startChar": 5,
