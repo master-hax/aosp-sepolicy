@@ -41,6 +41,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b795fc54_9a0c80d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-05-26T16:08:28Z",
+      "side": 1,
+      "message": "Oli, Jeff: I have no objection to this CL in itself; it should allow things to work.\n\nBut it seems wasteful to create a label per apex when most of them are configured identically; we could just have a single label. WDYT?",
+      "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "395abdd3_f1e76d19",
@@ -82,6 +99,29 @@
         "startChar": 0,
         "endLine": 11,
         "endChar": 28
+      },
+      "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7782d081_7f66e1bc",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-05-26T16:08:28Z",
+      "side": 1,
+      "message": "Ah, I missed that the difference between apex_appsearch_data_file and apex_module_data_file is that system server shouldn\u0027t have full access to arbitrary modules\u0027 data, only the ones where the module code runs in system server.\n\nBut that doesn\u0027t imply we need a separate label for each such apex.\n\nCan we have a standard label for any apex data where system server needs access, but there are no apex-specific processes that do?",
+      "range": {
+        "startLine": 1262,
+        "startChar": 5,
+        "endLine": 1262,
+        "endChar": 6
       },
       "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
