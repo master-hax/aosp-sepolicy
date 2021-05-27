@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caad2bab_1c809cfd",
+        "filename": "private/microdroid_manager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-05-27T23:11:47Z",
+      "side": 1,
+      "message": "This is not good. Microdroid_manager should execute a program with a proper transition like init\n\n  # init should never execute a program without changing to another domain.\n  neverallow init { file_type fs_type }:file execute_no_trans;",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 59
+      },
+      "revId": "72882a865c7df0d473966b4668ca5f839e45c1c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
