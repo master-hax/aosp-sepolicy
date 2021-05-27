@@ -177,6 +177,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50a08a35_4d785074",
+        "filename": "private/apexd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-05-27T08:27:15Z",
+      "side": 1,
+      "message": "It can already read several of the apex-specific ones - see http://cs/android/system/sepolicy/prebuilts/api/30.0/private/system_server.te?l\u003d1109\u0026rcl\u003d2b6a3583a5968ceadeeeea1759d8a658d81526d9.\n\nThat\u0027s really my complaint - you could use apex_permission_data_file for your data rather than apex_appsearch_data_file and everything would still work, because they\u0027re identical. So it\u0027s not clear to me why we have both.\n\nBut anyway, I\u0027ll file a bug to see if we can get this more widely fixed.",
+      "parentUuid": "4cb76294_ec23aa8c",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 11
+      },
+      "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "456d2c7d_595a781f",
@@ -214,6 +238,30 @@
       "side": 1,
       "message": "I\u0027m not sure, could you point me to an example I could follow? I\u0027m not familiar with selinux so I was just following ag/1588354 which doesn\u0027t seem to have these things.",
       "parentUuid": "456d2c7d_595a781f",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 28
+      },
+      "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36561a5b_b8d077d6",
+        "filename": "private/compat/30.0/30.0.ignore.cil",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-05-27T08:27:15Z",
+      "side": 1,
+      "message": "Hmm, I guess this Apex didn\u0027t exist in 30? Anyway, again if there is a problem here it should be looked at more broadly.",
+      "parentUuid": "b3b8adb8_90481f5e",
       "range": {
         "startLine": 11,
         "startChar": 0,
@@ -285,6 +333,30 @@
       "side": 1,
       "message": "That\u0027s mostly directed at Oli and Jeff.\n\nHaving a specific label for each apex\u0027s data files doesn\u0027t seem to be buying us much, and adding a new one is way too complicated.\n\nWe should either have a single label for all of the apexes whose data is fully accessible to system server. Or if we want multiple labels, they should have an attribute applied so that adding news ones is simplified.\n\nNone of this is really your problem - there should probably be a separate bug to resolve this.",
       "parentUuid": "ef5ca2b7_a11bacf8",
+      "range": {
+        "startLine": 1262,
+        "startChar": 5,
+        "endLine": 1262,
+        "endChar": 6
+      },
+      "revId": "2f1390e59a9e7676336d26039d0a266f08bdfa3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb3bc16b_f03e0189",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-05-27T08:27:15Z",
+      "side": 1,
+      "message": "Will file a bug.",
+      "parentUuid": "f4b1b363_221b1d97",
       "range": {
         "startLine": 1262,
         "startChar": 5,
