@@ -59,6 +59,10 @@ allow lmkd proc_pressure_io:file r_file_perms;
 # Read/Write /proc/pressure/memory
 allow lmkd proc_pressure_mem:file rw_file_perms;
 
+# Read /sys/kernel/dma_heap/*.
+allow lmkd sysfs_dma_heap:dir search;
+allow lmkd sysfs_dma_heap:file r_file_perms;
+
 # Allow lmkd to connect during reinit.
 allow lmkd lmkd_socket:sock_file write;
 
