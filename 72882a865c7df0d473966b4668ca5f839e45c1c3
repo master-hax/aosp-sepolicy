@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b02019b_605968d9",
+        "filename": "private/microdroid_manager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-05-30T22:21:50Z",
+      "side": 1,
+      "message": "Add TODO(b/189165759) for moving this to packages/modules/Virtualization",
+      "revId": "72882a865c7df0d473966b4668ca5f839e45c1c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fbe8044_8d11f2f7",
+        "filename": "private/microdroid_manager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-05-30T22:21:50Z",
+      "side": 1,
+      "message": "add domain_auto_trans(microdroid_manager, microdroid_launcher_exec, microdroid_launcher);",
+      "revId": "72882a865c7df0d473966b4668ca5f839e45c1c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "caad2bab_1c809cfd",
         "filename": "private/microdroid_manager.te",
         "patchSetId": 1
@@ -14,6 +48,30 @@
       "writtenOn": "2021-05-27T23:11:47Z",
       "side": 1,
       "message": "This is not good. Microdroid_manager should execute a program with a proper transition like init\n\n  # init should never execute a program without changing to another domain.\n  neverallow init { file_type fs_type }:file execute_no_trans;",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 59
+      },
+      "revId": "72882a865c7df0d473966b4668ca5f839e45c1c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19f07e60_4b55a452",
+        "filename": "private/microdroid_manager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-05-30T22:21:50Z",
+      "side": 1,
+      "message": "I think we should define a new domain for the app processes.",
+      "parentUuid": "caad2bab_1c809cfd",
       "range": {
         "startLine": 16,
         "startChar": 0,
