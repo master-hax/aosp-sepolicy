@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bd484cc_03a31e7c",
+        "filename": "private/microdroid_manager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-05-31T02:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b02019b_605968d9",
+      "revId": "72882a865c7df0d473966b4668ca5f839e45c1c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fbe8044_8d11f2f7",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-05-30T22:21:50Z",
       "side": 1,
       "message": "add domain_auto_trans(microdroid_manager, microdroid_launcher_exec, microdroid_launcher);",
+      "revId": "72882a865c7df0d473966b4668ca5f839e45c1c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a2d1d87_24799b3b",
+        "filename": "private/microdroid_manager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-05-31T02:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fbe8044_8d11f2f7",
       "revId": "72882a865c7df0d473966b4668ca5f839e45c1c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -72,6 +108,30 @@
       "side": 1,
       "message": "I think we should define a new domain for the app processes.",
       "parentUuid": "caad2bab_1c809cfd",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 59
+      },
+      "revId": "72882a865c7df0d473966b4668ca5f839e45c1c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16afc0d7_fcbf6b1a",
+        "filename": "private/microdroid_manager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-05-31T02:25:23Z",
+      "side": 1,
+      "message": "Filed b/189706019.\n\nI\u0027m still confusing around this. For example, when compsvc is launched via a VM payload config, will the app-process-specific domain be enough? It looks like compsvc is also a launcher which accepts an arbitrary command and starts it.",
+      "parentUuid": "19f07e60_4b55a452",
       "range": {
         "startLine": 16,
         "startChar": 0,
