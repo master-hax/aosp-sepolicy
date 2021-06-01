@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "999636ff_7e025ff9",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-06-01T12:10:32Z",
+      "side": 1,
+      "message": "Yeah, it\u0027s a bit confusing. microdroid_launcher is a utility to launch a payload binary in \"APK\". It is a temporary workaround because soong doesn\u0027t support putting a \"cc_binary\" in an \"android_app\". Its main job is to dlopen a .so and to call a certain symbol.\n\nmicrodroid_manager is a service to \"manage\" guest-side jobs specific to microdroid. For example, it reads a VM payload config and executes a command in it for VM client app. And also it connects to host-side virtualizationservice via binder and notifies guest events and accepts control commands.",
+      "parentUuid": "ce620e14_c857e4e4",
+      "range": {
+        "startLine": 220,
+        "startChar": 23,
+        "endLine": 220,
+        "endChar": 41
+      },
+      "revId": "fdc964e3024b4af8f14da2bc618aca265ad49ed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58c91e6b_e679d28a",
         "filename": "private/microdroid_manager.te",
         "patchSetId": 1
@@ -70,6 +94,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "058ceea7_c5d2f637",
+        "filename": "private/microdroid_manager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-06-01T12:10:32Z",
+      "side": 1,
+      "message": "Done. (make it a single line)\n\nI tried execute_no_trans, but got the error when microdroid_manager executes \"echo hello\".\n\n  [    4.639794] audit: type\u003d1400 audit(1622548862.655:5): avc:  denied  { execute } for  pid\u003d149 comm\u003d\"microdroid_mana\" name\u003d\"toybox\" dev\u003d\"dm-0\" ino\u003d209 scontext\u003du:r:microdroid_manager:s0 tcontext\u003du:object_r:toolbox_exec:s0 tclass\u003dfile permissive\u003d0",
+      "parentUuid": "1538a0df_d15e9853",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 5
+      },
+      "revId": "fdc964e3024b4af8f14da2bc618aca265ad49ed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "febd7acc_364899fe",
@@ -83,6 +131,30 @@
       "writtenOn": "2021-06-01T11:23:56Z",
       "side": 1,
       "message": "Read access to every system_file seems too broad; execute_no_trans (which you already have above) should suffice",
+      "range": {
+        "startLine": 24,
+        "startChar": 25,
+        "endLine": 24,
+        "endChar": 55
+      },
+      "revId": "fdc964e3024b4af8f14da2bc618aca265ad49ed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d90b67b_69ed037d",
+        "filename": "private/microdroid_manager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-06-01T12:10:32Z",
+      "side": 1,
+      "message": "Please see above.",
+      "parentUuid": "febd7acc_364899fe",
       "range": {
         "startLine": 24,
         "startChar": 25,
