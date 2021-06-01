@@ -88,6 +88,24 @@
       "parentUuid": "45d2267e_ede8aa1d",
       "revId": "f70e896dabf667ee046b5ac29722e95307955395",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b54a52e_03acd151",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1045544
+      },
+      "writtenOn": "2021-06-01T20:04:31Z",
+      "side": 1,
+      "message": "\u003e system/sepolicy is not a convenience location for product-specific things that happen to be used on more than one device. It\u0027s for core components of Android that are used across all android devices.\n\nI don\u0027t think that\u0027s true. What is this doing here for example: https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/gmscore_app.te?q\u003dgmscore_app\n\nNo AOSP device has gmscore_app tied to anything. It\u0027s used only on GMS devices.",
+      "parentUuid": "cf385c71_741f75ab",
+      "revId": "f70e896dabf667ee046b5ac29722e95307955395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
