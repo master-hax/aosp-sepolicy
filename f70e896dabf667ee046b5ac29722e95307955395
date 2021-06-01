@@ -52,6 +52,24 @@
       "parentUuid": "333b9ee2_391f9b05",
       "revId": "f70e896dabf667ee046b5ac29722e95307955395",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45d2267e_ede8aa1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-06-01T19:58:57Z",
+      "side": 1,
+      "message": "system/sepolicy is not a convenience location for product-specific things that happen to be used on more than one device. It\u0027s for core components of Android that are used across all android devices.\n\nIf you want to include device/google/atv/sepolicy in another device, do that it in an build file. E.g. https://cs.android.com/android/platform/superproject/+/master:device/google/bonito/BoardConfig-common.mk;l\u003d129?q\u003dsepolicy\u0026ss\u003dandroid%2Fplatform%2Fsuperproject:device%2Fgoogle%2Fbonito%2F",
+      "parentUuid": "cdb8ce10_e27afcfe",
+      "revId": "f70e896dabf667ee046b5ac29722e95307955395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
