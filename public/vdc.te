@@ -11,6 +11,10 @@ type vdc_exec, system_file_type, exec_type, file_type;
 # vdc can be invoked with logwrapper, so let it write to pty
 allow vdc devpts:chr_file rw_file_perms;
 
+# Allow stdin/out back to vehicle_binding_util
+allow vdc vehicle_binding_util:fd use;
+allow vdc vehicle_binding_util:fifo_file { read write getattr };
+
 # vdc writes directly to kmsg during the boot process
 allow vdc kmsg_device:chr_file { getattr w_file_perms };
 
