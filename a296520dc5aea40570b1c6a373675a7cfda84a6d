@@ -16,6 +16,29 @@
       "message": "+xunchang FYI in case he\u0027s seen this/other OEMs see this and need this patch too.\n\n(TIL smoreland is in OWNERS for this. nice, because i certainly never understand it!)",
       "revId": "a296520dc5aea40570b1c6a373675a7cfda84a6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "883f9b98_718b0942",
+        "filename": "public/recovery.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-03T19:56:09Z",
+      "side": 1,
+      "message": "this comment, like this CL, is reactive, but we should know the exact reason it is needed and if it is intentional before adding the rule\n\nThe bug mentions \u0027/dev/fscklogs/log\u0027, so I\u0027m surprised that we reference devpts over fscklogs. Do you know why?",
+      "range": {
+        "startLine": 137,
+        "startChar": 5,
+        "endLine": 137,
+        "endChar": 41
+      },
+      "revId": "a296520dc5aea40570b1c6a373675a7cfda84a6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
