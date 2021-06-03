@@ -618,7 +618,7 @@ allow system_server shortcut_manager_icons:dir { create_dir_perms relabelto };
 allow system_server shortcut_manager_icons:file create_file_perms;
 
 # Manage ringtones.
-allow system_server ringtone_file:dir { create_dir_perms relabelto };
+allow system_server ringtone_file:dir { create_dir_perms relabelto relabelfrom};
 allow system_server ringtone_file:file create_file_perms;
 
 # Relabel icon file.
