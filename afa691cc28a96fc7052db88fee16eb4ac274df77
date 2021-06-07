@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09debbda_e4f6689c",
+        "filename": "private/compat/29.0/29.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1880185
+      },
+      "writtenOn": "2021-06-07T22:12:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7ac1d48_c8d0b71d",
+      "revId": "afa691cc28a96fc7052db88fee16eb4ac274df77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47ee0418_e251100e",
@@ -58,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b47cc596_64439846",
+        "filename": "private/vehicle_binding_util.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1880185
+      },
+      "writtenOn": "2021-06-07T22:12:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47ee0418_e251100e",
+      "range": {
+        "startLine": 19,
+        "startChar": 43,
+        "endLine": 19,
+        "endChar": 62
+      },
+      "revId": "afa691cc28a96fc7052db88fee16eb4ac274df77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af6899b1_250bb0c3",
@@ -71,6 +113,24 @@
       "writtenOn": "2021-06-07T19:41:16Z",
       "side": 1,
       "message": "Do you know why this is needed (and the similar comment in vehicle_binding_util.te above)?",
+      "revId": "afa691cc28a96fc7052db88fee16eb4ac274df77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0257b31c_c8a23a6f",
+        "filename": "public/vdc.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1880185
+      },
+      "writtenOn": "2021-06-07T22:12:50Z",
+      "side": 1,
+      "message": "We don\u0027t actually need to read back the stdin/stdout from vdc in vehicle_binding_util.\nWe just fork  and execvp vdc inside vehicle_binding_util.\nBut without that we got:\navc: denied { use } for path\u003d\"/dev/pts/0\" dev\u003d\"devpts\" ino\u003d3 scontext\u003du:r:vdc:s0 tcontext\u003du:r:vehicle_binding_util:s0 tclass\u003dfd permissive\u003d0",
+      "parentUuid": "af6899b1_250bb0c3",
       "revId": "afa691cc28a96fc7052db88fee16eb4ac274df77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
