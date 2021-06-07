@@ -151,6 +151,24 @@
       "parentUuid": "0257b31c_c8a23a6f",
       "revId": "afa691cc28a96fc7052db88fee16eb4ac274df77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ca030bb_208f1d20",
+        "filename": "public/vdc.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1880185
+      },
+      "writtenOn": "2021-06-07T22:56:24Z",
+      "side": 1,
+      "message": "Without allow vdc vehicle_binding_util:fd use; in vdc.te\navc: denied { use } for path\u003d\"/dev/pts/0\" dev\u003d\"devpts\" ino\u003d3 scontext\u003du:r:vdc:s0 tcontext\u003du:r:vehicle_binding_util:s0 tclass\u003dfd permissive\u003d0\n \nWithout allow vehicle_binding_util devpts:chr_file rw_file_perms; in vehicle_binding_util.te\navc: denied { read write } for name\u003d\"0\" dev\u003d\"devpts\" ino\u003d3 scontext\u003du:r:vehicle_binding_util:s0 tcontext\u003du:object_r:devpts:s0 tclass\u003dchr_file permissive\u003d0\n\nIt basically copied from https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/sgdisk.te;l\u003d27?q\u003dsgdisk.te\u0026ss\u003dandroid%2Fplatform%2Fsuperproject:system%2Fsepolicy%2F",
+      "parentUuid": "f5ad3973_a60f0951",
+      "revId": "afa691cc28a96fc7052db88fee16eb4ac274df77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
