@@ -14,3 +14,7 @@ init_daemon_domain(artd)
 # Allow query ART device config properties
 get_prop(artd, device_config_runtime_native_prop)
 get_prop(artd, device_config_runtime_native_boot_prop)
+
+# Allow platform applications to find and call artd for testing
+allow platform_app artd_service:service_manager find;
+binder_call(platform_app, artd)
