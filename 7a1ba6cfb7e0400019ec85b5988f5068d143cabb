@@ -16,6 +16,24 @@
       "message": "How exactly is vehicle_binding_util invoking vdc?  Can you use O_CLOEXEC to remove this?",
       "revId": "7a1ba6cfb7e0400019ec85b5988f5068d143cabb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2ee64ef_d68cd96a",
+        "filename": "public/vdc.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1880185
+      },
+      "writtenOn": "2021-06-07T23:48:31Z",
+      "side": 1,
+      "message": "We use the system provided function logwrap_fork_execvp to fork and execvp.\nThe vdc use  denied is avc: denied { use } for path\u003d\"/dev/pts/0\" dev\u003d\"devpts\"\nAnd we did not call open /dev/pts/0 in vehicle_binidng_util.",
+      "parentUuid": "1e7b9bb1_61778099",
+      "revId": "7a1ba6cfb7e0400019ec85b5988f5068d143cabb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
