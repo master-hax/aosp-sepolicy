@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ad0cb84_d17c7631",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1405,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-06-09T12:55:51Z",
+      "side": 1,
+      "message": "should this go into a userdebug_or_eng() statement? I realized that there\u0027s an \"allow\" rule right above this, but we also generally organize neverallow rules at the end of the file. So please move this above the block of neverallow rules.",
+      "range": {
+        "startLine": 1405,
+        "startChar": 0,
+        "endLine": 1405,
+        "endChar": 62
+      },
+      "revId": "11718d0a9bd4a787d9ba0e08ba92b20c43efa4b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
