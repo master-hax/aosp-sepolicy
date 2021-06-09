@@ -9,6 +9,9 @@ userdebug_or_eng(`
   allow profcollectd profcollectd_data_file:file create_file_perms;
   allow profcollectd profcollectd_data_file:dir create_dir_perms;
 
+  # Allow system server to read profcollectd reports.
+  r_dir_file(system_server, profcollectd_data_file)
+
   # Allow profcollectd full use of perf_event_open(2), to enable system wide profiling.
   allow profcollectd self:perf_event { cpu kernel open read write };
 
