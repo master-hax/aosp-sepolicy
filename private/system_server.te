@@ -1401,3 +1401,6 @@ neverallow { domain -init -system_server } font_data_file:dir no_w_dir_perms;
 
 # Read qemu.hw.mainkeys property
 get_prop(system_server, qemu_hw_prop)
+
+# Allow system server to read profcollectd reports for upload.
+r_dir_file(system_server, profcollectd_data_file)
