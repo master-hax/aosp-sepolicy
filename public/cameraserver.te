@@ -23,6 +23,7 @@ add_hwservice(cameraserver, fwk_camera_hwservice)
 
 allow cameraserver activity_service:service_manager find;
 allow cameraserver appops_service:service_manager find;
+allow cameraserver permission_checker_service:service_manager find;
 allow cameraserver audioserver_service:service_manager find;
 allow cameraserver batterystats_service:service_manager find;
 allow cameraserver cameraproxy_service:service_manager find;
