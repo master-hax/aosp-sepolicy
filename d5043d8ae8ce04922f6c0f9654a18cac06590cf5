@@ -104,6 +104,24 @@
       "parentUuid": "31c485e7_4cb4723c",
       "revId": "d5043d8ae8ce04922f6c0f9654a18cac06590cf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f292ace9_9b401a02",
+        "filename": "public/hal_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1872967
+      },
+      "writtenOn": "2021-06-11T18:57:55Z",
+      "side": 1,
+      "message": "Yes, also the detailed reply from Qorvo:\n\nThe UWB HAL is using wpan iface exposed by 802.15.4 module, and our MCPS netlink api.\nWe also do ioctl commands on the wpan iface to set it UP or DOWN.\nSo we do need these permissions, just like BT or wifi we are a network HAL.",
+      "parentUuid": "56e9677e_64383012",
+      "revId": "d5043d8ae8ce04922f6c0f9654a18cac06590cf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
