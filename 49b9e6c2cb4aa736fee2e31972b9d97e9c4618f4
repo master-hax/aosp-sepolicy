@@ -69,6 +69,75 @@
       "parentUuid": "62661a37_63613eca",
       "revId": "49b9e6c2cb4aa736fee2e31972b9d97e9c4618f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd96118a_17dbd922",
+        "filename": "private/rs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-06-15T09:57:56Z",
+      "side": 1,
+      "message": "combine this with line 3.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 44
+      },
+      "revId": "49b9e6c2cb4aa736fee2e31972b9d97e9c4618f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e11cfb7_ce52a996",
+        "filename": "private/rs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-06-15T09:57:56Z",
+      "side": 1,
+      "message": "can you combine these lines e.g. instead of \nallow rs app_data_file:file r_file_perms;\nallow rs privapp_data_file:file r_file_perms;\n\njust have one line:\nallow rs { app_data_file privapp_data_file }:file r_file_perms;",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 43
+      },
+      "revId": "49b9e6c2cb4aa736fee2e31972b9d97e9c4618f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc356bbf_cbe7c4ed",
+        "filename": "private/rs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-06-15T09:57:56Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 42
+      },
+      "revId": "49b9e6c2cb4aa736fee2e31972b9d97e9c4618f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
