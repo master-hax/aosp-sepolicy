@@ -98,6 +98,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6e8f998e_cc6f2e77",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2021-06-16T11:10:43Z",
+      "side": 1,
+      "message": "Because in aosp gerrit, there is no vendor source (only has prebuilt vendor.img).\n\nhttps://android.googlesource.com/platform/manifest/+/refs/heads/master-with-phones/aosp-master-with-phones.xml#18\n\n\nWithout the duplication in the mapping file (on system.img), it will have build error for targets on AOSP gerrit.\ne.g., \nhttps://ci.android.com/builds/branches/aosp-master-with-phones/grid?\n\n\nBecause plat_pub_versioned.cil is in a prebuilt vendor.img does not contain this new type yet (until next manual update for the vendor.img, e.g., ag/14182088).",
+      "parentUuid": "2dbad007_17785dd0",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 44
+      },
+      "revId": "4f20ff73eeb3cd5062d01080f60e41b045aed1c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0d2dd040_a0e5d4c8",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
