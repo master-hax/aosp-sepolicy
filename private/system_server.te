@@ -1180,6 +1180,7 @@ neverallow system_server {
   file_type
   -toolbox_exec
   -logcat_exec
+  userdebug_or_eng(`-llkd_exec')
   with_asan(`-shell_exec -asanwrapper_exec -zygote_exec')
 }:file execute_no_trans;
 
@@ -1341,6 +1342,11 @@ neverallow {
 
 # Read/Write /proc/pressure/memory
 allow system_server proc_pressure_mem:file rw_file_perms;
+
+# Invoke llkd for dumping kernel call stack
+userdebug_or_eng(`
+  allow system_server llkd_exec:file rx_file_perms;
+')
 
 # dexoptanalyzer is currently used only for secondary dex files which
 # system_server should never access.
