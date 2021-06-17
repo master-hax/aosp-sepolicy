@@ -76,7 +76,6 @@ dontaudit apexd self:global_capability_class_set fsetid;
 # allow apexd to create a mount point in /apex
 allow apexd apex_mnt_dir:dir create_dir_perms;
 # allow apexd to mount in /apex
-allow apexd apex_mnt_dir:filesystem { mount unmount };
 allow apexd apex_mnt_dir:dir mounton;
 # allow apexd to create symlinks in /apex
 allow apexd apex_mnt_dir:lnk_file create_file_perms;

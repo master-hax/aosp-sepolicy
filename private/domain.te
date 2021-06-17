@@ -371,6 +371,9 @@ neverallow {
     -sdcard_type
 }:filesystem { mount remount relabelfrom relabelto };
 
+# Ensure that filesystems are typed with fs_type and not file_type.
+neverallow domain file_type:filesystem *;
+
 enforce_debugfs_restriction(`
   neverallow {
     domain userdebug_or_eng(`-init')

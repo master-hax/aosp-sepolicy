@@ -24,7 +24,6 @@ allow postinstall_dexopt postinstall_dexopt_tmpfs:file open;
 
 allow postinstall_dexopt self:global_capability_class_set { chown dac_override dac_read_search fowner fsetid setgid setuid };
 
-allow postinstall_dexopt postinstall_file:filesystem getattr;
 allow postinstall_dexopt postinstall_file:dir { getattr read search };
 allow postinstall_dexopt postinstall_file:lnk_file { getattr read };
 allow postinstall_dexopt proc_filesystems:file { getattr open read };

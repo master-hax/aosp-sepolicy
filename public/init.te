@@ -175,7 +175,6 @@ enforce_debugfs_restriction(`
 # Allow init to mount tracefs in /sys/kernel/tracing
 allow init debugfs_tracing_debug:filesystem mount;
 
-allow init unlabeled:filesystem ~relabelto;
 allow init contextmount_type:filesystem relabelto;
 
 # Allow read-only access to context= mounted filesystems.

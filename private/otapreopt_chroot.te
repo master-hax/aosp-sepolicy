@@ -22,9 +22,6 @@ allow otapreopt_chroot labeledfs:filesystem { mount unmount };
 # This is required for dynamic partitions.
 allow otapreopt_chroot dm_device:chr_file rw_file_perms;
 
-# This is required to unmount flattened APEX packages under
-# /postinstall/system/apex (which are bind-mounted in /postinstall/apex).
-allow otapreopt_chroot postinstall_file:filesystem unmount;
 # Mounting /vendor can have this side-effect. Ignore denial.
 dontaudit otapreopt_chroot kernel:process setsched;
 
