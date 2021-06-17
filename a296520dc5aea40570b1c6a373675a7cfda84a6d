@@ -87,6 +87,30 @@
       },
       "revId": "a296520dc5aea40570b1c6a373675a7cfda84a6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13892331_0f0ebec9",
+        "filename": "public/recovery.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1881965
+      },
+      "writtenOn": "2021-06-17T09:28:17Z",
+      "side": 1,
+      "message": "Hi Steven \u0026 Tom, \n1. e2fsck in recovery always fail without the devpts permission.\n2. liblogwrap redirects child\u0027s stdout and stderr to child_ptty. The parent receives the output and writes into kmsg. So recovery needs the kmsg_device permission.",
+      "parentUuid": "a1fca1c6_7f16b88a",
+      "range": {
+        "startLine": 137,
+        "startChar": 5,
+        "endLine": 137,
+        "endChar": 41
+      },
+      "revId": "a296520dc5aea40570b1c6a373675a7cfda84a6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
