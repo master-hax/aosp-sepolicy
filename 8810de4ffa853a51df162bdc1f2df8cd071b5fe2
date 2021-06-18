@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9124be1a_181abe05",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2021-06-18T13:53:15Z",
+      "side": 1,
+      "message": "Hi Jeff. There are 2 instances of the llkd.\n\nA - The instance of llkd started from init has the required privileges to dump the stacks. It registers an aidl interface DumpKernelStack(pid).\n\nB - The instance of llkd that gets executed to dump kernel stack (llkd -d \u003cpid\u003e)\n\nB gets the aidl service, which dumps the stack from A.\n\nThe reason it was done as a command is to add some timeout to the blocking binder call during dumps. This is done with the use of the RunCommand*() helpers. aosp/1739374",
+      "parentUuid": "b57c9839_f37ab28e",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 61
+      },
+      "revId": "8810de4ffa853a51df162bdc1f2df8cd071b5fe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "66bf50bb_1a97276d",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-06-18T06:53:15Z",
       "side": 1,
       "message": "Just to clarify, this is system_server attempting to dump its own kernel stack using the llkd executable?",
+      "range": {
+        "startLine": 1346,
+        "startChar": 0,
+        "endLine": 1346,
+        "endChar": 43
+      },
+      "revId": "8810de4ffa853a51df162bdc1f2df8cd071b5fe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e7359d2_b4c9d4f6",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1346,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2021-06-18T13:53:15Z",
+      "side": 1,
+      "message": "The command can take any pid and dumps the stack for all threads of that pid. llkd has an ignore list that excludes processes known to not allow ptrace: (init, lmkd, llkd, keystore, keystore2), we don\u0027t attempt to dump stack for these.",
+      "parentUuid": "02e550e3_1a0cb411",
       "range": {
         "startLine": 1346,
         "startChar": 0,
