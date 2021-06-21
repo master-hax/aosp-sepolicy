@@ -187,6 +187,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c992a077_44390fb0",
+        "filename": "public/vdc.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1880185
+      },
+      "writtenOn": "2021-06-21T17:59:26Z",
+      "side": 1,
+      "message": "actually tried to use fork/execvp instead of  logwrap_fork_execvp .\nand close all file descriptors (0-1024) after fork. But will get \u0027avc: denied { use } for path\u003d\"/dev/null\" dev\u003d\"tmpfs\" ino\u003d10 scontext\u003du:r:vdc:s0 tcontext\u003du:r:vehicle_binding_util:s0 tclass\u003dfd permissive\u003d0\u0027",
+      "parentUuid": "e3f29a00_dc91d9c3",
+      "revId": "7a1ba6cfb7e0400019ec85b5988f5068d143cabb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "163d4583_86c6ea35",
         "filename": "public/vehicle_binding_util.te",
         "patchSetId": 3
