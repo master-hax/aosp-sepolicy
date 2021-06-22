@@ -110,6 +110,30 @@
       },
       "revId": "8810de4ffa853a51df162bdc1f2df8cd071b5fe2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5179a217_61abfb5e",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1346,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-06-22T10:29:10Z",
+      "side": 1,
+      "message": "This could very well be overkill...\n\nllkd is extremely privileged, which is part of why it\u0027s only allowed on debug builds and why it has almost no attack surface. Even only on debug builds, one thing that I really dislike about this change is that it adds attack surface by exposing a system service.\n\nThis all seems like overkill for just passing a pid. Are there simpler alternatives? System property? domain_auto_trans(system_server, llkd_exec, llkd)?",
+      "parentUuid": "7e7359d2_b4c9d4f6",
+      "range": {
+        "startLine": 1346,
+        "startChar": 0,
+        "endLine": 1346,
+        "endChar": 43
+      },
+      "revId": "8810de4ffa853a51df162bdc1f2df8cd071b5fe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
