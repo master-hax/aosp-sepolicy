@@ -369,6 +369,7 @@ neverallow {
     -zygote
 } { fs_type
     -sdcard_type
+    -fusefs_type
 }:filesystem { mount remount relabelfrom relabelto };
 
 enforce_debugfs_restriction(`
