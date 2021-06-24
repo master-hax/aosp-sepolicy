@@ -22,6 +22,30 @@
       },
       "revId": "a60d7f28f2e6f482500bbe7e3b6863e44d663dd0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63603ae7_8f777f04",
+        "filename": "private/traced.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2021-06-24T16:15:42Z",
+      "side": 1,
+      "message": "I believe the allows are in public/traceur_app.te:7 and public/shell.te:80\n\nWithout these exemptions, I see\nlibsepol.report_failure: neverallow on line 121 of system/sepolicy/private/traced.te (or line 60333 of policy.conf) violated by allow shell tracingproxy_service:service_manager { find };\nlibsepol.report_failure: neverallow on line 121 of system/sepolicy/private/traced.te (or line 60333 of policy.conf) violated by allow traceur_app tracingproxy_service:service_manager { find };",
+      "parentUuid": "6af10491_9766b791",
+      "range": {
+        "startLine": 121,
+        "startChar": 39,
+        "endLine": 121,
+        "endChar": 58
+      },
+      "revId": "a60d7f28f2e6f482500bbe7e3b6863e44d663dd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
