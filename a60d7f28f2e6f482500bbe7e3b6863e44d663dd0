@@ -70,6 +70,30 @@
       },
       "revId": "a60d7f28f2e6f482500bbe7e3b6863e44d663dd0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46f35cad_9a653aaf",
+        "filename": "private/traced.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2021-06-24T16:51:08Z",
+      "side": 1,
+      "message": "Sorry, I tried to clarify this in the changeset description. Only traced really needs access. \n\nI exempted all of dumpstate, traceur_app, shell, and system_server because I couldn\u0027t see a way to remove access from these since they\u0027re giving the access in public/ and I didn\u0027t want to make the whole tracingproxy_service public. And (of course) because those restricted domains didn\u0027t seem problematic to allow the access - I had interpreted your comment on the bug to mean that that adding some exceptions to the neverallow rule was likely okay.\n\nIf we prefer to restrict the access from all of these besides traced I\u0027d be happy to do that too, but I\u0027d need your guidance on the best way to do that.",
+      "parentUuid": "b1fc3bf3_aa8e82da",
+      "range": {
+        "startLine": 121,
+        "startChar": 39,
+        "endLine": 121,
+        "endChar": 58
+      },
+      "revId": "a60d7f28f2e6f482500bbe7e3b6863e44d663dd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
