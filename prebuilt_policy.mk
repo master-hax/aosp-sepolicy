@@ -61,6 +61,7 @@ $(1): PRIVATE_SEPOLICY_SPLIT := $$(PRODUCT_SEPOLICY_SPLIT)
 $(1): PRIVATE_COMPATIBLE_PROPERTY := $$(PRODUCT_COMPATIBLE_PROPERTY)
 $(1): PRIVATE_TREBLE_SYSPROP_NEVERALLOW := $$(treble_sysprop_neverallow)
 $(1): PRIVATE_ENFORCE_SYSPROP_OWNER := $$(enforce_sysprop_owner)
+$(1): PRIVATE_ENFORCE_DEBUGFS_RESTRICTION := $$(enforce_debugfs_restriction)
 $(1): PRIVATE_POLICY_FILES := $$(policy_files)
 $(1): $$(policy_files) $$(M4)
 	$$(transform-policy-to-conf)
@@ -239,7 +240,7 @@ $(built_plat_cil_$(ver)) $(built_system_ext_cil_$(ver))
 	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -C -c \
 	$(POLICYVERS) -o $@ $<
 	$(hide) $(HOST_OUT_EXECUTABLES)/build_sepolicy -a $(HOST_OUT_EXECUTABLES) filter_out \
-		-f $(PRIVATE_PLAT_CIL) -t $@
+		-f $(PRIVATE_PLAT_CIL_FILES) -t $@
 	# Line markers (denoted by ;;) are malformed after above cmd. They are only
 	# used for debugging, so we remove them.
 	$(hide) grep -v ';;' $@ > $@.tmp

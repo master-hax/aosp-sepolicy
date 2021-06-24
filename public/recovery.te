@@ -32,7 +32,7 @@ recovery_only(`
   # Mount filesystems.
   allow recovery rootfs:dir mounton;
   allow recovery tmpfs:dir mounton;
-  allow recovery fs_type:filesystem ~relabelto;
+  allow recovery { fs_type enforce_debugfs_restriction(`-debugfs_type') }:filesystem ~relabelto;
   allow recovery unlabeled:filesystem ~relabelto;
   allow recovery contextmount_type:filesystem relabelto;
 
@@ -133,6 +133,10 @@ recovery_only(`
 
   # Allow mounting /metadata for writing update states
   allow recovery metadata_file:dir { getattr mounton };
+
+  # Recovery uses liblogwrap to write fsck logs to kmsg, liblogwrap requires devpts.
+  allow recovery devpts:chr_file rw_file_perms;
+  allow recovery kmsg_device:chr_file { getattr w_file_perms };
 ')
 
 ###

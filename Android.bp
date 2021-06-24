@@ -80,6 +80,55 @@ se_filegroup {
 }
 
 se_filegroup {
+    name: "31.0.board.compat.map",
+    srcs: [
+        "compat/31.0/31.0.cil",
+    ],
+}
+
+se_filegroup {
+    name: "26.0.board.compat.cil",
+    srcs: [
+        "compat/26.0/26.0.compat.cil",
+    ],
+}
+
+se_filegroup {
+    name: "27.0.board.compat.cil",
+    srcs: [
+        "compat/27.0/27.0.compat.cil",
+    ],
+}
+
+se_filegroup {
+    name: "28.0.board.compat.cil",
+    srcs: [
+        "compat/28.0/28.0.compat.cil",
+    ],
+}
+
+se_filegroup {
+    name: "29.0.board.compat.cil",
+    srcs: [
+        "compat/29.0/29.0.compat.cil",
+    ],
+}
+
+se_filegroup {
+    name: "30.0.board.compat.cil",
+    srcs: [
+        "compat/30.0/30.0.compat.cil",
+    ],
+}
+
+se_filegroup {
+    name: "31.0.board.compat.cil",
+    srcs: [
+        "compat/31.0/31.0.compat.cil",
+    ],
+}
+
+se_filegroup {
     name: "26.0.board.ignore.map",
     srcs: [
         "compat/26.0/26.0.ignore.cil",
@@ -111,6 +160,13 @@ se_filegroup {
     name: "30.0.board.ignore.map",
     srcs: [
         "compat/30.0/30.0.ignore.cil",
+    ],
+}
+
+se_filegroup {
+    name: "31.0.board.ignore.map",
+    srcs: [
+        "compat/31.0/31.0.ignore.cil",
     ],
 }
 
@@ -146,7 +202,14 @@ se_cil_compat_map {
     name: "plat_30.0.cil",
     stem: "30.0.cil",
     bottom_half: [":30.0.board.compat.map"],
-    // top_half: "plat_31.0.cil",
+    top_half: "plat_31.0.cil",
+}
+
+se_cil_compat_map {
+    name: "plat_31.0.cil",
+    stem: "31.0.cil",
+    bottom_half: [":31.0.board.compat.map"],
+    // top_half: "plat_32.0.cil",
 }
 
 se_cil_compat_map {
@@ -185,7 +248,15 @@ se_cil_compat_map {
     name: "system_ext_30.0.cil",
     stem: "30.0.cil",
     bottom_half: [":30.0.board.compat.map"],
-    // top_half: "system_ext_31.0.cil",
+    top_half: "system_ext_31.0.cil",
+    system_ext_specific: true,
+}
+
+se_cil_compat_map {
+    name: "system_ext_31.0.cil",
+    stem: "31.0.cil",
+    bottom_half: [":31.0.board.compat.map"],
+    // top_half: "system_ext_32.0.cil",
     system_ext_specific: true,
 }
 
@@ -225,7 +296,15 @@ se_cil_compat_map {
     name: "product_30.0.cil",
     stem: "30.0.cil",
     bottom_half: [":30.0.board.compat.map"],
-    // top_half: "product_31.0.cil",
+    top_half: "product_31.0.cil",
+    product_specific: true,
+}
+
+se_cil_compat_map {
+    name: "product_31.0.cil",
+    stem: "31.0.cil",
+    bottom_half: [":31.0.board.compat.map"],
+    // top_half: "product_32.0.cil",
     product_specific: true,
 }
 
@@ -256,37 +335,113 @@ se_cil_compat_map {
 se_cil_compat_map {
     name: "30.0.ignore.cil",
     bottom_half: [":30.0.board.ignore.map"],
-    // top_half: "31.0.ignore.cil",
+    top_half: "31.0.ignore.cil",
 }
 
-prebuilt_etc {
+se_cil_compat_map {
+    name: "31.0.ignore.cil",
+    bottom_half: [":31.0.board.ignore.map"],
+    // top_half: "32.0.ignore.cil",
+}
+
+se_cil_compat_map {
+    name: "system_ext_30.0.ignore.cil",
+    bottom_half: [":30.0.board.ignore.map"],
+    top_half: "system_ext_31.0.ignore.cil",
+    system_ext_specific: true,
+}
+
+se_cil_compat_map {
+    name: "system_ext_31.0.ignore.cil",
+    bottom_half: [":31.0.board.ignore.map"],
+    // top_half: "system_ext_32.0.ignore.cil",
+    system_ext_specific: true,
+}
+
+se_cil_compat_map {
+    name: "product_30.0.ignore.cil",
+    bottom_half: [":30.0.board.ignore.map"],
+    top_half: "product_31.0.ignore.cil",
+    product_specific: true,
+}
+
+se_cil_compat_map {
+    name: "product_31.0.ignore.cil",
+    bottom_half: [":31.0.board.ignore.map"],
+    // top_half: "product_32.0.ignore.cil",
+    product_specific: true,
+}
+
+se_compat_cil {
     name: "26.0.compat.cil",
-    src: "private/compat/26.0/26.0.compat.cil",
-    sub_dir: "selinux/mapping",
+    srcs: [":26.0.board.compat.cil"],
 }
 
-prebuilt_etc {
+se_compat_cil {
     name: "27.0.compat.cil",
-    src: "private/compat/27.0/27.0.compat.cil",
-    sub_dir: "selinux/mapping",
+    srcs: [":27.0.board.compat.cil"],
 }
 
-prebuilt_etc {
+se_compat_cil {
     name: "28.0.compat.cil",
-    src: "private/compat/28.0/28.0.compat.cil",
-    sub_dir: "selinux/mapping",
+    srcs: [":28.0.board.compat.cil"],
 }
 
-prebuilt_etc {
+se_compat_cil {
     name: "29.0.compat.cil",
-    src: "private/compat/29.0/29.0.compat.cil",
-    sub_dir: "selinux/mapping",
+    srcs: [":29.0.board.compat.cil"],
 }
 
-prebuilt_etc {
+se_compat_cil {
     name: "30.0.compat.cil",
-    src: "private/compat/30.0/30.0.compat.cil",
-    sub_dir: "selinux/mapping",
+    srcs: [":30.0.board.compat.cil"],
+}
+
+se_compat_cil {
+    name: "31.0.compat.cil",
+    srcs: [":31.0.board.compat.cil"],
+}
+
+se_compat_cil {
+    name: "system_ext_26.0.compat.cil",
+    srcs: [":26.0.board.compat.cil"],
+    stem: "26.0.compat.cil",
+    system_ext_specific: true,
+}
+
+se_compat_cil {
+    name: "system_ext_27.0.compat.cil",
+    srcs: [":27.0.board.compat.cil"],
+    stem: "27.0.compat.cil",
+    system_ext_specific: true,
+}
+
+se_compat_cil {
+    name: "system_ext_28.0.compat.cil",
+    srcs: [":28.0.board.compat.cil"],
+    stem: "28.0.compat.cil",
+    system_ext_specific: true,
+}
+
+se_compat_cil {
+    name: "system_ext_29.0.compat.cil",
+    srcs: [":29.0.board.compat.cil"],
+    stem: "29.0.compat.cil",
+    system_ext_specific: true,
+}
+
+se_compat_cil {
+    name: "system_ext_30.0.compat.cil",
+    srcs: [":30.0.board.compat.cil"],
+    stem: "30.0.compat.cil",
+    system_ext_specific: true,
+}
+
+se_compat_cil {
+    name: "system_ext_31.0.compat.cil",
+    srcs: [":31.0.board.compat.cil"],
+    stem: "31.0.compat.cil",
+    system_ext_specific: true,
 }
 
 se_filegroup {
@@ -622,6 +777,21 @@ se_policy_cil {
     additional_cil_files: ["private/technical_debt.cil"],
 }
 
+// userdebug_plat_policy.conf - the userdebug version plat_sepolicy.cil
+se_policy_conf {
+    name: "userdebug_plat_sepolicy.conf",
+    srcs: [":se_build_files{.plat}"],
+    build_variant: "userdebug",
+    installable: false,
+}
+
+se_policy_cil {
+    name: "userdebug_plat_sepolicy.cil",
+    src: ":userdebug_plat_sepolicy.conf",
+    additional_cil_files: ["private/technical_debt.cil"],
+    debug_ramdisk: true,
+}
+
 // system_ext_policy.conf - A combination of the private and public system_ext
 // policy which will ship with the device. System_ext policy is not attributized
 se_policy_conf {
@@ -759,6 +929,69 @@ prebuilt_etc {
     product_specific: true,
 }
 
+sepolicy_vers {
+    name: "plat_sepolicy_vers.txt",
+    version: "vendor",
+    vendor: true,
+}
+
+soong_config_module_type {
+    name: "precompiled_sepolicy_defaults",
+    module_type: "prebuilt_defaults",
+    config_namespace: "ANDROID",
+    bool_variables: ["BOARD_USES_ODMIMAGE"],
+    properties: ["vendor", "device_specific"],
+}
+
+precompiled_sepolicy_defaults {
+    name: "precompiled_sepolicy",
+    soong_config_variables: {
+        BOARD_USES_ODMIMAGE: {
+            device_specific: true,
+            conditions_default: {
+                vendor: true,
+            },
+        },
+    },
+}
+
+//////////////////////////////////
+// SHA-256 digest of the plat_sepolicy.cil and plat_mapping_file against
+// which precompiled_policy was built.
+//////////////////////////////////
+prebuilt_etc {
+    defaults: ["precompiled_sepolicy"],
+    name: "precompiled_sepolicy.plat_sepolicy_and_mapping.sha256",
+    filename: "precompiled_sepolicy.plat_sepolicy_and_mapping.sha256",
+    src: ":plat_sepolicy_and_mapping.sha256_gen",
+    relative_install_path: "selinux",
+}
+
+//////////////////////////////////
+// SHA-256 digest of the system_ext_sepolicy.cil and system_ext_mapping_file against
+// which precompiled_policy was built.
+//////////////////////////////////
+prebuilt_etc {
+    defaults: ["precompiled_sepolicy"],
+    name: "precompiled_sepolicy.system_ext_sepolicy_and_mapping.sha256",
+    filename: "precompiled_sepolicy.system_ext_sepolicy_and_mapping.sha256",
+    src: ":system_ext_sepolicy_and_mapping.sha256_gen",
+    relative_install_path: "selinux",
+}
+
+//////////////////////////////////
+// SHA-256 digest of the product_sepolicy.cil and product_mapping_file against
+// which precompiled_policy was built.
+//////////////////////////////////
+prebuilt_etc {
+    defaults: ["precompiled_sepolicy"],
+    name: "precompiled_sepolicy.product_sepolicy_and_mapping.sha256",
+    filename: "precompiled_sepolicy.product_sepolicy_and_mapping.sha256",
+    src: ":product_sepolicy_and_mapping.sha256_gen",
+    relative_install_path: "selinux",
+}
+
+
 //////////////////////////////////
 // SELinux policy embedded into CTS.
 // CTS checks neverallow rules of this policy against the policy of the device under test.
@@ -769,57 +1002,4 @@ se_policy_conf {
     build_variant: "user",
     cts: true,
     exclude_build_test: true,
-}
-
-//////////////////////////////////
-// modules for microdroid
-//////////////////////////////////
-
-// microdroid's system sepolicy is almost identical to host's system sepolicy, except that
-// microdroid doesn't have system_ext and product. So microdroid's plat_pub_versioned.cil is
-// generated with plat_pub_policy.cil (exported system), not pub_policy.cil (exported system +
-// system_ext + product). Other two files, plat_sepolicy.cil and plat_mapping_file, are copied from
-// host's files.
-se_versioned_policy {
-    name: "microdroid_plat_pub_versioned.cil",
-    stem: "plat_pub_versioned.cil",
-    base: ":plat_pub_policy.cil",
-    target_policy: ":plat_pub_policy.cil",
-    version: "current",
-    dependent_cils: [
-        ":plat_sepolicy.cil",
-        ":plat_mapping_file",
-    ],
-    installable: false,
-}
-
-// microdroid's vendor sepolicy is a minimalized sepolicy needed for microdroid to boot. It just
-// contains system/sepolicy/public and system/sepolicy/vendor.
-se_policy_conf {
-    name: "microdroid_vendor_sepolicy.conf",
-    srcs: [":se_build_files{.plat_vendor}"],
-    installable: false,
-}
-
-se_policy_cil {
-    name: "microdroid_vendor_sepolicy.cil.raw",
-    src: ":microdroid_vendor_sepolicy.conf",
-    filter_out: [":reqd_policy_mask.cil"],
-    secilc_check: false, // will be done in se_versioned_policy module
-    installable: false,
-}
-
-se_versioned_policy {
-    name: "microdroid_vendor_sepolicy.cil",
-    stem: "vendor_sepolicy.cil",
-    base: ":plat_pub_policy.cil",
-    target_policy: ":microdroid_vendor_sepolicy.cil.raw",
-    version: "current", // microdroid is bundled to system
-    dependent_cils: [
-        ":plat_sepolicy.cil",
-        ":microdroid_plat_pub_versioned.cil",
-        ":plat_mapping_file",
-    ],
-    filter_out: [":microdroid_plat_pub_versioned.cil"],
-    installable: false,
 }
