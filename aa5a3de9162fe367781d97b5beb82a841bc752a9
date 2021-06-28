@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cb1c40d_5997236b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2021-06-28T08:24:21Z",
+      "side": 1,
+      "message": "Yes, that\u0027s right. (https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/private/genfs_contexts;l\u003d369;drc\u003d633f7ca8688524b9df687dc1e23c4956e5bac360)",
+      "parentUuid": "bcd406c4_408ea9f2",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "aa5a3de9162fe367781d97b5beb82a841bc752a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ab3073b_a7366f73",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-23T15:28:51Z",
       "side": 1,
       "message": "Nit: Missing Bug: 190804537\n(Also: test?)",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 6
+      },
+      "revId": "aa5a3de9162fe367781d97b5beb82a841bc752a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67b31689_67b1b344",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2021-06-28T08:24:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ab3073b_a7366f73",
       "range": {
         "startLine": 27,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1489620d_453b0bf1",
+        "filename": "private/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2021-06-28T08:24:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19ea710b_f1584070",
+      "range": {
+        "startLine": 357,
+        "startChar": 2,
+        "endLine": 357,
+        "endChar": 13
+      },
+      "revId": "aa5a3de9162fe367781d97b5beb82a841bc752a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abc377d4_035efc0d",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-06-23T15:28:51Z",
       "side": 1,
       "message": "There\u0027s nothing stopping me applying fusefs_type to anything to bypass this neverallow, is there?\n\n(But that was true of sdcard_type, I guess.)",
+      "range": {
+        "startLine": 372,
+        "startChar": 5,
+        "endLine": 372,
+        "endChar": 16
+      },
+      "revId": "aa5a3de9162fe367781d97b5beb82a841bc752a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40ed09bc_45776186",
+        "filename": "private/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2021-06-28T08:24:21Z",
+      "side": 1,
+      "message": "That\u0027s correct. The idea behind this change is to clarify the types used, to facilitate these decisions.",
+      "parentUuid": "abc377d4_035efc0d",
       "range": {
         "startLine": 372,
         "startChar": 5,
@@ -118,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb0bc98d_c53d2c4a",
+        "filename": "private/isolated_app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2021-06-28T08:24:21Z",
+      "side": 1,
+      "message": "I think the intent here (from the comment) was to only have the restriction on fuse because it is used as part of the sdcard access. I don\u0027t think it make much sense to add all fusefs_type as it could be completely unrelated (for instance, a vendor service mounting its own virtual fuse filesystem, such as ramdump on Pixel).",
+      "parentUuid": "ab2d5d74_36cc2325",
+      "range": {
+        "startLine": 115,
+        "startChar": 38,
+        "endLine": 115,
+        "endChar": 42
+      },
+      "revId": "aa5a3de9162fe367781d97b5beb82a841bc752a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7285d357_511d2d0c",
         "filename": "public/attributes",
         "patchSetId": 4
@@ -129,6 +249,30 @@
       "writtenOn": "2021-06-23T15:28:51Z",
       "side": 1,
       "message": "Nit: missing word - \"set\"?",
+      "range": {
+        "startLine": 22,
+        "startChar": 76,
+        "endLine": 22,
+        "endChar": 78
+      },
+      "revId": "aa5a3de9162fe367781d97b5beb82a841bc752a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "051acfdb_0767cd4f",
+        "filename": "public/attributes",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2021-06-28T08:24:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7285d357_511d2d0c",
       "range": {
         "startLine": 22,
         "startChar": 76,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42893478_09a90794",
+        "filename": "public/init.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2021-06-28T08:24:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7db48ea_6b699850",
+      "range": {
+        "startLine": 321,
+        "startChar": 54,
+        "endLine": 321,
+        "endChar": 58
+      },
+      "revId": "aa5a3de9162fe367781d97b5beb82a841bc752a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c414c599_8357f440",
@@ -175,6 +343,30 @@
       "writtenOn": "2021-06-23T15:28:51Z",
       "side": 1,
       "message": "Also these ones, since we\u0027re negating.",
+      "range": {
+        "startLine": 143,
+        "startChar": 3,
+        "endLine": 143,
+        "endChar": 7
+      },
+      "revId": "aa5a3de9162fe367781d97b5beb82a841bc752a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7727874_db2a2083",
+        "filename": "public/vendor_init.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2021-06-28T08:24:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c414c599_8357f440",
       "range": {
         "startLine": 143,
         "startChar": 3,
