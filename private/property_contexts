@@ -330,7 +330,16 @@ ro.camera.enableLazyHal u:object_r:camera_config_prop:s0 exact bool
 
 ro.camerax.extensions.enabled u:object_r:camerax_extensions_prop:s0 exact bool
 
-# Should always_debuggable be bool? It's checked against the string "1".
+ro.vendor.camera.extensions.package u:object_r:camera2_extensions_prop:s0 exact string
+ro.vendor.camera.extensions.service u:object_r:camera2_extensions_prop:s0 exact string
+
+# ART properties
+dalvik.vm.                 u:object_r:dalvik_config_prop:s0
+ro.dalvik.vm.              u:object_r:dalvik_config_prop:s0
+ro.zygote                  u:object_r:dalvik_config_prop:s0 exact string
+
+# A set of ART properties listed explicitly for compatibility purposes.
+ro.dalvik.vm.native.bridge u:object_r:dalvik_config_prop:s0 exact string
 dalvik.vm.always_debuggable                   u:object_r:dalvik_config_prop:s0 exact int
 dalvik.vm.appimageformat                      u:object_r:dalvik_config_prop:s0 exact string
 dalvik.vm.backgroundgctype                    u:object_r:dalvik_config_prop:s0 exact string
@@ -406,7 +415,6 @@ dalvik.vm.restore-dex2oat-threads             u:object_r:dalvik_config_prop:s0 e
 dalvik.vm.usejit                              u:object_r:dalvik_config_prop:s0 exact bool
 dalvik.vm.usejitprofiles                      u:object_r:dalvik_config_prop:s0 exact bool
 dalvik.vm.zygote.max-boot-retry               u:object_r:dalvik_config_prop:s0 exact int
-ro.zygote                                     u:object_r:dalvik_config_prop:s0 exact string
 
 persist.sys.dalvik.vm.lib.2 u:object_r:dalvik_runtime_prop:s0 exact string
 
@@ -494,8 +502,6 @@ ro.crypto.volume.metadata.encryption            u:object_r:vold_config_prop:s0 e
 ro.crypto.volume.metadata.method                u:object_r:vold_config_prop:s0 exact string
 ro.crypto.volume.options                        u:object_r:vold_config_prop:s0 exact string
 
-ro.dalvik.vm.native.bridge u:object_r:dalvik_config_prop:s0 exact string
-
 external_storage.projid.enabled   u:object_r:storage_config_prop:s0 exact bool
 external_storage.casefold.enabled u:object_r:storage_config_prop:s0 exact bool
 external_storage.sdcardfs.enabled u:object_r:storage_config_prop:s0 exact bool
@@ -556,6 +562,7 @@ sys.usb.configfs   u:object_r:usb_control_prop:s0 exact int
 sys.usb.controller u:object_r:usb_control_prop:s0 exact string
 sys.usb.state      u:object_r:usb_control_prop:s0 exact string
 
+sys.usb.mtp.batchcancel u:object_r:usb_config_prop:s0 exact bool
 sys.usb.mtp.device_type u:object_r:usb_config_prop:s0 exact int
 
 sys.usb.config. u:object_r:usb_prop:s0
@@ -839,6 +846,7 @@ ro.vendor.build.version.incremental         u:object_r:build_vendor_prop:s0 exac
 ro.vendor.build.version.release             u:object_r:build_vendor_prop:s0 exact string
 ro.vendor.build.version.release_or_codename u:object_r:build_vendor_prop:s0 exact string
 ro.vendor.build.version.sdk                 u:object_r:build_vendor_prop:s0 exact int
+ro.vendor.build.dont_use_vabc               u:object_r:build_vendor_prop:s0 exact bool
 
 # All vendor CPU abilist props are set by /vendor/build.prop
 ro.vendor.product.cpu.abilist   u:object_r:build_vendor_prop:s0 exact string
@@ -1063,6 +1071,7 @@ ro.surface_flinger.update_device_product_info_on_hotplug_reconnect u:object_r:su
 ro.surface_flinger.enable_frame_rate_override             u:object_r:surfaceflinger_prop:s0 exact bool
 ro.surface_flinger.enable_layer_caching                   u:object_r:surfaceflinger_prop:s0 exact bool
 ro.surface_flinger.display_update_imminent_timeout_ms     u:object_r:surfaceflinger_prop:s0 exact int
+ro.surface_flinger.uclamp.min                             u:object_r:surfaceflinger_prop:s0 exact int
 
 ro.sf.disable_triple_buffer u:object_r:surfaceflinger_prop:s0 exact bool
 ro.sf.lcd_density           u:object_r:surfaceflinger_prop:s0 exact int
