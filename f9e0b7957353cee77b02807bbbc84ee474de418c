@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0dff35e_d8a11e10",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-06-29T12:16:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbeb0d29_62841fe1",
+      "range": {
+        "startLine": 130,
+        "startChar": 29,
+        "endLine": 130,
+        "endChar": 31
+      },
+      "revId": "f9e0b7957353cee77b02807bbbc84ee474de418c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84590af9_fa10264d",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-29T08:59:59Z",
       "side": 1,
       "message": "same nit about brackets (here and the rest of the change)",
+      "range": {
+        "startLine": 53,
+        "startChar": 49,
+        "endLine": 53,
+        "endChar": 50
+      },
+      "revId": "f9e0b7957353cee77b02807bbbc84ee474de418c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e888a55_39781760",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-06-29T12:16:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84590af9_fa10264d",
       "range": {
         "startLine": 53,
         "startChar": 49,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07a7ec1c_90bba472",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-06-29T12:16:00Z",
+      "side": 1,
+      "message": "I put this in hoping to help appcompat debugging (assuming that\u0027s why the above auditallows were here as well), but you\u0027re right: it\u0027s probably not needed given that denials will be logged anyway when the app updates its targetAPI.\nRemoved it here and in the policies below.",
+      "parentUuid": "0f2e9c27_45f3e697",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 73
+      },
+      "revId": "f9e0b7957353cee77b02807bbbc84ee474de418c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1491085e_1460d920",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afc2fb8a_45a78565",
+        "filename": "private/untrusted_app_29.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-06-29T12:16:00Z",
+      "side": 1,
+      "message": "Added a bug to track merging these when we are certain untrusted_app_29 will no longer change.",
+      "parentUuid": "1491085e_1460d920",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 3
+      },
+      "revId": "f9e0b7957353cee77b02807bbbc84ee474de418c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1569ae6c_b493ad64",
@@ -106,6 +202,30 @@
       "writtenOn": "2021-06-29T08:59:59Z",
       "side": 1,
       "message": "Can/should we move to a setup where we  grant these permissions to domains that need them, instead of this setup where we denylist domains that should not have them.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 20
+      },
+      "revId": "f9e0b7957353cee77b02807bbbc84ee474de418c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fd06237_2e2ef768",
+        "filename": "public/net.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-06-29T12:16:00Z",
+      "side": 1,
+      "message": "I think it makes sense to explore that. Given that it might take some experimenting to ensure we didn\u0027t miss anything, I\u0027ll do that in a follow-up change.",
+      "parentUuid": "1569ae6c_b493ad64",
       "range": {
         "startLine": 29,
         "startChar": 0,
