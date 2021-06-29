@@ -7,3 +7,9 @@ type_transition drmserver apk_data_file:sock_file drmserver_socket;
 typeattribute drmserver_socket coredomain_socket;
 
 get_prop(drmserver, drm_service_config_prop)
+
+# Audit access the MAC address and link information for potential removal (b/192350019)
+allow drmserver self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+userdebug_or_eng(`
+  auditallow drmserver self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+')

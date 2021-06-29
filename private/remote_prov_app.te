@@ -11,3 +11,9 @@ allow remote_prov_app {
     app_api_service
     remoteprovisioning_service
 }:service_manager find;
+
+# Audit access the MAC address and link information for potential removal (b/192350019)
+allow remote_prov_app self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+userdebug_or_eng(`
+  auditallow remote_prov_app self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+')

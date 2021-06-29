@@ -5,3 +5,9 @@ type_transition dhcp system_data_file:{ dir file } dhcp_data_file;
 
 set_prop(dhcp, dhcp_prop)
 set_prop(dhcp, pan_result_prop)
+
+# Audit access the MAC address and link information for potential removal (b/192350019)
+allow dhcp self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+userdebug_or_eng(`
+    auditallow dhcp self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+')
