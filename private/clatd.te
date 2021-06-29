@@ -31,6 +31,11 @@ allow clatd self:global_capability_class_set { net_admin net_raw setuid setgid }
 # https://b.corp.google.com/issues/21736319
 allow clatd self:global_capability_class_set ipc_lock;
 
-allow clatd self:netlink_route_socket nlmsg_write;
+allow clatd self:netlink_route_socket { nlmsg_write bind nlmsg_readpriv nlmsg_getneigh };
 allow clatd self:{ packet_socket rawip_socket } create_socket_perms_no_ioctl;
 allow clatd tun_device:chr_file rw_file_perms;
+
+# Audit access the MAC address and link information for potential removal (b/192350019)
+userdebug_or_eng(`
+  auditallow clatd self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+')

@@ -10,3 +10,10 @@ net_domain(mdnsd)
 
 # Read from /proc/net
 r_dir_file(mdnsd, proc_net_type)
+
+# Allow access to netlink_route sockets
+allow mdnsd self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+# Audit access the MAC address and link information for potential removal (b/192350019)
+userdebug_or_eng(`
+  auditallow mdnsd self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+')
