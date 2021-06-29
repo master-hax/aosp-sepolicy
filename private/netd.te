@@ -35,6 +35,13 @@ binder_call(netd, network_stack)
 allow netd dumpstate:fd use;
 allow netd dumpstate:fifo_file { getattr write };
 
+# Allow access to netlink_route sockets
+allow netd self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+# Audit access the MAC address and link information for potential removal (b/192350019)
+userdebug_or_eng(`
+  auditallow netd self:netlink_route_socket { nlmsg_readpriv nlmsg_getneigh };
+')
+
 # persist.netd.stable_secret contains RFC 7217 secret key which should never be
 # leaked to other processes. Make sure it never leaks.
 neverallow { domain -netd -init -dumpstate } netd_stable_secret_prop:file r_file_perms;

@@ -7,3 +7,9 @@ net_domain(rild)
 # public, but conceptually should go with this
 type rild_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(rild)
+
+# Audit access the MAC address and link information for potential removal (b/192350019)
+allow rild self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+userdebug_or_eng(`
+  auditallow rild self:netlink_route_socket { nlmsg_readpriv nlmsg_getneigh };
+')

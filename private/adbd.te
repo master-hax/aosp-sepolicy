@@ -223,6 +223,12 @@ allow adbd staging_data_file:file r_file_perms;
 # Allow adbd to pull /apex/apex-info-list.xml for CTS tests.
 allow adbd apex_info_file:file r_file_perms;
 
+# Audit access the MAC address and link information for potential removal (b/192350019)
+allow adbd self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+userdebug_or_eng(`
+  auditallow adbd self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+')
+
 ###
 ### Neverallow rules
 ###
