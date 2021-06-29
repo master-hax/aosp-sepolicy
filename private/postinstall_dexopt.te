@@ -83,3 +83,6 @@ allow postinstall_dexopt otapreopt_chroot:fd use;
 # Allow postinstall_dexopt to access the runtime feature flag properties.
 get_prop(postinstall_dexopt, device_config_runtime_native_prop)
 get_prop(postinstall_dexopt, device_config_runtime_native_boot_prop)
+
+# Allow otapreoprt_chroot to call fcntl(O_CLOEXEC) on fd passed from update_engine.
+allow postinstall_dexopt update_engine:fd use;
