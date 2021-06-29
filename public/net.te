@@ -25,10 +25,15 @@ allow netdomain self:netlink_route_socket { create read getattr write setattr lo
 # untrusted_apps. Some untrusted apps (e.g. untrusted_app_25-30) are granted access elsewhere
 # to avoid app-compat breakage.
 allow {
-  netdomain
-  -ephemeral_app
-  -mediaprovider
-  -untrusted_app_all
+  bluetooth
+  dumpstate
+  mdnsd
+  netd
+  network_stack
+  nfc
+  platform_app
+  priv_app
+  system_server
 } self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
 
 # Talks to netd via dnsproxyd socket.
