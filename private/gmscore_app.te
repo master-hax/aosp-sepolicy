@@ -61,6 +61,12 @@ dontaudit gmscore_app mnt_vendor_file:dir search;
 # Access the network
 net_domain(gmscore_app)
 
+# Audit access to the MAC address and link information for potential removal (b/192350019)
+allow gmscore_app self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+userdebug_or_eng(`
+  auditallow gmscore_app self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+')
+
 # webview crash handling depends on self ptrace (b/27697529, b/20150694, b/19277529#comment7)
 allow gmscore_app self:process ptrace;
 
