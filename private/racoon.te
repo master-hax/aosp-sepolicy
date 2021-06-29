@@ -1,3 +1,9 @@
 typeattribute racoon coredomain;
 
 init_daemon_domain(racoon)
+
+# Audit access the MAC address and link information for potential removal (b/192350019)
+allow racoon self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+userdebug_or_eng(`
+  auditallow racoon self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+')

@@ -30,3 +30,9 @@ get_prop(update_engine, snapuserd_prop)
 # capex decompression
 allow update_engine apex_service:service_manager find;
 binder_call(update_engine, apexd)
+
+# Audit access the MAC address and link information for potential removal (b/192350019)
+allow update_engine self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+userdebug_or_eng(`
+  auditallow update_engine self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+')
