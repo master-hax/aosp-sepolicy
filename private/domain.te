@@ -540,3 +540,7 @@ enforce_debugfs_restriction(`
       -tracefs_type
   }:file no_rw_file_perms;
 ')
+
+# b/170678524, resolve Access denied finding property
+# "drm.service.enabled" error
+get_prop(domain, drm_service_config_prop)
