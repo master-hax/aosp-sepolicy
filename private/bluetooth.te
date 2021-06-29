@@ -11,6 +11,9 @@ type_transition bluetooth bluetooth_data_file:sock_file bluetooth_socket;
 # Allow access to net_admin ioctls
 allowxperm bluetooth self:udp_socket ioctl priv_sock_ioctls;
 
+# Allow access to netlink_route sockets
+allow bluetooth self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+
 wakelock_use(bluetooth);
 
 # Data file accesses.
