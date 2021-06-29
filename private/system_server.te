@@ -157,7 +157,7 @@ allow system_server config_gz:file { read open };
 allow system_server self:socket create_socket_perms_no_ioctl;
 
 # Set and get routes directly via netlink.
-allow system_server self:netlink_route_socket nlmsg_write;
+allow system_server self:netlink_route_socket { bind nlmsg_getneigh nlmsg_readpriv nlmsg_write };
 
 # Kill apps.
 allow system_server appdomain:process { getpgid sigkill signal };

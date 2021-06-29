@@ -107,6 +107,7 @@ r_dir_file(priv_app, rootfs)
 
 # access the mac address
 allowxperm priv_app self:udp_socket ioctl SIOCGIFHWADDR;
+allow priv_app self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
 
 # Allow com.android.vending to communicate with statsd.
 binder_call(priv_app, statsd)

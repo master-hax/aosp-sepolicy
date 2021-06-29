@@ -74,6 +74,9 @@ hal_client_domain(shell, hal_atrace)
 # For hostside tests such as CTS listening ports test.
 allow shell proc_net_tcp_udp:file r_file_perms;
 
+# Access to the MAC address and link information
+allow shell self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+
 # The dl.exec_linker* tests need to execute /system/bin/linker
 # b/124789393
 allow shell system_linker_exec:file rx_file_perms;
