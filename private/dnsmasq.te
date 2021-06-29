@@ -1,1 +1,4 @@
 typeattribute dnsmasq coredomain;
+
+# Allow access to netlink_route sockets
+allow dnsmasq netd:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
