@@ -11,6 +11,10 @@ typeattribute artd coredomain;
 
 init_daemon_domain(artd)
 
-# Allow query ART device config properties
+# Allow the System Server and Service Manager to interact with artd
+allow { system_server servicemanager } artd_service:service_manager find;
+allow { system_server servicemanager } artd:binder call;
+
+# Allow query of ART device config properties
 get_prop(artd, device_config_runtime_native_prop)
 get_prop(artd, device_config_runtime_native_boot_prop)
