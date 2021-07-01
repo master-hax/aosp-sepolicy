@@ -335,12 +335,14 @@ ro.vendor.camera.extensions.package u:object_r:camera2_extensions_prop:s0 exact 
 ro.vendor.camera.extensions.service u:object_r:camera2_extensions_prop:s0 exact string
 
 # ART properties
+art.service                u:object_r:dalvik_config_prop:s0
 dalvik.vm.                 u:object_r:dalvik_config_prop:s0
 ro.dalvik.vm.              u:object_r:dalvik_config_prop:s0
 ro.zygote                  u:object_r:dalvik_config_prop:s0 exact string
 
 # A set of ART properties listed explicitly for compatibility purposes.
 ro.dalvik.vm.native.bridge u:object_r:dalvik_config_prop:s0 exact string
+art.service.enabled                           u:object_r:dalvik_config_prop:s0 exact bool
 dalvik.vm.always_debuggable                   u:object_r:dalvik_config_prop:s0 exact int
 dalvik.vm.appimageformat                      u:object_r:dalvik_config_prop:s0 exact string
 dalvik.vm.backgroundgctype                    u:object_r:dalvik_config_prop:s0 exact string
