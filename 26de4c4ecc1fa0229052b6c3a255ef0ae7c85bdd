@@ -22,6 +22,30 @@
       },
       "revId": "26de4c4ecc1fa0229052b6c3a255ef0ae7c85bdd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce397710_6bee7e92",
+        "filename": "private/simpleperf.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2021-07-01T21:44:56Z",
+      "side": 1,
+      "message": "simpleperf binary doesn\u0027t do any app check. The check is done in simpleperf_app_runner binary.\nThere are two paths entering simpleperf domain:\n1. adb shell -\u003e simpleperf_app_runner -\u003e profileable_app -\u003e simpleperf. The check is done in simpleperf_app_runner, as in https://cs.android.com/android/platform/superproject/+/master:system/extras/simpleperf/simpleperf_app_runner/simpleperf_app_runner.cpp;l\u003d221.\n\n2. an app process fork/exec simpleperf process to profile itself. simpleperf binary doesn\u0027t check if the app is profileable. But a non-profileable app is by default not dumpable, and perf_event_open will fail, as described in https://b.corp.google.com/issues/118835348#comment33.",
+      "parentUuid": "de25e7bf_c1827d9f",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 60
+      },
+      "revId": "26de4c4ecc1fa0229052b6c3a255ef0ae7c85bdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
