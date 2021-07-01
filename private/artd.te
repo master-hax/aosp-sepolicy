@@ -2,15 +2,18 @@
 type artd, domain;
 type artd_exec, system_file_type, exec_type, file_type;
 
+typeattribute artd coredomain;
+
+init_daemon_domain(artd)
+
 # Allow artd to publish a binder service and make binder calls.
 binder_use(artd)
 add_service(artd, artd_service)
 allow artd dumpstate:fifo_file  { getattr write };
 
-typeattribute artd coredomain;
+# Allow the System Server and Service Manager to interact with artd
+allow { system_server servicemanager } artd_service:service_manager find;
+allow { system_server servicemanager } artd:binder call;
 
-init_daemon_domain(artd)
-
-# Allow query ART device config properties
-get_prop(artd, device_config_runtime_native_prop)
-get_prop(artd, device_config_runtime_native_boot_prop)
+# Allow query of ART device config properties
+get_prop(artd, dalvik_config_prop)
