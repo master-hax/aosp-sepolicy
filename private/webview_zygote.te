@@ -37,6 +37,8 @@ allow webview_zygote apex_module_data_file:dir search;
 
 # Allow webview_zygote to create JIT memory.
 allow webview_zygote self:process execmem;
+allow webview_zygote zygote_tmpfs:file execute;
+allow webview_zygote ashmem_libcutils_device:chr_file execute;
 
 # Allow webview_zygote to stat the files that it opens. It must
 # be able to inspect them so that it can reopen them on fork
