@@ -58,6 +58,11 @@ allow app_zygote apex_module_data_file:dir search;
 # For ART APEX (read /data/misc/apexdata/com.android.art/dalvik-cache).
 r_dir_file(app_zygote, apex_art_data_file)
 
+# Allow app_zygote to create JIT memory.
+allow app_zygote self:process execmem;
+allow app_zygote zygote_tmpfs:file execute;
+allow app_zygote ashmem_libcutils_device:chr_file execute;
+
 # Allow reading/executing installed binaries to enable preloading
 # application data
 allow app_zygote apk_data_file:dir r_dir_perms;
