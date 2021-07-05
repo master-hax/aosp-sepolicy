@@ -5,6 +5,9 @@ type shell_exec, system_file_type, exec_type, file_type;
 # Create and use network sockets.
 net_domain(shell)
 
+# Create and use vsock sockets.
+allow shell self:vsock_socket { create_socket_perms_no_ioctl listen accept };
+
 # logcat
 read_logd(shell)
 control_logd(shell)
