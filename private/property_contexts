@@ -837,6 +837,7 @@ ro.odm_dlkm.build.version.sdk                 u:object_r:build_odm_prop:s0 exact
 
 # enforces debugfs restrictions in non-user builds, set by /vendor/build.prop
 ro.product.debugfs_restrictions.enabled u:object_r:debugfs_restriction_prop:s0 exact bool
+persist.dbg.keep_debugfs_mounted        u:object_r:debugfs_restriction_prop:s0 exact bool
 
 # All vendor build props are set by /vendor/build.prop
 ro.vendor.build.date                        u:object_r:build_vendor_prop:s0 exact string
