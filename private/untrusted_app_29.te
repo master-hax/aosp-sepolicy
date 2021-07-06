@@ -16,5 +16,4 @@ net_domain(untrusted_app_29)
 bluetooth_domain(untrusted_app_29)
 
 # allow sending RTM_GETNEIGH{TBL} messages.
-allow untrusted_app_29 self:netlink_route_socket nlmsg_getneigh;
-auditallow untrusted_app_29 self:netlink_route_socket nlmsg_getneigh;
+allowxperm untrusted_app_29 self:netlink_route_socket nlmsg { RTM_GETNEIGH RTM_GETNEIGHTBL };
