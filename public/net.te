@@ -29,7 +29,15 @@ allow {
   -ephemeral_app
   -mediaprovider
   -untrusted_app_all
-} self:netlink_route_socket { bind nlmsg_readpriv nlmsg_getneigh };
+} self:netlink_route_socket { bind nlmsg_readpriv };
+
+allowxperm netdomain self:netlink_route_socket nlmsg_read ~{ 0x12 0x1e 0x42 };
+allowxperm {
+  netdomain
+  -ephemeral_app
+  -mediaprovider
+  -untrusted_app_all
+} self:netlink_route_socket nlmsg_read { 0x12 0x1e 0x42 };
 
 # Talks to netd via dnsproxyd socket.
 unix_socket_connect(netdomain, dnsproxyd, netd)
