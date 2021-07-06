@@ -210,6 +210,7 @@ sepolicy_build_files := security_classes \
                         attributes \
                         ioctl_defines \
                         ioctl_macros \
+                        nlmsg_defines \
                         *.te \
                         roles_decl \
                         roles \
