@@ -708,7 +708,7 @@ set_prop(system_server, device_config_sys_traced_prop)
 set_prop(system_server, device_config_window_manager_native_boot_prop)
 set_prop(system_server, device_config_configuration_prop)
 set_prop(system_server, device_config_connectivity_prop)
-
+set_prop(system_server, device_config_surface_flinger_native_boot_prop)
 
 # Allow query ART device config properties
 get_prop(system_server, device_config_runtime_native_boot_prop)
@@ -853,6 +853,7 @@ allow system_server incremental_service:service_manager find;
 allow system_server installd_service:service_manager find;
 allow system_server iorapd_service:service_manager find;
 allow system_server keystore_maintenance_service:service_manager find;
+allow system_server keystore_metrics_service:service_manager find;
 allow system_server keystore_service:service_manager find;
 allow system_server mediaserver_service:service_manager find;
 allow system_server mediametrics_service:service_manager find;
@@ -903,6 +904,7 @@ allow system_server keystore:keystore2 {
 	clear_uid
 	get_state
 	lock
+	pull_metrics
 	reset
 	unlock
 };
@@ -965,7 +967,7 @@ allow system_server { mnt_user_file storage_file }:lnk_file { getattr read };
 
 # Allow statfs() on storage devices, which happens fast enough that
 # we shouldn't be killed during unsafe removal
-allow system_server sdcard_type:dir { getattr search };
+allow system_server { sdcard_type fuse }:dir { getattr search };
 
 # Traverse into expanded storage
 allow system_server mnt_expand_file:dir r_dir_perms;
@@ -1159,8 +1161,8 @@ userdebug_or_eng(`r_dir_file(system_server, profcollectd_data_file)')
 
 # Do not allow opening files from external storage as unsafe ejection
 # could cause the kernel to kill the system_server.
-neverallow system_server sdcard_type:dir { open read write };
-neverallow system_server sdcard_type:file rw_file_perms;
+neverallow system_server { sdcard_type fuse }:dir { open read write };
+neverallow system_server { sdcard_type fuse }:file rw_file_perms;
 
 # system server should never be operating on zygote spawned app data
 # files directly. Rather, they should always be passed via a
@@ -1216,6 +1218,7 @@ neverallow {
   device_config_runtime_native_prop
   device_config_media_native_prop
   device_config_storage_native_boot_prop
+  device_config_surface_flinger_native_boot_prop
   device_config_sys_traced_prop
   device_config_swcodec_native_prop
   device_config_window_manager_native_boot_prop

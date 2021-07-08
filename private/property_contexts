@@ -52,6 +52,7 @@ persist.adb.tls_server.enable  u:object_r:system_adbd_prop:s0
 
 persist.audio.          u:object_r:audio_prop:s0
 persist.bluetooth.      u:object_r:bluetooth_prop:s0
+persist.nfc.            u:object_r:nfc_prop:s0
 persist.nfc_cfg.        u:object_r:nfc_prop:s0
 persist.debug.          u:object_r:persist_debug_prop:s0
 logd.                   u:object_r:logd_prop:s0
@@ -241,6 +242,7 @@ persist.device_config.runtime_native_boot.          u:object_r:device_config_run
 persist.device_config.statsd_native.                u:object_r:device_config_statsd_native_prop:s0
 persist.device_config.statsd_native_boot.           u:object_r:device_config_statsd_native_boot_prop:s0
 persist.device_config.storage_native_boot.          u:object_r:device_config_storage_native_boot_prop:s0
+persist.device_config.surface_flinger_native_boot.  u:object_r:device_config_surface_flinger_native_boot_prop:s0
 persist.device_config.swcodec_native.               u:object_r:device_config_swcodec_native_prop:s0
 persist.device_config.window_manager_native_boot.   u:object_r:device_config_window_manager_native_boot_prop:s0
 
@@ -437,6 +439,8 @@ persist.bluetooth.a2dp_offload.cap             u:object_r:bluetooth_a2dp_offload
 persist.bluetooth.a2dp_offload.disabled        u:object_r:bluetooth_a2dp_offload_prop:s0 exact bool
 persist.bluetooth.bluetooth_audio_hal.disabled u:object_r:bluetooth_audio_hal_prop:s0 exact bool
 persist.bluetooth.btsnoopenable                u:object_r:exported_bluetooth_prop:s0 exact bool
+
+persist.nfc.debug_enabled                      u:object_r:nfc_prop:s0 exact bool
 
 persist.radio.multisim.config u:object_r:radio_control_prop:s0 exact string
 
