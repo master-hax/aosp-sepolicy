@@ -540,3 +540,11 @@ enforce_debugfs_restriction(`
       -tracefs_type
   }:file no_rw_file_perms;
 ')
+
+# Vsock connections can be made only by adbd and virtualizationservice.
+# Otherwise, we have no control over which process has an access to which VM; a
+# process that can talk to a VM will be able to connect to any other VM. We
+# don't want that. A process should be able to talk to the VM that it created or
+# the VM that others have explicitly granted access to. Virtualizationservice
+# implements that by creating a vsock by itself and pass the fd to the creator.
+neverallow { domain -adbd -virtualizationservice } self:vsock_socket create;
