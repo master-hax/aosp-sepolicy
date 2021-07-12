@@ -1236,6 +1236,8 @@ neverallow {
   -dumpstate
   -installd
   userdebug_or_eng(`-uncrypt')
+  userdebug_or_eng(`-virtualizationservice')
+  userdebug_or_eng(`-crosvm')
 } shell_data_file:file open;
 
 # servicemanager and vndservicemanager are the only processes which handle the
