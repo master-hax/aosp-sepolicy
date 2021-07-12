@@ -7,6 +7,11 @@ tmpfs_domain(crosvm)
 
 # Let crosvm receive file descriptors from VirtualizationService.
 allow crosvm virtualizationservice:fd use;
+# Allow crosvm to read temporary files (composite disk image) created by virtualizationservice
+allow crosvm virtualizationservice_data_file:file r_file_perms;
+allow crosvm virtualizationservice_data_file:dir r_dir_perms;
+# Allow crosvm to read APEXes
+allow crosvm staging_data_file:file r_file_perms;
 
 # Let crosvm open /dev/kvm.
 allow crosvm kvm_device:chr_file rw_file_perms;
@@ -17,7 +22,14 @@ neverallow { domain -crosvm -ueventd } kvm_device:chr_file ~getattr;
 
 # Let crosvm read and write files from clients of virtualizationservice, but not open them directly
 # as they must be passed via virtualizationservice.
-allow crosvm apk_data_file:file { getattr read };
+# TODO(b/193402941) remove the open permission
+allow crosvm apk_data_file:file r_file_perms;
 allow crosvm app_data_file:file { getattr read write };
-# shell_data_file is used for automated tests and manual debugging.
-allow crosvm shell_data_file:file { getattr read write };
+# Allow accessing test APK in /data/local/tmp
+userdebug_or_eng(`allow crosvm shell_data_file:file r_file_perms;')
+
+# Allow crosvm to emit console log to the file opened by shell or app (via the --log flag)
+allow crosvm shell:fd use;
+allow crosvm appdomain:fd use;
+allow crosvm appdomain:fifo_file { read write };
+

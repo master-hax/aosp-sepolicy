@@ -203,3 +203,33 @@ allow apexd postinstall_apex_mnt_dir:dir { create_dir_perms mounton };
 allow apexd postinstall_apex_mnt_dir:file { create_file_perms relabelfrom };
 allow apexd postinstall_apex_mnt_dir:lnk_file create;
 allow apexd proc_filesystems:file r_file_perms;
+
+# TODO(b/191601801) remove virtualizationservice
+neverallow {
+  domain
+  -init
+  -apexd
+  -system_server
+  -update_engine
+  -virtualizationservice
+} apex_service:service_manager find;
+
+# TODO(b/191601801) remove virtualizationservice
+neverallow {
+  domain
+  -init
+  -apexd
+  -system_server
+  -servicemanager
+  -update_engine
+  -virtualizationservice
+} apexd:binder call;
+
+# Allow apexd to pipe its output to fd opened by virtualizationservice
+# TODO(b/191601801): remove this
+allow apexd virtualizationservice:fd use;
+allow apexd virtualizationservice:fifo_file write;
+
+# Allow apexd to respond to virtualizationservice
+# TODO(b/191601801) remove this
+binder_call(apexd, virtualizationservice)
