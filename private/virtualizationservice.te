@@ -7,6 +7,10 @@ init_daemon_domain(virtualizationservice)
 
 # Let the virtualizationservice domain use Binder.
 binder_use(virtualizationservice)
+# ... and host a binder service
+binder_service(virtualizationservice)
+# It needs to call back to app
+binder_call(virtualizationservice, appdomain)
 
 # Let the virtualizationservice domain register the virtualization_service with ServiceManager.
 add_service(virtualizationservice, virtualization_service)
@@ -35,12 +39,40 @@ allow virtualizationservice $1:fd use;
 # Let the shell user call virtualizationservice for debugging.
 virtualizationservice_use(shell)
 
+# Allow to use fd (e.g. /dev/pts/0) inherited from adbd so that we can redirect output from
+# crosvm to the console
+allow virtualizationservice adbd:fd use;
+
 # Let virtualizationservice read and write files from its various clients, but not open them
 # directly as they must be passed over Binder by the client.
 allow virtualizationservice apk_data_file:file { getattr read };
+# Write access is needed for mutable partitions like instance.img
 allow virtualizationservice app_data_file:file { getattr read write };
 # shell_data_file is used for automated tests and manual debugging.
 allow virtualizationservice shell_data_file:file { getattr read write };
 
 # Let virtualizationservice to accept vsock connection from the guest VMs
 allow virtualizationservice self:vsock_socket { create_socket_perms_no_ioctl listen accept };
+
+# Allow calling into the system server so it can check permissions.
+binder_call(virtualizationservice, system_server)
+allow virtualizationservice permission_service:service_manager find;
+
+# Allow virtualizationservice to have access to APEXes so that they can be passed to VMs
+allow virtualizationservice apex_data_file:dir search;
+allow virtualizationservice staging_data_file:file r_file_perms;
+
+# Allow virtualizationservice to talk to apexservice
+# TODO(b/191601801) remove this
+allow virtualizationservice apex_service:service_manager find;
+binder_call(virtualizationservice, apexd)
+
+# Allow to open shell data files for testing. Only open permission is needed as the
+# actual read is done by crosvm which already has enough permission.
+# TODO(b/193402941) remove the open permission
+#userdebug_or_eng(`
+#  allow virtualizationservice shell_data_file:file open;
+#')
+
+# Allow virtualizationservice to callback to shell over binder
+userdebug_or_eng(`binder_call(virtualizationservice, shell)')
