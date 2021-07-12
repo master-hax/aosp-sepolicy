@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e806094d_5155d10b",
+        "filename": "private/shell.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-07-12T08:01:05Z",
+      "side": 1,
+      "message": "Those permissions are needed only by virtualizationservice. This is intentional. We want the service be the place where vsock connections are created. Clients (apps or shell) can only use the sockets that are already created. This is to prevent random apps from connecting to random VMs.",
+      "parentUuid": "05ea7004_9eee5885",
+      "range": {
+        "startLine": 211,
+        "startChar": 49,
+        "endLine": 211,
+        "endChar": 59
+      },
+      "revId": "f408371097ec92d2322c599e25bfb2e1da36c36d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3477ee1b_dcb6c39d",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-07-12T07:55:08Z",
       "side": 1,
       "message": "Is ioctl dangerous for vsock?",
+      "range": {
+        "startLine": 46,
+        "startChar": 48,
+        "endLine": 46,
+        "endChar": 76
+      },
+      "revId": "f408371097ec92d2322c599e25bfb2e1da36c36d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2572eb93_173fcbec",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-07-12T08:01:05Z",
+      "side": 1,
+      "message": "No. It\u0027s just not used. When I drop \"no_ioctl\", then I have to explicitly specify the ioctl that is needed, which is nothing. I will add ioctl when there actually is a need.",
+      "parentUuid": "3477ee1b_dcb6c39d",
       "range": {
         "startLine": 46,
         "startChar": 48,
