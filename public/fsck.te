@@ -14,7 +14,9 @@ allow fsck vold:fd use;
 allow fsck vold:fifo_file { read write getattr };
 
 # Run fsck on certain block devices
+allow fsck metadata_file:dir getattr;
 allow fsck block_device:dir search;
+allow fsck mirror_data_file:dir search;
 allow fsck userdata_block_device:blk_file rw_file_perms;
 allow fsck cache_block_device:blk_file rw_file_perms;
 allow fsck dm_device:blk_file rw_file_perms;
