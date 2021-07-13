@@ -46,6 +46,131 @@
       },
       "revId": "f30fd09d84aa39a9aa5e0775c52c8a09ef5c66ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9233527b_974d8e21",
+        "filename": "private/crosvm.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-07-13T11:54:53Z",
+      "side": 1,
+      "message": "The composite disk images are already passed as file descriptors, so `open` shouldn\u0027t be needed. Where is the directory search permission needed?",
+      "revId": "f30fd09d84aa39a9aa5e0775c52c8a09ef5c66ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa89b20e_e92a13e5",
+        "filename": "private/crosvm.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-07-13T11:54:53Z",
+      "side": 1,
+      "message": "We already have `allow crosvm apk_data_file:file { getattr read };` below, what other permissions does it need? It shouldn\u0027t need `open`, because they should be passed as file descriptors.\n\nMove these rules down with the other `allow crosvm ...:file` rules in any case.",
+      "revId": "f30fd09d84aa39a9aa5e0775c52c8a09ef5c66ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52c020d9_f8f05432",
+        "filename": "private/crosvm.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-07-13T11:54:53Z",
+      "side": 1,
+      "message": "It\u0027s already allowed getattr, read and write below. Are they other permissions (e.g. ioctl) really needed?\n\nIf so, I don\u0027t think it should be restricted to userdebug/eng builds, we\u0027ll want to run tests on (rooted) production builds too won\u0027t we?",
+      "revId": "f30fd09d84aa39a9aa5e0775c52c8a09ef5c66ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0ac8cd1_7d6c2bd4",
+        "filename": "private/crosvm.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-07-13T11:54:53Z",
+      "side": 1,
+      "message": "Nit: start comment with a capital letter, like the other comments.",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 7
+      },
+      "revId": "f30fd09d84aa39a9aa5e0775c52c8a09ef5c66ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f9bd382_b0a06740",
+        "filename": "private/domain.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-07-13T11:54:53Z",
+      "side": 1,
+      "message": "I don\u0027t think we should need to allow virtualizationservice or crosvm to open shell_data_file, they should be opened by the `vm` tool or test and passed as a file descriptor.",
+      "revId": "f30fd09d84aa39a9aa5e0775c52c8a09ef5c66ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "952bb7c7_8b20d7ef",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-07-13T11:54:53Z",
+      "side": 1,
+      "message": "Why is this needed? The file should be opened by the client and passed by FD, not virtualizationservice.",
+      "revId": "f30fd09d84aa39a9aa5e0775c52c8a09ef5c66ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13c39951_10164eec",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-07-13T11:54:53Z",
+      "side": 1,
+      "message": "I guess this is for tests and the `vm` tool? Is there any issue with allowing it in prod builds too?",
+      "revId": "f30fd09d84aa39a9aa5e0775c52c8a09ef5c66ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
