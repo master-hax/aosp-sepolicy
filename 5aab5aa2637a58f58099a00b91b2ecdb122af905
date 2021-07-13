@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a57a7bc_692b105e",
+        "filename": "private/crosvm.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-07-13T14:41:13Z",
+      "side": 1,
+      "message": "This is the error that I get when I drop \u0027open\u0027 from here.\n\n```\n07-13 23:33:15.821  3436  3436 V VirtualizationService:     PartitionInfo {                                                                                                                                                                                                                                                                                 \n07-13 23:33:15.821  3436  3436 V VirtualizationService:         label: \"microdroid-apex-0\",                                                                                                                                                                                                                                                                 \n07-13 23:33:15.821  3436  3436 V VirtualizationService:         files: [                                                                                                                                                                                                                                                                                    \n07-13 23:33:15.821  3436  3436 V VirtualizationService:             PartitionFileInfo {                                                                                                                                                                                                                                                                     \n07-13 23:33:15.821  3436  3436 V VirtualizationService:                 path: \"/proc/self/fd/38\",                                                                                                                                                                                                                                                           \n07-13 23:33:15.821  3436  3436 V VirtualizationService:                 size: 10894820,                                                                                                                                                                                                                                                                     \n07-13 23:33:15.821  3436  3436 V VirtualizationService:             },                    \n...\n07-13 23:33:15.822  3436  3436 D VirtualizationService: virtualizationservice::crosvm: Preserving FDs [14, 32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 46, 47, 48, 15, 39, 41, 52]\n07-13 23:33:15.822  3436  3436 I VirtualizationService: virtualizationservice::crosvm: Running \"/apex/com.android.virt/bin/crosvm\" \"run\" \"--disable-sandbox\" \"--cid\" \"10\" \"--bios\" \"/proc/self/fd/15\" \"--disk\" \"/proc/self/fd/39\" \"--disk\" \"/proc/self/fd/41\" \"--disk\" \"/proc/self/fd/52\"\n07-13 23:33:15.859  3461  3461 I auditd  : type\u003d1400 audit(0.0:147): avc: denied { open } for comm\u003d\"crosvm\" path\u003d\"/data/apex/decompressed/com.android.adbd@300900700.decompressed.apex\" dev\u003d\"dm-35\" ino\u003d171 scontext\u003du:r:crosvm:s0 tcontext\u003du:object_r:staging_data_file:s0 tclass\u003dfile permissive\u003d0\n07-13 23:33:15.859  3461  3461 W crosvm  : type\u003d1400 audit(0.0:147): avc: denied { open } for path\u003d\"/data/apex/decompressed/com.android.adbd@300900700.decompressed.apex\" dev\u003d\"dm-35\" ino\u003d171 scontext\u003du:r:crosvm:s0 tcontext\u003du:object_r:staging_data_file:s0 tclass\u003dfile permissive\u003d0\n07-13 23:33:15.902  3461  3461 E crosvm  : crosvm has exited with error: failed to create virtual disk: failure in composite disk: failed to open component file \"/proc/self/fd/38\": \"Permission denied (os error 13)\"\n07-13 23:33:15.908  3436  3462 I VirtualizationService: virtualizationservice::crosvm: crosvm exited with status exit code: 1\n```\n\nSo, it looks like attempt to open `/proc/self/fd/XX` requires open permission to the original regular file.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 49
+      },
+      "revId": "5aab5aa2637a58f58099a00b91b2ecdb122af905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
