@@ -270,6 +270,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8128f20_698dceb6",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-07-14T13:48:53Z",
+      "side": 1,
+      "message": "I found that virtualzationservice had the same problem as crosvm; /proc/self/fd/N is opened.\n\naops/1766026 fixes this. The open permissions are removed from virtualizationservice.te. I will do the same for crosvm.te when your crosvm change lands on aosp.",
+      "parentUuid": "5f56eef1_8654c397",
+      "revId": "f30fd09d84aa39a9aa5e0775c52c8a09ef5c66ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13c39951_10164eec",
