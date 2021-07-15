@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69a554ac_852a99d0",
+        "filename": "private/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-07-15T21:58:53Z",
+      "side": 1,
+      "message": "We should use the same domain as the existing services:\n\n/(system_ext|system/system_ext)/bin/aidl_lazy_test_server    u:object_r:aidl_lazy_test_server_exec:s0\n/(system_ext|system/system_ext)/bin/aidl_lazy_test_server u:object_r:aidl_lazy_cb_test_server_exec:s0\n/(system_ext|system/system_ext)/bin/hidl_lazy_test_server    u:object_r:hidl_lazy_test_server_exec:s0\n/(system_ext|system/system_ext)/bin/hidl_lazy_test_server u:object_r:hidl_lazy_cb_test_server_exec:s0\n\nno need to have another",
+      "revId": "aa1cee4c5b9b4067ca902b7d17c69bd276c21c7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2b49e6f_26567f3e",
+        "filename": "private/hwservice_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-07-15T21:58:53Z",
+      "side": 1,
+      "message": "we could use the same interface as well, but you can mark both of these as hal_lazy_test_hwservice",
+      "range": {
+        "startLine": 44,
+        "startChar": 23,
+        "endLine": 44,
+        "endChar": 30
+      },
+      "revId": "aa1cee4c5b9b4067ca902b7d17c69bd276c21c7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
