@@ -16,6 +16,29 @@
       "message": "LGTM, but one thing curious is why we reuse the staging_data_file in many places.\n\n/data/apex/active/(.*)?\t\tu:object_r:staging_data_file:s0\n/data/apex/backup/(.*)?\t\tu:object_r:staging_data_file:s0\n/data/apex/decompressed/(.*)?    u:object_r:staging_data_file:s0\n\n/data/pkg_staging(/.*)?\t\tu:object_r:staging_data_file:s0\n\n/data/app-staging(/.*)?\t\tu:object_r:staging_data_file:s0\n\n/data/rollback/\\d+/[^/]+/.*\\.apex u:object_r:staging_data_file:s0\n\nIf only the APEX files are needed by virtualizationservice, then I think it\u0027s a good chance to split the staging_data_file label.",
       "revId": "6d4179a66ee5231c1cfa63109e573013b480e1eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a4040d4_95818c2a",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-07-16T05:31:00Z",
+      "side": 1,
+      "message": "I think this neverallow rule doesn\u0027t make much sense anymore. There are so many exceptions.",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 27
+      },
+      "revId": "6d4179a66ee5231c1cfa63109e573013b480e1eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
