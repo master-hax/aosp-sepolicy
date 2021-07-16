@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63e330fb_dc59beb9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-07-16T05:06:08Z",
+      "side": 1,
+      "message": "LGTM, but one thing curious is why we reuse the staging_data_file in many places.\n\n/data/apex/active/(.*)?\t\tu:object_r:staging_data_file:s0\n/data/apex/backup/(.*)?\t\tu:object_r:staging_data_file:s0\n/data/apex/decompressed/(.*)?    u:object_r:staging_data_file:s0\n\n/data/pkg_staging(/.*)?\t\tu:object_r:staging_data_file:s0\n\n/data/app-staging(/.*)?\t\tu:object_r:staging_data_file:s0\n\n/data/rollback/\\d+/[^/]+/.*\\.apex u:object_r:staging_data_file:s0\n\nIf only the APEX files are needed by virtualizationservice, then I think it\u0027s a good chance to split the staging_data_file label.",
+      "revId": "6d4179a66ee5231c1cfa63109e573013b480e1eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
