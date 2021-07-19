@@ -46,6 +46,11 @@ userdebug_or_eng(`
   allow shell nativetest_data_file:file rx_file_perms;
 ')
 
+# Read/execute memfd files for minijail unit tests.
+userdebug_or_eng(`
+  allow shell appdomain_tmpfs:file { rx_file_perms setattr };
+')
+
 # adb bugreport
 unix_socket_connect(shell, dumpstate, dumpstate)
 
