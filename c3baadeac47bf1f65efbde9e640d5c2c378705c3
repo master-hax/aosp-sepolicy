@@ -33,6 +33,23 @@
       "message": "I have a suspicion that this could be due to com.android.location.provider being on system_server classpath and also being used as a shared library by something that system_server is loading later.",
       "revId": "c3baadeac47bf1f65efbde9e640d5c2c378705c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5de4f92a_43802275",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-19T15:14:56Z",
+      "side": 1,
+      "message": "OK, this will be for AOT artifacts picked up after system server as started. Jeff, the files in this directory are fs-verity signed, which we always check at boot. OK to let system server load files in that directory at any time?",
+      "revId": "c3baadeac47bf1f65efbde9e640d5c2c378705c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
