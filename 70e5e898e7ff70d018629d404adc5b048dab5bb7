@@ -16,6 +16,93 @@
       "message": "I\u0027m testing after CPing aosp/1765445 and aosp/1771725, with Victor\u0027s memory hack. Currently I see a bunch of SELinux denials (in permissive mode) while testing.",
       "revId": "70e5e898e7ff70d018629d404adc5b048dab5bb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7ae02db_5d54c2cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-07-20T10:20:48Z",
+      "side": 1,
+      "message": "Yes, I see that too. I\u0027m happy to add a bunch of rules for at least the key service, once this is submitted to make sure the domains exist.",
+      "parentUuid": "7834be9d_3f61746f",
+      "revId": "70e5e898e7ff70d018629d404adc5b048dab5bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34a3cd4c_e6be14ed",
+        "filename": "apex/com.android.compos-file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-07-20T10:20:48Z",
+      "side": 1,
+      "message": "This one shouldn\u0027t be here - it\u0027s always run in the host.",
+      "range": {
+        "startLine": 2,
+        "startChar": 5,
+        "endLine": 2,
+        "endChar": 19
+      },
+      "revId": "70e5e898e7ff70d018629d404adc5b048dab5bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b0d4372_14f22f80",
+        "filename": "apex/com.android.compos-file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-07-20T10:20:48Z",
+      "side": 1,
+      "message": "I think all three of these should use the same domain, because sooner or later they will need to be unified into a single service. (Would be interested to hear Victor\u0027s take though.)\n\ncompos_exec, compos?",
+      "range": {
+        "startLine": 4,
+        "startChar": 25,
+        "endLine": 4,
+        "endChar": 51
+      },
+      "revId": "70e5e898e7ff70d018629d404adc5b048dab5bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a2ea87e_02b70815",
+        "filename": "microdroid/system/private/microdroid_manager.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-07-20T10:20:48Z",
+      "side": 1,
+      "message": "Nit: there should probably be a macro for this, eventually. Similar to init_daemon_domain, but for VM payloads.\n\nShould there also be a neverallow to make sure microdroid_manager never runs anything in its own domain, similar to http://cs/android/system/sepolicy/public/init.te?l\u003d633 ?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 17
+      },
+      "revId": "70e5e898e7ff70d018629d404adc5b048dab5bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
