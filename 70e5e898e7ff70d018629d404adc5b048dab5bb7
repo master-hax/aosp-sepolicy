@@ -38,6 +38,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "344d826c_12860842",
+        "filename": "apex/com.android.compos-file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-07-20T18:14:03Z",
+      "side": 1,
+      "message": "We also need /bin/authfs, right?  I\u0027d keep it in a separate domain similar to dex2oat, since they both handle untrusted input.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 6
+      },
+      "revId": "70e5e898e7ff70d018629d404adc5b048dab5bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "34a3cd4c_e6be14ed",
         "filename": "apex/com.android.compos-file_contexts",
         "patchSetId": 2
@@ -72,6 +95,30 @@
       "writtenOn": "2021-07-20T10:20:48Z",
       "side": 1,
       "message": "I think all three of these should use the same domain, because sooner or later they will need to be unified into a single service. (Would be interested to hear Victor\u0027s take though.)\n\ncompos_exec, compos?",
+      "range": {
+        "startLine": 4,
+        "startChar": 25,
+        "endLine": 4,
+        "endChar": 51
+      },
+      "revId": "70e5e898e7ff70d018629d404adc5b048dab5bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39b1458d_636bc9a0",
+        "filename": "apex/com.android.compos-file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-07-20T18:14:03Z",
+      "side": 1,
+      "message": "Yes, I also think it\u0027s reasonable to merge into one domain.  For compsvc, it may eventually become a library, but that won\u0027t change what this service/domain is allowed to do.",
+      "parentUuid": "4b0d4372_14f22f80",
       "range": {
         "startLine": 4,
         "startChar": 25,
