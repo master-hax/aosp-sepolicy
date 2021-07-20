@@ -50,6 +50,24 @@
       "message": "What are the exact permissions you need?  It looks like it already has some (e.g., read and execute).",
       "revId": "d6a5fb1c6a82a66559748ab2f1e783fc6f9e5e16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e27f44c_195f1b9a",
+        "filename": "public/shell.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1299283
+      },
+      "writtenOn": "2021-07-20T13:18:18Z",
+      "side": 1,
+      "message": "setattr is needed at the moment for chmod 500, but that can probably be dropped. I added it when I first saw a permissions error.\n\nThe open syscall is what failed initially. Oddly, I was able to create and write to the memfd, but when I call fexecve it looks like libc calls open which is what triggers the SELinux violation.",
+      "parentUuid": "2b673716_511ebd6f",
+      "revId": "d6a5fb1c6a82a66559748ab2f1e783fc6f9e5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
