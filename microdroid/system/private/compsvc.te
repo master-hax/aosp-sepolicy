@@ -1,0 +1,6 @@
+# TODO(b/193504816): move this to compos APEX
+type compsvc, domain, coredomain;
+type compsvc_exec, exec_type, file_type, system_file_type;
+
+domain_auto_trans(compsvc, dex2oat_exec, dex2oat)
+domain_auto_trans(compsvc, compos_key_exec, compos_key)
