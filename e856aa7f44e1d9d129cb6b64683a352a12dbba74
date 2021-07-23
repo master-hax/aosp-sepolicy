@@ -16,6 +16,115 @@
       "message": "This is ready for review.",
       "revId": "e856aa7f44e1d9d129cb6b64683a352a12dbba74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48075e81_ad9cfd6b",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-07-23T09:32:28Z",
+      "side": 1,
+      "message": "Nit: blank line before",
+      "revId": "e856aa7f44e1d9d129cb6b64683a352a12dbba74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edd85d77_535c5d90",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-07-23T09:32:28Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand the first ~.\nI think you want 2 rules here? No extra permissions on the VS vsock, and no permissions at all on any other vsock.",
+      "range": {
+        "startLine": 121,
+        "startChar": 30,
+        "endLine": 121,
+        "endChar": 31
+      },
+      "revId": "e856aa7f44e1d9d129cb6b64683a352a12dbba74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffaf6364_29d8e4ec",
+        "filename": "private/crosvm.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-07-23T09:32:28Z",
+      "side": 1,
+      "message": "If this is only for logging, why do you need read?",
+      "range": {
+        "startLine": 61,
+        "startChar": 52,
+        "endLine": 61,
+        "endChar": 65
+      },
+      "revId": "e856aa7f44e1d9d129cb6b64683a352a12dbba74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92dfdd25_b48a9556",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-07-23T09:32:28Z",
+      "side": 1,
+      "message": "Nit: wrap",
+      "range": {
+        "startLine": 43,
+        "startChar": 94,
+        "endLine": 43,
+        "endChar": 109
+      },
+      "revId": "e856aa7f44e1d9d129cb6b64683a352a12dbba74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "876821ad_14b4aec3",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-07-23T09:32:28Z",
+      "side": 1,
+      "message": "VS doesn\u0027t need to write to appdomain:fifo_file, but crosvm does?",
+      "range": {
+        "startLine": 50,
+        "startChar": 28,
+        "endLine": 50,
+        "endChar": 32
+      },
+      "revId": "e856aa7f44e1d9d129cb6b64683a352a12dbba74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
