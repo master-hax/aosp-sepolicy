@@ -10,6 +10,8 @@ use_keystore(compos)
 
 allow compos self:vsock_socket { create_socket_perms_no_ioctl listen accept };
 
+# Use the vsock which stderr is connected to.
 allow compos microdroid_manager:fd use;
+allow compos microdroid_manager:vsock_socket { read write };
 
 allow compos kmsg_device:chr_file w_file_perms;
