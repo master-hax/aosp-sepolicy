@@ -139,6 +139,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2ac4372_234e30fb",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-07-26T16:13:18Z",
+      "side": 1,
+      "message": "Microdroid sets the payload\u0027s stdout to a vsock which is accessible to whoever started the VM in the host: http://cs/android/packages/modules/Virtualization/microdroid_manager/src/main.rs?l\u003d70\u0026rcl\u003d1445b0d00f716fb2c66ac244103a9689f44dbab3\n\nTBH I\u0027m not sure how useful that is, but it needs these 2 rules. (Hence my ill-fated aosp/1778245.)",
+      "parentUuid": "f016374f_ba7a7384",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 64
+      },
+      "revId": "c4b1f31afcfc4300e3ff1a725d643da09ad07574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba9b81e1_a4732a9f",
