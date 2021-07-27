@@ -130,6 +130,7 @@ system_vendor_config_prop(vendor_security_patch_level_prop)
 system_vendor_config_prop(vendor_socket_hook_prop)
 system_vendor_config_prop(vndk_prop)
 system_vendor_config_prop(virtual_ab_prop)
+system_vendor_config_prop(vendor_omapi_config_prop)
 
 # Properties with no restrictions
 system_public_prop(audio_prop)
@@ -611,6 +612,22 @@ neverallow {
 } {
   graphics_config_prop
 }:property_service set;
+
+neverallow {
+  -init
+  -vendor_init
+} {
+  vendor_omapi_config_prop
+}:property_service set;
+
+neverallow {
+  domain
+  -init
+  -vendor_init
+  -secure_element
+  -shell
+  -dumpstate
+} vendor_omapi_config_prop:file no_rw_file_perms;
 
 neverallow {
   -init
