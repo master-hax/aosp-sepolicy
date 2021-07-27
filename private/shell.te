@@ -109,6 +109,9 @@ allow shell simpleperf_exec:file rx_file_perms;
 # Allow shell to execute profcollectctl without a domain transition.
 allow shell profcollectd_exec:file rx_file_perms;
 
+# Allow shell to read profcollectd data files.
+r_dir_file(shell, profcollectd_data_file)
+
 # Allow shell to call perf_event_open for profiling other shell processes, but
 # not the whole system.
 allow shell self:perf_event { open read write kernel };
