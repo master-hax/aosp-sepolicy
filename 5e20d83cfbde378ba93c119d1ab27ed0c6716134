@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dee7e6e_1a83a1ff",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-07-28T16:17:49Z",
+      "side": 1,
+      "message": "Should there also be a neverallow for ~virtualizationservice:vsock_socket? Otherwise there could still be a rule allowing an app to create its own socket connected to any VM.",
+      "revId": "5e20d83cfbde378ba93c119d1ab27ed0c6716134",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "134145c1_5f5b2c32",
+        "filename": "private/crosvm.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-07-28T16:17:49Z",
+      "side": 1,
+      "message": "Is there any danger in allowing this on prod builds? It seems like it would be useful for development (and running tests) on prod devices still.",
+      "revId": "5e20d83cfbde378ba93c119d1ab27ed0c6716134",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e02aae93_77b43b16",
+        "filename": "private/crosvm.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-07-28T16:17:49Z",
+      "side": 1,
+      "message": "Why is ioctl needed on these files?",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 27
+      },
+      "revId": "5e20d83cfbde378ba93c119d1ab27ed0c6716134",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c8ca8d9_31cc1c84",
+        "filename": "private/crosvm.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-07-28T16:17:49Z",
+      "side": 1,
+      "message": "shell_data_file could also be writable.",
+      "revId": "5e20d83cfbde378ba93c119d1ab27ed0c6716134",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b3a8840_bc8ebacb",
+        "filename": "private/crosvm.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-07-28T16:17:49Z",
+      "side": 1,
+      "message": "Is anything other than write needed?",
+      "range": {
+        "startLine": 61,
+        "startChar": 52,
+        "endLine": 61,
+        "endChar": 64
+      },
+      "revId": "5e20d83cfbde378ba93c119d1ab27ed0c6716134",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e24a06ea_fe007aef",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2021-07-28T16:17:49Z",
+      "side": 1,
+      "message": "Add this to the virtualizationservice_use macro above instead, as it applies to every client.",
+      "revId": "5e20d83cfbde378ba93c119d1ab27ed0c6716134",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
