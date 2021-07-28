@@ -415,6 +415,14 @@ typeattribute $1 binderservicedomain;
 ')
 
 #####################################
+# userpanic_use(domain)
+# Allow domain to use userpanic.
+define(`userpanic_use', `
+# Talk to the userpanic device node
+allow $1 userspace_panic_device:chr_file w_file_perms;
+')
+
+#####################################
 # wakelock_use(domain)
 # Allow domain to manage wake locks
 define(`wakelock_use', `
