@@ -1408,3 +1408,6 @@ neverallowxperm { domain -system_server } binder_device:chr_file ioctl { BINDER_
 # Only system server can write the font files.
 neverallow { domain -init -system_server } font_data_file:file no_w_file_perms;
 neverallow { domain -init -system_server } font_data_file:dir no_w_dir_perms;
+
+# Allow use userpanic to request panic.
+allow system_server userspace_panic_device:chr_file w_file_perms;

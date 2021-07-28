@@ -51,3 +51,6 @@ neverallow { domain userdebug_or_eng(`-crash_dump') } llkd:process ptrace;
 
 # never honor LD_PRELOAD
 neverallow * llkd:process noatsecure;
+
+# Allow use userpanic to request panic.
+allow llkd userspace_panic_device:chr_file w_file_perms;
