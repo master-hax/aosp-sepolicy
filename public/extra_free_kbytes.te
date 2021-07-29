@@ -1,0 +1,7 @@
+# The extra_free_kbytes.sh script run by init.
+
+type extra_free_kbytes, domain;
+type extra_free_kbytes_exec, system_file_type, exec_type, file_type;
+
+allow extra_free_kbytes proc_extra_free_kbytes:file w_file_perms;
+allow extra_free_kbytes proc_watermark_scale_factor:file rw_file_perms;
