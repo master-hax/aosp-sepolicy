@@ -1,0 +1,20 @@
+# TODO(b/193504816): move this to compos APEX
+type compos, domain, coredomain, microdroid_payload;
+type compos_exec, exec_type, file_type, system_file_type;
+
+allow compos self:vsock_socket { create_socket_perms_no_ioctl listen accept };
+
+# Talk to binder services (for keystore)
+binder_use(compos);
+
+# Allow payloads to use keystore
+use_keystore(compos);
+
+# Allow payloads to use and manage their keys
+allow compos vm_payload_key:keystore2_key {
+    delete
+    get_info
+    manage_blob
+    rebind
+    use
+};
