@@ -10,6 +10,7 @@ full_treble_only(`
     # to vendor toolbox except for the allowlisted domains.
     neverallow {
         coredomain
+        -extra_free_kbytes
         -init
         -modprobe
     } vendor_toolbox_exec:file { entrypoint execute execute_no_trans };
