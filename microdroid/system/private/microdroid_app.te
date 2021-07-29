@@ -24,3 +24,7 @@ allow microdroid_app vm_payload_key:keystore2_key {
     use
 };
 
+# Use an adbd socket transferred from it.
+# This is needed when invoking microdroid_launcher directly with adb
+# e.g. "adb shell /system/bin/microdroid_launcher"
+allow microdroid_app adbd:unix_stream_socket { getattr getopt ioctl read write shutdown };
