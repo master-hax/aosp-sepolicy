@@ -436,6 +436,10 @@ allowxperm init loop_device:blk_file ioctl {
   LOOP_GET_STATUS
 };
 
+# Allow init to modify the properties of loop devices.
+allow init sysfs_loop:dir r_dir_perms;
+allow init sysfs_loop:file rw_file_perms;
+
 # Allow init to write to vibrator/trigger
 allow init sysfs_vibrator:file w_file_perms;
 
