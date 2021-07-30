@@ -436,6 +436,11 @@ allowxperm init loop_device:blk_file ioctl {
   LOOP_GET_STATUS
 };
 
+# Allow init to read block device information.
+allow init dev_type:blk_file getattr;
+allow init sysfs_type:file getattr;
+allow init sysfs_type:file read;
+
 # Allow init to write to vibrator/trigger
 allow init sysfs_vibrator:file w_file_perms;
 
@@ -649,8 +654,8 @@ neverallow init servicemanager:service_manager list;
 # Init should not be creating subdirectories in /data/local/tmp
 neverallow init shell_data_file:dir { write add_name remove_name };
 
-# Init should not access sysfs node that are not explicitly labeled.
-neverallow init sysfs:file { open read write };
+# Init should not write into sysfs nodes that are not explicitly labeled.
+neverallow init sysfs:file { write };
 
 # No domain should be allowed to ptrace init.
 neverallow * init:process ptrace;
