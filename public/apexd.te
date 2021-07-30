@@ -9,3 +9,8 @@ neverallow { domain -init -apexd -system_server -update_engine } apex_service:se
 neverallow { domain -init -apexd -system_server -servicemanager -update_engine } apexd:binder call;
 
 neverallow { domain userdebug_or_eng(`-crash_dump') } apexd:process ptrace;
+
+# Allow init to read block device information.
+allow apexd dev_type:blk_file getattr;
+allow apexd sysfs_type:file getattr;
+allow init sysfs_type:file read;
