@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14ff0ceb_d8fead20",
+        "filename": "public/apexd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1347177
+      },
+      "writtenOn": "2021-08-02T02:37:07Z",
+      "side": 1,
+      "message": "Does apexd need to access all device (dev/*) ?",
+      "range": {
+        "startLine": 14,
+        "startChar": 12,
+        "endLine": 14,
+        "endChar": 29
+      },
+      "revId": "c65f572c827e301b71f210b6e1cd0335b5283645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf16d79e_0333b9a6",
+        "filename": "public/apexd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1347177
+      },
+      "writtenOn": "2021-08-02T02:37:07Z",
+      "side": 1,
+      "message": "Does apexd need to access entire sysfs (sys/*) ?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 36
+      },
+      "revId": "c65f572c827e301b71f210b6e1cd0335b5283645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23b57f1c_8beda923",
+        "filename": "public/apexd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1347177
+      },
+      "writtenOn": "2021-08-02T02:37:07Z",
+      "side": 1,
+      "message": "Why does init need read entire sys/* ?\nAnd this line should go to init.te.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 32
+      },
+      "revId": "c65f572c827e301b71f210b6e1cd0335b5283645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c862dd42_6e42d86f",
+        "filename": "public/init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1347177
+      },
+      "writtenOn": "2021-08-02T02:37:07Z",
+      "side": 1,
+      "message": "I don\u0027t think you need to grant such a large area of permission to get to block device. May I see your avc error log?",
+      "range": {
+        "startLine": 442,
+        "startChar": 0,
+        "endLine": 446,
+        "endChar": 32
+      },
+      "revId": "c65f572c827e301b71f210b6e1cd0335b5283645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
