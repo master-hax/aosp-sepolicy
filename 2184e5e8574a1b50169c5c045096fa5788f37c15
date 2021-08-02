@@ -16,6 +16,24 @@
       "message": "Why are these and the other exceptions required?  I don\u0027t think we want to add any new Treble exceptions....",
       "revId": "2184e5e8574a1b50169c5c045096fa5788f37c15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7c7c822_17df17b0",
+        "filename": "private/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2021-08-02T16:47:02Z",
+      "side": 1,
+      "message": "I\u0027m trying to make it possible for init to run the extra_free_kbytes.sh. The changes are the result of running audit2allow and finding the missing pieces.\nIs there a better way to allow init to execute this script?",
+      "parentUuid": "021f88d3_b63f2aef",
+      "revId": "2184e5e8574a1b50169c5c045096fa5788f37c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
