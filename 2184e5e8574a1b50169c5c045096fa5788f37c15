@@ -88,6 +88,24 @@
       "parentUuid": "a19bc8ba_0c836858",
       "revId": "2184e5e8574a1b50169c5c045096fa5788f37c15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9751b52_7a02f461",
+        "filename": "private/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2021-08-02T21:11:02Z",
+      "side": 1,
+      "message": "Ok, I found my issue. When I was missing the rules for toolbox_exec, I was getting these denials:\n\n08-02 20:31:37.224  1987  1987 I auditd  : type\u003d1400 audit(0.0:7): avc: denied { getattr } for comm\u003d\"extra_free_kbyt\" path\u003d\"/system/bin/toybox\" dev\u003d\"dm-6\" ino\u003d516 scontext\u003du:r:extra_free_kbytes:s0 tcontext\u003du:object_r:toolbox_exec:s0 tclass\u003dfile permissive\u003d0\n08-02 20:31:37.224  1987  1987 W extra_free_kbyt: type\u003d1400 audit(0.0:7): avc: denied { getattr } for path\u003d\"/system/bin/toybox\" dev\u003d\"dm-6\" ino\u003d516 scontext\u003du:r:extra_free_kbytes:s0 tcontext\u003du:object_r:toolbox_exec:s0 tclass\u003dfile permissive\u003d0\n08-02 20:31:37.224  1987  1987 I auditd  : type\u003d1400 audit(0.0:8): avc: denied { getattr } for comm\u003d\"extra_free_kbyt\" path\u003d\"/vendor/bin/toybox_vendor\" dev\u003d\"dm-9\" ino\u003d290 scontext\u003du:r:extra_free_kbytes:s0 tcontext\u003du:object_r:vendor_toolbox_exec:s0 tclass\u003dfile permissive\u003d0\n08-02 20:31:37.224  1987  1987 W extra_free_kbyt: type\u003d1400 audit(0.0:8): avc: denied { getattr } for path\u003d\"/vendor/bin/toybox_vendor\" dev\u003d\"dm-9\" ino\u003d290 scontext\u003du:r:extra_free_kbytes:s0 tcontext\u003du:object_r:vendor_toolbox_exec:s0 tclass\u003dfile permissive\u003d0\n\nSo, audit2allow told me to add both:\n\nallow extra_free_kbytes toolbox_exec:file rx_file_perms;\nallow extra_free_kbytes vendor_toolbox_exec:file { getattr execute };\n\nwhich I did. However adding only this line:\n\nallow extra_free_kbytes toolbox_exec:file rx_file_perms;\n\nis enough to avoid any denials.\n\nI updated the patch to have only the necessary rule.",
+      "parentUuid": "e178c744_a9949d96",
+      "revId": "2184e5e8574a1b50169c5c045096fa5788f37c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
