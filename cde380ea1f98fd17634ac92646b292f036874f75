@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "40553efc_9c68bf3b",
+        "filename": "public/extra_free_kbytes.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2021-08-02T22:30:37Z",
+      "side": 1,
+      "message": "08-02 22:17:12.736  2478  2478 I auditd  : type\u003d1400 audit(0.0:7): avc: denied { map } for comm\u003d\"extra_free_kbyt\" path\u003d\"/system/bin/sh\" dev\u003d\"dm-6\" ino\u003d463 scontext\u003du:r:extra_free_kbytes:s0 tcontext\u003du:object_r:shell_exec:s0 tclass\u003dfile permissive\u003d0\n08-02 22:17:12.736  2478  2478 W extra_free_kbyt: type\u003d1400 audit(0.0:7): avc: denied { map } for path\u003d\"/system/bin/sh\" dev\u003d\"dm-6\" ino\u003d463 scontext\u003du:r:extra_free_kbytes:s0 tcontext\u003du:object_r:shell_exec:s0 tclass\u003dfile permissive\u003d0",
+      "parentUuid": "976c4ed1_f23d9fc4",
+      "range": {
+        "startLine": 6,
+        "startChar": 24,
+        "endLine": 6,
+        "endChar": 39
+      },
+      "revId": "cde380ea1f98fd17634ac92646b292f036874f75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fbb7c827_d970709e",
         "filename": "public/extra_free_kbytes.te",
         "patchSetId": 8
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-02T21:17:09Z",
       "side": 1,
       "message": "What files is this trying to access?  Can you paste the denial?",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 40
+      },
+      "revId": "cde380ea1f98fd17634ac92646b292f036874f75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8859fece_a83b5db9",
+        "filename": "public/extra_free_kbytes.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2021-08-02T22:30:37Z",
+      "side": 1,
+      "message": "08-02 22:30:59.296  1979  1979 I auditd  : type\u003d1400 audit(0.0:7): avc: denied { execute_no_trans } for comm\u003d\"extra_free_kbyt\" path\u003d\"/system/bin/awk\" dev\u003d\"dm-6\" ino\u003d160 scontext\u003du:r:extra_free_kbytes:s0 tcontext\u003du:object_r:system_file:s0 tclass\u003dfile permissive\u003d0\n08-02 22:30:59.296  1979  1979 W extra_free_kbyt: type\u003d1400 audit(0.0:7): avc: denied { execute_no_trans } for path\u003d\"/system/bin/awk\" dev\u003d\"dm-6\" ino\u003d160 scontext\u003du:r:extra_free_kbytes:s0 tcontext\u003du:object_r:system_file:s0 tclass\u003dfile permissive\u003d0\n\nLooks like the usage of awk from the script requires this one.",
+      "parentUuid": "fbb7c827_d970709e",
       "range": {
         "startLine": 7,
         "startChar": 24,
