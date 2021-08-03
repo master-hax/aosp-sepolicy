@@ -22,6 +22,30 @@
       },
       "revId": "ce3a6a301a7fe423f5fa041b1681524f5eae53aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5b58454_c4a88947",
+        "filename": "private/snapuserd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1724998
+      },
+      "writtenOn": "2021-08-03T07:56:23Z",
+      "side": 1,
+      "message": "We are walking the /sys/block directory to find dm-X partition. The next patch has this code:\n\nhttps://android-review.googlesource.com/c/platform/system/core/+/1774746/7/fs_mgr/libdm/dm.cpp#665\n\nwhich essentially uses \"scandir\" call. Now, the sepolicy here translates to:\n\nsysfs (dir (ioctl read getattr lock open watch watch_reads search)))\n\n\nI don\u0027t know what all permissions are required when \"scandir\" API is invoked. Although it sounds like \"read\", the underlying system call my end up needing other permissions as well. \n\nAdditionally, just to give a little background here:\n\nWe already have a binary \"update_verifier\" which has a similar sepolicy:\n\nhttps://source.corp.google.com/android/system/sepolicy/public/update_verifier.te;l\u003d13\n\n\"snapuserd\" which is this binary is doing exactly similar code flow of reading the /sys/block similar to what \"update_verifier\" is doing. In fact, as a follow up patch, we will have the same code for both the binaries.\n\nSince \"update_verifier\" already had the sepolicy settings, I followed up the with same permissions. Let me know if this still needs to be fine tuned ?",
+      "parentUuid": "d3dc204d_43927da2",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 15,
+        "endChar": 37
+      },
+      "revId": "ce3a6a301a7fe423f5fa041b1681524f5eae53aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
