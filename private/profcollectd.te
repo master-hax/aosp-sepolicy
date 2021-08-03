@@ -5,6 +5,8 @@ type profcollectd_exec, system_file_type, exec_type, file_type;
 userdebug_or_eng(`
   init_daemon_domain(profcollectd)
 
+  allow profcollectd self:global_capability_class_set { dac_override dac_read_search };
+
   # profcollectd opens a file for writing in /data/misc/profcollectd.
   allow profcollectd profcollectd_data_file:file create_file_perms;
   allow profcollectd profcollectd_data_file:dir create_dir_perms;
