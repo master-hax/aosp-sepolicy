@@ -70,6 +70,30 @@
       },
       "revId": "ce3a6a301a7fe423f5fa041b1681524f5eae53aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "583cdeb7_f97842ce",
+        "filename": "private/snapuserd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1724998
+      },
+      "writtenOn": "2021-08-03T16:50:49Z",
+      "side": 1,
+      "message": "How do we filter the specific permissions from the above set ? I see r_dir_perms is defined in platform/sepolicy/public/global_macros\n\ndefine(`r_dir_perms\u0027, `{ open getattr read search ioctl lock watch watch_reads }\u0027)\n\nCould you point me to an example which filters these permissions ?",
+      "parentUuid": "42af6ce4_2079e139",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 15,
+        "endChar": 37
+      },
+      "revId": "ce3a6a301a7fe423f5fa041b1681524f5eae53aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
