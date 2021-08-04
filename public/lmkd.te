@@ -65,6 +65,8 @@ allow lmkd lmkd_socket:sock_file write;
 # Allow lmkd to write to statsd.
 unix_socket_send(lmkd, statsdw, statsd)
 
+get_prop(lmkd, device_config_lmkd_native_prop)
+
 ### neverallow rules
 
 # never honor LD_PRELOAD
