@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "456c6350_699f3ab3",
+        "filename": "microdroid/system/private/authfs.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-08-04T23:14:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acbeb2cb_d7ec7abb",
+      "range": {
+        "startLine": 7,
+        "startChar": 62,
+        "endLine": 7,
+        "endChar": 80
+      },
+      "revId": "af6322026e57c474eb2a6d8de8368f07d2c57eae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffa3a225_0d62387e",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-04T23:04:31Z",
       "side": 1,
       "message": "create_dir_perms should contain this.",
+      "range": {
+        "startLine": 19,
+        "startChar": 61,
+        "endLine": 19,
+        "endChar": 73
+      },
+      "revId": "af6322026e57c474eb2a6d8de8368f07d2c57eae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "987fae0f_a90f3de3",
+        "filename": "microdroid/system/private/authfs_service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-08-04T23:14:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffa3a225_0d62387e",
       "range": {
         "startLine": 19,
         "startChar": 61,
@@ -107,6 +155,30 @@
       "side": 1,
       "message": "Unfortunately, no, I don\u0027t know.  I agree that it sounds like open shouldn\u0027t require read/write and that getattr might make more sense as I think open does check if it has the specified permission.  Do you know what the open mode/flags are, and can you test changing them to see what happens here?",
       "parentUuid": "359eb538_8d365b5d",
+      "range": {
+        "startLine": 23,
+        "startChar": 48,
+        "endLine": 23,
+        "endChar": 63
+      },
+      "revId": "af6322026e57c474eb2a6d8de8368f07d2c57eae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f27087d7_4a7ea30f",
+        "filename": "microdroid/system/private/authfs_service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-08-04T23:14:56Z",
+      "side": 1,
+      "message": "Yes.  I wrote a test program to explicit only open.  The strace is like\n\n 160  openat(AT_FDCWD, \"/data/misc/authfs/1/5\", O_RDONLY|O_CLOEXEC) \u003d 5\n (plus the rest in the following comment)",
+      "parentUuid": "07696704_759cd6ae",
       "range": {
         "startLine": 23,
         "startChar": 48,
