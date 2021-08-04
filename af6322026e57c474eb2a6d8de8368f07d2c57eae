@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "359eb538_8d365b5d",
+        "filename": "microdroid/system/private/authfs_service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-08-04T22:54:03Z",
+      "side": 1,
+      "message": "Joel, do you know if open(2) also requires read/write (depending on the open mode)?  This service should only open and pass the FD to the client.\n\nOr could it be getattr the read/write check?",
+      "range": {
+        "startLine": 23,
+        "startChar": 48,
+        "endLine": 23,
+        "endChar": 63
+      },
+      "revId": "af6322026e57c474eb2a6d8de8368f07d2c57eae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a35cf015_5b66d828",
+        "filename": "microdroid/system/private/authfs_service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-08-04T22:54:03Z",
+      "side": 1,
+      "message": "+Steven to confirm the theory.  If it\u0027s correct, I\u0027ll file a bug to avoid the ashmem access.\n\nThe service should not require getattr.  This getattr here seems to be happened internally during ParcelableFileDesciptor serialization.  Here is a snippet of strace during PFD serialization:\n\n  160   fcntl(5, F_DUPFD_CLOEXEC, 0)      \u003d 6\n  160   getuid()                          \u003d 0\n  160   writev(4, [{iov_base\u003d\"\\0\\240\\0 \\22\\va\\2542\\2208\", iov_len\u003d11}, {iov_base\u003d\"\\6\", iov_len\u003d1}, {iov_base\u003d\"ashmem\\0\", iov_len\u003d7}, {iov_base\u003d\"memfd: ro.vndk.version not defin\"..., iov_len\u003d77}], 4) \u003d 96\n  160   fstat(6, {st_mode\u003dS_IFREG|0400, st_size\u003d307760, ...}) \u003d 0\n  160   close(5 \u003cunfinished ...\u003e\n\nIt seems to try to estimate size for ashmem. Which shouldn\u0027t be necessary for RPC.\n\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/native/libs/binder/Parcel.cpp;l\u003d122?q\u003dframeworks%2Fnative%2Flibs%2Fbinder%2FParcel.cpp",
+      "range": {
+        "startLine": 23,
+        "startChar": 40,
+        "endLine": 23,
+        "endChar": 47
+      },
+      "revId": "af6322026e57c474eb2a6d8de8368f07d2c57eae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
