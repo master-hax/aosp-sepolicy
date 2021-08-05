@@ -16,6 +16,52 @@
       "message": "LGTM modulo the question for Steven.",
       "revId": "a6d764f72fd5269bf09423cb5f2e37157c131487",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bff8d935_85f18031",
+        "filename": "microdroid/system/private/authfs.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-08-05T18:15:39Z",
+      "side": 1,
+      "message": "We will follow-up and disallow this, right? And let it get the socket from virtualization service manager (exact name ???)?\n\nI know in the meeting, someone mentioned that we would have an exception here, but we didn\u0027t have time to go into detail, and I think we essentially should not.\n\nIf someone breaks into authfs, they must not have permissions to create a vsock to talk to one of the protected VMs (we should have the extra layer here).\n\nCan you file an issue to follow this up if it\u0027s not possible now?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 60
+      },
+      "revId": "a6d764f72fd5269bf09423cb5f2e37157c131487",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0796974_3c8081a0",
+        "filename": "microdroid/system/private/property_contexts",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-08-05T18:15:39Z",
+      "side": 1,
+      "message": "nit: I wonder why we do not have:\n\n    ro.boottime. u:object_r:boottime_prop:s0 exact int\n\nSeems like a lot to have a whole series of these here. Idk if other sepolicy people know, but could this be cleaned up? (maybe file bug?)",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 75
+      },
+      "revId": "a6d764f72fd5269bf09423cb5f2e37157c131487",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
