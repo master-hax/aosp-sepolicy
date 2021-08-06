@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c044f245_0625dfab",
+        "filename": "private/statsd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1286922
+      },
+      "writtenOn": "2021-08-06T01:03:06Z",
+      "side": 1,
+      "message": "For my understanding, how are you planning on implementing the parcelfiledescriptor stuff? StatsManager creates it, passes it through to StatsManagerService and then to Statsd? So the fd that statsd gets is owned by the app?\n\nIs it possible to create a separate fd thats owned by system server in StatsManagerService? Would that solve the selinux concerns? Or no, because line 20 above specifies read only?",
+      "revId": "b40a17476f678bd9dbbe326aeaffe5d95885de57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
