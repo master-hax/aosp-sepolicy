@@ -24,3 +24,5 @@ allow microdroid_app vm_payload_key:keystore2_key {
     use
 };
 
+# Microdroid manager connects vsock_socket to the host and app's output is redirected to it.
+allow microdroid_app microdroid_manager:vsock_socket getattr;
