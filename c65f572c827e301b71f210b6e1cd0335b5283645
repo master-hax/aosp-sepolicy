@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c056eb8_90b63246",
+        "filename": "public/apexd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2021-08-07T00:05:55Z",
+      "side": 1,
+      "message": "This patch has been modified such that apexd is only granted access to block devices.",
+      "parentUuid": "14ff0ceb_d8fead20",
+      "range": {
+        "startLine": 14,
+        "startChar": 12,
+        "endLine": 14,
+        "endChar": 29
+      },
+      "revId": "c65f572c827e301b71f210b6e1cd0335b5283645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf16d79e_0333b9a6",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-02T02:37:07Z",
       "side": 1,
       "message": "Does apexd need to access entire sysfs (sys/*) ?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 36
+      },
+      "revId": "c65f572c827e301b71f210b6e1cd0335b5283645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71804da9_270a2a46",
+        "filename": "public/apexd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2021-08-07T00:05:55Z",
+      "side": 1,
+      "message": "This patch has been modified such that apexd is only granted access to /sys/block in addition to the sysfs attributes it already has access to.",
+      "parentUuid": "bf16d79e_0333b9a6",
       "range": {
         "startLine": 15,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "500dc9f4_6dc4c862",
+        "filename": "public/apexd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2021-08-07T00:05:55Z",
+      "side": 1,
+      "message": "This patch has been modified such that apexd is only granted access to /sys/block in addition to the sysfs attributes it already has access to.",
+      "parentUuid": "23b57f1c_8beda923",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 32
+      },
+      "revId": "c65f572c827e301b71f210b6e1cd0335b5283645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c862dd42_6e42d86f",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-08-02T02:37:07Z",
       "side": 1,
       "message": "I don\u0027t think you need to grant such a large area of permission to get to block device. May I see your avc error log?",
+      "range": {
+        "startLine": 442,
+        "startChar": 0,
+        "endLine": 446,
+        "endChar": 32
+      },
+      "revId": "c65f572c827e301b71f210b6e1cd0335b5283645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3949c87_f95a8566",
+        "filename": "public/init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2021-08-07T00:05:55Z",
+      "side": 1,
+      "message": "This patch has been reworked. Please take another look.",
+      "parentUuid": "c862dd42_6e42d86f",
       "range": {
         "startLine": 442,
         "startChar": 0,
