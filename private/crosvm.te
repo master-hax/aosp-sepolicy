@@ -61,3 +61,6 @@ allow crosvm appdomain:fifo_file { read write };
 # The console log can also be written to /data/local/tmp. This is not safe as the log then can be
 # visible to the processes which don't own the VM. Therefore, this is a debugging only feature.
 userdebug_or_eng(`allow crosvm shell_data_file:file w_file_perms;')
+
+# Don't allow crosvm to have access to ordinary vendor files that are not for VMs.
+neverallow crosvm { vendor_file_type -vendor_vm_file -vendor_vm_data_file }:file *;
