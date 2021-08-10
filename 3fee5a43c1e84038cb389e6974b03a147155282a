@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "867ebb4a_4d0e06a6",
+        "filename": "private/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-08-10T00:18:21Z",
+      "side": 1,
+      "message": "Like other cases in this exception list, crosvm doesn\u0027t actually depend on the vendor-specific disk images; It treats them as pure binary blobs. It just have to read the files in case when the owner of the VM configures it with vendor-specific disk images. Therefore this is not a Treble violation.",
+      "parentUuid": "1e971199_cc6f7c29",
+      "revId": "3fee5a43c1e84038cb389e6974b03a147155282a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ebc2732_cfddfa6f",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-08-09T14:18:18Z",
       "side": 1,
       "message": "Just to be sure, the plan is to define these types in core policy but only label things with them in device-specific policy?",
+      "revId": "3fee5a43c1e84038cb389e6974b03a147155282a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1eb382b9_7c5ee0d4",
+        "filename": "public/file.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-08-10T00:18:21Z",
+      "side": 1,
+      "message": "Correct. The labeling will be vendor-specific.\n\nFYI. I didn\u0027t use attribute for this because otherwise vendors would be able to annotate random vendor files (e.g. shared libs in vendor partition) with the attribute. If a file is labeled as vendor_vm_file (or vendor_vm_data-file), it can\u0027t be used for other purposes.",
+      "parentUuid": "7ebc2732_cfddfa6f",
       "revId": "3fee5a43c1e84038cb389e6974b03a147155282a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
