@@ -22,6 +22,30 @@
       },
       "revId": "a0cceb7c827fa205099a1da8fae78dd90c0b4755",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "791b3b80_179d37ce",
+        "filename": "microdroid/system/private/dex2oat.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-08-11T17:44:43Z",
+      "side": 1,
+      "message": "The compiler will fail to read the input / write the output.\n\n[   17.047093][  T172] type\u003d1400 audit(1628702854.868:3): avc: denied { read } for comm\u003d\"dex2oat64\" path\u003d\"/data/misc/authfs/1/3\" dev\u003d\"fuse\" ino\u003d3 scontext\u003du:r:dex2oat:s0 tcontext\u003du:object_r:authfs_fuse:s0 tclass\u003dfile permissive\u003d1\n[   17.063150][  T172] type\u003d1400 audit(1628702854.868:4): avc: denied { write } for comm\u003d\"dex2oat64\" path\u003d\"/data/misc/authfs/1/24\" dev\u003d\"fuse\" ino\u003d24 scontext\u003du:r:dex2oat:s0 tcontext\u003du:object_r:authfs_fuse:s0 tclass\u003dfile permissive\u003d1\n[   17.219774][  T172] type\u003d1400 audit(1628702855.044:5): avc: denied { getattr } for comm\u003d\"dex2oat64\" path\u003d\"/data/misc/authfs/1/3\" dev\u003d\"fuse\" ino\u003d3 scontext\u003du:r:dex2oat:s0 tcontext\u003du:object_r:authfs_fuse:s0 tclass\u003dfile permissive\u003d1\n[   17.289341][  T172] type\u003d1400 audit(1628702855.112:6): avc: denied { open } for comm\u003d\"dex2oat64\" path\u003d\"/data/misc/authfs/1/4\" dev\u003d\"fuse\" ino\u003d4 scontext\u003du:r:dex2oat:s0 tcontext\u003du:object_r:authfs_fuse:s0 tclass\u003dfile permissive\u003d1\n[   17.323179][  T172] type\u003d1400 audit(1628702855.148:7): avc: denied { map } for comm\u003d\"dex2oat64\" path\u003d\"/data/misc/authfs/1/5\" dev\u003d\"fuse\" ino\u003d5 scontext\u003du:r:dex2oat:s0 tcontext\u003du:object_r:authfs_fuse:s0 tclass\u003dfile permissive\u003d1",
+      "parentUuid": "e9149735_77bc055b",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 45
+      },
+      "revId": "a0cceb7c827fa205099a1da8fae78dd90c0b4755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
