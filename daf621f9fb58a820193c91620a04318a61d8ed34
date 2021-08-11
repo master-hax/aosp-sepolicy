@@ -143,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c10a359_81d8d349",
+        "filename": "prebuilts/api/31.0/private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-08-11T06:49:46Z",
+      "side": 1,
+      "message": "Ok. It\u0027s unfortunate that you don\u0027t use `SystemProperties.getBoolean` which converts values \u0027n\u0027, \u0027no\u0027, \u00270\u0027, \u0027false\u0027, \u0027y\u0027, \u0027yes\u0027, \u00271\u0027, \u0027true\u0027, \u0027on\u0027, \u0027off\u0027 into either true or false.\n\nWhen the type of a property is set to `bool`, it is guaranteed that the property has only one of the values. (e.g. \u00273\u0027 or \u0027foo\u0027 isn\u0027t allowed by the system, and you don\u0027t need to care about such invalid values)\n\nAnyway, that\u0027s out of scope of this CL. So, LGTM.",
+      "parentUuid": "b911bb78_a23450e9",
+      "range": {
+        "startLine": 1118,
+        "startChar": 77,
+        "endLine": 1118,
+        "endChar": 80
+      },
+      "revId": "daf621f9fb58a820193c91620a04318a61d8ed34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a547590d_adbda5aa",
