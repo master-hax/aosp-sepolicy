@@ -94,6 +94,30 @@
       },
       "revId": "a0cceb7c827fa205099a1da8fae78dd90c0b4755",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc69ba61_5c7cb04b",
+        "filename": "microdroid/system/private/dex2oat.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-08-12T14:08:55Z",
+      "side": 1,
+      "message": "Ah, I didn\u0027t notice the denial of open.  I\u0027ve seen dex2oat trying to resolve a path (possibly a symlink) with realpath. bionic\u0027s realpath implementation opens from /proc/self/fd/$FD, and in this case, it\u0027s open the symlink to authfs... But I\u0027ll need to dig deeper to be sure.\n\nhttps://source.corp.google.com/android/bionic/libc/bionic/realpath.cpp;l\u003d64;bpv\u003d0;bpt\u003d1",
+      "parentUuid": "5a4047f8_6ec1a19d",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 45
+      },
+      "revId": "a0cceb7c827fa205099a1da8fae78dd90c0b4755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
