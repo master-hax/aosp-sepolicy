@@ -46,6 +46,30 @@
       },
       "revId": "a0cceb7c827fa205099a1da8fae78dd90c0b4755",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3d9cc12_51e86e56",
+        "filename": "microdroid/system/private/dex2oat.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-08-12T08:41:41Z",
+      "side": 1,
+      "message": "Ok, but why is \u0027open\u0027 needed? From the slide you shared, dex2oat seems to use FDs as inputs/outputs, not the paths under /data/misc/authfs.\n\nIs this something you will eventually fix?",
+      "parentUuid": "791b3b80_179d37ce",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 45
+      },
+      "revId": "a0cceb7c827fa205099a1da8fae78dd90c0b4755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
