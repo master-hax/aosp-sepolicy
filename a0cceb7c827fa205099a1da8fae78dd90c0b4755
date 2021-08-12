@@ -166,6 +166,30 @@
       },
       "revId": "a0cceb7c827fa205099a1da8fae78dd90c0b4755",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06884cee_92749e79",
+        "filename": "microdroid/system/private/dex2oat.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-08-12T15:58:47Z",
+      "side": 1,
+      "message": "OK, it\u0027s this code I wrote...\n\nhttps://cs.android.com/android/platform/superproject/+/master:art/dex2oat/dex2oat.cc;l\u003d2833;drc\u003d9e050ab1a061d9660eb0c1daa01a823ad75b0f05\n\nWe couldn\u0027t figure out a way to tell C++ to initiate an input stream from FD, so without rewriting the (simple) parser, we just open from /proc/self/fd/4 😞\n\nI\u0027ll file a bug to track and see people\u0027s appetite.",
+      "parentUuid": "6bb1f3ea_5d1a764e",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 45
+      },
+      "revId": "a0cceb7c827fa205099a1da8fae78dd90c0b4755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
