@@ -118,6 +118,30 @@
       },
       "revId": "a0cceb7c827fa205099a1da8fae78dd90c0b4755",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5e72ded_92daaa45",
+        "filename": "microdroid/system/private/dex2oat.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-08-12T14:14:58Z",
+      "side": 1,
+      "message": "Hmm, that\u0027s odd. Why does dex2oat calls realpath on a FD? Anyway, if that\u0027s the only reason \u0027open\u0027 is needed, we could silence it using dontaudit instead of granting the permission.\n\nAs I said, I don\u0027t want to block you on this. So +2. It\u0027s up to you to fix this in this CL or in a follow-up CL.",
+      "parentUuid": "bc69ba61_5c7cb04b",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 45
+      },
+      "revId": "a0cceb7c827fa205099a1da8fae78dd90c0b4755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
