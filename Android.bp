@@ -1003,3 +1003,14 @@ se_policy_conf {
     cts: true,
     exclude_build_test: true,
 }
+
+genrule {
+    name: "plat_seapp_neverallows",
+    srcs: [
+        "private/seapp_contexts",
+    ],
+    out: [
+        "plat_seapp_neverallows",
+    ],
+    cmd: "grep -ihe '^neverallow' $(in) > $(out)",
+}

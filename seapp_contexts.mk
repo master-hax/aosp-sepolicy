@@ -123,20 +123,3 @@ $(LOCAL_BUILT_MODULE): $(built_sepolicy) $(odm_sc_files) $(HOST_OUT_EXECUTABLES)
 
 built_odm_sc := $(LOCAL_BUILT_MODULE)
 odm_sc_files :=
-
-##################################
-include $(CLEAR_VARS)
-LOCAL_MODULE := plat_seapp_neverallows
-LOCAL_LICENSE_KINDS := SPDX-license-identifier-Apache-2.0 legacy_unencumbered
-LOCAL_LICENSE_CONDITIONS := notice unencumbered
-LOCAL_NOTICE_FILE := $(LOCAL_PATH)/NOTICE
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_TAGS := tests
-
-include $(BUILD_SYSTEM)/base_rules.mk
-
-$(LOCAL_BUILT_MODULE): $(plat_sc_neverallow_files)
-	@mkdir -p $(dir $@)
-	- $(hide) grep -ihe '^neverallow' $< > $@
-
-plat_sc_neverallow_files :=
