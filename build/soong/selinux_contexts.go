@@ -193,7 +193,7 @@ func newModule() *selinuxContextsModule {
 	m.AddProperties(
 		&m.properties,
 	)
-	android.InitAndroidArchModule(m, android.DeviceSupported, android.MultilibCommon)
+	android.InitAndroidArchModule(m, android.HostAndDeviceDefault, android.MultilibCommon)
 	android.AddLoadHook(m, func(ctx android.LoadHookContext) {
 		m.selinuxContextsHook(ctx)
 	})
@@ -232,6 +232,9 @@ func (m *selinuxContextsModule) AndroidMk() android.AndroidMkData {
 			fmt.Fprintln(w, "LOCAL_MODULE_CLASS := ETC")
 			if m.Owner() != "" {
 				fmt.Fprintln(w, "LOCAL_MODULE_OWNER :=", m.Owner())
+			}
+			if m.Host() {
+				fmt.Fprintln(w, "LOCAL_IS_HOST_MODULE := true")
 			}
 			fmt.Fprintln(w, "LOCAL_MODULE_TAGS := optional")
 			fmt.Fprintln(w, "LOCAL_PREBUILT_MODULE_FILE :=", m.outputPath.String())
@@ -314,6 +317,17 @@ func (m *selinuxContextsModule) buildGeneralContexts(ctx android.ModuleContext, 
 			FlagWithOutput("-o ", sorted_output)
 
 		ret = sorted_output
+	}
+
+	// for host modules, no suffix is needed
+	if m.Host() {
+		rule.Temporary(ret)
+		no_suffix_output := android.PathForModuleGen(ctx, ctx.ModuleName())
+		rule.Command().
+			Text("echo ").
+			Input(ret).
+			FlagWithOutput("> ", no_suffix_output)
+		ret = no_suffix_output
 	}
 
 	rule.Build("selinux_contexts", "building contexts: "+m.Name())
@@ -505,4 +519,14 @@ func keystoreKeyFactory() android.Module {
 	m := newModule()
 	m.build = m.buildGeneralContexts
 	return m
+}
+
+var _ android.OutputFileProducer = (*selinuxContextsModule)(nil)
+
+// Implements android.OutputFileProducer
+func (m *selinuxContextsModule) OutputFiles(tag string) (android.Paths, error) {
+	if tag == "" {
+		return []android.Path{m.outputPath}, nil
+	}
+	return nil, fmt.Errorf("unsupported module reference tag %q", tag)
 }
