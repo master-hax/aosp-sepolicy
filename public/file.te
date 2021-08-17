@@ -78,6 +78,7 @@ type proc_version, fs_type, proc_type;
 type proc_vmallocinfo, fs_type, proc_type;
 type proc_vmstat, fs_type, proc_type;
 type proc_zoneinfo, fs_type, proc_type;
+type proc_vendor_sched, proc_type, fs_type;
 type selinuxfs, fs_type, mlstrustedobject;
 type fusectlfs, fs_type;
 type cgroup, fs_type, mlstrustedobject;
@@ -86,6 +87,7 @@ type sysfs, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_android_usb, fs_type, sysfs_type;
 type sysfs_uio, sysfs_type, fs_type;
 type sysfs_batteryinfo, fs_type, sysfs_type;
+type sysfs_block, fs_type, sysfs_type, sysfs_block_type;
 type sysfs_bluetooth_writable, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_devfreq_cur, fs_type, sysfs_type;
 type sysfs_devfreq_dir, fs_type, sysfs_type;
@@ -117,6 +119,10 @@ type sysfs_fs_ext4_features, sysfs_type, fs_type;
 type sysfs_fs_f2fs, sysfs_type, fs_type;
 type sysfs_fs_incfs_features, sysfs_type, fs_type;
 type sysfs_fs_incfs_metrics, sysfs_type, fs_type;
+type sysfs_vendor_sched, sysfs_type, fs_type;
+userdebug_or_eng(`
+    typeattribute sysfs_vendor_sched mlstrustedobject;
+')
 type fs_bpf, fs_type;
 type fs_bpf_tethering, fs_type;
 type configfs, fs_type;
@@ -240,6 +246,11 @@ type vendor_public_framework_file, vendor_file_type, file_type;
 type vendor_keylayout_file, vendor_file_type, file_type;
 type vendor_keychars_file, vendor_file_type, file_type;
 type vendor_idc_file, vendor_file_type, file_type;
+
+# SoC-specific virtual machine disk files
+type vendor_vm_file, vendor_file_type, file_type;
+# SoC-specific virtual machine disk files that are mutable
+type vendor_vm_data_file, vendor_file_type, file_type;
 
 # /metadata partition itself
 type metadata_file, file_type;
@@ -499,6 +510,7 @@ type recovery_socket, file_type, coredomain_socket;
 type rild_socket, file_type;
 type rild_debug_socket, file_type;
 type snapuserd_socket, file_type, coredomain_socket;
+type snapuserd_proxy_socket, file_type, coredomain_socket;
 type statsdw_socket, file_type, coredomain_socket, mlstrustedobject;
 type system_wpa_socket, file_type, data_file_type, core_data_file_type, coredomain_socket;
 type system_ndebug_socket, file_type, data_file_type, core_data_file_type, coredomain_socket, mlstrustedobject;

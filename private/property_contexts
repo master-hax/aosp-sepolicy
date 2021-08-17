@@ -169,6 +169,9 @@ ctl.restart$gsid        u:object_r:ctl_gsid_prop:s0
 # Restrict access to stopping apexd.
 ctl.stop$apexd          u:object_r:ctl_apexd_prop:s0
 
+# Restrict access to stopping odsign
+ctl.stop$odsign         u:object_r:ctl_odsign_prop:s0
+
 # Restrict access to starting media.transcoding.
 ctl.start$media.transcoding  u:object_r:ctl_mediatranscoding_prop:s0
 
@@ -234,6 +237,7 @@ persist.device_config.attempted_boot_count          u:object_r:device_config_boo
 persist.device_config.configuration.                u:object_r:device_config_configuration_prop:s0
 persist.device_config.connectivity.                 u:object_r:device_config_connectivity_prop:s0
 persist.device_config.input_native_boot.            u:object_r:device_config_input_native_boot_prop:s0
+persist.device_config.lmkd_native.                  u:object_r:device_config_lmkd_native_prop:s0
 persist.device_config.media_native.                 u:object_r:device_config_media_native_prop:s0
 persist.device_config.netd_native.                  u:object_r:device_config_netd_native_prop:s0
 persist.device_config.profcollect_native_boot.      u:object_r:device_config_profcollect_native_boot_prop:s0
@@ -278,10 +282,13 @@ ro.charger.                 u:object_r:charger_prop:s0
 sys.boot_from_charger_mode  u:object_r:charger_status_prop:s0 exact int
 ro.enable_boot_charger_mode u:object_r:charger_config_prop:s0 exact bool
 
-# Virtual A/B properties
+# Virtual A/B and snapuserd properties
 ro.virtual_ab.enabled   u:object_r:virtual_ab_prop:s0 exact bool
 ro.virtual_ab.retrofit  u:object_r:virtual_ab_prop:s0 exact bool
 ro.virtual_ab.compression.enabled  u:object_r:virtual_ab_prop:s0 exact bool
+ro.virtual_ab.compression.xor.enabled   u:object_r:virtual_ab_prop:s0 exact bool
+snapuserd.ready         u:object_r:snapuserd_prop:s0 exact bool
+snapuserd.proxy_ready   u:object_r:snapuserd_prop:s0 exact bool
 
 ro.product.ab_ota_partitions u:object_r:ota_prop:s0 exact string
 # Property to set/clear the warm reset flag after an OTA update.
@@ -498,6 +505,7 @@ ro.crypto.allow_encrypt_override                u:object_r:vold_config_prop:s0 e
 ro.crypto.dm_default_key.options_format.version u:object_r:vold_config_prop:s0 exact int
 ro.crypto.fde_algorithm                         u:object_r:vold_config_prop:s0 exact string
 ro.crypto.fde_sector_size                       u:object_r:vold_config_prop:s0 exact int
+ro.crypto.metadata_init_delete_all_keys.enabled u:object_r:vold_config_prop:s0 exact bool
 ro.crypto.scrypt_params                         u:object_r:vold_config_prop:s0 exact string
 ro.crypto.set_dun                               u:object_r:vold_config_prop:s0 exact bool
 ro.crypto.volume.contents_mode                  u:object_r:vold_config_prop:s0 exact string
@@ -516,6 +524,7 @@ ro.lmk.critical                 u:object_r:lmkd_config_prop:s0 exact int
 ro.lmk.critical_upgrade         u:object_r:lmkd_config_prop:s0 exact bool
 ro.lmk.debug                    u:object_r:lmkd_config_prop:s0 exact bool
 ro.lmk.downgrade_pressure       u:object_r:lmkd_config_prop:s0 exact int
+ro.lmk.filecache_min_kb         u:object_r:lmkd_config_prop:s0 exact int
 ro.lmk.kill_heaviest_task       u:object_r:lmkd_config_prop:s0 exact bool
 ro.lmk.kill_timeout_ms          u:object_r:lmkd_config_prop:s0 exact int
 ro.lmk.log_stats                u:object_r:lmkd_config_prop:s0 exact bool
@@ -1120,8 +1129,17 @@ ro.telephony.iwlan_operation_mode u:object_r:telephony_config_prop:s0 exact enum
 telephony.active_modems.max_count u:object_r:telephony_config_prop:s0 exact int
 telephony.lteOnCdmaDevice         u:object_r:telephony_config_prop:s0 exact int
 persist.dbg.volte_avail_ovr       u:object_r:telephony_config_prop:s0 exact int
+persist.dbg.volte_avail_ovr0      u:object_r:telephony_config_prop:s0 exact int
+persist.dbg.volte_avail_ovr1      u:object_r:telephony_config_prop:s0 exact int
+persist.dbg.volte_avail_ovr2      u:object_r:telephony_config_prop:s0 exact int
 persist.dbg.vt_avail_ovr          u:object_r:telephony_config_prop:s0 exact int
+persist.dbg.vt_avail_ovr0         u:object_r:telephony_config_prop:s0 exact int
+persist.dbg.vt_avail_ovr1         u:object_r:telephony_config_prop:s0 exact int
+persist.dbg.vt_avail_ovr2         u:object_r:telephony_config_prop:s0 exact int
 persist.dbg.wfc_avail_ovr         u:object_r:telephony_config_prop:s0 exact int
+persist.dbg.wfc_avail_ovr0        u:object_r:telephony_config_prop:s0 exact int
+persist.dbg.wfc_avail_ovr1        u:object_r:telephony_config_prop:s0 exact int
+persist.dbg.wfc_avail_ovr2        u:object_r:telephony_config_prop:s0 exact int
 
 # System locale list filter configuration
 ro.localization.locale_filter u:object_r:localization_prop:s0 exact string
