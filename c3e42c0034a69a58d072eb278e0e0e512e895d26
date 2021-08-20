@@ -104,6 +104,24 @@
       "parentUuid": "bdc263b9_ac1ced81",
       "revId": "c3e42c0034a69a58d072eb278e0e0e512e895d26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae328a5d_e80c5121",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-08-20T17:33:36Z",
+      "side": 1,
+      "message": "A change tested in permissive mode isn\u0027t tested.\n\n\u003e Do you have a sample executable\nThis is the default behavior on Linux. From https://man7.org/linux/man-pages/man2/open.2.html:\n\"By default, the new file descriptor is set to remain open across an execve(2)\"\n\nSo what happens is:\n- Crash_dump is run when a crashing process execs /system/bin/crash_dump\n- The default behavior on Linux is that FDs are passed across exec. So any FDs held by the crashing process are automatically passed to crash_dump.\n- If crash_dump doesn\u0027t have access to the FD (which is the normal case) then an selinux denial occurs.\n- If an selinux denial occurs during testing, then there is a test failure, and folks have their time wasted on flaky presubmit.\n\nWe don\u0027t know what FDs a process holds, so we want crash_dumps\u0027s dontaudits to be broad because otherwise we get test flakes for things that crash_dump should not be doing. In the rare case (like this) where crash_dump actually should have access to a file, the solution is for the change adding that behavior to be properly tested.",
+      "parentUuid": "baed01dc_84991348",
+      "revId": "c3e42c0034a69a58d072eb278e0e0e512e895d26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
