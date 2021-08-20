@@ -122,6 +122,24 @@
       "parentUuid": "baed01dc_84991348",
       "revId": "c3e42c0034a69a58d072eb278e0e0e512e895d26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7b66e14_6bfdda22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1880185
+      },
+      "writtenOn": "2021-08-20T18:26:14Z",
+      "side": 1,
+      "message": "I don\u0027t think your statement is correct.\nSince it is not only /proc that the process might hold, it can hold many other FDs too during a crash. Does that mean we need to add dontaudit  to all files to crash_dump.\n\nAnd I wrote a test executable to open a proc file (zoneinfo) which is in proc_zoneinfo domain and crash_dump does not have selinux policy for that. \n\nint main()\n{\n  char *p \u003d (char*)1;\n  int fd \u003d open(\"/proc/zoneinfo\",O_RDONLY);\n  if(fd \u003d\u003d -1) {\n     printf(\"cannot open\\n\");\n     return 1;\n  }\n  *p \u003d 123;\n\n  close(fd);\n}\n\nI did not see any avc denial from crash_dump with this CL. Since the crash_dump will not use the fd carried from the crashed process and wouldn\u0027t cause avc denied.",
+      "parentUuid": "ae328a5d_e80c5121",
+      "revId": "c3e42c0034a69a58d072eb278e0e0e512e895d26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
