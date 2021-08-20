@@ -140,6 +140,24 @@
       "parentUuid": "ae328a5d_e80c5121",
       "revId": "c3e42c0034a69a58d072eb278e0e0e512e895d26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "648bc2c5_d1355ecd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-08-20T23:35:52Z",
+      "side": 1,
+      "message": "\u003e Since the crash_dump will not use the fd carried from the crashed process and wouldn\u0027t cause avc denied.\n\nyeah, that\u0027s how i thought this worked too --- everything\u0027s fine as long as the child doesn\u0027t _use_ the fd?\n\n(anything else seems basically impossible to enforce since O_CLOEXEC isn\u0027t the default, and is relatively rarely used outside of code that\u0027s deliberately being careful about such things.)\n\nseems like making _all_ /proc fds okay isn\u0027t what we want here though? isn\u0027t the usual trick just to make up a new label for this file, and then allow that?",
+      "parentUuid": "e7b66e14_6bfdda22",
+      "revId": "c3e42c0034a69a58d072eb278e0e0e512e895d26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
