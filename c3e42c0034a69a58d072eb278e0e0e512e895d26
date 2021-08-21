@@ -158,6 +158,24 @@
       "parentUuid": "e7b66e14_6bfdda22",
       "revId": "c3e42c0034a69a58d072eb278e0e0e512e895d26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f06340ac_948d3beb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1880185
+      },
+      "writtenOn": "2021-08-21T00:20:23Z",
+      "side": 1,
+      "message": "@enh\n\nThis CL just suppress the avc denied which do not fix b/183575981 in term of functionality. And this is not just the /proc folder if we worry about fd carried into the child process.\n\nMoreover the debuggerd already close file handles before execle:\nhttps://cs.android.com/android/platform/superproject/+/master:system/core/debuggerd/handler/debuggerd_handler.cpp;l\u003d311?q\u003ddebuggerd_dispatch_pseudothread\n\naosp/1789687 actually added the required rule required for crash_dump , and it is actually the crash_dump opening /proc/uptime, not something carried from fork/exec.",
+      "parentUuid": "648bc2c5_d1355ecd",
+      "revId": "c3e42c0034a69a58d072eb278e0e0e512e895d26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
