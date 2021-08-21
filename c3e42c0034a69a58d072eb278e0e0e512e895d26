@@ -176,6 +176,24 @@
       "parentUuid": "648bc2c5_d1355ecd",
       "revId": "c3e42c0034a69a58d072eb278e0e0e512e895d26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2e0f0c6_76021ef9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1880185
+      },
+      "writtenOn": "2021-08-21T00:30:54Z",
+      "side": 1,
+      "message": "I think Jeff statement is correct about  fd carried from the parent process.\nBut currently we closed all file handles before execle in the debuggerd_dispatch_pseudothread. So we shouldn\u0027t be worry about fd carried into crash_dump process.",
+      "parentUuid": "f06340ac_948d3beb",
+      "revId": "c3e42c0034a69a58d072eb278e0e0e512e895d26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
