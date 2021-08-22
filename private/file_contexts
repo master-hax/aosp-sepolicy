@@ -162,6 +162,7 @@
 /dev/socket/rild	u:object_r:rild_socket:s0
 /dev/socket/rild-debug	u:object_r:rild_debug_socket:s0
 /dev/socket/snapuserd u:object_r:snapuserd_socket:s0
+/dev/socket/snapuserd_proxy u:object_r:snapuserd_proxy_socket:s0
 /dev/socket/tombstoned_crash u:object_r:tombstoned_crash_socket:s0
 /dev/socket/tombstoned_java_trace u:object_r:tombstoned_java_trace_socket:s0
 /dev/socket/tombstoned_intercept u:object_r:tombstoned_intercept_socket:s0
@@ -221,6 +222,7 @@
 /system/bin/e2fsdroid		u:object_r:e2fs_exec:s0
 /system/bin/mke2fs		u:object_r:e2fs_exec:s0
 /system/bin/e2fsck	--	u:object_r:fsck_exec:s0
+/system/bin/extra_free_kbytes\.sh u:object_r:extra_free_kbytes_exec:s0
 /system/bin/fsck\.exfat	--	u:object_r:fsck_exec:s0
 /system/bin/fsck\.f2fs	--	u:object_r:fsck_exec:s0
 /system/bin/init		u:object_r:init_exec:s0
@@ -361,7 +363,6 @@
 /system/bin/stats                u:object_r:stats_exec:s0
 /system/bin/statsd               u:object_r:statsd_exec:s0
 /system/bin/bpfloader            u:object_r:bpfloader_exec:s0
-/system/bin/wait_for_keymaster   u:object_r:wait_for_keymaster_exec:s0
 /system/bin/watchdogd            u:object_r:watchdogd_exec:s0
 /system/bin/apexd                u:object_r:apexd_exec:s0
 /system/bin/gsid                 u:object_r:gsid_exec:s0
@@ -371,6 +372,7 @@
 /system/bin/android\.frameworks\.automotive\.display@1\.0-service u:object_r:automotive_display_service_exec:s0
 /system/bin/snapuserd            u:object_r:snapuserd_exec:s0
 /system/bin/odsign               u:object_r:odsign_exec:s0
+/system/bin/vehicle_binding_util     u:object_r:vehicle_binding_util_exec:s0
 
 #############################
 # Vendor files
@@ -475,8 +477,10 @@
 /(system_ext|system/system_ext)/etc/selinux/system_ext_service_contexts     u:object_r:service_contexts_file:s0
 /(system_ext|system/system_ext)/etc/selinux/system_ext_mac_permissions\.xml u:object_r:mac_perms_file:s0
 
-/(system_ext|system/system_ext)/bin/aidl_lazy_test_server   u:object_r:aidl_lazy_test_server_exec:s0
-/(system_ext|system/system_ext)/bin/hidl_lazy_test_server   u:object_r:hidl_lazy_test_server_exec:s0
+/(system_ext|system/system_ext)/bin/aidl_lazy_test_server    u:object_r:aidl_lazy_test_server_exec:s0
+/(system_ext|system/system_ext)/bin/aidl_lazy_cb_test_server u:object_r:aidl_lazy_test_server_exec:s0
+/(system_ext|system/system_ext)/bin/hidl_lazy_test_server    u:object_r:hidl_lazy_test_server_exec:s0
+/(system_ext|system/system_ext)/bin/hidl_lazy_cb_test_server u:object_r:hidl_lazy_test_server_exec:s0
 
 /(system_ext|system/system_ext)/lib(64)?(/.*)?      u:object_r:system_lib_file:s0
 
@@ -565,12 +569,13 @@
 
 # Misc data
 /data/misc/adb(/.*)?            u:object_r:adb_keys_file:s0
-/data/misc/a11ytrace(/.*)?        u:object_r:accessibility_trace_data_file:s0
+/data/misc/a11ytrace(/.*)?      u:object_r:accessibility_trace_data_file:s0
 /data/misc/apexdata(/.*)?       u:object_r:apex_module_data_file:s0
-/data/misc/apexdata/com\.android\.art(/.*)?    u:object_r:apex_art_data_file:s0
-/data/misc/apexdata/com\.android\.permission(/.*)?    u:object_r:apex_permission_data_file:s0
-/data/misc/apexdata/com\.android\.scheduling(/.*)?    u:object_r:apex_scheduling_data_file:s0
-/data/misc/apexdata/com\.android\.wifi(/.*)?    u:object_r:apex_wifi_data_file:s0
+/data/misc/apexdata/com\.android\.art(/.*)?           u:object_r:apex_art_data_file:s0
+/data/misc/apexdata/com\.android\.compos(/.*)?        u:object_r:apex_compos_data_file:s0
+/data/misc/apexdata/com\.android\.permission(/.*)?    u:object_r:apex_system_server_data_file:s0
+/data/misc/apexdata/com\.android\.scheduling(/.*)?    u:object_r:apex_system_server_data_file:s0
+/data/misc/apexdata/com\.android\.wifi(/.*)?          u:object_r:apex_system_server_data_file:s0
 /data/misc/apexrollback(/.*)?   u:object_r:apex_rollback_data_file:s0
 /data/misc/apns(/.*)?           u:object_r:radio_data_file:s0
 /data/misc/appcompat(/.*)?      u:object_r:appcompat_data_file:s0
@@ -620,6 +625,7 @@
 /data/misc/textclassifier(/.*)?       u:object_r:textclassifier_data_file:s0
 /data/misc/train-info(/.*)?     u:object_r:stats_data_file:s0
 /data/misc/user(/.*)?           u:object_r:misc_user_data_file:s0
+/data/misc/virtualizationservice(/.*)? u:object_r:virtualizationservice_data_file:s0
 /data/misc/vpn(/.*)?            u:object_r:vpn_data_file:s0
 /data/misc/wifi(/.*)?           u:object_r:wifi_data_file:s0
 /data/misc_ce/[0-9]+/wifi(/.*)? u:object_r:wifi_data_file:s0
@@ -671,10 +677,11 @@
 # Apex data directories
 /data/misc_de/[0-9]+/apexdata(/.*)?       u:object_r:apex_module_data_file:s0
 /data/misc_ce/[0-9]+/apexdata(/.*)?       u:object_r:apex_module_data_file:s0
-/data/misc_de/[0-9]+/apexdata/com\.android\.permission(/.*)?  u:object_r:apex_permission_data_file:s0
-/data/misc_ce/[0-9]+/apexdata/com\.android\.permission(/.*)?  u:object_r:apex_permission_data_file:s0
-/data/misc_de/[0-9]+/apexdata/com\.android\.wifi(/.*)?  u:object_r:apex_wifi_data_file:s0
-/data/misc_ce/[0-9]+/apexdata/com\.android\.wifi(/.*)?  u:object_r:apex_wifi_data_file:s0
+/data/misc_ce/[0-9]+/apexdata/com\.android\.appsearch(/.*)?   u:object_r:apex_system_server_data_file:s0
+/data/misc_de/[0-9]+/apexdata/com\.android\.permission(/.*)?  u:object_r:apex_system_server_data_file:s0
+/data/misc_ce/[0-9]+/apexdata/com\.android\.permission(/.*)?  u:object_r:apex_system_server_data_file:s0
+/data/misc_de/[0-9]+/apexdata/com\.android\.wifi(/.*)?        u:object_r:apex_system_server_data_file:s0
+/data/misc_ce/[0-9]+/apexdata/com\.android\.wifi(/.*)?        u:object_r:apex_system_server_data_file:s0
 
 # Apex rollback directories
 /data/misc_de/[0-9]+/apexrollback(/.*)?   u:object_r:apex_rollback_data_file:s0

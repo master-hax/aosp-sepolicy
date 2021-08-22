@@ -18,18 +18,12 @@ allow apexd apex_ota_reserved_file:dir create_dir_perms;
 allow apexd apex_ota_reserved_file:file create_file_perms;
 
 # Allow apexd to create files and directories for snapshots of apex data
-allow apexd apex_art_data_file:dir { create_dir_perms relabelto };
-allow apexd apex_art_data_file:file { create_file_perms relabelto };
-allow apexd apex_permission_data_file:dir { create_dir_perms relabelto };
-allow apexd apex_permission_data_file:file { create_file_perms relabelto };
+allow apexd apex_data_file_type:dir { create_dir_perms relabelto };
+allow apexd apex_data_file_type:file { create_file_perms relabelto };
 allow apexd apex_module_data_file:dir { create_dir_perms relabelfrom };
 allow apexd apex_module_data_file:file { create_file_perms relabelfrom };
 allow apexd apex_rollback_data_file:dir create_dir_perms;
 allow apexd apex_rollback_data_file:file create_file_perms;
-allow apexd apex_scheduling_data_file:dir { create_dir_perms relabelto };
-allow apexd apex_scheduling_data_file:file { create_file_perms relabelto };
-allow apexd apex_wifi_data_file:dir { create_dir_perms relabelto };
-allow apexd apex_wifi_data_file:file { create_file_perms relabelto };
 
 # Allow apexd to read directories under /data/misc_de in order to snapshot and
 # restore apex data for all users.
@@ -49,8 +43,9 @@ allowxperm apexd loop_device:blk_file ioctl {
   BLKFLSBUF
   LOOP_CONFIGURE
 };
-# allow apexd to access /dev/block
-allow apexd block_device:dir r_dir_perms;
+# Allow apexd to access /dev/block
+allow apexd bdev_type:dir r_dir_perms;
+allow apexd bdev_type:blk_file getattr;
 
 #allow apexd to access virtual disks
 allow apexd vd_device:blk_file r_file_perms;
@@ -81,6 +76,9 @@ allow apexd apex_mnt_dir:lnk_file create_file_perms;
 # allow apexd to create /apex/apex-info-list.xml and relabel to apex_info_file
 allow apexd apex_mnt_dir:file { create_file_perms relabelfrom mounton };
 allow apexd apex_info_file:file relabelto;
+# apexd needs to update /apex/apex-info-list.xml after non-staged APEX update.
+allow apexd apex_info_file:file rw_file_perms;
+
 # allow apexd to unlink apex files in /data/apex/active
 # note that apexd won't be able to unlink files in /data/app-staging/session_XXXX,
 # because it doesn't have write permission for staging_data_file object.
@@ -101,6 +99,8 @@ allow apexd labeledfs:filesystem { mount unmount };
 
 # /sys directory tree traversal
 allow apexd sysfs_type:dir search;
+allow apexd sysfs_block_type:dir r_dir_perms;
+allow apexd sysfs_block_type:file r_file_perms;
 # Configure read-ahead of dm-verity and loop devices
 # for dm-X
 allow apexd sysfs_dm:dir r_dir_perms;
@@ -161,6 +161,12 @@ allow apexd file_contexts_file:file r_file_perms;
 # Allow apexd to execute toybox for snapshot & restore
 allow apexd toolbox_exec:file rx_file_perms;
 
+# Allow apexd to release compressed blocks in case /data is f2fs-compressed fs.
+allowxperm apexd staging_data_file:file ioctl {
+  FS_IOC_GETFLAGS
+  F2FS_IOC_RELEASE_COMPRESS_BLOCKS
+};
+
 # Allow apexd to read ro.cold_boot_done prop.
 # apexd uses it to decide whether it needs to keep retrying polling for loop device.
 get_prop(apexd, cold_boot_done_prop)
@@ -198,4 +204,5 @@ neverallow { domain -apexd -init -otapreopt_chroot } apex_mnt_dir:dir { mounton 
 allow apexd otapreopt_chroot:fd use;
 allow apexd postinstall_apex_mnt_dir:dir { create_dir_perms mounton };
 allow apexd postinstall_apex_mnt_dir:file { create_file_perms relabelfrom };
+allow apexd postinstall_apex_mnt_dir:lnk_file create;
 allow apexd proc_filesystems:file r_file_perms;

@@ -204,7 +204,20 @@ neverallow {
 # do not change between system_server staging the files and apexd processing
 # the files.
 neverallow { domain -init -system_server -apexd -installd -iorap_inode2filename -priv_app } staging_data_file:dir *;
-neverallow { domain -init -system_app -system_server -apexd -adbd -kernel -installd -iorap_inode2filename -priv_app } staging_data_file:file *;
+neverallow {
+  domain
+  -init
+  -system_app
+  -system_server
+  -apexd
+  -adbd
+  -kernel
+  -installd
+  -iorap_inode2filename
+  -priv_app
+  -virtualizationservice
+  -crosvm
+} staging_data_file:file *;
 neverallow { domain -init -system_server -installd} staging_data_file:dir no_w_dir_perms;
 # apexd needs the link and unlink permissions, so list every `no_w_file_perms`
 # except for `link` and `unlink`.
@@ -354,8 +367,8 @@ neverallow ~{
 } self:global_capability_class_set dac_read_search;
 
 # Limit what domains can mount filesystems or change their mount flags.
-# sdcard_type / vfat is exempt as a larger set of domains need
-# this capability, including device-specific domains.
+# sdcard_type (including vfat and exfat) and fusefs_type are exempt as a larger
+# set of domains need this capability, including device-specific domains.
 neverallow {
     domain
     -apexd
@@ -369,6 +382,7 @@ neverallow {
     -zygote
 } { fs_type
     -sdcard_type
+    -fusefs_type
 }:filesystem { mount remount relabelfrom relabelto };
 
 enforce_debugfs_restriction(`
@@ -396,6 +410,7 @@ neverallow {
 # Limit directory operations that doesn't need to do app data isolation.
 neverallow {
   domain
+  -fsck
   -init
   -installd
   -zygote
@@ -461,6 +476,7 @@ full_treble_only(`
     coredomain
     # TODO(b/37168747): clean up fwk access to /vendor
     -crash_dump
+    -crosvm # loads vendor-specific disk images
     -init # starts vendor executables
     -iorap_inode2filename
     -iorap_prefetcherd
@@ -539,3 +555,18 @@ enforce_debugfs_restriction(`
       -tracefs_type
   }:file no_rw_file_perms;
 ')
+
+# Restrict write access to shell owned files. The /data/local/tmp directory is
+# untrustworthy, and non-allowed domains should not be trusting any content in
+# those directories. We allow shell files to be passed around by file
+# descriptor, but not directly opened.
+neverallow {
+  domain
+  -adbd
+  -appdomain
+  -dumpstate
+  -installd
+  userdebug_or_eng(`-uncrypt')
+  userdebug_or_eng(`-virtualizationservice')
+  userdebug_or_eng(`-crosvm')
+} shell_data_file:file open;

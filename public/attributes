@@ -7,6 +7,9 @@
 # in tools/checkfc.c
 attribute dev_type;
 
+# Attribute for block devices.
+attribute bdev_type;
+
 # All types used for processes.
 attribute domain;
 
@@ -17,6 +20,12 @@ attribute fs_type;
 
 # All types used for context= mounts.
 attribute contextmount_type;
+
+# All types referencing a FUSE filesystem.
+# When mounting a new FUSE filesystem, the fscontext= option should be used to
+# set a domain-specific type with this attribute. See app_fusefs for an
+# example.
+attribute fusefs_type;
 
 # All types used for files that can exist on a labeled fs.
 # Do not use for pseudo file types.
@@ -58,6 +67,9 @@ expandattribute proc_net_type true;
 
 # All types used for sysfs files.
 attribute sysfs_type;
+
+# Attribute for /sys/class/block files.
+attribute sysfs_block_type;
 
 # All types use for debugfs files.
 attribute debugfs_type;
@@ -358,6 +370,7 @@ hal_attribute(tv_input);
 hal_attribute(tv_tuner);
 hal_attribute(usb);
 hal_attribute(usb_gadget);
+hal_attribute(uwb);
 hal_attribute(vehicle);
 hal_attribute(vibrator);
 hal_attribute(vr);
@@ -392,3 +405,7 @@ expandattribute dmabuf_heap_device_type false;
 
 # All types used for DSU metadata files.
 attribute gsi_metadata_file_type;
+
+# Types used for module-specific APEX data directories under
+# /data/{misc,misc_ce,misc_de}/apexdata.
+attribute apex_data_file_type;

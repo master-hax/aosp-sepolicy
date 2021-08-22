@@ -14,6 +14,11 @@ get_prop(appdomain, userspace_reboot_config_prop)
 get_prop(appdomain, vold_config_prop)
 get_prop(appdomain, adbd_config_prop)
 
+# Allow ART to be configurable via device_config properties
+# (ART "runs" inside the app process)
+get_prop(appdomain, device_config_runtime_native_prop)
+get_prop(appdomain, device_config_runtime_native_boot_prop)
+
 userdebug_or_eng(`perfetto_producer({ appdomain })')
 
 # Prevent apps from causing presubmit failures.
@@ -98,3 +103,8 @@ neverallow {
   -system_data_file # shared libs in apks
   -apk_data_file
 }:file no_x_file_perms;
+
+# Allow apps to read/write vsock created by virtualizationservice to communicate with
+# the VM that the app created. Notice that the app doesn't have permission to create
+# a vsock by itself; it can't connect to other VMs that it doesn't own.
+allow appdomain virtualizationservice:vsock_socket { getattr read write };

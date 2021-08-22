@@ -44,10 +44,27 @@ allowxperm system_server apk_data_file:file ioctl {
   INCFS_IOCTL_FILL_BLOCKS
   INCFS_IOCTL_GET_FILLED_BLOCKS
   INCFS_IOCTL_GET_BLOCK_COUNT
+  F2FS_IOC_GET_FEATURES
+  F2FS_IOC_GET_COMPRESS_BLOCKS
+  F2FS_IOC_COMPRESS_FILE
+  F2FS_IOC_DECOMPRESS_FILE
+  F2FS_IOC_RELEASE_COMPRESS_BLOCKS
+  F2FS_IOC_RESERVE_COMPRESS_BLOCKS
+  FS_IOC_SETFLAGS
+  FS_IOC_GETFLAGS
+};
+
+allowxperm system_server apk_tmp_file:file ioctl {
+  F2FS_IOC_RELEASE_COMPRESS_BLOCKS
+  FS_IOC_GETFLAGS
 };
 
 # For Incremental Service to check incfs metrics
 allow system_server sysfs_fs_incfs_metrics:file r_file_perms;
+
+# For f2fs-compression support
+allow system_server sysfs_fs_f2fs:dir r_dir_perms;
+allow system_server sysfs_fs_f2fs:file r_file_perms;
 
 # For art.
 allow system_server { apex_art_data_file dalvikcache_data_file }:dir r_dir_perms;
@@ -204,6 +221,9 @@ allow system_server sysfs_dmabuf_stats:file r_file_perms;
 # Allow ActivityManager to look at the list of DMA-BUF heaps from /dev/dma_heap
 # for dumpsys meminfo
 allow system_server dmabuf_heap_device:dir r_dir_perms;
+
+# Allow reading /proc/vmstat for the oom kill count
+allow system_server proc_vmstat:file r_file_perms;
 
 # The DhcpClient and WifiWatchdog use packet_sockets
 allow system_server self:packet_socket create_socket_perms_no_ioctl;
@@ -678,6 +698,7 @@ set_prop(system_server, device_config_netd_native_prop)
 set_prop(system_server, device_config_activity_manager_native_boot_prop)
 set_prop(system_server, device_config_runtime_native_boot_prop)
 set_prop(system_server, device_config_runtime_native_prop)
+set_prop(system_server, device_config_lmkd_native_prop)
 set_prop(system_server, device_config_media_native_prop)
 set_prop(system_server, device_config_profcollect_native_boot_prop)
 set_prop(system_server, device_config_statsd_native_prop)
@@ -688,6 +709,11 @@ set_prop(system_server, device_config_sys_traced_prop)
 set_prop(system_server, device_config_window_manager_native_boot_prop)
 set_prop(system_server, device_config_configuration_prop)
 set_prop(system_server, device_config_connectivity_prop)
+set_prop(system_server, device_config_surface_flinger_native_boot_prop)
+
+# Allow query ART device config properties
+get_prop(system_server, device_config_runtime_native_boot_prop)
+get_prop(system_server, device_config_runtime_native_prop)
 
 # BootReceiver to read ro.boot.bootreason
 get_prop(system_server, bootloader_boot_reason_prop)
@@ -828,6 +854,7 @@ allow system_server incremental_service:service_manager find;
 allow system_server installd_service:service_manager find;
 allow system_server iorapd_service:service_manager find;
 allow system_server keystore_maintenance_service:service_manager find;
+allow system_server keystore_metrics_service:service_manager find;
 allow system_server keystore_service:service_manager find;
 allow system_server mediaserver_service:service_manager find;
 allow system_server mediametrics_service:service_manager find;
@@ -878,6 +905,7 @@ allow system_server keystore:keystore2 {
 	clear_uid
 	get_state
 	lock
+	pull_metrics
 	reset
 	unlock
 };
@@ -940,7 +968,7 @@ allow system_server { mnt_user_file storage_file }:lnk_file { getattr read };
 
 # Allow statfs() on storage devices, which happens fast enough that
 # we shouldn't be killed during unsafe removal
-allow system_server sdcard_type:dir { getattr search };
+allow system_server { sdcard_type fuse }:dir { getattr search };
 
 # Traverse into expanded storage
 allow system_server mnt_expand_file:dir r_dir_perms;
@@ -1121,6 +1149,12 @@ allow system_server font_data_file:dir create_dir_perms;
 # Allow system process to setup fs-verity for font files
 allowxperm system_server font_data_file:file ioctl FS_IOC_ENABLE_VERITY;
 
+# Read qemu.hw.mainkeys property
+get_prop(system_server, qemu_hw_prop)
+
+# Allow system server to read profcollectd reports for upload.
+userdebug_or_eng(`r_dir_file(system_server, profcollectd_data_file)')
+
 ###
 ### Neverallow rules
 ###
@@ -1128,8 +1162,8 @@ allowxperm system_server font_data_file:file ioctl FS_IOC_ENABLE_VERITY;
 
 # Do not allow opening files from external storage as unsafe ejection
 # could cause the kernel to kill the system_server.
-neverallow system_server sdcard_type:dir { open read write };
-neverallow system_server sdcard_type:file rw_file_perms;
+neverallow system_server { sdcard_type fuse }:dir { open read write };
+neverallow system_server { sdcard_type fuse }:file rw_file_perms;
 
 # system server should never be operating on zygote spawned app data
 # files directly. Rather, they should always be passed via a
@@ -1180,11 +1214,13 @@ neverallow {
   device_config_activity_manager_native_boot_prop
   device_config_connectivity_prop
   device_config_input_native_boot_prop
+  device_config_lmkd_native_prop
   device_config_netd_native_prop
   device_config_runtime_native_boot_prop
   device_config_runtime_native_prop
   device_config_media_native_prop
   device_config_storage_native_boot_prop
+  device_config_surface_flinger_native_boot_prop
   device_config_sys_traced_prop
   device_config_swcodec_native_prop
   device_config_window_manager_native_boot_prop
@@ -1259,12 +1295,9 @@ allow system_server vendor_apex_file:file r_file_perms;
 
 # Allow the system server to manage relevant apex module data files.
 allow system_server apex_module_data_file:dir { getattr search };
-allow system_server apex_permission_data_file:dir create_dir_perms;
-allow system_server apex_permission_data_file:file create_file_perms;
-allow system_server apex_scheduling_data_file:dir create_dir_perms;
-allow system_server apex_scheduling_data_file:file create_file_perms;
-allow system_server apex_wifi_data_file:dir create_dir_perms;
-allow system_server apex_wifi_data_file:file create_file_perms;
+# These are modules where the code runs in system_server, so we need full access.
+allow system_server apex_system_server_data_file:dir create_dir_perms;
+allow system_server apex_system_server_data_file:file create_file_perms;
 
 # Allow PasswordSlotManager rw access to /metadata/password_slots, so GSIs and the host image can
 # communicate which slots are available for use.
@@ -1374,6 +1407,3 @@ neverallowxperm { domain -system_server } binder_device:chr_file ioctl { BINDER_
 # Only system server can write the font files.
 neverallow { domain -init -system_server } font_data_file:file no_w_file_perms;
 neverallow { domain -init -system_server } font_data_file:dir no_w_dir_perms;
-
-# Read qemu.hw.mainkeys property
-get_prop(system_server, qemu_hw_prop)

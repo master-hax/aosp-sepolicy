@@ -22,6 +22,7 @@ recovery_only(`
   # Determine allocation scheme (whether B partitions needs to be
   # at the second half of super.
   get_prop(fastbootd, virtual_ab_prop)
+  get_prop(fastbootd, snapuserd_prop)
 
   # Needed for TCP protocol
   allow fastbootd node:tcp_socket node_bind;
@@ -41,4 +42,7 @@ recovery_only(`
 
   # Mount /metadata to interact with Virtual A/B snapshots.
   allow fastbootd labeledfs:filesystem { mount unmount };
+
+  # Needed for reading boot properties.
+  allow fastbootd proc_bootconfig:file r_file_perms;
 ')

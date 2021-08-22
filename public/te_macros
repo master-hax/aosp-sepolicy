@@ -431,6 +431,9 @@ allow $1 system_suspend_hwservice:hwservice_manager find;
 hwbinder_use($1)
 get_prop($1, hwservicemanager_prop)
 allow $1 hidl_manager_hwservice:hwservice_manager find;
+# AIDL suspend hal permissions
+allow $1 hal_system_suspend_service:service_manager find;
+binder_use($1)
 ')
 
 #####################################
@@ -635,7 +638,7 @@ define(`use_keystore', `
   allow keystore $1:process getattr;
   allow $1 apc_service:service_manager find;
   allow $1 keystore_service:service_manager find;
-  allow $1 vpnprofilestore_service:service_manager find;
+  allow $1 legacykeystore_service:service_manager find;
   binder_call($1, keystore)
   binder_call(keystore, $1)
 ')
@@ -670,6 +673,12 @@ define(`use_drmservice', `
 define(`add_service', `
   allow $1 $2:service_manager { add find };
   neverallow { domain -$1 } $2:service_manager add;
+
+  # On debug builds with root, allow binder services to use binder over TCP.
+  # Not using rw_socket_perms_no_ioctl to avoid granting too many permissions.
+  userdebug_or_eng(`
+    allow $1 su:tcp_socket { accept getopt read write };
+  ')
 ')
 
 ###########################################

@@ -1,0 +1,28 @@
+;; new_objects - a collection of types that have been introduced that have no
+;;   analogue in older policy.  Thus, we do not need to map these types to
+;;   previous ones.  Add here to pass checkapi tests.
+(type new_objects)
+(typeattribute new_objects)
+(typeattributeset new_objects
+  ( new_objects
+    artd_service
+    camera2_extensions_prop
+    extra_free_kbytes
+    extra_free_kbytes_exec
+    hal_contexthub_service
+    hal_system_suspend_service
+    hal_tv_tuner_service
+    hal_wifi_hostapd_service
+    power_stats_service
+    snapuserd_prop
+    snapuserd_proxy_socket
+    tare_service
+    transformer_service
+    proc_watermark_boost_factor
+    proc_watermark_scale_factor
+    untrusted_app_30
+    proc_vendor_sched
+    sysfs_vendor_sched
+    vendor_vm_file
+    vendor_vm_data_file
+  ))

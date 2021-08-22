@@ -2,6 +2,7 @@ android.hardware.authsecret.IAuthSecret/default                      u:object_r:
 android.hardware.automotive.audiocontrol.IAudioControl/default       u:object_r:hal_audiocontrol_service:s0
 android.hardware.biometrics.face.IFace/default                       u:object_r:hal_face_service:s0
 android.hardware.biometrics.fingerprint.IFingerprint/default         u:object_r:hal_fingerprint_service:s0
+android.hardware.contexthub.IContextHub/default                      u:object_r:hal_contexthub_service:s0
 android.hardware.gnss.IGnss/default                                  u:object_r:hal_gnss_service:s0
 android.hardware.health.storage.IStorage/default                     u:object_r:hal_health_storage_service:s0
 android.hardware.identity.IIdentityCredentialStore/default           u:object_r:hal_identity_service:s0
@@ -16,11 +17,14 @@ android.hardware.security.keymint.IRemotelyProvisionedComponent/default u:object
 android.hardware.security.secureclock.ISecureClock/default             u:object_r:hal_secureclock_service:s0
 android.hardware.security.sharedsecret.ISharedSecret/default             u:object_r:hal_sharedsecret_service:s0
 android.hardware.soundtrigger3.ISoundTriggerHw/default               u:object_r:hal_audio_service:s0
+android.hardware.tv.tuner.ITuner/default                             u:object_r:hal_tv_tuner_service:s0
 android.hardware.vibrator.IVibrator/default                          u:object_r:hal_vibrator_service:s0
 android.hardware.vibrator.IVibratorManager/default                   u:object_r:hal_vibrator_service:s0
 android.hardware.weaver.IWeaver/default                              u:object_r:hal_weaver_service:s0
+android.hardware.wifi.hostapd.IHostapd/default                       u:object_r:hal_wifi_hostapd_service:s0
 android.frameworks.stats.IStats/default                              u:object_r:fwk_stats_service:s0
 android.system.keystore2.IKeystoreService/default                    u:object_r:keystore_service:s0
+android.system.suspend.ISystemSuspend/default                        u:object_r:hal_system_suspend_service:s0
 
 accessibility                             u:object_r:accessibility_service:s0
 account                                   u:object_r:account_service:s0
@@ -29,6 +33,7 @@ activity_task                             u:object_r:activity_task_service:s0
 adb                                       u:object_r:adb_service:s0
 aidl_lazy_test_1                          u:object_r:aidl_lazy_test_service:s0
 aidl_lazy_test_2                          u:object_r:aidl_lazy_test_service:s0
+aidl_lazy_cb_test                         u:object_r:aidl_lazy_test_service:s0
 alarm                                     u:object_r:alarm_service:s0
 android.os.UpdateEngineService            u:object_r:update_engine_service:s0
 android.os.UpdateEngineStableService      u:object_r:update_engine_stable_service:s0
@@ -37,9 +42,10 @@ android.security.authorization            u:object_r:authorization_service:s0
 android.security.compat                   u:object_r:keystore_compat_hal_service:s0
 android.security.identity                 u:object_r:credstore_service:s0
 android.security.keystore                 u:object_r:keystore_service:s0
+android.security.legacykeystore           u:object_r:legacykeystore_service:s0
 android.security.maintenance              u:object_r:keystore_maintenance_service:s0
+android.security.metrics                  u:object_r:keystore_metrics_service:s0
 android.security.remoteprovisioning       u:object_r:remoteprovisioning_service:s0
-android.security.vpnprofilestore          u:object_r:vpnprofilestore_service:s0
 android.service.gatekeeper.IGateKeeperService    u:object_r:gatekeeper_service:s0
 app_binding                               u:object_r:app_binding_service:s0
 app_hibernation                           u:object_r:app_hibernation_service:s0
@@ -71,7 +77,7 @@ cacheinfo                                 u:object_r:cacheinfo_service:s0
 carrier_config                            u:object_r:radio_service:s0
 clipboard                                 u:object_r:clipboard_service:s0
 com.android.net.IProxyService             u:object_r:IProxyService_service:s0
-android.system.virtmanager                u:object_r:virtualization_service:s0
+android.system.virtualizationservice      u:object_r:virtualization_service:s0
 companiondevice                           u:object_r:companion_device_service:s0
 platform_compat                           u:object_r:platform_compat_service:s0
 platform_compat_native                    u:object_r:platform_compat_service:s0
@@ -261,6 +267,7 @@ suspend_control_internal                  u:object_r:system_suspend_control_inte
 system_config                             u:object_r:system_config_service:s0
 system_server_dumper                      u:object_r:system_server_dumper_service:s0
 system_update                             u:object_r:system_update_service:s0
+tare                                      u:object_r:tare_service:s0
 task                                      u:object_r:task_service:s0
 telecom                                   u:object_r:telecom_service:s0
 telephony.registry                        u:object_r:registry_service:s0
@@ -275,7 +282,7 @@ time_zone_detector                        u:object_r:timezonedetector_service:s0
 timezone                                  u:object_r:timezone_service:s0
 thermalservice                            u:object_r:thermal_service:s0
 tracing.proxy                             u:object_r:tracingproxy_service:s0
-transformer                               u:object_r:transformer_service:s0
+translation                               u:object_r:translation_service:s0
 trust                                     u:object_r:trust_service:s0
 tv_input                                  u:object_r:tv_input_service:s0
 tv_tuner_resource_mgr                     u:object_r:tv_tuner_resource_mgr_service:s0
