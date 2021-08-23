@@ -39,6 +39,15 @@ allow bluetooth uhid_device:chr_file rw_file_perms;
 # proc access.
 allow bluetooth proc_bluetooth_writable:file rw_file_perms;
 
+# Allow read access to bluetooth specific properties
+allow bluetooth proc_filesystems:file read;
+allow bluetooth proc_filesystems:file open;
+allow bluetooth proc_filesystems:file getattr;
+allow bluetooth incremental_prop:file read;
+allow bluetooth incremental_prop:file open;
+allow bluetooth incremental_prop:file getattr;
+allow bluetooth incremental_prop:file map;
+
 # Allow write access to bluetooth specific properties
 set_prop(bluetooth, binder_cache_bluetooth_server_prop);
 neverallow { domain -bluetooth -init }
