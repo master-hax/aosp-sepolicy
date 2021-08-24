@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afb2c138_15cb46ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1881060
+      },
+      "writtenOn": "2021-08-24T10:48:37Z",
+      "side": 1,
+      "message": "Denial appear because we are removing `getSystemConfigEnabledProfilesForPackage` from base to bluetooth. But I suppose the commit message can be changed for the sepolicy commit.",
+      "parentUuid": "1db4e027_384b6ca0",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "4b06c412b8fd33d4cb472e23fd02c18f9c088963",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d793167f_0f03b6a0",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-24T10:26:34Z",
       "side": 1,
       "message": "It doesn\u0027t look like these have anything to do with Bluetooth.",
+      "range": {
+        "startLine": 42,
+        "startChar": 23,
+        "endLine": 42,
+        "endChar": 52
+      },
+      "revId": "4b06c412b8fd33d4cb472e23fd02c18f9c088963",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a57f23f_198b274c",
+        "filename": "private/bluetooth.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1881060
+      },
+      "writtenOn": "2021-08-24T10:48:37Z",
+      "side": 1,
+      "message": "You are right",
+      "parentUuid": "d793167f_0f03b6a0",
       "range": {
         "startLine": 42,
         "startChar": 23,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39eaa1c0_5c44b6af",
+        "filename": "private/bluetooth.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1881060
+      },
+      "writtenOn": "2021-08-24T10:48:37Z",
+      "side": 1,
+      "message": "This file store the allowed bluetooth profiles. It\u0027s then used at the config init to allow profile.",
+      "parentUuid": "14aaff88_7793aa9f",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 46
+      },
+      "revId": "4b06c412b8fd33d4cb472e23fd02c18f9c088963",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a9824ff_d884420e",
         "filename": "private/bluetooth.te",
         "patchSetId": 2
@@ -83,6 +155,30 @@
       "writtenOn": "2021-08-24T10:26:34Z",
       "side": 1,
       "message": "get_prop(bluetooth, incremental_prop)\n\nHowever, why does Bluetooth need to read this property?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 0
+      },
+      "revId": "4b06c412b8fd33d4cb472e23fd02c18f9c088963",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6096f07_464d080d",
+        "filename": "private/bluetooth.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1881060
+      },
+      "writtenOn": "2021-08-24T10:48:37Z",
+      "side": 1,
+      "message": "I don\u0027t know the diff between incremental_prop and proc_filesystems.\nTo be honest I only followed https://docs.google.com/presentation/d/1cQEZtyX4lJ7EabMAfFLCrOxyt3JwcL63HDgvnoOaqrE/edit#slide\u003did.g64aa5c88b0_1_2, I am not sure why there are 2 SE Denial triggered with only this API removed",
+      "parentUuid": "8a9824ff_d884420e",
       "range": {
         "startLine": 46,
         "startChar": 0,
