@@ -412,8 +412,8 @@ endif  # SELINUX_IGNORE_NEVERALLOWS
 endif  # with_asan
 
 ifneq ($(PLATFORM_SEPOLICY_VERSION),$(TOT_SEPOLICY_VERSION))
-LOCAL_REQUIRED_MODULES += \
-    sepolicy_freeze_test \
+#LOCAL_REQUIRED_MODULES += \
+#    sepolicy_freeze_test \
 
 else
 ifneq (,$(FREEZE_TEST_EXTRA_DIRS)$(FREEZE_TEST_EXTRA_PREBUILT_DIRS))
