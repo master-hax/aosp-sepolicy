@@ -43,6 +43,11 @@ r_dir_file(crash_dump, apk_data_file);
 # Read all /vendor
 r_dir_file(crash_dump, { vendor_file same_process_hal_file })
 
+allow crash_dump shell_test_data_file:dir create_dir_perms;
+
+# Read all /data/local/tests/unrestricted
+r_dir_file(crash_dump, { shell_unrestricted_test_data_file })
+
 # Talk to tombstoned
 unix_socket_connect(crash_dump, tombstoned_crash, tombstoned)
 
