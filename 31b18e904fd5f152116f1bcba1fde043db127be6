@@ -22,6 +22,30 @@
       },
       "revId": "31b18e904fd5f152116f1bcba1fde043db127be6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaf04b75_f95717dc",
+        "filename": "private/untrusted_app_all.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-09-03T14:45:26Z",
+      "side": 1,
+      "message": "There\u0027s a lot of fairly specialized app domains, it\u0027s not clear that all of them should be able to run a VM. Jeff\u0027s suggestion of an allow list seems to make sense. (Or we might even consider whether a permission is appropriate?)\n\nuserdebug: It\u0027s not clear that eventually means we should allow it in the initial release; this gives us the minimum we need right now, which seems a good conservative approach.\n\nThis isn\u0027t intended to be the last word - I\u0027m looking forward to our discussion.",
+      "parentUuid": "669f3adc_c0f7d6e7",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 16
+      },
+      "revId": "31b18e904fd5f152116f1bcba1fde043db127be6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
