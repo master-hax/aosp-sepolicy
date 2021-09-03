@@ -170,3 +170,9 @@ userdebug_or_eng(`
   # according to the heuristic of lockdown.
   allow untrusted_app_all self:lockdown integrity;
 ')
+
+with_native_coverage(`
+  # Allow writing coverage information to /data/misc/trace
+  allow domain method_trace_data_file:dir create_dir_perms;
+  allow domain method_trace_data_file:file create_file_perms;
+')
