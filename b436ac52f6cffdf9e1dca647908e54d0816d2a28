@@ -20,6 +20,121 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8a1d967e_f649d8e2",
+        "filename": "private/compos_verify_key.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-03T08:25:58Z",
+      "side": 1,
+      "message": "Is there a specific security property that you\u0027re trying to enforce by not using create_dir_perms here? Perhaps that would be better enforced by giving compos_verify_key its own subdir data type?",
+      "range": {
+        "startLine": 11,
+        "startChar": 51,
+        "endLine": 11,
+        "endChar": 79
+      },
+      "revId": "b436ac52f6cffdf9e1dca647908e54d0816d2a28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7620f9fd_df9cbe7c",
+        "filename": "private/compos_verify_key.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-03T08:25:58Z",
+      "side": 1,
+      "message": "same question. create_file_perms instead?",
+      "range": {
+        "startLine": 12,
+        "startChar": 51,
+        "endLine": 12,
+        "endChar": 82
+      },
+      "revId": "b436ac52f6cffdf9e1dca647908e54d0816d2a28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a84a0260_4b6c001b",
+        "filename": "private/compos_verify_key.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-03T08:25:58Z",
+      "side": 1,
+      "message": "brackets not needed.",
+      "range": {
+        "startLine": 19,
+        "startChar": 72,
+        "endLine": 19,
+        "endChar": 74
+      },
+      "revId": "b436ac52f6cffdf9e1dca647908e54d0816d2a28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23d51f77_18c9c8ac",
+        "filename": "private/compos_verify_key.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-03T08:25:58Z",
+      "side": 1,
+      "message": "might as well include dyntransition here as well if you want to prevent any transition type.",
+      "range": {
+        "startLine": 22,
+        "startChar": 56,
+        "endLine": 22,
+        "endChar": 66
+      },
+      "revId": "b436ac52f6cffdf9e1dca647908e54d0816d2a28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa983d0a_f776fbd3",
+        "filename": "private/odsign.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-03T08:25:58Z",
+      "side": 1,
+      "message": "nit: remove brackets.",
+      "range": {
+        "startLine": 49,
+        "startChar": 54,
+        "endLine": 49,
+        "endChar": 56
+      },
+      "revId": "b436ac52f6cffdf9e1dca647908e54d0816d2a28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58c0671b_b99b7de8",
         "filename": "private/virtualizationservice.te",
         "patchSetId": 1
@@ -36,6 +151,53 @@
         "startChar": 0,
         "endLine": 35,
         "endChar": 25
+      },
+      "revId": "b436ac52f6cffdf9e1dca647908e54d0816d2a28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aca9c148_95c7b225",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-03T08:25:58Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "58c0671b_b99b7de8",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 25
+      },
+      "revId": "b436ac52f6cffdf9e1dca647908e54d0816d2a28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f421a8b4_e925b305",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-03T08:25:58Z",
+      "side": 1,
+      "message": "I also think this should be trimmed down to an allowlist of app types instead of the current denylist.",
+      "range": {
+        "startLine": 38,
+        "startChar": 27,
+        "endLine": 38,
+        "endChar": 36
       },
       "revId": "b436ac52f6cffdf9e1dca647908e54d0816d2a28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -71,6 +233,30 @@
       "writtenOn": "2021-09-02T16:46:26Z",
       "side": 1,
       "message": "Is it ok to have a macro in public which refers to domains that only exist in private?",
+      "range": {
+        "startLine": 186,
+        "startChar": 16,
+        "endLine": 186,
+        "endChar": 37
+      },
+      "revId": "b436ac52f6cffdf9e1dca647908e54d0816d2a28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59ee345a_898fb56c",
+        "filename": "public/te_macros",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-03T08:25:58Z",
+      "side": 1,
+      "message": "I guess if it\u0027s only called in private policy?",
+      "parentUuid": "fa0c7273_0b51fb74",
       "range": {
         "startLine": 186,
         "startChar": 16,
