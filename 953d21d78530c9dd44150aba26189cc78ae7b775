@@ -16,6 +16,98 @@
       "message": "Hi Thiébaud, thanks for reviewing this. I\u0027m adding a kernel char dev (/dev/userspace_panic) for init / llkd / system_server to request kernel panic with a custom title. Feel free to find implementation for this in https://android-review.googlesource.com/q/topic:b188777408-libuserpanic, and in this CL it\u0027s the sepolicy configs for fixing access denials. Thanks for taking time to review it.",
       "revId": "953d21d78530c9dd44150aba26189cc78ae7b775",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d237f3e_bcecc178",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2021-09-06T12:44:12Z",
+      "side": 1,
+      "message": "Thanks for the context.",
+      "parentUuid": "0285cdfd_b8893db6",
+      "revId": "953d21d78530c9dd44150aba26189cc78ae7b775",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e80af285_b1afc4bf",
+        "filename": "prebuilts/api/31.0/private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2021-09-06T12:44:12Z",
+      "side": 1,
+      "message": "API 31 has been finalized, so the prebuilts/ files should not be changed anymore.",
+      "revId": "953d21d78530c9dd44150aba26189cc78ae7b775",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56824074_48f85700",
+        "filename": "public/device.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2021-09-06T12:44:12Z",
+      "side": 1,
+      "message": "Because it is not upstreamed yet, it would be better to keep the reference to the new device in the private/ directory. You could move this definition to the end of private/file.te.",
+      "revId": "953d21d78530c9dd44150aba26189cc78ae7b775",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef984e0f_67cf77a8",
+        "filename": "public/device.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2021-09-06T12:44:12Z",
+      "side": 1,
+      "message": "It\u0027s not clear why the mlstrustedobject attribute is necessary here.",
+      "range": {
+        "startLine": 60,
+        "startChar": 39,
+        "endLine": 60,
+        "endChar": 55
+      },
+      "revId": "953d21d78530c9dd44150aba26189cc78ae7b775",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f24f1b6_c4e3e6e0",
+        "filename": "public/te_macros",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2021-09-06T12:44:12Z",
+      "side": 1,
+      "message": "Unless further rules will be necessary for this macro, it is clearer to simply have the expanded rule in the subject files (init.te, llkd.te, etc). I would recommend removing this macro.",
+      "revId": "953d21d78530c9dd44150aba26189cc78ae7b775",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
