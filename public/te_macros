@@ -6,6 +6,23 @@
 # cause it to occur automatically - use domain_auto_trans
 # if that is what you want.
 #
+# SECURITY WARNING:
+# While this macro looks at a glance as if it only allows a specific combination
+# of (olddomain,type,newdomain), that is NOT the case - it actually creates
+# separate rules stating:
+#
+#  - allow olddomain to execute files of the given type
+#  - allow olddomain to transition to newdomain via execve()
+#  - allow the given type as entrypoint for transitions to newdomain via execve()
+#
+# Normally this distinction doesn't matter; but if you were to write rules like:
+#
+#     domain_trans(init, rootfs, crash_dump)
+#     domain_auto_trans(untrusted_app_all, crash_dump_exec, crash_dump)
+#     allow untrusted_app_all rootfs:file rx_file_perms;
+#
+# then untrusted_app_all would suddenly be able to execute arbitrary rootfs
+# files in crash_dump context!
 define(`domain_trans', `
 # Old domain may exec the file and transition to the new domain.
 allow $1 $2:file { getattr open read execute map };
@@ -24,6 +41,8 @@ allow $1 $3:process { siginh rlimitinh };
 # domain_auto_trans(olddomain, type, newdomain)
 # Automatically transition from olddomain to newdomain
 # upon executing a file labeled with type.
+#
+# SECURITY WARNING: Please read the comment above domain_trans()!
 #
 define(`domain_auto_trans', `
 # Allow the necessary permissions.
