@@ -173,6 +173,9 @@ get_prop(system_app, oem_unlock_prop)
 # Allow system apps to act as Perfetto producers.
 perfetto_producer(system_app)
 
+# Allow system apps to create VMs
+virtualizationservice_use(system_app)
+
 ###
 ### Neverallow rules
 ###
