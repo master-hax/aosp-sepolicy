@@ -43,6 +43,23 @@ neverallow { all_untrusted_apps -mediaprovider } property_socket:sock_file write
 neverallow { all_untrusted_apps -mediaprovider } init:unix_stream_socket connectto;
 neverallow { all_untrusted_apps -mediaprovider } property_type:property_service set;
 
+# disallow untrusted apps from reading ro.debuggable and ro.secure properties.
+# For compatibility, allow for targetApi <= 30
+neverallow {
+  all_untrusted_apps
+  -untrusted_app_25
+  -untrusted_app_27
+  -untrusted_app_29
+  -untrusted_app_30
+} ro_debuggable_prop:file read;
+neverallow {
+  all_untrusted_apps
+  -untrusted_app_25
+  -untrusted_app_27
+  -untrusted_app_29
+  -untrusted_app_30
+} ro_secure_prop:file read;
+
 # net.dns properties are not a public API. Disallow untrusted apps from reading this property.
 neverallow { all_untrusted_apps } net_dns_prop:file read;
 
