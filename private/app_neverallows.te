@@ -46,6 +46,10 @@ neverallow { all_untrusted_apps -mediaprovider } property_type:property_service 
 # net.dns properties are not a public API. Disallow untrusted apps from reading this property.
 neverallow { all_untrusted_apps } net_dns_prop:file read;
 
+# disallow untrusted apps from reading ro.debuggable and ro.secure properties.
+neverallow { all_untrusted_apps } ro_debuggable_prop:file read;
+neverallow { all_untrusted_apps } ro_secure_prop:file read;
+
 # Shared libraries created by trusted components within an app home
 # directory can be dlopen()ed. To maintain the W^X property, these files
 # must never be writable to the app.
