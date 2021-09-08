@@ -223,6 +223,10 @@ allow adbd staging_data_file:file r_file_perms;
 # Allow adbd to pull /apex/apex-info-list.xml for CTS tests.
 allow adbd apex_info_file:file r_file_perms;
 
+# Allow adbd to access debuggable and secure props
+get_prop(adbd, debuggable_prop)
+get_prop(adbd, secure_prop)
+
 ###
 ### Neverallow rules
 ###
