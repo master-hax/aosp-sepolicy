@@ -24,9 +24,6 @@ allow apkdmverity self:global_capability_class_set sys_admin;
 # allow apkdmverity to create loop devices with /dev/loop-control
 allow apkdmverity loop_control_device:chr_file rw_file_perms;
 
-# allow apkdmverity to read the roothash passed from microdroid_manager
-get_prop(apkdmverity, microdroid_manager_roothash_prop)
-
 # allow apkdmverity to access loop devices
 allow apkdmverity loop_device:blk_file rw_file_perms;
 allowxperm apkdmverity loop_device:blk_file ioctl {
