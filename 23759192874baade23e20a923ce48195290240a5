@@ -16,6 +16,75 @@
       "message": "Omitting compos_exec entirely seems to cause build failures, which isn\u0027t entirely unreasonable - although it works fine locally.",
       "revId": "23759192874baade23e20a923ce48195290240a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baa98ba9_a2128330",
+        "filename": "private/compat/31.0/31.0.ignore.cil",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-13T09:12:32Z",
+      "side": 1,
+      "message": "Seems unnecessary to have this be part of the Treble boundary. Why can\u0027t this all be private?\n\nAlso bikeshed-iest comment of all time: it seems like it should be compos_service not composd_service since presumably the \"d\" at the end of composd is just indicating that it\u0027s a daemon. The service name should be based on what the service does, not where it lives.",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "23759192874baade23e20a923ce48195290240a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd230113_f1d6e1b5",
+        "filename": "private/service_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-13T09:12:32Z",
+      "side": 1,
+      "message": "(unrelated to this change, but should this also be in private?)",
+      "range": {
+        "startLine": 52,
+        "startChar": 42,
+        "endLine": 52,
+        "endChar": 78
+      },
+      "revId": "23759192874baade23e20a923ce48195290240a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8846bdcd_bff22b6b",
+        "filename": "public/service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-13T09:12:32Z",
+      "side": 1,
+      "message": "why is this in public? It seems unnecessary.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 53
+      },
+      "revId": "23759192874baade23e20a923ce48195290240a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
