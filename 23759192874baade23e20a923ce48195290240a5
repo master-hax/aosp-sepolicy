@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "255158b3_70474ad3",
+        "filename": "private/compat/31.0/31.0.ignore.cil",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-09-13T09:35:06Z",
+      "side": 1,
+      "message": "\u003e Seems unnecessary to have this be part of the Treble boundary. Why can\u0027t this all be private?\n\nOf course it can. Somehow I\u0027d convinced myself that private/service.te didn\u0027t exist and services were always public, but it ain\u0027t so.\n\n\u003e \n\u003e Also bikeshed-iest comment of all time: it seems like it should be compos_service not composd_service since presumably the \"d\" at the end of composd is just indicating that it\u0027s a daemon. The service name should be based on what the service does, not where it lives.\n\nA very nice point. I\u0027m trying to avoid confusion between compos (which runs inside a VM) and composd (which runs in the host and manages the VM). But it is true that only one of them is a service here.",
+      "parentUuid": "baa98ba9_a2128330",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "23759192874baade23e20a923ce48195290240a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd230113_f1d6e1b5",
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e79ba2e4_12216774",
+        "filename": "private/service_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-09-13T09:35:06Z",
+      "side": 1,
+      "message": "I think that\u0027s less obvious - we want to expose it to at least some apps at some point.",
+      "parentUuid": "dd230113_f1d6e1b5",
+      "range": {
+        "startLine": 52,
+        "startChar": 42,
+        "endLine": 52,
+        "endChar": 78
+      },
+      "revId": "23759192874baade23e20a923ce48195290240a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8846bdcd_bff22b6b",
         "filename": "public/service.te",
         "patchSetId": 3
@@ -77,6 +125,30 @@
       "writtenOn": "2021-09-13T09:12:32Z",
       "side": 1,
       "message": "why is this in public? It seems unnecessary.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 53
+      },
+      "revId": "23759192874baade23e20a923ce48195290240a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c282b71_386c4697",
+        "filename": "public/service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-09-13T09:35:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8846bdcd_bff22b6b",
       "range": {
         "startLine": 10,
         "startChar": 0,
