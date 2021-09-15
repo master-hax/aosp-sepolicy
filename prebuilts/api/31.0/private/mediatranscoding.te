@@ -43,6 +43,7 @@ unix_socket_send(mediatranscoding, statsdw, statsd)
 allow mediatranscoding dmabuf_system_heap_device:chr_file r_file_perms;
 
 allow mediatranscoding gpu_device:dir search;
+allow mediatranscoding gpu_device:chr_file { open read write ioctl map };
 
 # Allow mediatranscoding service to access media-related system properties
 get_prop(mediatranscoding, media_config_prop)
