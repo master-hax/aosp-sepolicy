@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86b0b335_a3eea9b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-16T08:39:47Z",
+      "side": 1,
+      "message": "it sounds like this should be in device specific sepolicy, not in global policy? GPU drivers are #1 source of critical severity kernel vulnerabilities on Android, and the Media Frameworks remains a top source of remotely reachable vulns. Changes like this create two-stage remote-to-kernel attack surface that is risky and undesirable. I recommend adding this to device customization. Please consider fixing your gralloc implementation to not require GPU access.",
+      "revId": "28c6bbfc2738e4be5fb8f4e85d74ce9ca56e1a76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
