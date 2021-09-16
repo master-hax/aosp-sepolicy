@@ -1,0 +1,13 @@
+# HwBinder IPC client/server
+binder_call(hal_hypervisor_client, hal_hypervisor_server)
+binder_call(hal_hypervisor_server, hal_hypervisor_client);
+
+hal_attribute_hwservice(hal_hypervisor, hal_hypervisor_hwservice)
+hal_attribute_service(hal_hypervisor, hal_hypervisor_service)
+
+binder_call(hal_hypervisor_server, servicemanager)
+
+allow hal_hypervisor_server dumpstate:fifo_file write;
+
+# /proc/cpuinfo
+allow hal_hypervisor_server proc_cpuinfo:file r_file_perms;
