@@ -1,0 +1,18 @@
+# Helper to allow odrefresh to request compilation jobs in the CompOS VM
+type pvm_run, domain, coredomain;
+type pvm_run_exec, system_file_type, exec_type, file_type;
+
+# Allow access to open fds inherited from odrefresh - read inputs, generate outputs
+allow pvm_run odrefresh:fd use;
+allow pvm_run apex_art_data_file:file { getattr read };
+allow pvm_run apex_art_staging_data_file:file { getattr read write };
+
+# Run fd_server in the same domain
+allow pvm_run system_file:file execute_no_trans;
+
+# Connect to the CompOS VM, accept connections back to fd_server
+allow pvm_run self:vsock_socket { rw_socket_perms_no_ioctl create listen accept };
+
+# Only odrefresh can enter the domain via exec
+neverallow { domain -odrefresh } pvm_run:process transition;
+neverallow * pvm_run:process dyntransition;
