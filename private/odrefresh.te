@@ -49,8 +49,8 @@ get_prop(odrefresh, device_config_runtime_native_boot_prop)
 # odrefesh.
 allow odrefresh composd:fd use;
 
-# Run system binaries, e.g. pvm_exec, in the same domain
-allow odrefresh system_file:file execute_no_trans;
+# Run odrefresh to refresh ART artifacts
+domain_auto_trans(odrefresh, pvm_run_exec, pvm_run)
 
 # Do not audit unused resources from parent processes (adb, shell, su).
 # These appear to be unnecessary for odrefresh.
