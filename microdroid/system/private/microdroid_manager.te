@@ -49,6 +49,10 @@ allowxperm microdroid_manager device:chr_file ioctl {
     IOCTL_VM_SOCKETS_GET_LOCAL_CID
 };
 
+# Allow microdroid_manager to start services
+set_prop(microdroid_manager, ctl_start_prop)
+set_prop(microdroid_manager, ctl_default_prop)
+
 # Allow microdroid_manager to start the services apkdmverity and zipfuse
 set_prop(microdroid_manager, ctl_apkdmverity_prop)
 set_prop(microdroid_manager, ctl_zipfuse_prop)
