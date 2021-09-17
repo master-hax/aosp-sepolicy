@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32917156_d32e18f5",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-09-17T00:17:48Z",
+      "side": 1,
+      "message": "nit; we could also add\n\n    neverallow { domain -init -virtualizationservice } virtualizationservice_prop:file no_rw_file_perms;\n    \nI\u0027m not sure if reading this prop from other processes is harmful, though.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 0
+      },
+      "revId": "540444583c8271e7fcddd3f1cb58853cb78df353",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
