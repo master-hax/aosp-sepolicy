@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fe21c1a_60789605",
+        "filename": "private/access_vectors",
+        "patchSetId": 2
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-17T10:04:38Z",
+      "side": 1,
+      "message": "why is this added?",
+      "range": {
+        "startLine": 395,
+        "startChar": 1,
+        "endLine": 395,
+        "endChar": 11
+      },
+      "revId": "7da8b2d884a8ebc02813ff334924f3cbd82e74e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05c7c917_863a75bf",
+        "filename": "private/access_vectors",
+        "patchSetId": 2
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-17T10:04:38Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 398,
+        "startChar": 1,
+        "endLine": 398,
+        "endChar": 15
+      },
+      "revId": "7da8b2d884a8ebc02813ff334924f3cbd82e74e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bed20c4_6311485a",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-17T10:04:38Z",
+      "side": 1,
+      "message": "why is this nlmsg_read? This doesn\u0027t seem specfic to read. Perhaps must nlmsg?",
+      "range": {
+        "startLine": 122,
+        "startChar": 61,
+        "endLine": 122,
+        "endChar": 71
+      },
+      "revId": "7da8b2d884a8ebc02813ff334924f3cbd82e74e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10467105_2f35e9f2",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-17T10:04:38Z",
+      "side": 1,
+      "message": "I think this is fine to get us started, but what we\u0027re eventually going to want to do is allowlist instead of denylist what is the expected API for apps.",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 74
+      },
+      "revId": "7da8b2d884a8ebc02813ff334924f3cbd82e74e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0de698e4_e9b53a2f",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-17T10:04:38Z",
+      "side": 1,
+      "message": "I suspect that we\u0027re still going to want an auditallow (now auditallowxperm) to determine if we actually need to allow this permission.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 10
+      },
+      "revId": "7da8b2d884a8ebc02813ff334924f3cbd82e74e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50df5caf_dc0f5693",
+        "filename": "public/net.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-17T10:04:38Z",
+      "side": 1,
+      "message": "I would prefer we not do this, but spend the extra effort to get the minimum set.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 104
+      },
+      "revId": "7da8b2d884a8ebc02813ff334924f3cbd82e74e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
