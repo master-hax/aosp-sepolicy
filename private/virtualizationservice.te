@@ -46,6 +46,7 @@ allow virtualizationservice {
 
 # shell_data_file is used for automated tests and manual debugging.
 allow virtualizationservice shell_data_file:file { getattr read write };
+allow virtualizationservice shell_test_data_file:file { getattr read write };
 
 # Allow virtualizationservice to read apex-info-list.xml and access the APEX files listed there.
 allow virtualizationservice apex_info_file:file r_file_perms;
