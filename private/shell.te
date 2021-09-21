@@ -205,3 +205,6 @@ read_fstab(shell)
 
 # Allow shell read access to /apex/apex-info-list.xml for CTS.
 allow shell apex_info_file:file r_file_perms;
+
+# Allow shell to read qemu.sf.lcd_density for CTS.
+get_prop(shell, qemu_sf_lcd_density_prop)
