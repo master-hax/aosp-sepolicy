@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b83c4d05_7b6e8284",
+        "filename": "private/compos_fd_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-09-22T17:03:20Z",
+      "side": 1,
+      "message": "I don\u0027t know, tbh. Seems to be a pipe, probably stdin?\nfd_server: type\u003d1400 audit(0.0:6): avc: denied { read } for path\u003d\"pipe:[77205]\" dev\u003d\"pipefs\" ino\u003d77205 scontext\u003du:r:compos_fd_server:s0 tcontext\u003du:r:odrefresh:s0 tclass\u003dfifo_file permissive\u003d0\n\nMaybe there\u0027s a way to tell minijail not to do that?\nOr I could just deny it \u0026 add a dontaudit (it doesn\u0027t break things), but that seems less clean.",
+      "parentUuid": "1ac71293_87b73fd3",
+      "range": {
+        "startLine": 6,
+        "startChar": 23,
+        "endLine": 6,
+        "endChar": 42
+      },
+      "revId": "afa17f8319cac674bb484b8518cd5efc771f3b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3cbb6c52_3333b9ba",
         "filename": "private/fd_server.te",
         "patchSetId": 1
@@ -49,6 +73,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8e92f227_9f116ab1",
+        "filename": "private/fd_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-09-22T17:03:20Z",
+      "side": 1,
+      "message": "Good point. Reworded.",
+      "parentUuid": "3cbb6c52_3333b9ba",
+      "range": {
+        "startLine": 1,
+        "startChar": 24,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "afa17f8319cac674bb484b8518cd5efc771f3b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e2700352_61852902",
         "filename": "private/odrefresh.te",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2021-09-22T16:28:50Z",
       "side": 1,
       "message": "This change LGTM.  Just to over-communicate, I may change fd_server to a library later, and if so, it\u0027ll become a thread in the caller process, and we may avoid the kill and most of compos_fd_server.te (but need to allow odrefresh to use/create the vsock).",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 48
+      },
+      "revId": "afa17f8319cac674bb484b8518cd5efc771f3b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db6930e1_2144c61a",
+        "filename": "private/odrefresh.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-09-22T17:03:20Z",
+      "side": 1,
+      "message": "I\u0027m somewhat against that - moving pvm_exec to a library makes sense to me, but not so convinced about fd_server.\n\nNot allowing odrefresh to arbitrarily create vsocks seems like a good thing. So either pvm_exec or fd_server should be a domain transition.\n\nIf we want other VMs to run fd_server it would be good to similarly constrain them.\n\n(See aosp/1832392 for the earlier version which ran pvm_exec in a different domain.)",
+      "parentUuid": "e2700352_61852902",
       "range": {
         "startLine": 60,
         "startChar": 0,
