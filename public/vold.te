@@ -163,6 +163,7 @@ allow vold kmsg_device:chr_file rw_file_perms;
 
 # Run fsck in the fsck domain.
 allow vold fsck_exec:file { r_file_perms execute };
+allow vold toolbox_exec:file { r_file_perms execute };
 
 # Log fsck results
 allow vold fscklogs:dir rw_dir_perms;

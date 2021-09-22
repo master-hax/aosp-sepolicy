@@ -24,7 +24,10 @@ allow fsck_untrusted proc_mounts:file r_file_perms;
 # Allow stat access to all block devices so that fsck can compare
 # major/minor values.
 allow fsck_untrusted dev_type:blk_file getattr;
+allow fsck_untrusted toolbox_exec:file ;
 
+allow fsck_untrusted fsck_exec:file execute_no_trans;
+allow fsck_untrusted toolbox_exec:file { entrypoint execute getattr map read };
 ###
 ### neverallow rules
 ###
@@ -43,7 +46,8 @@ neverallow fsck_untrusted {
   dm_device
 }:blk_file no_rw_file_perms;
 
-# Only allow entry from vold via fsck binaries
+
+# Only allow entry from vold via fsck binaries or toybox (timeout)
 neverallow { domain -vold } fsck_untrusted:process transition;
 neverallow * fsck_untrusted:process dyntransition;
-neverallow fsck_untrusted { file_type fs_type -fsck_exec }:file entrypoint;
+neverallow fsck_untrusted { file_type fs_type -fsck_exec -toolbox_exec }:file entrypoint;
