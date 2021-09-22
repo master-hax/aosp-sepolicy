@@ -13,6 +13,8 @@ domain_trans(vold, blkid_exec, blkid_untrusted);
 domain_trans(vold, fsck_exec, fsck);
 domain_trans(vold, fsck_exec, fsck_untrusted);
 
+domain_auto_trans(vold, toolbox_exec, fsck_untrusted);
+
 # Newly created storage dirs are always treated as mount stubs to prevent us
 # from accidentally writing when the mount point isn't present.
 type_transition vold storage_file:dir storage_stub_file;
