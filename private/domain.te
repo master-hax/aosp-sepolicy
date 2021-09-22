@@ -526,6 +526,16 @@ neverallow {
   -dumpstate
 } mm_events_config_prop:file no_rw_file_perms;
 
+# Only allow init and vendor_init to read/write bootreceiver properties
+# NOTE: dumpstate is allowed to read any system property
+neverallow {
+  domain
+  -init
+  -vendor_init
+  -dumpstate
+} bootreceiver_config_prop:file no_rw_file_perms;
+
+
 # Allow the tracing daemon and callstack sampler to use kallsyms to symbolize
 # kernel traces. Addresses are not disclosed, they are repalced with symbol
 # names (if available). Traces don't disclose KASLR.
