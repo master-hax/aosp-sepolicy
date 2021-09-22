@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd486861_94897580",
+        "filename": "private/compos_fd_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-09-22T17:13:53Z",
+      "side": 1,
+      "message": "Ah, I know.  It\u0027s a fallback implementation for minijail to communicate to the child process during the setup.  It won\u0027t be needed if b/184162761 is implemented.  Let\u0027s add a TODO then?",
+      "parentUuid": "b83c4d05_7b6e8284",
+      "range": {
+        "startLine": 6,
+        "startChar": 23,
+        "endLine": 6,
+        "endChar": 42
+      },
+      "revId": "afa17f8319cac674bb484b8518cd5efc771f3b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3cbb6c52_3333b9ba",
         "filename": "private/fd_server.te",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "I\u0027m somewhat against that - moving pvm_exec to a library makes sense to me, but not so convinced about fd_server.\n\nNot allowing odrefresh to arbitrarily create vsocks seems like a good thing. So either pvm_exec or fd_server should be a domain transition.\n\nIf we want other VMs to run fd_server it would be good to similarly constrain them.\n\n(See aosp/1832392 for the earlier version which ran pvm_exec in a different domain.)",
       "parentUuid": "e2700352_61852902",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 48
+      },
+      "revId": "afa17f8319cac674bb484b8518cd5efc771f3b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec19f264_4c6e4806",
+        "filename": "private/odrefresh.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-09-22T17:13:53Z",
+      "side": 1,
+      "message": "We don\u0027t need to make any change now.  I\u0027m just thinking for the general app use in the future.  We wouldn\u0027t need to allow the apps to transition into some fd_server domain, since they can easily get their own vsock and handle requests.",
+      "parentUuid": "db6930e1_2144c61a",
       "range": {
         "startLine": 60,
         "startChar": 0,
