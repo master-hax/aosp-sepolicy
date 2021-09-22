@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ac71293_87b73fd3",
+        "filename": "private/compos_fd_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-09-22T16:28:50Z",
+      "side": 1,
+      "message": "what this?",
+      "range": {
+        "startLine": 6,
+        "startChar": 23,
+        "endLine": 6,
+        "endChar": 42
+      },
+      "revId": "afa17f8319cac674bb484b8518cd5efc771f3b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cbb6c52_3333b9ba",
+        "filename": "private/fd_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-09-22T16:28:50Z",
+      "side": 1,
+      "message": "nit: s/files/given file FDs/ maybe? Just so that this doesn\u0027t feel like a NFS to the reader.",
+      "range": {
+        "startLine": 1,
+        "startChar": 24,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "afa17f8319cac674bb484b8518cd5efc771f3b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2700352_61852902",
+        "filename": "private/odrefresh.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-09-22T16:28:50Z",
+      "side": 1,
+      "message": "This change LGTM.  Just to over-communicate, I may change fd_server to a library later, and if so, it\u0027ll become a thread in the caller process, and we may avoid the kill and most of compos_fd_server.te (but need to allow odrefresh to use/create the vsock).",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 48
+      },
+      "revId": "afa17f8319cac674bb484b8518cd5efc771f3b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
