@@ -266,3 +266,7 @@ allow domain kernel:key search;
 # tests (b/114136122)
 domain_auto_trans(domain, crash_dump_exec, crash_dump);
 allow domain crash_dump:process sigchld;
+
+# Don't allow raw read/write/open access to generic devices.
+# Rather force a relabel to a more specific type.
+neverallow domain device:chr_file { open read write };
