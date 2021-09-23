@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8832dea_2e6c35d1",
+        "filename": "microdroid/system/private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-09-23T07:22:44Z",
+      "side": 1,
+      "message": "Without these, I get denials.\n\n09-23 07:17:36.392     1     1 W /system/bin/init: type\u003d1107 audit(0.0:4): uid\u003d0 auid\u003d4294967295 ses\u003d4294967295 subj\u003du:r:init:s0 msg\u003d\u0027avc: denied { set } for property\u003dctl.apkdmverity pid\u003d128 uid\u003d0 gid\u003d0 scontext\u003du:r:microdroid_manager:s0 tcontext\u003du:object_r:ctl_default_prop:s0 tclass\u003dproperty_service permissive\u003d0\u0027\n09-23 07:17:36.412     1     1 W /system/bin/init: type\u003d1107 audit(0.0:5): uid\u003d0 auid\u003d4294967295 ses\u003d4294967295 subj\u003du:r:init:s0 msg\u003d\u0027avc: denied { set } for property\u003dctl.apexd-vm pid\u003d128 uid\u003d0 gid\u003d0 scontext\u003du:r:microdroid_manager:s0 tcontext\u003du:object_r:ctl_default_prop:s0 tclass\u003dproperty_service permissive\u003d0\u0027\n09-23 07:17:36.464     1     1 W /system/bin/init: type\u003d1107 audit(0.0:6): uid\u003d0 auid\u003d4294967295 ses\u003d4294967295 subj\u003du:r:init:s0 msg\u003d\u0027avc: denied { set } for property\u003dctl.zipfuse pid\u003d128 uid\u003d0 gid\u003d0 scontext\u003du:r:microdroid_manager:s0 tcontext\u003du:object_r:ctl_default_prop:s0 tclass\u003dproperty_service permissive\u003d0\u0027",
+      "parentUuid": "33fb7205_6f864810",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 50
+      },
+      "revId": "927c32bd15f6d913c5025c414b31434b2d1bdd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "965ec0d8_71af01a9",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-23T06:53:24Z",
       "side": 1,
       "message": "We already have ctl.start$\u003cname\u003e. Why do we need to have ctl.\u003cname\u003e?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 46
+      },
+      "revId": "927c32bd15f6d913c5025c414b31434b2d1bdd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b05e5cd6_24a819cd",
+        "filename": "microdroid/system/private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-09-23T07:22:44Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "965ec0d8_71af01a9",
       "range": {
         "startLine": 34,
         "startChar": 0,
