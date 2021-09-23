@@ -905,7 +905,7 @@ ro.product.bootimage.name         u:object_r:build_bootimage_prop:s0 exact strin
 ro.product.property_source_order u:object_r:build_config_prop:s0 exact string
 
 ro.crypto.state u:object_r:vold_status_prop:s0 exact enum encrypted unencrypted unsupported
-ro.crypto.type  u:object_r:vold_status_prop:s0 exact enum block file none
+ro.crypto.type  u:object_r:vold_status_prop:s0 exact enum block file managed none
 
 ro.property_service.version u:object_r:property_service_version_prop:s0 exact int
 
@@ -1179,10 +1179,15 @@ partition.system_ext.verified u:object_r:verity_status_prop:s0 exact string
 partition.product.verified    u:object_r:verity_status_prop:s0 exact string
 partition.vendor.verified     u:object_r:verity_status_prop:s0 exact string
 
+# Properties that holds the hashtree information for verity partitions.
 partition.system.verified.hash_alg     u:object_r:verity_status_prop:s0 exact string
 partition.system_ext.verified.hash_alg u:object_r:verity_status_prop:s0 exact string
 partition.product.verified.hash_alg    u:object_r:verity_status_prop:s0 exact string
 partition.vendor.verified.hash_alg     u:object_r:verity_status_prop:s0 exact string
+partition.system.verified.root_digest     u:object_r:verity_status_prop:s0 exact string
+partition.system_ext.verified.root_digest u:object_r:verity_status_prop:s0 exact string
+partition.product.verified.root_digest    u:object_r:verity_status_prop:s0 exact string
+partition.vendor.verified.root_digest     u:object_r:verity_status_prop:s0 exact string
 
 ro.setupwizard.enterprise_mode u:object_r:setupwizard_prop:s0 exact bool
 ro.setupwizard.esim_cid_ignore u:object_r:setupwizard_prop:s0 exact string
@@ -1228,3 +1233,6 @@ ro.bootanim.quiescent.enabled u:object_r:bootanim_config_prop:s0 exact bool
 
 # dck properties
 ro.gms.dck.eligible_wcc u:object_r:dck_prop:s0 exact int
+
+# virtualization service properties
+virtualizationservice.state.last_cid u:object_r:virtualizationservice_prop:s0 exact uint

@@ -18,6 +18,7 @@ android.hardware.security.secureclock.ISecureClock/default             u:object_
 android.hardware.security.sharedsecret.ISharedSecret/default             u:object_r:hal_sharedsecret_service:s0
 android.hardware.soundtrigger3.ISoundTriggerHw/default               u:object_r:hal_audio_service:s0
 android.hardware.tv.tuner.ITuner/default                             u:object_r:hal_tv_tuner_service:s0
+android.hardware.uwb.IUwb/default                                    u:object_r:hal_uwb_service:s0
 android.hardware.vibrator.IVibrator/default                          u:object_r:hal_vibrator_service:s0
 android.hardware.vibrator.IVibratorManager/default                   u:object_r:hal_vibrator_service:s0
 android.hardware.weaver.IWeaver/default                              u:object_r:hal_weaver_service:s0
@@ -47,6 +48,8 @@ android.security.maintenance              u:object_r:keystore_maintenance_servic
 android.security.metrics                  u:object_r:keystore_metrics_service:s0
 android.security.remoteprovisioning       u:object_r:remoteprovisioning_service:s0
 android.service.gatekeeper.IGateKeeperService    u:object_r:gatekeeper_service:s0
+android.system.composd                    u:object_r:compos_service:s0
+android.system.virtualizationservice      u:object_r:virtualization_service:s0
 app_binding                               u:object_r:app_binding_service:s0
 app_hibernation                           u:object_r:app_hibernation_service:s0
 app_integrity                             u:object_r:app_integrity_service:s0
@@ -77,7 +80,6 @@ cacheinfo                                 u:object_r:cacheinfo_service:s0
 carrier_config                            u:object_r:radio_service:s0
 clipboard                                 u:object_r:clipboard_service:s0
 com.android.net.IProxyService             u:object_r:IProxyService_service:s0
-android.system.virtualizationservice      u:object_r:virtualization_service:s0
 companiondevice                           u:object_r:companion_device_service:s0
 platform_compat                           u:object_r:platform_compat_service:s0
 platform_compat_native                    u:object_r:platform_compat_service:s0
@@ -157,6 +159,7 @@ jobscheduler                              u:object_r:jobscheduler_service:s0
 launcherapps                              u:object_r:launcherapps_service:s0
 legacy_permission                         u:object_r:legacy_permission_service:s0
 lights                                    u:object_r:light_service:s0
+locale                                    u:object_r:locale_service:s0
 location                                  u:object_r:location_service:s0
 location_time_zone_manager                u:object_r:location_time_zone_manager_service:s0
 lock_settings                             u:object_r:lock_settings_service:s0

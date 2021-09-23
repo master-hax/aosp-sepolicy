@@ -7,9 +7,10 @@ type microdroid_manager_exec, exec_type, file_type, system_file_type;
 init_daemon_domain(microdroid_manager)
 
 # microdroid_manager accesses a virtual disk block device to read VM payload
+# It needs write access as it updates the instance image
 allow microdroid_manager block_device:dir r_dir_perms;
 allow microdroid_manager block_device:lnk_file r_file_perms;
-allow microdroid_manager vd_device:blk_file r_file_perms;
+allow microdroid_manager vd_device:blk_file rw_file_perms;
 # microdroid_manager verifies DM-verity mounted APK payload
 allow microdroid_manager dm_device:blk_file r_file_perms;
 
@@ -35,5 +36,28 @@ allow microdroid_manager self:vsock_socket { create_socket_perms_no_ioctl };
 # microdroid_manager is using bootstrap bionic
 allow microdroid_manager system_bootstrap_lib_file:dir r_dir_perms;
 allow microdroid_manager system_bootstrap_lib_file:file { execute read open getattr map };
+
+# microdroid_manager create /apex/vm-payload-metadata for apexd
+# TODO(b/199371341) create a new label for the file so that only microdroid_manager can create it.
+allow microdroid_manager apex_mnt_dir:dir w_dir_perms;
+allow microdroid_manager apex_mnt_dir:file create_file_perms;
+
+# Allow microdroid_manager to ioctl /dev/vsock.
+# TODO(b/191845268): remove the below rules
+allow microdroid_manager device:chr_file r_file_perms;
+allowxperm microdroid_manager device:chr_file ioctl {
+    IOCTL_VM_SOCKETS_GET_LOCAL_CID
+};
+
+# Allow microdroid_manager to start the services apexd-vm, apkdmverity and zipfuse
+set_prop(microdroid_manager, ctl_apexd_vm_prop)
+set_prop(microdroid_manager, ctl_apkdmverity_prop)
+set_prop(microdroid_manager, ctl_zipfuse_prop)
+
+# Allow microdroid_manager to wait for linkerconfig to be ready
+get_prop(microdroid_manager, apex_config_prop)
+
+# Allow microdroid_manager to pass the roothash to apkdmverity
+set_prop(microdroid_manager, microdroid_manager_roothash_prop)
 
 neverallow microdroid_manager { file_type fs_type }:file execute_no_trans;
