@@ -230,6 +230,9 @@ get_prop(zygote, qemu_sf_lcd_density_prop)
 # Allow zygote to read /apex/apex-info-list.xml
 allow zygote apex_info_file:file r_file_perms;
 
+# Allow zygote to find files in /vendor/apex/*
+allow zygote vendor_apex_file:dir r_dir_perms;
+
 ###
 ### neverallow rules
 ###
