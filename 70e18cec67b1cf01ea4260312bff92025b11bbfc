@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43298493_31f388a4",
+        "filename": "private/recovery.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-27T16:38:57Z",
+      "side": 1,
+      "message": "how was this tested? Can\u0027t we just let recover default back to its preavious permissions? xperms are a bit weird as far as selinux permissions go. If they they\u0027re not used on an scontext/tcontext/tclass, then the kernel ignores them. While a bit inconsistent, this allows flipping it on only where it\u0027s most wanted.\n\nAnd if you wanted to enable it globally, you could add something like\n\nallowxperm domain self:...",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 66
+      },
+      "revId": "70e18cec67b1cf01ea4260312bff92025b11bbfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb9f1dac_7a7bbfc8",
+        "filename": "public/net.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-27T16:38:57Z",
+      "side": 1,
+      "message": "Let\u0027s chat Wednesday about a better way to do this.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 99
+      },
+      "revId": "70e18cec67b1cf01ea4260312bff92025b11bbfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
