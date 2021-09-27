@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67579af4_21c21d79",
+        "filename": "private/access_vectors",
+        "patchSetId": 2
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-09-27T14:33:05Z",
+      "side": 1,
+      "message": "Should\u0027ve been nlmsg. Let me know if it makes sense now.",
+      "parentUuid": "4fe21c1a_60789605",
+      "range": {
+        "startLine": 395,
+        "startChar": 1,
+        "endLine": 395,
+        "endChar": 11
+      },
+      "revId": "7da8b2d884a8ebc02813ff334924f3cbd82e74e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "05c7c917_863a75bf",
         "filename": "private/access_vectors",
         "patchSetId": 2
@@ -49,6 +73,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "98277120_12652458",
+        "filename": "private/access_vectors",
+        "patchSetId": 2
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-09-27T14:33:05Z",
+      "side": 1,
+      "message": "Deleted it. I was keeping this in there to ensure any references to nlmsg_readpriv across other repositories would still work, as this patch is really the most POC of them all. It\u0027s currently in a state just good enough to allow passing tests together with the other two changes. I\u0027ll rewrite it properly when the kernel changes get merged.\n\nOne thing I\u0027m not clear on yet (but that\u0027s likely just because I\u0027m lacking the knowledge of selinux) is whether we\u0027ll need sepolicy that spans both the before-kernel-change world and the after-kernel-change world, in order to allow the system image to work with either versions of the kernel running underneath it. That wouldn\u0027t be needed if there\u0027s a way to have a separate sepolicy depending on the kernel version, or a way to cross-compile a versioned sepolicy from this one to older kernels that don\u0027t support the new xperm model, but I don\u0027t know whether that\u0027s the case.\n\nIn the former case (where we can\u0027t distinguish between kernel versions), is my understanding correct that nlmsg_readpriv would need to continue existing for a while?",
+      "parentUuid": "05c7c917_863a75bf",
+      "range": {
+        "startLine": 398,
+        "startChar": 1,
+        "endLine": 398,
+        "endChar": 15
+      },
+      "revId": "7da8b2d884a8ebc02813ff334924f3cbd82e74e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4718975_57989ebe",
+        "filename": "private/access_vectors",
+        "patchSetId": 2
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-09-27T14:33:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05c7c917_863a75bf",
+      "range": {
+        "startLine": 398,
+        "startChar": 1,
+        "endLine": 398,
+        "endChar": 15
+      },
+      "revId": "7da8b2d884a8ebc02813ff334924f3cbd82e74e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8bed20c4_6311485a",
         "filename": "private/app_neverallows.te",
         "patchSetId": 2
@@ -60,6 +132,30 @@
       "writtenOn": "2021-09-17T10:04:38Z",
       "side": 1,
       "message": "why is this nlmsg_read? This doesn\u0027t seem specfic to read. Perhaps must nlmsg?",
+      "range": {
+        "startLine": 122,
+        "startChar": 61,
+        "endLine": 122,
+        "endChar": 71
+      },
+      "revId": "7da8b2d884a8ebc02813ff334924f3cbd82e74e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7afd468_90977088",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-09-27T14:33:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bed20c4_6311485a",
       "range": {
         "startLine": 122,
         "startChar": 61,
@@ -95,6 +191,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba391593_3a95f59b",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-09-27T14:33:05Z",
+      "side": 1,
+      "message": "100% on board. Once r.android.com/q/topic:netlink-route-default-deny (which does exactly that) is merged, I\u0027m planning to rewrite this entire patch with an allowlist-based approach.",
+      "parentUuid": "10467105_2f35e9f2",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 74
+      },
+      "revId": "7da8b2d884a8ebc02813ff334924f3cbd82e74e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0de698e4_e9b53a2f",
         "filename": "private/untrusted_app_25.te",
         "patchSetId": 2
@@ -106,6 +226,30 @@
       "writtenOn": "2021-09-17T10:04:38Z",
       "side": 1,
       "message": "I suspect that we\u0027re still going to want an auditallow (now auditallowxperm) to determine if we actually need to allow this permission.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 10
+      },
+      "revId": "7da8b2d884a8ebc02813ff334924f3cbd82e74e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "111dee57_b1d206fe",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-09-27T14:33:05Z",
+      "side": 1,
+      "message": "Agreed, same as with the comment above, this should be the case once r.android.com/q/topic:netlink-route-default-deny is merged.",
+      "parentUuid": "0de698e4_e9b53a2f",
       "range": {
         "startLine": 53,
         "startChar": 0,
