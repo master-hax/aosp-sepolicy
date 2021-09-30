@@ -476,6 +476,7 @@
 /(system_ext|system/system_ext)/etc/selinux/system_ext_seapp_contexts       u:object_r:seapp_contexts_file:s0
 /(system_ext|system/system_ext)/etc/selinux/system_ext_service_contexts     u:object_r:service_contexts_file:s0
 /(system_ext|system/system_ext)/etc/selinux/system_ext_mac_permissions\.xml u:object_r:mac_perms_file:s0
+/(system_ext|system/system_ext)/etc/selinux/userdebug_plat_sepolicy\.cil    u:object_r:sepolicy_file:s0
 
 /(system_ext|system/system_ext)/bin/aidl_lazy_test_server    u:object_r:aidl_lazy_test_server_exec:s0
 /(system_ext|system/system_ext)/bin/aidl_lazy_cb_test_server u:object_r:aidl_lazy_test_server_exec:s0
@@ -489,12 +490,14 @@
 # This includes VENDOR Dynamically Loadable Kernel Modules and other misc files.
 #
 /(vendor_dlkm|vendor/vendor_dlkm|system/vendor/vendor_dlkm)(/.*)?         u:object_r:vendor_file:s0
+/(vendor_dlkm|vendor/vendor_dlkm|system/vendor/vendor_dlkm)/etc(/.*)?     u:object_r:vendor_configs_file:s0
 
 #############################
 # OdmDlkm files
 # This includes ODM Dynamically Loadable Kernel Modules and other misc files.
 #
 /(odm_dlkm|vendor/odm_dlkm|system/vendor/odm_dlkm)(/.*)?                  u:object_r:vendor_file:s0
+/(odm_dlkm|vendor/odm_dlkm|system/vendor/odm_dlkm)/etc(/.*)?              u:object_r:vendor_configs_file:s0
 
 #############################
 # Vendor files from /(product|system/product)/vendor_overlay
