@@ -570,3 +570,14 @@ neverallow {
   userdebug_or_eng(`-virtualizationservice')
   userdebug_or_eng(`-crosvm')
 } shell_data_file:file open;
+
+# Restrict which domains are allowed to create vsock_sockets, but do not restrict
+# certain other opertations (e.g. read, write). This is done so that the
+# virtualizationservice can provide access control to VMs by handing out sockets.
+neverallow {
+  domain
+  -adbd
+  -compos_fd_server
+  -virtualizationservice
+  -vsock_creation_violators # Using this attribute is a CTS violation!!!
+} *:vsock_socket ~{ getattr read write };

@@ -290,6 +290,12 @@ expandattribute untrusted_app_visible_hwservice_violators false;
 attribute untrusted_app_visible_halserver_violators;
 expandattribute untrusted_app_visible_halserver_violators false;
 
+# This attribute may be used to bypass the neverallow restriction against vsock socket
+# creation.
+# WARNING: using this attribute will result in a CTS failure.
+attribute vsock_creation_violators;
+expandattribute vsock_creation_violators false;
+
 # PDX services
 attribute pdx_endpoint_dir_type;
 attribute pdx_endpoint_socket_type;
