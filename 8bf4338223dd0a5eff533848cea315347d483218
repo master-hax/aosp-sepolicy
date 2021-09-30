@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10f07e45_f1cfd4a6",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-30T16:42:48Z",
+      "side": 1,
+      "message": "FYI, this is _not_ allowing these apps to read these properties. You have to explicitly grant that in those files (e.g. private/untrusted_app_25.te, etc). Neverallow rules don\u0027t grant access, they simply assert that no allow rules exist that violate the neverallow rule.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 19
+      },
+      "revId": "8bf4338223dd0a5eff533848cea315347d483218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c4b4a254_3405e75b",
         "filename": "private/priv_app.te",
         "patchSetId": 5
