@@ -34,6 +34,24 @@
       "parentUuid": "b43bd7ea_bd509d9b",
       "revId": "996e5da5ede01e5cd85eec702b24114e63724afa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "086d23a5_46aa32ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1088085
+      },
+      "writtenOn": "2021-10-01T02:05:58Z",
+      "side": 1,
+      "message": "Actually the storage isn\u0027t exclusive to GMScore. The directory then can be used by other custom checkin apps as well, e.g. the checkin app of android things. And if other checkin apps want to use the space, they can add custom permissions here too. So I feel it\u0027s better to create a new dir than reusing the /data/ota dirs.  \n\nIn short, the device needs to store a pair of id:token to perform checkin. And for GMScore devices, we store the primary copy inside GMScore. However, we need somewhere else to backup the data if users clear the GMScore data. (As a technical detail, old Pixels wrongly use another app\u0027s storage as a backup place.)\n\nbtw, the token is merely a string of integers \u003c 128 bytes. And checkin is a server service that anyone can use, it doesn\u0027t necessarily ties to gmscore.",
+      "parentUuid": "06748612_288f2e0a",
+      "revId": "996e5da5ede01e5cd85eec702b24114e63724afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
