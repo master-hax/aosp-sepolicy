@@ -33,6 +33,24 @@
       "message": "You will need owner approval, too.",
       "revId": "087d527fd3b5fe7a669ede91f3039882f553c9a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e5c51f8_08dd19a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2021-10-01T18:37:37Z",
+      "side": 1,
+      "message": "These files are passed directly to m4, which may take into account the order files are provided on the command line, but I\u0027m not 100% sure. So I didn\u0027t want to change the order. This quote from m4\u0027s documentation that make me think that, but I don\u0027t think we actually are using -B or -I:\n\nhttps://www.gnu.org/software/m4/manual/m4.html\n\n\"If the --prepend-include or -B command-line option was provided (see Invoking m4), those directories are searched first, in reverse order that those options were listed on the command line. Then m4 looks in the current working directory. Next comes the directories specified with the --include or -I option, in the order found on the command line.\"",
+      "parentUuid": "409ba4f6_a668b81e",
+      "revId": "087d527fd3b5fe7a669ede91f3039882f553c9a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
