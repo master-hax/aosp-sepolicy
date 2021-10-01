@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49446057_a96a2e55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1293738
+      },
+      "writtenOn": "2021-10-01T22:00:54Z",
+      "side": 1,
+      "message": "What is the purpose of android_host? This could be a bit tedious to implement for retargetable builds which could run as the host or guest OS. What about L3 nesting? The middle one is a host and a guest.\n\nUsing boot properties is okay with me though as that will allow us to update the hypervisor at runtime without needing to bake it into the build.\n\nLinux does have a hypervisor framework for this purpose, just nobody except Xen uses it. Maybe a kernel solution would be better in the long run?",
+      "revId": "3e34575a958abf27df9434f061e6ea43026b577a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40f969bd_d161b7f1",
