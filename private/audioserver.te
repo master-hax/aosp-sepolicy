@@ -6,6 +6,9 @@ type audioserver_exec, exec_type, file_type, system_file_type;
 init_daemon_domain(audioserver)
 tmpfs_domain(audioserver)
 
+# Allow audioserver shared buffers to be accessed by apps.
+typeattribute audioserver_tmpfs mlstrustedobject;
+
 r_dir_file(audioserver, sdcard_type)
 r_dir_file(audioserver, fuse)
 

@@ -18,3 +18,7 @@ get_prop(mediaserver, media_config_prop)
 
 # Allow mediaserver to start media.transcoding service via ctl.start.
 set_prop(mediaserver, ctl_mediatranscoding_prop);
+
+# Allow mediaserver r/w/map/stat access to audioserver shared memory buffers.
+allow mediaserver audioserver:fd use;
+allow mediaserver audioserver_tmpfs:file { getattr map read write };
