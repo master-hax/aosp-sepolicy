@@ -52,6 +52,11 @@ allow virtualizationservice apex_info_file:file r_file_perms;
 allow virtualizationservice apex_data_file:dir search;
 allow virtualizationservice staging_data_file:file r_file_perms;
 
+# Allow virtualizationservice to access "package_native" service for staged apex info.
+allow virtualizationservice package_native_service:service_manager find;
+# Allow virtualizationservice to read staged apex files.
+allow virtualizationservice staging_data_file:dir search;
+
 # Let virtualizationservice to accept vsock connection from the guest VMs
 allow virtualizationservice self:vsock_socket { create_socket_perms_no_ioctl listen accept };
 
