@@ -106,6 +106,24 @@
       "parentUuid": "92714dfa_ee1dfe64",
       "revId": "996e5da5ede01e5cd85eec702b24114e63724afa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef9f1e4c_8e8432a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-10-05T14:52:34Z",
+      "side": 1,
+      "message": "I don\u0027t know much about backup service, but the document [1] says that there are two options: key/value backup and auto backup. The former seems to be what you are looking for. The latter is for the entire app data, but it looks like it can be configured to filter only the needed file.\n\nI am not insisting that you must use backup service though. I just thought that such a use of system storage should be through a system service - be it the backup service, the settings provider, or whatever. \n\n[1] https://developer.android.com/guide/topics/data/backup#Choosing",
+      "parentUuid": "7ac0d46c_6fde8293",
+      "revId": "996e5da5ede01e5cd85eec702b24114e63724afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
