@@ -178,6 +178,24 @@
       "parentUuid": "1cb9ad51_a60c4da2",
       "revId": "996e5da5ede01e5cd85eec702b24114e63724afa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22a753a9_bc22cb90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-10-06T02:42:46Z",
+      "side": 1,
+      "message": "I learned that restore happens only when an app is newly installed. Then using the backup service doesn\u0027t look feasible. I am leaning toward using /data as we don\u0027t seem to have any better option.\n\nI still don\u0027t fully understand the reason why the android_id:token shouldn\u0027t be deleted even when user explicitly deleted the app storage. Where do the id and the token come from initially? Why is it okay to delete them via factory reset, but not via app storage delete?",
+      "parentUuid": "7ae8fa99_9af3cb96",
+      "revId": "996e5da5ede01e5cd85eec702b24114e63724afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
