@@ -214,6 +214,24 @@
       "parentUuid": "7ae8fa99_9af3cb96",
       "revId": "996e5da5ede01e5cd85eec702b24114e63724afa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d93ebad1_0f59d418",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-10-06T07:52:28Z",
+      "side": 1,
+      "message": "\u003e In fact, is it better to use the \"/data/misc_ce/user_id/checkin\". Seems none of the app space / system service solution meet our need here...\n\nThis is definitely much better, and completely resolves the multi-user issues. However, now we have an arbitrary data dir which gmscore (and eventually other apps?) can write anything to to bypass an app data wipe. I still think we need some kind of service to manage this data so that it\u0027s well scoped and not arbitrary. A checkin service? Can BlobStoreManager be used for this? https://developer.android.com/reference/android/app/blob/BlobStoreManager",
+      "parentUuid": "a5a5f39a_c18dde1b",
+      "revId": "996e5da5ede01e5cd85eec702b24114e63724afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
