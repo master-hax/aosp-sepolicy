@@ -232,6 +232,24 @@
       "parentUuid": "a5a5f39a_c18dde1b",
       "revId": "996e5da5ede01e5cd85eec702b24114e63724afa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "effb508c_c93ac2a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1088085
+      },
+      "writtenOn": "2021-10-06T17:52:51Z",
+      "side": 1,
+      "message": "Yeah it\u0027s unfortunate that none of the app space solution work well for us. I am checking with the author of BlobStoreManager. After preliminary read, I found the app at least need to store tuple of (algorithm, digest, label, expiryTimeMillis, tag) to identify/access the blob...That seems to transfer the problem to a different one, as the token itself should be small\n\nOn the other hand, the checkin apps should be either system apps or system services, so the usage should be generally trustworth. And gmscore already have access to some places in the /data dir, it\u0027s much cleaner to have a dedicated dir for this special purpose.",
+      "parentUuid": "d93ebad1_0f59d418",
+      "revId": "996e5da5ede01e5cd85eec702b24114e63724afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
