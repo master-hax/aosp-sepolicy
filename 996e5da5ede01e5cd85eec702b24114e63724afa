@@ -196,6 +196,24 @@
       "parentUuid": "7ae8fa99_9af3cb96",
       "revId": "996e5da5ede01e5cd85eec702b24114e63724afa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5a5f39a_c18dde1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1088085
+      },
+      "writtenOn": "2021-10-06T02:50:50Z",
+      "side": 1,
+      "message": "In fact, is it better to use the \"/data/misc_ce/user_id/checkin\". Seems none of the app space / system service solution meet our need here...\n\n\u003e Why is it okay to delete them via factory reset, but not via app storage delete?\nMore context in http://b/26468436#comment15. The aid:token pair is critical to the checkin service. And the aid is already exposed a gservice flag + setting.secure; so it persists after gmscore wipe, but not factory reset. We very much want the same lifespan for the token file.   \n\nI believe that pair is initially created at checkin time right after factory reset. And if the device lost the token, it cannot checkin until another factory reset.",
+      "parentUuid": "7ae8fa99_9af3cb96",
+      "revId": "996e5da5ede01e5cd85eec702b24114e63724afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
