@@ -82,6 +82,7 @@ persist.heapprofd.enable u:object_r:heapprofd_enabled_prop:s0
 persist.traced_perf.enable u:object_r:traced_perf_enabled_prop:s0
 persist.vendor.debug.wifi. u:object_r:persist_vendor_debug_wifi_prop:s0
 persist.vendor.overlay.  u:object_r:overlay_prop:s0
+ril.cdma.inecmmode      u:object_r:radio_cdma_ecm_prop:s0 exact bool
 ro.boot.vendor.overlay.  u:object_r:overlay_prop:s0
 ro.boottime.             u:object_r:boottime_prop:s0
 ro.serialno             u:object_r:serialno_prop:s0
@@ -431,6 +432,7 @@ keyguard.no_require_sim u:object_r:keyguard_config_prop:s0 exact bool
 media.c2.dmabuf.padding                      u:object_r:codec2_config_prop:s0 exact int
 
 media.recorder.show_manufacturer_and_model   u:object_r:media_config_prop:s0 exact bool
+media.resolution.limit.32bit                 u:object_r:media_config_prop:s0 exact int
 media.stagefright.cache-params               u:object_r:media_config_prop:s0 exact string
 media.stagefright.enable-aac                 u:object_r:media_config_prop:s0 exact bool
 media.stagefright.enable-fma2dp              u:object_r:media_config_prop:s0 exact bool
@@ -676,6 +678,8 @@ ro.boot.revision           u:object_r:bootloader_prop:s0 exact string
 ro.boot.vbmeta.avb_version u:object_r:bootloader_prop:s0 exact string
 ro.boot.verifiedbootstate  u:object_r:bootloader_prop:s0 exact string
 ro.boot.veritymode         u:object_r:bootloader_prop:s0 exact string
+# Properties specific to virtualized deployments of Android
+ro.boot.hypervisor.version                  u:object_r:hypervisor_prop:s0 exact string
 
 # These ro.X properties are set to values of ro.boot.X by property_service.
 ro.baseband   u:object_r:bootloader_prop:s0 exact string
@@ -881,6 +885,7 @@ ro.product.vendor_dlkm.name         u:object_r:build_vendor_prop:s0 exact string
 # GRF property for the first api level of the vendor partition
 ro.board.first_api_level u:object_r:build_vendor_prop:s0 exact int
 ro.board.api_level       u:object_r:build_vendor_prop:s0 exact int
+ro.vendor.api_level      u:object_r:build_vendor_prop:s0 exact int
 
 # Boot image build props set by /{second_stage_resources/,}boot/etc/build.prop
 ro.bootimage.build.date                        u:object_r:build_bootimage_prop:s0 exact string
