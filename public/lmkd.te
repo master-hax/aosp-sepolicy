@@ -15,6 +15,10 @@ allow lmkd self:global_capability_class_set ipc_lock;
 r_dir_file(lmkd, domain)
 allow lmkd domain:file write;
 
+## Access to /sys/module/psi_wd/parameters/*
+r_dir_file(lmkd, sysfs_psi_wd)
+allow lmkd sysfs_psi_wd:file rw_file_perms;
+
 ## Writes to /sys/module/lowmemorykiller/parameters/minfree
 r_dir_file(lmkd, sysfs_lowmemorykiller)
 allow lmkd sysfs_lowmemorykiller:file w_file_perms;
