@@ -86,6 +86,9 @@ full_treble_only(`
     neverallow {
         coredomain
         -appdomain
+        -app_zygote
+        -dumpstate
+        -heapprofd
         -idmap
         -init
         -installd
@@ -95,10 +98,8 @@ full_treble_only(`
         -rs # spawned by appdomain, so carryover the exception above
         -system_server
         -traced_perf
-        -app_zygote
         -webview_zygote
         -zygote
-        -heapprofd
     } vendor_overlay_file:dir { getattr open read search };
 ')
 
