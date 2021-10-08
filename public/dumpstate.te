@@ -377,6 +377,9 @@ allow dumpstate binderfs_logs_proc:file r_file_perms;
 
 allow dumpstate apex_info_file:file getattr;
 
+#Allow access to vendor_overlay_file like /product/overlay
+allow dumpstate vendor_overlay_file:dir getattr;
+
 ###
 ### neverallow rules
 ###
