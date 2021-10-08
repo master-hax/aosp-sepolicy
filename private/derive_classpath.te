@@ -23,3 +23,11 @@ allow derive_classpath postinstall_dexopt:fd use;
 allow derive_classpath postinstall_dexopt:file read;
 allow derive_classpath postinstall_dexopt:lnk_file read;
 allow derive_classpath postinstall_dexopt_tmpfs:file rw_file_perms;
+
+# Allow derive_classpath to write the classpath for staged sessions in a memfd
+allow derive_classpath apexd:dir search;
+allow derive_classpath apexd:fd use;
+allow derive_classpath apexd:file read;
+allow derive_classpath apexd:lnk_file read;
+allow derive_classpath apexd_tmpfs:file rw_file_perms;
+allow derive_classpath apexd_devpts:chr_file { read write };

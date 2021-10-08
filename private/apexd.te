@@ -1,4 +1,5 @@
 typeattribute apexd coredomain;
+type apexd_tmpfs, file_type;
 
 init_daemon_domain(apexd)
 
@@ -185,3 +186,9 @@ allow apexd postinstall_apex_mnt_dir:dir { create_dir_perms mounton };
 allow apexd postinstall_apex_mnt_dir:file { create_file_perms relabelfrom };
 allow apexd postinstall_apex_mnt_dir:lnk_file create;
 allow apexd proc_filesystems:file r_file_perms;
+
+# Allow calling derive_classpath to gather BCP information for staged sessions
+domain_auto_trans(apexd, derive_classpath_exec, derive_classpath);
+# Allow apexd to make a tempfile for derive_classpath to write into
+tmpfs_domain(apexd);
+allow apexd apexd_tmpfs:file open;
