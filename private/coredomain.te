@@ -59,6 +59,7 @@ full_treble_only(`
         -rs # spawned by appdomain, so carryover the exception above
         -system_server
         -traced_perf
+        -dumpstate
     } vendor_app_file:dir { open read getattr search };
 ')
 
