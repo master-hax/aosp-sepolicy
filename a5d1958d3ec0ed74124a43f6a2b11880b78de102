@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8053ad73_04739106",
+        "filename": "public/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-11T14:52:40Z",
+      "side": 0,
+      "message": "I would prefer not to remove this entirely, since it is useful to encourage adding an explicit label when we start to access new sysfs nodes.\n\nProbably the best way would just be to restrict the new allow rule above to everything except sysfs:\nallow init {sysfs_type -sysfs}:file { getattr read };\n\nAlternatively we could remove read from this neverallow and leave open + write.",
+      "range": {
+        "startLine": 653,
+        "startChar": 0,
+        "endLine": 655,
+        "endChar": 0
+      },
+      "revId": "a5d1958d3ec0ed74124a43f6a2b11880b78de102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
