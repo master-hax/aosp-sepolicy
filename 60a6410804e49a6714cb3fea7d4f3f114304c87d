@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "25997981_1e7c3a10",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2021-10-11T21:28:29Z",
+      "side": 1,
+      "message": "for some reason it works now",
+      "parentUuid": "e5b5e6af_299a47e5",
+      "range": {
+        "startLine": 129,
+        "startChar": 33,
+        "endLine": 129,
+        "endChar": 55
+      },
+      "revId": "60a6410804e49a6714cb3fea7d4f3f114304c87d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5608c9e6_71c6d537",
         "filename": "public/hal_wifi_nlinterceptor.te",
         "patchSetId": 2
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "netlink_route_socket is already in socket_class_set. Why do you need create/bind/read/write here?\n\nAlso, don\u0027t you need nlmsg_readpriv and nlmsg_write for other netlink_*_sockets?\n\nSuggestion: add nlmsg_readpriv and nlmsg_write to the list in line 7.",
       "parentUuid": "5608c9e6_71c6d537",
+      "range": {
+        "startLine": 8,
+        "startChar": 29,
+        "endLine": 8,
+        "endChar": 54
+      },
+      "revId": "60a6410804e49a6714cb3fea7d4f3f114304c87d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d8676a6_8217f8c9",
+        "filename": "public/hal_wifi_nlinterceptor.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2021-10-11T21:28:29Z",
+      "side": 1,
+      "message": "nlmsg_readprive and nlmsg_write only apply to netlink_route_socket, but I don\u0027t need the other options, since they\u0027re covered by socket_class_set, as you explained on chat.",
+      "parentUuid": "3a52d710_4a7d9cd2",
       "range": {
         "startLine": 8,
         "startChar": 29,
