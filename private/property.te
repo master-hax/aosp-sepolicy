@@ -29,6 +29,7 @@ system_internal_prop(odsign_prop)
 system_internal_prop(perf_drop_caches_prop)
 system_internal_prop(pm_prop)
 system_internal_prop(profcollectd_node_id_prop)
+system_internal_prop(radio_cdma_ecm_prop)
 system_internal_prop(rollback_test_prop)
 system_internal_prop(setupwizard_prop)
 system_internal_prop(snapuserd_prop)
@@ -41,6 +42,9 @@ system_internal_prop(zygote_wrap_prop)
 system_internal_prop(ctl_mediatranscoding_prop)
 system_internal_prop(ctl_odsign_prop)
 system_internal_prop(virtualizationservice_prop)
+
+# Properties which can't be written outside system
+system_restricted_prop(device_config_virtualization_framework_native_prop)
 
 ###
 ### Neverallow rules
