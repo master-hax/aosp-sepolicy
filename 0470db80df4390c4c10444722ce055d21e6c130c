@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "457803a3_7e3e6bc7",
+        "filename": "private/service_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-12T17:58:33Z",
+      "side": 1,
+      "message": "Oh - oops, I was looking at system/hardware/interfaces/net/. Still maybe we can start something similar in hardware/interfaces?",
+      "parentUuid": "e6c32fd0_aa43fc87",
+      "range": {
+        "startLine": 26,
+        "startChar": 8,
+        "endLine": 26,
+        "endChar": 10
+      },
+      "revId": "0470db80df4390c4c10444722ce055d21e6c130c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b8765ca9_2b159a87",
         "filename": "public/hal_neverallows.te",
         "patchSetId": 5
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "I don\u0027t fully understand this question. Chris added this domain in `hal_wifi_nlinterceptor.te:6`.",
       "parentUuid": "b8765ca9_2b159a87",
+      "range": {
+        "startLine": 13,
+        "startChar": 37,
+        "endLine": 13,
+        "endChar": 46
+      },
+      "revId": "0470db80df4390c4c10444722ce055d21e6c130c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9083e4b_57947367",
+        "filename": "public/hal_neverallows.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-12T17:58:33Z",
+      "side": 1,
+      "message": "This defines an attribute (actually a couple of different attributes), but it doesn\u0027t apply them to any domain. What I don\u0027t see here (that you should need) is something like this:\n\n# in \u003csomething\u003e.te\nhal_server_domain(\u003csomething\u003e, hal_wifi_nlinterceptor)\n\n# in file_contexts\n/vendor/bin/hw/blahblahblah-service ...\u003csomething\u003e_exec...",
+      "parentUuid": "836bb8c1_af0f9ad7",
       "range": {
         "startLine": 13,
         "startChar": 37,
