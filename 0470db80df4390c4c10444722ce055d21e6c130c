@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4745ea8f_90071072",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2021-10-12T18:44:41Z",
+      "side": 1,
+      "message": "Design (why): go/aae-tcu-wifi\nDesign (how): go/wificond-nl-interception\n\nTL;DR: we\u0027re looking to remote Wi-Fi hardware. Netlink is /the/ standard interface to communicate with Wi-Fi cards so we took it as the remote API (and proved it working pretty well).",
+      "parentUuid": "d05045ee_fdc5334b",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "0470db80df4390c4c10444722ce055d21e6c130c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "523008df_513fd221",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -239,6 +263,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7ce35e87_1cf0263f",
+        "filename": "public/hal_neverallows.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2021-10-12T18:44:41Z",
+      "side": 1,
+      "message": "Even if CF implementation moves to AOSP, device-specific implementations will be different.",
+      "parentUuid": "8221a230_5accbac0",
+      "range": {
+        "startLine": 13,
+        "startChar": 37,
+        "endLine": 13,
+        "endChar": 46
+      },
+      "revId": "0470db80df4390c4c10444722ce055d21e6c130c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ada8c0a2_92ceedcf",
         "filename": "public/hal_wifi_nlinterceptor.te",
         "patchSetId": 5
@@ -250,6 +298,30 @@
       "writtenOn": "2021-10-12T18:35:44Z",
       "side": 1,
       "message": "This seems incorrect. You\u0027re granting this HAL access to over 50 socket types (and all future ones), and granting it CAP_NET_ADMIN, which is going to result in it having access to huge amounts of kernel attack surface. This seems unnecessarily overprivileged, especially considering that most of these socket types are not even used anywhere on Android. Perhaps it would be best for you to provide an explanation for each socket type, why this HAL needs access to it:\nsocket tcp_socket udp_socket rawip_socket netlink_socket packet_socket key_socket unix_stream_socket unix_dgram_socket appletalk_socket netlink_route_socket netlink_tcpdiag_socket netlink_nflog_socket netlink_xfrm_socket netlink_selinux_socket netlink_audit_socket netlink_dnrt_socket netlink_kobject_uevent_socket tun_socket netlink_iscsi_socket netlink_fib_lookup_socket netlink_connector_socket netlink_netfilter_socket netlink_generic_socket netlink_scsitransport_socket netlink_rdma_socket netlink_crypto_socket sctp_socket icmp_socket ax25_socket ipx_socket netrom_socket atmpvc_socket x25_socket rose_socket decnet_socket atmsvc_socket rds_socket irda_socket pppox_socket llc_socket can_socket tipc_socket bluetooth_socket iucv_socket rxrpc_socket isdn_socket phonet_socket ieee802154_socket caif_socket alg_socket nfc_socket vsock_socket kcm_socket qipcrtr_socket smc_socket.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 80
+      },
+      "revId": "0470db80df4390c4c10444722ce055d21e6c130c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "210e1e2b_4ada8baa",
+        "filename": "public/hal_wifi_nlinterceptor.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2021-10-12T18:44:41Z",
+      "side": 1,
+      "message": "Sg. Something along the lines of http://ag/c/device/google/cuttlefish/+/15820010/1/shared/sepolicy/vendor/cf-nl-interceptor.te ?\n\nWould create_socket_perms_no_ioctl be still okay or Chris needs to list every individual operation as well?",
+      "parentUuid": "ada8c0a2_92ceedcf",
       "range": {
         "startLine": 7,
         "startChar": 0,
