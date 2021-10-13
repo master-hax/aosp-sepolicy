@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be791c3f_0c776e89",
+        "filename": "private/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2021-10-13T22:11:34Z",
+      "side": 1,
+      "message": "If a new SELinux label would be introduced for the sysfs files related to block devices then that label would have to be applied to a large number of AOSP and vendor files, including vendor files that only exist on the sc-dev branch. I have been told that vendor SELinux files must not depend on new AOSP SELinux labels. Hence no new SELinux label. See also b/202520796.",
+      "parentUuid": "77f26801_0e69af85",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 26
+      },
+      "revId": "c076f1db7c63778005f2f1e4744f83dd5cee4431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37118cd4_efd87b60",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-10-13T21:58:29Z",
       "side": 1,
       "message": "This exemption is only needed because the rule above is overly broad, right?",
+      "revId": "c076f1db7c63778005f2f1e4744f83dd5cee4431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c35fd27_bdc9547e",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1363,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2021-10-13T22:11:34Z",
+      "side": 1,
+      "message": "Yes, that\u0027s right.",
+      "parentUuid": "37118cd4_efd87b60",
       "revId": "c076f1db7c63778005f2f1e4744f83dd5cee4431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
