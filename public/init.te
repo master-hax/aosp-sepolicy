@@ -650,8 +650,8 @@ neverallow init servicemanager:service_manager list;
 # Init should not be creating subdirectories in /data/local/tmp
 neverallow init shell_data_file:dir { write add_name remove_name };
 
-# Init should not access sysfs node that are not explicitly labeled.
-neverallow init sysfs:file { open read write };
+# Init should not modify sysfs attributes that are not explicitly labeled.
+neverallow init sysfs:file { open write };
 
 # No domain should be allowed to ptrace init.
 neverallow * init:process ptrace;
