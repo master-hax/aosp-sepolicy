@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57be081c_edbf05b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-14T15:04:37Z",
+      "side": 1,
+      "message": "Mmm, so post-sc-dev it would be good if init doesn\u0027t access it (done) and there isn\u0027t an allow rule for it.",
+      "parentUuid": "5126c075_bb48cf17",
+      "revId": "c076f1db7c63778005f2f1e4744f83dd5cee4431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77f26801_0e69af85",
@@ -179,6 +197,30 @@
       "side": 1,
       "message": "Since the sc-dev init process reads sysfs block device information, how about mentioning in the comment that the init process may read sysfs block device information?",
       "parentUuid": "fb393d68_ce56252c",
+      "range": {
+        "startLine": 653,
+        "startChar": 16,
+        "endLine": 653,
+        "endChar": 45
+      },
+      "revId": "c076f1db7c63778005f2f1e4744f83dd5cee4431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef29118d_f0575c0f",
+        "filename": "public/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-14T15:04:37Z",
+      "side": 1,
+      "message": "Well, we say that in the allow rule above.\n\nIf someone writes an allow rule that breaks this neverallow, the error message will point them here, and so the purpose of the comment is to tell them why what they\u0027re doing is a terrible idea, and ideally how to fix it (i.e. add an explicit label).",
+      "parentUuid": "6493bf10_7a1d99fc",
       "range": {
         "startLine": 653,
         "startChar": 16,
