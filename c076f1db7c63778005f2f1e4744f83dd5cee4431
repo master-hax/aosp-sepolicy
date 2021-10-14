@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9342d333_903bbe58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-14T08:24:07Z",
+      "side": 1,
+      "message": "IIUC from previous CLs, the sysfs access is not actually needed, so we\u0027re keeping it purely for the benefit of existing branches?\nAre we planning to remove it again once that is out of the way?",
+      "revId": "c076f1db7c63778005f2f1e4744f83dd5cee4431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "77f26801_0e69af85",
         "filename": "private/init.te",
         "patchSetId": 1
@@ -48,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b2f1951_f69866a7",
+        "filename": "private/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-14T08:24:07Z",
+      "side": 1,
+      "message": "That\u0027s based on Jeff\u0027s comment at https://android-review.googlesource.com/c/platform/system/sepolicy/+/1847013?tab\u003dcomments",
+      "parentUuid": "be791c3f_0c776e89",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 26
+      },
+      "revId": "c076f1db7c63778005f2f1e4744f83dd5cee4431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37118cd4_efd87b60",
@@ -79,6 +120,29 @@
       "side": 1,
       "message": "Yes, that\u0027s right.",
       "parentUuid": "37118cd4_efd87b60",
+      "revId": "c076f1db7c63778005f2f1e4744f83dd5cee4431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb393d68_ce56252c",
+        "filename": "public/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-14T08:24:07Z",
+      "side": 1,
+      "message": "Can we leave the comment as it was?\nIt remains true as a statement of principle, even if we\u0027re not fully enforcing it.",
+      "range": {
+        "startLine": 653,
+        "startChar": 16,
+        "endLine": 653,
+        "endChar": 45
+      },
       "revId": "c076f1db7c63778005f2f1e4744f83dd5cee4431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
