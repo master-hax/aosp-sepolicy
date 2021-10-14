@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5126c075_bb48cf17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2021-10-14T14:24:35Z",
+      "side": 1,
+      "message": "It depends on the branch. The AOSP init process does not access block device information in /dev/block or /sys/class/block but the sc-dev init process does. See also https://b.corp.google.com/issues/202879263.",
+      "parentUuid": "9342d333_903bbe58",
+      "revId": "c076f1db7c63778005f2f1e4744f83dd5cee4431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77f26801_0e69af85",
@@ -137,6 +155,30 @@
       "writtenOn": "2021-10-14T08:24:07Z",
       "side": 1,
       "message": "Can we leave the comment as it was?\nIt remains true as a statement of principle, even if we\u0027re not fully enforcing it.",
+      "range": {
+        "startLine": 653,
+        "startChar": 16,
+        "endLine": 653,
+        "endChar": 45
+      },
+      "revId": "c076f1db7c63778005f2f1e4744f83dd5cee4431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6493bf10_7a1d99fc",
+        "filename": "public/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2021-10-14T14:24:35Z",
+      "side": 1,
+      "message": "Since the sc-dev init process reads sysfs block device information, how about mentioning in the comment that the init process may read sysfs block device information?",
+      "parentUuid": "fb393d68_ce56252c",
       "range": {
         "startLine": 653,
         "startChar": 16,
