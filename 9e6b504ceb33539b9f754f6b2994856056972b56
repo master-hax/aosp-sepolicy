@@ -50,6 +50,24 @@
       "message": "A couple of additional things:\n1. please add a neverallow rule that prevents most things from accessing this dir (e.g. unprivileged apps).\n2. How can this value be wiped? Does the user have to perform a factory reset in order to reset this data? Is that intentional?\n3. Do we really think believe a generic data dir is the right solution here? What prevents non-checkin data from being written here? What happens when other parts of gmscore want to persist data across factory reset?",
       "revId": "9e6b504ceb33539b9f754f6b2994856056972b56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e60c412_28d37223",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1088085
+      },
+      "writtenOn": "2021-10-14T17:37:22Z",
+      "side": 1,
+      "message": "1. Will do!\n2. From my experiment, the /data/misc_ce/user_num is gone after the user is removed. And creating a new user won\u0027t retain the old data.\n3. Yeah.. unfortunately there is no way to distinguish checkin from other parts of gmscore today :(  Though Gmscore is owned by us and is generally trustworthy. Also since checkin happens frequently, our module can clear up everything else in this directory and leave only the token there.",
+      "parentUuid": "c6599a62_48806ef7",
+      "revId": "9e6b504ceb33539b9f754f6b2994856056972b56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
