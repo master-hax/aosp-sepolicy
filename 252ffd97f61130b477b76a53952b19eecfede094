@@ -137,6 +137,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5453b8ee_d7c9486d",
+        "filename": "prebuilts/api/31.0/private/coredomain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-10-15T08:36:41Z",
+      "side": 1,
+      "message": "On my just-now synced AOSP...\n\n$ cd system/sepolicy/\nsystem/sepolicy$ git diff\ndiff --git a/private/coredomain.te b/private/coredomain.te\nindex dde80b24c..9d3df9165 100644\n--- a/private/coredomain.te\n+++ b/private/coredomain.te\n@@ -87,6 +87,7 @@ full_treble_only(`\n     neverallow {\n         coredomain\n         -appdomain\n+       -dumpstate\n         -idmap\n         -init\n         -installd\nsystem/sepolicy$ croot\njeffv@jeffv-p920:~/android/aosp$ make\n...\n#### build completed successfully (01:42 (mm:ss)) ####",
+      "parentUuid": "3fb36171_286214c0",
+      "range": {
+        "startLine": 102,
+        "startChar": 9,
+        "endLine": 102,
+        "endChar": 18
+      },
+      "revId": "252ffd97f61130b477b76a53952b19eecfede094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52260b90_4031af07",
