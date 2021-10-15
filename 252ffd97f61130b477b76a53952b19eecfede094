@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8e38d37_de64d101",
+        "filename": "prebuilts/api/31.0/private/coredomain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1883618
+      },
+      "writtenOn": "2021-10-15T02:35:02Z",
+      "side": 1,
+      "message": "have to update the prebuilts file too or there is build break\n\nCommand: /bin/bash -c \"(diff -rq -x bug_map system/sepolicy/prebuilts/api/31.0/public system/sepolicy/public ) \u0026\u0026 (diff -rq -x bug_map system/sepolicy/prebuilts/api/31.0/private system/sepolicy/private ) \u0026\u0026 (touch out/target/product/qssi/obj/FAKE/sepolicy_freeze_test_intermediates/sepolicy_freeze_test )\"\nOutput:\nFiles system/sepolicy/prebuilts/api/31.0/private/coredomain.te and system/sepolicy/private/coredomain.te differ",
+      "parentUuid": "ed4ebf68_86df93f8",
+      "range": {
+        "startLine": 102,
+        "startChar": 9,
+        "endLine": 102,
+        "endChar": 18
+      },
+      "revId": "252ffd97f61130b477b76a53952b19eecfede094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52260b90_4031af07",
