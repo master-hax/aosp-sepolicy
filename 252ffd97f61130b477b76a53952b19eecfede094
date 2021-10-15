@@ -113,6 +113,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fb36171_286214c0",
+        "filename": "prebuilts/api/31.0/private/coredomain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1883618
+      },
+      "writtenOn": "2021-10-15T06:23:44Z",
+      "side": 1,
+      "message": "I also verify in AOSP env,same build break if we do not update prebuits file accordingly:\n[ 22% 1837/8108] build out/target/product/generic_arm64/obj/FAKE/sepolicy_freeze_test_intermediates/sepolicy_freeze\nFAILED: out/target/product/generic_arm64/obj/FAKE/sepolicy_freeze_test_intermediates/sepolicy_freeze_test\n/bin/bash -c \"(diff -rq -x bug_map system/sepolicy/prebuilts/api/31.0/public system/sepolicy/public ) \u0026\u0026 (diff -rq -x bug_map system/sepolicy/prebuilts/api/31.0/private system/sepolicy/private ) \u0026\u0026 (touch out/target/product/generic_arm64/obj/FAKE/sepolicy_freeze_test_intermediates/sepolicy_freeze_test )\"\nFiles system/sepolicy/prebuilts/api/31.0/private/coredomain.te and system/sepolicy/private/coredomain.te differ\n14:18:50 ninja failed with: exit status 1",
+      "parentUuid": "b8e38d37_de64d101",
+      "range": {
+        "startLine": 102,
+        "startChar": 9,
+        "endLine": 102,
+        "endChar": 18
+      },
+      "revId": "252ffd97f61130b477b76a53952b19eecfede094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52260b90_4031af07",
