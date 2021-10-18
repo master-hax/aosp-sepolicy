@@ -741,6 +741,8 @@ $(LOCAL_BUILT_MODULE): $(userdebug_plat_policy.conf) $(HOST_OUT_EXECUTABLES)/che
 
 userdebug_plat_policy.conf :=
 
+$(call dist-for-goals,droidcore,$(LOCAL_BUILT_MODULE))
+
 #################################
 include $(CLEAR_VARS)
 
