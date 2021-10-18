@@ -22,6 +22,30 @@
       },
       "revId": "3dedd9dc108ecfe20817d7356720f32a05434195",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0269ba11_3343fce8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1883618
+      },
+      "writtenOn": "2021-10-18T02:08:07Z",
+      "side": 1,
+      "message": "This is new solution direction. As I mentitoned in the issue case card,AOSP right now define it as u:object_r:vendor_overlay_file:s0,Below shows\n---system/sepolicy/private/file_contexts\n# Product files\n/(product|system/product)/overlay(/.*)?                         u:object_r:vendor_overlay_file:s0\n\n\nIt seems that we can resolve this issue by adding allow sentence as I proposed or change the original label as you suggested.",
+      "parentUuid": "3742dfc4_74adb7ad",
+      "range": {
+        "startLine": 13,
+        "startChar": 99,
+        "endLine": 13,
+        "endChar": 116
+      },
+      "revId": "3dedd9dc108ecfe20817d7356720f32a05434195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
