@@ -579,3 +579,17 @@ neverallow {
   userdebug_or_eng(`-virtualizationservice')
   userdebug_or_eng(`-crosvm')
 } shell_data_file:file open;
+
+# Don't allow processes writing /sys/power/wake_[un]lock directly
+# This API is being deprecated as the userspace system suspend service
+# no longer uses it.
+neverallow domain sysfs_wake_lock:file {
+  # All no_w_file_perms except setattr (used by init and vendor_init)
+  write
+  create
+  relabelfrom
+  append
+  unlink
+  link
+  rename
+};

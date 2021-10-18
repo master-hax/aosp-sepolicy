@@ -174,7 +174,11 @@ allow vendor_init proc_page_cluster:file w_file_perms;
 # Write to sysfs nodes.
 allow vendor_init sysfs_type:dir r_dir_perms;
 allow vendor_init sysfs_type:lnk_file read;
-allow vendor_init { sysfs_type -sysfs_usermodehelper }:file rw_file_perms;
+allow vendor_init {
+  sysfs_type
+  -sysfs_usermodehelper
+  -sysfs_wake_lock
+}:file rw_file_perms;
 
 # setfscreatecon() for labeling directories and socket files.
 allow vendor_init self:process { setfscreate };
