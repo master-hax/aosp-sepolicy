@@ -22,6 +22,30 @@
       },
       "revId": "6282a559bf6027ffa3dd0502a1b26b704478d18b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1080719_39737947",
+        "filename": "public/vr_hwc.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2021-10-20T00:42:38Z",
+      "side": 1,
+      "message": "Removing this file resulting in:\n system/sepolicy/private/vr_hwc.te:2:ERROR \u0027unknown type vr_hwc\u0027 at token \u0027;\u0027 on line 70532:\n\n\nRemoving private/vr_hwc.te as well results in a different error:\nFAILED: out/target/product/raven/obj/FAKE/treble_sepolicy_tests_26.0_intermediates/26.0_compat\n/bin/bash -c \"out/host/linux-x86/bin/secilc -m -M true -G -N -c 30 \t\tout/target/product/raven/obj/ETC/plat_sepolicy.cil_intermediates/plat_sepolicy.cil out/target/product/raven/obj/ETC/plat_26.0.cil_intermediates/plat_26\n.0.cil system/sepolicy/prebuilts/api/26.0/nonplat_sepolicy.cil -o out/target/product/raven/obj/FAKE/treble_sepolicy_tests_26.0_intermediates/26.0_compat -f /dev/null\"\nFailed to resolve typeattributeset statement at out/target/product/raven/obj/ETC/plat_26.0.cil_intermediates/plat_26.0.cil:730\nFailed to compile cildb: -2",
+      "parentUuid": "a366852d_b00cc866",
+      "range": {
+        "startLine": 1,
+        "startChar": 1,
+        "endLine": 2,
+        "endChar": 57
+      },
+      "revId": "6282a559bf6027ffa3dd0502a1b26b704478d18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
