@@ -1,5 +1,9 @@
-hwbinder_use(hal_evs_client)
-hwbinder_use(hal_evs_server)
+# HwBinder IPC from client to server, and callbacks
 binder_call(hal_evs_client, hal_evs_server)
 binder_call(hal_evs_server, hal_evs_client)
+
 hal_attribute_hwservice(hal_evs, hal_evs_hwservice)
+hal_attribute_service(hal_evs, hal_evs_service)
+
+# For Stable AIDL HALs
+binder_call(hal_evs_client, servicemanager)
