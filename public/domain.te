@@ -624,6 +624,10 @@ neverallow vndservicemanager hwbinder_device:chr_file no_rw_file_perms;
 # system services cant add vendor services
 neverallow {
   coredomain
+  # TODO: Remove line is added to allow evs_manager (IEvsEnumerator/default) to register itself
+  #       as a vendor service to the service manager.  Because evs_manager is declared as a coredomain,
+  #       it's prohibited by selinux at the moment.
+  -hal_evs_server
 } vendor_service:service_manager add;
 
 full_treble_only(`
