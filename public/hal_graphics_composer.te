@@ -30,3 +30,8 @@ allow hal_graphics_composer appdomain:fd use;
 
 # allow self to set SCHED_FIFO
 allow hal_graphics_composer self:global_capability_class_set sys_nice;
+
+add_service(hal_graphics_composer_server, hal_graphics_composer_service)
+binder_call(hal_graphics_composer_server, servicemanager)
+
+allow hal_graphics_composer_client hal_graphics_composer_service:service_manager find;
