@@ -1036,9 +1036,10 @@ full_treble_only(`
   }:file *;
 ')
 
-# Only system_server should be able to send commands via the zygote socket
+# Only system_server, and stub_zygote, which runs as zygote should be able to
+# send commands via the zygote socket
 neverallow { domain -zygote -system_server } zygote:unix_stream_socket connectto;
-neverallow { domain -system_server } zygote_socket:sock_file write;
+neverallow { domain -zygote -system_server } zygote_socket:sock_file write;
 
 neverallow { domain -system_server -webview_zygote -app_zygote } webview_zygote:unix_stream_socket connectto;
 neverallow { domain -system_server } webview_zygote:sock_file write;
