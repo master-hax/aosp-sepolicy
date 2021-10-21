@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d89807b_9c948b42",
+        "filename": "public/hal_telephony.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2021-10-21T23:15:49Z",
+      "side": 1,
+      "message": "Ouch, my fingers hurt on the sole thought of defining the whole thing separately :(.",
+      "parentUuid": "294c5db6_3fce821b",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 55
+      },
+      "revId": "ab2094483b956b072fcb2754c677a69232b73c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b983b737_ce4a7c62",
         "filename": "vendor/file_contexts",
         "patchSetId": 1
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "I would kind of like it if the fact that it\u0027s a separate process is emphasized here, since we really do want to encourage use of the shim in-process if possible. Would you accept \u0027process-compat\u0027 or \u0027process-shim\u0027? Otherwise, compat sounds good.",
       "parentUuid": "06e86e8b_5cc23958",
+      "range": {
+        "startLine": 72,
+        "startChar": 65,
+        "endLine": 72,
+        "endChar": 72
+      },
+      "revId": "ab2094483b956b072fcb2754c677a69232b73c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "658fce09_984ddc8a",
+        "filename": "vendor/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2021-10-21T23:15:49Z",
+      "side": 1,
+      "message": "Well, \"process\" is kind of redundant since all of these entries are processes. To make it emphasised you would have to say service.separate-process-compat or similar, which sounds like an overkill.\n\nI do like android.hardware.radio-service.compat.",
+      "parentUuid": "d19c0bfa_4d5b4548",
       "range": {
         "startLine": 72,
         "startChar": 65,
