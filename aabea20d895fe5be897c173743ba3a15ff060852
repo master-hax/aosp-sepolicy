@@ -22,6 +22,30 @@
       },
       "revId": "aabea20d895fe5be897c173743ba3a15ff060852",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "472a93d5_333efe80",
+        "filename": "public/healthd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-22T00:06:31Z",
+      "side": 1,
+      "message": "there are too many of them:\n\nhttps://source.corp.google.com/search?ss\u003dpiper%2FGoogle%2Fandroid\u0026q\u003df:te$%20healthd%20-%5Esystem%2Fsepolicy\n\n...let alone devices not in the tree. I don\u0027t think it is a big deal to keep the types around.\n\nI created this CL to clean up, but also mainly to avoid having healthd to serve any binder HALs in SELinux, because it triggers some neverallow rules",
+      "parentUuid": "99a80cc3_19b8c916",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 67
+      },
+      "revId": "aabea20d895fe5be897c173743ba3a15ff060852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
