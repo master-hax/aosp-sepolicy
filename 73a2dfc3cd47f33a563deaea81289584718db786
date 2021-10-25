@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e556e3e3_fb854534",
+        "filename": "microdroid/system/public/attributes",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-10-25T06:32:19Z",
+      "side": 1,
+      "message": "I think you can still remove it as long as you add it to the private/compat/31.0/31.0.cil. See for example the \"types removed from current policy\".\n\nThis will ensure that vendor policy will continue to build even if it still has the policy:\n\nhttps://cs.android.com/android/platform/superproject/+/master:system/sepolicy/private/compat/30.0/30.0.cil;l\u003d22",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "73a2dfc3cd47f33a563deaea81289584718db786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
