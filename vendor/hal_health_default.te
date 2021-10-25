@@ -1,5 +1,9 @@
 # health info abstraction
 type hal_health_default, domain;
+
+# The binder health HAL server binary also serve as the charger binary.
+typeattribute hal_health_default charger_common_type;
+
 hal_server_domain(hal_health_default, hal_health)
 
 type hal_health_default_exec, exec_type, vendor_file_type, file_type;
