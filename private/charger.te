@@ -1,18 +1,5 @@
 typeattribute charger coredomain;
 
-# charger needs to tell init to continue the boot
-# process when running in charger mode.
-set_prop(charger, system_prop)
-set_prop(charger, exported_system_prop)
-set_prop(charger, exported3_system_prop)
-set_prop(charger, charger_status_prop)
-
-get_prop(charger, charger_prop)
-get_prop(charger, charger_config_prop)
-
-# get minui properties
-get_prop(charger, recovery_config_prop)
-
 compatible_property_only(`
     neverallow {
         domain
