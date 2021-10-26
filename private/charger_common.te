@@ -1,0 +1,12 @@
+# charger needs to tell init to continue the boot
+# process when running in charger mode.
+set_prop(charger_common_type, system_prop)
+set_prop(charger_common_type, exported_system_prop)
+set_prop(charger_common_type, exported3_system_prop)
+set_prop(charger_common_type, charger_status_prop)
+
+get_prop(charger_common_type, charger_prop)
+get_prop(charger_common_type, charger_config_prop)
+
+# get minui properties
+get_prop(charger_common_type, recovery_config_prop)
