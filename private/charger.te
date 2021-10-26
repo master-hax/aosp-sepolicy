@@ -11,8 +11,10 @@ compatible_property_only(`
     neverallow {
         domain
         -init
+        -vendor_init
         -dumpstate
         -charger
+        -charger_health
     } charger_prop:file no_rw_file_perms;
 ')
 
@@ -22,4 +24,5 @@ neverallow {
     -dumpstate
     -vendor_init
     -charger
+    -charger_health
 } { charger_config_prop charger_status_prop }:file no_rw_file_perms;
