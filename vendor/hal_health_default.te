@@ -4,3 +4,9 @@ hal_server_domain(hal_health_default, hal_health)
 
 type hal_health_default_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(hal_health_default)
+
+# In offline charging mode, init transitions to the charger_health domain before
+# executing the health binder service with charger mode. Allow the
+# charger_health domain to actually execute the health service binary, but keep
+# the domain to be "charger_health" for charger-specific permissions.
+allow charger_health hal_health_default_exec:file rx_file_perms;
