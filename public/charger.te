@@ -10,3 +10,7 @@ set_prop(charger, exported3_system_prop)
 
 # The system charger is a client of HIDL health HAL.
 hal_client_domain(charger, hal_health)
+
+# Domain when executing health HAL service binary as charger
+type charger_health, domain;
+typeattribute charger_health charger_common_type;
