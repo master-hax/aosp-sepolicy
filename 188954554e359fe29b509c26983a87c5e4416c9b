@@ -22,6 +22,30 @@
       },
       "revId": "188954554e359fe29b509c26983a87c5e4416c9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8c9a1aa_6d78a96f",
+        "filename": "private/apexd_derive_classpath.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1439319
+      },
+      "writtenOn": "2021-10-28T16:01:24Z",
+      "side": 1,
+      "message": "\u003e Can we allow derive_classpath only to write into /apex/derive_classpath_temp\n\nI tried creating a separate label for /apex/derive_classpath_temp file and have this domain write into that exclusively. But since /apex/* has apex_mnt_dir label, I had to allow write access to it too, which made the whole thing redundant.\n\n\u003e This feels a little bit too broad.\n\nUpdated the logic so that apexd creates the file first and then calls into derive_classpath. With that, the permission narrowed down a bit more.",
+      "parentUuid": "5363b3af_66a63c9c",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 65
+      },
+      "revId": "188954554e359fe29b509c26983a87c5e4416c9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
