@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4114fb91_7cd97cef",
+        "filename": "private/charger_type.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-29T23:50:48Z",
+      "side": 1,
+      "message": "Jeff, qqs:\n\n- is there a better name for this, since it\u0027s an attribute (not a type)? I am thinking it should be \u0027charger_domain\u0027, but maybe you have an even more specific idea?\n- I think it\u0027s interesting to note here that this attribute is used exactly like some of these single-parameter macros. Since expandattribute is not specified, and it will be compiled out, I actually quite like the use of an attribute over, say, a macro like \u0027use_binder\u0027. One of the coolest things about this is that it allows you to write rules about all of the charger_type. This can be much more explicit/clear than some of the rules we have. We should consider replacing some of the macros we do have with attributes.",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "dcf7b958f395eae2d0d8ca87d93bbbdce047e9de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02cd22c3_513002d9",
+        "filename": "public/charger_type.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-29T23:50:48Z",
+      "side": 1,
+      "message": "style (compared to line below?)",
+      "range": {
+        "startLine": 12,
+        "startChar": 52,
+        "endLine": 12,
+        "endChar": 54
+      },
+      "revId": "dcf7b958f395eae2d0d8ca87d93bbbdce047e9de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "078cc7c2_2cad95f9",
+        "filename": "public/charger_type.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-29T23:50:48Z",
+      "side": 1,
+      "message": "these should only be needed by charger mode for the most part, right? not the health HAL?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 49
+      },
+      "revId": "dcf7b958f395eae2d0d8ca87d93bbbdce047e9de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
