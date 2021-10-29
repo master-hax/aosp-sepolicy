@@ -16,6 +16,23 @@
       "message": "Indeed, it looks like wembley worked around this, so I\u0027ll have to remove their duplicate definition :)",
       "revId": "367ef8c00b1bbd7d053256f51409b2976337761b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "469a9355_5e059e5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2021-10-29T21:52:52Z",
+      "side": 1,
+      "message": "Thanks for catching this and fixing it system wide.\n\nIt looks like this is failing the wembley build because it is already declaring something similar in its sepolicy on the internal tree.  Unfortunately, it\u0027s not representative of what\u0027s in the AOSP version of this project (b/197639585).\n\nBut I\u0027m wondering if the following makes sense (which I can put up for review and locally build and test).\n\nCherry-pick this CL to Internal Gerrit, and make a topic with it and a change to the wembley sepolicy to remove the duplication.  After landing that, change this CL to add a Merged-In field in the commit message, and try to land this again.\n\nDoes that sound reasonable?  And sorry for the troubles here.",
+      "revId": "367ef8c00b1bbd7d053256f51409b2976337761b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
