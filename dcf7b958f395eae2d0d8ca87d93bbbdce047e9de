@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1d69f6a1_3e22ccac",
+        "filename": "private/charger_type.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-30T05:33:58Z",
+      "side": 1,
+      "message": "I used to call it \"charger_common_type\" but Alan suggests \"charger_type\". Let me know if you want better names.",
+      "parentUuid": "4114fb91_7cd97cef",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "dcf7b958f395eae2d0d8ca87d93bbbdce047e9de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02cd22c3_513002d9",
         "filename": "public/charger_type.te",
         "patchSetId": 10
@@ -60,6 +84,30 @@
       "writtenOn": "2021-10-29T23:50:48Z",
       "side": 1,
       "message": "these should only be needed by charger mode for the most part, right? not the health HAL?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 49
+      },
+      "revId": "dcf7b958f395eae2d0d8ca87d93bbbdce047e9de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04c89a21_7161fa86",
+        "filename": "public/charger_type.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-30T05:33:58Z",
+      "side": 1,
+      "message": "Correct, this is for charger mode.\n\nIn AIDL health HAL, I am combining the functionality of charger into the health HAL. This is why these permissions are added to the health HAL.\n\nWhen the health HAL is started as charger mode, it will continue to have domain `hal_health_default` (or some vendor specific domain), but NOT the charger domain. Note the charger domain is a coredomain because it is a system binary.",
+      "parentUuid": "078cc7c2_2cad95f9",
       "range": {
         "startLine": 29,
         "startChar": 0,
