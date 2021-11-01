@@ -13,6 +13,11 @@ allow netd clatd:process signal;
 # the map created by bpfloader
 allow netd bpfloader:bpf { prog_run map_read map_write };
 
+# allow netd to run/update/read the eBPF maps which lives in mainline module (tethering).
+# TODO: remove once all bpf access functions are moved into mainline module.
+allow netd { fs_bpf_tethering }:dir search;
+allow netd { fs_bpf_tethering }:file { read write };
+
 # in order to invoke side effect of close() on such a socket calling synchronize_rcu()
 # TODO: Remove this permission when 4.9 kernel is deprecated.
 allow netd self:key_socket create;
