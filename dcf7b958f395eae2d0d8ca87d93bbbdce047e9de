@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e08894d_b8fead16",
+        "filename": "private/charger_type.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-11-01T20:15:13Z",
+      "side": 1,
+      "message": "TBH I don\u0027t care if apps can read charger_config_prop, though it is not intentional with this neverallow rule.\n\nAlso, charger_config_prop are ro.*, so they should be readonly.\n\nI can also add\n\n```\nneverallow {\n    domain\n    -init\n    -dumpstate\n    -vendor_init\n} charger_config_prop :file no_w_file_perms;\n```\n\n... because charget_type should only `get_prop(charger_config_prop)`\n\n------------\n\ncharger_status_prop is a bit tricky because it is a property writable by charger domains. Maybe I can do this?\n\n```\nneverallow {\n    domain\n    -init\n    -dumpstate\n    -vendor_init\n    -charger_type\n} { charger_status_prop }:file no_rw_file_perms;\nneverallow {\n    domain\n    -init\n    -dumpstate\n    -vendor_init\n    -hal_health_server\n} { charger_status_prop }:file no_rw_file_perms;\n```\n\nThis ensures that only init, dumpstate, vendor_init, and a domain that is both (charger_type and hal_health_server) can do set_prop on the properties.\n\nThough, hal_health_server is also an an attribute, so it does not completely solve the problem.\n\n---------\n\nAnother option is to ask vendor health HALs to also use hal_health_default (in fact, they are already doing this), and explicitly list `charger` and `hal_health_default` as an allowlist here.",
+      "parentUuid": "ba1ee56d_636067ab",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "dcf7b958f395eae2d0d8ca87d93bbbdce047e9de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02cd22c3_513002d9",
         "filename": "public/charger_type.te",
         "patchSetId": 10
