@@ -1164,3 +1164,17 @@ se_policy_cil {
 se_freeze_test {
     name: "sepolicy_freeze_test",
 }
+
+//////////////////////////////////
+// Makefile rules temporary imported to Soong
+// TODO(b/33691272): remove these after migrating seapp to Soong
+//////////////////////////////////
+makefile_goal {
+    name: "plat_seapp_contexts_rule",
+    product_out_path: "obj/ETC/plat_seapp_contexts_intermediates/plat_seapp_contexts",
+}
+
+makefile_goal {
+    name: "plat_seapp_neverallows_rule",
+    product_out_path: "obj/ETC/plat_seapp_neverallows_intermediates/plat_seapp_neverallows",
+}
