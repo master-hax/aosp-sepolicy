@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba1ee56d_636067ab",
+        "filename": "private/charger_type.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-11-01T06:57:51Z",
+      "side": 1,
+      "message": "The primary reason for avoiding using attributes this way is because it makes writing useful neverallow rules difficult to enforce, and easy to bypass. For example, if you create a neverallow rule but want to exempt an attribute, then you have to add a lot of logic that ensures that only expected types have that attribute. The neverallow rule below is a good example. How are we preventing arbitrary types from being added to the charger_type attribute? A partner could add charger_type to untrusted app (or any other type) and thus be able to bypass the intended purpose of this neverallow rule. For appdomain, we have tests that ensure that zygote-forked processes have the appdomain attribute and non-zygote-forked processes do no. Macros OTOH allow assigning permissions to types while still requiring that types be specifically exempted from neverallow rules that they violate.",
+      "parentUuid": "1d69f6a1_3e22ccac",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "dcf7b958f395eae2d0d8ca87d93bbbdce047e9de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02cd22c3_513002d9",
         "filename": "public/charger_type.te",
         "patchSetId": 10
