@@ -39,6 +39,30 @@
       },
       "revId": "ee7f40a2a21af462b7601456062c234447fd721c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3650d73c_a3e289f4",
+        "filename": "private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2021-11-02T18:06:10Z",
+      "side": 1,
+      "message": "Yes. They need to be readable in runas_app and simpleperf secontext, because simpleperf running in app need to read them. And it\u0027s better to also let untrusted_app read them, so the app can know when it\u0027s out of permission, and give proper error messages.",
+      "parentUuid": "ec561bee_d6c53351",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 72
+      },
+      "revId": "ee7f40a2a21af462b7601456062c234447fd721c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
