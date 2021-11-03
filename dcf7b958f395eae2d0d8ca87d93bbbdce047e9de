@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bceaad59_bb738e7b",
+        "filename": "private/charger_type.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-11-03T07:10:29Z",
+      "side": 1,
+      "message": "hal_health_server is also an attribute, but the various hal_*_server attributes do have additional tests which prevent them from being arbitrarily applied to domains, so I think this is a reasonable solution.\n\n\u003e TBH I don\u0027t care if apps can read charger_config_prop, though it is not intentional with this neverallow rule.\n\nYou should. Undocumented APIs exposed via system properties is a continual cause of app compat issues. If a property isn\u0027t specifically required to be exposed, it shouldn\u0027t be.\n\n\u003e } { charger_status_prop }:file no_rw_file_perms;\nNote that while properties are directly read from files, they\u0027re not written directly to files. Rather, this is controlled by the property service. So if you intend to limit which domains are allowed to set a property you need a separate neverallow rule. Something like:\n\nneverallow { domain -... } charger_status_config:property_service set;",
+      "parentUuid": "4e08894d_b8fead16",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "dcf7b958f395eae2d0d8ca87d93bbbdce047e9de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02cd22c3_513002d9",
         "filename": "public/charger_type.te",
         "patchSetId": 10
