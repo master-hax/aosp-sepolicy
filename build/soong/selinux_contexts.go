@@ -506,3 +506,13 @@ func keystoreKeyFactory() android.Module {
 	m.build = m.buildGeneralContexts
 	return m
 }
+
+var _ android.OutputFileProducer = (*selinuxContextsModule)(nil)
+
+// Implements android.OutputFileProducer
+func (m *selinuxContextsModule) OutputFiles(tag string) (android.Paths, error) {
+	if tag == "" {
+		return []android.Path{m.outputPath}, nil
+	}
+	return nil, fmt.Errorf("unsupported module reference tag %q", tag)
+}
