@@ -1185,6 +1185,7 @@ neverallow system_server {
   file_type
   -toolbox_exec
   -logcat_exec
+  -clatd_exec
   with_asan(`-shell_exec -asanwrapper_exec -zygote_exec')
 }:file execute_no_trans;
 
@@ -1410,3 +1411,6 @@ neverallowxperm { domain -system_server } binder_device:chr_file ioctl { BINDER_
 # Only system server can write the font files.
 neverallow { domain -init -system_server } font_data_file:file no_w_file_perms;
 neverallow { domain -init -system_server } font_data_file:dir no_w_dir_perms;
+
+# Allow system service to execute clatd.
+allow system_server clatd_exec:file { execute execute_no_trans getattr map open read };
