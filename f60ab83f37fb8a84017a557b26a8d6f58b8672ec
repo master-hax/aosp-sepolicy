@@ -34,6 +34,24 @@
       "parentUuid": "4542409d_c590a2e8",
       "revId": "f60ab83f37fb8a84017a557b26a8d6f58b8672ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "106e5a35_9735f862",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2021-11-04T05:07:07Z",
+      "side": 1,
+      "message": "Currently we have\n\n    property_contexts { name: \"plat_property_contexts\", recovery_available: true }\n    \nSo we can\u0027t use plat_property_contexts as inputs, because there are two variants: core and recovery. If we split the recovery variants,\n\n    property_contexts { name: \"plat_property_contexts\" }\n    property_contexts { name: \"plat_property_contexts_recovery\", recovery: true }\n    \nplat_property_contexts will have only one variant, so even the host module can refer \":plat_property_contexts\" without any problem.",
+      "parentUuid": "a5200766_a685c61c",
+      "revId": "f60ab83f37fb8a84017a557b26a8d6f58b8672ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
