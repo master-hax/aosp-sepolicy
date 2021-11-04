@@ -30,6 +30,9 @@ type selinuxContextsProperties struct {
 	// Filenames under sepolicy directories, which will be used to generate contexts file.
 	Srcs []string `android:"path"`
 
+	// Output file name. Defaults to module name
+	Stem *string
+
 	Product_variables struct {
 		Debuggable struct {
 			Srcs []string
@@ -120,6 +123,10 @@ func (m *selinuxContextsModule) propertyContextsDeps(ctx android.BottomUpMutator
 	}
 }
 
+func (m *selinuxContextsModule) stem() string {
+	return proptools.StringDefault(m.properties.Stem, m.Name())
+}
+
 func (m *selinuxContextsModule) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 	if m.InRecovery() {
 		// Installing context files at the root of the recovery partition
@@ -133,7 +140,7 @@ func (m *selinuxContextsModule) GenerateAndroidBuildActions(ctx android.ModuleCo
 
 		if reuseDeps, ok := dep.(*selinuxContextsModule); ok {
 			m.outputPath = reuseDeps.outputPath
-			ctx.InstallFile(m.installPath, m.Name(), m.outputPath)
+			ctx.InstallFile(m.installPath, m.stem(), m.outputPath)
 			return
 		}
 	}
@@ -185,7 +192,7 @@ func (m *selinuxContextsModule) GenerateAndroidBuildActions(ctx android.ModuleCo
 	}
 
 	m.outputPath = m.build(ctx, inputs)
-	ctx.InstallFile(m.installPath, ctx.ModuleName(), m.outputPath)
+	ctx.InstallFile(m.installPath, m.stem(), m.outputPath)
 }
 
 func newModule() *selinuxContextsModule {
@@ -236,21 +243,21 @@ func (m *selinuxContextsModule) AndroidMk() android.AndroidMkData {
 			fmt.Fprintln(w, "LOCAL_MODULE_TAGS := optional")
 			fmt.Fprintln(w, "LOCAL_PREBUILT_MODULE_FILE :=", m.outputPath.String())
 			fmt.Fprintln(w, "LOCAL_MODULE_PATH :=", m.installPath.ToMakePath().String())
-			fmt.Fprintln(w, "LOCAL_INSTALLED_MODULE_STEM :=", name)
+			fmt.Fprintln(w, "LOCAL_INSTALLED_MODULE_STEM :=", m.stem())
 			fmt.Fprintln(w, "include $(BUILD_PREBUILT)")
 		},
 	}
 }
 
 func (m *selinuxContextsModule) ImageMutatorBegin(ctx android.BaseModuleContext) {
-	if proptools.Bool(m.properties.Recovery_available) && m.InstallInRecovery() {
+	if proptools.Bool(m.properties.Recovery_available) && m.ModuleBase.InstallInRecovery() {
 		ctx.PropertyErrorf("recovery_available",
 			"doesn't make sense at the same time as `recovery: true`")
 	}
 }
 
 func (m *selinuxContextsModule) CoreVariantNeeded(ctx android.BaseModuleContext) bool {
-	return !m.InstallInRecovery()
+	return !m.ModuleBase.InstallInRecovery()
 }
 
 func (m *selinuxContextsModule) RamdiskVariantNeeded(ctx android.BaseModuleContext) bool {
@@ -266,7 +273,7 @@ func (m *selinuxContextsModule) DebugRamdiskVariantNeeded(ctx android.BaseModule
 }
 
 func (m *selinuxContextsModule) RecoveryVariantNeeded(ctx android.BaseModuleContext) bool {
-	return m.InstallInRecovery() || proptools.Bool(m.properties.Recovery_available)
+	return m.ModuleBase.InstallInRecovery() || proptools.Bool(m.properties.Recovery_available)
 }
 
 func (m *selinuxContextsModule) ExtraImageVariations(ctx android.BaseModuleContext) []string {
