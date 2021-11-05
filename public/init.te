@@ -175,6 +175,9 @@ enforce_debugfs_restriction(`
 # Allow init to mount tracefs in /sys/kernel/tracing
 allow init debugfs_tracing_debug:filesystem mount;
 
+# Allow creating synthetic events
+allow init debugfs_tracing_debug:dir { write };
+
 allow init unlabeled:filesystem ~relabelto;
 allow init contextmount_type:filesystem relabelto;
 
