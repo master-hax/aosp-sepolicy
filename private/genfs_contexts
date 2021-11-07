@@ -7,6 +7,7 @@ genfscon proc /bootconfig u:object_r:proc_bootconfig:s0
 genfscon proc /buddyinfo u:object_r:proc_buddyinfo:s0
 genfscon proc /cmdline u:object_r:proc_cmdline:s0
 genfscon proc /config.gz u:object_r:config_gz:s0
+genfscon proc /cpu/alignment u:object_r:proc_cpu_alignment:s0
 genfscon proc /diskstats u:object_r:proc_diskstats:s0
 genfscon proc /filesystems u:object_r:proc_filesystems:s0
 genfscon proc /interrupts u:object_r:proc_interrupts:s0
@@ -119,7 +120,6 @@ genfscon sysfs /devices/cs_etm                    u:object_r:sysfs_devices_cs_et
 genfscon sysfs /devices/system/cpu u:object_r:sysfs_devices_system_cpu:s0
 genfscon sysfs /class/android_usb                 u:object_r:sysfs_android_usb:s0
 genfscon sysfs /class/extcon                      u:object_r:sysfs_extcon:s0
-genfscon sysfs /class/block                       u:object_r:sysfs_block:s0
 genfscon sysfs /class/leds                        u:object_r:sysfs_leds:s0
 genfscon sysfs /class/net                         u:object_r:sysfs_net:s0
 genfscon sysfs /class/rfkill/rfkill0/state        u:object_r:sysfs_bluetooth_writable:s0
