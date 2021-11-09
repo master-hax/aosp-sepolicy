@@ -16,6 +16,24 @@
       "message": "wait - but this adds the graphics-related permissions to this type, which is not always used in charger mode?",
       "revId": "c5cf359fc3035dafe1e905aa381bed5bc411c7a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8aa44cb0_b7521a54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-11-09T01:16:23Z",
+      "side": 1,
+      "message": "graphics related permissions are not used in regular mode and always used in charger mode:\n\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/health/aidl/default/android.hardware.health-service.example.rc\n\nOf course, another option would be to add yet another type, `vendor_charger`, that is exactly like hal_health_default right now (with the graphics permissions), and drop graphics permissions from hal_health_default; then add `seclabel vendor_charger` to the aforementioned rc file when `--charger` is specified.",
+      "parentUuid": "54a26c82_1bb4cbea",
+      "revId": "c5cf359fc3035dafe1e905aa381bed5bc411c7a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
