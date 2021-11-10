@@ -35,7 +35,16 @@ allow odsign odsign_key:keystore2_key {
     use
 };
 
-# talk to keymaster
+# Talk to the dice daemon for signing and retrieving the
+# attestation certificate chain
+allow odsign dice_node_service:service_manager find;
+binder_call(odsign, diced)
+allow odsign diced:diced {
+    use_sign
+    get_attestation_chain
+};
+
+# talk to keymaster TODO remove this!
 hal_client_domain(odsign, hal_keymaster)
 
 # For ART apex data dir access
