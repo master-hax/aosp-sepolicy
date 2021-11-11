@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d429bc5b_b233ecb5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1206463
+      },
+      "writtenOn": "2021-11-11T08:39:20Z",
+      "side": 1,
+      "message": "Hi Jiyong,\n\nWhen I enable the bootchart, below selinux denial was observed:\n  [    8.769133] type\u003d1400 audit(1636343280.852:3): avc: denied { mounton } for comm\u003d\"apexd\" path\u003d\"/apex/apex-info-list.xml\" dev\u003d\"tmpfs\" ino\u003d13 scontext\u003du:r:apexd:\ns0 tcontext\u003du:object_r:apex_info_file:s0 tclass\u003dfile permissive\u003d1\n\nAnd above selinux denial would cause the runtime abort as I posted. I didn\u0027t find the source code in apexd which requires the permission.",
+      "parentUuid": "b40ad51b_2caffc82",
+      "range": {
+        "startLine": 12,
+        "startChar": 18,
+        "endLine": 12,
+        "endChar": 86
+      },
+      "revId": "e55adc0da898f7eb17375c68a479bde7ca682e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "146f34d8_733afe4d",
         "filename": "prebuilts/api/31.0/private/apexd.te",
         "patchSetId": 1
