@@ -7,7 +7,7 @@
 # in tools/checkfc.c
 attribute dev_type;
 
-# Attribute for block devices.
+# TODO(b/202520796) Remove this attribute once the sc-dev branch stops using it.
 attribute bdev_type;
 
 # All types used for processes.
@@ -68,7 +68,7 @@ expandattribute proc_net_type true;
 # All types used for sysfs files.
 attribute sysfs_type;
 
-# Attribute for /sys/class/block files.
+# TODO(b/202520796) Remove this attribute once the sc-dev branch stops using it.
 attribute sysfs_block_type;
 
 # All types use for debugfs files.
@@ -412,3 +412,10 @@ attribute gsi_metadata_file_type;
 # Types used for module-specific APEX data directories under
 # /data/{misc,misc_ce,misc_de}/apexdata.
 attribute apex_data_file_type;
+
+# Domains used for charger.
+# This is the common type for domains that executes charger's
+# functionalities, including setting and getting necessary properties,
+# permissions to maintain the health loop, writing to kernel log, handling
+# inputs and drawing screens, etc.
+attribute charger_type;
