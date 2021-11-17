@@ -46,6 +46,30 @@
       },
       "revId": "a594876cfe3dbf49c17f73f060c87f0a12e3ac1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29112db0_c56f4f63",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-11-17T13:26:06Z",
+      "side": 0,
+      "message": "app_zygote needs to be killable by system_server for sure (they can have a smaller lifetime than the regular zygote). For webview_zygote, I think it\u0027s supposed to always be running, so it might be less important.",
+      "parentUuid": "e4b6a365_7b4f1e38",
+      "range": {
+        "startLine": 98,
+        "startChar": 2,
+        "endLine": 98,
+        "endChar": 16
+      },
+      "revId": "a594876cfe3dbf49c17f73f060c87f0a12e3ac1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -94,6 +94,30 @@
       },
       "revId": "b6bbb3f45724537bb91d664be2631026d3e60f13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a72d8f29_238d3d61",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-11-17T13:26:06Z",
+      "side": 1,
+      "message": "1. Sure; but there\u0027s not really a need to prevent it if the implementation were correct in the first place.\n\n2. Yes, it might be some work, but this is actually a serious bug that we should fix.\n\n3. I\u0027m confused - do you mean \"should *not* have the permission\"?\n\nAnyway, you can argue this CL doesn\u0027t really harm anything, but I\u0027m not entirely convinced that we know of all code paths where the system_server tries to kill Zygote, which would now fail because of this CL.\n\nIf you want to say \"system_server should not be able to kill Zygote\", I\u0027m ok with that if you are sure this will not cause any other issues.\n\nBut if the point of this change is to prevent this particular race condition, I think we should work on the proper fix instead.",
+      "parentUuid": "6c858ca7_98a867a8",
+      "range": {
+        "startLine": 18,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "b6bbb3f45724537bb91d664be2631026d3e60f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
