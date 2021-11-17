@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16aeddda_19c87f96",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-11-17T13:04:18Z",
+      "side": 1,
+      "message": "This feels like we\u0027re just papering over the problem. This CL just prevents system_server from being killed, but we could just as well erroneously kill another app that just happened to spawn a thread.\n\nWe should really make sure that kills from the system_server are safe (take the intended UID into account).\n\nCan you point out which part of the system_server is doing this kill?",
+      "range": {
+        "startLine": 18,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "b6bbb3f45724537bb91d664be2631026d3e60f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
