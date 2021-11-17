@@ -118,6 +118,30 @@
       },
       "revId": "b6bbb3f45724537bb91d664be2631026d3e60f13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "609f8fd4_1378fbd5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1102879
+      },
+      "writtenOn": "2021-11-17T13:44:45Z",
+      "side": 1,
+      "message": "If you want to say \"system_server should not be able to kill Zygote\", I\u0027m ok with that if you are sure this will not cause any other issues.\n-----------\nSorry if I confused you earlier and certainly I mean system_server should not be able to kill Zygote.\n\n\nBut if the point of this change is to prevent this particular race condition, I think we should work on the proper fix instead.\n-------------\nAgreed, and that I will leave it to the you or the owner of ActivityManagerService.\nBut this line inappropriate sepolicy rule should be removed anyway.\n\nJust as you said, even with this CL merged you are still able to observe the mis-kill issue happening on other app processes, the \"papering over the problem\" you said earlier doesn\u0027t stands then.",
+      "parentUuid": "a72d8f29_238d3d61",
+      "range": {
+        "startLine": 18,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "b6bbb3f45724537bb91d664be2631026d3e60f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
