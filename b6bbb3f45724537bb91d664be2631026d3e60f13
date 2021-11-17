@@ -22,6 +22,30 @@
       },
       "revId": "b6bbb3f45724537bb91d664be2631026d3e60f13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c858ca7_98a867a8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1102879
+      },
+      "writtenOn": "2021-11-17T13:16:52Z",
+      "side": 1,
+      "message": "1. Not exactly, this CL is to prevent zygote from being killed by system_server, but not vice versa.\n\n2. Yes, this CL doesn\u0027t cover other process being mistakenly killed by system_server, thats out of this CL\u0027s scope and I agree with your idea(take the intended UID into account, and it seems a lot of work/code)\n\n3. Anyway, system_server should have the permission to kill zygote",
+      "parentUuid": "16aeddda_19c87f96",
+      "range": {
+        "startLine": 18,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "b6bbb3f45724537bb91d664be2631026d3e60f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
