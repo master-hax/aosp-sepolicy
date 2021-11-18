@@ -78,6 +78,7 @@ allow apexd apex_mnt_dir:file { create_file_perms relabelfrom mounton };
 allow apexd apex_info_file:file relabelto;
 # apexd needs to update /apex/apex-info-list.xml after non-staged APEX update.
 allow apexd apex_info_file:file rw_file_perms;
+allow apexd apex_info_file:file mounton;
 
 # allow apexd to unlink apex files in /data/apex/active
 # note that apexd won't be able to unlink files in /data/app-staging/session_XXXX,
@@ -153,6 +154,10 @@ get_prop(apexd, cold_boot_done_prop)
 
 # Allow apexd to read per-device configuration properties.
 get_prop(apexd, apexd_config_prop)
+
+# Allow apexd to read apex selection properties.
+# These are used to choose between multi-installed APEXes at activation time.
+get_prop(apexd, apexd_select_prop)
 
 neverallow { domain -apexd -init } apex_data_file:dir no_w_dir_perms;
 neverallow { domain -apexd -init } apex_metadata_file:dir no_w_dir_perms;
