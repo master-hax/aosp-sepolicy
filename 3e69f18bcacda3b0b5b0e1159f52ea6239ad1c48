@@ -22,6 +22,30 @@
       },
       "revId": "3e69f18bcacda3b0b5b0e1159f52ea6239ad1c48",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59215c67_9732e304",
+        "filename": "private/init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-11-18T20:31:51Z",
+      "side": 1,
+      "message": "I didn\u0027t know we can transition to attributes! I thought it only works on real domains.\n\nI was hoping the device to specify\n\n```\ndomain_trans(init, rootfs, hal_health_mydevice)\n```\n\nin the device-specific sepolicy.\n\nLet me try replacing it with hal_health_server and see if it works.",
+      "parentUuid": "b5fdad51_44aa9684",
+      "range": {
+        "startLine": 16,
+        "startChar": 29,
+        "endLine": 16,
+        "endChar": 47
+      },
+      "revId": "3e69f18bcacda3b0b5b0e1159f52ea6239ad1c48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
