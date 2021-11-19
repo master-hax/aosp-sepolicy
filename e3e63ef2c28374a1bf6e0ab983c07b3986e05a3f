@@ -152,6 +152,30 @@
       },
       "revId": "e3e63ef2c28374a1bf6e0ab983c07b3986e05a3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6106922_dfd2620d",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-11-19T00:30:31Z",
+      "side": 1,
+      "message": "What\u0027s in vendor/etc/ are labeled as vendor_app_config and they are accessible to any process. If the added xml file(s) is accessible only to SecureElement, then you really have to invent a new type and have an explicit allow rule like\n\nallow \u003csecure_element_type\u003e \u003cthe_new_file_type\u003e:file r_file_perms;",
+      "parentUuid": "a0f75239_32240dff",
+      "range": {
+        "startLine": 426,
+        "startChar": 82,
+        "endLine": 426,
+        "endChar": 101
+      },
+      "revId": "e3e63ef2c28374a1bf6e0ab983c07b3986e05a3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
