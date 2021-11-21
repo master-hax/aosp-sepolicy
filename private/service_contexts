@@ -34,6 +34,7 @@ android.hardware.radio.voice.IRadioVoice/slot1                       u:object_r:
 android.hardware.radio.voice.IRadioVoice/slot2                       u:object_r:hal_radio_voice_service:s0
 android.hardware.radio.voice.IRadioVoice/slot3                       u:object_r:hal_radio_voice_service:s0
 android.hardware.rebootescrow.IRebootEscrow/default                  u:object_r:hal_rebootescrow_service:s0
+android.hardware.security.dice.IDiceDevice/default                   u:object_r:hal_dice_service:s0
 android.hardware.security.keymint.IKeyMintDevice/default             u:object_r:hal_keymint_service:s0
 android.hardware.security.keymint.IRemotelyProvisionedComponent/default u:object_r:hal_remotelyprovisionedcomponent_service:s0
 android.hardware.security.secureclock.ISecureClock/default             u:object_r:hal_secureclock_service:s0
@@ -65,6 +66,8 @@ android.os.UpdateEngineStableService      u:object_r:update_engine_stable_servic
 android.security.apc                      u:object_r:apc_service:s0
 android.security.authorization            u:object_r:authorization_service:s0
 android.security.compat                   u:object_r:keystore_compat_hal_service:s0
+android.security.dice.IDiceMaintenance    u:object_r:dice_maintenance_service:s0
+android.security.dice.IDiceNode           u:object_r:dice_node_service:s0
 android.security.identity                 u:object_r:credstore_service:s0
 android.security.keystore                 u:object_r:keystore_service:s0
 android.security.legacykeystore           u:object_r:legacykeystore_service:s0
@@ -261,6 +264,7 @@ role                                      u:object_r:role_service:s0
 rollback                                  u:object_r:rollback_service:s0
 rttmanager                                u:object_r:rttmanager_service:s0
 runtime                                   u:object_r:runtime_service:s0
+safety_center                             u:object_r:safety_center_service:s0
 samplingprofiler                          u:object_r:samplingprofiler_service:s0
 scheduling_policy                         u:object_r:scheduling_policy_service:s0
 search                                    u:object_r:search_service:s0
@@ -282,6 +286,7 @@ slice                                     u:object_r:slice_service:s0
 smartspace                                u:object_r:smartspace_service:s0
 speech_recognition                        u:object_r:speech_recognition_service:s0
 stats                                     u:object_r:stats_service:s0
+statsbootstrap                            u:object_r:statsbootstrap_service:s0
 statscompanion                            u:object_r:statscompanion_service:s0
 statsmanager                              u:object_r:statsmanager_service:s0
 soundtrigger                              u:object_r:voiceinteraction_service:s0
