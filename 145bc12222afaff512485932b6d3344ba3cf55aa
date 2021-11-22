@@ -73,6 +73,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "54bd3fc7_ff912c83",
+        "filename": "private/odrefresh.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-11-22T11:19:29Z",
+      "side": 1,
+      "message": "\u003e Would it be possible to / should we only allow on userdebug or eng (later if not now)?\n\nIt\u0027s needed on release builds.\n\n\u003e \n\u003e Also, when we start to run odrefresh in the VM, would we move this allow to shell?\n\nMost of our tests require root, so we don\u0027t generally need to give shell anything.\nBut once odrefresh is in the VM, this goes away, I think.",
+      "parentUuid": "dcba68cc_8baf80f4",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 5
+      },
+      "revId": "145bc12222afaff512485932b6d3344ba3cf55aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3dd2a3d4_766f1b56",
         "filename": "private/service.te",
         "patchSetId": 1
