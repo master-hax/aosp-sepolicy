@@ -270,6 +270,7 @@
 /system/bin/credstore	u:object_r:credstore_exec:s0
 /system/bin/keystore	u:object_r:keystore_exec:s0
 /system/bin/keystore2	u:object_r:keystore_exec:s0
+/system/bin/diced      u:object_r:diced_exec:s0
 /system/bin/fingerprintd u:object_r:fingerprintd_exec:s0
 /system/bin/gatekeeperd u:object_r:gatekeeperd_exec:s0
 /system/bin/tombstoned u:object_r:tombstoned_exec:s0
@@ -277,6 +278,7 @@
 /system/bin/recovery-refresh     u:object_r:recovery_refresh_exec:s0
 /system/bin/sdcard      u:object_r:sdcardd_exec:s0
 /system/bin/snapshotctl      u:object_r:snapshotctl_exec:s0
+/system/bin/remount              u:object_r:remount_exec:s0
 /system/bin/dhcpcd      u:object_r:dhcp_exec:s0
 /system/bin/dhcpcd-6\.8\.2	u:object_r:dhcp_exec:s0
 /system/bin/mtpd	u:object_r:mtp_exec:s0
@@ -777,6 +779,7 @@
 /metadata/password_slots(/.*)?    u:object_r:password_slot_metadata_file:s0
 /metadata/ota(/.*)?       u:object_r:ota_metadata_file:s0
 /metadata/bootstat(/.*)?  u:object_r:metadata_bootstat_file:s0
+/metadata/sepolicy(/.*)?    u:object_r:sepolicy_metadata_file:s0
 /metadata/staged-install(/.*)?    u:object_r:staged_install_file:s0
 /metadata/userspacereboot(/.*)?    u:object_r:userspace_reboot_metadata_file:s0
 /metadata/watchdog(/.*)?    u:object_r:watchdog_metadata_file:s0

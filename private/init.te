@@ -13,8 +13,10 @@ recovery_only(`
   domain_trans(init, rootfs, adbd)
   domain_trans(init, rootfs, charger)
   domain_trans(init, rootfs, fastbootd)
+  domain_trans(init, rootfs, hal_health_server)
   domain_trans(init, rootfs, recovery)
   domain_trans(init, rootfs, linkerconfig)
+  domain_trans(init, rootfs, servicemanager)
   domain_trans(init, rootfs, snapuserd)
 ')
 domain_trans(init, shell_exec, shell)
@@ -105,6 +107,11 @@ neverallow { domain -init } keystore_listen_prop:property_service set;
 
 # Allow accessing /sys/kernel/tracing/instances/bootreceiver to set up tracing.
 allow init debugfs_bootreceiver_tracing:file w_file_perms;
+
+# Devices with kernels where CONFIG_HIST_TRIGGERS isn't enabled will
+# attempt to write a non exisiting 'synthetic_events' file, when setting
+# up synthetic events. This is a no-op in tracefs.
+dontaudit init debugfs_tracing_debug:dir { write add_name };
 
 # chown/chmod on devices.
 allow init {

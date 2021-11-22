@@ -265,6 +265,8 @@ apexd.                  u:object_r:apexd_prop:s0
 apexd.config.dm_delete.timeout           u:object_r:apexd_config_prop:s0 exact uint
 apexd.config.dm_create.timeout           u:object_r:apexd_config_prop:s0 exact uint
 persist.apexd.          u:object_r:apexd_prop:s0
+persist.vendor.apex.    u:object_r:apexd_select_prop:s0
+ro.boot.vendor.apex.    u:object_r:apexd_select_prop:s0
 
 bpf.progs_loaded        u:object_r:bpf_progs_loaded_prop:s0
 
@@ -292,8 +294,10 @@ ro.virtual_ab.enabled   u:object_r:virtual_ab_prop:s0 exact bool
 ro.virtual_ab.retrofit  u:object_r:virtual_ab_prop:s0 exact bool
 ro.virtual_ab.compression.enabled  u:object_r:virtual_ab_prop:s0 exact bool
 ro.virtual_ab.compression.xor.enabled   u:object_r:virtual_ab_prop:s0 exact bool
+ro.virtual_ab.userspace.snapshots.enabled u:object_r:virtual_ab_prop:s0 exact bool
 snapuserd.ready         u:object_r:snapuserd_prop:s0 exact bool
 snapuserd.proxy_ready   u:object_r:snapuserd_prop:s0 exact bool
+snapuserd.test.dm.snapshots u:object_r:snapuserd_prop:s0 exact bool
 
 ro.product.ab_ota_partitions u:object_r:ota_prop:s0 exact string
 # Property to set/clear the warm reset flag after an OTA update.
@@ -337,6 +341,7 @@ persist.config.calibration_fac u:object_r:camera_calibration_prop:s0 exact strin
 
 config.disable_cameraservice u:object_r:camera_config_prop:s0 exact bool
 
+camera.disable_preview_scheduler u:object_r:camera_config_prop:s0 exact bool
 camera.disable_zsl_mode       u:object_r:camera_config_prop:s0 exact bool
 camera.fifo.disable           u:object_r:camera_config_prop:s0 exact bool
 ro.camera.notify_nfc          u:object_r:camera_config_prop:s0 exact bool
