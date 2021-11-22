@@ -69,4 +69,8 @@ get_prop(microdroid_manager, bootloader_prop)
 # Allow microdroid_manager to shutdown the device when verification fails
 set_prop(microdroid_manager, powerctl_prop)
 
+# Allow microdroid_manager to read ro.logd.ready so that it starts seriallogging (logcat)
+# after logd is ready.
+get_prop(microdroid_manager, logd_prop)
+
 neverallow microdroid_manager { file_type fs_type }:file execute_no_trans;
