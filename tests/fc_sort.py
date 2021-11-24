@@ -1,87 +1,91 @@
 #!/usr/bin/env python
-import sys
-import os
+
 import argparse
+import os
+import sys
 
-class FileContextsNode:
-    path = None
-    fileType = None
-    context = None
-    Type = None
-    meta = None
-    stemLen = None
-    strLen = None
-    Type = None
-    line = None
-    def __init__(self, path, fileType, context, meta, stemLen, strLen, line):
-        self.path = path
-        self.fileType = fileType
-        self.context = context
-        self.meta = meta
-        self.stemLen = stemLen
-        self.strlen = strLen
-        self.Type = context.split(":")[2]
-        self.line = line
 
-metaChars = frozenset(['.', '^', '$', '?', '*', '+', '|', '[', '(', '{'])
-escapedMetaChars = frozenset(['\.', '\^', '\$', '\?', '\*', '\+', '\|', '\[', '\(', '\{'])
+META_CHARS = frozenset(['.', '^', '$', '?', '*', '+', '|', '[', '(', '{'])
+ESCAPED_META_CHARS = frozenset(['\.', '\^', '\$', '\?', '\*', '\+', '\|', '\[', '\(', '\{'])
 
-def getStemLen(path):
-    global metaChars
-    stemLen = 0
+
+def get_stem_len(path):
+    """Returns the length of the stem."""
+    stem_len = 0
     i = 0
     while i < len(path):
         if path[i] == "\\":
             i += 1
-        elif path[i] in metaChars:
+        elif path[i] in META_CHARS:
             break
-        stemLen += 1
+        stem_len += 1
         i += 1
-    return stemLen
+    return stem_len
 
 
-def getIsMeta(path):
-    global metaChars
-    global escapedMetaChars
-    metaCharsCount = 0
-    escapedMetaCharsCount = 0
-    for c in metaChars:
+def is_meta(path):
+    """Indicates if a path contains any metacharacter."""
+    meta_char_count = 0
+    escaped_meta_char_count = 0
+    for c in META_CHARS:
         if c in path:
-            metaCharsCount += 1
-    for c in escapedMetaChars:
+            meta_char_count += 1
+    for c in ESCAPED_META_CHARS:
         if c in path:
-            escapedMetaCharsCount += 1
-    return metaCharsCount > escapedMetaCharsCount
+            escaped_meta_char_count += 1
+    return meta_char_count > escaped_meta_char_count
 
-def CreateNode(line):
-    global metaChars
-    if (len(line) == 0) or (line[0] == '#'):
-        return None
 
-    split = line.split()
-    path = split[0].strip()
-    context = split[-1].strip()
-    fileType = None
-    if len(split) == 3:
-        fileType = split[1].strip()
-    meta = getIsMeta(path)
-    stemLen = getStemLen(path)
-    strLen = len(path.replace("\\", ""))
+class FileContextsNode(object):
+    """An entry in a file_context file."""
 
-    return FileContextsNode(path, fileType, context, meta, stemLen, strLen, line)
+    def __init__(self, path, file_type, context, meta, stem_len, str_len, line):
+        self.path = path
+        self.file_type = file_type
+        self.context = context
+        self.meta = meta
+        self.stem_len = stem_len
+        self.str_len = str_len
+        self.type = context.split(":")[2]
+        self.line = line
 
-def ReadFileContexts(files):
-    fc = []
-    for f in files:
-        fd = open(f)
-        for line in fd:
-            node = CreateNode(line.strip())
-            if node != None:
-                fc.append(node)
-    return fc
+    @classmethod
+    def create(cls, line):
+        if (len(line) == 0) or (line[0] == '#'):
+            return None
+
+        split = line.split()
+        path = split[0].strip()
+        context = split[-1].strip()
+        file_type = None
+        if len(split) == 3:
+            file_type = split[1].strip()
+        meta = is_meta(path)
+        stem_len = get_stem_len(path)
+        str_len = len(path.replace("\\", ""))
+
+        return cls(path, file_type, context, meta, stem_len, str_len, line)
+
+
+def read_file_contexts(file_descriptor):
+    file_contexts = []
+    for line in file_descriptor:
+        node = FileContextsNode.create(line.strip())
+        if node != None:
+            file_contexts.append(node)
+    return file_contexts
+
+
+def read_multiple_file_contexts(files):
+    file_contexts = []
+    for filename in files:
+        with open(filename) as fd:
+            file_contexts.extend(read_file_contexts(fd))
+    return file_contexts
+
 
 # Comparator function for list.sort() based off of fc_sort.c
-# Compares two FileContextNodes a and b and returns 1 if a is more
+# Compares two FileContextsNodes a and b and returns 1 if a is more
 # specific or -1 if b is more specific.
 def compare(a, b):
     # The regex without metachars is more specific
@@ -91,37 +95,37 @@ def compare(a, b):
         return 1
 
     # The regex with longer stemlen (regex before any meta characters) is more specific.
-    if a.stemLen < b.stemLen:
+    if a.stem_len < b.stem_len:
         return -1
-    if b.stemLen < a.stemLen:
+    if b.stem_len < a.stem_len:
         return 1
 
     # The regex with longer string length is more specific
-    if a.strLen < b.strLen:
+    if a.str_len < b.str_len:
         return -1
-    if b.strLen < a.strLen:
+    if b.str_len < a.str_len:
         return 1
 
     # A regex with a fileType defined (e.g. file, dir) is more specific.
-    if a.fileType is None and b.fileType is not None:
+    if a.file_type is None and b.file_type is not None:
         return -1
-    if b.fileType is None and a.fileType is not None:
+    if b.file_type is None and a.file_type is not None:
         return 1
 
     # Regexes are equally specific.
     return 0
 
-def FcSort(files):
+
+def sort(files):
     for f in files:
         if not os.path.exists(f):
             sys.exit("Error: File_contexts file " + f + " does not exist\n")
+    file_contexts = read_multiple_file_contexts(files)
+    file_contexts.sort(cmp=compare)
+    return file_contexts
 
-    Fc = ReadFileContexts(files)
-    Fc.sort(cmp=compare)
 
-    return Fc
-
-def PrintFc(Fc, out):
+def print_fc(Fc, out):
     if not out:
         f = sys.stdout
     else:
@@ -129,14 +133,17 @@ def PrintFc(Fc, out):
     for node in Fc:
         f.write(node.line + "\n")
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="SELinux file_contexts sorting tool.")
-    parser.add_argument("-i", dest="input", help="Path to the file_contexts file(s).", nargs="?", action='append')
-    parser.add_argument("-o", dest="output", help="Path to the output file", nargs=1)
+    parser.add_argument("-i", dest="input",
+            help="Path to the file_contexts file(s).", nargs="?", action='append')
+    parser.add_argument("-o", dest="output",
+            help="Path to the output file.", nargs=1)
     args = parser.parse_args()
     if not args.input:
         parser.error("Must include path to policy")
     if not not args.output:
         args.output = args.output[0]
 
-    PrintFc(FcSort(args.input),args.output)
+    print_fc(sort(args.input), args.output)
