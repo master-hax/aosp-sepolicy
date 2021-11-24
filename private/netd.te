@@ -42,3 +42,6 @@ neverallow { domain -netd -init -dumpstate } netd_stable_secret_prop:file r_file
 # We want to ensure that no other process ever tries tampering with persist.netd.stable_secret,
 # the RFC 7217 secret key managed by netd. Doing so could compromise user privacy.
 neverallow { domain -netd -init } netd_stable_secret_prop:property_service set;
+
+# allow netd to setup packet socket for clatd.
+allow netd self:packet_socket { bind create setopt };
