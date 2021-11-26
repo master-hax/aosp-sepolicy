@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77d42ad8_2d5abe19",
+        "filename": "private/domain.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-11-26T14:20:21Z",
+      "side": 1,
+      "message": "I don\u0027t think this is right - removing this makes it possible for any domain to be granted the right to execute apex_art_data_file, which we don\u0027t want.\n\nYou could add \"-system_server\" above (like system_server_startup), but that also then removes the block on system_server executing all sorts of badness.\n\nSo I suggest you do that, but then add an equivalent of this neverallow rule tailored just to system_server in private/system_server.te - ideally with a shorter list of exemptions.\n(That could be next to the existing http://osscs/android/platform/superproject/+/master:system/sepolicy/private/system_server.te;drc\u003dd34435c2571abb47edb40b90659e50423ba2d197;l\u003d1251.)",
+      "range": {
+        "startLine": 262,
+        "startChar": 5,
+        "endLine": 262,
+        "endChar": 23
+      },
+      "revId": "1400eef450e5a18174c1aa7585cad7d192f36bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b04c4fe9_6895c6f7",
+        "filename": "private/system_server.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-11-26T14:20:21Z",
+      "side": 1,
+      "message": "I think this is granting too much. rx_file_perms adds both execute and execute_no_trans:\n- execute allows the domain to mmap the file with PROT_EXEC, which is what you want.\n- execute_no_trans allows the domain to call execve on the file. I don\u0027t think you need that, and I definitely don\u0027t think you should do it; see b/28035297.\n\nSo I think this should instead be \"{ r_file_perms execute }\" - which is what system_server_startup currently has: http://osscs/android/platform/superproject/+/master:system/sepolicy/private/system_server_startup.te;drc\u003d7778e8cdb39d8a002d3f8f5a86b70fe2e48748c7;l\u003d12",
+      "range": {
+        "startLine": 71,
+        "startChar": 48,
+        "endLine": 71,
+        "endChar": 61
+      },
+      "revId": "1400eef450e5a18174c1aa7585cad7d192f36bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1756ca01_7269118a",
+        "filename": "private/system_server.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-11-26T14:20:21Z",
+      "side": 1,
+      "message": "Delete this; you don\u0027t need it if you remove the execute_no_trans grant above.",
+      "range": {
+        "startLine": 1187,
+        "startChar": 3,
+        "endLine": 1187,
+        "endChar": 21
+      },
+      "revId": "1400eef450e5a18174c1aa7585cad7d192f36bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ee7e357_f6ea1f1e",
+        "filename": "private/system_server.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-11-26T14:20:21Z",
+      "side": 1,
+      "message": "This comment needs to address why it\u0027s ok to allow apex_art_data_file.",
+      "revId": "1400eef450e5a18174c1aa7585cad7d192f36bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
