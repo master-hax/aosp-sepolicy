@@ -73,4 +73,12 @@ get_prop(microdroid_manager, bootloader_prop)
 # Allow microdroid_manager to shutdown the device when verification fails
 set_prop(microdroid_manager, powerctl_prop)
 
+# Allow microdroid_manager to handle extra_apks
+allow microdroid_manager extra_apk_file:dir create_dir_perms;
+allow microdroid_manager self:global_capability_class_set { dac_override dac_read_search };
+
+# Domains other than microdroid can't write extra_apks
+neverallow { domain -microdroid_manager -init -vendor_init } extra_apk_file:file no_w_file_perms;
+neverallow { domain -microdroid_manager -init -vendor_init } extra_apk_file:dir no_w_dir_perms;
+
 neverallow microdroid_manager { file_type fs_type }:file execute_no_trans;
