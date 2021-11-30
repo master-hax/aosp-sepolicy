@@ -23,5 +23,9 @@ allow composd apex_compos_data_file:file create_file_perms;
 domain_auto_trans(composd, odrefresh_exec, odrefresh)
 allow composd odrefresh:process sigkill;
 
+# Run fd_server in its own domain, and send SIGTERM when finished.
+domain_auto_trans(composd, fd_server_exec, compos_fd_server)
+allow composd compos_fd_server:process signal;
+
 # Read ART's properties
 get_prop(composd, dalvik_config_prop)
