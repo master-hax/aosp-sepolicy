@@ -135,6 +135,30 @@
       },
       "revId": "39c7aab089806a013ea2558f8ed297254271cfde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a071745_add40a66",
+        "filename": "microdroid/system/private/zipfuse.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-01T09:53:16Z",
+      "side": 1,
+      "message": "Looking in /proc/pid/fd of the processes might help.\nIt\u0027s odd. microdroid_manager should be specifying CLOEXEC everywhere.\n\nIf you don\u0027t have this allow rule, then the fd received on the other side will be valid but will point at /dev/null. If that doesn\u0027t cause problems then it\u0027s probably an accidentally open fd. We should really fix that, but if we don\u0027t need the fd it would be better to dontaudit rather than adding a bogus allow.\n\nYou\u0027d definitely need to close 0-2 anyway.",
+      "parentUuid": "bb7819c5_24fca23f",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 40
+      },
+      "revId": "39c7aab089806a013ea2558f8ed297254271cfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
