@@ -216,8 +216,9 @@ neverallow shell {
   port_device
 }:chr_file ~getattr;
 
-# Limit shell to only getattr on blk devices for host side tests.
-neverallow shell dev_type:blk_file ~getattr;
+# Limit shell to only getattr on blk devices for host side tests
+# and setattr for block apexes.
+neverallow shell dev_type:blk_file ~{ getattr setattr };
 
 # b/30861057: Shell access to existing input devices is an abuse
 # vector. The shell user can inject events that look like they
