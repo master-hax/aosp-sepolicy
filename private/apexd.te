@@ -194,3 +194,6 @@ allow apexd proc_filesystems:file r_file_perms;
 
 # Allow calling derive_classpath to gather BCP information for staged sessions
 domain_auto_trans(apexd, derive_classpath_exec, apexd_derive_classpath);
+
+# Allow apexd to write to adb shell output.
+allow apexd adbd:fd use;
