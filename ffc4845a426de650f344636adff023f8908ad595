@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb7e623c_cc8578ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2021-12-03T18:25:45Z",
+      "side": 1,
+      "message": "Hmm, I wonder if my local build is messed up somehow. I\u0027ll check some builds on ab/.",
+      "parentUuid": "bbe54ce3_72045e82",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 48
+      },
+      "revId": "ffc4845a426de650f344636adff023f8908ad595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab8ec82b_48d673f5",
         "filename": "private/apexd.te",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-03T08:47:29Z",
       "side": 1,
       "message": "What selinux denial do you get without this line?",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 24
+      },
+      "revId": "ffc4845a426de650f344636adff023f8908ad595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b35fc9db_ec6e4919",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2021-12-03T18:25:45Z",
+      "side": 1,
+      "message": "Interesting..\n\navc: denied { use } for comm\u003d\"cmd\" path\u003d\"/dev/pts/0\" dev\u003d\"devpts\" ino\u003d3 scontext\u003du:r:apexd:s0 tcontext\u003du:r:adbd:s0 tclass\u003dfd permissive\u003d0\n\nOn cuttlefish:\n\nI see the apexd output messages in adb logcat and kernel log, but not in the adb shell window itself.\n\nHere\u0027s a kernel log snippet:\n\n[   59.888119] apexd: Found \"/apex/com.android.neuralnetworks@319999900\" backed by file /data/apex/decompressed/com.android.neuralnetworks@319999900.decompressed.apex\n[   59.888275] apexd: Found \"/apex/com.android.media@319999900\" backed by file /data/apex/decompressed/com.android.media@319999900.decompressed.apex\n[   59.888423] apexd: Found \"/apex/com.android.ipsec@319999900\" backed by file /data/apex/decompressed/com.android.ipsec@319999900.decompressed.apex\n[   59.888569] apexd: Found \"/apex/com.android.resolv@319999900\" backed by file /data/apex/decompressed/com.android.resolv@319999900.decompressed.apex\n[   59.888720] apexd: Found \"/apex/com.android.wifi@319999900\" backed by file /data/apex/decompressed/com.android.wifi@319999900.decompressed.apex\n[   59.888927] apexd: 38 packages restored.\n[   59.888973] apexd: Scanning /data/apex/active for data ApexFiles\n[   59.889055] AidlLazyServiceRegistrar: Registering service apexservice\n[   59.889771] binder: 3104:3104 transaction failed 29201/-1, size 172-40 line 3077\n[   59.890421] type\u003d1400 audit(1638555766.991:184): avc: denied { use } for comm\u003d\"cmd\" path\u003d\"/dev/pts/0\" dev\u003d\"devpts\" ino\u003d3 scontext\u003du:r:apexd:s0 tcontext\u003du:r:adbd:s0 tclass\u003dfd permissive\u003d0\n\nadb shell looks like this:\n\nvsoc_x86_64:/ # cmd -w apexservice getActivePackages                                                                      \ncmd: Failure calling service apexservice: Failed transaction (2147483646)\n2|vsoc_x86_64:/ #",
+      "parentUuid": "ab8ec82b_48d673f5",
       "range": {
         "startLine": 199,
         "startChar": 0,
