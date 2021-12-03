@@ -437,6 +437,14 @@
 /(odm|vendor/odm)/etc/selinux/odm_keystore2_key_contexts         u:object_r:keystore2_key_contexts_file:s0
 /(odm|vendor/odm)/etc/selinux/odm_mac_permissions\.xml           u:object_r:mac_perms_file:s0
 
+# Mainline sepoolicy files.
+/dev/selinux/mainline_file_contexts                 u:object_r:file_contexts_file:s0
+/dev/selinux/mainline_seapp_contexts                u:object_r:seapp_contexts_file:s0
+/dev/selinux/mainline_service_contexts              u:object_r:service_contexts_file:s0
+/dev/selinux/mainline_property_contexts             u:object_r:property_contexts_file:s0
+/dev/selinux/mainline_hwservice_contexts            u:object_r:hwservice_contexts_file:s0
+/dev/selinux/mainline_mac_permissions\.xml          u:object_r:mac_perms_file:s0
+
 #############################
 # Product files
 #
