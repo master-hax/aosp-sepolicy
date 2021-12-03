@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94ed1788_6eb0dff2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-12-03T18:38:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9913a021_ae1c4c5d",
+      "range": {
+        "startLine": 9,
+        "startChar": 65,
+        "endLine": 9,
+        "endChar": 74
+      },
+      "revId": "9805b4a4b15bef3db92c40a0ea8487f2d53d569b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4eabdd0_436b623d",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-03T12:09:00Z",
       "side": 1,
       "message": "Can we have a TODO to remove odrefresh here?",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 40
+      },
+      "revId": "9805b4a4b15bef3db92c40a0ea8487f2d53d569b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1001e52_d92b38fd",
+        "filename": "private/compos_fd_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-12-03T18:38:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4eabdd0_436b623d",
       "range": {
         "startLine": 4,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38dabf64_59f15af1",
+        "filename": "private/compos_fd_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-12-03T18:38:59Z",
+      "side": 1,
+      "message": "Re-phrased to hopefully be less confusing.",
+      "parentUuid": "22f876e1_383ff847",
+      "range": {
+        "startLine": 13,
+        "startChar": 33,
+        "endLine": 13,
+        "endChar": 76
+      },
+      "revId": "9805b4a4b15bef3db92c40a0ea8487f2d53d569b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a51469a9_3ac077ba",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-12-03T12:09:00Z",
       "side": 1,
       "message": "Why do you need access to apex_compos_data_file? That just contains the per-instance files.\nI\u0027d expect this to apply to apex_art_staging_data_file, which is where the pending artifacts end up.",
+      "range": {
+        "startLine": 14,
+        "startChar": 23,
+        "endLine": 14,
+        "endChar": 49
+      },
+      "revId": "9805b4a4b15bef3db92c40a0ea8487f2d53d569b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dee0628_3f8dda2d",
+        "filename": "private/compos_fd_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-12-03T18:38:59Z",
+      "side": 1,
+      "message": "This was because I put the output directory in COMPOS_DATA_ROOT (see do_odrefresh_for_test), which is probably a mistake.\n\nBut the problem isn\u0027t simply change the path to what odsign expects (right?).  Since we need composd to create the /data/misc/apexdata/com.android.art/dalvik-cache (and ./pending), composd must run in the same uid/gid (which I believe is already the case), and call `PaletteCreateOdrefreshStagingDirectory` to set the label and mode in the expected setup.  That palette function should be the single entry to create the directory, I think.  So I\u0027ll fix that first and come back to his change.  Maybe I\u0027ll also add a check in that palette function to ensure the caller has the correct uid/gid.",
+      "parentUuid": "a51469a9_3ac077ba",
       "range": {
         "startLine": 14,
         "startChar": 23,
