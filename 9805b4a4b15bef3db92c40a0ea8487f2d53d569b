@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9913a021_ae1c4c5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-03T12:09:00Z",
+      "side": 1,
+      "message": "Re-wrap",
+      "range": {
+        "startLine": 9,
+        "startChar": 65,
+        "endLine": 9,
+        "endChar": 74
+      },
+      "revId": "9805b4a4b15bef3db92c40a0ea8487f2d53d569b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4eabdd0_436b623d",
+        "filename": "private/compos_fd_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-03T12:09:00Z",
+      "side": 1,
+      "message": "Can we have a TODO to remove odrefresh here?",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 40
+      },
+      "revId": "9805b4a4b15bef3db92c40a0ea8487f2d53d569b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22f876e1_383ff847",
+        "filename": "private/compos_fd_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-03T12:09:00Z",
+      "side": 1,
+      "message": "This is slightly confusing - if they\u0027re passed as fd you wouldn\u0027t need create/open/search.\nTBH the fact that it accesses the parent directory via an fd probably isn\u0027t relevant here.",
+      "range": {
+        "startLine": 13,
+        "startChar": 33,
+        "endLine": 13,
+        "endChar": 76
+      },
+      "revId": "9805b4a4b15bef3db92c40a0ea8487f2d53d569b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a51469a9_3ac077ba",
+        "filename": "private/compos_fd_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-03T12:09:00Z",
+      "side": 1,
+      "message": "Why do you need access to apex_compos_data_file? That just contains the per-instance files.\nI\u0027d expect this to apply to apex_art_staging_data_file, which is where the pending artifacts end up.",
+      "range": {
+        "startLine": 14,
+        "startChar": 23,
+        "endLine": 14,
+        "endChar": 49
+      },
+      "revId": "9805b4a4b15bef3db92c40a0ea8487f2d53d569b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
