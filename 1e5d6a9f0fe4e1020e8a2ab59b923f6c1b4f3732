@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "09f1cf3b_104a83bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1370197
+      },
+      "writtenOn": "2021-12-03T17:39:31Z",
+      "side": 1,
+      "message": "Perhaps there\u0027s a better way to do this, but I don\u0027t think you can do regex expansion from init. However if this is too much of a security issue, I think the next best thing is to create a new binary which will do the chmod.",
+      "parentUuid": "cd82f8f2_ba75a9ce",
+      "range": {
+        "startLine": 10,
+        "startChar": 27,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "1e5d6a9f0fe4e1020e8a2ab59b923f6c1b4f3732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "15e48989_e9ec063c",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-12-03T09:20:28Z",
       "side": 1,
       "message": "We definitely don\u0027t want to allow the shell user to chmod block devices. Why not put this into an init.rc file and have init do the chmod instead? You could even trigger the behavior from shell such that it\u0027s not the default.",
+      "revId": "1e5d6a9f0fe4e1020e8a2ab59b923f6c1b4f3732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a79ea0b5_f000af3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1370197
+      },
+      "writtenOn": "2021-12-03T17:39:31Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s possible to do regex expansions from init.rc is it? That\u0027s the main reason I wanted to use shell.\n\nIf there\u0027s a way to run the command from init that is definitely preferable.\n\nIt sounds like granting shell access is really not desirable from a security perspective, so if it isn\u0027t possible to do from init I can just create a binary to do this.\n\nOr is there a way to run \"chmod 0400 /dev/vdc*\" from init but using the init SELinux context?",
+      "parentUuid": "15e48989_e9ec063c",
       "revId": "1e5d6a9f0fe4e1020e8a2ab59b923f6c1b4f3732",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
