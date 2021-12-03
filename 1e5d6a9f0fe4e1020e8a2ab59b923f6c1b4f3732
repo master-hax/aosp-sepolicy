@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd82f8f2_ba75a9ce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-12-03T08:54:08Z",
+      "side": 1,
+      "message": "Doesn\u0027t init already have the privilege? Why do you grant the permission to `shell`?",
+      "range": {
+        "startLine": 10,
+        "startChar": 27,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "1e5d6a9f0fe4e1020e8a2ab59b923f6c1b4f3732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "707bbdf7_ead07226",
+        "filename": "public/shell.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-12-03T08:54:08Z",
+      "side": 1,
+      "message": "I think this is too relaxing because it affects all blk device files.\n\nYou might want something like the below\n\nneverallow shell { dev_type -vd_device }:blk_file ~getattr;\nneverallow shell vd_device:blk_file ~{ getattr setattr };",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 56
+      },
+      "revId": "1e5d6a9f0fe4e1020e8a2ab59b923f6c1b4f3732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
