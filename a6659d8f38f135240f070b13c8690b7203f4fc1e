@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19f697be_b0ce8b43",
+        "filename": "microdroid/system/private/compos.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-03T12:20:05Z",
+      "side": 1,
+      "message": "w_dir_perms create   ?\nOr is that too permissive?",
+      "range": {
+        "startLine": 32,
+        "startChar": 31,
+        "endLine": 32,
+        "endChar": 60
+      },
+      "revId": "a6659d8f38f135240f070b13c8690b7203f4fc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45c90c13_9f686f47",
+        "filename": "microdroid/system/private/compos.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-03T12:20:05Z",
+      "side": 1,
+      "message": "What actually lives in this directory?\n(It\u0027s not obvious to me how this relates to the comment, mostly due to authfs ignorance.)",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 45
+      },
+      "revId": "a6659d8f38f135240f070b13c8690b7203f4fc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e6ce3fd_2cfd1878",
+        "filename": "microdroid/system/private/compos.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-03T12:20:05Z",
+      "side": 1,
+      "message": "TODO to remove dex2oat?",
+      "range": {
+        "startLine": 35,
+        "startChar": 45,
+        "endLine": 35,
+        "endChar": 52
+      },
+      "revId": "a6659d8f38f135240f070b13c8690b7203f4fc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ca2b318_67151082",
+        "filename": "microdroid/system/private/odrefresh.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-03T12:20:05Z",
+      "side": 1,
+      "message": "This file is a lot shorter than the corresponding Android one.\nThat\u0027s good, but why?\n\n(And can we revert my changes to the Android odrefresh.te at some point?)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "a6659d8f38f135240f070b13c8690b7203f4fc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f703035f_a0c088ec",
+        "filename": "microdroid/system/private/odrefresh.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-03T12:20:05Z",
+      "side": 1,
+      "message": "I think you\u0027d get the same effect with a dontaudit (if an fd isn\u0027t allowed to be inherited then the new process gets an fd to /dev/null anyway)\nAlthough I\u0027m not sure that is much of a win",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 30
+      },
+      "revId": "a6659d8f38f135240f070b13c8690b7203f4fc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e65333c3_1236e751",
+        "filename": "microdroid/system/private/odrefresh.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-03T12:20:05Z",
+      "side": 1,
+      "message": "rw_file_perms create",
+      "range": {
+        "startLine": 15,
+        "startChar": 35,
+        "endLine": 15,
+        "endChar": 69
+      },
+      "revId": "a6659d8f38f135240f070b13c8690b7203f4fc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "373cee7d_5d38feaa",
+        "filename": "microdroid/system/private/odrefresh.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-03T12:20:05Z",
+      "side": 1,
+      "message": "rw_dir_perms create ?",
+      "range": {
+        "startLine": 16,
+        "startChar": 33,
+        "endLine": 16,
+        "endChar": 81
+      },
+      "revId": "a6659d8f38f135240f070b13c8690b7203f4fc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
