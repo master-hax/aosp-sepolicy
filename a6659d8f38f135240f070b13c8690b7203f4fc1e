@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "102bf7de_75745ae3",
+        "filename": "microdroid/system/private/compos.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-12-03T18:39:11Z",
+      "side": 1,
+      "message": "It\u0027s funny that...\n* add_name and write are only in w_dir_perms\n* search is only in r_dir_perms\n* create is only in create_dir_perms\n\nAnyway, the answer depends on what we envision compsvc should do in the future. Besides creating a directory for odrefresh to run, we at least also need to\n 1. allow reading the directory for signing\n 2. allow create odsign.info\n 3. (allow possibly clean up files/directories, if at all)\n \nSo I\u0027m thinking either { create rw_dir_perms } or just create_dir_perms (which I\u0027m going with for now). We\u0027d need the latter if we think composd should rmdir or rename.  WDYT?\n\nFWIW, allowing to perform these operation doesn\u0027t imply they will succeed, obviously. Especially since authfs does not implement some syscalls.",
+      "parentUuid": "19f697be_b0ce8b43",
+      "range": {
+        "startLine": 32,
+        "startChar": 31,
+        "endLine": 32,
+        "endChar": 60
+      },
+      "revId": "a6659d8f38f135240f070b13c8690b7203f4fc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "45c90c13_9f686f47",
         "filename": "microdroid/system/private/compos.te",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-03T12:20:05Z",
       "side": 1,
       "message": "What actually lives in this directory?\n(It\u0027s not obvious to me how this relates to the comment, mostly due to authfs ignorance.)",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 45
+      },
+      "revId": "a6659d8f38f135240f070b13c8690b7203f4fc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e742c3a3_f312a87f",
+        "filename": "microdroid/system/private/compos.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-12-03T18:39:11Z",
+      "side": 1,
+      "message": "authfs_data_file is pretty much the mount point, i.e. /data/misc/authfs/$ID (there may be multiple authfs instances). The search capability is just to allow directory traversal into /data/misc/authfs/$ID/$REMOTE_FD (which are authfs_fuse).",
+      "parentUuid": "45c90c13_9f686f47",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -60,6 +108,30 @@
       "writtenOn": "2021-12-03T12:20:05Z",
       "side": 1,
       "message": "TODO to remove dex2oat?",
+      "range": {
+        "startLine": 35,
+        "startChar": 45,
+        "endLine": 35,
+        "endChar": 52
+      },
+      "revId": "a6659d8f38f135240f070b13c8690b7203f4fc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0146bb3_9e131372",
+        "filename": "microdroid/system/private/compos.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-12-03T18:39:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e6ce3fd_2cfd1878",
       "range": {
         "startLine": 35,
         "startChar": 45,
