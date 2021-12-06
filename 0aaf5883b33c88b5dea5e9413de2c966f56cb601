@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79222cda_eae7621a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-06T11:33:27Z",
+      "side": 1,
+      "message": "Has this feature had a security review?",
+      "revId": "0aaf5883b33c88b5dea5e9413de2c966f56cb601",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f35e201c_41f2f5eb",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-06T11:33:27Z",
+      "side": 1,
+      "message": "Do you need access to fs_bpf_tethering?\nIf not, maybe we should split this into 2 rules with different allowlists.",
+      "range": {
+        "startLine": 32,
+        "startChar": 152,
+        "endLine": 32,
+        "endChar": 168
+      },
+      "revId": "0aaf5883b33c88b5dea5e9413de2c966f56cb601",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddab6bc1_fe88ad2d",
+        "filename": "private/mediaprovider_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-06T11:33:27Z",
+      "side": 1,
+      "message": "Why do you need prog_run? I thought the programs would be run by the kernel in this context.",
+      "range": {
+        "startLine": 69,
+        "startChar": 59,
+        "endLine": 69,
+        "endChar": 67
+      },
+      "revId": "0aaf5883b33c88b5dea5e9413de2c966f56cb601",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
