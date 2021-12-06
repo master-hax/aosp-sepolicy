@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9fe55680_f025a3cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-06T12:16:38Z",
+      "side": 1,
+      "message": "That\u0027s the code which runs odrefresh outside the VM; that will be going away soon. (Also it isn\u0027t setting the security context properly; maybe something else does?)\n\nIn the new world odrefresh runs inside the VM, using authfs to write to the staging directory outside the VM. And we need to make sure the directory exists with the right properties before doing that.",
+      "parentUuid": "7faf51ec_197fa6f9",
+      "revId": "ba201ef6ac11ed9b5afac75b5a7c088d31c3c6d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a21dcb48_6bbdbef0",
         "filename": "private/odrefresh.te",
         "patchSetId": 3
