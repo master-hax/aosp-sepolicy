@@ -1021,3 +1021,13 @@ define(`read_fstab', `
   allow $1 gsi_public_metadata_file:file r_file_perms;
   allow $1 proc_bootconfig:file r_file_perms;
 ')
+
+#####################################
+# gpu_device_access(domain)
+# Allow the specified domain to search for available devices and
+# render nodes and to communicate with the device for rendering. 
+define(`gpu_device_access', `
+allow $1 gpu_device:dir { open read search };
+allow $1 gpu_device:chr_file { getattr ioctl map open read write };
+allow $1 sysfs_gpu:file { open read };
+')

@@ -216,7 +216,7 @@ userdebug_or_eng(`
 
 # Grant GPU access to all processes started by Zygote.
 # They need that to render the standard UI.
-allow { appdomain -isolated_app } gpu_device:chr_file rw_file_perms;
+gpu_device_access(appdomain -isolated_app)
 
 # Use the Binder.
 binder_use(appdomain)

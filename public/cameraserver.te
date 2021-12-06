@@ -18,6 +18,8 @@ allow cameraserver dmabuf_system_heap_device:chr_file r_file_perms;
 # Talk with graphics composer fences
 allow cameraserver hal_graphics_composer:fd use;
 
+gpu_device_access(cameraserver)
+
 add_service(cameraserver, cameraserver_service)
 add_hwservice(cameraserver, fwk_camera_hwservice)
 
