@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1116268f_fb3d8194",
+        "filename": "microdroid/system/private/compos.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-12-06T21:02:04Z",
+      "side": 1,
+      "message": "Ack, per offline discussion.",
+      "parentUuid": "0fc5875e_c977f62e",
+      "range": {
+        "startLine": 32,
+        "startChar": 31,
+        "endLine": 32,
+        "endChar": 60
+      },
+      "revId": "a6659d8f38f135240f070b13c8690b7203f4fc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45c90c13_9f686f47",
@@ -189,6 +213,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c89db3a_fe646ddd",
+        "filename": "microdroid/system/private/odrefresh.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-12-06T21:02:04Z",
+      "side": 1,
+      "message": "* We don\u0027t need \"dexoptanalyzer\" in odrefresh\n* odrefresh in the VM doesn\u0027t interact with odsign directly\n* We don\u0027t use /data/misc/odrefresh (yet another context) to store the metrics and log (but we\u0027ll have to figure out a way to store them).\n* userfaultfd, see b/209488862 \n\nAnd yes, we can revert the rules you added later.",
+      "parentUuid": "0ca2b318_67151082",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "a6659d8f38f135240f070b13c8690b7203f4fc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f703035f_a0c088ec",
@@ -202,6 +250,30 @@
       "writtenOn": "2021-12-03T12:20:05Z",
       "side": 1,
       "message": "I think you\u0027d get the same effect with a dontaudit (if an fd isn\u0027t allowed to be inherited then the new process gets an fd to /dev/null anyway)\nAlthough I\u0027m not sure that is much of a win",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 30
+      },
+      "revId": "a6659d8f38f135240f070b13c8690b7203f4fc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44cc7916_717ea4de",
+        "filename": "microdroid/system/private/odrefresh.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-12-06T21:02:04Z",
+      "side": 1,
+      "message": "Done, switched to dontaudit.",
+      "parentUuid": "f703035f_a0c088ec",
       "range": {
         "startLine": 12,
         "startChar": 0,
@@ -235,6 +307,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "372ca7a1_4fc11f29",
+        "filename": "microdroid/system/private/odrefresh.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-12-06T21:02:04Z",
+      "side": 1,
+      "message": "Done with create_dir_perms to be consistent with priviate/odrefresh.te.",
+      "parentUuid": "e65333c3_1236e751",
+      "range": {
+        "startLine": 15,
+        "startChar": 35,
+        "endLine": 15,
+        "endChar": 69
+      },
+      "revId": "a6659d8f38f135240f070b13c8690b7203f4fc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "373cee7d_5d38feaa",
@@ -248,6 +344,30 @@
       "writtenOn": "2021-12-03T12:20:05Z",
       "side": 1,
       "message": "rw_dir_perms create ?",
+      "range": {
+        "startLine": 16,
+        "startChar": 33,
+        "endLine": 16,
+        "endChar": 81
+      },
+      "revId": "a6659d8f38f135240f070b13c8690b7203f4fc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ba76317_c5d085f7",
+        "filename": "microdroid/system/private/odrefresh.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-12-06T21:02:04Z",
+      "side": 1,
+      "message": "Done with create_dir_perms to be consistent with priviate/odrefresh.te.",
+      "parentUuid": "373cee7d_5d38feaa",
       "range": {
         "startLine": 16,
         "startChar": 33,
