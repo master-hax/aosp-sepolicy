@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0fc5875e_c977f62e",
+        "filename": "microdroid/system/private/compos.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-06T11:49:24Z",
+      "side": 1,
+      "message": "I\u0027d mildly prefer { create rw_dir_perms }; create_dir_perms is a little scary, and I\u0027d rather grant things when we do need them.\nOTOH it seems much rarer in existing policy to do this for directories than files.\n\n\u003e 2. allow create odsign.info\nFWIW I don\u0027t think we should do this - instead I suggest we create a similar but different compos.info / compos.info.signature. But we should discuss that separately. I\u0027ll send you an email.",
+      "parentUuid": "102bf7de_75745ae3",
+      "range": {
+        "startLine": 32,
+        "startChar": 31,
+        "endLine": 32,
+        "endChar": 60
+      },
+      "revId": "a6659d8f38f135240f070b13c8690b7203f4fc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "45c90c13_9f686f47",
         "filename": "microdroid/system/private/compos.te",
         "patchSetId": 1
