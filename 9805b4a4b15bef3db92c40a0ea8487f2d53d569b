@@ -187,6 +187,30 @@
       },
       "revId": "9805b4a4b15bef3db92c40a0ea8487f2d53d569b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0963ff77_b622b678",
+        "filename": "private/compos_fd_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-06T09:56:23Z",
+      "side": 1,
+      "message": "Yeah, writing to directories under /data/misc/apexdata/com.android.art is the intention; that\u0027s what we currently do - see Odrefresh::spawn_compile which takes a target_dir which ends up being passed as --dalvik-cache\u003d to odrefresh.\n\nI think uid/gid is fine - everything is root/system.\n\nThe label for /data/misc/apexdata/com.android.art/dalvik-cache / compos-pending / test-artifacts shouldn\u0027t be a problem - they automatically inherit apex_art_data_file from their parent, which is correct.\n\nThe odd one out is .../staging, which needs to be apex_art_staging_data_file.\n\nOne wrinkle is the label of the files needs to change when they are moved from staging to compos-pending (etc). That is handled by actually copying them rather than moving them - http://cs/android/art/odrefresh/odrefresh.cc?l\u003d152\u0026rcl\u003dcecaaa82b4cdb96d8b95ecb4d5dbc833e29b6097",
+      "parentUuid": "4dee0628_3f8dda2d",
+      "range": {
+        "startLine": 14,
+        "startChar": 23,
+        "endLine": 14,
+        "endChar": 49
+      },
+      "revId": "9805b4a4b15bef3db92c40a0ea8487f2d53d569b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
