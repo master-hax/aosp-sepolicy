@@ -62,6 +62,30 @@
       },
       "revId": "0aaf5883b33c88b5dea5e9413de2c966f56cb601",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3de8c042_66b78dfb",
+        "filename": "private/mediaprovider_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1044551
+      },
+      "writtenOn": "2021-12-06T18:43:18Z",
+      "side": 1,
+      "message": "You need prog_run to call bpfFdGet on a bpf program.\n\nselinux_bpf_prog checks for BPF__PROG_RUN\nbpf_prog_new_fd calls security_bpf_prog\nbpf_obj_get_user calls bpf_prog_new_fd",
+      "parentUuid": "ddab6bc1_fe88ad2d",
+      "range": {
+        "startLine": 69,
+        "startChar": 59,
+        "endLine": 69,
+        "endChar": 67
+      },
+      "revId": "0aaf5883b33c88b5dea5e9413de2c966f56cb601",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
