@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4de266ba_930633ad",
+        "filename": "microdroid/system/private/odrefresh.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-07T11:12:07Z",
+      "side": 1,
+      "message": "Code doesn\u0027t match comment.\nauditallow: generate an audit when access is allowed; only has effect if it is allowed, which it isn\u0027t here.\ndontaudit: don\u0027t generate an audit when access is not allowed.\n\nThe default is to audit iff access is not allowed, so I think you will be seeing (harmless) denials in the logs.\n\nTL;DR: s/auditallow/dontaudit/",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 35
+      },
+      "revId": "26f20966df66e810b09a76d8cbe416bbe3b2d55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
