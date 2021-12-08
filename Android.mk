@@ -188,7 +188,7 @@ endef
 
 # Builds paths for all policy files found in BOARD_VENDOR_SEPOLICY_DIRS.
 # $(1): the set of policy name paths to build
-build_vendor_policy = $(call build_policy, $(1), $(PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS))
+build_vendor_policy = $(call build_policy, $(1), $(BOARD_PLAT_VENDOR_POLICY) $(BOARD_VENDOR_SEPOLICY_DIRS))
 
 # Builds paths for all policy files found in BOARD_ODM_SEPOLICY_DIRS.
 build_odm_policy = $(call build_policy, $(1), $(BOARD_ODM_SEPOLICY_DIRS))
