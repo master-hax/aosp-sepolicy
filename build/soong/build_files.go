@@ -21,6 +21,7 @@ import (
 	"strings"
 
 	"android/soong/android"
+	"android/soong/android/util"
 )
 
 func init() {
@@ -81,7 +82,7 @@ func (b *buildFiles) OutputFiles(tag string) (android.Paths, error) {
 		return paths, nil
 	}
 
-	return nil, fmt.Errorf("unknown tag %q. Supported tags are: %q", tag, strings.Join(android.SortedStringKeys(b.srcs), " "))
+	return nil, fmt.Errorf("unknown tag %q. Supported tags are: %q", tag, strings.Join(util.SortedStringKeys(b.srcs), " "))
 }
 
 var _ android.OutputFileProducer = (*buildFiles)(nil)

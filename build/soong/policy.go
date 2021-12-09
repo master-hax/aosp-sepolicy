@@ -22,6 +22,7 @@ import (
 	"github.com/google/blueprint/proptools"
 
 	"android/soong/android"
+	"android/soong/android/util"
 )
 
 const (
@@ -104,7 +105,7 @@ func (c *policyConf) cts() bool {
 }
 
 func (c *policyConf) withAsan(ctx android.ModuleContext) string {
-	isAsanDevice := android.InList("address", ctx.Config().SanitizeDevice())
+	isAsanDevice := util.InList("address", ctx.Config().SanitizeDevice())
 	return strconv.FormatBool(proptools.BoolDefault(c.properties.With_asan, isAsanDevice))
 }
 
