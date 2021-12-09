@@ -891,6 +891,19 @@ se_policy_cil {
     remove_line_marker: true,
 }
 
+se_policy_conf {
+    name: "apex_sepolicy-33.conf",
+    srcs: [
+        "com.android.sepolicy/33/*.te",
+    ],
+    installable: false,
+}
+
+se_policy_cil {
+    name: "apex_sepolicy-33.cil",
+    src: ":apex_sepolicy-33.conf",
+}
+
 // policy mapping files
 // auto-generate the mapping file for current platform policy, since it needs to
 // track platform policy development
