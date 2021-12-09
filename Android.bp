@@ -843,6 +843,44 @@ se_policy_cil {
     remove_line_marker: true,
 }
 
+se_policy_conf {
+    name: "apex_sepolicy-33.conf",
+    srcs: [
+        "private/security_classes",
+        "private/initial_sids",
+        "private/access_vectors",
+        "public/global_macros",
+        "public/neverallow_macros",
+        "private/mls_macros",
+        "private/mls_decl",
+        "private/mls",
+        "private/policy_capabilities",
+        "public/te_macros",
+        "public/attributes",
+        "private/attributes",
+        "public/ioctl_defines",
+        "public/ioctl_macros",
+        "public/*.te",
+        "private/*.te",
+        "com.android.sepolicy/33/*.te",
+        "private/roles_decl",
+        "public/roles",
+        "private/users",
+        "private/initial_sid_contexts",
+        "private/fs_use",
+        "private/genfs_contexts",
+        "private/port_contexts",
+    ],
+    installable: false,
+}
+
+se_policy_cil {
+    name: "apex_sepolicy-33.cil",
+    src: ":apex_sepolicy-33.conf",
+    filter_out: [":plat_sepolicy.cil"],
+    installable: false,
+}
+
 // policy mapping files
 // auto-generate the mapping file for current platform policy, since it needs to
 // track platform policy development
