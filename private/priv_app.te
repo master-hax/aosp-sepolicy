@@ -86,6 +86,13 @@ allow priv_app perfetto_traces_bugreport_data_file:file { getattr };
 # Required to traverse the parent dir (/data/misc/perfetto-traces).
 allow priv_app perfetto_traces_data_file:dir { search };
 
+# Allow priv apps (e.g. GmsCore, BetterBug) to receive Perfetto traces through
+# the framework (i.e. TracingServiceProxy) and link them into their private
+# directories for reporting when network and battery conditions are
+# appropriate.
+allow priv_app perfetto:fd use;
+allow priv_app perfetto_traces_data_file:file { read link };
+
 # Allow verifier to access staged apks.
 allow priv_app { apk_tmp_file apk_private_tmp_file }:dir r_dir_perms;
 allow priv_app { apk_tmp_file apk_private_tmp_file }:file r_file_perms;
@@ -243,7 +250,14 @@ neverallow priv_app mlstrustedsubject:process fork;
 # of the linked to file. Hard links also contribute to security
 # bugs, so we want to ensure priv_app never has this
 # capability.
-neverallow priv_app file_type:file link;
+# We make a small exception to this rule for Perfetto traces which
+# are created unlinked (i.e. using O_TMPFILE) and so by linking these
+# files, we are simply linking into the filesystem for the first time
+# (i.e. we still never have >1 hard link to the same file). The
+# only alternative to this would be to read the whole trace and copy
+# it to another file but this is inefficient as traces can be O(MB)
+# in size. 
+neverallow priv_app {file_type -perfetto_traces_data_file}:file link;
 
 # priv apps should not be able to open trace data files, they should depend
 # upon traceur to pass a file descriptor which they can then read
