@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "918695df_87b85e92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2021-12-10T03:00:37Z",
+      "side": 1,
+      "message": "As part of moving clat (including clatd) into connectivity mainline module, we want to fork-exec clatd from system server mainline code instead of from netd.  This seems cleaner than having a binder call into netd (passing in arguments and file descriptors) just to run the fork/exec, and it\u0027s better security-wise then not having the exec at all (we could run clatd\u0027s code as simply a thread inside of system server, or even a fork without exec) because then we get to keep the separate selinux context for clatd.\n\nI see the comment above this code block mentions that \u0027Forking and execing is inherently dangerous and racy.\u0027 but I don\u0027t think that\u0027s entirely true.  Although it is certainly true that forking and execing does require a whole lot of care to do it right - but we already do this as part of the clatdcontroller [ http://cs/aosp-master/system/netd/server/ClatdController.cpp?l\u003d539\u0026rcl\u003dca6500128983169494a3defdd3a6acaf2e3332c5 ].\n\nJeff, thoughts?",
+      "revId": "a637cd21790ffc449090da72acda831a289a8bc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
