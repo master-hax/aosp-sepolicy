@@ -121,3 +121,6 @@ allow init {
   -kvm_device
   -port_device
 }:chr_file setattr;
+
+# Allow init to read apexd pause service prop
+get_prop(init, apexd_prop)
