@@ -121,6 +121,9 @@ set_prop(apexd, powerctl_prop)
 # Allow apexd to stop itself
 set_prop(apexd, ctl_apexd_prop)
 
+# Allow apexd to stop HAL services
+set_prop(apexd, ctl_interface_stop_prop)
+
 # Find the vold service, and call into vold to manage FS checkpoints
 allow apexd vold_service:service_manager find;
 binder_call(apexd, vold)
