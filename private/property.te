@@ -427,6 +427,15 @@ neverallow {
 neverallow {
   domain
   -coredomain
+  -system_app
+  -vendor_init
+} {
+  gesture_prop
+}:property_service set;
+
+neverallow {
+  domain
+  -coredomain
   -vendor_init
 } {
   usb_config_prop
