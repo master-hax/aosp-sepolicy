@@ -76,7 +76,7 @@ neverallow { domain -coredomain } {
 
 # init is in coredomain, but should be able to read/write all props.
 # dumpstate is also in coredomain, but should be able to read all props.
-neverallow { coredomain -init -dumpstate } {
+neverallow { coredomain -init -dumpstate -apexd } {
   vendor_property_type
   vendor_internal_property_type
   -vendor_restricted_property_type

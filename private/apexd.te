@@ -129,6 +129,16 @@ set_prop(apexd, powerctl_prop)
 # Allow apexd to stop itself
 set_prop(apexd, ctl_apexd_prop)
 
+# Allow apexd to query and stop services.
+get_prop(apexd, vendor_default_prop)
+set_prop(apexd, ctl_stop_prop)
+
+# Allow apexd to execute rollbacks using shell.
+binder_call(apexd, system_server)
+allow apexd package_service:service_manager find;
+allow apexd shell_exec:file { execute read open execute_no_trans map getattr };
+allow apexd system_file:file execute_no_trans;
+
 # Find the vold service, and call into vold to manage FS checkpoints
 allow apexd vold_service:service_manager find;
 binder_call(apexd, vold)

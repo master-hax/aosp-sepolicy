@@ -992,7 +992,7 @@ define(`vendor_internal_prop', `
   define_prop($1, vendor, internal)
   treble_sysprop_neverallow(`
 # init and dumpstate are in coredomain, but should be able to read all props.
-    neverallow { coredomain -init -dumpstate } $1:file no_rw_file_perms;
+    neverallow { coredomain -init -dumpstate -apexd } $1:file no_rw_file_perms;
   ')
 ')
 
