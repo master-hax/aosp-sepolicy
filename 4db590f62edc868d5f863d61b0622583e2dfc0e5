@@ -33,6 +33,75 @@
       "message": "LGTM thanks, passing this to Jeff.",
       "revId": "4db590f62edc868d5f863d61b0622583e2dfc0e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "374c2cdb_030bbf01",
+        "filename": "private/priv_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-12-14T17:53:26Z",
+      "side": 1,
+      "message": "gmscore doesn\u0027t run in the priv_app selinux context. It runs in gmscore_app",
+      "range": {
+        "startLine": 89,
+        "startChar": 24,
+        "endLine": 89,
+        "endChar": 31
+      },
+      "revId": "4db590f62edc868d5f863d61b0622583e2dfc0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce9053b4_abdcd999",
+        "filename": "private/priv_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-12-14T17:53:26Z",
+      "side": 1,
+      "message": "Might as well add getattr here too. It\u0027s normal (and expected) that receivers of fds should be able to call stat() on them.",
+      "range": {
+        "startLine": 94,
+        "startChar": 48,
+        "endLine": 94,
+        "endChar": 52
+      },
+      "revId": "4db590f62edc868d5f863d61b0622583e2dfc0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12c6564b_41c3526a",
+        "filename": "private/priv_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-12-14T17:53:26Z",
+      "side": 1,
+      "message": "seems like there should be a neverallow rule for this. Perhaps there is one already, but I wasn\u0027t able to find it. Perhaps Primiano can help us craft one. Something like:\n\nneverallow appdomain perfetto_traces_data_file ~{ getattr read };\n\nOr maybe even\nneverallow { domain -init -perfetto... } perfetto_traces_data_file ~{ getattr read };\n\nprobably in private/perfetto.te",
+      "range": {
+        "startLine": 94,
+        "startChar": 15,
+        "endLine": 94,
+        "endChar": 45
+      },
+      "revId": "4db590f62edc868d5f863d61b0622583e2dfc0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
