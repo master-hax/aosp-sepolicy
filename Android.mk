@@ -1202,10 +1202,10 @@ file_contexts.local.tmp :=
 file_contexts.modules.tmp :=
 
 ##################################
-include $(LOCAL_PATH)/seapp_contexts.mk
+include $(LOCAL_PATH)/contexts/seapp_contexts.mk
 
 ##################################
-include $(LOCAL_PATH)/contexts_tests.mk
+include $(LOCAL_PATH)/contexts/contexts_tests.mk
 
 ##################################
 include $(CLEAR_VARS)
@@ -1288,13 +1288,13 @@ base_product_pub_policy.cil   := $(call intermediates-dir-for,ETC,base_product_p
 
 $(foreach v,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS), \
   $(eval version_under_treble_tests := $(v)) \
-  $(eval include $(LOCAL_PATH)/treble_sepolicy_tests_for_release.mk) \
+  $(eval include $(LOCAL_PATH)/compat/treble_sepolicy_tests_for_release.mk) \
 )
 endif  # PRODUCT_SEPOLICY_SPLIT
 
 $(foreach v,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS), \
   $(eval version_under_treble_tests := $(v)) \
-  $(eval include $(LOCAL_PATH)/compat.mk) \
+  $(eval include $(LOCAL_PATH)/compat/compat.mk) \
 )
 
 built_plat_sepolicy :=
