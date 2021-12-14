@@ -758,6 +758,7 @@ plat_pub_policy_$(PLATFORM_SEPOLICY_VERSION).cil := $(plat_pub_policy.cil)
 
 built_plat_cil := $(call intermediates-dir-for,ETC,plat_sepolicy.cil)/plat_sepolicy.cil
 built_plat_cil_$(PLATFORM_SEPOLICY_VERSION) := $(built_plat_cil)
+built_apex_cil := $(call intermediates-dir-for,ETC,apex_sepolicy-33.cil)/apex_sepolicy-33.cil
 built_plat_mapping_cil := $(call intermediates-dir-for,ETC,plat_mapping_file)/plat_mapping_file
 built_plat_mapping_cil_$(PLATFORM_SEPOLICY_VERSION) := $(built_plat_mapping_cil)
 
@@ -935,6 +936,7 @@ include $(BUILD_SYSTEM)/base_rules.mk
 
 all_cil_files := \
     $(built_plat_cil) \
+    $(built_apex_cil) \
     $(TARGET_OUT)/etc/selinux/mapping/$(BOARD_SEPOLICY_VERS).cil \
     $(built_pub_vers_cil_$(BOARD_SEPOLICY_VERS)) \
     $(built_vendor_cil)
@@ -979,6 +981,9 @@ all_cil_files :=
 # AND
 # - product_sepolicy_and_mapping.sha256 equals
 #   precompiled_sepolicy.product_sepolicy_and_mapping.sha256
+# AND
+# - apex_sepolicy.sha256 equals
+#   precompiled_sepolicy.apex_sepolicy.sha256
 # See system/core/init/selinux.cpp for details.
 #################################
 
@@ -998,6 +1003,7 @@ include $(BUILD_SYSTEM)/base_rules.mk
 
 all_cil_files := \
     $(built_plat_cil) \
+    $(built_apex_cil) \
     $(TARGET_OUT)/etc/selinux/mapping/$(BOARD_SEPOLICY_VERS).cil \
     $(built_pub_vers_cil_$(BOARD_SEPOLICY_VERS)) \
     $(built_vendor_cil)
@@ -1313,6 +1319,7 @@ build_vendor_policy :=
 build_odm_policy :=
 build_policy :=
 built_plat_cil :=
+built_apex_cil :=
 built_system_ext_cil :=
 built_product_cil :=
 built_pub_vers_cil :=
