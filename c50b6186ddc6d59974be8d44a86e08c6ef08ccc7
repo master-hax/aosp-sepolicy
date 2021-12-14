@@ -16,6 +16,52 @@
       "message": "PTAL thanks!",
       "revId": "c50b6186ddc6d59974be8d44a86e08c6ef08ccc7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38245c4f_cb5761b7",
+        "filename": "private/perfetto.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2021-12-14T16:54:05Z",
+      "side": 1,
+      "message": "note: these rules exist already few lines above (line 26-27).\nJust update that comment (And put this block next to that, so it\u0027s easy to reason about).\n\nAlso add a TODO to remove the incident path, so it\u0027s clear we are sunsetting that on the next release once everything works.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 37
+      },
+      "revId": "c50b6186ddc6d59974be8d44a86e08c6ef08ccc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c959d0f6_60bfa358",
+        "filename": "private/priv_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2021-12-14T16:54:05Z",
+      "side": 1,
+      "message": "I am not 100% sure you will be effectively be able to use this (did you try?).\nI think re-linking works only within the same filesystem. These traces are created from tmpfs, so they can only be relinked into tmpfs. But apps don\u0027t have access to that I think (and even if they did, I think if you want to relink them, you want to relink into the /data/data/package/... private app folder.)\n\nIn other words I think you\u0027ll have to copy the bytes and write them regardless.",
+      "range": {
+        "startLine": 94,
+        "startChar": 53,
+        "endLine": 94,
+        "endChar": 57
+      },
+      "revId": "c50b6186ddc6d59974be8d44a86e08c6ef08ccc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
