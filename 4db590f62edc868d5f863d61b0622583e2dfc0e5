@@ -102,6 +102,30 @@
       },
       "revId": "4db590f62edc868d5f863d61b0622583e2dfc0e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78d0a5f7_fbed5e37",
+        "filename": "private/priv_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2021-12-14T19:03:10Z",
+      "side": 1,
+      "message": "Re perfetto_traces_data_file, IIRC the decision in the past was to leave it open so that if an OEM wants to have its own service driving tracing they can just allow that.\n\nA neverallow won\u0027t prevent them to do so too hardly. I believe all they have to do is change the path used by traced (it\u0027s AOSP code after all), create a new genfs rule, allow that in their /vendor policy.",
+      "parentUuid": "12c6564b_41c3526a",
+      "range": {
+        "startLine": 94,
+        "startChar": 15,
+        "endLine": 94,
+        "endChar": 45
+      },
+      "revId": "4db590f62edc868d5f863d61b0622583e2dfc0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
