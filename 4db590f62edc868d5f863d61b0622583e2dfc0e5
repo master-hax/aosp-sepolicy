@@ -126,6 +126,30 @@
       },
       "revId": "4db590f62edc868d5f863d61b0622583e2dfc0e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed744436_0af8b688",
+        "filename": "private/priv_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-12-15T07:20:18Z",
+      "side": 1,
+      "message": "I disagree with this. This is permission-gated data with a documented API for accessing it. Even if we can\u0027t prevent all customization, we should make doing the correct thing easy/obvious, and make it difficult to do the wrong thing. We do this with other permission gated data e.g. dropbox: https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/private/domain.te;l\u003d141?q\u003ddropbox_data_file\u0026start\u003d31",
+      "parentUuid": "78d0a5f7_fbed5e37",
+      "range": {
+        "startLine": 94,
+        "startChar": 15,
+        "endLine": 94,
+        "endChar": 45
+      },
+      "revId": "4db590f62edc868d5f863d61b0622583e2dfc0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
