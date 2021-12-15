@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "966cdafc_ea49260a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-12-15T21:27:33Z",
+      "side": 1,
+      "message": "I\u0027m still debating myself whether this should be an allow or dontaudit. As the description says, there are code that check if ANDROID_ROOT exists, but in this particular case it doesn\u0027t matter (return false either because dir doesn\u0027t exist, or the dir path doesn\u0027t match expectation). Right now I\u0027m leaning toward allow since it\u0027s probably not unusual for the code to visit the directory...",
+      "revId": "d93c84b5bd669c14c8476077bc0cc3291090a257",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
