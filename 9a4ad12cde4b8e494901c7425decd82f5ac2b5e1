@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6867edd_250f50d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2021-12-15T19:01:06Z",
+      "side": 1,
+      "message": "Perhaps that\u0027s the case, but then cgroups_v2 should do the same, I assume.  https://android-review.googlesource.com/c/platform/system/sepolicy/+/1585406 added these permissions for cgroups_v2, but Android Go devices use cgroups instead.\n\nI\u0027m fine with a bug for figuring out how to change cgroups and cgroups_v2 to not need these permissions.  But I don\u0027t think we should allow this to be broken for Go device and working for non-Go devices in the meantime.",
+      "parentUuid": "a2317e1a_bb7b77f7",
+      "revId": "9a4ad12cde4b8e494901c7425decd82f5ac2b5e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78149986_262eae84",
