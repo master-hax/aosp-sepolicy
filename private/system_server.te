@@ -1112,6 +1112,10 @@ allow system_server fs_bpf:dir search;
 allow system_server fs_bpf:file { read write };
 allow system_server bpfloader:bpf { map_read map_write prog_run };
 
+# allow system_server to run/update/read the eBPF maps which lives in mainline module (tethering).
+allow system_server { fs_bpf_tethering }:dir search;
+allow system_server { fs_bpf_tethering }:file { read write };
+
 # ART Profiles.
 # Allow system_server to open profile snapshots for read.
 # System server never reads the actual content. It passes the descriptor to
