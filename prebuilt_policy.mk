@@ -74,13 +74,10 @@ policy_files := $(call build_policy, $(sepolicy_build_files), $(BOARD_REQD_MASK_
 reqd_policy_mask_$(ver).conf := $(intermediates)/reqd_policy_mask_$(ver).conf
 $(eval $(call policy-to-conf-rule,$(reqd_policy_mask_$(ver).conf)))
 
-# b/37755687
-CHECKPOLICY_ASAN_OPTIONS := ASAN_OPTIONS=detect_leaks=0
-
 reqd_policy_mask_$(ver).cil := $(intermediates)/reqd_policy_mask_$(ver).cil
 $(reqd_policy_mask_$(ver).cil): $(reqd_policy_mask_$(ver).conf) $(HOST_OUT_EXECUTABLES)/checkpolicy
 	@mkdir -p $(dir $@)
-	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $(HOST_OUT_EXECUTABLES)/checkpolicy -C -M -c \
+	$(hide) $(HOST_OUT_EXECUTABLES)/checkpolicy -C -M -c \
 		$(POLICYVERS) -o $@ $<
 
 reqd_policy_mask_$(ver).conf :=
@@ -101,7 +98,7 @@ $(plat_pub_policy_$(ver).cil): PRIVATE_REQD_MASK := $(reqd_policy_mask_$(ver).ci
 $(plat_pub_policy_$(ver).cil): $(HOST_OUT_EXECUTABLES)/checkpolicy \
 $(HOST_OUT_EXECUTABLES)/build_sepolicy $(plat_pub_policy_$(ver).conf) $(reqd_policy_mask_$(ver).cil)
 	@mkdir -p $(dir $@)
-	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $< -C -M -c $(POLICYVERS) -o $@ $(PRIVATE_POL_CONF)
+	$(hide) $< -C -M -c $(POLICYVERS) -o $@ $(PRIVATE_POL_CONF)
 	$(hide) $(HOST_OUT_EXECUTABLES)/build_sepolicy -a $(HOST_OUT_EXECUTABLES) filter_out \
 		-f $(PRIVATE_REQD_MASK) -t $@
 
@@ -133,7 +130,7 @@ $(plat_policy_$(ver).cil): $(plat_policy_$(ver).conf) $(HOST_OUT_EXECUTABLES)/ch
   $(HOST_OUT_EXECUTABLES)/secilc \
   $(call build_policy, $(sepolicy_build_cil_workaround_files), $(plat_private_policy_$(ver)))
 	@mkdir -p $(dir $@)
-	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -C -c \
+	$(hide) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -C -c \
 		$(POLICYVERS) -o $@.tmp $<
 	$(hide) cat $(PRIVATE_ADDITIONAL_CIL_FILES) >> $@.tmp
 	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -m -M true -G -c $(POLICYVERS) $(PRIVATE_NEVERALLOW_ARG) $@.tmp -o /dev/null -f /dev/null
@@ -159,7 +156,7 @@ $(system_ext_pub_policy_$(ver).cil): PRIVATE_REQD_MASK := $(reqd_policy_mask_$(v
 $(system_ext_pub_policy_$(ver).cil): $(HOST_OUT_EXECUTABLES)/checkpolicy \
 $(HOST_OUT_EXECUTABLES)/build_sepolicy $(system_ext_pub_policy_$(ver).conf) $(reqd_policy_mask_$(ver).cil)
 	@mkdir -p $(dir $@)
-	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $< -C -M -c $(POLICYVERS) -o $@ $(PRIVATE_POL_CONF)
+	$(hide) $< -C -M -c $(POLICYVERS) -o $@ $(PRIVATE_POL_CONF)
 	$(hide) $(HOST_OUT_EXECUTABLES)/build_sepolicy -a $(HOST_OUT_EXECUTABLES) filter_out \
 		-f $(PRIVATE_REQD_MASK) -t $@
 
@@ -180,7 +177,7 @@ $(system_ext_policy_$(ver).cil): PRIVATE_PLAT_CIL := $(built_plat_cil_$(ver))
 $(system_ext_policy_$(ver).cil): $(system_ext_policy_$(ver).conf) $(HOST_OUT_EXECUTABLES)/checkpolicy \
 $(HOST_OUT_EXECUTABLES)/build_sepolicy $(HOST_OUT_EXECUTABLES)/secilc $(built_plat_cil_$(ver))
 	@mkdir -p $(dir $@)
-	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -C -c \
+	$(hide) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -C -c \
 	$(POLICYVERS) -o $@ $<
 	$(hide) $(HOST_OUT_EXECUTABLES)/build_sepolicy -a $(HOST_OUT_EXECUTABLES) filter_out \
 		-f $(PRIVATE_PLAT_CIL) -t $@
@@ -237,7 +234,7 @@ $(product_policy_$(ver).cil): $(product_policy_$(ver).conf) $(HOST_OUT_EXECUTABL
 $(HOST_OUT_EXECUTABLES)/build_sepolicy $(HOST_OUT_EXECUTABLES)/secilc \
 $(built_plat_cil_$(ver)) $(built_system_ext_cil_$(ver))
 	@mkdir -p $(dir $@)
-	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -C -c \
+	$(hide) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -C -c \
 	$(POLICYVERS) -o $@ $<
 	$(hide) $(HOST_OUT_EXECUTABLES)/build_sepolicy -a $(HOST_OUT_EXECUTABLES) filter_out \
 		-f $(PRIVATE_PLAT_CIL_FILES) -t $@
@@ -271,7 +268,7 @@ $(pub_policy_$(ver).cil): PRIVATE_REQD_MASK := $(reqd_policy_mask_$(ver).cil)
 $(pub_policy_$(ver).cil): $(HOST_OUT_EXECUTABLES)/checkpolicy \
 $(HOST_OUT_EXECUTABLES)/build_sepolicy $(pub_policy_$(ver).conf) $(reqd_policy_mask_$(ver).cil)
 	@mkdir -p $(dir $@)
-	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $< -C -M -c $(POLICYVERS) -o $@ $(PRIVATE_POL_CONF)
+	$(hide) $< -C -M -c $(POLICYVERS) -o $@ $(PRIVATE_POL_CONF)
 	$(hide) $(HOST_OUT_EXECUTABLES)/build_sepolicy -a $(HOST_OUT_EXECUTABLES) filter_out \
 		-f $(PRIVATE_REQD_MASK) -t $@
 

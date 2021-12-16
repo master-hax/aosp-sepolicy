@@ -62,7 +62,7 @@ def do_build_cil(args):
     raw_cil_file = input_file_name + '_raw.cil'
     # Builds the raw CIL.
     file_utils.make_parent_dirs(raw_cil_file)
-    checkpolicy_cmd = [args.checkpolicy_env]
+    checkpolicy_cmd = [args.checkpolicy_env] if args.checkpolicy_env else []
     checkpolicy_cmd += [os.path.join(args.android_host_path, 'checkpolicy'),
                         '-C', '-M', '-c', args.policy_vers,
                         '-o', raw_cil_file, args.input_policy_conf]

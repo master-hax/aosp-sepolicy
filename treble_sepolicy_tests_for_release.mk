@@ -80,7 +80,7 @@ $(built_$(version)_plat_sepolicy): $($(version)_plat_policy.conf) $(HOST_OUT_EXE
   $(call build_policy, technical_debt.cil, $($(version)_PLAT_PRIVATE_POLICY)) \
   $(built_sepolicy_neverallows)
 	@mkdir -p $(dir $@)
-	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -C -c \
+	$(hide) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -C -c \
 		$(POLICYVERS) -o $@ $<
 	$(hide) cat $(PRIVATE_ADDITIONAL_CIL_FILES) >> $@
 	$(hide) $(HOST_OUT_EXECUTABLES)/secilc -m -M true -G -c $(POLICYVERS) $(PRIVATE_NEVERALLOW_ARG) $@ -o $@ -f /dev/null

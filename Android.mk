@@ -645,7 +645,7 @@ $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY_2 := $(sepolicy_policy_2.conf)
 $(LOCAL_BUILT_MODULE): $(sepolicy_policy.conf) $(sepolicy_policy_2.conf) \
   $(HOST_OUT_EXECUTABLES)/checkpolicy $(HOST_OUT_EXECUTABLES)/sepolicy-analyze
 ifneq ($(SELINUX_IGNORE_NEVERALLOWS),true)
-	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -c \
+	$(hide) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -c \
 		$(POLICYVERS) -o $@.tmp $(PRIVATE_SEPOLICY_1)
 	$(hide) $(HOST_OUT_EXECUTABLES)/sepolicy-analyze $@.tmp neverallow -w -f $(PRIVATE_SEPOLICY_2) || \
 	  ( echo "" 1>&2; \
@@ -722,7 +722,7 @@ $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY_2 := $(sepolicy_policy_2.conf)
 $(LOCAL_BUILT_MODULE): $(sepolicy_policy.conf) $(sepolicy_policy_2.conf) \
   $(HOST_OUT_EXECUTABLES)/checkpolicy $(HOST_OUT_EXECUTABLES)/sepolicy-analyze
 ifneq ($(SELINUX_IGNORE_NEVERALLOWS),true)
-	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -c \
+	$(hide) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -c \
 		$(POLICYVERS) -o $@.tmp $(PRIVATE_SEPOLICY_1)
 	$(hide) $(HOST_OUT_EXECUTABLES)/sepolicy-analyze $@.tmp neverallow -w -f $(PRIVATE_SEPOLICY_2) || \
 	  ( echo "" 1>&2; \
@@ -777,9 +777,6 @@ endif # ifdef HAS_PRODUCT_SEPOLICY
 
 built_pub_vers_cil := $(call intermediates-dir-for,ETC,plat_pub_versioned.cil)/plat_pub_versioned.cil
 built_pub_vers_cil_$(PLATFORM_SEPOLICY_VERSION) := $(built_pub_vers_cil)
-
-# b/37755687
-CHECKPOLICY_ASAN_OPTIONS := ASAN_OPTIONS=detect_leaks=0
 
 #################################
 include $(CLEAR_VARS)
@@ -838,7 +835,7 @@ $(LOCAL_BUILT_MODULE): $(HOST_OUT_EXECUTABLES)/build_sepolicy \
   $(built_system_ext_mapping_cil_$(BOARD_SEPOLICY_VERS)) $(built_product_mapping_cil_$(BOARD_SEPOLICY_VERS))
 	@mkdir -p $(dir $@)
 	$(hide) $(HOST_OUT_EXECUTABLES)/build_sepolicy -a $(HOST_OUT_EXECUTABLES) build_cil \
-		-i $(PRIVATE_POL_CONF) -m $(PRIVATE_REQD_MASK) -c $(CHECKPOLICY_ASAN_OPTIONS) \
+		-i $(PRIVATE_POL_CONF) -m $(PRIVATE_REQD_MASK) \
 		-b $(PRIVATE_BASE_CIL) -d $(PRIVATE_DEP_CIL_FILES) -f $(PRIVATE_FILTER_CIL) \
 		-t $(PRIVATE_VERS) -p $(POLICYVERS) -o $@
 
@@ -905,7 +902,7 @@ $(LOCAL_BUILT_MODULE): $(HOST_OUT_EXECUTABLES)/build_sepolicy \
   $(built_vendor_cil)
 	@mkdir -p $(dir $@)
 	$(hide) $(HOST_OUT_EXECUTABLES)/build_sepolicy -a $(HOST_OUT_EXECUTABLES) build_cil \
-		-i $(PRIVATE_POL_CONF) -m $(PRIVATE_REQD_MASK) -c $(CHECKPOLICY_ASAN_OPTIONS) \
+		-i $(PRIVATE_POL_CONF) -m $(PRIVATE_REQD_MASK) \
 		-b $(PRIVATE_BASE_CIL) -d $(PRIVATE_DEP_CIL_FILES) -f $(PRIVATE_FILTER_CIL_FILES) \
 		-t $(PRIVATE_VERS) -p $(POLICYVERS) -o $@
 
@@ -1088,7 +1085,7 @@ endif
 $(LOCAL_BUILT_MODULE): $(sepolicy.recovery.conf) $(HOST_OUT_EXECUTABLES)/checkpolicy \
                        $(HOST_OUT_EXECUTABLES)/sepolicy-analyze
 	@mkdir -p $(dir $@)
-	$(hide) $(CHECKPOLICY_ASAN_OPTIONS) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -c \
+	$(hide) $(HOST_OUT_EXECUTABLES)/checkpolicy -M -c \
 		$(POLICYVERS) -o $@.tmp $<
 	$(hide) $(HOST_OUT_EXECUTABLES)/sepolicy-analyze $@.tmp permissive > $@.permissivedomains
 	$(hide) if [ "$(TARGET_BUILD_VARIANT)" = "user" -a -s $@.permissivedomains ]; then \
