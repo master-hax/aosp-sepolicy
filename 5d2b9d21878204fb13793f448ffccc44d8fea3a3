@@ -110,6 +110,30 @@
       },
       "revId": "5d2b9d21878204fb13793f448ffccc44d8fea3a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "333fe646_0966a4ea",
+        "filename": "private/service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-12-16T17:49:33Z",
+      "side": 1,
+      "message": "I meant selinux permissions rather than Android ones.\n\nIn order to call your service, whatever is calling it will need to be granted find access:\n\ngrant \u003csomething\u003e ambient_signal_service:service_manager find;\n\nAlternatively, you may want to give your type one of the standard attributes which does that automatically - system_api_service, app_api_service, etc.\n\nAt that point you\u0027ll need to demonstrate you have the right Android permission checks in place. (Right now it\u0027s perfectly secure since nobody can call it.)\n\nSee Hai Zhang\u0027s comment: https://googleplex-android-review.git.corp.google.com/c/platform/system/sepolicy/+/16434841/2..3/private/service.te#b1",
+      "parentUuid": "4f5e9236_68553586",
+      "range": {
+        "startLine": 1,
+        "startChar": 41,
+        "endLine": 1,
+        "endChar": 84
+      },
+      "revId": "5d2b9d21878204fb13793f448ffccc44d8fea3a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
