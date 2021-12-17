@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90896069_9fd21d6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-12-17T02:59:54Z",
+      "side": 1,
+      "message": "Looks like the revert fixed the issue. \n\nhttps://android-build.googleplex.com/builds/abtd/run/L00100000952315911\n\nBut interestingly, the test was passing during the presubmit run. https://android-build.googleplex.com/builds/tests/view?invocationId\u003dI87300010002619740\u0026testResultId\u003dTR51027828889302456\n\nThat run was actually with https://android-review.googlesource.com/c/platform/packages/modules/Virtualization/+/1927384/ which hasn\u0027t yet been merged. \n\nSo, shall we roll forward, instead of rolling back?\n\nNevertheless, let me +2\u0027ing in case this needs to be fixed ASAP.",
+      "revId": "77ff3e515003ec5c86d7b222de886ab8c104ae2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
