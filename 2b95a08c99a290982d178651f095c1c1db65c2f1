@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a47ce622_a327306c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2021-12-21T01:08:16Z",
+      "side": 1,
+      "message": "So, I think I screwed things up on that.  ag/16493811 used that same Merged-In, which the AOSP change, without the prebuilts change, go/aog/1927857, had as its Change-Id.\n\nThe result is that currently internal master does not have the prebuilts change from sc-v2-dev, because the AOSP change merged into there first.  If I use this Merged-In again, we\u0027ll end up not getting this prebuilt change again.\n\nI think we want to go without the Merged-In, due to my earlier screw up.",
+      "parentUuid": "1a617df4_f6b629ec",
+      "revId": "2b95a08c99a290982d178651f095c1c1db65c2f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "017bc9a0_9d77ad7c",
