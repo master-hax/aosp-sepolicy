@@ -62,6 +62,7 @@ func init() {
 	android.RegisterModuleType("se_policy_conf", policyConfFactory)
 	android.RegisterModuleType("se_policy_cil", policyCilFactory)
 	android.RegisterModuleType("se_policy_binary", policyBinaryFactory)
+	android.RegisterModuleType("se_policy_analyze", policyAnalyzeFactory)
 }
 
 type policyConfProperties struct {
@@ -500,3 +501,105 @@ func (c *policyBinary) OutputFiles(tag string) (android.Paths, error) {
 }
 
 var _ android.OutputFileProducer = (*policyBinary)(nil)
+
+type policyAnalyzeProperties struct {
+	// Binary policy file to be tested.
+	Src *string `android:"path"`
+
+	// Analyze tool for the binary. Possible values are: "permissive" and "neverallow"
+	Tool *string
+}
+
+type policyAnalyze struct {
+	android.ModuleBase
+
+	properties policyAnalyzeProperties
+
+	installSource android.Path
+}
+
+// se_policy_analyze runs sepolicy-analyze to test given binary policy file. Possible checks are
+// "permissive" (no effect on debuggable build). For the convenience, the output file is copied
+// from the input file as-is.
+func policyAnalyzeFactory() android.Module {
+	c := &policyAnalyze{}
+	c.AddProperties(&c.properties)
+	android.InitAndroidArchModule(c, android.DeviceSupported, android.MultilibCommon)
+	return c
+}
+
+func (c *policyAnalyze) permissiveTool(ctx android.ModuleContext, input android.Path) android.Path {
+	// check only in user build
+	if ctx.Config().Debuggable() {
+		return input
+	}
+
+	rule := android.NewRuleBuilder(pctx, ctx)
+	out := android.PathForModuleOut(ctx, ctx.ModuleName())
+	permissiveDomains := android.PathForModuleOut(ctx, "permissivedomains")
+	rule.Command().BuiltTool("sepolicy-analyze").
+		Input(input).
+		Text("permissive").
+		Text(" > ").
+		Output(permissiveDomains)
+
+	msg := `==========\n` +
+		`ERROR: permissive domains not allowed in user builds\n` +
+		`List of invalid domains:\n`
+
+	rule.Command().Text("if test").
+		FlagWithInput("-s ", permissiveDomains).
+		Text("; then echo").
+		Flag("-e").
+		Text(`"` + msg + `"`).
+		Text("&& cat ").
+		Input(permissiveDomains).
+		Text("; exit 1; fi")
+
+	rule.Temporary(permissiveDomains)
+	rule.Command().Text("cp").
+		Flag("-f").
+		Input(input).
+		Output(out)
+	rule.DeleteTemporaryFiles()
+	rule.Build("permissive", "Permissive domain check: "+ctx.ModuleName())
+	return out
+}
+
+func (c *policyAnalyze) GenerateAndroidBuildActions(ctx android.ModuleContext) {
+	src := proptools.String(c.properties.Src)
+	if src == "" {
+		ctx.PropertyErrorf("src", "must be specified")
+		return
+	}
+	input := android.PathForModuleSrc(ctx, src)
+
+	tool := proptools.String(c.properties.Tool)
+	switch tool {
+	case "permissive":
+		c.installSource = c.permissiveTool(ctx, input)
+	default:
+		ctx.PropertyErrorf("tool", "unknown tool name "+tool)
+	}
+}
+
+func (c *policyAnalyze) AndroidMkEntries() []android.AndroidMkEntries {
+	return []android.AndroidMkEntries{android.AndroidMkEntries{
+		OutputFile: android.OptionalPathForPath(c.installSource),
+		Class:      "ETC",
+		ExtraEntries: []android.AndroidMkExtraEntriesFunc{
+			func(ctx android.AndroidMkExtraEntriesContext, entries *android.AndroidMkEntries) {
+				entries.SetBool("LOCAL_UNINSTALLABLE_MODULE", true)
+			},
+		},
+	}}
+}
+
+func (c *policyAnalyze) OutputFiles(tag string) (android.Paths, error) {
+	if tag == "" {
+		return android.Paths{c.installSource}, nil
+	}
+	return nil, fmt.Errorf("Unknown tag %q", tag)
+}
+
+var _ android.OutputFileProducer = (*policyAnalyze)(nil)
