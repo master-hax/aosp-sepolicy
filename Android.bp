@@ -1254,6 +1254,12 @@ precompiled_se_policy_binary {
     },
 }
 
+se_policy_analyze {
+    name: "sepolicy",
+    src: ":precompiled_sepolicy",
+    tool: "permissive",
+}
+
 //////////////////////////////////
 // SELinux policy embedded into CTS.
 // CTS checks neverallow rules of this policy against the policy of the device under test.
