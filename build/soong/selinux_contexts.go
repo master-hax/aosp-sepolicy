@@ -93,6 +93,7 @@ func init() {
 	android.RegisterModuleType("service_contexts", serviceFactory)
 	android.RegisterModuleType("keystore2_key_contexts", keystoreKeyFactory)
 	android.RegisterModuleType("seapp_contexts", seappFactory)
+	android.RegisterModuleType("contexts_test", contextsTestFactory)
 }
 
 func (m *selinuxContextsModule) InstallInRoot() bool {
@@ -499,3 +500,112 @@ func (m *selinuxContextsModule) OutputFiles(tag string) (android.Paths, error) {
 	}
 	return nil, fmt.Errorf("unsupported module reference tag %q", tag)
 }
+
+type contextsTestProperties struct {
+	// Contexts files to be tested.
+	Srcs []string `android:"path"`
+
+	// Name of the test tool. Possible values are "checkfc", "property_info_checker"
+	Tool *string
+
+	// Additional flags to be passed to the tool.
+	Flags []string
+
+	// Precompiled sepolicy binary to be tesed together.
+	Sepolicy *string `android:"path"`
+}
+
+type contextsTestModule struct {
+	android.ModuleBase
+
+	properties    contextsTestProperties
+	testTimestamp android.ModuleOutPath
+}
+
+// se_contexts_test tests given contexts files with given tools.
+func contextsTestFactory() android.Module {
+	m := &contextsTestModule{}
+	m.AddProperties(&m.properties)
+	android.InitAndroidArchModule(m, android.DeviceSupported, android.MultilibCommon)
+	return m
+}
+
+func (m *contextsTestModule) GenerateAndroidBuildActions(ctx android.ModuleContext) {
+	tool := proptools.String(m.properties.Tool)
+	if tool != "checkfc" && tool != "property_info_checker" {
+		ctx.PropertyErrorf("tool", "unknown tool name: "+tool)
+		return
+	}
+
+	if len(m.properties.Srcs) == 0 {
+		ctx.PropertyErrorf("srcs", "can't be empty")
+		return
+	}
+
+	if proptools.String(m.properties.Sepolicy) == "" {
+		ctx.PropertyErrorf("sepolicy", "can't be empty")
+		return
+	}
+
+	srcs := android.PathsForModuleSrc(ctx, m.properties.Srcs)
+	sepolicy := android.PathForModuleSrc(ctx, proptools.String(m.properties.Sepolicy))
+
+	rule := android.NewRuleBuilder(pctx, ctx)
+	rule.Command().BuiltTool(tool).
+		Flags(m.properties.Flags).
+		Input(sepolicy).
+		Inputs(srcs)
+
+	m.testTimestamp = android.PathForModuleOut(ctx, "timestamp")
+	rule.Command().Text("touch").Output(m.testTimestamp)
+	rule.Build("contexts_test", "running contexts test: "+ctx.ModuleName())
+}
+
+func (m *contextsTestModule) AndroidMkEntries() []android.AndroidMkEntries {
+	return []android.AndroidMkEntries{android.AndroidMkEntries{
+		Class: "FAKE",
+		// OutputFile is needed, even though BUILD_PHONY_PACKAGE doesn't use it.
+		// Without OutputFile this module won't be exported to Makefile.
+		OutputFile: android.OptionalPathForPath(m.testTimestamp),
+		Include:    "$(BUILD_PHONY_PACKAGE)",
+		ExtraEntries: []android.AndroidMkExtraEntriesFunc{
+			func(ctx android.AndroidMkExtraEntriesContext, entries *android.AndroidMkEntries) {
+				entries.SetString("LOCAL_ADDITIONAL_DEPENDENCIES", m.testTimestamp.String())
+			},
+		},
+	}}
+}
+
+// contextsTestModule implements ImageInterface to be able to include recovery_available contexts
+// modules as its sources.
+func (m *contextsTestModule) ImageMutatorBegin(ctx android.BaseModuleContext) {
+}
+
+func (m *contextsTestModule) CoreVariantNeeded(ctx android.BaseModuleContext) bool {
+	return true
+}
+
+func (m *contextsTestModule) RamdiskVariantNeeded(ctx android.BaseModuleContext) bool {
+	return false
+}
+
+func (m *contextsTestModule) VendorRamdiskVariantNeeded(ctx android.BaseModuleContext) bool {
+	return false
+}
+
+func (m *contextsTestModule) DebugRamdiskVariantNeeded(ctx android.BaseModuleContext) bool {
+	return false
+}
+
+func (m *contextsTestModule) RecoveryVariantNeeded(ctx android.BaseModuleContext) bool {
+	return false
+}
+
+func (m *contextsTestModule) ExtraImageVariations(ctx android.BaseModuleContext) []string {
+	return nil
+}
+
+func (m *contextsTestModule) SetImageVariation(ctx android.BaseModuleContext, variation string, module android.Module) {
+}
+
+var _ android.ImageInterface = (*contextsTestModule)(nil)
