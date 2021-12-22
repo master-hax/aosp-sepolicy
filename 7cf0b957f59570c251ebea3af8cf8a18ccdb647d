@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26476148_9ae23ace",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1137703
+      },
+      "writtenOn": "2021-12-22T00:20:57Z",
+      "side": 1,
+      "message": "It seems like this is opening a potentially very large security hole.  There are a lot of system apps (if this is based on the system UID), which makes for a very large attack surface.  If this could allow any compromised system app to disable MTE, that\u0027d make it relatively easy for an attacker to disable these memory protections.\n\nIs there any way to reduce the scope?  Or make it so this could only be used to enable MTE, rather than disable it?",
+      "revId": "7cf0b957f59570c251ebea3af8cf8a18ccdb647d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
