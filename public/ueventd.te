@@ -66,6 +66,9 @@ allow ueventd system_bootstrap_lib_file:file { execute read open getattr map };
 # Allow ueventd to run shell scripts from vendor
 allow ueventd vendor_shell_exec:file execute;
 
+# Allow ueventd to read apexd property
+get_prop(ueventd, apexd_prop)
+
 #####
 ##### neverallow rules
 #####
