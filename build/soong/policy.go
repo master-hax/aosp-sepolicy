@@ -83,6 +83,9 @@ type policyConfProperties struct {
 	// Whether to build CTS specific policy or not. Default is false
 	Cts *bool
 
+	// Whether to build recovery specific policy or not. Default is false
+	Target_recovery *bool
+
 	// Whether this module is directly installable to one of the partitions. Default is true
 	Installable *bool
 }
@@ -138,6 +141,9 @@ func (c *policyConf) withAsan(ctx android.ModuleContext) string {
 func (c *policyConf) sepolicySplit(ctx android.ModuleContext) string {
 	if c.cts() {
 		return "cts"
+	}
+	if proptools.Bool(c.properties.Target_recovery) {
+		return "false"
 	}
 	return strconv.FormatBool(ctx.DeviceConfig().SepolicySplit())
 }
@@ -206,6 +212,7 @@ func (c *policyConf) transformPolicyToConf(ctx android.ModuleContext) android.Ou
 		FlagWithArg("-D target_exclude_build_test=", strconv.FormatBool(proptools.Bool(c.properties.Exclude_build_test))).
 		FlagWithArg("-D target_requires_insecure_execmem_for_swiftshader=", strconv.FormatBool(ctx.DeviceConfig().RequiresInsecureExecmemForSwiftshader())).
 		FlagWithArg("-D target_enforce_debugfs_restriction=", c.enforceDebugfsRestrictions(ctx)).
+		FlagWithArg("-D target_recovery=", strconv.FormatBool(proptools.Bool(c.properties.Target_recovery))).
 		Flag("-s").
 		Inputs(srcs).
 		Text("> ").Output(conf)
@@ -439,6 +446,10 @@ func policyBinaryFactory() android.Module {
 	return c
 }
 
+func (c *policyBinary) InstallInRoot() bool {
+	return c.InstallInRecovery()
+}
+
 func (c *policyBinary) Installable() bool {
 	return proptools.BoolDefault(c.properties.Installable, true)
 }
@@ -505,7 +516,12 @@ func (c *policyBinary) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 		c.SkipInstall()
 	}
 
-	c.installPath = android.PathForModuleInstall(ctx, "etc", "selinux")
+	if c.InstallInRecovery() {
+		// install in root
+		c.installPath = android.PathForModuleInstall(ctx)
+	} else {
+		c.installPath = android.PathForModuleInstall(ctx, "etc", "selinux")
+	}
 	c.installSource = out
 	ctx.InstallFile(c.installPath, c.stem(), c.installSource)
 }
