@@ -107,6 +107,12 @@ allow installd unlabeled:file r_file_perms;
 # Just need enough to relabel it and to unlink removed package files.
 # Directory access covered by earlier rule above.
 allow installd system_data_file:notdevfile_class_set { getattr relabelfrom unlink };
+allowxperm installd system_data_file:{ dir file } ioctl {
+  FS_IOC_FSGETXATTR
+  FS_IOC_FSSETXATTR
+  FS_IOC_GETFLAGS
+  FS_IOC_SETFLAGS
+};
 
 # Manage /data/data subdirectories, including initially labeling them
 # upon creation via setfilecon or running restorecon_recursive,
@@ -114,7 +120,12 @@ allow installd system_data_file:notdevfile_class_set { getattr relabelfrom unlin
 # upon package uninstall.
 allow installd app_data_file_type:dir { create_dir_perms relabelfrom relabelto };
 allow installd app_data_file_type:notdevfile_class_set { create_file_perms relabelfrom relabelto };
-
+allowxperm installd app_data_file_type:{ dir file } ioctl {
+  FS_IOC_FSGETXATTR
+  FS_IOC_FSSETXATTR
+  FS_IOC_GETFLAGS
+  FS_IOC_SETFLAGS
+};
 # Similar for the files under /data/misc/profiles/
 allow installd user_profile_root_file:dir { create_dir_perms relabelfrom };
 allow installd user_profile_data_file:dir { create_dir_perms relabelto };
