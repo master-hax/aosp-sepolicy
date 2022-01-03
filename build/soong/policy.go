@@ -83,9 +83,6 @@ type policyConfProperties struct {
 	// Whether to build CTS specific policy or not. Default is false
 	Cts *bool
 
-	// Whether to build recovery specific policy or not. Default is false
-	Target_recovery *bool
-
 	// Whether this module is directly installable to one of the partitions. Default is true
 	Installable *bool
 }
@@ -133,10 +130,6 @@ func (c *policyConf) cts() bool {
 	return proptools.Bool(c.properties.Cts)
 }
 
-func (c *policyConf) isTargetRecovery() bool {
-	return proptools.Bool(c.properties.Target_recovery)
-}
-
 func (c *policyConf) withAsan(ctx android.ModuleContext) string {
 	isAsanDevice := android.InList("address", ctx.Config().SanitizeDevice())
 	return strconv.FormatBool(proptools.BoolDefault(c.properties.With_asan, isAsanDevice))
@@ -146,18 +139,12 @@ func (c *policyConf) sepolicySplit(ctx android.ModuleContext) string {
 	if c.cts() {
 		return "cts"
 	}
-	if c.isTargetRecovery() {
-		return "false"
-	}
 	return strconv.FormatBool(ctx.DeviceConfig().SepolicySplit())
 }
 
 func (c *policyConf) compatibleProperty(ctx android.ModuleContext) string {
 	if c.cts() {
 		return "cts"
-	}
-	if c.isTargetRecovery() {
-		return "false"
 	}
 	return "true"
 }
@@ -166,18 +153,12 @@ func (c *policyConf) trebleSyspropNeverallow(ctx android.ModuleContext) string {
 	if c.cts() {
 		return "cts"
 	}
-	if c.isTargetRecovery() {
-		return "false"
-	}
 	return strconv.FormatBool(!ctx.DeviceConfig().BuildBrokenTrebleSyspropNeverallow())
 }
 
 func (c *policyConf) enforceSyspropOwner(ctx android.ModuleContext) string {
 	if c.cts() {
 		return "cts"
-	}
-	if c.isTargetRecovery() {
-		return "false"
 	}
 	return strconv.FormatBool(!ctx.DeviceConfig().BuildBrokenEnforceSyspropOwner())
 }
@@ -225,7 +206,6 @@ func (c *policyConf) transformPolicyToConf(ctx android.ModuleContext) android.Ou
 		FlagWithArg("-D target_exclude_build_test=", strconv.FormatBool(proptools.Bool(c.properties.Exclude_build_test))).
 		FlagWithArg("-D target_requires_insecure_execmem_for_swiftshader=", strconv.FormatBool(ctx.DeviceConfig().RequiresInsecureExecmemForSwiftshader())).
 		FlagWithArg("-D target_enforce_debugfs_restriction=", c.enforceDebugfsRestrictions(ctx)).
-		FlagWithArg("-D target_recovery=", strconv.FormatBool(c.isTargetRecovery())).
 		Flag("-s").
 		Inputs(srcs).
 		Text("> ").Output(conf)
@@ -459,10 +439,6 @@ func policyBinaryFactory() android.Module {
 	return c
 }
 
-func (c *policyBinary) InstallInRoot() bool {
-	return c.InstallInRecovery()
-}
-
 func (c *policyBinary) Installable() bool {
 	return proptools.BoolDefault(c.properties.Installable, true)
 }
@@ -529,12 +505,7 @@ func (c *policyBinary) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 		c.SkipInstall()
 	}
 
-	if c.InstallInRecovery() {
-		// install in root
-		c.installPath = android.PathForModuleInstall(ctx)
-	} else {
-		c.installPath = android.PathForModuleInstall(ctx, "etc", "selinux")
-	}
+	c.installPath = android.PathForModuleInstall(ctx, "etc", "selinux")
 	c.installSource = out
 	ctx.InstallFile(c.installPath, c.stem(), c.installSource)
 }
