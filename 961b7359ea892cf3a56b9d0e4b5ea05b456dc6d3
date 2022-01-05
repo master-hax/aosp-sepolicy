@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04bc9196_de11ba25",
+        "filename": "private/platform_app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-01-05T09:18:37Z",
+      "side": 1,
+      "message": "no need?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 55
+      },
+      "revId": "961b7359ea892cf3a56b9d0e4b5ea05b456dc6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8859a49_9ee91ffe",
+        "filename": "private/priv_app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-01-05T09:18:37Z",
+      "side": 1,
+      "message": "no need as nearby_service is already app_api_service. See #35",
+      "range": {
+        "startLine": 46,
+        "startChar": 15,
+        "endLine": 46,
+        "endChar": 45
+      },
+      "revId": "961b7359ea892cf3a56b9d0e4b5ea05b456dc6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a044890d_17eaf6f3",
+        "filename": "public/service.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-01-05T09:18:37Z",
+      "side": 1,
+      "message": "not sure if the membership to app_api_service is intentional. Is this service accessible to 3p apps? Otherwise, we need to drop this and keep the allow rules in the other te files.",
+      "range": {
+        "startLine": 160,
+        "startChar": 21,
+        "endLine": 160,
+        "endChar": 36
+      },
+      "revId": "961b7359ea892cf3a56b9d0e4b5ea05b456dc6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
