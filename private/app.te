@@ -87,6 +87,31 @@ allow appdomain apex_art_data_file:file rx_file_perms;
 allow appdomain tombstone_data_file:file { getattr read };
 neverallow appdomain tombstone_data_file:file ~{ getattr read };
 
+# App sandbox file accesses.
+allow { appdomain -isolated_app -mlstrustedsubject } { app_data_file privapp_data_file }:dir create_dir_perms;
+allow { appdomain -isolated_app -mlstrustedsubject } { app_data_file privapp_data_file }:file create_file_perms;
+
+# Access via already open fds is ok even for mlstrustedsubject.
+allow { appdomain -isolated_app } { app_data_file privapp_data_file system_app_data_file }:file { getattr map read write };
+
+# Allow read/stat of /data/media files passed by Binder or local socket IPC.
+allow { appdomain -isolated_app } media_rw_data_file:file { read getattr };
+
+# Allow access to external storage; we have several visible mount points under /storage
+# and symlinks to primary storage at places like /storage/sdcard0 and /mnt/user/0/primary
+allow { appdomain -isolated_app -ephemeral_app } storage_file:dir r_dir_perms;
+allow { appdomain -isolated_app -ephemeral_app } storage_file:lnk_file r_file_perms;
+allow { appdomain -isolated_app -ephemeral_app } mnt_user_file:dir r_dir_perms;
+allow { appdomain -isolated_app -ephemeral_app } mnt_user_file:lnk_file r_file_perms;
+
+# Read/write visible storage
+allow { appdomain -isolated_app -ephemeral_app } { sdcard_type fuse }:dir create_dir_perms;
+allow { appdomain -isolated_app -ephemeral_app } { sdcard_type fuse }:file create_file_perms;
+# This should be removed if sdcardfs is modified to alter the secontext for its
+# accesses to the underlying FS.
+allow { appdomain -isolated_app -ephemeral_app } media_rw_data_file:dir create_dir_perms;
+allow { appdomain -isolated_app -ephemeral_app } media_rw_data_file:file create_file_perms;
+
 # Sensitive app domains are not allowed to execute from /data
 # to prevent persistence attacks and ensure all code is executed
 # from read-only locations.
