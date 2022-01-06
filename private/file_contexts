@@ -19,6 +19,7 @@
 
 # For kernel modules
 /lib(/.*)?          u:object_r:rootfs:s0
+/system_dlkm(/.*)?  u:object_r:rootfs:s0
 
 # Empty directories
 /lost\+found        u:object_r:rootfs:s0
@@ -196,6 +197,15 @@
 # Linker configuration
 #
 /linkerconfig(/.*)?          u:object_r:linkerconfig_file:s0
+
+# Apex sepoolicy files.
+/dev/selinux/apex_file_contexts                 u:object_r:file_contexts_file:s0
+/dev/selinux/apex_seapp_contexts                u:object_r:seapp_contexts_file:s0
+/dev/selinux/apex_service_contexts              u:object_r:service_contexts_file:s0
+/dev/selinux/apex_property_contexts             u:object_r:property_contexts_file:s0
+/dev/selinux/apex_hwservice_contexts            u:object_r:hwservice_contexts_file:s0
+/dev/selinux/apex_mac_permissions\.xml          u:object_r:mac_perms_file:s0
+
 #############################
 # System files
 #
@@ -412,6 +422,10 @@
 /(odm|vendor/odm)/overlay(/.*)?               u:object_r:vendor_overlay_file:s0
 /(odm|vendor/odm)/framework(/.*)?             u:object_r:vendor_framework_file:s0
 
+# secure-element service: vendor uuid mapping config file
+/(odm|vendor/odm|vendor|system/vendor)/etc/hal_uuid_map_(.*)?\.xml    u:object_r:vendor_uuid_mapping_config_file:s0
+
+
 # Input configuration
 /(odm|vendor/odm|vendor|system/vendor)/usr/keylayout(/.*)?\.kl        u:object_r:vendor_keylayout_file:s0
 /(odm|vendor/odm|vendor|system/vendor)/usr/keychars(/.*)?\.kcm        u:object_r:vendor_keychars_file:s0
@@ -439,7 +453,7 @@
 /(product|system/product)(/.*)?                                 u:object_r:system_file:s0
 /(product|system/product)/etc/group                             u:object_r:system_group_file:s0
 /(product|system/product)/etc/passwd                            u:object_r:system_passwd_file:s0
-/(product|system/product)/overlay(/.*)?                         u:object_r:vendor_overlay_file:s0
+/(product|system/product)/overlay(/.*)?                         u:object_r:system_file:s0
 
 /(product|system/product)/etc/selinux/product_file_contexts      u:object_r:file_contexts_file:s0
 /(product|system/product)/etc/selinux/product_hwservice_contexts u:object_r:hwservice_contexts_file:s0
@@ -690,6 +704,8 @@
 /data/incremental/MT_[^/]+/mount/.log                   u:object_r:incremental_control_file:s0
 /data/incremental/MT_[^/]+/mount/.blocks_written        u:object_r:incremental_control_file:s0
 
+# Boot animation data
+/data/bootanim(/.*)? u:object_r:bootanim_data_file:s0
 #############################
 # Expanded data files
 #

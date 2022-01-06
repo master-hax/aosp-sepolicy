@@ -69,6 +69,9 @@ type virtualizationservice_data_file, file_type, data_file_type, core_data_file_
 # /data/system/environ
 type environ_system_data_file, file_type, data_file_type, core_data_file_type;
 
+# /data/bootanim
+type bootanim_data_file, file_type, data_file_type, core_data_file_type;
+
 # /dev/kvm
 type kvm_device, dev_type;
 
@@ -77,3 +80,7 @@ type fd_server_exec, system_file_type, exec_type, file_type;
 
 # /metadata/sepolicy
 type sepolicy_metadata_file, file_type;
+
+# /dev/selinux/test - used to verify that apex sepolicy is loaded and
+# property labeled.
+type sepolicy_test_file, file_type;

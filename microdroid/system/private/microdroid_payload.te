@@ -27,11 +27,11 @@ allow microdroid_payload microdroid_manager:vsock_socket { read write };
 # Write to /dev/kmsg.
 allow microdroid_payload kmsg_device:chr_file rw_file_perms;
 
-# Only microdroid_payload can be run by microdroid_manager
-neverallow microdroid_manager { domain -crash_dump -microdroid_payload }:process transition;
+# Only microdroid_payload and apk verity binaries can be run by microdroid_manager
+neverallow microdroid_manager { domain -crash_dump -microdroid_payload -apkdmverity -zipfuse }:process transition;
 
 # Allow microdroid_payload to open binder servers via vsock.
-allow microdroid_payload self:vsock_socket { create_socket_perms listen accept };
+allow microdroid_payload self:vsock_socket { create_socket_perms_no_ioctl listen accept };
 
 # Allow microdroid_payload to ioctl /dev/vsock.
 # TODO(b/199259751): remove the below rules
@@ -39,3 +39,6 @@ allow microdroid_payload vsock_device:chr_file r_file_perms;
 allowxperm microdroid_payload vsock_device:chr_file ioctl {
     IOCTL_VM_SOCKETS_GET_LOCAL_CID
 };
+
+# Payload can read extra apks
+r_dir_file(microdroid_payload, extra_apk_file)
