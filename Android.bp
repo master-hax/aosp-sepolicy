@@ -1333,7 +1333,7 @@ se_versioned_policy {
 // contains system/sepolicy/public and system/sepolicy/vendor.
 se_policy_conf {
     name: "microdroid_vendor_sepolicy.conf",
-    srcs: [":se_build_files{.plat_vendor}"],
+    srcs: plat_public_policy + reqd_mask_policy + [":se_build_files{.plat_vendor}"],
     installable: false,
 }
 
