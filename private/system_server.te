@@ -1341,6 +1341,9 @@ allow system_server odrefresh_data_file:file { r_file_perms unlink };
 # Allow system server r access to /system/bin/surfaceflinger for PinnerService.
 allow system_server surfaceflinger_exec:file r_file_perms;
 
+# Allow system server open and red access to /sys/class/net for fetching all interfaces.
+allow system_server sysfs_net:dir { open read };
+
 # Allow init to set sysprop used to compute stats about userspace reboot.
 set_prop(system_server, userspace_reboot_log_prop)
 
