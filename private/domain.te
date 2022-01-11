@@ -583,3 +583,6 @@ neverallow {
   userdebug_or_eng(`-virtualizationservice')
   userdebug_or_eng(`-crosvm')
 } shell_data_file:file open;
+
+# Restrict write access to etm sysfs interface.
+neverallow { domain -ueventd -vendor_init } sysfs_devices_cs_etm:file no_w_file_perms;
