@@ -1,0 +1,5 @@
+# HwBinder IPC from client to server
+binder_call(hal_input_prediction_client, hal_input_prediction_server)
+binder_call(hal_input_prediction_server, servicemanager)
+
+hal_attribute_service(hal_input_prediction, hal_input_prediction_service)
