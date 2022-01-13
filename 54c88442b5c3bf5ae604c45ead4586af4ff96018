@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "794dff8f_95762449",
+        "filename": "build/soong/selinux_contexts.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-01-13T03:57:01Z",
+      "side": 1,
+      "message": "If we should, I\u0027d prefer creating a separate module type for each contexts. e.g.\n\n    file_contexts_test { name: \"plat_file_contexts_test\", ... }\n    property_conetxts_test { name: \"plat_property_contexts_test\", ... }\n    ...\n    \nWDYT?",
+      "parentUuid": "4472218c_47992ef4",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 509,
+        "endChar": 13
+      },
+      "revId": "54c88442b5c3bf5ae604c45ead4586af4ff96018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "efd10ceb_af26a97c",
         "filename": "contexts/Android.bp",
         "patchSetId": 7
@@ -54,6 +78,30 @@
       "writtenOn": "2022-01-13T03:02:30Z",
       "side": 1,
       "message": "What does this mean? If it is expected that there will be just a few number of flags, please make special purpose properties instead.",
+      "range": {
+        "startLine": 343,
+        "startChar": 11,
+        "endLine": 343,
+        "endChar": 24
+      },
+      "revId": "54c88442b5c3bf5ae604c45ead4586af4ff96018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83165774_82a66cc8",
+        "filename": "contexts/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-01-13T03:57:01Z",
+      "side": 1,
+      "message": "My thought is same as above.",
+      "parentUuid": "efd10ceb_af26a97c",
       "range": {
         "startLine": 343,
         "startChar": 11,

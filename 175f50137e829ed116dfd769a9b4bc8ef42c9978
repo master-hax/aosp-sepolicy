@@ -16,6 +16,24 @@
       "message": "Is there a reason for this deletion?",
       "revId": "175f50137e829ed116dfd769a9b4bc8ef42c9978",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea5ec94e_fe893483",
+        "filename": "Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-01-13T03:57:01Z",
+      "side": 0,
+      "message": "At first, this was added to install vendor_service_contexts only for non-Treble devices. After some time, vendor_service_contexts started being installed to all devices (See line 501). Since then, this line has become redundant.\n\nI thought this change is a good chance to remove this redundant line.",
+      "parentUuid": "46f1bd09_8737bb56",
+      "revId": "175f50137e829ed116dfd769a9b4bc8ef42c9978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
