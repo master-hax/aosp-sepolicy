@@ -1,0 +1,52 @@
+# 464xlat daemon helper
+type clat, domain, coredomain;
+type clat_exec, system_file_type, exec_type, file_type;
+
+net_domain(clat)
+
+# Allow clat helper to start clatd in its own domain and kill it
+domain_auto_trans(clat, clatd_exec, clatd)
+allow clat clatd:process signal;
+
+allow clat surfaceflinger:fd use;
+allow clat surfaceflinger:unix_stream_socket { read write };
+allow clat system_server:fd use;
+allow clat system_server:udp_socket { read write };
+allow clat system_server:unix_dgram_socket { read write };
+allow clat system_server:unix_stream_socket { read write };
+allow clat cgroup_v2:file read;
+allow clat input_device:chr_file { read write };
+allow clat system_server:fifo_file { read write };
+
+
+allow clat functionfs:file { read write };
+allow clat system_data_file:file { append read write };
+allow clat system_server:netlink_kobject_uevent_socket { read write };
+
+allow clat fs_bpf:dir search;
+allow clat fs_bpf:file { read write };
+allow clat mediaswcodec:fd use;
+
+# allow clat hal_graphics_allocator_default:fd use;
+allow clat system_server:packet_socket { read write };
+allow clat system_server:tcp_socket { read write };
+allow clat bpfloader:bpf { map_read map_write };
+allow clat system_server:rawip_socket { read write };
+
+#!!!! This avc is allowed in the current policy
+allow clat self:udp_socket ioctl;
+
+#!!!! This avc is allowed in the current policy
+allow clat tun_device:chr_file { read write };
+
+allow clat frp_block_device:blk_file { read write };
+#allow clat hal_graphics_allocator_default:fd use;
+allow clat proc_uid_procstat_set:file write;
+
+#!!!! This avc is allowed in the current policy
+#!!!! This av rule may have been overridden by an extended permission av rule
+allow clat self:udp_socket ioctl;
+
+# 01-13 23:43:22.528  5638  5638 E clat-wlan0: isEthernet(wlan0[47]) failure: Get hardware address type of interface wlan0 failed: Permission denied
+# 01-13 23:43:22.524  5638  5638 W clat    : type=1400 audit(0.0:761): avc: denied { ioctl } for path="socket:[87397]" dev="sockfs" ino=87397 ioctlcmd=0x8927 scontext=u:r:clat:s0 tcontext=u:r:clat:s0 tclass=udp_socket permissive=0
+
