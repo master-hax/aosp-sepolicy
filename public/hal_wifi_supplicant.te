@@ -32,6 +32,9 @@ allow hal_wifi_supplicant wifi_key:keystore2_key {
     use
 };
 
+# Dumpstate is not allowed to call into wpa_supplicant.
+dontaudit dumpstate hal_wifi_supplicant_server:binder call;
+
 ###
 ### neverallow rules
 ###
