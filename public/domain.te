@@ -580,6 +580,7 @@ neverallow {
 
 neverallow {
   domain
+  -coredomain
   -init
   -recovery
   -system_server
@@ -1134,6 +1135,7 @@ neverallow ~domain domain:process { transition dyntransition };
 #
 neverallow {
   domain
+  -coredomain # clat aceess bpfmap
   -system_server
   -system_app
   -init

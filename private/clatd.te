@@ -20,3 +20,20 @@ allow clatd self:global_capability_class_set { net_admin net_raw setuid setgid }
 allow clatd self:netlink_route_socket nlmsg_write;
 allow clatd self:{ packet_socket rawip_socket } create_socket_perms_no_ioctl;
 allow clatd tun_device:chr_file rw_file_perms;
+
+allow clatd system_server:fd use;
+allow clatd surfaceflinger:fd use;
+allow clatd system_server:udp_socket { read write };
+allow clatd system_server:unix_dgram_socket { read write };
+
+allow clatd surfaceflinger:unix_stream_socket { read write };
+allow clatd system_server:unix_stream_socket { read write };
+allow clatd input_device:chr_file { read write };
+allow clatd system_server:fifo_file { read write };
+allow clatd functionfs:file { read write };
+allow clatd mediaswcodec:fd use;
+allow clatd system_data_file:file { append read write };
+allow clatd system_server:netlink_kobject_uevent_socket { read write };
+allow clatd system_server:packet_socket read;
+allow clatd system_server:rawip_socket { read write };
+

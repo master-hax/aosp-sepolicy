@@ -142,6 +142,7 @@ full_treble_only(`
     -init
     -ueventd
     -vold
+    -clat
   } sysfs:file no_rw_file_perms;
 
   # /dev
@@ -211,9 +212,11 @@ full_treble_only(`
   neverallow {
     coredomain
     -adbd
+    -clat
     -init
     -mediaprovider
     -system_server
+    -clatd
   } functionfs:file no_rw_file_perms;
 
   # usbfs and binfmt_miscfs
