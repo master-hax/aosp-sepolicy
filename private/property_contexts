@@ -674,6 +674,11 @@ persist.sys.timezone     u:object_r:exported_system_prop:s0 exact string
 persist.sys.test_harness u:object_r:test_harness_prop:s0 exact bool
 
 ro.arch u:object_r:build_prop:s0 exact string
+# Undocumented properties that have been used by vendors previously.
+# Please use ro.soc.model for new devices.
+ro.chipname             u:object_r:deprecated_soc_prop:s0 exact string
+ro.hardware.chipname    u:object_r:deprecated_soc_prop:s0 exact string
+ro.mediatek.platform    u:object_r:deprecated_soc_prop:s0 exact string
 
 # ro.boot. properties are set based on kernel commandline arguments, which are vendor owned.
 ro.boot.                   u:object_r:bootloader_prop:s0
