@@ -51,6 +51,42 @@
       "message": "I\u0027ve read the bug, but I don\u0027t understand what our goal is for the bug.\n\nFrom the bug:\n\n\u003e there has been reports of SELinux denials coming from the cpuinfo library when probing system properties\n\nWhy is this a problem, given that they are already being denied? Spamming the log could be a reason, but it\u0027s a problem that is not limited to these properties and cpuinfo.\n\nAdding Jeffrey for more thoughts.",
       "revId": "ab494b2c8cab3dcbe3e3687677807fc7dee6e35c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b4abf72_621163b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2022-01-14T06:03:31Z",
+      "side": 1,
+      "message": "Fixing cpuinfo is my preference as well. But it is not likely to happen (i.e., upstream prioritize the compatibility with different SoC, over the verbosity of the probing).\n\nIdeally, one would be able to define and ignore these properties per device (Pixel) but it\u0027s not possible because of the namespacing.",
+      "parentUuid": "37d139a0_9d6889e6",
+      "revId": "ab494b2c8cab3dcbe3e3687677807fc7dee6e35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba6cdd0d_dac0debd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2022-01-14T06:03:31Z",
+      "side": 1,
+      "message": "Spamming is the issue, it will fail our boot tests.\n\nIn general, we are able to add an entry to bug_map, but here the entry would be too general (`default_prop`), which may introduce false negatives in the future.",
+      "parentUuid": "e14a4cc8_7b63b236",
+      "revId": "ab494b2c8cab3dcbe3e3687677807fc7dee6e35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
