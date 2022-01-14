@@ -87,6 +87,24 @@
       "parentUuid": "e14a4cc8_7b63b236",
       "revId": "ab494b2c8cab3dcbe3e3687677807fc7dee6e35c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11cb1b8a_ee610a12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-01-14T06:09:54Z",
+      "side": 1,
+      "message": "If it\u0027s only for Pixel, I\u0027d try Pixel device\u0027s system_ext sepolicy.\n\nAlso, even if the properties are originated from the vendor, `vendor_public_prop` is not appropriate. I\u0027d use `system_internal_prop` in the private policy, not the public policy, and then add `dontaudit domain`.",
+      "parentUuid": "7b4abf72_621163b3",
+      "revId": "ab494b2c8cab3dcbe3e3687677807fc7dee6e35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
