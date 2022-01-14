@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4335325d_d594c504",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-01-14T08:08:54Z",
+      "side": 1,
+      "message": "Unfortunately, \"search\" is poorly named. It\u0027s needed for directory traversal, so definitely needed here.",
+      "parentUuid": "6e88018c_36a566fd",
+      "revId": "d330159851318224856c2daa962da95b4ce2a75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc9dc8af_323ddbc0",
@@ -125,6 +143,53 @@
         "startChar": 35,
         "endLine": 1345,
         "endChar": 45
+      },
+      "revId": "d330159851318224856c2daa962da95b4ce2a75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53d8c7a1_5c920029",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-01-14T08:08:54Z",
+      "side": 1,
+      "message": "The point of using macros is that they\u0027re often more robust. If you can read a file, why shouldn\u0027t you be able to call stat() on it (\"getattr\" selinux permission)? Why would you want to prevent that? Is there any security reason for doing so? No.\n\nSearch is needed, it just happens to also be more widely granted here: https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/private/system_server.te;l\u003d404?q\u003dsystem%2Fsepolicy%20system_server\n\nre-granting it here is actually more robust because if that other rule ever gets removed for other reasons, you\u0027ll need that permission here.",
+      "parentUuid": "dc301b9f_f83bfa91",
+      "range": {
+        "startLine": 1345,
+        "startChar": 35,
+        "endLine": 1345,
+        "endChar": 45
+      },
+      "revId": "d330159851318224856c2daa962da95b4ce2a75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "973c1d15_26d8e0e5",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-01-14T08:08:54Z",
+      "side": 1,
+      "message": "perhaps r_dir_perms would be best and more future proof.",
+      "range": {
+        "startLine": 1345,
+        "startChar": 34,
+        "endLine": 1345,
+        "endChar": 47
       },
       "revId": "d330159851318224856c2daa962da95b4ce2a75e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
