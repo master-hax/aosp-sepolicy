@@ -59,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec365546_efe3f843",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1344,
+      "author": {
+        "id": 1351420
+      },
+      "writtenOn": "2022-01-14T07:57:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc9dc8af_323ddbc0",
+      "range": {
+        "startLine": 1344,
+        "startChar": 31,
+        "endLine": 1344,
+        "endChar": 34
+      },
+      "revId": "d330159851318224856c2daa962da95b4ce2a75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2c45307_fae5d20f",
@@ -72,6 +96,30 @@
       "writtenOn": "2022-01-14T03:49:55Z",
       "side": 1,
       "message": "just to bet confirm. you don\u0027t need `search` access because all you need is reading the directory entries, right?",
+      "range": {
+        "startLine": 1345,
+        "startChar": 35,
+        "endLine": 1345,
+        "endChar": 45
+      },
+      "revId": "d330159851318224856c2daa962da95b4ce2a75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc301b9f_f83bfa91",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 1351420
+      },
+      "writtenOn": "2022-01-14T07:57:15Z",
+      "side": 1,
+      "message": "I think open and read access is enough because all avc denied logs I have are:\n\navc: denied { read } for name\u003d\"net\" dev\u003d\"sysfs\" ino\u003d29559 scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:sysfs_net:s0 tclass\u003ddir permissive\u003d1\navc: denied { open } for path\u003d\"/sys/class/net\" dev\u003d\"sysfs\" ino\u003d29559 scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:sysfs_net:s0 tclass\u003ddir permissive\u003d1",
+      "parentUuid": "e2c45307_fae5d20f",
       "range": {
         "startLine": 1345,
         "startChar": 35,
