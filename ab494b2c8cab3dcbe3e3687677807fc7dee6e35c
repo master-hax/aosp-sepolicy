@@ -159,6 +159,24 @@
       "parentUuid": "b811f5ee_b6fc13e2",
       "revId": "ab494b2c8cab3dcbe3e3687677807fc7dee6e35c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7398bb65_980ab782",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-01-14T07:37:37Z",
+      "side": 1,
+      "message": "\u003e I think this change should go to Pixel (and/or Cuttlefish)-specific sepolicy.\n\nAgreed. I know it\u0027s easier to do this in core policy since it\u0027s less work, but this is a device-specific issue that unfortunately needs to be solved in device-specific policy. As Jiyong points out, you\u0027re changing the mapping of device-specific properties which will either cause build breakages on those devices due to mapping collision, or worse, not cause a build breakage, but subtlety break behavior on those devices by unexpectedly removing access that was previously granted.",
+      "parentUuid": "228788d6_25574020",
+      "revId": "ab494b2c8cab3dcbe3e3687677807fc7dee6e35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
