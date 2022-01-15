@@ -193,6 +193,30 @@
       },
       "revId": "d330159851318224856c2daa962da95b4ce2a75e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b58a332_f83da6b6",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 1351420
+      },
+      "writtenOn": "2022-01-15T06:53:00Z",
+      "side": 1,
+      "message": "r_dir_perms also give getatter, ioctl, and lock access when I look into the macro, \n\ndefine(`r_dir_perms\u0027, `{ open getattr read search ioctl lock }\u0027)",
+      "parentUuid": "973c1d15_26d8e0e5",
+      "range": {
+        "startLine": 1345,
+        "startChar": 34,
+        "endLine": 1345,
+        "endChar": 47
+      },
+      "revId": "d330159851318224856c2daa962da95b4ce2a75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
