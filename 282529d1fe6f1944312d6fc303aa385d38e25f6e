@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b6ef368_af9143f3",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1149384
+      },
+      "writtenOn": "2022-01-15T01:08:19Z",
+      "side": 1,
+      "message": "Without this, I was getting the following error:\n\n01-14 23:37:24.988895  1512  1512 I InputManager: Initializing input manager, mUseDevInputEventForAudioJack\u003dtrue\n--------- switch to main\n01-14 23:37:24.991525   423   423 E SELinux : avc:  denied  { find } for pid\u003d1512 uid\u003d1000 name\u003dandroid.hardware.input.prediction.IInputPrediction/default scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:hal_input_prediction_service:s0 tclass\u003dservice_manager permissive\u003d0\n--------- switch to events\n01-14 23:37:24.991652   423   423 I auditd  : avc:  denied  { find } for pid\u003d1512 uid\u003d1000 name\u003dandroid.hardware.input.prediction.IInputPrediction/default scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:hal_input_prediction_service:s0 tclass\u003dservice_manager permissive\u003d0\n--------- switch to main\n01-14 23:37:24.991961  1512  1512 W ServiceManager: Failed to get isDeclard for android.hardware.input.prediction.IInputPrediction/default: Status(-1, EX_SECURITY): \u0027\u0027\n01-14 23:37:24.992038  1512  1512 E InputClassifier: Name android.hardware.input.prediction.IInputPrediction/default is not declared!!!",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 54
+      },
+      "revId": "282529d1fe6f1944312d6fc303aa385d38e25f6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
