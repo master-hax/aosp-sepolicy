@@ -680,9 +680,6 @@ file_contexts.local.tmp :=
 file_contexts.modules.tmp :=
 
 ##################################
-include $(LOCAL_PATH)/seapp_contexts.mk
-
-##################################
 include $(LOCAL_PATH)/contexts_tests.mk
 
 ##################################
@@ -747,8 +744,7 @@ $(LOCAL_BUILT_MODULE): ALL_FC_ARGS := $(all_fc_args)
 $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
 $(LOCAL_BUILT_MODULE): $(HOST_OUT_EXECUTABLES)/sepolicy_tests $(all_fc_files) $(built_sepolicy)
 	@mkdir -p $(dir $@)
-	$(hide) $(HOST_OUT_EXECUTABLES)/sepolicy_tests -l $(HOST_OUT)/lib64/libsepolwrap.$(SHAREDLIB_EXT) \
-		$(ALL_FC_ARGS)  -p $(PRIVATE_SEPOLICY)
+	$(hide) $(HOST_OUT_EXECUTABLES)/sepolicy_tests $(ALL_FC_ARGS) -p $(PRIVATE_SEPOLICY)
 	$(hide) touch $@
 
 ##################################
