@@ -2,13 +2,19 @@
 type compos, domain, coredomain, microdroid_payload;
 type compos_exec, exec_type, file_type, system_file_type;
 
+# Expose RPC Binder service over vsock
 allow compos self:vsock_socket { create_socket_perms_no_ioctl listen accept };
 
-# Allow using keystore and authfs_service binder services
+# Allow using various binder services
 binder_use(compos);
 use_keystore(compos);
-allow compos authfs_binder_service:service_manager find;
+allow compos {
+    authfs_binder_service
+    dice_node_service
+}:service_manager find;
 binder_call(compos, authfs_service);
+binder_call(compos, diced);
+allow compos diced:diced { get_attestation_chain use_sign };
 
 # Allow payloads to use and manage their keys
 allow compos vm_payload_key:keystore2_key {
@@ -38,3 +44,6 @@ dontaudit compos self:global_capability_class_set dac_override;
 # TODO(b/209008712): Remove dex2oat once the migration is done.
 domain_auto_trans(compos, odrefresh_exec, odrefresh)
 domain_auto_trans(compos, dex2oat_exec, dex2oat)
+
+# Allow compos to set dalvik.vm.boot-dex2oat-threads
+set_prop(compos, dalvik_config_prop)
