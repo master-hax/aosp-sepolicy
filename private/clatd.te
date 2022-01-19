@@ -11,3 +11,20 @@ allow clatd system_server:rawip_socket { read write };
 
 allow clatd self:netlink_route_socket nlmsg_write;
 allow clatd tun_device:chr_file rw_file_perms;
+
+# Ignore resource leak from parent process
+neverallow clatd { domain -system_server -init -su -heapprofd -clatd }:fd *;
+neverallow clatd { domain -clatd -su }:{ unpriv_socket_class_set netlink_kobject_uevent_socket } { read write };
+neverallow clatd functionfs:file { read write };
+neverallow clatd system_data_file:file { append read write };
+neverallow clatd { debugfs_bootreceiver_tracing cgroup_v2 } :file read;
+neverallow clatd { fs_type -tun_device }:chr_file rw_file_perms;
+neverallow clatd { domain -su -clatd }:fifo_file { read write };
+
+dontaudit clatd { domain -system_server -init -su -heapprofd -clatd }:fd *;
+dontaudit clatd { domain -clatd -su }:{ unpriv_socket_class_set netlink_kobject_uevent_socket } { read write };
+dontaudit clatd functionfs:file { read write };
+dontaudit clatd system_data_file:file { append read write };
+dontaudit clatd { debugfs_bootreceiver_tracing cgroup_v2 } :file read;
+dontaudit clatd { dev_type fs_type -tun_device }:chr_file rw_file_perms;
+dontaudit clatd { domain -su -clatd }:fifo_file { read write };
