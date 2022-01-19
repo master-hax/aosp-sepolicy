@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d258d874_bcbb44de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-19T11:09:28Z",
+      "side": 1,
+      "message": "This covers pretty much any change in sepolicy; could you be a bit more specific?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 63
+      },
+      "revId": "b25111b1eeb4bdf416e46f149b823b6a84398dd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07062a6d_aac48e35",
+        "filename": "public/installd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-19T11:09:28Z",
+      "side": 1,
+      "message": "Do you need it on the files, and not just the directories?",
+      "range": {
+        "startLine": 127,
+        "startChar": 45,
+        "endLine": 127,
+        "endChar": 49
+      },
+      "revId": "b25111b1eeb4bdf416e46f149b823b6a84398dd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b07d05a9_ad50d51f",
+        "filename": "public/installd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-19T11:09:28Z",
+      "side": 1,
+      "message": "Can you combine this rule and the other one together?\n\nallowxperm installd { app_data_file_type system_data_file }:{ dir file } ioctl ...\n\n\n(And add a blank line before the comment, so it\u0027s clearly separate.)",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 2
+      },
+      "revId": "b25111b1eeb4bdf416e46f149b823b6a84398dd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
