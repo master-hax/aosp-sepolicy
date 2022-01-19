@@ -1,0 +1,7 @@
+type mtectrl_exec, system_file_type, exec_type, file_type;
+
+init_daemon_domain(mtectrl)
+
+allow mtectrl misc_block_device:blk_file w_file_perms;
+allow mtectrl block_device:dir r_dir_perms;
+read_fstab(mtectrl)
