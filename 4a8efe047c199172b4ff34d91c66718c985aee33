@@ -34,6 +34,24 @@
       "parentUuid": "37dca7bb_977311f9",
       "revId": "4a8efe047c199172b4ff34d91c66718c985aee33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf361288_0a148546",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1639046
+      },
+      "writtenOn": "2022-01-20T05:01:47Z",
+      "side": 1,
+      "message": "It seems we can\u0027t just add `allow the_domain nearby_service:service_manager find` in private/nearby_service.te.\nIt will build fail with:\ncheckpolicy:  error(s) encountered while parsing configuration\nsepolicy-analyze failed. This is most likely due to the use\nof an expanded attribute in a neverallow assertion. Please fix\nthe policy.\n\nI think we can just add \"system_api_service\" to \"nearby_service\".\nThis follow the same as \"safety_center_service\":\nhttps://cs.android.com/search?q\u003dSAFETY_CENTER_SERVICE",
+      "parentUuid": "0dfb3ee5_2e97bb97",
+      "revId": "4a8efe047c199172b4ff34d91c66718c985aee33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
