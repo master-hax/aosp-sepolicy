@@ -16,6 +16,24 @@
       "message": "This might be too permissive if the intended client of this service is a single process, not arbitrary privileged apps. If the single process can be identified, it would be better to have an allow rule like `allow the_domain nearby_service:service_manager find`. Over to Sepolicy owners in case they have different opinion.",
       "revId": "4a8efe047c199172b4ff34d91c66718c985aee33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dfb3ee5_2e97bb97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1639046
+      },
+      "writtenOn": "2022-01-20T04:44:20Z",
+      "side": 1,
+      "message": "Thank you for the comment.\nI updated this change and only allow \"service_manager find\" for \"nearby_service\".",
+      "parentUuid": "37dca7bb_977311f9",
+      "revId": "4a8efe047c199172b4ff34d91c66718c985aee33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
