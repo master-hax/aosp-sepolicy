@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1135db08_da43539c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-01-20T01:44:42Z",
+      "side": 1,
+      "message": "Well, I mean, yes, in general any addition will slightly slow down the device.\n\nThe main question is:\nLet A be all of the permissions all classifier HALs need,\nLet B be all of the permissions all prediction HALs need,\nThen are A and B roughly the same (roughly roughly meaning, combining them doesn\u0027t represent a security issue), then we should combine them.\n\n\u003e a device might have one, but not another, I think that we should keep them separate.\n\nThis doesn\u0027t necessarily matter because we are defining the attributes here. Even if we have a specific classifier HAL requiring some permissions and a specific prediction HAL requiring others, these could be running in separate domains without needing a separate HAL attribute.",
+      "parentUuid": "f9e995ec_2a0caba6",
+      "revId": "72ad1f2cb5c2cec34747fb8b8ff9db3e5857f7ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c9ce128f_8b5409cc",
         "filename": "public/attributes",
         "patchSetId": 2
