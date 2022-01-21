@@ -345,9 +345,6 @@ se_policy_cil {
     name: "plat_sepolicy.cil",
     src: ":plat_sepolicy.conf",
     additional_cil_files: [":sepolicy_technical_debt{.plat_private}"],
-    dist: {
-        targets: ["base-sepolicy-files-for-mapping"],
-    },
 }
 
 
@@ -939,6 +936,9 @@ se_policy_binary {
     name: "base_plat_sepolicy",
     srcs: [":base_plat_sepolicy.cil"],
     installable: false,
+    dist: {
+        targets: ["base-sepolicy-files-for-mapping"],
+    },
 }
 
 se_policy_conf {
