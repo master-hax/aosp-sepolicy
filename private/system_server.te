@@ -402,7 +402,7 @@ allow system_server mac_perms_file: file r_file_perms;
 # Check SELinux permissions.
 selinux_check_access(system_server)
 
-allow system_server sysfs_type:dir search;
+allow system_server sysfs_type:dir r_dir_perms;
 
 r_dir_file(system_server, sysfs_android_usb)
 allow system_server sysfs_android_usb:file w_file_perms;
@@ -917,6 +917,7 @@ allow system_server keystore:keystore2 {
 	clear_ns
 	clear_uid
 	get_state
+	list
 	lock
 	migrate_any_key
 	pull_metrics
