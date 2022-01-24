@@ -22,6 +22,30 @@
       },
       "revId": "8a881c14bfffa4f7ffc02bd4552b8ea4f7b2d2b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dcccbe7_25ccbeeb",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-24T09:26:17Z",
+      "side": 1,
+      "message": "AIUI an ioctl is allowed only if you both have the ioctl permission and you have the xperm. https://github.com/SELinuxProject/selinux-notebook/blob/main/src/xperm_rules.md#ioctl-operation-rules\n\nSo the allow ioctl doesn\u0027t allow all ioctls, it just enables the ones with allowxperm. See e.g. http://cs/android/system/sepolicy/public/te_macros?l\u003d487\u0026rcl\u003d63e629c7c70fe3a7e4947cb5db4bb6b750e26e2b.\n\nAnd KVM_CHECK_EXTENSION is 0xae03: http://cs/android/system/sepolicy/microdroid/system/public/ioctl_defines?l\u003d1247\u0026rcl\u003d63e629c7c70fe3a7e4947cb5db4bb6b750e26e2b",
+      "parentUuid": "450d98fc_5f4ec9d2",
+      "range": {
+        "startLine": 65,
+        "startChar": 66,
+        "endLine": 65,
+        "endChar": 71
+      },
+      "revId": "8a881c14bfffa4f7ffc02bd4552b8ea4f7b2d2b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
