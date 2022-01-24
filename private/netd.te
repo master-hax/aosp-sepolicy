@@ -9,8 +9,8 @@ domain_auto_trans(netd, dnsmasq_exec, dnsmasq)
 domain_auto_trans(netd, clatd_exec, clatd)
 allow netd clatd:process signal;
 
-# Allow netd to setup packet socket and pass to clatd
-allow netd self:packet_socket { bind create setopt };
+# Allow binder transaction of clat packet socket from system server
+allow netd system_server:packet_socket { read write };
 
 # give netd permission to setup iptables rule with xt_bpf, attach program to cgroup, and read/write
 # the map created by bpfloader
