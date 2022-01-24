@@ -7,3 +7,5 @@ init_daemon_domain(hal_dice_default)
 # hal_dice_default is using bootstrap bionic
 allow hal_dice_default system_bootstrap_lib_file:dir r_dir_perms;
 allow hal_dice_default system_bootstrap_lib_file:file { execute read open getattr map };
+
+allow hal_dice_default open_dice_device:chr_file { read write open map };
