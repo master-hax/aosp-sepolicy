@@ -94,6 +94,30 @@
       },
       "revId": "23173455ab48bbc1cc1e394717369e99e7175179",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52fd0071_8c679b2a",
+        "filename": "public/mtectrl.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-01-25T07:11:20Z",
+      "side": 1,
+      "message": "Reading the code again, I think you don\u0027t even need public/mtectrl.te at all? Like,\n\n  # private/mtectrl.te\n  type mtectrl, domain, coredomain;\n  ...\n  \nAnd then we move the neverallow rule to private/domain.te. Doing that, we don\u0027t need the compat file change, and we can avoid exposing \"mtectrl\" to the vendor sepolicy.",
+      "parentUuid": "01c89507_9fccdeea",
+      "range": {
+        "startLine": 1,
+        "startChar": 22,
+        "endLine": 1,
+        "endChar": 32
+      },
+      "revId": "23173455ab48bbc1cc1e394717369e99e7175179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
