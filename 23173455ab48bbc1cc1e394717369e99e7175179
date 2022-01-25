@@ -142,6 +142,30 @@
       },
       "revId": "23173455ab48bbc1cc1e394717369e99e7175179",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36111cc1_ecc40e8b",
+        "filename": "public/mtectrl.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-01-25T23:46:49Z",
+      "side": 1,
+      "message": "\u003e I can move the typeattribute, but not sure if that makes much of a difference.\n\nMaybe moving the typeattribute doesn\u0027t make much of a difference, but moving the whole type to \"private\" should do. Especially, if you plan to cherry pick this to android12-tests-dev, leaving public as-is would be much better, in terms of compatibility.\n\n\u003e I don\u0027t think moving an existing neverallow from public to private is a good idea.\n\nMoving it to private doesn\u0027t make any difference. Neverallow checks are still performed. The reason why we have \"public\" is just to \"export\" some types and attributes so vendors can use them.\n\nIn case you don\u0027t want to work on, aosp/1958841 is the fix.",
+      "parentUuid": "253a7e9b_ee13b5af",
+      "range": {
+        "startLine": 1,
+        "startChar": 22,
+        "endLine": 1,
+        "endChar": 32
+      },
+      "revId": "23173455ab48bbc1cc1e394717369e99e7175179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
