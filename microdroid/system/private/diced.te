@@ -15,3 +15,6 @@ add_service(diced, dice_maintenance_service)
 
 # diced can check SELinux permissions.
 selinux_check_access(diced)
+
+# diced is using bootstrap bionic
+use_bootstrap_libs(diced)
