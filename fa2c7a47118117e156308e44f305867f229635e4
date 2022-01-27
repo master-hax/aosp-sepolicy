@@ -35,6 +35,41 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6cc1361_4a6d2262",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1930285
+      },
+      "writtenOn": "2022-01-27T21:10:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "97aaadb1_76e4a204",
+      "revId": "fa2c7a47118117e156308e44f305867f229635e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c1170c8_559577d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1930285
+      },
+      "writtenOn": "2022-01-27T21:10:11Z",
+      "side": 1,
+      "message": "Thanks for all the comments, Steven!",
+      "revId": "fa2c7a47118117e156308e44f305867f229635e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98adc51c_c81228a6",
@@ -84,6 +119,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9adc5cda_5574145e",
+        "filename": "private/compat/32.0/32.0.ignore.cil",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1930285
+      },
+      "writtenOn": "2022-01-27T21:10:11Z",
+      "side": 1,
+      "message": "Not too sure, but according to all the other names, looks these two files need to be consistent ...",
+      "parentUuid": "98adc51c_c81228a6",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 15
+      },
+      "revId": "fa2c7a47118117e156308e44f305867f229635e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "72c041a3_b56c3e35",
         "filename": "private/service_contexts",
         "patchSetId": 2
@@ -118,6 +177,30 @@
       "writtenOn": "2022-01-27T21:06:15Z",
       "side": 1,
       "message": "+1",
+      "parentUuid": "72c041a3_b56c3e35",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 19
+      },
+      "revId": "fa2c7a47118117e156308e44f305867f229635e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c762c2fd_d5c6a143",
+        "filename": "private/service_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1930285
+      },
+      "writtenOn": "2022-01-27T21:10:11Z",
+      "side": 1,
+      "message": "cloudsearch_service is already used by our internal codes. According to all other names, cloudsearch is a better name, having _service will introduce a name conflict with the original service name, and we need to use @SuppressLint(\"ServiceName\"). Here are our internal codes:\n    @SuppressLint(\"ServiceName\")\n    public static final String CLOUDSEARCH_SERVICE \u003d \"cloudsearch_service\";\n    \nThe current plan is to 1) add the name of \"cloudsearch\", 2) change our internal codes by using \"cloudsearch\" and then 3) remove \"cloudsearch_service\" here.",
       "parentUuid": "72c041a3_b56c3e35",
       "range": {
         "startLine": 121,
