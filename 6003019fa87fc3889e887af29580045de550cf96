@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee10cd90_3b2dee00",
+        "filename": "microdroid/system/private/security_classes",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-28T09:54:20Z",
+      "side": 0,
+      "message": "I don\u0027t think we actually need to remove these, although doing so is harmless, except in that it creates needless divergence between host \u0026 microdroid sepolicy.\n\nThey will be resurrected when we make them into symlinks to the files in the host policy (b/215093641), which is also harmless.",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 0
+      },
+      "revId": "6003019fa87fc3889e887af29580045de550cf96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
