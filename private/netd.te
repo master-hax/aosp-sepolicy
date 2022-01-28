@@ -16,10 +16,6 @@ allow netd self:packet_socket { bind create setopt };
 # the map created by bpfloader
 allow netd bpfloader:bpf { prog_run map_read map_write };
 
-# in order to invoke side effect of close() on such a socket calling synchronize_rcu()
-# TODO: Remove this permission when 4.9 kernel is deprecated.
-allow netd self:key_socket create;
-
 set_prop(netd, ctl_mdnsd_prop)
 set_prop(netd, netd_stable_secret_prop)
 
