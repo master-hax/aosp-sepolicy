@@ -16,6 +16,64 @@
       "message": "I don\u0027t understand the difference between microdroid_app.te and compos.te, but this was needed to get the test VM to use diced whereas compos has its own rules.",
       "revId": "248e8a998fb99e54bf3aef0d9eb1fa7f4bb8b5ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "681eff8c_b3c7581b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-31T14:06:09Z",
+      "side": 1,
+      "message": "CompOS gets special treatment here, since our needs are above what we think app VMs should get: http://cs/android/system/sepolicy/microdroid/system/private/microdroid_manager.te?l\u003d17\u0026rcl\u003d0d68ab0a1a7493e95c6c1f8bc849526c8c361c09\n\nAlthough we should probably extract the commonality at some point.",
+      "parentUuid": "591a8ffc_41eba2d4",
+      "revId": "248e8a998fb99e54bf3aef0d9eb1fa7f4bb8b5ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47f27172_fd6d340d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-31T14:06:09Z",
+      "side": 1,
+      "message": "Do we want app payloads access to the BCC/CDI? I thought that was tantamount to giving a device identifier.",
+      "revId": "248e8a998fb99e54bf3aef0d9eb1fa7f4bb8b5ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ac1d015_255dfc9c",
+        "filename": "microdroid/system/private/microdroid_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-31T14:06:09Z",
+      "side": 1,
+      "message": "Do you actually need get_attestation_chain? Although I guess if you have derive it would be odd not to allow access to the BCC.",
+      "range": {
+        "startLine": 17,
+        "startChar": 35,
+        "endLine": 17,
+        "endChar": 56
+      },
+      "revId": "248e8a998fb99e54bf3aef0d9eb1fa7f4bb8b5ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
