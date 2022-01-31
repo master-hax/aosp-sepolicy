@@ -1,3 +1,5 @@
+<<<<<<< HEAD   (4042fa [MTE] Allow system_app to write memtag property.)
+=======
 # mediatranscoding - daemon for transcoding video and image.
 type mediatranscoding, domain;
 type mediatranscoding_exec, system_file_type, exec_type, file_type;
@@ -63,3 +65,4 @@ neverallow mediatranscoding { file_type fs_type }:file execute_no_trans;
 # Lengthier explanation here:
 # https://android-developers.googleblog.com/2016/05/hardening-media-stack.html
 neverallow mediatranscoding domain:{ tcp_socket udp_socket rawip_socket } *;
+>>>>>>> CHANGE (688cea Grant permission for mediatranscoding hal_allocator for OMX )
