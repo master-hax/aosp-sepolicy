@@ -20,6 +20,7 @@ hal_client_domain(surfaceflinger, hal_omx)
 hal_client_domain(surfaceflinger, hal_configstore)
 hal_client_domain(surfaceflinger, hal_power)
 allow surfaceflinger hidl_token_hwservice:hwservice_manager find;
+hal_client_domain(surfaceflinger, hal_evs)
 
 # Perform Binder IPC.
 binder_use(surfaceflinger)
