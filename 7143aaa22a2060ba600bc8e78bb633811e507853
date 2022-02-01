@@ -16,6 +16,144 @@
       "message": "Hi Jeffrey and Steven, before I remove duplicate type mediadrm_vendor_data_file in other devices\u0027 file.te, am I on the correct track in adding sepolicy for Widevine Aidl service?",
       "revId": "7143aaa22a2060ba600bc8e78bb633811e507853",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab1dad65_7364a677",
+        "filename": "vendor/file.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-02-01T08:32:29Z",
+      "side": 1,
+      "message": "you need to map this to a path in file_contexts.",
+      "range": {
+        "startLine": 5,
+        "startChar": 5,
+        "endLine": 5,
+        "endChar": 30
+      },
+      "revId": "7143aaa22a2060ba600bc8e78bb633811e507853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9e2e04f_5884a6ca",
+        "filename": "vendor/file_contexts",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-02-01T08:32:29Z",
+      "side": 1,
+      "message": "Just mapping this to hal_drm_default would make most of this change unnecessary.",
+      "range": {
+        "startLine": 32,
+        "startChar": 78,
+        "endLine": 32,
+        "endChar": 118
+      },
+      "revId": "7143aaa22a2060ba600bc8e78bb633811e507853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b1aeea5_81bbd27c",
+        "filename": "vendor/hal_drm_widevine_aidl.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-02-01T08:32:29Z",
+      "side": 1,
+      "message": "hal_drm_default? I don\u0027t think it makes sense to have a separate domain for this.",
+      "range": {
+        "startLine": 1,
+        "startChar": 5,
+        "endLine": 1,
+        "endChar": 26
+      },
+      "revId": "7143aaa22a2060ba600bc8e78bb633811e507853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2852ab89_6fd0bddc",
+        "filename": "vendor/hal_drm_widevine_aidl.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-02-01T08:32:29Z",
+      "side": 1,
+      "message": "Why can\u0027t this just be hal_drm_default_exec ?",
+      "range": {
+        "startLine": 3,
+        "startChar": 5,
+        "endLine": 3,
+        "endChar": 31
+      },
+      "revId": "7143aaa22a2060ba600bc8e78bb633811e507853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d0a7589_ffacd8a2",
+        "filename": "vendor/hal_drm_widevine_aidl.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-02-01T08:32:29Z",
+      "side": 1,
+      "message": "I don\u0027t think this is what you want. You want a normal AIDL HAL right? That means using regular binder, not vendor binder. hal_drm.te already has binder_use() defined. https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/hal_drm.te;l\u003d2?q\u003dhal_drm",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "7143aaa22a2060ba600bc8e78bb633811e507853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc956e90_36ef18de",
+        "filename": "vendor/hal_drm_widevine_aidl.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-02-01T08:32:29Z",
+      "side": 1,
+      "message": "you never actually map this type to a path in file_contexts.",
+      "range": {
+        "startLine": 9,
+        "startChar": 28,
+        "endLine": 9,
+        "endChar": 57
+      },
+      "revId": "7143aaa22a2060ba600bc8e78bb633811e507853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
