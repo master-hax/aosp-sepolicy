@@ -624,6 +624,8 @@ neverallow vndservicemanager hwbinder_device:chr_file no_rw_file_perms;
 # system services cant add vendor services
 neverallow {
   coredomain
+  # TODO(b/217271351) remove below exemption once HIDL EVS manager service is removed
+  -hal_evs_manager
 } vendor_service:service_manager add;
 
 full_treble_only(`
