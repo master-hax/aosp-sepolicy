@@ -125,6 +125,9 @@ allow surfaceflinger statsmanager_service:service_manager find;
 # TODO(146461633): remove this once native pullers talk to StatsManagerService
 binder_call(surfaceflinger, statsd);
 
+# Allow to communicate with EVS services via automotive_display_service
+binder_call(surfaceflinger, hal_evs)
+
 # Allow pushing jank event atoms to statsd
 userdebug_or_eng(`
     unix_socket_send(surfaceflinger, statsdw, statsd)
