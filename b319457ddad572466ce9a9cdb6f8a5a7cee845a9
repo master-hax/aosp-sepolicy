@@ -39,6 +39,30 @@
       },
       "revId": "b319457ddad572466ce9a9cdb6f8a5a7cee845a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "852a56a6_04f01614",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2022-02-01T18:09:38Z",
+      "side": 1,
+      "message": "Thank you for comments, Steven.  I actually expected you may dislike this change. :)\n\nEVS is in a bit tricky situation.  IEvsEnumerator interface has been used for EvsManager, which is a system file and uses system services, and EVS HAL implementations from the vendors. Both components are under the same hal_evs domain and, because we update it to support both AIDL and HIDL implementations, it violates this neverallow rule.  So, I created a new domain and make it exempted instead of hal_evs.\n\nCould you please advise me how I can solve this better?  I\u0027d appreciate any help you\u0027d provide.  Thanks!",
+      "parentUuid": "425fa05f_c1ca8cd1",
+      "range": {
+        "startLine": 627,
+        "startChar": 0,
+        "endLine": 628,
+        "endChar": 18
+      },
+      "revId": "b319457ddad572466ce9a9cdb6f8a5a7cee845a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
