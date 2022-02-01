@@ -16,6 +16,29 @@
       "message": "This change will replace packages/services/Car/cpp/evs/manager/sepolicy and must be merged after it is removed.",
       "revId": "b319457ddad572466ce9a9cdb6f8a5a7cee845a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "425fa05f_c1ca8cd1",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-02-01T17:55:16Z",
+      "side": 1,
+      "message": "This rule is only about AIDL services.\n\nWe should unmark hal_evs_manager as vendor_service (or it shouldn\u0027t be used by a coredomain)",
+      "range": {
+        "startLine": 627,
+        "startChar": 0,
+        "endLine": 628,
+        "endChar": 18
+      },
+      "revId": "b319457ddad572466ce9a9cdb6f8a5a7cee845a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
