@@ -75,6 +75,24 @@
       "parentUuid": "1e140b3f_102c9831",
       "revId": "e51539833e32f637cb22d059a49735e016f14d19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94511b31_6e1515aa",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-02T11:46:52Z",
+      "side": 1,
+      "message": "I think shell will probably cover most of the tests. I had a quick look in cs for accesses to \"/dev/kvm\" in tests, which is the old way.\nThere\u0027s lots of existing code that does the equivalent \"adb shell ls /dev/kvm\", so it could read the property the same way.",
+      "parentUuid": "ba564444_400eb008",
+      "revId": "e51539833e32f637cb22d059a49735e016f14d19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
