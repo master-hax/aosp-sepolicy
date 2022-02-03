@@ -90,8 +90,8 @@ allow vold { sdcard_type fuse }:dir mounton; # TODO: deprecated in M
 allow vold { sdcard_type fuse }:filesystem { mount remount unmount }; # TODO: deprecated in M
 
 # Manage locations where storage is mounted
-allow vold { mnt_media_rw_file storage_file sdcard_type fuse }:dir create_dir_perms;
-allow vold { mnt_media_rw_file storage_file sdcard_type fuse }:file create_file_perms;
+allow vold { storage_file sdcard_type fuse }:dir create_dir_perms;
+allow vold { storage_file sdcard_type fuse }:file create_file_perms;
 
 # Access to storage that backs emulated FUSE daemons for migration optimization
 allow vold media_rw_data_file:dir create_dir_perms;
@@ -107,9 +107,6 @@ allowxperm vold media_rw_data_file:{ dir file } ioctl {
   FS_IOC_GETFLAGS
   FS_IOC_SETFLAGS
 };
-
-# Allow mounting of storage devices
-allow vold { mnt_media_rw_stub_file storage_stub_file }:dir { mounton create rmdir getattr setattr };
 
 # Manage per-user primary symlinks
 allow vold mnt_user_file:dir { create_dir_perms mounton };

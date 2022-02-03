@@ -71,7 +71,6 @@ allowxperm gsid {
 # When installing images to an sdcard, gsid needs to be able to stat() the
 # block device. gsid also calls realpath() to remove symlinks.
 allow gsid mnt_media_rw_file:dir r_dir_perms;
-allow gsid mnt_media_rw_stub_file:dir r_dir_perms;
 
 # When installing images to an sdcard, gsid must bypass sdcardfs and install
 # directly to vfat, which supports the FIBMAP ioctl.
