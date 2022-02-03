@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8afce03_6ffc4569",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-03T09:13:19Z",
+      "side": 1,
+      "message": "I\u0027m not entirely convinced this rule should be in this file.\nPerhaps in crosvm.te or domain.te? The latter has a bunch of similar rules.\n\n(The one above for virtualizationservice_prop seems more reasonable here.)",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 12
+      },
+      "revId": "5a7496634a2573c6788d1f663a58aa029bcecbd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "07b22f94_749be4b9",
         "filename": "private/virtualizationservice.te",
         "patchSetId": 1
@@ -14,6 +37,30 @@
       "writtenOn": "2022-02-03T08:32:31Z",
       "side": 1,
       "message": "no_x_file_perms",
+      "range": {
+        "startLine": 84,
+        "startChar": 21,
+        "endLine": 84,
+        "endChar": 56
+      },
+      "revId": "5a7496634a2573c6788d1f663a58aa029bcecbd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3ca775e_a47b979d",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-03T09:13:19Z",
+      "side": 1,
+      "message": "Which doesn\u0027t include entrypoint, but I suspect that doesn\u0027t matter if you don\u0027t have execute.",
+      "parentUuid": "07b22f94_749be4b9",
       "range": {
         "startLine": 84,
         "startChar": 21,
