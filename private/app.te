@@ -27,9 +27,6 @@ userdebug_or_eng(`perfetto_producer({ appdomain })')
 # and/or external storage. In either case, the selinux denial is
 # not the cause of the failure, but just a symptom that
 # storage isn't ready. Many apps handle the failure appropriately.
-#
-# Apps cannot access external storage before it becomes available.
-dontaudit appdomain storage_stub_file:dir getattr;
 # Attempts to write to system_data_file is generally a sign
 # that apps are attempting to access encrypted storage before
 # the ACTION_USER_UNLOCKED intent is delivered. Apps are not

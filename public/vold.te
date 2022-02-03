@@ -108,9 +108,6 @@ allowxperm vold media_rw_data_file:{ dir file } ioctl {
   FS_IOC_SETFLAGS
 };
 
-# Allow mounting of storage devices
-allow vold { mnt_media_rw_stub_file storage_stub_file }:dir { mounton create rmdir getattr setattr };
-
 # Manage per-user primary symlinks
 allow vold mnt_user_file:dir { create_dir_perms mounton };
 allow vold mnt_user_file:lnk_file create_file_perms;
