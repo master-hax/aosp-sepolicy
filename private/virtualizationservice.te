@@ -75,3 +75,10 @@ neverallow {
   -init
   -virtualizationservice
 } virtualizationservice_prop:property_service set;
+
+# Only virtualizationservice can run crosvm
+neverallow {
+  domain
+  -crosvm
+  -virtualizationservice
+} crosvm_exec:file { entrypoint execute execute_no_trans };
