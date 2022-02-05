@@ -19,7 +19,6 @@
 
 # For kernel modules
 /lib(/.*)?          u:object_r:rootfs:s0
-/system_dlkm(/.*)?  u:object_r:rootfs:s0
 
 # Empty directories
 /lost\+found        u:object_r:rootfs:s0
@@ -466,6 +465,12 @@
 /(product|system/product)/etc/selinux/product_mac_permissions\.xml u:object_r:mac_perms_file:s0
 
 /(product|system/product)/lib(64)?(/.*)?                         u:object_r:system_lib_file:s0
+
+#############################
+# System Dlkm files
+#
+/(system_dlkm)(/.*)?                u:object_r:system_file:s0
+/(system_dlkm)/overlay(/.*)?        u:object_r:system_file:s0
 
 #############################
 # SystemExt files
