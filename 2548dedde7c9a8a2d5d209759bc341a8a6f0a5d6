@@ -111,6 +111,30 @@
       },
       "revId": "2548dedde7c9a8a2d5d209759bc341a8a6f0a5d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52bdea38_0f75f382",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1889091
+      },
+      "writtenOn": "2022-02-07T21:33:44Z",
+      "side": 1,
+      "message": "Thanks Jeff.\n\nSince modules under the system_dlkm are signed; having everything an access to it should not be an issue. But I don\u0027t have a strong opinion on it either as long as vendor can load the modules with their init scripts; either way works for me, specially if we think one more layer of with a new label type is going to help us manage complexity better in the future.\n\nIs it possible to do an incremental CL to this one for the new label: `system_kernel_module_file` ?\n\nJust wanted to make sure the codelab is not broken meanwhile I figure out all changes I need to do to introduce a new label type; so I\u0027ll create a new bug for it; if I get the owner review on this one to indicate agreement on the incremental CL.",
+      "parentUuid": "b8573528_ba8d08a5",
+      "range": {
+        "startLine": 472,
+        "startChar": 47,
+        "endLine": 472,
+        "endChar": 58
+      },
+      "revId": "2548dedde7c9a8a2d5d209759bc341a8a6f0a5d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
