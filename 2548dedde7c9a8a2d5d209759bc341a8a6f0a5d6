@@ -63,6 +63,30 @@
       },
       "revId": "2548dedde7c9a8a2d5d209759bc341a8a6f0a5d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44a34227_173c80ff",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-07T01:37:23Z",
+      "side": 1,
+      "message": "Labeling a file that is under system_* as vendor_* seems a bit odd and counter-intuitive to me. In addition, vendor_dlkm being labeled as vendor_file doesn\u0027t look ideal either, though fixing that might not be in the scope of this CL.\n\nTo be honest, this neverallow [1] looks quite permissive to me. Every file in the system, vendor, rootfs partitions can be loaded.\n\nCan\u0027t we have system_kernel_module_file (or similar)? I may be too paranoid. So I\u0027ve invited Jeff and Joel to hear their opinion.\n\n[1] https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/domain.te;drc\u003d6003019fa87fc3889e887af29580045de550cf96;l\u003d1265",
+      "parentUuid": "1faa73cd_d72dfcd2",
+      "range": {
+        "startLine": 472,
+        "startChar": 47,
+        "endLine": 472,
+        "endChar": 58
+      },
+      "revId": "2548dedde7c9a8a2d5d209759bc341a8a6f0a5d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
