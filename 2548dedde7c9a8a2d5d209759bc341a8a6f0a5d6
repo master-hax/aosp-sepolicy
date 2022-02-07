@@ -39,6 +39,30 @@
       },
       "revId": "2548dedde7c9a8a2d5d209759bc341a8a6f0a5d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1faa73cd_d72dfcd2",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1889091
+      },
+      "writtenOn": "2022-02-07T01:02:07Z",
+      "side": 1,
+      "message": "Thanks Jiyong for review, and making me thinking deeper on this one.\n\nMy goal was to restore codelab to working state asap; just to make life easier for the people new to this. But thinking deeper now; how about this?\n\nI initially added this entry to fix the build; but now connecting the dots as I understand this more. Since for T any signed kernel module present in /system_dlkm is vendor\u0027s responsibility to load if they want that kernel feature for that particular device or for a device type like phone/car/tv etc which we never know in advance. Due to this, this actually should be labeled as vendor_file like vendor_dlkm, and any other label will limit vendor init script to load them.\n\nDoes it sound correct?\n\nHere is how vendor_dlkm is labeled:\n\n#############################\n# VendorDlkm files\n# This includes VENDOR Dynamically Loadable Kernel Modules and other misc files.\n#\n/(vendor_dlkm|vendor/vendor_dlkm|system/vendor/vendor_dlkm)(/.*)?         u:object_r:vendor_file:s0\n/(vendor_dlkm|vendor/vendor_dlkm|system/vendor/vendor_dlkm)/etc(/.*)?     u:object_r:vendor_configs_file:s0",
+      "parentUuid": "30a9cd27_4febcec3",
+      "range": {
+        "startLine": 472,
+        "startChar": 47,
+        "endLine": 472,
+        "endChar": 58
+      },
+      "revId": "2548dedde7c9a8a2d5d209759bc341a8a6f0a5d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
