@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3fe6965_688e49e8",
+        "filename": "private/automotive_display_service.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-02-07T10:39:00Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this use the general hal_client_domain() macro? Like\n\nhal_client_domain(automotive_display_service, hal_evs)\n\nThat way if the API changes in hal_evs.te you\u0027ll get those changes automatically. Adding permissions piecemeal like this is fragile.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 48
+      },
+      "revId": "39c292f2f8dc08121d0213de75b83fb47171a2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "060e3256_d324fbc3",
+        "filename": "private/surfaceflinger.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-02-07T10:39:00Z",
+      "side": 1,
+      "message": "this isn\u0027t your fault, but this likewise is fragile and should likely be tied to the display_service_server such that using the display service gives surfaceflinger access to fds from clients.",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 36
+      },
+      "revId": "39c292f2f8dc08121d0213de75b83fb47171a2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
