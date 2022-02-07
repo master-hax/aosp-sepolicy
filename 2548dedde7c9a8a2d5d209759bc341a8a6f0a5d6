@@ -16,6 +16,29 @@
       "message": "go/android-codelab#make-iterative-changes Step#6 results with this fix:\n\n\n```\nramjiyani@ramjiyani:~/repos/aosp$ adb shell mount | grep system_dlkm\n/dev/block/dm-16 on /system_dlkm type ext4 (ro,seclabel,noatime,errors\u003dpanic)\nramjiyani@ramjiyani:~/repos/aosp$ adb root\nrestarting adbd as root\nramjiyani@ramjiyani:~/repos/aosp$ adb remount\nDisabling verity for /system\nWaited one second for gsiservice (is service started? are binder threads started and available?)\nUsing overlayfs for /system\nDisabling verity for /system\nDisabling verity for /odm\nUsing overlayfs for /odm\nDisabling verity for /odm\nDisabling verity for /product\nUsing overlayfs for /product\nDisabling verity for /product\nDisabling verity for /system_ext\nUsing overlayfs for /system_ext\nDisabling verity for /system_ext\nDisabling verity for /vendor\nUsing overlayfs for /vendor\nDisabling verity for /vendor\nDisabling verity for /vendor_dlkm\nUsing overlayfs for /vendor_dlkm\nDisabling verity for /vendor_dlkm\nDisabling verity for /odm_dlkm\nUsing overlayfs for /odm_dlkm\nDisabling verity for /odm_dlkm\nDisabling verity for /system_dlkm\nUsing overlayfs for /system_dlkm\nDisabling verity for /system_dlkm\nNow reboot your device for settings to take effect\nramjiyani@ramjiyani:~/repos/aosp$ adb reboot \u0026\u0026 adb wait-for-device root\nrestarting adbd as root\nramjiyani@ramjiyani:~/repos/aosp$ adb remount\nremount succeeded\nramjiyani@ramjiyani:~/repos/aosp$ adb sync\n/data/: 0 files pushed, 0 skipped.\n/odm/: 0 files pushed, 12 skipped.\n/product/: 0 files pushed, 331 skipped.\n/system/: 0 files pushed, 2924 skipped.\n/system_ext/: 0 files pushed, 75 skipped.\n/vendor/: 0 files pushed, 627 skipped.\nramjiyani@ramjiyani:~/repos/aosp$ adb reboot\nramjiyani@ramjiyani:~/repos/aosp$ adb wait-for-device\nramjiyani@ramjiyani:~/repos/aosp$ adb shell mount | grep system_dlkm\n/dev/block/dm-8 on /system_dlkm type ext4 (ro,seclabel,noatime,errors\u003dpanic)\noverlay on /system_dlkm type overlay (ro,seclabel,noatime,lowerdir\u003d/system_dlkm,upperdir\u003d/mnt/scratch/overlay/system_dlkm/upper,workdir\u003d/mnt/scratch/overlay/system_dlkm/work,override_creds\u003doff)\nramjiyani@ramjiyani:~/repos/aosp$\n```",
       "revId": "2548dedde7c9a8a2d5d209759bc341a8a6f0a5d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30a9cd27_4febcec3",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-07T00:17:03Z",
+      "side": 1,
+      "message": "Do we want to reuse this label for kernel modules? I expected that we would have a new label so that we can fine control the access to these files.",
+      "range": {
+        "startLine": 472,
+        "startChar": 47,
+        "endLine": 472,
+        "endChar": 58
+      },
+      "revId": "2548dedde7c9a8a2d5d209759bc341a8a6f0a5d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
