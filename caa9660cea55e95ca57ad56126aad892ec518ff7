@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f39d514d_c9d307a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-08T00:48:59Z",
+      "side": 1,
+      "message": "I must be wrong, but at a glance, this seems to be a Treble violation where system process (bpfloader) has access to a vendor thing. As a comparison, we have init and vendor_init for loading system-defined services and vendor-defined services, respectively. What differences of bpfloader makes handling both system and vendor stuffs allow-able?",
+      "revId": "caa9660cea55e95ca57ad56126aad892ec518ff7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd351ee3_7a712f9c",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-08T00:48:59Z",
+      "side": 1,
+      "message": "nit: remove unnecessary bracket, for consistency?",
+      "range": {
+        "startLine": 45,
+        "startChar": 43,
+        "endLine": 45,
+        "endChar": 60
+      },
+      "revId": "caa9660cea55e95ca57ad56126aad892ec518ff7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f27dafc2_ee806472",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-08T00:48:59Z",
+      "side": 1,
+      "message": "why not `domain`? Does this mean that vendors can have access to fs_bpf_vendor if they want?",
+      "range": {
+        "startLine": 45,
+        "startChar": 13,
+        "endLine": 45,
+        "endChar": 23
+      },
+      "revId": "caa9660cea55e95ca57ad56126aad892ec518ff7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cab5c92_957811ba",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 6
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-08T00:48:59Z",
+      "side": 1,
+      "message": "What is the role of these three different labeling? Are we treating them differently?",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 396,
+        "endChar": 48
+      },
+      "revId": "caa9660cea55e95ca57ad56126aad892ec518ff7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
