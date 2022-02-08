@@ -52,6 +52,29 @@
       "parentUuid": "e5ab935d_b353be03",
       "revId": "639c48d146fc1e321093332fb814040f28d4d692",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0cff778_4d89c89d",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-08T14:54:58Z",
+      "side": 1,
+      "message": "I suspect you only need \n{ w_file_perms ioctl }\nsince you never read (e.g. https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/virtual_touchpad.te;l\u003d12)",
+      "range": {
+        "startLine": 451,
+        "startChar": 41,
+        "endLine": 451,
+        "endChar": 54
+      },
+      "revId": "639c48d146fc1e321093332fb814040f28d4d692",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
