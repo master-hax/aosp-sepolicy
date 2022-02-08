@@ -284,6 +284,24 @@
       "parentUuid": "39198b1e_1af086c1",
       "revId": "cd1cebcc078d74e5cb94e37a9881750f0829c215",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85caf886_57e0355b",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-08T01:30:14Z",
+      "side": 1,
+      "message": "oh no, have they been labeled as just system_file? [1] says they are. If so, I think it\u0027s game over and we can\u0027t label them differently as doing so will break the modules on older platforms. What is the oldest Mainline module that has bpf programs in it?\n\n[1] https://source.corp.google.com/search?q\u003df:system%5C%2Fsepolicy%20f:apex%20f:file_contexts%20c:bpf\u0026sq\u003dpackage:%5Eandroid$",
+      "parentUuid": "39198b1e_1af086c1",
+      "revId": "cd1cebcc078d74e5cb94e37a9881750f0829c215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
