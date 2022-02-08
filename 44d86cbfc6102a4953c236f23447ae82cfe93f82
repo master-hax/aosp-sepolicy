@@ -57,6 +57,30 @@
       },
       "revId": "44d86cbfc6102a4953c236f23447ae82cfe93f82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f28d27a_0905815e",
+        "filename": "private/compat/32.0/32.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1561731
+      },
+      "writtenOn": "2022-02-08T20:49:17Z",
+      "side": 1,
+      "message": "Ahh, thank you for pointing this out! \n\nConfusingly, building this with just the [public|vendor]/hal_graphics_allocator_default.te changes and without the compat file changes showed an error message for each file\n\n```\nbuild out/target/product/vsoc_x86_64/obj/FAKE/treble_sepolicy_tests_28.0_intermediates/treble_sepolicy_tests_28.0\n\u003crest of error message\u003e\nbuild out/target/product/vsoc_x86_64/obj/FAKE/treble_sepolicy_tests_29.0_intermediates/treble_sepolicy_tests_29.0\n\u003crest of error message\u003e\nbuild out/target/product/vsoc_x86_64/obj/FAKE/treble_sepolicy_tests_30.0_intermediates/treble_sepolicy_tests_30.0\n\u003crest of error message\u003e\nbuild out/target/product/vsoc_x86_64/obj/FAKE/treble_sepolicy_tests_31.0_intermediates/treble_sepolicy_tests_31.0\n\u003crest of error message\u003e\nbuild out/target/product/vsoc_x86_64/obj/FAKE/treble_sepolicy_tests_32.0_intermediates/treble_sepolicy_tests_32.0\n\u003crest of error message\u003e \n```\n\nwhich is why I thought I had to do it for all of compat files. But looking closer now, each error message does indeed say to make a change in just the latest file\n\n```\nThe following public types were found added to the policy without an entry into the compatibility mapping file(s) found in private/compat/V.v/V.v[.ignore].cil, where V.v is the latest API level.\n```\n\nI did not read close enough.",
+      "parentUuid": "8e1dc997_358669d6",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 40
+      },
+      "revId": "44d86cbfc6102a4953c236f23447ae82cfe93f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
