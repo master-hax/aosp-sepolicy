@@ -230,6 +230,24 @@
       "parentUuid": "102eb141_a7c24347",
       "revId": "cd1cebcc078d74e5cb94e37a9881750f0829c215",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "069f916d_25447ab4",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-08T01:15:45Z",
+      "side": 1,
+      "message": "IIUC, what Jeffrey asked seems to be creating new label(s) for files in [system/vendor]/etc/bpf and let only bpfloader have access to the files. And at the same time, bpfloader wouldn\u0027t have access to files outside of the directories. I think it could be achieved by making it a whole static binary so that it doesn\u0027t need to access the libraries in /system/lib.\n\nI personally am fine with not addressing that in this CL, but let me leave this thread open to hear what Jeffrey thinks.",
+      "parentUuid": "2ea382bd_b511e007",
+      "revId": "cd1cebcc078d74e5cb94e37a9881750f0829c215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
