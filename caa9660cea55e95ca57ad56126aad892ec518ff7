@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4f9a27d_0af69310",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-02-08T00:59:59Z",
+      "side": 1,
+      "message": "BPF programs are a defined format that the kernel recognizes. The system uses standard POSIX interfaces to load these files and give them to the kernel. This also means that the GSI bpfloader will load these files.\n\nThe idea is:\nsystem bpf programs are loaded by bpfloader and only usable by system\nvendor bpf programs are loaded by bpfloader and only usable by vendor\n\nWe have no need for an additional vendor bpfloader - everything can be done from system.",
+      "parentUuid": "f39d514d_c9d307a3",
+      "revId": "caa9660cea55e95ca57ad56126aad892ec518ff7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cd351ee3_7a712f9c",
         "filename": "private/bpfloader.te",
         "patchSetId": 6
@@ -66,6 +84,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "771670bf_8f80cb61",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-02-08T00:59:59Z",
+      "side": 1,
+      "message": "Exactly. These are the compiled vendor programs.",
+      "parentUuid": "f27dafc2_ee806472",
+      "range": {
+        "startLine": 45,
+        "startChar": 13,
+        "endLine": 45,
+        "endChar": 23
+      },
+      "revId": "caa9660cea55e95ca57ad56126aad892ec518ff7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6cab5c92_957811ba",
         "filename": "private/genfs_contexts",
         "patchSetId": 6
@@ -77,6 +119,30 @@
       "writtenOn": "2022-02-08T00:48:59Z",
       "side": 1,
       "message": "What is the role of these three different labeling? Are we treating them differently?",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 396,
+        "endChar": 48
+      },
+      "revId": "caa9660cea55e95ca57ad56126aad892ec518ff7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d339178b_10cf42fb",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 6
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-02-08T00:59:59Z",
+      "side": 1,
+      "message": "IDK about tethering, but for vendor, the answer is yes.",
+      "parentUuid": "6cab5c92_957811ba",
       "range": {
         "startLine": 394,
         "startChar": 0,
