@@ -70,6 +70,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d353a30_b3c6e3a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1084624
+      },
+      "writtenOn": "2022-02-09T06:15:19Z",
+      "side": 1,
+      "message": "Hi Adam,\n\nThe idea is to run this daemon in production, i.e. user builds. Right now I am testing it on P6, but we are targeting all devices with kernels \u003e\u003d 5.4 (i.e. those that are running KFENCE).\n\nThis functionality currently resides in system_server (in BootReceiver.java), but it lacks the system log permission on user devices. We are splitting it away to a separate process to reduce the potential attack surface.",
+      "tag": "mailMessageId\u003d\u003cCAG_fn\u003dVsL4EA9JtH-He_jshLdUoPj\u003d28+CV6Qjo5H+C_Df5gpQ@mail.gmail.com\u003e",
+      "revId": "2eca42b570da987b10044bebef5875e341437dfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "037d83f9_0ed86b4b",
