@@ -71,6 +71,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "943ff296_15b53b80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-02-09T22:48:40Z",
+      "side": 1,
+      "message": "Please see the email thread - I also talked with Lorenzo offline. The existing situation already doesn\u0027t guarantee much for networking, and this is limited to tracepoints. We\u0027re going to meet about fixing the existing problems soon (this really doesn\u0027t regress the story here - vendors can already put BPF programs on the system image)",
+      "parentUuid": "dad23ae3_ca2fbd06",
+      "revId": "c27d24c37cdaa6335d5f85913877ee92e8440690",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39509750_547d8187",
@@ -84,6 +102,30 @@
       "writtenOn": "2022-02-09T22:34:59Z",
       "side": 1,
       "message": "why did we need to add this?\n\nbpfloader should not need to be publically visible?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 35
+      },
+      "revId": "c27d24c37cdaa6335d5f85913877ee92e8440690",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea156386_7f2985ba",
+        "filename": "public/bpfloader.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-02-09T22:48:40Z",
+      "side": 1,
+      "message": "It would be needed for a rule like this for vendor:\n\nallow hal_health_server bpfloader:bpf prog_run;",
+      "parentUuid": "39509750_547d8187",
       "range": {
         "startLine": 1,
         "startChar": 0,
