@@ -34,6 +34,24 @@
       "parentUuid": "683e2d5b_075d6c9c",
       "revId": "c27d24c37cdaa6335d5f85913877ee92e8440690",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3a91931_0c173feb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2022-02-09T03:29:27Z",
+      "side": 1,
+      "message": "Not sure if there\u0027s a kernel issue for maze@\u0027s proposal - can\u0027t we already restrict capabilities via selinux?\n\nNot 100% sure if this would work, but maybe we could add a new domain for which:\n- vendor processes within the domain are never allowed to have those capabilities\n- vendor processes outside it are never allowed to have any bpf permissions,  access to /sys/fs/bpf, etc.",
+      "parentUuid": "25983409_782ba048",
+      "revId": "c27d24c37cdaa6335d5f85913877ee92e8440690",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
