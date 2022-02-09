@@ -16,6 +16,24 @@
       "message": "Is there some way to write a neverallow rule that would enforce:\n\nthere should never be a vendor process (domain?) with one or more of {net_admin, net_raw} capability and access to bpf?",
       "revId": "c27d24c37cdaa6335d5f85913877ee92e8440690",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25983409_782ba048",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-02-09T03:16:32Z",
+      "side": 1,
+      "message": "We only allow vendor processes to use tracepoints, so I don\u0027t think it should matter. net_admin/net_raw would need to be controlled with a kernel change AFAIU, unless we have a framework process that could delegate this access control lookup. However, in that case, due to the size of these permission sets, and that fact that they would confer other unneeded permissions, it\u0027s recommended to add a new access_vector.\n\nStill - we have the problem here that we don\u0027t have an access_vector for bpf attach points specifically (from your comments on the bug), so we can\u0027t really guard specific usage, which is why we only allow have tracepoints exposed.",
+      "parentUuid": "683e2d5b_075d6c9c",
+      "revId": "c27d24c37cdaa6335d5f85913877ee92e8440690",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
