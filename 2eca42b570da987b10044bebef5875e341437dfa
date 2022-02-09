@@ -33,6 +33,46 @@
       "message": "@jeffv, @adamshih, could you please help us with this?\n\nThe Sepolicy lint warnings indicate I am doing something wrong, but without changing the frozen policies I can\u0027t even build the system.\nThe rest of the code works already (https://android-review.googlesource.com/c/platform/system/dmesgd/+/1974479), so we don\u0027t expect any other sepolicy changes to come.",
       "revId": "2eca42b570da987b10044bebef5875e341437dfa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a9fdcab_b83bd39e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347177
+      },
+      "writtenOn": "2022-02-09T03:23:29Z",
+      "side": 1,
+      "message": "I would prefer letting Jeffrey review this one as I don\u0027t know what bootreciever is.",
+      "revId": "2eca42b570da987b10044bebef5875e341437dfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "037d83f9_0ed86b4b",
+        "filename": "private/dmesgd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1347177
+      },
+      "writtenOn": "2022-02-09T03:23:29Z",
+      "side": 1,
+      "message": "Does this daemon only lives in userdebug ROM?\nI suggest you put these in userdebug_eng(`\u0027) brackets.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 60
+      },
+      "revId": "2eca42b570da987b10044bebef5875e341437dfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
