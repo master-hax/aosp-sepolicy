@@ -374,6 +374,24 @@
       "parentUuid": "c19dd943_4be03283",
       "revId": "cd1cebcc078d74e5cb94e37a9881750f0829c215",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc0e4606_de8af406",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-09T05:02:24Z",
+      "side": 1,
+      "message": "That would work, though I am not sure if hardlink would actually work. xattr is stored in inode, I guess? So, if hardlinking doesn\u0027t work, we will need to have duplicated copies of the bpf programs, which I honestly don\u0027t think is a big loss.",
+      "parentUuid": "0d40e271_47154ce0",
+      "revId": "cd1cebcc078d74e5cb94e37a9881750f0829c215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
