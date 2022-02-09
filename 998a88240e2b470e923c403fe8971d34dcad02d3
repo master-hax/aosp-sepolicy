@@ -16,6 +16,52 @@
       "message": "Updated the policies to reflect the new dmesgd design (see the \"initial dmesgd implementation\" patch)",
       "revId": "998a88240e2b470e923c403fe8971d34dcad02d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4a189ea_1ca4d48d",
+        "filename": "private/dmesgd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-02-09T21:20:45Z",
+      "side": 1,
+      "message": "This line should not be necessary. Init already provides the proper label when does the mkdir in dmesgd.rc.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 70
+      },
+      "revId": "998a88240e2b470e923c403fe8971d34dcad02d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30be44d6_b0e622a3",
+        "filename": "private/dmesgd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-02-09T21:20:45Z",
+      "side": 1,
+      "message": "this is already included in create_data_perms above.",
+      "range": {
+        "startLine": 9,
+        "startChar": 35,
+        "endLine": 9,
+        "endChar": 48
+      },
+      "revId": "998a88240e2b470e923c403fe8971d34dcad02d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
