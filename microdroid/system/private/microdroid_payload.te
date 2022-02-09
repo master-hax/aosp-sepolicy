@@ -35,3 +35,6 @@ allow microdroid_payload self:vsock_socket { create_socket_perms_no_ioctl listen
 
 # Payload can read extra apks
 r_dir_file(microdroid_payload, extra_apk_file)
+
+# Allow test payload to query selinux status
+allow microdroid_payload selinuxfs:file r_file_perms;
