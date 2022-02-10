@@ -90,12 +90,14 @@ recovery_only(`
     allowxperm fastbootd dev_type:blk_file ioctl BLKROSET;
     allow fastbootd overlayfs_file:dir { create_dir_perms mounton };
     allow fastbootd {
+      system_dlkm_file_type
       system_file_type
       unlabeled
       vendor_file_type
     }:dir { remove_name rmdir search write };
     allow fastbootd {
       overlayfs_file
+      system_dlkm_file_type
       system_file_type
       unlabeled
       vendor_file_type
