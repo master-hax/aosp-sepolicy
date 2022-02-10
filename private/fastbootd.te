@@ -37,8 +37,9 @@ recovery_only(`
   allow fastbootd snapuserd:unix_stream_socket connectto;
   allow fastbootd dm_user_device:dir r_dir_perms;
 
-  # Get fastbootd protocol property
+  # Get fastbootd protocol properties
   get_prop(fastbootd, fastbootd_protocol_prop)
+  get_prop(fastbootd, fastbootd_tcp_interface)
 
   # Mount /metadata to interact with Virtual A/B snapshots.
   allow fastbootd labeledfs:filesystem { mount unmount };

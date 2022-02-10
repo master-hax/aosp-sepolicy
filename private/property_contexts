@@ -112,8 +112,9 @@ suspend.sleep_time_scale_factor u:object_r:suspend_prop:s0 exact double
 suspend.failed_suspend_backoff_enabled u:object_r:suspend_prop:s0 exact bool
 suspend.short_suspend_backoff_enabled u:object_r:suspend_prop:s0 exact bool
 
-# Fastbootd protocol control property
-fastbootd.protocol    u:object_r:fastbootd_protocol_prop:s0 exact enum usb tcp
+# Fastbootd protocol control properties
+fastbootd.protocol      u:object_r:fastbootd_protocol_prop:s0 exact enum usb tcp
+fastbootd.tcp.interface u:object_r:fastbootd_tcp_interface:s0 exact string
 
 # adbd protoctl configuration property
 service.adb.tcp.port    u:object_r:adbd_config_prop:s0 exact int

@@ -40,8 +40,8 @@ recovery_only(`
   allow recovery dm_user_device:dir r_dir_perms;
   get_prop(recovery, snapuserd_prop)
 
-  # Set fastbootd protocol property
-  set_prop(recovery, fastbootd_protocol_prop)
+  # Set fastbootd protocol properties
+  set_prop(recovery, fastbootd_tcp_interface)
 
   get_prop(recovery, recovery_config_prop)
 
