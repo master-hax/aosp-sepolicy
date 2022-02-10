@@ -37,6 +37,7 @@ type mediatranscoding_service,  app_api_service, service_manager_type;
 type netd_service,              service_manager_type;
 type nfc_service,               service_manager_type;
 type radio_service,             service_manager_type;
+type remotelyprovisionedkeypool_service, service_manager_type;
 type remoteprovisioning_service,   service_manager_type;
 type secure_element_service,    service_manager_type;
 type service_manager_service,   service_manager_type;
@@ -61,7 +62,7 @@ type activity_task_service, app_api_service, ephemeral_app_api_service, system_s
 type adb_service, system_api_service, system_server_service, service_manager_type;
 type alarm_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 type app_binding_service, system_server_service, service_manager_type;
-type app_hibernation_service, system_api_service, system_server_service, service_manager_type;
+type app_hibernation_service, app_api_service, system_api_service, system_server_service, service_manager_type;
 type app_integrity_service, system_api_service, system_server_service, service_manager_type;
 type app_prediction_service, app_api_service, system_server_service, service_manager_type;
 type app_search_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
@@ -267,6 +268,7 @@ type hal_wifi_supplicant_service, vendor_service, protected_service, service_man
 type hal_audio_service, vendor_service, protected_service, service_manager_type;
 type hal_audiocontrol_service, vendor_service, service_manager_type;
 type hal_authsecret_service, vendor_service, protected_service, service_manager_type;
+type hal_camera_service, vendor_service, protected_service, service_manager_type;
 type hal_contexthub_service, vendor_service, protected_service, service_manager_type;
 type hal_dice_service, vendor_service, protected_service, service_manager_type;
 type hal_drm_service, vendor_service, service_manager_type;
