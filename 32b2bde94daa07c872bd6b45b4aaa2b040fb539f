@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "844c4308_2285ac74",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1889091
+      },
+      "writtenOn": "2022-02-10T19:27:10Z",
+      "side": 1,
+      "message": "Thanks for the comments Jiyong.\n\nWithout this I am not able to cd into the `/system_dlkm` without `su`. However, I am able to with other `_dlkm`. Does it mean I am fixing the issue at wrong place?\n\n```\nvsoc_x86_64:/ $ ls -l / | grep _dlkm\ndrwxr-xr-x   1 root   root       3488 2022-02-10 07:25 odm_dlkm\nd?????????   ? ?      ?             ?                ? system_dlkm\ndrwxr-xr-x   1 root   root       3488 2022-02-10 07:25 vendor_dlkm\n```",
+      "parentUuid": "58a798e6_e8d0c875",
+      "range": {
+        "startLine": 151,
+        "startChar": 4,
+        "endLine": 151,
+        "endChar": 20
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "532addc0_b02036dd",
         "filename": "public/domain.te",
         "patchSetId": 4
@@ -72,6 +96,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2342724_c8efc0e8",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1889091
+      },
+      "writtenOn": "2022-02-10T19:27:10Z",
+      "side": 1,
+      "message": "Because system and vendor uses type 😊 I think, type gives more flexibility to subtype the files in the partition further in future. With that said I am not aware of the bigger impact of this in terms of security; so if you think it should be file; I\u0027ll update and test. Let me know.",
+      "parentUuid": "532addc0_b02036dd",
+      "range": {
+        "startLine": 1266,
+        "startChar": 57,
+        "endLine": 1266,
+        "endChar": 78
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e024f80c_fe551c84",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1889091
+      },
+      "writtenOn": "2022-02-10T19:27:10Z",
+      "side": 1,
+      "message": "All modules? Only GKI modules (present in /system_dlkm) will be not vendor or partner modules; so this should be there.",
+      "parentUuid": "3ca8ae3b_d53d8085",
+      "range": {
+        "startLine": 1266,
+        "startChar": 16,
+        "endLine": 1266,
+        "endChar": 56
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "41942305_3a09b46f",
         "filename": "public/fastbootd.te",
         "patchSetId": 4
@@ -83,6 +155,30 @@
       "writtenOn": "2022-02-10T15:20:52Z",
       "side": 1,
       "message": "Why does fastboot need access to these?",
+      "range": {
+        "startLine": 93,
+        "startChar": 6,
+        "endLine": 93,
+        "endChar": 27
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5709b22a_e22ede4a",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1889091
+      },
+      "writtenOn": "2022-02-10T19:27:10Z",
+      "side": 1,
+      "message": "Being a dynamic partition; fastbootd needs to be used to flash the image built from the `kernel repository` directly on to the device. Same as vendor_dlkm image.",
+      "parentUuid": "41942305_3a09b46f",
       "range": {
         "startLine": 93,
         "startChar": 6,
