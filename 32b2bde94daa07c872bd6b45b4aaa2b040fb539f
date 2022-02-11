@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e7a54696_d6a2d405",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-11T00:41:21Z",
+      "side": 1,
+      "message": "Why do you want to cd into the directory on a shell? If needed, the permission should be given to \u0027shell\u0027.",
+      "parentUuid": "844c4308_2285ac74",
+      "range": {
+        "startLine": 151,
+        "startChar": 4,
+        "endLine": 151,
+        "endChar": 20
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "532addc0_b02036dd",
         "filename": "public/domain.te",
         "patchSetId": 4
@@ -144,6 +168,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "31885d7e_787aa196",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-11T00:41:21Z",
+      "side": 1,
+      "message": "Ok, so there are GKI modules in /system_dlk, and vendor-owned modules in /vendor. Does that mean that we wouldn\u0027t have a kernel module attributed as system_file_type and rootfs, at least?",
+      "parentUuid": "e024f80c_fe551c84",
+      "range": {
+        "startLine": 1266,
+        "startChar": 16,
+        "endLine": 1266,
+        "endChar": 56
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99d91d29_525d91d9",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-11T00:41:21Z",
+      "side": 1,
+      "message": "If the partition is only for kernel modules, I don\u0027t think the distinction of *_file and *_file_type makes much sense. The attribute is particularily useful when there are multiple labels that need to be handled as a group.",
+      "parentUuid": "f2342724_c8efc0e8",
+      "range": {
+        "startLine": 1266,
+        "startChar": 57,
+        "endLine": 1266,
+        "endChar": 78
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "41942305_3a09b46f",
         "filename": "public/fastbootd.te",
         "patchSetId": 4
@@ -179,6 +251,30 @@
       "side": 1,
       "message": "Being a dynamic partition; fastbootd needs to be used to flash the image built from the `kernel repository` directly on to the device. Same as vendor_dlkm image.",
       "parentUuid": "41942305_3a09b46f",
+      "range": {
+        "startLine": 93,
+        "startChar": 6,
+        "endLine": 93,
+        "endChar": 27
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73f30f28_555dfe1f",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-11T00:41:21Z",
+      "side": 1,
+      "message": "Yeah, but I thought the flashing is done at a block-device level, not at a file level. Could you confirm?",
+      "parentUuid": "5709b22a_e22ede4a",
       "range": {
         "startLine": 93,
         "startChar": 6,
