@@ -312,6 +312,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5fcc9c49_444fa3e2",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-11T03:41:37Z",
+      "side": 1,
+      "message": "According to https://cs.android.com/search?q\u003df:%5C.te%20module_load%20-f:prebuilts\u0026ss\u003dandroid%2Fplatform%2Fsuperproject\u0026start\u003d1\n\nit looks like\n\n* module_load for rootfs:system is allowed only for init and modprobe (for recovery)\n* module_load for system_file_type:system is for init, dlkm_loader (cuttlefish), and init-insmod-sh (bonito).\n\nIf we can let them use system_dlkm_file instead, we can remove system_file_type and rootfs from this line.\n\nAnyway, I admit that this is out of scope of this CL. So could you file a bug (and add a TODO) to track it separately? (feel free to assign to me or Inseob)",
+      "parentUuid": "7636191a_62c517bf",
+      "range": {
+        "startLine": 1266,
+        "startChar": 16,
+        "endLine": 1266,
+        "endChar": 56
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5ea63ac_4b3e0b88",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-11T03:41:37Z",
+      "side": 1,
+      "message": "Ok. If more types are expected to appear in the future, having an attribute looks fine with me.",
+      "parentUuid": "51ee9777_5fd0b4fc",
+      "range": {
+        "startLine": 1266,
+        "startChar": 57,
+        "endLine": 1266,
+        "endChar": 78
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "41942305_3a09b46f",
         "filename": "public/fastbootd.te",
         "patchSetId": 4
@@ -395,6 +443,30 @@
       "side": 1,
       "message": "I am not sure either; and I can\u0027t test this with Cuttlefish. Since `system_dlkm` is linked from `system` even before flashing it needs to `unlink` and `unmount` it. If `fastbootd` is the one responsible for all of the process; it will need this.\n\nAgain, I can drop this change as it\u0027s pure anticipation; can re-introduce as an incremental CL when I can really test the flashing and it is required. Let me know, if that\u0027s the direction you think we should be going.",
       "parentUuid": "73f30f28_555dfe1f",
+      "range": {
+        "startLine": 93,
+        "startChar": 6,
+        "endLine": 93,
+        "endChar": 27
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d00920d0_72dc34d3",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-11T03:41:37Z",
+      "side": 1,
+      "message": "Yes, let\u0027s add it only after we experience an actual denial.",
+      "parentUuid": "82501a13_22231505",
       "range": {
         "startLine": 93,
         "startChar": 6,
