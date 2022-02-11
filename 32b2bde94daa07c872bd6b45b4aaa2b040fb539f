@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21adfe2d_458cd3c9",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1889091
+      },
+      "writtenOn": "2022-02-11T01:45:30Z",
+      "side": 1,
+      "message": "For 2 reasons: 1. For manually loading the module for debugging/dev purposes \u0026 2. Since these modules will be loaded by the vendors I wanted to have him behave same as vendor_dlkm.\n\nSince there is no module yet; many of this problem I am trying to anticipate by making system_dlkm behaves same as vendor_dlkm.\n\nPartition is Read only and modules are signed by Google; so I don\u0027t see any issue with having an access for better dev workflow. But again, you probably know better; so I am OK with dropping this altogether with this CL, and take a look at the `shell.te` route for future. Let me know.",
+      "parentUuid": "e7a54696_d6a2d405",
+      "range": {
+        "startLine": 151,
+        "startChar": 4,
+        "endLine": 151,
+        "endChar": 20
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "532addc0_b02036dd",
         "filename": "public/domain.te",
         "patchSetId": 4
@@ -216,6 +240,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "51ee9777_5fd0b4fc",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1889091
+      },
+      "writtenOn": "2022-02-11T01:45:30Z",
+      "side": 1,
+      "message": "Well there are dynamic part mandated fs config files under `/system_dlkm/etc` which others are attributing as subtype `fs_config_files` which I am not sure is actually required; So I am not making that distinction as of now until I know anything which depends on it just to keep the number of attributes to absolute minimum required.\n\nAlso, there are 2 logical classes of modules in the system_dlkm: protected \u0026 unprotected which we are not differentiating anywhere currently; but having type gives us a flexibility to distinguish them in the future.\n\nType preserves the uniformity as someone who did not understand any of this stuff at all few days back; this kind of mix and match usage everywhere was confusing me. \n\nFor this CL I am Ok to go with the `system_dlkm_file` instead of `type`; if that\u0027s what is preferred since as per current plan all modules will be labeled as `system_dlkm_file`.",
+      "parentUuid": "99d91d29_525d91d9",
+      "range": {
+        "startLine": 1266,
+        "startChar": 57,
+        "endLine": 1266,
+        "endChar": 78
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7636191a_62c517bf",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1889091
+      },
+      "writtenOn": "2022-02-11T01:45:30Z",
+      "side": 1,
+      "message": "Yes, GKI modules will be attributed as system_dlkm_file and vendor modules are being attributed as vendor_file as far as I know. Though I am not sure about if any other modules being used currently is actually being attributed  as system/rootfs;\nSo I wouldn\u0027t touch that part as part of this CL as breakage will cause this to be reverted with no good reason.",
+      "parentUuid": "31885d7e_787aa196",
+      "range": {
+        "startLine": 1266,
+        "startChar": 16,
+        "endLine": 1266,
+        "endChar": 56
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "41942305_3a09b46f",
         "filename": "public/fastbootd.te",
         "patchSetId": 4
@@ -275,6 +347,30 @@
       "side": 1,
       "message": "Yeah, but I thought the flashing is done at a block-device level, not at a file level. Could you confirm?",
       "parentUuid": "5709b22a_e22ede4a",
+      "range": {
+        "startLine": 93,
+        "startChar": 6,
+        "endLine": 93,
+        "endChar": 27
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82501a13_22231505",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1889091
+      },
+      "writtenOn": "2022-02-11T01:45:30Z",
+      "side": 1,
+      "message": "I am not sure either; and I can\u0027t test this with Cuttlefish. Since `system_dlkm` is linked from `system` even before flashing it needs to `unlink` and `unmount` it. If `fastbootd` is the one responsible for all of the process; it will need this.\n\nAgain, I can drop this change as it\u0027s pure anticipation; can re-introduce as an incremental CL when I can really test the flashing and it is required. Let me know, if that\u0027s the direction you think we should be going.",
+      "parentUuid": "73f30f28_555dfe1f",
       "range": {
         "startLine": 93,
         "startChar": 6,
