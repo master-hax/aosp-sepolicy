@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a676bdf4_b545c443",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-02-11T02:06:49Z",
+      "side": 1,
+      "message": "Well, they are vendor_file_type and domain only has search / getattr.\n\n    # Allow all domains to be able to follow /system/vendor and/or\n    # /vendor/odm symlinks.\n    allow domain vendor_file_type:lnk_file { getattr open read };\n    \n    # This is required to be able to search \u0026 read /vendor/lib64\n    # in order to lookup vendor libraries. The execute permission\n    # for coredomains is granted *only* for same process HALs\n    allow domain vendor_file:dir { getattr search };\n    \n    # Allow reading and executing out of /vendor to all vendor domains\n    allow { domain -coredomain } vendor_file_type:dir r_dir_perms;\n    allow { domain -coredomain } vendor_file_type:file { read open getattr execute map };\n    allow { domain -coredomain } vendor_file_type:lnk_file { getattr read };\n    \nSo the system processes, including shell, can\u0027t take a look at the inside of vendor_dlkm and odm_dlkm.",
+      "parentUuid": "844c4308_2285ac74",
+      "range": {
+        "startLine": 151,
+        "startChar": 4,
+        "endLine": 151,
+        "endChar": 20
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "532addc0_b02036dd",
         "filename": "public/domain.te",
         "patchSetId": 4
