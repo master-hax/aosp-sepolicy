@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0013edb9_29625a0a",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1889091
+      },
+      "writtenOn": "2022-02-11T05:08:41Z",
+      "side": 1,
+      "message": "Ok. Removing this change; I\u0027ll deal with this as an incremental CL (this is also a fix for the broken codelab (b/217949293); which I don\u0027t want to stay broken for longer than which it already has). \n\nAs per my current understanding, points mentioned below needs to be met for the system_dlkm to work; and I don\u0027t know (yet) completely what rules I\u0027ll need to have for that to happen:\n\n- Vendor needs to load the modules from system_dlkm; as we can\u0027t predict on what will be required for a particular device.\n- They should be able to load it from `/system/lib/modules` symlink to `/system_dlkm/lib/modules` as a unified location which we guarantee to exist in future.\n- Vendor should be at least able to search and read the every thing under the `/system_dlkm` otherwise dev workflow will be frustrating for them.",
+      "parentUuid": "a676bdf4_b545c443",
+      "range": {
+        "startLine": 151,
+        "startChar": 4,
+        "endLine": 151,
+        "endChar": 20
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "532addc0_b02036dd",
         "filename": "public/domain.te",
         "patchSetId": 4
@@ -360,6 +384,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "804dd0f0_a2602fdd",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1889091
+      },
+      "writtenOn": "2022-02-11T05:08:41Z",
+      "side": 1,
+      "message": "b/218951883",
+      "parentUuid": "5fcc9c49_444fa3e2",
+      "range": {
+        "startLine": 1266,
+        "startChar": 16,
+        "endLine": 1266,
+        "endChar": 56
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "41942305_3a09b46f",
         "filename": "public/fastbootd.te",
         "patchSetId": 4
@@ -467,6 +515,30 @@
       "side": 1,
       "message": "Yes, let\u0027s add it only after we experience an actual denial.",
       "parentUuid": "82501a13_22231505",
+      "range": {
+        "startLine": 93,
+        "startChar": 6,
+        "endLine": 93,
+        "endChar": 27
+      },
+      "revId": "32b2bde94daa07c872bd6b45b4aaa2b040fb539f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57070c7e_7e4ed9bd",
+        "filename": "public/fastbootd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1889091
+      },
+      "writtenOn": "2022-02-11T05:08:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d00920d0_72dc34d3",
       "range": {
         "startLine": 93,
         "startChar": 6,
