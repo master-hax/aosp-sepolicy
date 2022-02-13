@@ -8,6 +8,7 @@ typeattribute system_server mlstrustedsubject;
 typeattribute system_server scheduler_service_server;
 typeattribute system_server sensor_service_server;
 typeattribute system_server stats_service_server;
+typeattribute system_server bpfdomain;
 
 # Define a type for tmpfs-backed ashmem regions.
 tmpfs_domain(system_server)
@@ -448,6 +449,7 @@ allow system_server video_device:chr_file rw_file_perms;
 allow system_server adbd_socket:sock_file rw_file_perms;
 allow system_server rtc_device:chr_file rw_file_perms;
 allow system_server audio_device:dir r_dir_perms;
+allow system_server uhid_device:chr_file rw_file_perms;
 
 # write access to ALSA interfaces (/dev/snd/*) needed for MIDI
 allow system_server audio_device:chr_file rw_file_perms;
@@ -697,6 +699,7 @@ set_prop(system_server, boot_status_prop)
 set_prop(system_server, surfaceflinger_color_prop)
 set_prop(system_server, provisioned_prop)
 set_prop(system_server, retaildemo_prop)
+set_prop(system_server, dmesgd_start_prop)
 userdebug_or_eng(`set_prop(system_server, wifi_log_prop)')
 
 # ctl interface
@@ -786,6 +789,9 @@ get_prop(system_server, packagemanager_config_prop)
 
 # Read the net.464xlat.cellular.enabled property (written by init).
 get_prop(system_server, net_464xlat_fromvendor_prop)
+
+# Read hypervisor capabilities ro.boot.hypervisor.*
+get_prop(system_server, hypervisor_prop)
 
 # Create a socket for connections from debuggerd.
 allow system_server system_ndebug_socket:sock_file create_file_perms;
@@ -1326,6 +1332,19 @@ allow system_server apex_module_data_file:dir { getattr search };
 # These are modules where the code runs in system_server, so we need full access.
 allow system_server apex_system_server_data_file:dir create_dir_perms;
 allow system_server apex_system_server_data_file:file create_file_perms;
+# Legacy labels that we still need to support (b/217581286)
+allow system_server {
+  apex_appsearch_data_file
+  apex_permission_data_file
+  apex_scheduling_data_file
+  apex_wifi_data_file
+}:dir create_dir_perms;
+allow system_server {
+  apex_appsearch_data_file
+  apex_permission_data_file
+  apex_scheduling_data_file
+  apex_wifi_data_file
+}:file create_file_perms;
 
 # Allow PasswordSlotManager rw access to /metadata/password_slots, so GSIs and the host image can
 # communicate which slots are available for use.
