@@ -16,6 +16,24 @@
       "message": "I am not sure why this is happening or what is the correct way to fix the issue, perhaps you can help me add the right people to comment on it.\n\nWhen using sys.use_memfd\u003dtrue for ashmem, MessageQueue fails to create the shmem region:\n@ https://android.googlesource.com/platform/system/libfmq/+/refs/tags/android-platform-12.0.0_r4/include/fmq/MessageQueueBase.h#720 \n@ https://android.googlesource.com/platform/system/core/+/refs/tags/android-platform-12.0.0_r4/libcutils/ashmem-dev.cpp#348\n\nwith logs:\nW audio.service: type\u003d1400 audit(0.0:5): avc: denied { write } for name\u003d\"memfd:MessageQueue\" dev\u003d\"tmpfs\" ino\u003d3 scontext\u003du:r:hal_audio_default:s0 tcontext\u003du:object_r:tmpfs:s0 tclass\u003dfile permissive\u003d0\nE ashmem  : ftruncate(MessageQueue, 8192) failed for memfd creation: Permission denied\n\nNo other service is triggering a denial, everything else is working fine with sys.use_memfd. I don\u0027t think that coincidentally everything already has an `allow $domain tmpfs:file write`, so why is this one special? File size perhaps?",
       "revId": "5b415239dd41469f2ebff3f6f34d86bfb63136d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f36593ca_2e09ed33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365444
+      },
+      "writtenOn": "2022-02-14T21:34:58Z",
+      "side": 1,
+      "message": "I\u0027m sorry, i made a mistake in my testing.\nTurns out more services are hitting these denials, namely hal_allocator_default, system_server, platform_app, and possibly more\n\nThe needed allows are { write map getattr read }\n\nAny idea how to procede?",
+      "parentUuid": "00911ca3_582f5a60",
+      "revId": "5b415239dd41469f2ebff3f6f34d86bfb63136d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
