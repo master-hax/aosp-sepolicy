@@ -32,3 +32,6 @@ dontaudit compos self:global_capability_class_set dac_override;
 
 # Allow domain transition into odrefresh.
 domain_auto_trans(compos, odrefresh_exec, odrefresh)
+
+# Allow checking whether the app is debuggable.
+get_prop(compos, microdroid_manager_app_prop)
