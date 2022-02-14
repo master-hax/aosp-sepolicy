@@ -62,6 +62,9 @@ set_prop(microdroid_manager, ctl_zipfuse_prop)
 # Allow microdroid_manager to wait for linkerconfig to be ready
 get_prop(microdroid_manager, apex_config_prop)
 
+# Allow microdroid_manager to pass environment details to apps
+set_prop(microdroid_manager, microdroid_manager_app_prop)
+
 # Allow microdroid_manager to pass the roothash to apkdmverity
 set_prop(microdroid_manager, microdroid_manager_roothash_prop)
 

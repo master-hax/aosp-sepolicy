@@ -14,6 +14,13 @@ dontaudit domain {
 ### Neverallow rules
 ###
 
+# microdroid_manager_app_prop can only be set by microdroid_manager
+neverallow {
+    domain
+    -init
+    -microdroid_manager
+} microdroid_manager_app_prop:property_service set;
+
 # microdroid_manager_roothash_prop can only be set by microdroid_manager
 # and read by apkdmverity
 neverallow {
