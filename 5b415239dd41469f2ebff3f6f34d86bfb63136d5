@@ -34,6 +34,24 @@
       "parentUuid": "00911ca3_582f5a60",
       "revId": "5b415239dd41469f2ebff3f6f34d86bfb63136d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cdbb79f_155fc0d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-15T09:57:03Z",
+      "side": 1,
+      "message": "I think you want the tmpfs_domain() macro: http://cs/android/system/sepolicy/public/te_macros?l\u003d74\u0026rcl\u003d06e8342910bbed4c7e45dd6f09f1d7921ca49ada\n\nThat makes sure that the tmpfs owned by domain foo is labeled foo_tmpfs rather than just tmpfs, so that other domains cannot access it. And it also grants the necessary permissions.\n\nIf you want one domain to be able to access another domain\u0027s tmpfs then you would need to grant that explicitly.\n\nSee e.g. http://cs/android/system/sepolicy/vendor/hal_graphics_allocator_default.te?l\u003d7\u0026rcl\u003d06e8342910bbed4c7e45dd6f09f1d7921ca49ada",
+      "parentUuid": "f36593ca_2e09ed33",
+      "revId": "5b415239dd41469f2ebff3f6f34d86bfb63136d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
