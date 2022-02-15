@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bd89dac_77aa85cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-02-15T12:59:30Z",
+      "side": 1,
+      "message": "The test is here: https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/build/soong/compat_cil.go;l\u003d130;drc\u003ddd75a576c564ad708ef01a45d78aba861063e9ec",
+      "parentUuid": "ee8db616_34d35e01",
+      "range": {
+        "startLine": 13,
+        "startChar": 33,
+        "endLine": 14,
+        "endChar": 4
+      },
+      "revId": "acd229a8c899bd95b0b0f639754ae8721dba2ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09db08bd_d7512bc7",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-15T12:07:20Z",
       "side": 1,
       "message": "So, does this mean that Treble sepolicy tests has a wider coverage. That sounds like we\u0027d like to remove the compat test, rather than this one.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 34
+      },
+      "revId": "acd229a8c899bd95b0b0f639754ae8721dba2ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b77f3be_fb0e25fb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-02-15T12:59:30Z",
+      "side": 1,
+      "message": "Right, ultimately we want to remove (nearly) all *.mk stuff, including treble_sepolicy_tests_for_release.mk (huge) and compat.mk (which doesn\u0027t exist now!). As both tests overlap a little, we\u0027re going to migrate compat tests and Treble sepolicy tests into one Soong module named \"se_compat_test\" (or whatever).\n\nFor the first step, I migrated compat tests first, because it was much easier. For the next steps, I\u0027m going to migrate small pieces of treble_sepolicy_tests_for_release.mk, one by one.\n\nBased on your comment, maybe I guess I want to change the commit message for better contexts.",
+      "parentUuid": "09db08bd_d7512bc7",
       "range": {
         "startLine": 16,
         "startChar": 0,
