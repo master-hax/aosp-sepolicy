@@ -16,6 +16,23 @@
       "message": "This patch is for cuttlefish: it requires \"call\" operation which is not permitted currently and I am not sure if any other project requires it as well.\nPlease let me know if it\u0027s better to add an independent sepolicy profile in cuttlefish.",
       "revId": "ced11d98ecc834f40a1f64eab07a6be57b322c27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f072572_7a976aba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-02-16T22:26:40Z",
+      "side": 1,
+      "message": "We used to have \u0027hwbinder_use(hal_audio_default)\u0027 for interacting with other HIDL HALs, applied on per-device basis, since it depends on the actual HAL implementation.\n\nNow, if some HAL implementation needs to interact with AIDL HALs, it obviously needs \u0027binder_use\u0027, but this is likely implementation-specific as well. So I would suggest putting this rule under the appropriate \u0027device/\u0027 project.",
+      "revId": "ced11d98ecc834f40a1f64eab07a6be57b322c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
