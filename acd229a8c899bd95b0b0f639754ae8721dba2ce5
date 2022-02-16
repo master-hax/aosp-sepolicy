@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d25f0302_96bbdbff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-02-16T01:12:07Z",
+      "side": 1,
+      "message": "\u003e Will new test case cover compatibility of system_Ext and product sepolicy also ?\n\nYes. Qualcomm contributed to two tests:\n\n1) use partner\u0027s plat_pub_versioned in compat test\n2) add system_ext and product policy in Treble test\n\n2) is untouched. Moving 1) to Soong is the goal of this change. You can check compat_cil.go change: it includes all stuff (system, system_ext, product, mapping files, plat_pub_versioned.cil)\n\nThe only difference is that partners don\u0027t need to set BOARD_PLAT_PUB_VERSIONED_POLICY. If any of BOARD_SYSTEM_EXT_PREBUILT_DIR or BOARD_PRODUCT_PREBUILT_DIR is set, the test will now build plat_pub_verionsed.cil themselves, and then feed it to the compat test.\n\nDoes it make sense?",
+      "parentUuid": "90cae37d_9e0447dc",
+      "range": {
+        "startLine": 13,
+        "startChar": 33,
+        "endLine": 14,
+        "endChar": 4
+      },
+      "revId": "acd229a8c899bd95b0b0f639754ae8721dba2ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "09db08bd_d7512bc7",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
