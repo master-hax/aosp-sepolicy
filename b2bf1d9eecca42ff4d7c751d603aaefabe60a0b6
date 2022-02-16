@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "9ec520a1_61d4cd39",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Can we get a +1 from some ART folks that this is WAI?\n\nThis seems like a strange Treble violation. A HAL should not be using system properties to communicate across the Treble boundary.",
       "revId": "b2bf1d9eecca42ff4d7c751d603aaefabe60a0b6",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e3bdf4ac_49d8e3dc",
         "filename": "/PATCHSET_LEVEL",
@@ -32,10 +33,10 @@
       "message": "It does look a bit strange to me as well that dex2oat props will be settable by HAL. Looks like a strange inversion here. \n\nNicolas has a bit more context based on https://b.corp.google.com/issues/163539793#comment6 and comments in ag/12343224",
       "parentUuid": "9ec520a1_61d4cd39",
       "revId": "b2bf1d9eecca42ff4d7c751d603aaefabe60a0b6",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "9c5e97c8_30c0a3b2",
         "filename": "/PATCHSET_LEVEL",
@@ -50,8 +51,25 @@
       "message": "What I\u0027ve shared is that I don\u0027t mind dex2oat properties to change dynamically based on the state of the device. \n\nHow this is achieved I have less of an opinion on, and would let the treble team comment on this violation.",
       "parentUuid": "e3bdf4ac_49d8e3dc",
       "revId": "b2bf1d9eecca42ff4d7c751d603aaefabe60a0b6",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adc8bc80_87eb918e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2022-02-16T06:09:53Z",
+      "side": 1,
+      "message": "Per Nicolas, it looks like we just need Treble team to sign on this,",
+      "parentUuid": "9c5e97c8_30c0a3b2",
+      "revId": "b2bf1d9eecca42ff4d7c751d603aaefabe60a0b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
