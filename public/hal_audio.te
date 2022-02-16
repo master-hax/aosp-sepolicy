@@ -1,6 +1,7 @@
 # HwBinder IPC from client to server, and callbacks
 binder_call(hal_audio_client, hal_audio_server)
 binder_call(hal_audio_server, hal_audio_client)
+binder_use(hal_audio_server)
 
 hal_attribute_hwservice(hal_audio, hal_audio_hwservice)
 hal_attribute_service(hal_audio, hal_audio_service)
