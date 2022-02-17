@@ -33,6 +33,29 @@
       "message": "We used to have \u0027hwbinder_use(hal_audio_default)\u0027 for interacting with other HIDL HALs, applied on per-device basis, since it depends on the actual HAL implementation.\n\nNow, if some HAL implementation needs to interact with AIDL HALs, it obviously needs \u0027binder_use\u0027, but this is likely implementation-specific as well. So I would suggest putting this rule under the appropriate \u0027device/\u0027 project.",
       "revId": "ced11d98ecc834f40a1f64eab07a6be57b322c27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a14ad52_4a7d5f53",
+        "filename": "public/hal_audio.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-17T00:29:43Z",
+      "side": 1,
+      "message": "I guess this is no longer required?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 24
+      },
+      "revId": "ced11d98ecc834f40a1f64eab07a6be57b322c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
