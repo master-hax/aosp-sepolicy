@@ -96,6 +96,30 @@
       },
       "revId": "f272d1a2ee39da27e53bea64540b39bdc6d5504b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1f8adbd_2a1c5b56",
+        "filename": "public/service.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2022-02-18T07:07:02Z",
+      "side": 1,
+      "message": "This is done for future extensibility. In a future CL we are hoping to have this service back NDK APIs, such as android_tag_socket. Currently that API ends up calling the implementation (in the mainline module) through a fairly circuitous route involving non-updatable code in netd; it would be much better if the code could simply talk to this service instead.\n\nIf you want I guess we can do that in a future CL. Or maybe this sepolicy fragment could go into the APEX?",
+      "parentUuid": "dee0d6d5_0083c79b",
+      "range": {
+        "startLine": 93,
+        "startChar": 34,
+        "endLine": 93,
+        "endChar": 77
+      },
+      "revId": "f272d1a2ee39da27e53bea64540b39bdc6d5504b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
