@@ -39,6 +39,63 @@
       "message": "LGTM (but see suggestion on commit message), but this will require approval from sepolicy OWNERS.",
       "revId": "f272d1a2ee39da27e53bea64540b39bdc6d5504b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b659a8d_e7b4e5b5",
+        "filename": "prebuilts/api/28.0/private/service_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-18T05:46:54Z",
+      "side": 1,
+      "message": "Prebuilt files should not be updated.",
+      "revId": "f272d1a2ee39da27e53bea64540b39bdc6d5504b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fb0506f_83515d94",
+        "filename": "private/compat/32.0/32.0.cil",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-18T05:46:54Z",
+      "side": 1,
+      "message": "You need to update this file only. private/compat/\u003colder_version\u003e don\u0027t need to be updated.",
+      "revId": "f272d1a2ee39da27e53bea64540b39bdc6d5504b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dee0d6d5_0083c79b",
+        "filename": "public/service.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-02-18T05:46:54Z",
+      "side": 1,
+      "message": "Why is this service registered as api_service, which means the service is accessible to 3p apps? I don\u0027t see that any public API is served by the new service. Am I reading the code incorrectly?",
+      "range": {
+        "startLine": 93,
+        "startChar": 34,
+        "endLine": 93,
+        "endChar": 77
+      },
+      "revId": "f272d1a2ee39da27e53bea64540b39bdc6d5504b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
