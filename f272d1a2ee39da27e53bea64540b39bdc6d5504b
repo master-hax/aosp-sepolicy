@@ -184,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "32c21f32_abcf7b51",
+        "filename": "private/compat/32.0/32.0.cil",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-02-19T03:45:55Z",
+      "side": 1,
+      "message": "The attributes having suffix \"_32_0\" are from 32.0 policy. You are adding a new type in ToT. So both lines (having connectivity_native_service_32_0) shouldn\u0027t be added here, as it doesn\u0027t exist on 32.0 policy.\n\nInstead, what we want is a \"mapping\" from connectivity_native_service to one of types in 32.0. For example, if we write\n\n    (typeattributeset X_32_0 (X Y Z))\n    \nThis means that permissions granted to X in 32.0 policy will be automatically granted to X, Y and Z in ToT sepolicy. That is, ToT X, Y and Z is \"mapped\" to 32.0 X, on devices having 32.0 vendor.\n\nOr, if there are no suitable old types to be mapped, you add the new type to 32.0.ignore.cil. It means that \"we don\u0027t care about 32.0 policy; this type is new to ToT, and 32.0 vendor shouldn\u0027t be aware of this type\"\n\nIn conclusion, probably what you want here is to add connectivity_native_service to private/compat/32.0/32.0.ignore.cil, as this service is new and 32.0 vendor doesn\u0027t have any access to the service.",
+      "parentUuid": "7e04ef37_ab74d0e0",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 61
+      },
+      "revId": "f272d1a2ee39da27e53bea64540b39bdc6d5504b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dee0d6d5_0083c79b",
         "filename": "public/service.te",
         "patchSetId": 4
