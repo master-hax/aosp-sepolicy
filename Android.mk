@@ -341,7 +341,6 @@ ifneq ($(PRODUCT_SEPOLICY_SPLIT),true)
 # The following files are only allowed for non-Treble devices.
 LOCAL_REQUIRED_MODULES += \
     sepolicy \
-    vendor_service_contexts \
 
 endif # ($(PRODUCT_SEPOLICY_SPLIT),true)
 
@@ -501,6 +500,7 @@ LOCAL_REQUIRED_MODULES += \
     vendor_property_contexts_test \
     vendor_seapp_contexts \
     vendor_service_contexts \
+    vendor_service_contexts_test \
     vendor_hwservice_contexts \
     vendor_hwservice_contexts_test \
     vendor_bug_map \
@@ -532,32 +532,15 @@ include $(BUILD_PHONY_PACKAGE)
 # Policy files are now built with Android.bp. Grab them from intermediate.
 # See Android.bp for details of policy files.
 #
-reqd_policy_mask.cil := $(call intermediates-dir-for,ETC,reqd_policy_mask.cil)/reqd_policy_mask.cil
-
-pub_policy.cil := $(call intermediates-dir-for,ETC,pub_policy.cil)/pub_policy.cil
-system_ext_pub_policy.cil := $(call intermediates-dir-for,ETC,system_ext_pub_policy.cil)/system_ext_pub_policy.cil
-plat_pub_policy.cil := $(call intermediates-dir-for,ETC,plat_pub_policy.cil)/plat_pub_policy.cil
-
 built_plat_cil := $(call intermediates-dir-for,ETC,plat_sepolicy.cil)/plat_sepolicy.cil
-built_plat_mapping_cil := $(call intermediates-dir-for,ETC,plat_mapping_file)/plat_mapping_file
 
 ifdef HAS_SYSTEM_EXT_SEPOLICY
 built_system_ext_cil := $(call intermediates-dir-for,ETC,system_ext_sepolicy.cil)/system_ext_sepolicy.cil
-built_system_ext_mapping_cil := $(call intermediates-dir-for,ETC,system_ext_mapping_file)/system_ext_mapping_file
 endif # ifdef HAS_SYSTEM_EXT_SEPOLICY
 
 ifdef HAS_PRODUCT_SEPOLICY
 built_product_cil := $(call intermediates-dir-for,ETC,product_sepolicy.cil)/product_sepolicy.cil
-built_product_mapping_cil := $(call intermediates-dir-for,ETC,product_mapping_file)/product_mapping_file
 endif # ifdef HAS_PRODUCT_SEPOLICY
-
-built_pub_vers_cil := $(call intermediates-dir-for,ETC,plat_pub_versioned.cil)/plat_pub_versioned.cil
-
-built_vendor_cil := $(call intermediates-dir-for,ETC,vendor_sepolicy.cil)/vendor_sepolicy.cil
-
-ifdef BOARD_ODM_SEPOLICY_DIRS
-built_odm_cil := $(call intermediates-dir-for,ETC,odm_sepolicy.cil)/odm_sepolicy.cil
-endif
 
 built_sepolicy := $(call intermediates-dir-for,ETC,precompiled_sepolicy)/precompiled_sepolicy
 built_sepolicy_neverallows := $(call intermediates-dir-for,ETC,sepolicy_neverallows)/sepolicy_neverallows
@@ -681,9 +664,6 @@ file_contexts.local.tmp :=
 file_contexts.modules.tmp :=
 
 ##################################
-include $(LOCAL_PATH)/contexts_tests.mk
-
-##################################
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := vndservice_contexts
@@ -785,12 +765,6 @@ build_policy :=
 built_plat_cil :=
 built_system_ext_cil :=
 built_product_cil :=
-built_pub_vers_cil :=
-built_plat_mapping_cil :=
-built_system_ext_mapping_cil :=
-built_product_mapping_cil :=
-built_vendor_cil :=
-built_odm_cil :=
 built_sepolicy :=
 built_sepolicy_neverallows :=
 built_plat_svc :=
@@ -798,12 +772,7 @@ built_vendor_svc :=
 treble_sysprop_neverallow :=
 enforce_sysprop_owner :=
 enforce_debugfs_restriction :=
-mapping_policy :=
 my_target_arch :=
-pub_policy.cil :=
-system_ext_pub_policy.cil :=
-plat_pub_policy.cil :=
-reqd_policy_mask.cil :=
 sepolicy_build_files :=
 sepolicy_build_cil_workaround_files :=
 with_asan :=
