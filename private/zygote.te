@@ -188,6 +188,7 @@ get_prop(zygote, storage_config_prop);
 # Let the zygote access overlays so it can initialize the AssetManager.
 get_prop(zygote, overlay_prop)
 get_prop(zygote, exported_overlay_prop)
+get_prop(zygote, pointer_auth_prop)
 
 # Allow the zygote to access the runtime feature flag properties.
 get_prop(zygote, device_config_runtime_native_prop)
