@@ -1119,6 +1119,11 @@ allow system_server debugfs_bootreceiver_tracing:file r_file_perms;
 # Allow system_server to read tracepoint ids in order to attach BPF programs to them.
 allow system_server debugfs_tracing:file r_file_perms;
 
+# Allow system_server BinderProcsCollector to read binder information.
+allow system_server binderfs_logs:dir r_dir_perms;
+allow system_server binderfs_logs:file r_file_perms;
+allow system_server binderfs_logs_proc:file r_file_perms;
+
 # allow system_server to exec shell, asanwrapper & zygote(app_process) on ASAN builds. Needed to run
 # asanwrapper.
 with_asan(`
