@@ -34,6 +34,8 @@ allow virtualizationservice virtualizationservice_data_file:dir create_dir_perms
 allow virtualizationservice adbd:fd use;
 allow virtualizationservice adbd:unix_stream_socket { read write };
 
+allow virtualizationservice composd:fifo_file { getattr write};
+
 # Let virtualizationservice read and write files from its various clients, but not open them
 # directly as they must be passed over Binder by the client.
 allow virtualizationservice apk_data_file:file { getattr read };
