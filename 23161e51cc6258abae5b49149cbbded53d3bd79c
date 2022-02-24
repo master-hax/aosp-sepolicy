@@ -166,6 +166,30 @@
       },
       "revId": "23161e51cc6258abae5b49149cbbded53d3bd79c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65219aec_2b0c2b38",
+        "filename": "public/te_macros",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-24T10:06:50Z",
+      "side": 1,
+      "message": "vm doesn\u0027t create a pipe - it uses either a file or its own stdout (which is covered by the adbd grant, I guess?): https://cs.android.com/android/platform/superproject/+/master:packages/modules/Virtualization/vm/src/run.rs;drc\u003db7983a2683ffb5ce6fea51d8de38a15c31323f67;l\u003d171\n\nAnd the demo app works because of this: https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/private/binderservicedomain.te;drc\u003d144c822018006244e6cb4f3a538fbb13df56d058;l\u003d15\n\n(I admit I\u0027d never have guessed that one - I had to use sesearch.)",
+      "parentUuid": "a6fda83b_3e567e45",
+      "range": {
+        "startLine": 195,
+        "startChar": 8,
+        "endLine": 195,
+        "endChar": 29
+      },
+      "revId": "23161e51cc6258abae5b49149cbbded53d3bd79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
