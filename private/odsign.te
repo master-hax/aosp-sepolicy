@@ -65,5 +65,5 @@ neverallow { domain -odsign -init } odsign_prop:property_service set;
 set_prop(odsign, ctl_odsign_prop)
 
 # Neverallows
-neverallow { domain -odsign -init -fsverity_init } odsign_data_file:dir *;
-neverallow { domain -odsign -init -fsverity_init } odsign_data_file:file *;
+neverallow { domain -odsign -init -fsverity_init -system_server } odsign_data_file:dir *;
+neverallow { domain -odsign -init -fsverity_init -system_server } odsign_data_file:file *;
