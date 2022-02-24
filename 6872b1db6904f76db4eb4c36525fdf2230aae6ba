@@ -46,7 +46,30 @@
       },
       "revId": "6872b1db6904f76db4eb4c36525fdf2230aae6ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84ff37d3_c11fa024",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2022-02-24T16:48:01Z",
+      "side": 1,
+      "message": "Ah! You\u0027re right!\n\nHere\u0027s a strace of `atrace --list_categories`: https://paste.googleplex.com/6753935541927936\n\nI thought the culprit was:\n\n```\nfcntl(0, F_GETFL)                       \u003d 0x20002 (flags O_RDWR|O_LARGEFILE)\nfcntl(1, F_GETFL)                       \u003d 0x20002 (flags O_RDWR|O_LARGEFILE)\nfcntl(2, F_GETFL)                       \u003d 0x20002 (flags O_RDWR|O_LARGEFILE)\n```\n\nI found that piece of code in bionic and I thought that was it.\n\nBut as you point out that fcntl failing would kill the program.\n\nLooking at the strace, the next syscall that involves 0,1,2 file descriptors is:\n\n```\nfstat(1, {st_mode\u003dS_IFCHR|0600, st_rdev\u003dmakedev(136, 0), ...}) \u003d 0\n```\n\nI can run with lldb and break on fstat (`lldbclient.py -r atrace --list_categories`):\n\nHere\u0027s the stack trace:\n\n```\n(lldb) bt\n* thread #1, name \u003d \u0027atrace\u0027, stop reason \u003d breakpoint 2.1\n  * frame #0: 0x0000007fef5710b4 libc.so`fstat at syscalls-arm64.S:1282\n    frame #1: 0x0000007fef56c234 libc.so`__smakebuf [inlined] __swhatbuf(fp\u003d0x0000007fef594e50, bufsize\u003d\u003cunavailable\u003e, couldbetty\u003d\u003cunavailable\u003e) at makebuf.c:84:23\n    frame #2: 0x0000007fef56c210 libc.so`__smakebuf(fp\u003d0x0000007fef594e50) at makebuf.c:61:10\n    frame #3: 0x0000007fef56da90 libc.so`__swsetup(fp\u003d0x0000007fef594e50) at wsetup.c:73:3\n    frame #4: 0x0000007fef55f924 libc.so`::__vfprintf(fp\u003d0x0000007fef594e50, fmt0\u003d\"  %10s - %s\\n\", ap\u003d(__stack \u003d 0x0000007fffffde30, __gr_top \u003d 0x0000007fffffdd90, __vr_top \u003d 0x0000007fffffdd50, __gr_offs \u003d -56, __vr_offs \u003d -128)) at vfprintf.cpp:139:7\n    frame #5: 0x0000007fef57ee3c libc.so`::printf(const char *, ...) [inlined] vfprintf(fp\u003d\u003cunavailable\u003e, fmt\u003d\u003cunavailable\u003e, ap\u003d(__stack \u003d 0x0000007fffffde30, __gr_top \u003d 0x0000007fffffdd90, __vr_top \u003d 0x0000007fffffdd50, __gr_offs \u003d -56, __vr_offs \u003d -128)) at stdio.cpp:991:10\n    frame #6: 0x0000007fef57ee18 libc.so`::printf(fmt\u003d\"  %10s - %s\\n\") at stdio.cpp:891:3\n    frame #7: 0x000000555555f0b8 atrace`listSupportedCategories() at atrace.cpp:1054:13\n    frame #8: 0x000000555555ec2c atrace`main(argc\u003d2, argv\u003d0x0000007fffffefc8) at atrace.cpp:1296:21\n    frame #9: 0x0000007fef518dec libc.so`::__libc_init(raw_args\u003d\u003cunavailable\u003e, onexit\u003d\u003cunavailable\u003e, slingshot\u003d(atrace`main at atrace.cpp:1190), structors\u003d\u003cunavailable\u003e)(), int (*)(int, char **, char **), const structors_array_t *const) at libc_init_dynamic.cpp:157:8\n\n```\n\nThe first time printf is called, it does an fstat on stdout.\n\nI think this explains it. To be 100% sure, there would need to be a tool that allowed breakpoints or collecting stacktraces on SELinux denials. I guess kprobes could work, but I figured I wasted enough time on this :-D",
+      "parentUuid": "3811d3e0_fffefda9",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 22
+      },
+      "revId": "6872b1db6904f76db4eb4c36525fdf2230aae6ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
-  ],
-  "submitRequirementResults": []
+  ]
 }
