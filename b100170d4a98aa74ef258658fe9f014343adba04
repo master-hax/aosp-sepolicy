@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2dcf3c16_ea36e0f2",
+        "filename": "vendor/hal_drm_clearkey.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-02-24T01:52:40Z",
+      "side": 1,
+      "message": "also do we need \u0027shell\u0027 for this? Can we run \u0027dumpsys\u0027 as \u0027adb root\u0027. Test \u0027adb bugreport\u0027 to see the dump of the service during bugreport",
+      "range": {
+        "startLine": 8,
+        "startChar": 28,
+        "endLine": 8,
+        "endChar": 33
+      },
+      "revId": "b100170d4a98aa74ef258658fe9f014343adba04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "93dc3fe7_c806ab1a",
         "filename": "vendor/hal_drm_default.te",
         "patchSetId": 3
@@ -38,6 +61,30 @@
       "side": 1,
       "message": "I do not think it is needed, but it shows up with audit2allow. I will remove it.",
       "parentUuid": "93dc3fe7_c806ab1a",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 53
+      },
+      "revId": "b100170d4a98aa74ef258658fe9f014343adba04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4f8faed_0a7d4820",
+        "filename": "vendor/hal_drm_default.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-02-24T01:52:40Z",
+      "side": 1,
+      "message": "You can try removing libbinder (the vendor variant, not libbinder_ndk) from the process. It might exist from legacy code.",
+      "parentUuid": "022d5f02_0d715322",
       "range": {
         "startLine": 10,
         "startChar": 0,
