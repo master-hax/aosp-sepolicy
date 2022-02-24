@@ -221,6 +221,10 @@ allow system_server proc_sysrq:file rw_file_perms;
 allow system_server stats_data_file:dir { open read remove_name search write };
 allow system_server stats_data_file:file unlink;
 
+#read metric file & upload to statsd
+ allow system_server odsign_data_file:dir { open read search write };
+ allow system_server odsign_data_file:file { open read getattr write };
+
 # Read /sys/kernel/debug/wakeup_sources.
 no_debugfs_restriction(`
   allow system_server debugfs_wakeup_sources:file r_file_perms;
