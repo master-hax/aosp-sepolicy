@@ -46,6 +46,30 @@
       },
       "revId": "23161e51cc6258abae5b49149cbbded53d3bd79c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f16c54fa_d924f21b",
+        "filename": "public/te_macros",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-24T09:05:46Z",
+      "side": 1,
+      "message": "The client passes the FD to VS which then passes it to crosvm.\nAccess for FDs is checked on open not on read/write, so for VS to simply have an FD open with write access it needs write permission.\n(And the client doesn\u0027t really care.)",
+      "parentUuid": "1d790e3c_d01f7b48",
+      "range": {
+        "startLine": 195,
+        "startChar": 8,
+        "endLine": 195,
+        "endChar": 29
+      },
+      "revId": "23161e51cc6258abae5b49149cbbded53d3bd79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
