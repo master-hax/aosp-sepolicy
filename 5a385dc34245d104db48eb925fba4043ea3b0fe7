@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c227fb86_9d5f6217",
+        "filename": "prebuilts/api/31.0/private/odsign.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-28T17:40:56Z",
+      "side": 1,
+      "message": "You shouldn\u0027t be changing these prebuilts; this is what we shipped in older Android versions, and we can\u0027t change it retrospectively.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 10
+      },
+      "revId": "5a385dc34245d104db48eb925fba4043ea3b0fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "763ad40d_80b011c2",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-28T17:40:56Z",
+      "side": 1,
+      "message": "I\u0027d much rather you created a new label (and probably directory) for the metric files, since they are less sensitive and have different usage characteristics.",
+      "range": {
+        "startLine": 225,
+        "startChar": 21,
+        "endLine": 225,
+        "endChar": 37
+      },
+      "revId": "5a385dc34245d104db48eb925fba4043ea3b0fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8e14408_564e1474",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-28T17:40:56Z",
+      "side": 1,
+      "message": "You probably only need x on the directory\n(And definitely not open or write, I think - unless you need to remove files, in which case you need other permissions)",
+      "range": {
+        "startLine": 225,
+        "startChar": 43,
+        "endLine": 225,
+        "endChar": 67
+      },
+      "revId": "5a385dc34245d104db48eb925fba4043ea3b0fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "858402c3_600ca1cd",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-28T17:40:56Z",
+      "side": 1,
+      "message": "Why write?\nThis should probably be r_file_perms",
+      "range": {
+        "startLine": 226,
+        "startChar": 45,
+        "endLine": 226,
+        "endChar": 68
+      },
+      "revId": "5a385dc34245d104db48eb925fba4043ea3b0fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
