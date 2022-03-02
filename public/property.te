@@ -207,6 +207,7 @@ system_public_prop(log_tag_prop)
 system_public_prop(lowpan_prop)
 system_public_prop(nfc_prop)
 system_public_prop(ota_prop)
+system_public_prop(persist_wm_debug_prop)
 system_public_prop(powerctl_prop)
 system_public_prop(qemu_hw_prop)
 system_public_prop(qemu_sf_lcd_density_prop)
@@ -222,6 +223,10 @@ system_public_prop(wifi_hal_prop)
 system_public_prop(wifi_log_prop)
 system_public_prop(wifi_prop)
 system_public_prop(zram_control_prop)
+
+neverallow {
+    domain -init -shell -system_app
+} {persist_wm_debug_prop}:property_service set;
 
 # Properties which don't have entries on property_contexts
 system_internal_prop(default_prop)
