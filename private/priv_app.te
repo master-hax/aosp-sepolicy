@@ -272,3 +272,6 @@ neverallow priv_app app_data_file:lnk_file { open read getattr };
 
 # Allow reporting off body events to keystore.
 allow priv_app keystore:keystore2 report_off_body;
+
+# Allow read access to wm/shell system properties
+get_prop(priv_app, persist_wm_debug_prop)
