@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ae26aa84_c9813ff9",
+        "filename": "private/priv_app.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-03-03T18:37:14Z",
+      "side": 1,
+      "message": "I\u0027m not sure that that\u0027s true. You can add it to private/app.te to make it readable to all apps. e.g.\n\nget_prop(appdomain, persist_wm_debug_prop)\n\nIs that sufficient? Do other things need to read it e.g. system_server?",
+      "parentUuid": "4d2e3c08_cce2ab99",
+      "range": {
+        "startLine": 277,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 8
+      },
+      "revId": "32f374b355453f2983173409eafc65792a20b340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3002092f_c052567c",
         "filename": "private/shell.te",
         "patchSetId": 5
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "systemui is system_ext/ so wouldn\u0027t restricted_prop prevent it from being written by systemui?",
       "parentUuid": "8eaafe39_adfae652",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 18
+      },
+      "revId": "32f374b355453f2983173409eafc65792a20b340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33684bcd_284ee503",
+        "filename": "public/property.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-03-03T18:37:14Z",
+      "side": 1,
+      "message": "Let\u0027s get input from Inseob and Jiyong. I\u0027m not sure what the right answer is here, but they\u0027ll know.\n\nInseob and Jiyong, FYI, this is moving a property from persist_debug_prop to a separate property.",
+      "parentUuid": "13e1e17f_dee1a162",
       "range": {
         "startLine": 210,
         "startChar": 0,
