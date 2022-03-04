@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7724f8f2_81c9144e",
+        "filename": "private/platform_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1240085
+      },
+      "writtenOn": "2022-03-04T03:21:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa7c0ea5_a44a3ec6",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 45
+      },
+      "revId": "06cb3b4789677339366306fcc66c247131043aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a411f914_42ccd5e6",
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3740d942_fb37cdd1",
+        "filename": "private/platform_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1240085
+      },
+      "writtenOn": "2022-03-04T03:21:13Z",
+      "side": 1,
+      "message": "This seems to create a bunch of violations: specifically, with this rule in place, nothing can { read open } this. Even if we don\u0027t want to set it in release, I think things need to be able to read it?",
+      "parentUuid": "a411f914_42ccd5e6",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 2
+      },
+      "revId": "06cb3b4789677339366306fcc66c247131043aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e82dfb0_ab143818",
         "filename": "private/shell.te",
         "patchSetId": 6
@@ -60,6 +108,30 @@
       "writtenOn": "2022-03-04T01:47:32Z",
       "side": 1,
       "message": "userdebug_or_eng?",
+      "range": {
+        "startLine": 232,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 38
+      },
+      "revId": "06cb3b4789677339366306fcc66c247131043aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "247f6fa3_4d79d1a6",
+        "filename": "private/shell.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1240085
+      },
+      "writtenOn": "2022-03-04T03:21:13Z",
+      "side": 1,
+      "message": "I thought we are trying to mimic persist_debug_prop which can allegedly be set in release?\n\nIf not, I can add userdebug_or_eng back.",
+      "parentUuid": "3e82dfb0_ab143818",
       "range": {
         "startLine": 232,
         "startChar": 0,
