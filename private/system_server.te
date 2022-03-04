@@ -8,6 +8,7 @@ typeattribute system_server mlstrustedsubject;
 typeattribute system_server scheduler_service_server;
 typeattribute system_server sensor_service_server;
 typeattribute system_server stats_service_server;
+typeattribute system_server bpfdomain;
 
 # Define a type for tmpfs-backed ashmem regions.
 tmpfs_domain(system_server)
@@ -74,6 +75,12 @@ allow system_server sysfs_fs_f2fs:file r_file_perms;
 # For art.
 allow system_server { apex_art_data_file dalvikcache_data_file }:dir r_dir_perms;
 allow system_server { apex_art_data_file dalvikcache_data_file }:file r_file_perms;
+
+# Ignore the denial on `system@framework@com.android.location.provider.jar@classes.odex`.
+# `com.android.location.provider.jar` happens to be both a jar on system server classpath and a
+# shared library used by a system server app. The odex file is loaded fine by Zygote when it forks
+# system_server. It fails to be loaded when the jar is used as a shared library, which is expected.
+dontaudit system_server apex_art_data_file:file execute;
 
 # For release odex/vdex compress blocks
 allowxperm system_server dalvikcache_data_file:file ioctl {
@@ -698,6 +705,7 @@ set_prop(system_server, boot_status_prop)
 set_prop(system_server, surfaceflinger_color_prop)
 set_prop(system_server, provisioned_prop)
 set_prop(system_server, retaildemo_prop)
+set_prop(system_server, dmesgd_start_prop)
 userdebug_or_eng(`set_prop(system_server, wifi_log_prop)')
 
 # ctl interface
@@ -1330,6 +1338,19 @@ allow system_server apex_module_data_file:dir { getattr search };
 # These are modules where the code runs in system_server, so we need full access.
 allow system_server apex_system_server_data_file:dir create_dir_perms;
 allow system_server apex_system_server_data_file:file create_file_perms;
+# Legacy labels that we still need to support (b/217581286)
+allow system_server {
+  apex_appsearch_data_file
+  apex_permission_data_file
+  apex_scheduling_data_file
+  apex_wifi_data_file
+}:dir create_dir_perms;
+allow system_server {
+  apex_appsearch_data_file
+  apex_permission_data_file
+  apex_scheduling_data_file
+  apex_wifi_data_file
+}:file create_file_perms;
 
 # Allow PasswordSlotManager rw access to /metadata/password_slots, so GSIs and the host image can
 # communicate which slots are available for use.

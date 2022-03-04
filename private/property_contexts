@@ -588,6 +588,7 @@ ro.lmk.low                      u:object_r:lmkd_config_prop:s0 exact int
 ro.lmk.medium                   u:object_r:lmkd_config_prop:s0 exact int
 ro.lmk.psi_partial_stall_ms     u:object_r:lmkd_config_prop:s0 exact int
 ro.lmk.psi_complete_stall_ms    u:object_r:lmkd_config_prop:s0 exact int
+ro.lmk.stall_limit_critical     u:object_r:lmkd_config_prop:s0 exact int
 ro.lmk.swap_free_low_percentage u:object_r:lmkd_config_prop:s0 exact int
 ro.lmk.swap_util_max            u:object_r:lmkd_config_prop:s0 exact int
 ro.lmk.thrashing_limit          u:object_r:lmkd_config_prop:s0 exact int
@@ -651,6 +652,8 @@ vold.post_fs_data_done u:object_r:vold_post_fs_data_prop:s0 exact int
 apexd.payload_metadata.path u:object_r:apexd_payload_metadata_prop:s0 exact string
 apexd.status u:object_r:apexd_prop:s0 exact enum starting activated ready
 
+dmesgd.start u:object_r:dmesgd_start_prop:s0 exact bool
+
 odsign.key.done u:object_r:odsign_prop:s0 exact bool
 odsign.verification.done u:object_r:odsign_prop:s0 exact bool
 odsign.verification.success u:object_r:odsign_prop:s0 exact bool
@@ -708,6 +711,7 @@ libc.debug.hooks.enable   u:object_r:libc_debug_prop:s0 exact string
 # shell-only props for ARM memory tagging (MTE).
 arm64.memtag. u:object_r:arm64_memtag_prop:s0 prefix string
 persist.arm64.memtag.default u:object_r:arm64_memtag_prop:s0 exact string
+persist.arm64.memtag.app_default u:object_r:arm64_memtag_prop:s0 exact string
 
 net.redirect_socket_calls.hooked u:object_r:socket_hook_prop:s0 exact bool
 
