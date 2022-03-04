@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0663549_acdb9619",
+        "filename": "private/platform_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1240085
+      },
+      "writtenOn": "2022-03-04T18:54:05Z",
+      "side": 1,
+      "message": "It\u0027s supposed to be same as `persist_debug_prop`. And yah usually debug, but that doesn\u0027t change the fact that we have code reading the property in release build (since it\u0027s java, we can\u0027t #ifdef it out or anything). There\u0027s also some use-cases where OEMs may turn on features early (via config) if they don\u0027t mind doing their own debugging.\n\nTBH I don\u0027t know the naming conventions well here. WM usually uses these properties on features which are in development (ie. the flag exists during development so that some people can enable it to test/work; then we turn on the flag by default, then when stable, we will remove the flag). Like I mentioned before, sometimes there are features that OEMs might enable earlier for particular use-cases. If you have suggestions for a better name to reflect those use-cases, I\u0027m happy to change it.\n\nBTW I added the new neverallow on set -- seems to work.",
+      "parentUuid": "2b0bf72e_a311f0dd",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 2
+      },
+      "revId": "06cb3b4789677339366306fcc66c247131043aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e82dfb0_ab143818",
         "filename": "private/shell.te",
         "patchSetId": 6
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "I\u0027m just worried that this prop is then used like a convenient global variable, hard to keep stability. However, it\u0027s up to you. If you don\u0027t care about compatibility, then I\u0027m fine.",
       "parentUuid": "247f6fa3_4d79d1a6",
+      "range": {
+        "startLine": 232,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 38
+      },
+      "revId": "06cb3b4789677339366306fcc66c247131043aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc0b4b52_ad223bb0",
+        "filename": "private/shell.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1240085
+      },
+      "writtenOn": "2022-03-04T18:54:05Z",
+      "side": 1,
+      "message": "Ah it looks like persist_debug_prop is also useredbug_or_eng, so I\u0027ll add it back to match that.",
+      "parentUuid": "f4c0c05c_b7068d53",
       "range": {
         "startLine": 232,
         "startChar": 0,
