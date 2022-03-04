@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa7c0ea5_a44a3ec6",
+        "filename": "private/platform_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-03-04T01:47:32Z",
+      "side": 1,
+      "message": "remove this?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 45
+      },
+      "revId": "06cb3b4789677339366306fcc66c247131043aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a411f914_42ccd5e6",
+        "filename": "private/platform_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-03-04T01:47:32Z",
+      "side": 1,
+      "message": "I would add neverallow to ensure this only works in userdebug. Like,\n\n    neverallow { domain -init -dumpstate userdebug_or_eng(`-domain\u0027) } persist_wm_debug_prop:file no_rw_file_perms;",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 2
+      },
+      "revId": "06cb3b4789677339366306fcc66c247131043aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e82dfb0_ab143818",
+        "filename": "private/shell.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-03-04T01:47:32Z",
+      "side": 1,
+      "message": "userdebug_or_eng?",
+      "range": {
+        "startLine": 232,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 38
+      },
+      "revId": "06cb3b4789677339366306fcc66c247131043aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
