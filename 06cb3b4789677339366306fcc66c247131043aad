@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b0bf72e_a311f0dd",
+        "filename": "private/platform_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-03-04T04:02:28Z",
+      "side": 1,
+      "message": "Well, does that mean that this prop named \"debug\" is actually used in the release? If it\u0027s the case, I find it\u0027s confusing.\n\nAnyway, then use this neverallow:\n\n    neverallow { domain -init -dumpstate userdebug_or_eng(`-domain\u0027) } persist_wm_debug_prop:property_service set;",
+      "parentUuid": "3740d942_fb37cdd1",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 2
+      },
+      "revId": "06cb3b4789677339366306fcc66c247131043aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e82dfb0_ab143818",
         "filename": "private/shell.te",
         "patchSetId": 6
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "I thought we are trying to mimic persist_debug_prop which can allegedly be set in release?\n\nIf not, I can add userdebug_or_eng back.",
       "parentUuid": "3e82dfb0_ab143818",
+      "range": {
+        "startLine": 232,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 38
+      },
+      "revId": "06cb3b4789677339366306fcc66c247131043aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4c0c05c_b7068d53",
+        "filename": "private/shell.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-03-04T04:02:28Z",
+      "side": 1,
+      "message": "I\u0027m just worried that this prop is then used like a convenient global variable, hard to keep stability. However, it\u0027s up to you. If you don\u0027t care about compatibility, then I\u0027m fine.",
+      "parentUuid": "247f6fa3_4d79d1a6",
       "range": {
         "startLine": 232,
         "startChar": 0,
