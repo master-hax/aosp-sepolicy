@@ -145,6 +145,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "59db0314_36bbd886",
+        "filename": "private/platform_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-03-07T01:26:29Z",
+      "side": 1,
+      "message": "The neverallow rule seems concrete, so LGTM. Let me ask just one more question, as I don\u0027t want to block you forever..\n\n\u003e It\u0027s supposed to be same as  persist_debug_prop. And yah usually debug, but that doesn\u0027t change the fact that we have code reading the property in release build (since it\u0027s java, we can\u0027t #ifdef it out or anything). There\u0027s also some use-cases where OEMs may turn on features early (via config) if they don\u0027t mind doing their own debugging.\n\n\u003e ie. the flag exists during development so that some people can enable it to test/work; then we turn on the flag by default, then when stable, we will remove the flag\n\nWe can\u0027t easily remove a type in system/sepolicy/public once added. If a partner write sepolicy rules about persist_wm_debug_prop, removing it will break their code. Why don\u0027t we just use persist_debug_prop, which is meant to be unstable? Or do you plan to add more debug/test wm properties?\n\n\u003e If you have suggestions for a better name to reflect those use-cases, I\u0027m happy to change it.\n\nI don\u0027t have one. However, thinking again, persist_wm_debug_prop is, at least, more fine-grained than just persist_debug_prop, so I think it\u0027s fine.",
+      "parentUuid": "d0663549_acdb9619",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 2
+      },
+      "revId": "06cb3b4789677339366306fcc66c247131043aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e82dfb0_ab143818",
         "filename": "private/shell.te",
         "patchSetId": 6
