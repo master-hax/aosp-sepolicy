@@ -169,6 +169,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "59521e51_a4aa850d",
+        "filename": "private/platform_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1240085
+      },
+      "writtenOn": "2022-03-07T17:28:38Z",
+      "side": 1,
+      "message": "\u003e If a partner write sepolicy rules about persist_wm_debug_prop\n\nThis is one of the expected use-cases. Partners tend to be a little more experimental with windowing features and sometimes those features require enabling things earlier than we do.\n\nIs there a way to prevent them from writing sepolicy rules while still allowing their configs to read/write the properties?\n\nIf I move `system_restricted_prop` line from public to privet/property.te will that work? Will they still be able to read it?\n\n\u003e Why don\u0027t we just use persist_debug_prop\n\nThis is what we were/are doing; however, we wanted to support switching our flags via FlagFlipper which is through system-ui -- since this makes it easier for the team to test/compare things. Since we didn\u0027t want to open up all of persist_debug_prop to systemui, it was suggested we make a \"subgroup\" of persist_debug_prop for these flags. That\u0027s what this mostly is.\n\n\u003e do you plan to add more debug/test wm properties?\n\nI think WM will probably switch to moving most of their properties to this \"subgroup\" so that they can be switchable via UI.",
+      "parentUuid": "59db0314_36bbd886",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 2
+      },
+      "revId": "06cb3b4789677339366306fcc66c247131043aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e82dfb0_ab143818",
         "filename": "private/shell.te",
         "patchSetId": 6
