@@ -87,6 +87,41 @@
       "parentUuid": "a56bd8ee_bc036194",
       "revId": "2a017b61a62376e36d505dc8961f62d7a6d4d1fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc47627d_bd97ce3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-03-09T17:25:51Z",
+      "side": 1,
+      "message": "Victor, let\u0027s not remove the policy from odrefresh yet. It\u0027s not certain if we would require invoking userfaultfd syscal in there or not.",
+      "revId": "2a017b61a62376e36d505dc8961f62d7a6d4d1fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac81d7a9_35e5eb37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-03-09T17:25:51Z",
+      "side": 1,
+      "message": "On the device dex2oat would know it just like it knows today that it needs to emit read-barriers using the runtime flags.\n\nIt would be trickier during build on host. We would require using device property to know that the build is for first_api_version \u003e\u003d 31, in which case we would not emit read-barrier, otherwise we would.\n\nRegarding odrefresh, given what you said, I think we should keep the selinux policy for a while, until we are certain if odrefresh may ever require doing userfaultfd or not.",
+      "parentUuid": "9ca49a67_08597659",
+      "revId": "2a017b61a62376e36d505dc8961f62d7a6d4d1fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
