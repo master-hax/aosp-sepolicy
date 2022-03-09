@@ -140,6 +140,24 @@
       "parentUuid": "ac81d7a9_35e5eb37",
       "revId": "2a017b61a62376e36d505dc8961f62d7a6d4d1fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb439811_02b18768",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-09T18:05:22Z",
+      "side": 1,
+      "message": "There is an idea about odrefresh checking device\u0027s userfaultfd capability and re-compiling things on the first boot if the build system didn\u0027t generate the right compilation artifacts (e.g., the build system generated compilation artifacts with userfaultfd gc turned on, while the device actually doesn\u0027t support userfaultfd).\n\nWe hope that the build system always generates the right compilation artifacts, and we never do this check in odrefresh. Compilation on the first boot is the last thing we want to do because it has a lot of drawbacks. What I said above is just an idea, not something we planned to implement. However, we\u0027d like to keep the selinux policy for odrefresh so that implementing it is possible.",
+      "parentUuid": "ca383706_3d710cff",
+      "revId": "2a017b61a62376e36d505dc8961f62d7a6d4d1fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
