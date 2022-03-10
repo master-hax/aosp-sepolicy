@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8caf6b36_d2a89783",
+        "filename": "private/app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1494236
+      },
+      "writtenOn": "2022-03-10T17:19:07Z",
+      "side": 1,
+      "message": "I kept it for consistency, I don\u0027t know enough about our SELinux model to reason if removing does not have a security impact. If not, I can remove.",
+      "parentUuid": "67dc9328_8e5bf29a",
+      "range": {
+        "startLine": 151,
+        "startChar": 18,
+        "endLine": 151,
+        "endChar": 33
+      },
+      "revId": "656a3ec14d0caebe2caeed61e5472b39b4235b8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1bcae761_46b40ead",
         "filename": "private/app.te",
         "patchSetId": 4
@@ -90,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c4aaa9d_ab834d45",
+        "filename": "private/app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1494236
+      },
+      "writtenOn": "2022-03-10T17:19:07Z",
+      "side": 1,
+      "message": "What do you mean by the permission is doubled? Where is it doubled against?",
+      "parentUuid": "1bcae761_46b40ead",
+      "range": {
+        "startLine": 459,
+        "startChar": 0,
+        "endLine": 459,
+        "endChar": 66
+      },
+      "revId": "656a3ec14d0caebe2caeed61e5472b39b4235b8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2f34c5c_749f91a7",
         "filename": "private/mediaserver.te",
         "patchSetId": 4
@@ -101,6 +149,30 @@
       "writtenOn": "2022-02-23T23:48:52Z",
       "side": 1,
       "message": "nit: given that we have a few copies of this, consider te_macro maybe \u0027audio_shared_memory_user\u0027?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 68
+      },
+      "revId": "656a3ec14d0caebe2caeed61e5472b39b4235b8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0e7933d_86c00784",
+        "filename": "private/mediaserver.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1494236
+      },
+      "writtenOn": "2022-03-10T17:19:07Z",
+      "side": 1,
+      "message": "Ack, will take a look at defining a macro. What is the intended code location for definitions of macros like this?",
+      "parentUuid": "b2f34c5c_749f91a7",
       "range": {
         "startLine": 23,
         "startChar": 0,
