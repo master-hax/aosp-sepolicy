@@ -599,7 +599,7 @@ neverallow {
   domain
 } ashmem_device:chr_file open;
 
-neverallow { domain -init -vendor_init } debugfs_tracing_printk_formats:file *;
+neverallow { domain -traced_probes -init -vendor_init } debugfs_tracing_printk_formats:file *;
 
 # Linux lockdown "integrity" level is enforced for user builds.
 neverallow { domain userdebug_or_eng(`-domain') } self:lockdown integrity;
