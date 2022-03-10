@@ -1,0 +1,7 @@
+type traced_exec, system_file_type, exec_type, file_type;
+
+# Allow init to exec the daemon.
+init_daemon_domain(traced)
+
+allow traced property_socket:sock_file write;
+allow traced init:unix_stream_socket connectto;
