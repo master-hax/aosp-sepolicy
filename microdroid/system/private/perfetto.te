@@ -1,0 +1,51 @@
+# Perfetto command-line client. Can be used only from the domains that are
+# explicitly allowlisted with a domain_auto_trans(X, perfetto_exec, perfetto).
+# This command line client accesses the privileged socket of the traced
+# daemon.
+
+type perfetto_exec, system_file_type, exec_type, file_type;
+type perfetto_tmpfs, file_type;
+
+tmpfs_domain(perfetto);
+
+# Allow init to start a trace (for perfetto_boottrace).
+init_daemon_domain(perfetto)
+
+# Allow to access traced's privileged consumer socket.
+unix_socket_connect(perfetto, traced_consumer, traced)
+
+# Connect to the Perfetto traced daemon as a producer. This requires
+# connecting to its producer socket and obtaining a (per-process) tmpfs fd.
+perfetto_producer(perfetto)
+
+# Allow to write and unlink traces into /data/misc/perfetto-traces.
+allow perfetto perfetto_traces_data_file:dir rw_dir_perms;
+allow perfetto perfetto_traces_data_file:file create_file_perms;
+
+# Allow perfetto to read the trace config from /data/misc/perfetto-configs.
+# shell and adb can write files into that directory.
+allow perfetto perfetto_configs_data_file:dir r_dir_perms;
+allow perfetto perfetto_configs_data_file:file r_file_perms;
+
+# Allow to communicate use, read and write over the adb connection.
+allow perfetto adbd:fd use;
+allow perfetto adbd:unix_stream_socket { read write };
+
+# Allow adbd to reap perfetto.
+allow perfetto adbd:process { sigchld };
+
+# Allow perfetto to write to statsd.
+unix_socket_send(perfetto, statsdw, statsd)
+
+# Allow to access /dev/pts when launched in an adb shell.
+allow perfetto devpts:chr_file rw_file_perms;
+
+# perfetto log formatter calls isatty() on its stderr. Denial when running
+# under adbd is harmless. Avoid generating denial logs.
+dontaudit perfetto adbd:unix_stream_socket getattr;
+dontauditxperm perfetto adbd:unix_stream_socket ioctl unpriv_tty_ioctls;
+# As above, when adbd is running in "su" domain (only the ioctl is denied in
+# practice).
+dontauditxperm perfetto su:unix_stream_socket ioctl unpriv_tty_ioctls;
+# Similarly, CTS tests end up hitting a denial on shell pipes.
+dontauditxperm perfetto shell:fifo_file ioctl unpriv_tty_ioctls;
