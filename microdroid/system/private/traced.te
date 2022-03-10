@@ -1,0 +1,44 @@
+# Perfetto user-space tracing daemon (unprivileged)
+
+# type traced is defined under /public (because iorapd rules
+# under public/ need to refer to it).
+type traced_exec, system_file_type, exec_type, file_type;
+
+# Allow init to exec the daemon.
+init_daemon_domain(traced)
+tmpfs_domain(traced)
+
+# Allow traced to start with a lower scheduling class and change
+# class accordingly to what defined in the config provided by
+# the privileged process that controls it.
+allow traced self:global_capability_class_set { sys_nice };
+
+# Allow to pass a file descriptor for the output trace from "perfetto" (the
+# cmdline client) and other shell binaries to traced and let traced write
+# directly into that (rather than returning the trace contents over the socket).
+allow traced perfetto:fd use;
+allow traced shell:fd use;
+allow traced shell:fifo_file { read write };
+
+# Allow the service to create new files within /data/misc/perfetto-traces.
+allow traced perfetto_traces_data_file:file create_file_perms;
+allow traced perfetto_traces_data_file:dir rw_dir_perms;
+# ... and /data/misc/perfetto-traces/bugreport*
+allow traced perfetto_traces_bugreport_data_file:file create_file_perms;
+allow traced perfetto_traces_bugreport_data_file:dir rw_dir_perms;
+
+# Allow traced to use shared memory supplied by producers. Typically, traced
+# (i.e. the tracing service) creates the shared memory used for data transfer
+# from the producer. This rule allows an alternative scheme, where the producer
+# creates the shared memory, that is then adopted by traced (after validating
+# that it is appropriately sealed).
+# This list has to replicate the tmpfs domains of all applicable domains that
+# have perfetto_producer() macro applied to them.
+# perfetto_tmpfs excluded as it should never need to use the producer-supplied
+# shared memory scheme.
+allow traced  {
+  traced_probes_tmpfs
+}:file { getattr map read write };
+
+# Allow traced to talk to statsd for logging metrics.
+unix_socket_send(traced, statsdw, statsd)
