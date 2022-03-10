@@ -1,0 +1,6 @@
+type perfetto_exec, system_file_type, exec_type, file_type;
+
+#tmpfs_domain(perfetto);
+
+# Allow init to start a trace (for perfetto_boottrace).
+init_daemon_domain(perfetto)

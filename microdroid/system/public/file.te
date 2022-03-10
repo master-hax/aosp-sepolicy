@@ -198,3 +198,8 @@ type tmpfs, fs_type;
 type usbfs, fs_type;
 type usermodehelper, fs_type, proc_type;
 type vfat, fs_type, sdcard_type;
+
+# Socket types
+type traced_consumer_socket, file_type, coredomain_socket;
+type traced_perf_socket, file_type, coredomain_socket;
+type traced_producer_socket, file_type, coredomain_socket;
