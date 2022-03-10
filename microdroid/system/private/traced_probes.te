@@ -1,0 +1,9 @@
+type traced_probes_exec, system_file_type, exec_type, file_type;
+
+# Allow init to exec the daemon.
+init_daemon_domain(traced_probes)
+
+allow traced_probes debugfs_tracing_instances:dir search;
+allow traced_probes kmsg_device:chr_file write;
+allow traced_probes traced_producer_socket:sock_file write;
+allow traced_probes traced:unix_stream_socket connectto;

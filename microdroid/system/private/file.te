@@ -17,3 +17,17 @@ type authfs_fuse, fs_type, contextmount_type;
 # /dev/selinux/test - used to verify that apex sepolicy is loaded and
 # property labeled.
 type sepolicy_test_file, file_type;
+
+# /data/misc/perfetto-traces for perfetto traces
+type perfetto_traces_data_file, file_type, data_file_type, core_data_file_type;
+
+# /data/misc/perfetto-traces/bugreport for perfetto traces for bugreports.
+type perfetto_traces_bugreport_data_file, file_type, data_file_type, core_data_file_type;
+
+# /data/misc/perfetto-configs for perfetto configs
+type perfetto_configs_data_file, file_type, data_file_type, core_data_file_type;
+
+# Socket types
+type traced_consumer_socket, file_type, coredomain_socket;
+type traced_perf_socket, file_type, coredomain_socket;
+type traced_producer_socket, file_type, coredomain_socket;
