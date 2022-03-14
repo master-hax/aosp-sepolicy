@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4650811_c03d5ec9",
+        "filename": "private/file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-03-14T12:28:09Z",
+      "side": 1,
+      "message": "Nit: Align with the ones immediately below",
+      "range": {
+        "startLine": 624,
+        "startChar": 40,
+        "endLine": 624,
+        "endChar": 73
+      },
+      "revId": "16b0755cc0aa0db75213f1d41206b5860bd7c9c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41f657d7_337c3534",
+        "filename": "private/odsign.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-03-14T12:28:09Z",
+      "side": 1,
+      "message": "You only need rw_dir_perms\n(We shouldn\u0027t be creating/deleting the directory itself)",
+      "range": {
+        "startLine": 17,
+        "startChar": 37,
+        "endLine": 17,
+        "endChar": 53
+      },
+      "revId": "16b0755cc0aa0db75213f1d41206b5860bd7c9c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e614472_0b40b9b9",
+        "filename": "private/odsign.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-03-14T12:28:09Z",
+      "side": 1,
+      "message": "I think I\u0027d rather we kept most restrictions on system_server.\n\nPerhaps\nneverallow { domain -odsign -init -fsverity_init } odsign_data_file:dir ~search;\n\nThat allows other domains to be granted search, but I think that\u0027s fine given the restrictions on odsign_data_file:file.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 89
+      },
+      "revId": "16b0755cc0aa0db75213f1d41206b5860bd7c9c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eae8be6_a1514db2",
+        "filename": "private/odsign.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-03-14T12:28:09Z",
+      "side": 1,
+      "message": "I don\u0027t think you strictly need these; the metrics files are much less sensitive.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 78
+      },
+      "revId": "16b0755cc0aa0db75213f1d41206b5860bd7c9c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75ab0674_ddb687a9",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-03-14T12:28:09Z",
+      "side": 1,
+      "message": "These two can just be\nr_dir_file(system_server, odsign_metrics_file)\n\n(See http://cs/android/system/sepolicy/public/te_macros?l\u003d65\u0026rcl\u003d5b4a23871541a78ea7ab967f6c96238130fda7ef)",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 63
+      },
+      "revId": "16b0755cc0aa0db75213f1d41206b5860bd7c9c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f7775b2_284518eb",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-03-14T12:28:09Z",
+      "side": 1,
+      "message": "Remove spaces at start of lines.\nReplace { x } with x. (Braces are only used with \u003e1 item.)",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 53
+      },
+      "revId": "16b0755cc0aa0db75213f1d41206b5860bd7c9c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
