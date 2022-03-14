@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9bc8452_54a23698",
+        "filename": "private/app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-03-14T09:31:15Z",
+      "side": 1,
+      "message": "I don\u0027t have strong opinions on this specific case. I will note that part of the design of isolated_app is to disallow direct access to resources while still allowing it to operate on resources passed in from the parent app. e.g. we don\u0027t allow direct creation of network sockets to isolated_app, but do allow it operate on network sockets passed in to it.\n\nThis enables isolated_app to provide strong isolation while still allowing it to operate on a diverse set of workloads. isolated_app is a general isolation primitive, so to some extent we want to provide flexibility in what it is allowed to do. Ideally, we minimize direct access to resources while maximizing the ability to use resources that are intentionally passed in.",
+      "parentUuid": "8caf6b36_d2a89783",
+      "range": {
+        "startLine": 151,
+        "startChar": 18,
+        "endLine": 151,
+        "endChar": 33
+      },
+      "revId": "656a3ec14d0caebe2caeed61e5472b39b4235b8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1bcae761_46b40ead",
         "filename": "private/app.te",
         "patchSetId": 4
