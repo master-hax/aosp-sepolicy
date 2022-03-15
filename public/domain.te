@@ -1036,11 +1036,6 @@ neverallow {
   -dumpstate
   -incidentd
   -system_server
-
-  # Processes that can't exec crash_dump
-  -hal_codec2_server
-  -hal_omx_server
-  -mediaextractor
 } tombstoned_crash_socket:unix_stream_socket connectto;
 
 # Never allow anyone except dumpstate, incidentd, or the system server to connect or write to
