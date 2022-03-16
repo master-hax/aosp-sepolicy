@@ -214,6 +214,30 @@
       },
       "revId": "228a09951835de27bc9471edefc3c351d0aa77b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65eb5e8d_13a419fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-03-16T23:15:29Z",
+      "side": 1,
+      "message": "This rule makes the compile time more restrictive. Though, practically speaking, we should just remove the rule because we don\u0027t care too much. It doesn\u0027t change any behavior - all it does is push a small amount of flexibility into AOSP. It\u0027s the type of change I would do and add and merge without a second though - clear improvement by itself, and it makes sure that we actually have the appropriate discussion for what to do here if it matters.\n\nThough, we can do better. The larger question is, given how tombstoned works now (and presumably there was a motivation to add this neverallow rule in the first place), should we have new neverallow rules that similarly restrict access to these sockets (the ones referenced in the macro crash_dump_fallback)?",
+      "parentUuid": "1ea38009_2ded068b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 8
+      },
+      "revId": "228a09951835de27bc9471edefc3c351d0aa77b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
