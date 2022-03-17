@@ -238,6 +238,30 @@
       },
       "revId": "228a09951835de27bc9471edefc3c351d0aa77b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dc51684_fd0e164c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-03-17T11:59:04Z",
+      "side": 1,
+      "message": "Currently the policy does not permit any process any access at all to tombstoned_crash_socket:unix_stream_socket, so I presume it doesn\u0027t really exist, so I agree we should just remove this entire neverallow.\n\nA bunch of processes have write access to tombstoned_crash_socket:sock_file, but none of them have open access. Is that WAI? If it is, then Steven\u0027s question applies - is it ok for vendors to grant crash_dump_fallback to other processes?",
+      "parentUuid": "65eb5e8d_13a419fe",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 8
+      },
+      "revId": "228a09951835de27bc9471edefc3c351d0aa77b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
