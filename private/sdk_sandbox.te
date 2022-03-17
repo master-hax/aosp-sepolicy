@@ -10,20 +10,10 @@ typeattribute sdk_sandbox coredomain;
 net_domain(sdk_sandbox)
 app_domain(sdk_sandbox)
 
-# Allow finding services. This is different from ephemeral_app policy.
-# Adding services manually to the allowlist is preferred hence app_api_service is not used.
-allow sdk_sandbox activity_service:service_manager find;
-allow sdk_sandbox activity_task_service:service_manager find;
-allow sdk_sandbox audio_service:service_manager find;
-# Audit the access to signal that we are still investigating whether sdk_sandbox
-# should have access to audio_service
-# TODO(b/211632068): remove this line
-auditallow sdk_sandbox audio_service:service_manager find;
-allow sdk_sandbox hint_service:service_manager find;
-allow sdk_sandbox surfaceflinger_service:service_manager find;
-allow sdk_sandbox trust_service:service_manager find;
-allow sdk_sandbox uimode_service:service_manager find;
-allow sdk_sandbox webviewupdate_service:service_manager find;
+# Allow finding services. This does not include the individually listed
+# services in ephemeral_app.te. For example: audioserver, cameraserver and
+# drmserver are excluded.
+allow sdk_sandbox ephemeral_app_api_service:service_manager find;
 
 # Write app-specific trace data to the Perfetto traced damon. This requires
 # connecting to its producer socket and obtaining a (per-process) tmpfs fd.
