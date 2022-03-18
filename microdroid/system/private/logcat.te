@@ -16,4 +16,7 @@ read_logd(logcat)
 # accept commands
 get_prop(logcat, logd_prop)
 
+# allow logcat to access event-log-tags
+allow logcat runtime_event_log_tags_file:file read;
+
 allow logcat self:global_capability_class_set { sys_nice };
