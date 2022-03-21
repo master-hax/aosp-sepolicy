@@ -62,6 +62,30 @@
       },
       "revId": "e2f07afe11825d4b891d6ef638bb3bd4b3f1e571",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e2c9e82_d82e523a",
+        "filename": "vendor/hal_health_default.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1604091
+      },
+      "writtenOn": "2022-03-21T17:27:52Z",
+      "side": 1,
+      "message": "hal_health_server is already an attribute of hal_health_default so you can\u0027t add bpfdomain as an attribute of an attribute.\n\nThis is part of the reason it\u0027s added to both charger_vendor and hal_health_default.\n\nThe other alternative to this is adding it to technical_debt.cil.",
+      "parentUuid": "f240cd5c_f4be76fa",
+      "range": {
+        "startLine": 4,
+        "startChar": 14,
+        "endLine": 4,
+        "endChar": 32
+      },
+      "revId": "e2f07afe11825d4b891d6ef638bb3bd4b3f1e571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
