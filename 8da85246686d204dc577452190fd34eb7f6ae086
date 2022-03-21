@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3698f47d_111abf4f",
+        "filename": "microdroid/system/private/logcat.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-03-21T00:28:25Z",
+      "side": 1,
+      "message": "Why logcat, not logd? This permission is granted to logd in Android.\n\nAnd we have the following donaudit rule in Android.\n\n`dontaudit domain runtime_event_log_tags_file:file { map open read };`\n\nPerhaps we need that in Microdroid as well?",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 12
+      },
+      "revId": "8da85246686d204dc577452190fd34eb7f6ae086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
