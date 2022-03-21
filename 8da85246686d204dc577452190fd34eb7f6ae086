@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eff6d3bf_b4aba89d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1140895
+      },
+      "writtenOn": "2022-03-21T15:10:50Z",
+      "side": 1,
+      "message": "https://android-build.googleplex.com/builds/tests/view?invocationId\u003dI58300010028991455\u0026testResultId\u003dTR99227937741808009:\n```\njava.lang.AssertionError: if [ -d /data/local/tmp ]; then echo 1; fi has failed: CommandResult: exit code\u003d1, out\u003d, err\u003derror: closed\njava.lang.AssertionError: if [ -d /data/local/tmp ]; then echo 1; fi has failed: CommandResult: exit code\u003d1, out\u003d, err\u003derror: closed\n\n\tat org.junit.Assert.fail(Assert.java:89)\n\tat android.virt.test.VirtualizationTestCaseBase.runOnMicrodroid(VirtualizationTestCaseBase.java:147)\n\tat android.virt.test.VirtualizationTestCaseBase.adbConnectToMicrodroid(VirtualizationTestCaseBase.java:413)\n\tat android.virt.test.MicrodroidTestCase.testMicrodroidBoots(MicrodroidTestCase.java:366)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566)\n\tat org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:61)\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)\n\tat org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)\n\tat org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)\n\tat org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:61)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)\n\tat com.android.tradefed.testtype.DeviceJUnit4ClassRunner.runChild(DeviceJUnit4ClassRunner.java:108)\n\tat com.android.tradefed.testtype.DeviceJUnit4ClassRunner.runChild(DeviceJUnit4ClassRunner.java:60)\n\tat org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:413)\n\tat com.android.tradefed.testtype.DeviceJUnit4ClassRunner.run(DeviceJUnit4ClassRunner.java:144)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:137)\n\tat com.android.tradefed.testtype.HostTest.runJUnit4Tests(HostTest.java:723)\n\tat com.android.tradefed.testtype.HostTest.runTestClasses(HostTest.java:612)\n\tat com.android.tradefed.testtype.HostTest.run(HostTest.java:560)\n\tat com.android.compatibility.common.tradefed.testtype.JarHostTest.run(JarHostTest.java:56)\n\tat com.android.tradefed.testtype.suite.GranularRetriableTestWrapper.intraModuleRun(GranularRetriableTestWrapper.java:344)\n\tat com.android.tradefed.testtype.suite.GranularRetriableTestWrapper.run(GranularRetriableTestWrapper.java:303)\n\tat com.android.tradefed.testtype.suite.ModuleDefinition.run(ModuleDefinition.java:524)\n\tat com.android.tradefed.testtype.suite.ITestSuite.runSingleModule(ITestSuite.java:900)\n\tat com.android.tradefed.testtype.suite.ITestSuite.run(ITestSuite.java:782)\n\tat com.android.tradefed.invoker.InvocationExecution.runTest(InvocationExecution.java:906)\n\tat com.android.tradefed.invoker.InvocationExecution.runTests(InvocationExecution.java:731)\n\tat com.android.tradefed.invoker.TestInvocation.prepareAndRun(TestInvocation.java:507)\n\tat com.android.tradefed.invoker.TestInvocation.performInvocation(TestInvocation.java:257)\n\tat com.android.tradefed.invoker.TestInvocation.invoke(TestInvocation.java:1149)\n\tat com.android.tradefed.command.CommandScheduler$InvocationThread.run(CommandScheduler.java:632)\n```",
+      "parentUuid": "3f3e57c1_1a9fa5b5",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 49
+      },
+      "revId": "8da85246686d204dc577452190fd34eb7f6ae086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3698f47d_111abf4f",
         "filename": "microdroid/system/private/logcat.te",
         "patchSetId": 1
