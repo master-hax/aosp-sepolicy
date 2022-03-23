@@ -39,6 +39,30 @@
       },
       "revId": "3518c9e7f8bdd83d074f761253857984e033dbd8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8a67957_768d81b9",
+        "filename": "vendor/hal_evs_default.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2022-03-23T21:46:43Z",
+      "side": 1,
+      "message": "Thanks for a comment, Steven.\n\nI got below audit message when a EVS client attempted to acquire HGBP object from a NativeHandle via ::android::retrieveHalInterface().  Please see https://googleplex-android-review.git.corp.google.com/c/platform/packages/services/Car/+/17350147/1/cpp/evs/sampleDriver/aidl/src/GlWrapper.cpp#195 and let me know if this does not look right.\n\navc:  denied  { find } for interface\u003dandroid.hidl.token::ITokenManager sid\u003du:r:hal_evs_default:s0 pid\u003d986 scontext\u003du:r:hal_evs_default:s0 tcontext\u003du:object_r:hidl_token_hwservice:s0 tclass\u003dhwservice_manager permissive\u003d0",
+      "parentUuid": "0b3e7c56_cbccb144",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 0
+      },
+      "revId": "3518c9e7f8bdd83d074f761253857984e033dbd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
