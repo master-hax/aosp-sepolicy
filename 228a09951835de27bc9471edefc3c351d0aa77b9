@@ -286,6 +286,30 @@
       },
       "revId": "228a09951835de27bc9471edefc3c351d0aa77b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69d5b45b_16ffed46",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2022-03-23T21:52:42Z",
+      "side": 1,
+      "message": "I\u0027m still confused by this, but if it all compiles I guess it\u0027s fine.\n\nSpecifically, it looks like processes should be doing a connectto for this socket and the crash_dump_fallback macro doesn\u0027t seem to allow connectto. So maybe what I think is the connectto operation is not.\n\nI should probably verify that crashes on some of the privileged processes actually do correctly create tombstones though (which is outside of this change).",
+      "parentUuid": "dcc133ec_567007fc",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 8
+      },
+      "revId": "228a09951835de27bc9471edefc3c351d0aa77b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
