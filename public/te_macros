@@ -191,11 +191,15 @@ binder_call(virtualizationservice, $1)
 # Let the client pass file descriptors to virtualizationservice and on
 # to crosvm
 allow { virtualizationservice crosvm } $1:fd use;
+# Allow piping console log to the client
+allow { virtualizationservice crosvm } $1:fifo_file write;
 # Allow client to read/write vsock created by virtualizationservice to
 # communicate with the VM that it created. Notice that we do not grant
 # permission to create a vsock; the client can only connect to VMs
 # that it owns.
 allow $1 virtualizationservice:vsock_socket { getattr read write };
+# Allow client to inspect hypervisor capabilities
+get_prop($1, hypervisor_prop)
 ')
 
 #####################################
@@ -1019,7 +1023,7 @@ define(`vendor_public_prop', `define_prop($1, vendor, public)')
 define(`read_fstab', `
   allow $1 { metadata_file gsi_metadata_file_type }:dir search;
   allow $1 gsi_public_metadata_file:file r_file_perms;
-  allow $1 proc_bootconfig:file r_file_perms;
+  allow $1 { proc_bootconfig proc_cmdline }:file r_file_perms;
 ')
 
 ######################################

@@ -14,6 +14,14 @@ allow microdroid_manager vd_device:blk_file rw_file_perms;
 # microdroid_manager verifies DM-verity mounted APK payload
 allow microdroid_manager dm_device:blk_file r_file_perms;
 
+# microdroid_manager can query AVF flags in the device tree
+allow microdroid_manager sysfs_dt_avf:file r_file_perms;
+
+# Allow microdroid_manager to do blkflsbuf on instance disk image. The ioctl
+# requires sys_admin cap as well.
+allowxperm microdroid_manager vd_device:blk_file ioctl BLKFLSBUF;
+allow microdroid_manager self:global_capability_class_set sys_admin;
+
 # Allow microdroid_manager to start payload tasks
 domain_auto_trans(microdroid_manager, microdroid_app_exec, microdroid_app)
 domain_auto_trans(microdroid_manager, compos_exec, compos)
@@ -24,9 +32,6 @@ domain_auto_trans(microdroid_manager, zipfuse_exec, zipfuse)
 
 # Let microdroid_manager kernel-log.
 allow microdroid_manager kmsg_device:chr_file w_file_perms;
-
-# Let microdroid_manager initialize the derived VM secrets.
-set_prop(microdroid_manager, vmsecret_keymint_prop);
 
 # Let microdroid_manager read a config file from /mnt/apk (fusefs)
 # TODO(b/188400186) remove the below rule
@@ -62,11 +67,6 @@ get_prop(microdroid_manager, apex_config_prop)
 
 # Allow microdroid_manager to pass the roothash to apkdmverity
 set_prop(microdroid_manager, microdroid_manager_roothash_prop)
-
-# Allow microdroid_manager to read sysprops from bootconfigs. It will use the
-# sysprops to decide whether services required for debugging (adbd, logd, etc.)
-# need to be started or not.
-get_prop(microdroid_manager, bootloader_prop)
 
 # Allow microdroid_manager to shutdown the device when verification fails
 set_prop(microdroid_manager, powerctl_prop)

@@ -109,6 +109,7 @@ se_policy_conf {
     name: "microdroid_reqd_policy_mask.conf",
     srcs: reqd_mask_files,
     installable: false,
+    mls_cats: 1,
 }
 
 se_policy_cil {
@@ -122,6 +123,7 @@ se_policy_conf {
     name: "microdroid_plat_sepolicy.conf",
     srcs: system_policy_files,
     installable: false,
+    mls_cats: 1,
 }
 
 se_policy_cil {
@@ -135,6 +137,7 @@ se_policy_conf {
     name: "microdroid_plat_pub_policy.conf",
     srcs: system_public_policy_files,
     installable: false,
+    mls_cats: 1,
 }
 
 se_policy_cil {
@@ -171,6 +174,7 @@ se_policy_conf {
     name: "microdroid_vendor_sepolicy.conf",
     srcs: vendor_policy_files,
     installable: false,
+    mls_cats: 1,
 }
 
 se_policy_cil {
@@ -266,14 +270,6 @@ genrule {
 }
 
 prebuilt_etc {
-    name: "microdroid_hwservice_contexts",
-    filename: "plat_hwservice_contexts",
-    src: "system/private/hwservice_contexts",
-    relative_install_path: "selinux",
-    installable: false,
-}
-
-prebuilt_etc {
     name: "microdroid_property_contexts",
     filename: "plat_property_contexts",
     src: "system/private/property_contexts",
@@ -289,10 +285,11 @@ prebuilt_etc {
     installable: false,
 }
 
-prebuilt_etc {
-    name: "microdroid_keystore2_key_contexts",
-    filename: "plat_keystore2_key_contexts",
-    src: "system/private/keystore2_key_contexts",
-    relative_install_path: "selinux",
+// For CTS
+se_policy_conf {
+    name: "microdroid_general_sepolicy.conf",
+    srcs: system_policy_files,
+    exclude_build_test: true,
     installable: false,
+    mls_cats: 1,
 }

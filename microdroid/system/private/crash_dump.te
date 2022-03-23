@@ -56,8 +56,8 @@ allow crash_dump {
   -crash_dump
   -init
   -kernel
-  -keystore
   -logd
+  -no_crash_dump_domain
   -ueventd
   -vendor_init
 }:process { ptrace signal sigchld sigstop sigkill };
@@ -65,7 +65,8 @@ allow crash_dump {
 userdebug_or_eng(`
   allow crash_dump {
     apexd
-    keystore
     logd
   }:process { ptrace signal sigchld sigstop sigkill };
 ')
+
+neverallow crash_dump no_crash_dump_domain:process ptrace;

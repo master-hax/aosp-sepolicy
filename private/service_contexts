@@ -1,10 +1,17 @@
 android.hardware.authsecret.IAuthSecret/default                      u:object_r:hal_authsecret_service:s0
+android.hardware.automotive.evs.IEvsEnumerator/hw/0                  u:object_r:hal_evs_service:s0
+android.hardware.automotive.evs.IEvsEnumerator/hw/1                  u:object_r:hal_evs_service:s0
 android.hardware.automotive.vehicle.IVehicle/default                 u:object_r:hal_vehicle_service:s0
 android.hardware.automotive.audiocontrol.IAudioControl/default       u:object_r:hal_audiocontrol_service:s0
 android.hardware.biometrics.face.IFace/default                       u:object_r:hal_face_service:s0
 android.hardware.biometrics.fingerprint.IFingerprint/default         u:object_r:hal_fingerprint_service:s0
 android.hardware.bluetooth.audio.IBluetoothAudioProviderFactory/default u:object_r:hal_audio_service:s0
+# The instance here is internal/0 following naming convention for ICameraProvider.
+# It advertises internal camera devices.
+android.hardware.camera.provider.ICameraProvider/internal/0          u:object_r:hal_camera_service:s0
 android.hardware.contexthub.IContextHub/default                      u:object_r:hal_contexthub_service:s0
+android.hardware.drm.IDrmFactory/clearkey                            u:object_r:hal_drm_service:s0
+android.hardware.drm.ICryptoFactory/clearkey                         u:object_r:hal_drm_service:s0
 android.hardware.dumpstate.IDumpstateDevice/default                  u:object_r:hal_dumpstate_service:s0
 android.hardware.gnss.IGnss/default                                  u:object_r:hal_gnss_service:s0
 android.hardware.graphics.allocator.IAllocator/default               u:object_r:hal_graphics_allocator_service:s0
@@ -70,8 +77,10 @@ aidl_lazy_test_1                          u:object_r:aidl_lazy_test_service:s0
 aidl_lazy_test_2                          u:object_r:aidl_lazy_test_service:s0
 aidl_lazy_cb_test                         u:object_r:aidl_lazy_test_service:s0
 alarm                                     u:object_r:alarm_service:s0
+android.hardware.automotive.evs.IEvsEnumerator/default u:object_r:evsmanagerd_service:s0
 android.os.UpdateEngineService            u:object_r:update_engine_service:s0
 android.os.UpdateEngineStableService      u:object_r:update_engine_stable_service:s0
+android.frameworks.automotive.display.ICarDisplayProxy/default u:object_r:fwk_automotive_display_service:s0
 android.security.apc                      u:object_r:apc_service:s0
 android.security.authorization            u:object_r:authorization_service:s0
 android.security.compat                   u:object_r:keystore_compat_hal_service:s0
@@ -83,6 +92,7 @@ android.security.legacykeystore           u:object_r:legacykeystore_service:s0
 android.security.maintenance              u:object_r:keystore_maintenance_service:s0
 android.security.metrics                  u:object_r:keystore_metrics_service:s0
 android.security.remoteprovisioning       u:object_r:remoteprovisioning_service:s0
+android.security.remoteprovisioning.IRemotelyProvisionedKeyPool u:object_r:remotelyprovisionedkeypool_service:s0
 android.service.gatekeeper.IGateKeeperService    u:object_r:gatekeeper_service:s0
 android.system.composd                    u:object_r:compos_service:s0
 android.system.virtualizationservice      u:object_r:virtualization_service:s0
@@ -117,6 +127,7 @@ bugreport                                 u:object_r:bugreport_service:s0
 cacheinfo                                 u:object_r:cacheinfo_service:s0
 carrier_config                            u:object_r:radio_service:s0
 clipboard                                 u:object_r:clipboard_service:s0
+cloudsearch                               u:object_r:cloudsearch_service:s0
 cloudsearch_service                       u:object_r:cloudsearch_service:s0
 com.android.net.IProxyService             u:object_r:IProxyService_service:s0
 companiondevice                           u:object_r:companion_device_service:s0
@@ -283,6 +294,7 @@ runtime                                   u:object_r:runtime_service:s0
 safety_center                             u:object_r:safety_center_service:s0
 samplingprofiler                          u:object_r:samplingprofiler_service:s0
 scheduling_policy                         u:object_r:scheduling_policy_service:s0
+sdk_sandbox                               u:object_r:sdk_sandbox_service:s0
 search                                    u:object_r:search_service:s0
 search_ui                                 u:object_r:search_ui_service:s0
 secure_element                            u:object_r:secure_element_service:s0
@@ -313,6 +325,7 @@ storaged                                  u:object_r:storaged_service:s0
 storaged_pri                              u:object_r:storaged_service:s0
 storagestats                              u:object_r:storagestats_service:s0
 SurfaceFlinger                            u:object_r:surfaceflinger_service:s0
+SurfaceFlingerAIDL                        u:object_r:surfaceflinger_service:s0
 suspend_control                           u:object_r:system_suspend_control_service:s0
 suspend_control_internal                  u:object_r:system_suspend_control_internal_service:s0
 system_config                             u:object_r:system_config_service:s0
@@ -336,7 +349,7 @@ tracing.proxy                             u:object_r:tracingproxy_service:s0
 translation                               u:object_r:translation_service:s0
 transparency                              u:object_r:transparency_service:s0
 trust                                     u:object_r:trust_service:s0
-tv_iapp                                   u:object_r:tv_iapp_service:s0
+tv_interactive_app                        u:object_r:tv_iapp_service:s0
 tv_input                                  u:object_r:tv_input_service:s0
 tv_tuner_resource_mgr                     u:object_r:tv_tuner_resource_mgr_service:s0
 uce                                       u:object_r:uce_service:s0

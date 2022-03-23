@@ -88,6 +88,8 @@ allowxperm domain binder_device:chr_file ioctl { unpriv_binder_ioctls };
 # /dev/binderfs needs to be accessed by everyone too!
 allow domain binderfs:dir { getattr search };
 allow domain binderfs_logs_proc:dir search;
+allow domain binderfs_features:dir search;
+allow domain binderfs_features:file r_file_perms;
 
 allow { domain -servicemanager -vndservicemanager -isolated_app } hwbinder_device:chr_file rw_file_perms;
 allow domain ptmx_device:chr_file rw_file_perms;
@@ -100,6 +102,7 @@ allow domain property_info:file r_file_perms;
 
 # Public readable properties
 get_prop(domain, aaudio_config_prop)
+get_prop(domain, apexd_select_prop)
 get_prop(domain, arm64_memtag_prop)
 get_prop(domain, bluetooth_config_prop)
 get_prop(domain, bootloader_prop)
@@ -1128,24 +1131,6 @@ neverallow {
 # to installd
 neverallow installd system_data_file:file ~{ r_file_perms relabelfrom unlink };
 
-# respect system_app sandboxes
-neverallow {
-  domain
-  -appdomain # finer-grained rules for appdomain are listed below
-  -system_server #populate com.android.providers.settings/databases/settings.db.
-  -installd # creation of app sandbox
-  -iorap_inode2filename
-  -traced_probes # resolve inodes for i/o tracing.
-                 # only needs open and read, the rest is neverallow in
-                 # traced_probes.te.
-} system_app_data_file:dir_file_class_set { create unlink open };
-neverallow {
-  isolated_app
-  untrusted_app_all # finer-grained rules for appdomain are listed below
-  ephemeral_app
-  priv_app
-} system_app_data_file:dir_file_class_set { create unlink open };
-
 #
 # Only these domains should transition to shell domain. This domain is
 # permissible for the "shell user". If you need a process to exec a shell
@@ -1261,8 +1246,9 @@ neverallow {
 
 # Enforce restrictions on kernel module origin.
 # Do not allow kernel module loading except from system,
-# vendor, and boot partitions.
-neverallow * ~{ system_file_type vendor_file_type rootfs }:system module_load;
+# vendor, boot, and system_dlkm partitions.
+# TODO(b/218951883): Remove usage of system and rootfs as origin
+neverallow * ~{ system_file_type vendor_file_type rootfs system_dlkm_file_type }:system module_load;
 
 # Only allow filesystem caps to be set at build time. Runtime changes
 # to filesystem capabilities are not permitted.
