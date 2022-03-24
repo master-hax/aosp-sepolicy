@@ -1,0 +1,8 @@
+typeattribute tombstone_transmit domain, coredomain;
+
+init_daemon_domain(tombstone_transmit)
+
+allow tombstone_transmit self:capability net_admin;
+r_dir_file(tombstone_transmit, tombstone_data_file)
+
+allow tombstone_transmit self:{ vsock_socket } create_socket_perms_no_ioctl;
