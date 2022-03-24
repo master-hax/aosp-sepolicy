@@ -10,6 +10,12 @@ virtualizationservice_use(compos_verify);
 allow compos_verify apex_module_data_file:dir search;
 r_dir_file(compos_verify, apex_compos_data_file)
 
+userdebug_or_eng(`
+  # Allow writing VM logs in tests
+  allow compos_verify apex_compos_data_file:dir w_dir_perms;
+  allow compos_verify apex_compos_data_file:file create_file_perms;
+')
+
 # Read CompOS info & signature files
 allow compos_verify apex_art_data_file:dir search;
 allow compos_verify apex_art_data_file:file r_file_perms;
