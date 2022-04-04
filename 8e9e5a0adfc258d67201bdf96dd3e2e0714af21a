@@ -16,6 +16,57 @@
       "message": "Hi All,\n\nThis is a copy to give sdksandbox access to all services that ephemeral service has access to. Please review the list of services so that we can handpick and remove the services that do not make sense for rubidium.\nThis seemed like the best way to have controlled access to sandbox and also, unblock testing and alpha releases.\n\nFor local testing, CTS webkit, and admob testing :\n   We shall have a version of the CL that audit logs all of these service accesses",
       "revId": "8e9e5a0adfc258d67201bdf96dd3e2e0714af21a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d499bbdd_1cbb6e3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1605519
+      },
+      "writtenOn": "2022-04-04T09:36:28Z",
+      "side": 1,
+      "message": "PTAL, and drop comments for services we can remove .. Also, please +1 if the services marked as \u0027to be removed\u0027 make sense.",
+      "revId": "8e9e5a0adfc258d67201bdf96dd3e2e0714af21a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd767e50_f48db195",
+        "filename": "private/sdk_sandbox.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1605519
+      },
+      "writtenOn": "2022-04-04T09:36:28Z",
+      "side": 1,
+      "message": "To be removed\nReason: Webview team has failsafe logic for it, and autofill is okay to not have for ads.",
+      "revId": "8e9e5a0adfc258d67201bdf96dd3e2e0714af21a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9669860e_3e5a61ce",
+        "filename": "private/sdk_sandbox.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1605519
+      },
+      "writtenOn": "2022-04-04T09:36:28Z",
+      "side": 1,
+      "message": "To be removed.\n\nReason: Webview team has failsafe logic for it, and clipboards is okay to not have for ads. Removing this will restrict access to sensitive info (maybe passwords/otp etc) copied to the clipboard",
+      "revId": "8e9e5a0adfc258d67201bdf96dd3e2e0714af21a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
