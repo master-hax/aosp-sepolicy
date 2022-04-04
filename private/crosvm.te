@@ -63,6 +63,9 @@ allow crosvm {
 allow crosvm adbd:fd use;
 allow crosvm adbd:unix_stream_socket { read write };
 
+# We don't need to use ACPI in Android (b/228077254)
+dontaudit crosvm self:netlink_generic_socket create_socket_perms_no_ioctl;
+
 # crosvm can write files in /data/local/tmp which are usually used for instance.img and logging by
 # compliance tests and demo apps. Write access to instance.img is particularily important because
 # the VM has to initialize the disk image on its first boot. Note that open access is still not
