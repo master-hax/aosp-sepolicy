@@ -34,6 +34,24 @@
       "parentUuid": "5e813a80_416a9562",
       "revId": "c1e8eb522680ce4d18f520f2debd35fd7e53061b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d40bfa9_5098ba37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-04-05T14:28:12Z",
+      "side": 1,
+      "message": "I don\u0027t fully understand https://chromium-review.googlesource.com/c/chromiumos/platform/crosvm/+/3407321 and the related bugs, but it looks like the code is to pass ACPI GPE from host to the VM.\n\nI don\u0027t think we will use that in Android. So, why don\u0027t we ignore the selinux denials (with dontaudit), or change upstream so that the behavior is controllable?",
+      "parentUuid": "33d8ab31_a97a0302",
+      "revId": "c1e8eb522680ce4d18f520f2debd35fd7e53061b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
