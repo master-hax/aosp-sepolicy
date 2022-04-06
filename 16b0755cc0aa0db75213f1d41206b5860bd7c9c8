@@ -118,6 +118,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "76cbdd2a_5ffe7a99",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-04-06T15:26:04Z",
+      "side": 1,
+      "message": "Ignore that.\n\nBut instead, can we make it:\n\n# Read metric file \u0026 upload to statsd\nallow system_server odsign_data_file:dir search;\nallow system_server odsign_metrics_file:dir { r_dir_perms write remove_name };\nallow system_server odsign_metrics_file:file { r_file_perms unlink };",
+      "parentUuid": "75ab0674_ddb687a9",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 63
+      },
+      "revId": "16b0755cc0aa0db75213f1d41206b5860bd7c9c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f7775b2_284518eb",
         "filename": "private/system_server.te",
         "patchSetId": 5
