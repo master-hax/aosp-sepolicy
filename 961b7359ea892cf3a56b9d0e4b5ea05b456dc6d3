@@ -164,6 +164,30 @@
       },
       "revId": "961b7359ea892cf3a56b9d0e4b5ea05b456dc6d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37f994bc_789c9566",
+        "filename": "public/service.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-04-06T09:09:11Z",
+      "side": 1,
+      "message": "From https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/attributes;drc\u003d373cf3ba8e1d8dbf7da6a196e3295c0f4073e771;l\u003d167 :\n\n```\n#services which export only system_api\nattribute system_api_service;\n```\n\nSo that should be fine to add. However, I am not sure if that allows you to access the service from a null context.",
+      "parentUuid": "326317b8_862530c9",
+      "range": {
+        "startLine": 160,
+        "startChar": 21,
+        "endLine": 160,
+        "endChar": 36
+      },
+      "revId": "961b7359ea892cf3a56b9d0e4b5ea05b456dc6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
