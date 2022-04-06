@@ -261,6 +261,9 @@ persist.device_config.window_manager_native_boot.   u:object_r:device_config_win
 # F2FS smart idle maint prop
 persist.device_config.storage_native_boot.smart_idle_maint_enabled u:object_r:smart_idle_maint_enabled_prop:s0 exact bool
 
+# MGLRU experiment prop
+persist.device_config.mglru_native.lru_gen_config   u:object_r:device_config_mglru_native_prop:s0 exact enum 0 1 2 3 4 5 6 7
+
 # MM Events config props
 persist.mm_events.enabled                           u:object_r:mm_events_config_prop:s0 exact bool
 
