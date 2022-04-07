@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3711824_928bbef0",
+        "filename": "prebuilts/api/31.0/private/genfs_contexts",
+        "patchSetId": 6
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-04-07T07:09:53Z",
+      "side": 0,
+      "message": "you should be touching any files in prebuilts/ in aosp master.",
+      "revId": "2c905846fa53e28a28bcde3aa1ca435f3ef48a42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7455def_98ab3fbb",
+        "filename": "private/compat/31.0/31.0.cil",
+        "patchSetId": 6
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-04-07T07:09:53Z",
+      "side": 0,
+      "message": "You can\u0027t remove this. It\u0027s declared in public/file.te so now it can be depended on my vendor code.",
+      "range": {
+        "startLine": 996,
+        "startChar": 0,
+        "endLine": 996,
+        "endChar": 52
+      },
+      "revId": "2c905846fa53e28a28bcde3aa1ca435f3ef48a42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f938f563_c7e57072",
+        "filename": "private/compat/31.0/31.0.ignore.cil",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-04-07T07:09:53Z",
+      "side": 0,
+      "message": "same, you need to leave this.",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "2c905846fa53e28a28bcde3aa1ca435f3ef48a42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c017d17_a9759155",
+        "filename": "private/compat/32.0/32.0.cil",
+        "patchSetId": 6
+      },
+      "lineNbr": 997,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-04-07T07:09:53Z",
+      "side": 0,
+      "message": "No deletions in this file please.",
+      "range": {
+        "startLine": 997,
+        "startChar": 0,
+        "endLine": 997,
+        "endChar": 52
+      },
+      "revId": "2c905846fa53e28a28bcde3aa1ca435f3ef48a42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e397080_c9bd29ac",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 6
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-04-07T07:09:53Z",
+      "side": 0,
+      "message": "I think you need to leave this. Otherwise any vendor code that relies on this mapping will be broken.",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 68
+      },
+      "revId": "2c905846fa53e28a28bcde3aa1ca435f3ef48a42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f60700e0_2699be3a",
+        "filename": "private/mediaprovider_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-04-07T07:09:53Z",
+      "side": 0,
+      "message": "Since this is presumably addressing a vendor change, perhaps you need the rules for both sysfs_vendor_sched and proc_vendor_sched. Otherwise you\u0027ll cause denials on devices with older kernels.",
+      "range": {
+        "startLine": 64,
+        "startChar": 28,
+        "endLine": 64,
+        "endChar": 50
+      },
+      "revId": "2c905846fa53e28a28bcde3aa1ca435f3ef48a42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18b3cc5c_2de71dfc",
+        "filename": "public/file.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-04-07T07:09:53Z",
+      "side": 0,
+      "message": "you\u0027ll need to leave this type since it\u0027s public and can be used by vendors.",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 45
+      },
+      "revId": "2c905846fa53e28a28bcde3aa1ca435f3ef48a42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
