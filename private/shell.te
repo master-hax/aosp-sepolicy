@@ -82,6 +82,10 @@ allow shell system_linker_exec:file rx_file_perms;
 # /system/bin/bcc (b/126388046)
 allow shell rs_exec:file rx_file_perms;
 
+# profman may be used to dump app profiles for use as baseline profiles.
+allow shell profman_exec:file rx_file_perms;
+domain_auto_trans(shell, profman_exec, profman_profile_dump)
+
 # Allow (host-driven) ART run-tests to execute dex2oat, in order to
 # check ART's compiler.
 allow shell dex2oat_exec:file rx_file_perms;

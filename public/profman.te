@@ -2,16 +2,21 @@
 type profman, domain;
 type profman_exec, system_file_type, exec_type, file_type;
 
+# profman with access to dump profiles to stdout only.
+type profman_profile_dump, domain;
+
 allow profman user_profile_data_file:file { getattr read write lock map };
+allow profman_profile_dump user_profile_data_file:file { getattr open read map };
+allow profman_profile_dump user_profile_data_file:dir search;
 
 # Dumping profile info opens the application APK file for pretty printing.
-allow profman asec_apk_file:file { read map };
-allow profman apk_data_file:file { getattr read map };
-allow profman apk_data_file:dir { getattr read search };
+allow { profman profman_profile_dump } asec_apk_file:file { read map };
+allow { profman profman_profile_dump } apk_data_file:file { getattr read map };
+allow { profman profman_profile_dump } apk_data_file:dir { getattr read search };
 
-allow profman oemfs:file { read map };
+allow { profman profman_profile_dump } oemfs:file { read map };
 # Reading an APK opens a ZipArchive, which unpack to tmpfs.
-allow profman tmpfs:file { read map };
+allow { profman profman_profile_dump } tmpfs:file { read map };
 allow profman profman_dump_data_file:file { write map };
 
 allow profman installd:fd use;
@@ -25,6 +30,12 @@ allow profman { privapp_data_file app_data_file }:dir { getattr read search };
 # Allow query ART device config properties
 get_prop(profman, device_config_runtime_native_prop)
 get_prop(profman, device_config_runtime_native_boot_prop)
+
+# Allow profile dumping from an adb shell.
+allow profman_profile_dump adbd:fd use;
+allow profman_profile_dump adbd:unix_stream_socket { read write };
+allow profman_profile_dump shell:fd use;
+allow profman_profile_dump devpts:chr_file { read write };
 
 ###
 ### neverallow rules
