@@ -123,6 +123,24 @@
       "message": "Just offline confirmed with Bowgo.\nThanks for the discussion and advises.",
       "revId": "7057e4abca35a14279a96c467fecbecf897d3d1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f220627_979b1ac3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2022-04-15T03:57:42Z",
+      "side": 1,
+      "message": "Hi, just to be clear:\n\n - go/android-platform-native-setup, mentions about the prefix \"persist.device_config.\u003cnamespace\u003e\", which SGTM.\n - What confuses me is the newly proposed namespace: \"vendor_system_native\", looks like it means either vendor services or system services.\n - Other \"persist.device_config.*\" looks more straightforward (tho they\u0027re too specific): \n http://cs/android/system/sepolicy/private/property_contexts;l\u003d239;rcl\u003decc269a2a552d50f4c77beebf8f48f69514b16aa\n - I would probably use \"persist.device_config.generic_native\" for general native configurations. (anyway, just my two cents).",
+      "parentUuid": "438cf159_8d0b6f40",
+      "revId": "7057e4abca35a14279a96c467fecbecf897d3d1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
