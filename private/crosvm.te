@@ -32,7 +32,7 @@ allow crosvm {
   apk_data_file
   app_data_file
   apex_compos_data_file
-  userdebug_or_eng(`shell_data_file')
+  shell_data_file
 }:file { getattr read ioctl lock };
 
 # Allow searching the directory where the composite disk images are.
@@ -92,7 +92,7 @@ full_treble_only(`
 neverallow crosvm {
   app_data_file_type
   -app_data_file
-  userdebug_or_eng(`-shell_data_file')
+  -shell_data_file
 }:file read;
 
 # Only virtualizationservice can run crosvm
