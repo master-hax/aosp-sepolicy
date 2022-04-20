@@ -14,6 +14,7 @@ add_service(gsid, gsi_service)
 allow gsid vold_service:service_manager find;
 binder_call(gsid, vold)
 
+get_prop(gsid, virtual_ab_prop);
 set_prop(gsid, gsid_prop)
 
 # Needed to create/delete device-mapper nodes, and read/write to them.
