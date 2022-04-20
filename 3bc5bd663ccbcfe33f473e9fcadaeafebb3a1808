@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15da3d43_5cd79e45",
+        "filename": "private/mediaprovider_app.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-04-20T12:39:51Z",
+      "side": 1,
+      "message": "FWIW you could combine this with the previous rules:\n\ndontaudit mediaprovider_app { proc_vendor_sched sysfs_vendor_sched }:dir search;\ndontaudit mediaprovider_app { proc_vendor_sched sysfs_vendor_sched }:file w_file_perms;",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 64
+      },
+      "revId": "3bc5bd663ccbcfe33f473e9fcadaeafebb3a1808",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2cc5ac7_488193d9",
+        "filename": "public/file.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-04-20T12:39:51Z",
+      "side": 1,
+      "message": "I think you need to retain the attribute for sysfs_vendor_sched as well. (Again you can do that in one rule).",
+      "range": {
+        "startLine": 128,
+        "startChar": 18,
+        "endLine": 128,
+        "endChar": 35
+      },
+      "revId": "3bc5bd663ccbcfe33f473e9fcadaeafebb3a1808",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
