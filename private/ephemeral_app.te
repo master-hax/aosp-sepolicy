@@ -57,7 +57,7 @@ can_profile_perf(ephemeral_app)
 # modify them other than to connect
 allow ephemeral_app system_server:udp_socket {
         connect getattr read recvfrom sendto write getopt setopt };
-
+allow ephemeral_app node:udp_socket node_bind;
 allow ephemeral_app ashmem_device:chr_file rw_file_perms;
 
 ###
