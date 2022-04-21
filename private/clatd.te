@@ -11,3 +11,11 @@ allow clatd netd:rawip_socket { read write };
 
 allow clatd self:netlink_route_socket nlmsg_write;
 allow clatd tun_device:chr_file rw_file_perms;
+
+# Ignore potential logging from unclosed file descriptors when clatd is spawned from system server.
+# TODO: remove once clatd is spawned by posix_spawn which supports POSIX_SPAWN_CLOEXEC_DEFAULT.
+dontaudit clatd domain:fd *;
+dontaudit clatd domain:socket_class_set *;
+dontaudit clatd domain:{ fifo_file file } *;
+dontaudit clatd fs_type:filesystem *;
+dontaudit clatd { fs_type dev_type file_type }:dir_file_class_set *;
