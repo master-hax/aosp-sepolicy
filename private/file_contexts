@@ -563,7 +563,8 @@
 /data/local/tmp(/.*)?	u:object_r:shell_data_file:s0
 /data/local/tmp/ltp(/.*)?   u:object_r:nativetest_data_file:s0
 /data/local/traces(/.*)?	u:object_r:trace_data_file:s0
-/data/media(/.*)?	u:object_r:media_rw_data_file:s0
+/data/media	        u:object_r:media_userdir_file:s0
+/data/media/.*	        u:object_r:media_rw_data_file:s0
 /data/mediadrm(/.*)?	u:object_r:media_data_file:s0
 /data/nativetest(/.*)?	u:object_r:nativetest_data_file:s0
 /data/nativetest64(/.*)?	u:object_r:nativetest_data_file:s0
@@ -580,6 +581,12 @@
 /data/rollback/\d+/[^/]+/.*\.apk  u:object_r:apk_data_file:s0
 /data/rollback/\d+/[^/]+/.*\.apex u:object_r:staging_data_file:s0
 /data/fonts/files(/.*)?     u:object_r:font_data_file:s0
+/data/misc_ce             u:object_r:system_userdir_file:s0
+/data/misc_de             u:object_r:system_userdir_file:s0
+/data/system_ce           u:object_r:system_userdir_file:s0
+/data/system_de           u:object_r:system_userdir_file:s0
+/data/user                u:object_r:system_userdir_file:s0
+/data/user_de             u:object_r:system_userdir_file:s0
 
 # Misc data
 /data/misc/adb(/.*)?            u:object_r:adb_keys_file:s0
@@ -664,8 +671,10 @@
 /data/misc/profiles/ref(/.*)?       u:object_r:user_profile_data_file:s0
 /data/misc/profman(/.*)?        u:object_r:profman_dump_data_file:s0
 /data/vendor(/.*)?              u:object_r:vendor_data_file:s0
-/data/vendor_ce(/.*)?           u:object_r:vendor_data_file:s0
-/data/vendor_de(/.*)?           u:object_r:vendor_data_file:s0
+/data/vendor_ce                 u:object_r:vendor_userdir_file:s0
+/data/vendor_ce/.*              u:object_r:vendor_data_file:s0
+/data/vendor_de                 u:object_r:vendor_userdir_file:s0
+/data/vendor_de/.*              u:object_r:vendor_data_file:s0
 
 # storaged proto files
 /data/misc_de/[0-9]+/storaged(/.*)?       u:object_r:storaged_data_file:s0
@@ -729,8 +738,13 @@
 /mnt/expand/[^/]+/app/vmdl[^/]+\.tmp(/.*)?          u:object_r:apk_tmp_file:s0
 /mnt/expand/[^/]+/app/vmdl[^/]+\.tmp/oat(/.*)?      u:object_r:dalvikcache_data_file:s0
 /mnt/expand/[^/]+/local/tmp(/.*)?                   u:object_r:shell_data_file:s0
-/mnt/expand/[^/]+/media(/.*)?                       u:object_r:media_rw_data_file:s0
+/mnt/expand/[^/]+/media                             u:object_r:media_userdir_file:s0
+/mnt/expand/[^/]+/media/.*                          u:object_r:media_rw_data_file:s0
 /mnt/expand/[^/]+/misc/vold(/.*)?                   u:object_r:vold_data_file:s0
+/mnt/expand/[^/]+/misc_ce                           u:object_r:system_userdir_file:s0
+/mnt/expand/[^/]+/misc_de                           u:object_r:system_userdir_file:s0
+/mnt/expand/[^/]+/user                              u:object_r:system_userdir_file:s0
+/mnt/expand/[^/]+/user_de                           u:object_r:system_userdir_file:s0
 
 # coredump directory for userdebug/eng devices
 /cores(/.*)?                    u:object_r:coredump_file:s0
