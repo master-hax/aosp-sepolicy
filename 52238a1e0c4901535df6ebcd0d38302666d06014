@@ -16,6 +16,24 @@
       "message": "I do use this functionality, usually for debugging attributes from the shell. Are there any concerns with keeping it?",
       "revId": "52238a1e0c4901535df6ebcd0d38302666d06014",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caa99658_b053a596",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2022-04-27T06:08:13Z",
+      "side": 1,
+      "message": "The toolbox domain is only used for toolbox commands run from init, as mentioned at the top of this file and as is enforced by a neverallow rule in this file.  So this isn\u0027t related to \"debugging attributes from the shell\".  You\u0027re probably actually using \u0027adb root\u0027 for that, which uses the permissive \u0027su\u0027 domain on debug builds.  This CL has no effect on that.",
+      "parentUuid": "dd2b27c7_6c06a870",
+      "revId": "52238a1e0c4901535df6ebcd0d38302666d06014",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
