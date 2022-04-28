@@ -86,6 +86,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f746012_126ec91d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1098333
+      },
+      "writtenOn": "2022-04-28T16:46:59Z",
+      "side": 1,
+      "message": "I don\u0027t understand the feedback.  Is there documentation that can help me understand what to do?",
+      "revId": "a7ad764fedba50196f7010d457d9a05d0efc8345",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd2c53d6_9e0a7994",
@@ -99,6 +116,24 @@
       "writtenOn": "2022-04-28T00:17:49Z",
       "side": 1,
       "message": "Please don\u0027t update the prebuilts. \n\n\u003e Prebuilt policies must not be changed outside the release cycle",
+      "revId": "a7ad764fedba50196f7010d457d9a05d0efc8345",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67001418_cc3defcd",
+        "filename": "prebuilts/api/28.0/public/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1098333
+      },
+      "writtenOn": "2022-04-28T16:46:59Z",
+      "side": 1,
+      "message": "What is \"the release cycle\"?  Is there documentation that can help us understand?\n\nWe are doing platform and driver work for Android U, and cannot make the required platform changes without a new property.",
+      "parentUuid": "fd2c53d6_9e0a7994",
       "revId": "a7ad764fedba50196f7010d457d9a05d0efc8345",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -128,6 +163,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "09577ccb_70309750",
+        "filename": "prebuilts/api/32.0/private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1098333
+      },
+      "writtenOn": "2022-04-28T16:46:59Z",
+      "side": 1,
+      "message": "What is \"the release cycle\"?  Is there documentation that can help us understand?\n\nWe are doing platform and driver work for Android U, and cannot make the required platform changes without a new property.",
+      "parentUuid": "f69320c5_d487b30d",
+      "range": {
+        "startLine": 973,
+        "startChar": 0,
+        "endLine": 973,
+        "endChar": 81
+      },
+      "revId": "a7ad764fedba50196f7010d457d9a05d0efc8345",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dd747350_41255817",
         "filename": "private/property_contexts",
         "patchSetId": 1
@@ -139,6 +198,30 @@
       "writtenOn": "2022-04-28T00:17:49Z",
       "side": 1,
       "message": "Let\u0027s not add more to exported_default_prop. Please define a new property context, tie ro.hardware.egl_legacy to it and add allow rules around the context.",
+      "range": {
+        "startLine": 1059,
+        "startChar": 44,
+        "endLine": 1059,
+        "endChar": 65
+      },
+      "revId": "a7ad764fedba50196f7010d457d9a05d0efc8345",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fec952d_4e5bdc52",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1059,
+      "author": {
+        "id": 1098333
+      },
+      "writtenOn": "2022-04-28T16:46:59Z",
+      "side": 1,
+      "message": "I\u0027m sorry, but I don\u0027t understand what this is saying.  What is \"exported_default_prop\", and where/how can \"a new property context\" be defined?\n\nI found no documentation for this topic, and tried to follow what a previous CL did to add \"ro.hardware.vulkan\".  Again, is there documentation that can guide me in what to do?",
+      "parentUuid": "dd747350_41255817",
       "range": {
         "startLine": 1059,
         "startChar": 44,
