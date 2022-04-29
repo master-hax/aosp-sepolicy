@@ -16,6 +16,24 @@
       "message": "Do we mandate VHAL to be in AIDL ?\nWhat happen if vendor VHAL still in HIDL ?",
       "revId": "6b2ac8783678e4e281b3bdb3d95bdd97bf017004",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdc45f95_3ffd7ee8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1880185
+      },
+      "writtenOn": "2022-04-29T23:37:25Z",
+      "side": 1,
+      "message": "It seems to me it will create aidl client and fall back to hidl client.\nstd::shared_ptr\u003cIVhalClient\u003e IVhalClient::tryCreate() {\n    auto client \u003d AidlVhalClient::tryCreate();\n    if (client !\u003d nullptr) {\n        return client;\n    }\n\n    return HidlVhalClient::tryCreate();\n}\nAre we sure we can remove hwbinder_use ?",
+      "parentUuid": "ff1d47b1_a3e0ebfa",
+      "revId": "6b2ac8783678e4e281b3bdb3d95bdd97bf017004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
