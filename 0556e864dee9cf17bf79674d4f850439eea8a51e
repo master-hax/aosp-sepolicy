@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb9dae7d_1f09c448",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-04-29T11:36:44Z",
+      "side": 1,
+      "message": "This is certainly a lot more minimal - but possibly too much?",
+      "revId": "0556e864dee9cf17bf79674d4f850439eea8a51e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "162829dc_999a4d9c",
+        "filename": "microdroid/system/private/file.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-04-29T11:36:44Z",
+      "side": 1,
+      "message": "These don\u0027t seem to be mentioned in any rules?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 0
+      },
+      "revId": "0556e864dee9cf17bf79674d4f850439eea8a51e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21cc9b90_79ee7bdb",
+        "filename": "microdroid/system/private/file.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-04-29T11:36:44Z",
+      "side": 1,
+      "message": "traced_probes is allowed to write to this - but nothing can connect to it?",
+      "range": {
+        "startLine": 33,
+        "startChar": 5,
+        "endLine": 33,
+        "endChar": 27
+      },
+      "revId": "0556e864dee9cf17bf79674d4f850439eea8a51e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "146c585d_50ae77fd",
+        "filename": "microdroid/system/private/traced.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-04-29T11:36:44Z",
+      "side": 1,
+      "message": "This is normally done via macro - unix_socket_connect(traced, init, property)\nBut http://cs/android-internal/system/sepolicy/public/te_macros?rcl\u003dae4dbf54d863018a66934fd72d6127c5e3d44034\u0026l\u003d334 points out that in the case of property_socket this is normally a sign that you want set_prop(traced, something)\n\nThe fact that you don\u0027t need to enable setting any specific property, but you need to connect to property_socket, is confusing me a bit.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "0556e864dee9cf17bf79674d4f850439eea8a51e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2c9337f_1adf7665",
+        "filename": "microdroid/system/private/traced_probes.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-04-29T11:36:44Z",
+      "side": 1,
+      "message": "Only search, and no access to files? That seems odd.\nWould a dontaudit suffice?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 57
+      },
+      "revId": "0556e864dee9cf17bf79674d4f850439eea8a51e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a32e31f6_b3e9b856",
+        "filename": "microdroid/system/public/perfetto.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-04-29T11:36:44Z",
+      "side": 1,
+      "message": "All these public files can also be moved to private I believe.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 34
+      },
+      "revId": "0556e864dee9cf17bf79674d4f850439eea8a51e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7bd8f04_4eee18fd",
+        "filename": "microdroid/system/public/traced.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-04-29T11:36:44Z",
+      "side": 1,
+      "message": "I don\u0027t think this is used anywhere",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 29
+      },
+      "revId": "0556e864dee9cf17bf79674d4f850439eea8a51e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
