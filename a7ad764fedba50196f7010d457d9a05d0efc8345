@@ -320,6 +320,30 @@
       },
       "revId": "a7ad764fedba50196f7010d457d9a05d0efc8345",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ca1101a_ee5cdfed",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1059,
+      "author": {
+        "id": 1098333
+      },
+      "writtenOn": "2022-04-30T00:04:22Z",
+      "side": 1,
+      "message": "\u003e If anything is missing for you to do the task, let us know so that we can revise the documentation.\n\nI\u0027ll ask some questions with a genuine interest in understanding and improving things.  There\u0027s a lot of context missing from that document.  Please forgive me, but I have spent some time trying to understand.\n\nFor example, is the word \"context\" being used in different ways in the \"Property name\" and \"Property Context\" sections?  What are the possible contexts to use for \"Property Context\"?  Where are the descriptions of those context so that I can make a good decision about which to allow or deny?\n\nGiven that \"ro.hardware.egl_legacy\" is set and read in the same places that \"ro.hardware.egl\" is, should I just make a new property context that is the same as \"exported_default_prop\", but has a different name?  That would be easy for me, but I\u0027m not sure it helps solve the problem you are trying to solve.\n\nI did a search for graphics in \"system/sepolicy/private/property_contexts\".  I found \"graphics_config_prop\".  I found the original CL that added it, and can see that there was a different use case.  I found other properties that are now using it.  I suspect people just reused it like I reused \"exported_default_prop\" (i.e. because they didn\u0027t understand all of the contexts).  In looking at the \"*.te\" files that contain \"graphics_config_prop\" vs \"exported_default_prop\", it\u0027s not clear to me why different \"\u003cdomain\u003e.te\" files are used, and why different domains were in neverallow.\n\nWould \"graphics_config_prop\" work for my needs?  I\u0027m not sure how to tell.\n\nI hope my feedback is helpful for you, and that you can help me make a good change.",
+      "parentUuid": "543bcea6_57429732",
+      "range": {
+        "startLine": 1059,
+        "startChar": 44,
+        "endLine": 1059,
+        "endChar": 65
+      },
+      "revId": "a7ad764fedba50196f7010d457d9a05d0efc8345",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
