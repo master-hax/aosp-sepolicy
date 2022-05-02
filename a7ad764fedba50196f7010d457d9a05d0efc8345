@@ -344,6 +344,30 @@
       },
       "revId": "a7ad764fedba50196f7010d457d9a05d0efc8345",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d84304e4_6e2a9e1c",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1059,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-05-02T04:52:07Z",
+      "side": 1,
+      "message": "Context is a kind of label associated to a sysprop and selinux treats sysprops having the same context the same.\n\nThe reason I suggested moving away from exported_default_prop is that the context is overly permissive and therefore we don\u0027t want to add more sysprops to it—even if the newly added sysprop needs such a permissive accessibility.\n\nSo, yes, making a new context that has the same (or similar) accessibility as exported_default_prop is better than reusing it.\n\n\ngraphics_config_prop seems to be a good choice given that it is also used to set the name of the graphics driver and is accessible to appdomain.",
+      "parentUuid": "1ca1101a_ee5cdfed",
+      "range": {
+        "startLine": 1059,
+        "startChar": 44,
+        "endLine": 1059,
+        "endChar": 65
+      },
+      "revId": "a7ad764fedba50196f7010d457d9a05d0efc8345",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
