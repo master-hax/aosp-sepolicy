@@ -58,6 +58,29 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "074fed7f_cdc88e94",
+        "filename": "private/vold.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-05-03T05:07:20Z",
+      "side": 1,
+      "message": "I\u0027d much prefer that you do a restorecon from within vold and grant the relabelfrom/relabelto permissions. Otherwise it\u0027s difficult for someone trying to debug the system to determine where a label came from. It\u0027s much more consistent to have file_contexts be the source of truth. i.e. this is a policy readability anti-pattern.",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 63
+      },
+      "revId": "06e9fa189ac54265f79ef975138341348a825666",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9a7dd58a_ba805fa3",
