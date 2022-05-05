@@ -16,6 +16,24 @@
       "message": "Could you explain why this is necessary? The apps in /system/app or /product/app don\u0027t need to be verified as they are already covered by dm-verity verifying the whole partition. It looks like this is a bug in the package manager instead?",
       "revId": "0105944bbc46f346b25fabc556442cf545b61124",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52834ffd_02ad76ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1166043
+      },
+      "writtenOn": "2022-05-05T16:40:11Z",
+      "side": 1,
+      "message": "This ioctl is also used by Digest API to read apk root hash. The API can be called for any package, including system.\n\nSELinux denial for partitions that can never have fs-verity is actually OK, but there is a test failure unfortunately.\n\nWe could implement a complicated detection code to detect system partitions and skip the ioctl, but it\u0027ll be slower and have more bugs than just allow ioctl to fail.",
+      "parentUuid": "f87f921f_0c2c418e",
+      "revId": "0105944bbc46f346b25fabc556442cf545b61124",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
