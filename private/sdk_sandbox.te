@@ -109,6 +109,11 @@ allow sdk_sandbox system_server:udp_socket {
 allow sdk_sandbox sdk_sandbox_data_file:dir create_dir_perms;
 allow sdk_sandbox sdk_sandbox_data_file:file create_file_perms;
 
+# Allow webview to access fd shared by sdksandbox for experiments data
+# Will not be supported in Android U
+allow untrusted_app sdk_sandbox_data_file:fd use;
+allow untrusted_app sdk_sandbox_data_file:file write;
+
 ###
 ### neverallow rules
 ###
