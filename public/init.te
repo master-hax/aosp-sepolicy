@@ -230,7 +230,6 @@ allow init {
 
 allow init {
   file_type
-  -apex_info_file
   -app_data_file
   -exec_type
   -gsi_data_file
@@ -251,6 +250,10 @@ allow init {
 }:file { create getattr open read write setattr relabelfrom unlink map };
 
 allow init tracefs_type:file { create_file_perms relabelfrom };
+
+# Allow init to read /apex/apex-info-list.xml for preinstalled paths of APEXes to determine
+# subcontext for action/service defined in APEXes.
+allow init apex_info_file:file r_file_perms;
 
 allow init {
   file_type
