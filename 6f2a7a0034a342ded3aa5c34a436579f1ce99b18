@@ -16,6 +16,23 @@
       "message": "Moved to untruster_app. PTAL !",
       "revId": "6f2a7a0034a342ded3aa5c34a436579f1ce99b18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28aa17df_57b8ce3f",
+        "filename": "private/untrusted_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-05-10T12:06:40Z",
+      "side": 1,
+      "message": "Could you add, below this,\n\nneverallow untrusted_app sdk_sandbox_data_file:file { open create };\n\nThis is safe because the only access is via fd, and we\u0027d like to preserve that.\n\n(We should perhaps have more neverallows around sdk_sandbox_data_file, but that seems a reasonable start.)",
+      "revId": "6f2a7a0034a342ded3aa5c34a436579f1ce99b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
