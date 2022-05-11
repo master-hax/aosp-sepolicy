@@ -72,6 +72,78 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7db86c34_cb2c3c57",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-05-11T07:04:35Z",
+      "side": 1,
+      "message": "In the compiled vendor_sepolicy.cil, the rule will look like\n\n    (allow foo_attr (...))\n\nAnd in plat_sepolicy.cil there will be\n\n    (typeattribute foo foo_attr)\n\nWe combine all cil files (system, system_ext, product, vendor, odm) to build a binary policy file. So even in this case, vendor\u0027s foo_attr rule correctly affects foo.",
+      "parentUuid": "c3991b55_a306a6e4",
+      "range": {
+        "startLine": 10,
+        "startChar": 51,
+        "endLine": 10,
+        "endChar": 65
+      },
+      "revId": "e8a65e4baa56b8ee4e574d7e320227855b61e861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2706b258_e333bed5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-05-11T07:04:35Z",
+      "side": 1,
+      "message": "It won\u0027t. In the build process, neverallow check is performed while combined sepolicy is built two times (on precompiled_sepolicy module and sepolicy_neverallows module), with all policy files (system + system_ext + product + vendor).",
+      "parentUuid": "6b4f8e8f_0d083361",
+      "range": {
+        "startLine": 10,
+        "startChar": 40,
+        "endLine": 10,
+        "endChar": 50
+      },
+      "revId": "e8a65e4baa56b8ee4e574d7e320227855b61e861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b846136_dfff6966",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-05-11T07:04:35Z",
+      "side": 1,
+      "message": "Same as above.\n\nAlso, it will be vendor sepolicy\u0027s bug if it prohibits a rule defined under system/sepolicy.",
+      "parentUuid": "6b7c3238_b74e61cd",
+      "range": {
+        "startLine": 10,
+        "startChar": 34,
+        "endLine": 10,
+        "endChar": 39
+      },
+      "revId": "e8a65e4baa56b8ee4e574d7e320227855b61e861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "af474c9a_2f82cea6",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
