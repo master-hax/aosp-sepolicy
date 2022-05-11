@@ -1219,10 +1219,22 @@ get_prop(system_server, qemu_hw_prop)
 # Allow system server to read profcollectd reports for upload.
 userdebug_or_eng(`r_dir_file(system_server, profcollectd_data_file)')
 
+# Power controls for debugging/diagnostics
+get_prop(system_server, power_debug_prop)
+set_prop(system_server, power_debug_prop)
+
 ###
 ### Neverallow rules
 ###
 ### system_server should NEVER do any of this
+
+neverallow {
+  domain
+  -init
+  -vendor_init
+  -system_server
+  -shell
+} power_debug_prop:property_service set;
 
 # Do not allow opening files from external storage as unsafe ejection
 # could cause the kernel to kill the system_server.

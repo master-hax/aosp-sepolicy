@@ -2,6 +2,9 @@ typeattribute apexd coredomain;
 
 init_daemon_domain(apexd)
 
+binder_use(apexd)
+add_service(apexd, apex_service)
+
 # Allow creating, reading and writing of APEX files/dirs in the APEX data dir
 allow apexd apex_data_file:dir create_dir_perms;
 allow apexd apex_data_file:file create_file_perms;
@@ -171,6 +174,27 @@ get_prop(apexd, apexd_select_prop)
 # Allow apexd to read apexd_payload_metadata_prop
 get_prop(apexd, apexd_payload_metadata_prop)
 
+set_prop(apexd, apexd_prop)
+
+# Allow for use in postinstall
+allow apexd otapreopt_chroot:fd use;
+allow apexd postinstall_apex_mnt_dir:dir { create_dir_perms mounton };
+allow apexd postinstall_apex_mnt_dir:file { create_file_perms relabelfrom };
+allow apexd postinstall_apex_mnt_dir:lnk_file create;
+allow apexd proc_filesystems:file r_file_perms;
+
+# Allow calling derive_classpath to gather BCP information for staged sessions
+domain_auto_trans(apexd, derive_classpath_exec, apexd_derive_classpath);
+
+###
+### Neverallow rules
+###
+
+neverallow { domain -init -apexd -system_server -update_engine } apex_service:service_manager find;
+neverallow { domain -init -apexd -system_server -servicemanager -update_engine } apexd:binder call;
+
+neverallow { domain userdebug_or_eng(`-crash_dump') } apexd:process ptrace;
+
 neverallow { domain -apexd -init } apex_data_file:dir no_w_dir_perms;
 neverallow { domain -apexd -init } apex_metadata_file:dir no_w_dir_perms;
 neverallow { domain -apexd -init -kernel } apex_data_file:file no_w_file_perms;
@@ -184,7 +208,6 @@ neverallow { domain -apexd -init -vold_prepare_subdirs } apex_rollback_data_file
 neverallow { domain -apexd -init -vold_prepare_subdirs } apex_rollback_data_file:file no_w_file_perms;
 
 # only apexd can set apexd sysprop
-set_prop(apexd, apexd_prop)
 neverallow { domain -apexd -init } apexd_prop:property_service set;
 
 # only apexd can write apex-info-list.xml
@@ -196,13 +219,3 @@ neverallow { domain -apexd } apex_info_file:file no_w_file_perms;
 # around otapreopt_chroot are cleaned up we should be able to remove it from the lists below.
 neverallow { domain -apexd -init -otapreopt_chroot } apex_mnt_dir:filesystem { mount unmount };
 neverallow { domain -apexd -init -otapreopt_chroot } apex_mnt_dir:dir { mounton };
-
-# Allow for use in postinstall
-allow apexd otapreopt_chroot:fd use;
-allow apexd postinstall_apex_mnt_dir:dir { create_dir_perms mounton };
-allow apexd postinstall_apex_mnt_dir:file { create_file_perms relabelfrom };
-allow apexd postinstall_apex_mnt_dir:lnk_file create;
-allow apexd proc_filesystems:file r_file_perms;
-
-# Allow calling derive_classpath to gather BCP information for staged sessions
-domain_auto_trans(apexd, derive_classpath_exec, apexd_derive_classpath);

@@ -4,3 +4,12 @@ init_daemon_domain(diced)
 
 # Talk to dice HAL.
 hal_client_domain(diced, hal_dice)
+
+binder_use(diced)
+binder_service(diced)
+
+add_service(diced, dice_node_service)
+add_service(diced, dice_maintenance_service)
+
+# Check SELinux permissions.
+selinux_check_access(diced)
