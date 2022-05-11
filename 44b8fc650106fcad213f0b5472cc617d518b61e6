@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22f2c126_b7f3e56e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-05-11T03:57:48Z",
+      "side": 1,
+      "message": "Please upload to AOSP",
+      "revId": "44b8fc650106fcad213f0b5472cc617d518b61e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0e04572_99ce3456",
+        "filename": "private/property_contexts",
+        "patchSetId": 9
+      },
+      "lineNbr": 1344,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-05-11T03:57:48Z",
+      "side": 1,
+      "message": "Please avoid using prefix match. List the sysprops explicitly and specify their types. Visit https://source.android.com/devices/architecture/configuration/add-system-properties for more guidelines.",
+      "range": {
+        "startLine": 1344,
+        "startChar": 0,
+        "endLine": 1344,
+        "endChar": 20
+      },
+      "revId": "44b8fc650106fcad213f0b5472cc617d518b61e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "459b9348_b7d0433a",
+        "filename": "private/property_contexts",
+        "patchSetId": 9
+      },
+      "lineNbr": 1347,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-05-11T03:57:48Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 1347,
+        "startChar": 0,
+        "endLine": 1347,
+        "endChar": 27
+      },
+      "revId": "44b8fc650106fcad213f0b5472cc617d518b61e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67880a44_dc7ea48c",
+        "filename": "public/property.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-05-11T03:57:48Z",
+      "side": 1,
+      "message": "Please don\u0027t use system_public_prop unless you have to. (If so, please explain the reason why this has to be public)\n\nAlso, please add allow rules for these props. Who will going to read/write these sysprops?",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 48
+      },
+      "revId": "44b8fc650106fcad213f0b5472cc617d518b61e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
