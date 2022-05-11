@@ -1,6 +1,75 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b4f8e8f_0d083361",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-05-11T06:57:34Z",
+      "side": 1,
+      "message": "Similarly, I thought this is needed otherwise an allow rule in vendor will always granted even if it actually violated our neverallow rule.",
+      "range": {
+        "startLine": 10,
+        "startChar": 40,
+        "endLine": 10,
+        "endChar": 50
+      },
+      "revId": "e8a65e4baa56b8ee4e574d7e320227855b61e861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b7c3238_b74e61cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-05-11T06:57:34Z",
+      "side": 1,
+      "message": "Don\u0027t we need this in order to check if a neverallow rule in vendor is in conflict with our allow rule?",
+      "range": {
+        "startLine": 10,
+        "startChar": 34,
+        "endLine": 10,
+        "endChar": 39
+      },
+      "revId": "e8a65e4baa56b8ee4e574d7e320227855b61e861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3991b55_a306a6e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-05-11T06:57:34Z",
+      "side": 1,
+      "message": "If both a type and attributes attached the type are public, then don\u0027t we need both? For example,\n\n// in platform/public/*\ntype foo;\nattribute foo_attr;\n\n// in platform/private/foo.te\ntypeattribute foo_attr foo;\n\n// in vendor\nallow foo_attr ...\n\nIf private/foo.te is missing when building vendor sepolicy, the allow rule will be a no-op (because no type is associated with foo_attr from the viewpoint of the vendor)?",
+      "range": {
+        "startLine": 10,
+        "startChar": 51,
+        "endLine": 10,
+        "endChar": 65
+      },
+      "revId": "e8a65e4baa56b8ee4e574d7e320227855b61e861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "af474c9a_2f82cea6",
