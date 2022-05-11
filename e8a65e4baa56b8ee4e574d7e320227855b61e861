@@ -144,6 +144,54 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7f786d48_9899d53d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-05-11T11:04:02Z",
+      "side": 1,
+      "message": "Although an older vendor image won\u0027t be checked against newer neverallow rules - which is good.",
+      "parentUuid": "2706b258_e333bed5",
+      "range": {
+        "startLine": 10,
+        "startChar": 40,
+        "endLine": 10,
+        "endChar": 50
+      },
+      "revId": "e8a65e4baa56b8ee4e574d7e320227855b61e861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da3ac8f8_717f183f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-05-11T11:04:02Z",
+      "side": 1,
+      "message": "While I agree this is technically correct, I\u0027m slightly worried that this is taking things too far.\n\nI have a feeling that the private/public split should have 2 useful properties:\n1. Changes in private should not break vendor policy.\n2. Vendors shouldn\u0027t have to worry about what\u0027s in private.\n\nDoesn\u0027t that suggest that the association between a public type and a public attribute should normally be in public? A vendor rule could grant \u003cvendor domain\u003e access to \u003cpublic attribute\u003e on the assumption that they can then access the \u003cpublic domain\u003e.\n\nOne could even argue that any allow rules where both source and target are public should also be in public. Which is maybe taking things too far? I believe it\u0027s legitimate for a vendor to apply a public label, or at least some of them, to something vendor specific.\n\n(I think neverallows are less of an issue, since any breakage they cause is really obvious and probably desired.)\n\nThe question really is what exactly is the API.",
+      "parentUuid": "7db86c34_cb2c3c57",
+      "range": {
+        "startLine": 10,
+        "startChar": 51,
+        "endLine": 10,
+        "endChar": 65
+      },
+      "revId": "e8a65e4baa56b8ee4e574d7e320227855b61e861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "af474c9a_2f82cea6",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
