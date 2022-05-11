@@ -17,3 +17,12 @@ type statsmanager_service,          system_api_service, system_server_service, s
 type tracingproxy_service,          system_server_service, service_manager_type;
 type transparency_service,          system_server_service, service_manager_type;
 type uce_service,                   service_manager_type;
+
+###
+### Neverallow rules
+###
+
+# servicemanager handles registering or looking up named services.
+# It does not make sense to register or lookup something which is not a service.
+# Trigger a compile error if this occurs.
+neverallow domain ~{ service_manager_type vndservice_manager_type }:service_manager { add find };
