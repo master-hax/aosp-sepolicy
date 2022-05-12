@@ -262,6 +262,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2e4e35e_f169fa8c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-05-12T06:52:01Z",
+      "side": 1,
+      "message": "Thiébaud, \n\nI don\u0027t think the CL makes it harder or easier to sunset the bind access. You can drop it when the platform no longer requires bind access. Vendors wouldn\u0027t be affected as long as they have been implicitly using the access via platform-provided libraries. You may ask what if they are explicitly using the access. Well, such a case could happen even when the access was made in the private section, right? I think it\u0027s out of scope of sepolicy.\n\nInseob,\n\n\u003e we only expose structures and function prototypes for C APIs.\n\nWhat the function does, and pre/post conditions are also part of the APIs.\n\n\u003e\u003e I believe it\u0027s legitimate for a vendor to apply a public label, or at least some of them, to something vendor specific.\n\n\u003e Sorry I don\u0027t get this. Could you elaborate?\n\nConsider this case. Platform defines an attribute and rules around the attribute. Vendor uses typeattribute command to associate one of its domain to the attribute, inheriting all the rules as well. This is just like the (public) member functions of the class you are inheriting from are all APIs; the name of the parent class is not only the API.",
+      "parentUuid": "31efd251_f498e2f3",
+      "range": {
+        "startLine": 10,
+        "startChar": 51,
+        "endLine": 10,
+        "endChar": 65
+      },
+      "revId": "e8a65e4baa56b8ee4e574d7e320227855b61e861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "af474c9a_2f82cea6",
