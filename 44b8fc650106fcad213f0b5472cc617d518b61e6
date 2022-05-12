@@ -226,6 +226,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3746fc21_87d10428",
+        "filename": "public/hal_face.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-05-12T04:07:39Z",
+      "side": 1,
+      "message": "No. This (the previous CL) is the right approach.. especially when the access to the sysprops are expected for any implementation of hal_face.",
+      "parentUuid": "cd5567f5_606d2470",
+      "range": {
+        "startLine": 17,
+        "startChar": 9,
+        "endLine": 17,
+        "endChar": 17
+      },
+      "revId": "44b8fc650106fcad213f0b5472cc617d518b61e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f72bd618_9aaf8c48",
         "filename": "public/hal_fingerprint.te",
         "patchSetId": 9
@@ -285,6 +309,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "05727d1f_a8821023",
+      "range": {
+        "startLine": 20,
+        "startChar": 9,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "44b8fc650106fcad213f0b5472cc617d518b61e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18134cc6_c75ab8e1",
+        "filename": "public/hal_fingerprint.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-05-12T04:07:39Z",
+      "side": 1,
+      "message": "No. This (the previous CL) is the right approach.. especially when the access to the sysprops are expected for any implementation of hal_fingerprint.",
+      "parentUuid": "9f55292c_4e6e159d",
       "range": {
         "startLine": 20,
         "startChar": 9,
@@ -404,6 +452,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "f784e9fe_9fb047bf",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 48
+      },
+      "revId": "44b8fc650106fcad213f0b5472cc617d518b61e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e4d42ef_209150b4",
+        "filename": "public/property.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-05-12T04:07:39Z",
+      "side": 1,
+      "message": "Then you are encouraged to have an allow (and neverallow) rules around these sysprops so that the read/write access is allowed only for the hal and not the others.\n\nThe allow rules (set_prop) are already there. So I suggest you to add something similar to below\n\nneverallow { domain -init -vendor_init -hal_fingerprint } virtual_fingerprint_hal_prop:file no_rw_file_perms;\n\nand similarly for the face hal.",
+      "parentUuid": "85e732d3_2708b260",
       "range": {
         "startLine": 225,
         "startChar": 0,
