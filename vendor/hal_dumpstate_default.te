@@ -3,3 +3,13 @@ hal_server_domain(hal_dumpstate_default, hal_dumpstate)
 
 type hal_dumpstate_default_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(hal_dumpstate_default)
+
+set_prop(hal_dumpstate_default, vendor_hal_dumpstate_config_prop)
+
+neverallow {
+    domain
+    -init
+    -dumpstate
+    -vendor_init
+    -hal_dumpstate_default
+} vendor_hal_dumpstate_config_prop:file no_rw_file_perms;
