@@ -310,6 +310,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3604e261_03567a70",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-05-12T12:25:09Z",
+      "side": 1,
+      "message": "\u003e We can\u0027t achieve 1 and 2 because of neverallow rules\n\nI don\u0027t think that\u0027s true. Note I said \"I think neverallows are less of an issue, since any breakage they cause is really obvious and probably desired.\" \n\nOld vendor policy doesn\u0027t have new neverallows applied to it, so accidental breakage is less likely; we know adding a neverallow can always break things and so we tend to only do it deliberately; and a neverallow change is never silently breaking - it fails at build time. That\u0027s not true if we remove an allow on an attribute, say - it may break some obscure functionality that isn\u0027t well tested.\n\nFor allow rules: documenting the purpose/contract of a type or attribute, where it is available for vendor use, does sound really important. It is not at all clear to me when it is best to have the allows public and when private.",
+      "parentUuid": "a5febf89_94fa35e2",
+      "range": {
+        "startLine": 10,
+        "startChar": 51,
+        "endLine": 10,
+        "endChar": 65
+      },
+      "revId": "e8a65e4baa56b8ee4e574d7e320227855b61e861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "af474c9a_2f82cea6",
