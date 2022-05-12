@@ -55,6 +55,10 @@ allow init proc_drop_caches:file rw_file_perms;
 # Allow the BoringSSL self test to request a reboot upon failure
 set_prop(init, powerctl_prop)
 
+# Allow to reset the sicode prop for crashed processes.
+get_prop(init, crash_reason_prop)
+set_prop(init, crash_reason_prop)
+
 # Only init is allowed to set userspace reboot related properties.
 set_prop(init, userspace_reboot_exported_prop)
 neverallow { domain -init } userspace_reboot_exported_prop:property_service set;
