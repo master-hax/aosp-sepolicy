@@ -29,4 +29,5 @@ userdebug_or_eng(`
 
   # Allow root to set MTE permissive mode.
   set_prop(su, permissive_mte_prop);
+  get_prop(su, crash_reason_prop)
 ')
