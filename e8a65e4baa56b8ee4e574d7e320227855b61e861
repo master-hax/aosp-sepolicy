@@ -238,6 +238,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "31efd251_f498e2f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-05-12T01:14:42Z",
+      "side": 1,
+      "message": "\u003e \u003e The question really is what exactly is the API.\n\u003e I agree with this question and the points that Alan made. \n\nI think the definition is \"a set of types, attributes, macros, access vectors, etc.\". I don\u0027t think we should expose the implementation details (especially allow rules), just like we only expose method signatures for java APIs, or we only expose structures and function prototypes for C APIs.\n\nWe might want to expose type - attribute associations. However, what can we get from there? For example, I don\u0027t understand why vendors should take care of individual platform domains when using attributes like `netdomain`, or `appdomain`.\n\n\u003e I have a feeling that the private/public split should have 2 useful properties:\n\u003e 1. Changes in private should not break vendor policy.\n\u003e 2. Vendors shouldn\u0027t have to worry about what\u0027s in private.\n\nWe can\u0027t achieve 1 and 2 because of neverallow rules. We could move neverallow rules to public, but then we can\u0027t enforce private types. For example, if `foo` is defined under private, and if the platform wants to give access to `bar` only for `foo`, we should write\n\n    neverallow { domain -foo } bar:...\n    \nIMO, what we can get from private/public split is that..\n1) Vendors can\u0027t access random platform types.\n2) Private types don\u0027t need to be versioned, and can be changed independently.\n    \n\u003e I believe it\u0027s legitimate for a vendor to apply a public label, or at least some of them, to something vendor specific.\n\nSorry I don\u0027t get this. Could you elaborate?\n\n\u003e Anything (be it type association, or allow rule) on public entities (without private types involved) should better be public as well. I can\u0027t think of a reason to hide them from the user.\n\nI think we should tackle the private\u003c-\u003epublic split from the build system aspect. \n\n\u003e When a type (or an attribute) is exposed as an API, we at least have to \"document\" what the type is for and what the type can do on other public types.\n\nDocumentation is always good. +1\n\n\u003e Otherwise, vendors just wouldn\u0027t know how to extend and use the type and will have to look into the private policies anyway to learn.\n\nI think this is more of a documentation problem, rather than public\u003c-\u003eprivate problem.",
+      "parentUuid": "3097b7da_48f341d3",
+      "range": {
+        "startLine": 10,
+        "startChar": 51,
+        "endLine": 10,
+        "endChar": 65
+      },
+      "revId": "e8a65e4baa56b8ee4e574d7e320227855b61e861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "af474c9a_2f82cea6",
