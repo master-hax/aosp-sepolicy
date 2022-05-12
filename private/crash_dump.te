@@ -37,6 +37,9 @@ userdebug_or_eng(`
 # ptrace neverallow assertions are spread throughout the other policy
 # files, so we avoid adding redundant assertions here
 
+# Allow to set the sicode prop for crashed processes.
+set_prop(crash_dump, crash_reason_prop)
+
 neverallow crash_dump {
   apexd
   userdebug_or_eng(`-apexd')
