@@ -4,3 +4,6 @@ init_daemon_domain(mediaswcodec)
 
 get_prop(mediaswcodec, device_config_media_native_prop)
 get_prop(mediaswcodec, device_config_swcodec_native_prop)
+
+allow mediaswcodec logdr_socket:sock_file write;
+allow mediaswcodec logd:unix_stream_socket connectto;
