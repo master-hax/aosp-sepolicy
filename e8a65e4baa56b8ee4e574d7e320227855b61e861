@@ -334,6 +334,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "20a611a2_bd5cd882",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-05-13T05:51:48Z",
+      "side": 1,
+      "message": "Thiébaud let me know that if we have an allow rule in public, that is compiled into the vendor sepolicy, which makes it difficult for us to alter (or remove) the allow rule in the future. I think this very much makes sense.\n\nHowever, in some cases, that may be the case we want. We want an allow rule to persist in the old vendor policy even if the rule is disappeared in a future platform policy. I guess this will be the case when the allow rule is originated from a VNDK (or vendor_available: true, or vendor: true) library.\n\nSo I think the answer to the private v.s. public question is actually about whether an allow rule or a type-attribute association is originated from platform or not (i.e. VNDK or vendor-owned). The former goes to private, and the latter goes to public.\n\nI feel like the names public and private don\u0027t reflect their true nature, so I suggest a name change.\n\n* public -\u003e shared\n* private -\u003e platform (or system)",
+      "parentUuid": "3604e261_03567a70",
+      "range": {
+        "startLine": 10,
+        "startChar": 51,
+        "endLine": 10,
+        "endChar": 65
+      },
+      "revId": "e8a65e4baa56b8ee4e574d7e320227855b61e861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "af474c9a_2f82cea6",
