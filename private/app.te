@@ -141,6 +141,7 @@ allow appdomain system_server:fd use;
 allow appdomain system_server:fifo_file rw_file_perms;
 allow appdomain system_server:unix_stream_socket { read write setopt getattr getopt shutdown };
 allow appdomain system_server:tcp_socket { read write getattr getopt shutdown };
+allow appdomain prng_seeder_socket:unix_stream_socket {read write setopt getattr getopt shutdown connectto};
 
 # For AppFuse.
 allow appdomain vold:fd use;

@@ -1,0 +1,11 @@
+type prng_seeder, domain, coredomain;
+type prng_seeder_exec, system_file_type, exec_type, file_type;
+
+init_daemon_domain(prng_seeder)
+
+type prng_seeder_socket, file_type;
+
+allow prng_seeder prng_seeder_socket:unix_stream_socket { read write getattr getopt accept };
+allow prng_seeder hw_random_device:chr_file { read open };
+
+allow { prng_seeder } kmsg_debug_device:chr_file { w_file_perms getattr ioctl };

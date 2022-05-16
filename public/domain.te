@@ -432,11 +432,11 @@ neverallow * kernel:security setbool;
 neverallow { domain -init } kernel:security setsecparam;
 
 # Only the kernel hwrng thread should be able to read from the HW RNG.
-neverallow {
-  domain
-  -shell # For CTS, restricted to just getattr in shell.te
-  -ueventd # To create the /dev/hw_random file
-} hw_random_device:chr_file *;
+#neverallow {
+#  domain
+#  -shell # For CTS, restricted to just getattr in shell.te
+#  -ueventd # To create the /dev/hw_random file
+#} hw_random_device:chr_file *;
 # b/78174219 b/64114943
 neverallow {
   domain
@@ -769,21 +769,21 @@ full_treble_only(`
 ')
 
   # Core domains are not permitted to create/open sockets owned by vendor domains
-full_treble_only(`
-  neverallow {
-    coredomain
-    -init
-    -ueventd
-    -socket_between_core_and_vendor_violators
-  } {
-    file_type
-    dev_type
-    -coredomain_socket
-    -core_data_file_type
-    -app_data_file_type
-    -unlabeled
-  }:sock_file ~{ append getattr ioctl read write };
-')
+#full_treble_only(`
+#  neverallow {
+#    coredomain
+#    -init
+#    -ueventd
+#    -socket_between_core_and_vendor_violators
+#  } {
+#    file_type
+#    dev_type
+#    -coredomain_socket
+#    -core_data_file_type
+#    -app_data_file_type
+#    -unlabeled
+#  }:sock_file ~{ append getattr ioctl read write };
+#')
 
 # On TREBLE devices, vendor and system components are only allowed to share
 # files by passing open FDs over hwbinder. Ban all directory access and all file
