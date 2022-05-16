@@ -412,9 +412,15 @@ neverallow {
   libc_debug_prop
 }:property_service set;
 
+<<<<<<< HEAD   (7234b9 Grant permission for mediatranscoding hal_allocator for GSI )
 # Allow the shell to set MTE & GWP-ASan props, so that non-root users with adb
 # shell access can control the settings on their device. Allow system apps to
 # set MTE props, so Developer Options can set them.
+=======
+# Allow the shell to set MTE props, so that non-root users with adb shell
+# access can control the settings on their device.
+# Allow system apps to set MTE props, so Developer Options can set them.
+>>>>>>> BRANCH (8f9e37 [MTE] Allow system_app to write memtag property. am: 4042fa5)
 neverallow {
   domain
   -init
