@@ -63,7 +63,7 @@ recovery_only(`
     userdata_block_device
     dm_device
     cache_block_device
-  }:blk_file ioctl { BLKSECDISCARD BLKDISCARD };
+  }:blk_file ioctl { SG_IO BLKSECDISCARD BLKDISCARD };
 
   allow fastbootd misc_block_device:blk_file rw_file_perms;
 

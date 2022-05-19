@@ -431,6 +431,9 @@ neverallow {
   -tee
   -hal_bootctl_server
   -fastbootd
+  -fsck
+  -vold
+  -e2fs
 } self:global_capability_class_set sys_rawio;
 
 # Limit directory operations that doesn't need to do app data isolation.
