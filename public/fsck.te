@@ -30,6 +30,7 @@ allow fsck mirror_data_file:dir search;
 # For the block devices where we have ioctl access,
 # allow at a minimum the following common fsck ioctls.
 allowxperm fsck dev_type:blk_file ioctl {
+  SG_IO
   BLKDISCARDZEROES
   BLKROGET
 };
