@@ -93,6 +93,9 @@ neverallow { domain -init } vts_status_prop:property_service set;
 # Only init can write normal ro.boot. properties
 neverallow { domain -init } bootloader_prop:property_service set;
 
+# Only init can write normal ro.kernel.version properties
+neverallow { domain -init } kernel_version_prop:property_service set;
+
 # Only init can write ro.boot.hypervisor properties
 neverallow { domain -init } hypervisor_prop:property_service set;
 
