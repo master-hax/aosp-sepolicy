@@ -44,6 +44,9 @@ def TestSystemTypeViolations(pol):
 
     return pol.AssertPathTypesHaveAttr(partitions, exceptions, "system_file_type")
 
+def TestBpffsTypeViolations(pol):
+    return pol.AssertGenfsFilesystemTypesHaveAttr("bpf", "bpffs_type")
+
 def TestProcTypeViolations(pol):
     return pol.AssertGenfsFilesystemTypesHaveAttr("proc", "proc_type")
 
@@ -128,6 +131,7 @@ class MultipleOption(Option):
             Option.take_action(self, action, dest, opt, value, values, parser)
 
 Tests = [
+    "TestBpffsTypeViolations",
     "TestDataTypeViolators",
     "TestProcTypeViolations",
     "TestSysfsTypeViolations",
