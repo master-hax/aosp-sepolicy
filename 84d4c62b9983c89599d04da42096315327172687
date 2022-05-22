@@ -86,6 +86,24 @@
       "message": "Don\u0027t apps already have access to the kernel version via https://developer.android.com/reference/android/system/Os#uname()?",
       "revId": "84d4c62b9983c89599d04da42096315327172687",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be182552_7e4e0479",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1950557
+      },
+      "writtenOn": "2022-05-22T04:48:01Z",
+      "side": 1,
+      "message": "yes, apps can gain kernel by Os.uname call. Meanwhile, maybe we can provide an other way with property, just as Android Build.java file, here are all properties about device,it is consistent.\n\nhere is the patch of Android Build.java\nhttps://android-review.googlesource.com/c/platform/frameworks/base/+/2101093\n\nthanks.",
+      "parentUuid": "3e6561f2_92e0deba",
+      "revId": "84d4c62b9983c89599d04da42096315327172687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
