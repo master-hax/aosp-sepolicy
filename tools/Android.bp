@@ -59,6 +59,12 @@ cc_binary_host {
     srcs: ["version_policy.c"],
 }
 
+cc_binary_host {
+    name: "seamendc",
+    defaults: ["sepolicy_tools_defaults"],
+    srcs: ["seamendc.c"],
+}
+
 python_binary_host {
     name: "insertkeys",
     srcs: ["insertkeys.py"],
