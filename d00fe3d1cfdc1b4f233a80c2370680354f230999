@@ -106,6 +106,24 @@
       "parentUuid": "04840953_99da8598",
       "revId": "d00fe3d1cfdc1b4f233a80c2370680354f230999",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ded5d430_73e06881",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-05-25T10:33:54Z",
+      "side": 1,
+      "message": "Hmm, that dontaudit is only there for Microdroid, I think?\nI wonder if that\u0027s a bad thing - if someone adds code to access a new property it won\u0027t be obvious why it isn\u0027t working.\n\nHow about switching that to dontaudit microdroid_unsupported_property?\n\nThen use of a known unsupported property is silent, but use of an unlabeled property is not, and you can fix that by either explicitly making it unsupported or giving it a more appropriate label.",
+      "parentUuid": "dedeb3a8_899d4039",
+      "revId": "d00fe3d1cfdc1b4f233a80c2370680354f230999",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
