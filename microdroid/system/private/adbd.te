@@ -55,3 +55,12 @@ allow adbd kernel:security read_policy;
 # adbd tries to run mdnsd, but mdnsd doesn't exist. Just dontaudit ctl permissions.
 # TODO(b/200902288): patch adb and remove this rule
 dontaudit adbd { ctl_default_prop ctl_start_prop }:property_service set;
+
+# Access device logging gating property
+get_prop(adbd, device_logging_prop)
+
+# Read device's serial number from system properties
+get_prop(adbd, serialno_prop)
+
+# Read whether or not Test Harness Mode is enabled
+get_prop(adbd, test_harness_prop)
