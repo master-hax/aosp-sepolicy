@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d86ae93_d38d5db5",
+        "filename": "private/compat/33.0/33.0.cil",
+        "patchSetId": 4
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-05-25T02:25:32Z",
+      "side": 1,
+      "message": "Sorry I didn\u0027t meant this. You\u0027ll need to map kernel_version_prop to one of 33_0 attributes.\n\nSpecifically, I think default_prop will be appropriate, as the property is labeled as default_prop until this change.\n\n1) Revert two lines you\u0027ve just added.\n2) Change Line 1544 (or near) from\n\n    (typeattributeset default_prop_33_0 (default_prop))\n\nto\n\n    (typeattributeset default_prop_33_0 (default_prop kernel_version_prop))",
+      "range": {
+        "startLine": 557,
+        "startChar": 0,
+        "endLine": 557,
+        "endChar": 53
+      },
+      "revId": "e4b650d9e87db005c06b3a493dd8ab202c9711db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
