@@ -1,0 +1,108 @@
+##
+## SDK Sandbox process.
+##
+## This file defines the security policy for the sdk sandbox processes.
+
+type seamendc_test, domain; # this statement is broken in seamendc. 
+typeattribute seamendc_test coredomain;
+
+net_domain(seamendc_test)
+
+# Allow finding services. This is different from ephemeral_app policy.
+# Adding services manually to the allowlist is preferred hence app_api_service is not used.
+# Audit the access to signal that we are still investigating whether seamendc_test
+# should have access to audio_service
+# TODO(b/211632068): remove this line
+auditallow seamendc_test audio_service:service_manager find;
+
+allow seamendc_test activity_service:service_manager find;
+allow seamendc_test activity_task_service:service_manager find;
+allow seamendc_test appops_service:service_manager find;
+allow seamendc_test audio_service:service_manager find;
+allow seamendc_test audioserver_service:service_manager find;
+allow seamendc_test batteryproperties_service:service_manager find;
+allow seamendc_test batterystats_service:service_manager find;
+allow seamendc_test connectivity_service:service_manager find;
+allow seamendc_test connmetrics_service:service_manager find;
+allow seamendc_test deviceidle_service:service_manager find;
+allow seamendc_test display_service:service_manager find;
+allow seamendc_test dropbox_service:service_manager find;
+allow seamendc_test font_service:service_manager find;
+allow seamendc_test game_service:service_manager find;
+allow seamendc_test gpu_service:service_manager find;
+allow seamendc_test graphicsstats_service:service_manager find;
+allow seamendc_test hardware_properties_service:service_manager find;
+allow seamendc_test hint_service:service_manager find;
+allow seamendc_test imms_service:service_manager find;
+allow seamendc_test input_method_service:service_manager find;
+allow seamendc_test input_service:service_manager find;
+allow seamendc_test IProxyService_service:service_manager find;
+allow seamendc_test ipsec_service:service_manager find;
+allow seamendc_test launcherapps_service:service_manager find;
+allow seamendc_test legacy_permission_service:service_manager find;
+allow seamendc_test light_service:service_manager find;
+allow seamendc_test locale_service:service_manager find;
+allow seamendc_test media_communication_service:service_manager find;
+allow seamendc_test mediaextractor_service:service_manager find;
+allow seamendc_test mediametrics_service:service_manager find;
+allow seamendc_test media_projection_service:service_manager find;
+allow seamendc_test media_router_service:service_manager find;
+allow seamendc_test mediaserver_service:service_manager find;
+allow seamendc_test media_session_service:service_manager find;
+allow seamendc_test memtrackproxy_service:service_manager find;
+allow seamendc_test midi_service:service_manager find;
+allow seamendc_test netpolicy_service:service_manager find;
+allow seamendc_test netstats_service:service_manager find;
+allow seamendc_test network_management_service:service_manager find;
+allow seamendc_test notification_service:service_manager find;
+allow seamendc_test package_service:service_manager find;
+allow seamendc_test permission_checker_service:service_manager find;
+allow seamendc_test permission_service:service_manager find;
+allow seamendc_test permissionmgr_service:service_manager find;
+allow seamendc_test platform_compat_service:service_manager find;
+allow seamendc_test power_service:service_manager find;
+allow seamendc_test procstats_service:service_manager find;
+allow seamendc_test registry_service:service_manager find;
+allow seamendc_test restrictions_service:service_manager find;
+allow seamendc_test rttmanager_service:service_manager find;
+allow seamendc_test search_service:service_manager find;
+allow seamendc_test selection_toolbar_service:service_manager find;
+allow seamendc_test sensor_privacy_service:service_manager find;
+allow seamendc_test sensorservice_service:service_manager find;
+allow seamendc_test servicediscovery_service:service_manager find;
+allow seamendc_test settings_service:service_manager find;
+allow seamendc_test speech_recognition_service:service_manager find;
+allow seamendc_test statusbar_service:service_manager find;
+allow seamendc_test storagestats_service:service_manager find;
+allow seamendc_test surfaceflinger_service:service_manager find;
+allow seamendc_test telecom_service:service_manager find;
+allow seamendc_test tethering_service:service_manager find;
+allow seamendc_test textclassification_service:service_manager find;
+allow seamendc_test textservices_service:service_manager find;
+allow seamendc_test texttospeech_service:service_manager find;
+allow seamendc_test thermal_service:service_manager find;
+allow seamendc_test translation_service:service_manager find;
+allow seamendc_test tv_iapp_service:service_manager find;
+allow seamendc_test tv_input_service:service_manager find;
+allow seamendc_test uimode_service:service_manager find;
+allow seamendc_test vcn_management_service:service_manager find;
+allow seamendc_test webviewupdate_service:service_manager find;
+
+allow seamendc_test system_linker_exec:file execute_no_trans;
+
+# Write app-specific trace data to the Perfetto traced damon. This requires
+# connecting to its producer socket and obtaining a (per-process) tmpfs fd.
+perfetto_producer(seamendc_test)
+
+# Allow profiling if the app opts in by being marked profileable/debuggable.
+can_profile_heap(seamendc_test)
+can_profile_perf(seamendc_test)
+
+# allow sdk sandbox to use UDP sockets provided by the system server but not
+# modify them other than to connect
+allow seamendc_test system_server:udp_socket {
+        connect getattr read recvfrom sendto write getopt setopt };
+
+# allow seamendc_test to create files and dirs in sdk data directory
+allow seamendc_test sdk_sandbox_data_file:dir create_dir_perms;
+allow seamendc_test sdk_sandbox_data_file:file create_file_perms;
