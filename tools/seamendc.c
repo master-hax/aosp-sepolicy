@@ -192,6 +192,8 @@ int main(int argc, char *argv[])
         goto exit;
     }
 
+    cil_set_attrs_expand_generated(incremental_db, 1);
+
     rc = cil_compile(incremental_db);
     if (rc != SEPOL_OK) {
         fprintf(stderr, "Failed to compile cildb: %d.\n", rc);
