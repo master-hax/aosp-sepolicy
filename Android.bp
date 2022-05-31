@@ -373,7 +373,6 @@ se_policy_cil {
     additional_cil_files: [":sepolicy_technical_debt{.plat_private}"],
 }
 
-
 se_policy_conf {
     name: "apex_sepolicy-33.conf",
     srcs: plat_public_policy + plat_private_policy + ["com.android.sepolicy/33/*.te"],
@@ -386,6 +385,16 @@ se_policy_cil {
     filter_out: [":plat_sepolicy.cil"],
     installable: false,
     stem: "apex_sepolicy.cil",
+    remove_line_marker: true,
+}
+
+se_policy_binary {
+    name: "apex_sepolicy-33.binary",
+    srcs: [
+        ":apex_sepolicy-33.cil",
+        "com.android.sepolicy/33/definitions/definitions.cil",
+    ],
+    installable: false,
 }
 
 // userdebug_plat_policy.conf - the userdebug version plat_sepolicy.cil
