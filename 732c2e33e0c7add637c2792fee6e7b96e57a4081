@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed1b6555_1db8f8cd",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-05-31T12:28:59Z",
+      "side": 1,
+      "message": "Nit: Can you add \", coredomain\" to line 2, instead of having this separately?",
+      "range": {
+        "startLine": 11,
+        "startChar": 19,
+        "endLine": 11,
+        "endChar": 29
+      },
+      "revId": "732c2e33e0c7add637c2792fee6e7b96e57a4081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "244634a1_32c79e12",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-05-31T12:28:59Z",
+      "side": 1,
+      "message": "I don\u0027t think you need any access to apex_module_data_file:file, only :dir.\nI suggest\nallow artd apex_module_data_file:dir { getattr search };\nSince that\u0027s what we tend to allow other processes.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 39
+      },
+      "revId": "732c2e33e0c7add637c2792fee6e7b96e57a4081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
