@@ -105,6 +105,24 @@
       "parentUuid": "f47bd179_7f012400",
       "revId": "e1c19b40bed5e8fb3d9af085650d6557325bbdb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5910978_74784fff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-05-31T17:58:07Z",
+      "side": 1,
+      "message": "`ro.kernel.version` is explicitly _less_ informative than uname(2):\n```\n/// Set ro.kernel.version property to contain the major.minor pair as returned\n/// by uname(2).\nstatic void SetKernelVersion() {\n    struct utsname uts;\n    unsigned int major, minor;\n\n    if ((uname(\u0026uts) !\u003d 0) || (sscanf(uts.release, \"%u.%u\", \u0026major, \u0026minor) !\u003d 2)) {\n        LOG(ERROR) \u003c\u003c \"Could not parse the kernel version from uname\";\n        return;\n    }\n    SetProperty(\"ro.kernel.version\", android::base::StringPrintf(\"%u.%u\", major, minor));\n}\n```\ni don\u0027t understand why we\u0027d want this change, given that it\u0027s _less_ useful than uname(2). (the idea behind the property is that it\u0027s convenient for tests in .rc files, so they don\u0027t need to worry about 5.19.2 or 5.19-rc1 or whatever. but for debugging/diagnostic purposes, i\u0027d be pretty annoyed if my bugreport contained \"5.19\" rather than the full truth...)\n\npersonally i\u0027d see more value to explicitly marking this property as \"implementation detail for init\u0027s use only\". i\u0027d +1 _that_ change :-)",
+      "parentUuid": "6930c2c3_ea0dca41",
+      "revId": "e1c19b40bed5e8fb3d9af085650d6557325bbdb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
