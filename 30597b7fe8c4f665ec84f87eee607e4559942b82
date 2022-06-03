@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12607a47_8de8d0c9",
+        "filename": "vendor/hal_vehicle_default.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1827146
+      },
+      "writtenOn": "2022-06-03T01:30:43Z",
+      "side": 1,
+      "message": "Based on tests described in the http://b/233754988#comment12 the only working combination is:\nhwbinder_use(hal_vehicle_server)\nallow hal_vehicle_server fwk_stats_hwservice:hwservice_manager find;\nbinder_call(hal_vehicle_server, stats_service_server)",
+      "parentUuid": "bb2e6705_9d3c318b",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 32
+      },
+      "revId": "30597b7fe8c4f665ec84f87eee607e4559942b82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b1113807_7136fe18",
         "filename": "vendor/hal_vehicle_default.te",
         "patchSetId": 3
