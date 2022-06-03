@@ -16,6 +16,23 @@
       "message": "actually, let\u0027s err on the side of simplicity, dropping microdroid and prebuilts updates, since in other cases the prebuilts seem to be updated during cherrypick to tm-dev.",
       "revId": "047bbb131fe4a36575d92720cae058176638ed13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f70be6ab_c23e1aec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2022-06-03T13:39:31Z",
+      "side": 1,
+      "message": "Although that makes me uncertain how to handle:\n\nSELinux: The following public types were found added to the policy without an entry into the compatibility mapping file(s) found in private/compat/V.v/V.v[.ignore].cil, where V.v is the latest API lev\nel.\nfs_bpf_net_private fs_bpf_net_shared fs_bpf_netd_shared\n\nIs the expectation I change 33 and then during cherrypick to tm-dev I change it to 32?",
+      "revId": "047bbb131fe4a36575d92720cae058176638ed13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
