@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cac05c2_e17dfb61",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-06-07T16:23:48Z",
+      "side": 1,
+      "message": "Thanks for pointing this out. For lnk_file, what we need is to follow symlinks because I have a vague impression that vdex files can be shared among multiple ISAs through symlinks in some cases. I guess getattr should be sufficient.",
+      "parentUuid": "d21c3388_67fe8e5d",
+      "range": {
+        "startLine": 40,
+        "startChar": 40,
+        "endLine": 40,
+        "endChar": 48
+      },
+      "revId": "9deb0e2885b36c278c089954616d8294deb40c8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58d26382_9e380ba3",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-06-07T14:53:55Z",
       "side": 1,
       "message": "Are you able to give a brief description of why you need each of these, mostly for the benefit of future readers?\ndac_override dac_read_search is for accessing files in app data directories, ignoring DAC permissions.\nsetgid setuid is for impersonating apps? Why? (And if you have that, why do you need dac_override?)\nchown, fowner - ?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 62
+      },
+      "revId": "9deb0e2885b36c278c089954616d8294deb40c8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "413d44b6_84b8d3aa",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-06-07T16:23:48Z",
+      "side": 1,
+      "message": "Added some comments.\n\nAlso rethought about this and dropped some capabilities:\n- \"chown\": We need to transfer the ownership of the files to apps after creating them, but we probably don\u0027t need root capabilities to do that.\n- \"setgid\", \"setuid\": I saw installd doing this before execing ART binaries. The reason for doing this is to drop root permissions. I guess we don\u0027t need this because artd does not run as the root UID in the first place. We just need to drop capabilities by calling capset. Am I understanding it correctly?",
+      "parentUuid": "58d26382_9e380ba3",
       "range": {
         "startLine": 51,
         "startChar": 0,
