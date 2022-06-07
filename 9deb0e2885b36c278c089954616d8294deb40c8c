@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b3811b2_957fa907",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-06-07T20:13:12Z",
+      "side": 1,
+      "message": "OK, if installd doesn\u0027t have read, we don\u0027t need it either. I just realized that these are rules for artifacts generated **on device**. We don\u0027t use symlinks for those.",
+      "parentUuid": "bfea6eaa_0897e606",
+      "range": {
+        "startLine": 40,
+        "startChar": 40,
+        "endLine": 40,
+        "endChar": 48
+      },
+      "revId": "9deb0e2885b36c278c089954616d8294deb40c8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58d26382_9e380ba3",
@@ -181,6 +205,30 @@
       "side": 1,
       "message": "We don\u0027t explicitly change the context but we do drop capabilities as here: https://source.corp.google.com/android-internal/frameworks/native/cmds/installd/utils.cpp;rcl\u003d8b645f865a03de3a9d56f3507ccbc45be22efe36;l\u003d1402#:~:text\u003d1401-,1402,-1403\n\nI don\u0027t know the underlying implementation and whether or not behind the scenes there\u0027s a context change.",
       "parentUuid": "f51c6629_b45dae5f",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 62
+      },
+      "revId": "9deb0e2885b36c278c089954616d8294deb40c8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e00d513_d81f6657",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-06-07T20:13:12Z",
+      "side": 1,
+      "message": "Thanks, Calin.\n\nMaybe installd doesn\u0027t change selinux context today, but I think it\u0027s a good idea to change selinux context in artd. I\u0027ll add the neverallow rule when we add rules for executing ART binaries. Thanks for the discussion.",
+      "parentUuid": "5f491505_dc33a173",
       "range": {
         "startLine": 51,
         "startChar": 0,
