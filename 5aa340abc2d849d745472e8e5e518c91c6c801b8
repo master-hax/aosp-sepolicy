@@ -123,6 +123,24 @@
       "parentUuid": "3668d6b0_a5eeef06",
       "revId": "5aa340abc2d849d745472e8e5e518c91c6c801b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a7f9896_6557d050",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1880185
+      },
+      "writtenOn": "2022-06-07T21:37:39Z",
+      "side": 1,
+      "message": "If oem included the vms library in their vhal, then oem should had a board device specific hal_vehicle_default.te in their device/\u003cvendor\u003e/\u003cboard/device\u003e/ directory.\n\nOther way is to have hal_vehicle_default.te in vendor/google_auto/vms/sepolicy and ask oem to include a line in the device mk file like\nBOARD_SEPOLICY_DIRS +\u003d \\\n    vendor/google_auto/vms/sepolicy",
+      "parentUuid": "b216f8bb_9214826f",
+      "revId": "5aa340abc2d849d745472e8e5e518c91c6c801b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
