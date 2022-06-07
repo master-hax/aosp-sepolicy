@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65d6665c_58c67dfd",
+        "filename": "private/compat/32.0/32.0.ignore.cil",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-06-07T10:27:35Z",
+      "side": 1,
+      "message": "+inseob, shouldn\u0027t this be inforcing on API version 33 instead of 32 now?",
+      "parentUuid": "091a3281_ccaf389d",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 22
+      },
+      "revId": "4e0d6d38c9e84b315669b6e962fef7f72272bd24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8bf95285_4af826c1",
         "filename": "private/compat/32.0/32.0.ignore.cil",
         "patchSetId": 6
@@ -60,6 +84,30 @@
       "writtenOn": "2022-06-03T13:48:20Z",
       "side": 1,
       "message": "this is what needed to actually get this to build, without updating the prebuilts in this same cl...",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "4e0d6d38c9e84b315669b6e962fef7f72272bd24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c622ddf_4f34a289",
+        "filename": "private/compat/33.0/33.0.ignore.cil",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-06-07T10:27:35Z",
+      "side": 1,
+      "message": "You should map these to their previous definition in 33.0.cil so that things that relied on the previous definition don\u0027t break.\n\ne.g.\n\ndiff --git a/private/compat/33.0/33.0.cil b/private/compat/33.0/33.0.cil\nindex 3a096beae..7ff574f1d 100644\n--- a/private/compat/33.0/33.0.cil\n+++ b/private/compat/33.0/33.0.cil\n@@ -1652,7 +1652,12 @@\n (typeattributeset font_service_33_0 (font_service))\n (typeattributeset framework_watchdog_config_prop_33_0 (framework_watchdog_config_prop))\n (typeattributeset frp_block_device_33_0 (frp_block_device))\n-(typeattributeset fs_bpf_33_0 (fs_bpf))\n+(typeattributeset fs_bpf_33_0\n+  ( fs_bpf\n+    fs_bpf_net_private\n+    fs_bpf_net_shared\n+    fs_bpf_netd_shared\n+  ))\n (typeattributeset fs_bpf_tethering_33_0 (fs_bpf_tethering))\n (typeattributeset fs_bpf_vendor_33_0 (fs_bpf_vendor))\n (typeattributeset fsck_33_0 (fsck))",
+      "parentUuid": "b708c401_7cae9164",
       "range": {
         "startLine": 9,
         "startChar": 0,
