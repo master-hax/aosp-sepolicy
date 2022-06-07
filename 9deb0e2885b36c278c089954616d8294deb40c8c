@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d21c3388_67fe8e5d",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-07T14:53:55Z",
+      "side": 1,
+      "message": "Nit: What permissions do you actually need for lnk_file?\ninstalld only has getattr. Not that it makes a huge difference, AIUI.\nhttp://cs/android-internal/system/sepolicy/prebuilts/api/30.0/public/installd.te?rcl\u003d5131ff65443d3cc17bf03c239f6fdb28432ba3c7\u0026l\u003d92",
+      "range": {
+        "startLine": 40,
+        "startChar": 40,
+        "endLine": 40,
+        "endChar": 48
+      },
+      "revId": "9deb0e2885b36c278c089954616d8294deb40c8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58d26382_9e380ba3",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-07T14:53:55Z",
+      "side": 1,
+      "message": "Are you able to give a brief description of why you need each of these, mostly for the benefit of future readers?\ndac_override dac_read_search is for accessing files in app data directories, ignoring DAC permissions.\nsetgid setuid is for impersonating apps? Why? (And if you have that, why do you need dac_override?)\nchown, fowner - ?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 62
+      },
+      "revId": "9deb0e2885b36c278c089954616d8294deb40c8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
