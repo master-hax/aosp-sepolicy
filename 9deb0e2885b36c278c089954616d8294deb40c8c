@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bfea6eaa_0897e606",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-07T16:39:45Z",
+      "side": 1,
+      "message": "You need read in order to follow the link, and getattr if you want to be able to stat (or possibly lstat) it. I\u0027d grant both. That\u0027s pretty common.",
+      "parentUuid": "2cac05c2_e17dfb61",
+      "range": {
+        "startLine": 40,
+        "startChar": 40,
+        "endLine": 40,
+        "endChar": 48
+      },
+      "revId": "9deb0e2885b36c278c089954616d8294deb40c8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58d26382_9e380ba3",
         "filename": "private/artd.te",
         "patchSetId": 1
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Added some comments.\n\nAlso rethought about this and dropped some capabilities:\n- \"chown\": We need to transfer the ownership of the files to apps after creating them, but we probably don\u0027t need root capabilities to do that.\n- \"setgid\", \"setuid\": I saw installd doing this before execing ART binaries. The reason for doing this is to drop root permissions. I guess we don\u0027t need this because artd does not run as the root UID in the first place. We just need to drop capabilities by calling capset. Am I understanding it correctly?",
       "parentUuid": "58d26382_9e380ba3",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 62
+      },
+      "revId": "9deb0e2885b36c278c089954616d8294deb40c8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42b9a57b_502118fe",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-07T16:39:45Z",
+      "side": 1,
+      "message": "I\u0027m unsure about this.\nYou change selinux context as well when you run those binaries, don\u0027t you? In which case they won\u0027t have access to the capabilities anyway.\n\n(Maybe we should add \"neverallow artd { file_type fs_type }:file execute_no_trans;\", as we do with init, just to make sure we don\u0027t accidentally pass on these capabilities.)",
+      "parentUuid": "413d44b6_84b8d3aa",
       "range": {
         "startLine": 51,
         "startChar": 0,
