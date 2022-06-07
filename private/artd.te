@@ -36,7 +36,8 @@ r_dir_file(artd, vendor_app_file)
 
 # Read access to all compilation artifacts generated on device for apps' primary
 # dex'es. (/data/dalvik-cache/..., /data/app/.../oat/..., etc.)
-r_dir_file(artd, dalvikcache_data_file)
+allow artd dalvikcache_data_file:dir create_dir_perms;
+allow artd dalvikcache_data_file:{ file lnk_file } create_file_perms;
 
 # Read access to the ART APEX data directory.
 # Needed for reading the boot image generated on device.
@@ -46,3 +47,6 @@ r_dir_file(artd, apex_art_data_file)
 # Read access to /apex/apex-info-list.xml
 # Needed for getting APEX versions.
 allow artd apex_info_file:file r_file_perms;
+
+# Allow getting root capabilities to bypass permission checks.
+allow artd self:global_capability_class_set { chown dac_override dac_read_search fowner setgid setuid };
