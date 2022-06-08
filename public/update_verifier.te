@@ -26,6 +26,8 @@ allow update_verifier kmsg_device:chr_file { getattr w_file_perms };
 
 # Use Boot Control HAL
 hal_client_domain(update_verifier, hal_bootctl)
+# Needed to wait for AIDL hal services
+# allow update_verifier hal_bootctl_service:service_manager find;
 
 # Access Checkpoint commands over binder
 allow update_verifier vold_service:service_manager find;
