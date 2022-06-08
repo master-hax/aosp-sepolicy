@@ -333,6 +333,30 @@
       },
       "revId": "9deb0e2885b36c278c089954616d8294deb40c8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7414b7c1_983bdc64",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-06-08T13:15:38Z",
+      "side": 1,
+      "message": "I looked into https://man7.org/linux/man-pages/man7/capabilities.7.html. The \"Thread capability sets\" section says there are various capability sets, and only Inheritable capabilities are preserved across an exec. I think we are fine if the `capabilities` field in init.rc doesn\u0027t mean Inheritable capabilities.",
+      "parentUuid": "3c3937a1_aab87c5b",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 62
+      },
+      "revId": "9deb0e2885b36c278c089954616d8294deb40c8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
