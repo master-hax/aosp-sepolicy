@@ -16,6 +16,98 @@
       "message": "(I\u0027ve realized I still lack bpfloader rename priv in this change, but let\u0027s see if this TH\u0027es as is)",
       "revId": "45f81c55f3ec0b8d015399e7966c1122f69fb9e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "073e332b_88ceb191",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2022-06-08T01:49:48Z",
+      "side": 1,
+      "message": "Who is allowed to do this? Should this say:\n\n    allow bpfloader { bpffs_type -fs_bpf } fs_bpf:filesystem associate;\n\n?",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 7
+      },
+      "revId": "45f81c55f3ec0b8d015399e7966c1122f69fb9e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e61fedbe_17913b45",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2022-06-08T01:49:48Z",
+      "side": 1,
+      "message": "Are all these spaces useful? They make the code hard to read on gerrit.\n\nAlso, I think this change would be much easier to review if it was split into two or three CLs. AFAICT we have a) the introduction of bpffs_type, b) the general removal of gpuservice and unrelated entities from networking maps, c) introducing the additional networking domains.",
+      "range": {
+        "startLine": 37,
+        "startChar": 48,
+        "endLine": 37,
+        "endChar": 61
+      },
+      "revId": "45f81c55f3ec0b8d015399e7966c1122f69fb9e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60705659_2d5edd37",
+        "filename": "private/network_stack.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2022-06-08T01:49:48Z",
+      "side": 1,
+      "message": "Might want to add a comment explaining why they are here. Per discussion, AIUI the answer is basically, \"this place is as good as any, and maybe most appropriate because network_stack itself is entirely mainline code).",
+      "range": {
+        "startLine": 74,
+        "startChar": 28,
+        "endLine": 74,
+        "endChar": 33
+      },
+      "revId": "45f81c55f3ec0b8d015399e7966c1122f69fb9e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23b44b89_aa8d180f",
+        "filename": "private/network_stack.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2022-06-08T01:49:48Z",
+      "side": 1,
+      "message": "Is it possible to remove init and vendor_init from these new directories that were added in T and are only for the use of mainline code?",
+      "range": {
+        "startLine": 78,
+        "startChar": 31,
+        "endLine": 78,
+        "endChar": 36
+      },
+      "revId": "45f81c55f3ec0b8d015399e7966c1122f69fb9e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
