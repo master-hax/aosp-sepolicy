@@ -381,6 +381,30 @@
       },
       "revId": "9deb0e2885b36c278c089954616d8294deb40c8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b302d0c_4fb7c75c",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-06-08T14:33:29Z",
+      "side": 1,
+      "message": "Ah, right. They need the capabilities to be preserved across exec because they need to exec the actual service binary. Therefore, we can\u0027t expect exec to automatically drop capabilities. Maybe selinux does something to prevent the capabilities from being preserved. We need to do some experiments to see if that is the case. Anyway, this is out of the scope of this CL. We\u0027ll look into it later. Thanks for the discussion!",
+      "parentUuid": "634b45aa_ce5404c6",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 62
+      },
+      "revId": "9deb0e2885b36c278c089954616d8294deb40c8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
