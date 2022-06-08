@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dacf301b_d50ccc00",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-06-08T06:56:40Z",
+      "side": 1,
+      "message": "This is correct. The \"filesystem associate\" permissions are admittedly confusing. But it\u0027s allowing these types to be used under /sys/fs/bpf/, or \"associated\" with it. So, allow (for example) fs_bpf_tethering to be associated with fs_bpf.",
+      "parentUuid": "073e332b_88ceb191",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 7
+      },
+      "revId": "45f81c55f3ec0b8d015399e7966c1122f69fb9e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e61fedbe_17913b45",
@@ -105,6 +129,29 @@
         "startChar": 31,
         "endLine": 78,
         "endChar": 36
+      },
+      "revId": "45f81c55f3ec0b8d015399e7966c1122f69fb9e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b9b799f_8d5b0c49",
+        "filename": "public/file.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-06-08T06:56:40Z",
+      "side": 1,
+      "message": "You might want to add a test that asserts that new types in bpffs receive this attribute.\n\nYou can see how that\u0027s done for procfs here:\nhttps://cs.android.com/android/platform/superproject/+/master:system/sepolicy/tests/sepolicy_tests.py;l\u003d47?q\u003dsepolicy_tests.py\n\nI think it would be as easy as:\ndef TestBpffsTypeViolations(pol):\n    return pol.AssertGenfsFilesystemTypesHaveAttr(\"fs_bpf\", \"bpffs_type\")\n    \n   \nThen add the test to be run here:\nhttps://cs.android.com/android/platform/superproject/+/master:system/sepolicy/tests/sepolicy_tests.py;l\u003d198?q\u003dsepolicy_tests.py\n\nSince you\u0027re enforcing neverallow rules, you should probably also execute these tests in CTS:\nhttps://cs.android.com/android/platform/superproject/+/master:cts/hostsidetests/security/src/android/security/cts/SELinuxHostTest.java;l\u003d991",
+      "range": {
+        "startLine": 137,
+        "startChar": 29,
+        "endLine": 137,
+        "endChar": 39
       },
       "revId": "45f81c55f3ec0b8d015399e7966c1122f69fb9e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
