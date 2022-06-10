@@ -22,6 +22,30 @@
       },
       "revId": "1e796342aa142c59049ae0bc90ae2f993c247298",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ed6d8ee_e95fb635",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-06-10T09:06:49Z",
+      "side": 1,
+      "message": "The input order is the same as Android.bp srcs order. Currently system_ext sepolicy has the following as srcs:\n\n    se_policy_conf {\n        name: \"system_ext_sepolicy.conf\",\n        srcs: plat_public_policy +\n            plat_private_policy +\n            system_ext_public_policy +\n            system_ext_private_policy,\n        installable: false,\n    }\n    \nSo the order will be:\n\n- system/sepolicy/public/attributes|system/sepolicy/public/*.te\n- system/sepolicy/private/attributes|system/sepolicy/private/*.te\n- $(system_ext_public)/attributes|$(system_ext_public)/*.te\n- $(system_ext_private)/attributes|$(system_ext_private)/*.te",
+      "parentUuid": "a13bb536_71624e06",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 13
+      },
+      "revId": "1e796342aa142c59049ae0bc90ae2f993c247298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
