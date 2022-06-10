@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6eb35ab_b8a7ed83",
+        "filename": "prebuilts/api/33.0/private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-10T10:35:04Z",
+      "side": 1,
+      "message": "As Lint says, you shouldn\u0027t be changing the prebuilts; these changes are post-33.",
+      "range": {
+        "startLine": 607,
+        "startChar": 0,
+        "endLine": 608,
+        "endChar": 26
+      },
+      "revId": "0969eacfe049e7d4947efe899e42a9c1dcf4cdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "237189b5_86e42512",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-10T10:35:04Z",
+      "side": 1,
+      "message": "Can we consolidate these rules a bit into just one pair, and update the comments? The new rules entirely subsume the old ones.\n\nI don\u0027t think you need all of create_dir_perms / create_file_perms. In particular I don\u0027t think you need to delete files. Would ra_dir_perms suffice (read + append)?\n\nWhat denials do you actually see without these new rules?",
+      "range": {
+        "startLine": 604,
+        "startChar": 0,
+        "endLine": 614,
+        "endChar": 0
+      },
+      "revId": "0969eacfe049e7d4947efe899e42a9c1dcf4cdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
