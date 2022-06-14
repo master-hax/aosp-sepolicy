@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e92630ec_11eea337",
+        "filename": "prebuilts/api/33.0/private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1872107
+      },
+      "writtenOn": "2022-06-14T15:50:55Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "e6eb35ab_b8a7ed83",
+      "range": {
+        "startLine": 607,
+        "startChar": 0,
+        "endLine": 608,
+        "endChar": 26
+      },
+      "revId": "0969eacfe049e7d4947efe899e42a9c1dcf4cdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "237189b5_86e42512",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-06-10T10:35:04Z",
       "side": 1,
       "message": "Can we consolidate these rules a bit into just one pair, and update the comments? The new rules entirely subsume the old ones.\n\nI don\u0027t think you need all of create_dir_perms / create_file_perms. In particular I don\u0027t think you need to delete files. Would ra_dir_perms suffice (read + append)?\n\nWhat denials do you actually see without these new rules?",
+      "range": {
+        "startLine": 604,
+        "startChar": 0,
+        "endLine": 614,
+        "endChar": 0
+      },
+      "revId": "0969eacfe049e7d4947efe899e42a9c1dcf4cdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "542704c3_4fefb4fb",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1872107
+      },
+      "writtenOn": "2022-06-14T15:50:55Z",
+      "side": 1,
+      "message": "We want to create and delete a temporary file. I am getting this error when trying to create the file:\n06-14 13:51:20.435   641   641 W NativeTombstone: type\u003d1400 audit(0.0:180): avc: denied { write } for name\u003d\"tombstones\" dev\u003d\"dm-51\" ino\u003d22 scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:tombstone_data_file:s0 tclass\u003ddir permissive\u003d0\n\nomitting the create_file_perms rule results in:\n06-14 15:08:19.716   632   632 W NativeTombstone: type\u003d1400 audit(0.0:172): avc: denied { create } for name\u003d\"tombstone_01.pb8394094009819507959.tmp\" scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:tombstone_data_file:s0 tclass\u003dfile permissive\u003d0\n\nomitting the create_dir_perms rule results in the original error:\nNativeTombstone: type\u003d1400 audit(0.0:172): avc: denied { write } for name\u003d\"tombstones\" dev\u003d\"dm-51\" ino\u003d26 scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:tombstone_data_file:s0 tclass\u003ddir permissive\u003d0",
+      "parentUuid": "237189b5_86e42512",
       "range": {
         "startLine": 604,
         "startChar": 0,
