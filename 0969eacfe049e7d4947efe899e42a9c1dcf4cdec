@@ -93,6 +93,30 @@
       },
       "revId": "0969eacfe049e7d4947efe899e42a9c1dcf4cdec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9643efa7_88dc6786",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-15T10:22:53Z",
+      "side": 1,
+      "message": "\u003e We want to create and delete a temporary file.\n\nThat\u0027s ok, I\u0027d just like to make sure you grant the permissions you need for that and not a lot more. Does this work for you?\n\nallow system_server tombstone_data_file:dir w_dir_perms;\nallow system_server tombstone_data_file:file create_file_perms;\n\nI think w_dir_perms gives you everything you need.\n\nAnd as I said, with that the preceding rules are no longer needed, and the comments just need consolidating.",
+      "parentUuid": "542704c3_4fefb4fb",
+      "range": {
+        "startLine": 604,
+        "startChar": 0,
+        "endLine": 614,
+        "endChar": 0
+      },
+      "revId": "0969eacfe049e7d4947efe899e42a9c1dcf4cdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
