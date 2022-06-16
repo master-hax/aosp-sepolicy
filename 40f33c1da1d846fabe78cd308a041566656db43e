@@ -16,6 +16,24 @@
       "message": "I\u0027m a bit surprised that we have this domain, and it\u0027s exclusively used for virtualization.",
       "revId": "40f33c1da1d846fabe78cd308a041566656db43e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d327990_8422876f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-16T08:46:26Z",
+      "side": 1,
+      "message": "It\u0027s not exclusive to VS - see over in public/toolbox.te.\n\nWe have to have this domain because of the policy that init always transitions to another, much less privileged, domain when it does an exec: http://cs/android-internal/system/sepolicy/public/init.te?l\u003d651",
+      "parentUuid": "6e96cb81_286b95f3",
+      "revId": "40f33c1da1d846fabe78cd308a041566656db43e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
