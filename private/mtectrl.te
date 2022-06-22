@@ -1,3 +1,4 @@
+<<<<<<< HEAD   (11a9ff Merge "Allow remote_prov_app to find mediametrics.")
 # mtectrl is a tool to request MTE (Memory Tagging Extensions) from the bootloader.
 type mtectrl, domain, coredomain;
 type mtectrl_exec, system_file_type, exec_type, file_type;
@@ -8,3 +9,5 @@ init_daemon_domain(mtectrl)
 allow mtectrl misc_block_device:blk_file w_file_perms;
 allow mtectrl block_device:dir r_dir_perms;
 read_fstab(mtectrl)
+=======
+>>>>>>> BRANCH (fdee5e RESTRICT AUTOMERGE Revert "Add policy for command line tool )
