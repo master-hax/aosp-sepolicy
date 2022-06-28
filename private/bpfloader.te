@@ -7,13 +7,13 @@ allow bpfloader kmsg_device:chr_file w_file_perms;
 
 # These permissions are required to pin ebpf maps & programs.
 allow bpfloader bpffs_type:dir { add_name create remove_name search write };
-allow bpfloader bpffs_type:file { create read rename setattr };
+allow bpfloader bpffs_type:file { create read rename setattr write };
 allow { bpffs_type -fs_bpf } fs_bpf:filesystem associate;
 
 # Allow bpfloader to create bpf maps and programs.
 allow bpfloader self:bpf { map_create map_read map_write prog_load prog_run };
 
-allow bpfloader self:capability { chown sys_admin net_admin };
+allow bpfloader self:capability { chown dac_override sys_admin net_admin };
 
 allow bpfloader sysfs_fs_fuse_bpf:file r_file_perms;
 
