@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbcace1c_d73cf7b0",
+        "filename": "tools/seamendc.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-29T15:14:47Z",
+      "side": 1,
+      "message": "Why \"e\" here but not elsewhere?\nI agree it\u0027s a good thing in general, otoh you never do an exec?",
+      "range": {
+        "startLine": 40,
+        "startChar": 28,
+        "endLine": 40,
+        "endChar": 30
+      },
+      "revId": "8bc64926e9da5ec11d3eb89d8e54528e42cad414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d15dab1_56e296cd",
+        "filename": "tools/seamendc.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-29T15:14:47Z",
+      "side": 1,
+      "message": "For consistency, file \u003d\u003d null\n(Or change the others to use this style.)",
+      "range": {
+        "startLine": 41,
+        "startChar": 13,
+        "endLine": 41,
+        "endChar": 17
+      },
+      "revId": "8bc64926e9da5ec11d3eb89d8e54528e42cad414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3f40142_36346d45",
+        "filename": "tools/seamendc.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-29T15:14:47Z",
+      "side": 1,
+      "message": "Delete: you don\u0027t own db, your caller does. (And correctly it destroys it, so I think you may have a UAF here.)",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 23
+      },
+      "revId": "8bc64926e9da5ec11d3eb89d8e54528e42cad414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "360f0331_e4a75170",
+        "filename": "tools/seamendc.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-29T15:14:47Z",
+      "side": 1,
+      "message": "Are we forced to stick to the archaic \"all declarations at top of function\" style here? It definitely hurts readability.",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 43
+      },
+      "revId": "8bc64926e9da5ec11d3eb89d8e54528e42cad414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcb9be86_f3e42724",
+        "filename": "tools/seamendc.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-29T15:14:47Z",
+      "side": 1,
+      "message": "nit: I\u0027ve no idea what the style guide says, but it\u0027s odd these 3 lines are the only place tabs are used. And they\u0027re mis-indented, at least in Gerrit. Untabify?",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 3
+      },
+      "revId": "8bc64926e9da5ec11d3eb89d8e54528e42cad414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00668d66_8b2cc01d",
+        "filename": "tools/seamendc.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-29T15:14:47Z",
+      "side": 1,
+      "message": "You don\u0027t need the strdups here: https://stackoverflow.com/a/53508112\n(And you\u0027re leaking this one ...)",
+      "range": {
+        "startLine": 118,
+        "startChar": 19,
+        "endLine": 118,
+        "endChar": 25
+      },
+      "revId": "8bc64926e9da5ec11d3eb89d8e54528e42cad414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46b1b060_500b70f9",
+        "filename": "tools/seamendc.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-29T15:14:47Z",
+      "side": 1,
+      "message": "perror / strerror ?\nIncluding the text from errno is generally helpful",
+      "range": {
+        "startLine": 146,
+        "startChar": 8,
+        "endLine": 146,
+        "endChar": 15
+      },
+      "revId": "8bc64926e9da5ec11d3eb89d8e54528e42cad414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29d1b382_444a27db",
+        "filename": "tools/seamendc.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-29T15:14:47Z",
+      "side": 1,
+      "message": "You could actually replace all of these with exit(1) or exit(rc).\nThe files will be closed and the memory released anyway.\n\nEven on success you only really need to fclose() the output file.",
+      "range": {
+        "startLine": 148,
+        "startChar": 7,
+        "endLine": 148,
+        "endChar": 18
+      },
+      "revId": "8bc64926e9da5ec11d3eb89d8e54528e42cad414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a76881a_7bbbd0a2",
+        "filename": "tools/seamendc.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-29T15:14:47Z",
+      "side": 1,
+      "message": "Doesn\u0027t that just mean it\u0027s empty?",
+      "range": {
+        "startLine": 159,
+        "startChar": 25,
+        "endLine": 159,
+        "endChar": 39
+      },
+      "revId": "8bc64926e9da5ec11d3eb89d8e54528e42cad414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f063ee2c_710c63ab",
+        "filename": "tools/seamendc.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-29T15:14:47Z",
+      "side": 1,
+      "message": "Delete - you still want to fclose here",
+      "range": {
+        "startLine": 160,
+        "startChar": 8,
+        "endLine": 160,
+        "endChar": 27
+      },
+      "revId": "8bc64926e9da5ec11d3eb89d8e54528e42cad414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22ad8a2f_b051decf",
+        "filename": "tools/seamendc.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-06-29T15:14:47Z",
+      "side": 1,
+      "message": "In the happy case, where there\u0027s been no error, you should check the return value of this (or of a call to fflush); it could fail e.g. if we\u0027re out of disk.",
+      "range": {
+        "startLine": 235,
+        "startChar": 8,
+        "endLine": 235,
+        "endChar": 14
+      },
+      "revId": "8bc64926e9da5ec11d3eb89d8e54528e42cad414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
