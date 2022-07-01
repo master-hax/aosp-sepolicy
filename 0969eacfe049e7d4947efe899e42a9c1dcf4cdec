@@ -141,6 +141,30 @@
       },
       "revId": "0969eacfe049e7d4947efe899e42a9c1dcf4cdec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2658f34d_839f530b",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-07-01T10:52:23Z",
+      "side": 1,
+      "message": "rw_dir_perms is fine.\n\nThat means tombstone_transmit is trying to access files that it doesn\u0027t have Unix (rather than selinux) permissions for, and is getting denied because it isn\u0027t allowed to use the capabilities to override that.\n\nIf everything works anyway you could just dontaudit those (ie suppress the denials), or figure out what exactly it is trying to do and make it stop.",
+      "parentUuid": "d68d96b6_b7470396",
+      "range": {
+        "startLine": 604,
+        "startChar": 0,
+        "endLine": 614,
+        "endChar": 0
+      },
+      "revId": "0969eacfe049e7d4947efe899e42a9c1dcf4cdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
