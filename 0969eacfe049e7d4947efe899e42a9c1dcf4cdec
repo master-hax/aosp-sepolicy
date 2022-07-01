@@ -117,6 +117,30 @@
       },
       "revId": "0969eacfe049e7d4947efe899e42a9c1dcf4cdec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d68d96b6_b7470396",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1872107
+      },
+      "writtenOn": "2022-07-01T10:37:49Z",
+      "side": 1,
+      "message": "We still need r_dir_perms aswell for the already existing code to keep functioning. I consolidated the rules to have rw_dir_perms and create_file_perms, and removed the rest. This seems to pass the tests we have, however, I am still seeing some avc errors that I am unsure what they are caused by:\n\n06-29 15:04:52.539   553   553 W tombstone_trans: type\u003d1400 audit(0.0:172): avc: denied { dac_read_search } for capability\u003d2 scontext\u003du:r:tombstone_transmit:s0 tcontext\u003du:r:tombstone_transmit:s0 tclass\u003dcapability permissive\u003d0\n06-29 15:04:52.539   553   553 W tombstone_trans: type\u003d1400 audit(0.0:172): avc: denied { dac_override } for capability\u003d1 scontext\u003du:r:tombstone_transmit:s0 tcontext\u003du:r:tombstone_transmit:s0 tclass\u003dcapability permissive\u003d0",
+      "parentUuid": "9643efa7_88dc6786",
+      "range": {
+        "startLine": 604,
+        "startChar": 0,
+        "endLine": 614,
+        "endChar": 0
+      },
+      "revId": "0969eacfe049e7d4947efe899e42a9c1dcf4cdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
