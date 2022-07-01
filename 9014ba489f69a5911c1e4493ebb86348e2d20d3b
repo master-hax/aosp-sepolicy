@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7242d2b_a0ab0d0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1297255
+      },
+      "writtenOn": "2022-07-01T01:56:16Z",
+      "side": 1,
+      "message": "Hi Jeffrey,\n\nI didn\u0027t make the exact change you suggested in https://b.corp.google.com/issues/237512474#comment2 because of two reasons:\n- By doing \"allow appdomain\", we might need to delete the redundant \"allow  system_server:udp_socket\" statements in all the *_app.te files and then this CL will be a bigger commit, especially for a last minute T change\n- My understanding is it will be safer to require a explicit \"allow\" statement in each single *_app.te file.\n\nHowever, I have very limited knowledge in sepolicy, please let me know if I missed anything 😊\n\n",
+      "revId": "9014ba489f69a5911c1e4493ebb86348e2d20d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
