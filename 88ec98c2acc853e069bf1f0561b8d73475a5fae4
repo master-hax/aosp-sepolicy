@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23895570_3fd4804b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-07-01T23:50:00Z",
+      "side": 1,
+      "message": "Yeah - that\u0027s why I don\u0027t remove it in PS2 (PS1 removed it, so the email subject is misleading)",
+      "parentUuid": "0fb8f68c_08748908",
+      "revId": "88ec98c2acc853e069bf1f0561b8d73475a5fae4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0dfc9f6_25be9193",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-07-01T10:33:30Z",
       "side": 1,
       "message": "These are exactly the things that are hal_service_type but not protected_service, I think?\nAdd a comment to that effect?\n\nIf we add a new one in the future, I guess we will know to update this when adding the allow rule fails.",
+      "range": {
+        "startLine": 658,
+        "startChar": 0,
+        "endLine": 660,
+        "endChar": 31
+      },
+      "revId": "88ec98c2acc853e069bf1f0561b8d73475a5fae4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e35bd4fa_05fd1f3e",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-07-01T23:50:00Z",
+      "side": 1,
+      "message": "yeah - need to update some internal files for this (some set vendor_service but not hal_service_type) - or otherwise find a different way to except things. For this bug (automotive) I might only remove the other neverallow for now.",
+      "parentUuid": "f0dfc9f6_25be9193",
       "range": {
         "startLine": 658,
         "startChar": 0,
