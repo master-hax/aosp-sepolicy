@@ -147,6 +147,10 @@ allow gmscore_app anr_data_file:file r_file_perms;
 # b/148974132: com.android.vending needs this
 allow gmscore_app priv_app:tcp_socket { read write };
 
+# allow GMSCore apps to use UDP sockets provided by the system server
+allow gmscore_app system_server:udp_socket {
+        connect getattr read recvfrom sendto write getopt setopt };
+
 # b/168059475 Allow GMSCore to read Virtual AB properties to determine
 # if device supports VAB.
 get_prop(gmscore_app, virtual_ab_prop)
