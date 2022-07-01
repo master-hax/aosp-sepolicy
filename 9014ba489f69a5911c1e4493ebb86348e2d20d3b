@@ -16,6 +16,29 @@
       "message": "Hi Jeffrey,\n\nI didn\u0027t make the exact change you suggested in https://b.corp.google.com/issues/237512474#comment2 because of two reasons:\n- By doing \"allow appdomain\", we might need to delete the redundant \"allow  system_server:udp_socket\" statements in all the *_app.te files and then this CL will be a bigger commit, especially for a last minute T change\n- My understanding is it will be safer to require a explicit \"allow\" statement in each single *_app.te file.\n\nHowever, I have very limited knowledge in sepolicy, please let me know if I missed anything 😊\n\n",
       "revId": "9014ba489f69a5911c1e4493ebb86348e2d20d3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc41e633_2a5b4857",
+        "filename": "private/gmscore_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-07-01T07:12:29Z",
+      "side": 1,
+      "message": "I dislike this point fix. It\u0027s not addressing the real problem which is that this should be generally granted to application domains. So we remain in a fragile state. I would prefer that we instead do what I suggested in the bug:\n```\nallow appdomain system_server:udp_socket...\n```\nAnd note that you may need to exclude domains e.g.\n\n```\nallow { appdomain -isolated_app } system_server:udp_socket...\n```",
+      "range": {
+        "startLine": 151,
+        "startChar": 6,
+        "endLine": 151,
+        "endChar": 17
+      },
+      "revId": "9014ba489f69a5911c1e4493ebb86348e2d20d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
