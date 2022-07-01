@@ -16,6 +16,24 @@
       "message": "I would prefer that we not solve the problem this way. Can we instead set unix permissions such that bpfloader doesn\u0027t lose access? That\u0027s consistent with how the selinux permissions are handled.",
       "revId": "470a7b36bb31701854632883045377d15ac3b359",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c25b8396_dbc4f6e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2022-07-01T07:27:28Z",
+      "side": 1,
+      "message": "I did think about it, but I\u0027m just not sure how we would go about doing that.\nIt seems impossible.\n\n--\n\nAFAIK there\u0027s no way for bpfloader to be multiple uids at the same time, and I\u0027m guessing switching fsuid dynamically at run time would just require more complex code and extra capabilities any way?\n\nIf we change the uid of any pinned map or program away from root (which bpfloader runs as) then bpfloader loses r/w access, unless r/w access is granted by unix group or to other.\n\nGranting r/w to other would seem weird - it kind of defeats the purpose of trying to lock stuff down.\n\nGranting r/w to group means we can\u0027t grant r/w to someone and r/o to a group, additionally it would require bpfloader to be a member of basically every group it ever creates maps for (ie. system, net_admin, net_bw_acct, etc... at a bare minimum) and the specific groups would now be hardcoded in the platform (and such would limit what could be done via mainline updates).\n\n--\n\nI\u0027d love it if we could get the equivalent of CAP_DAC_OVERRIDE just for the bpffs file system itself, but I also don\u0027t know how to do that.\n\n--\n\nTechnically speaking CAP_DAC_READ_SEARCH might be feasible (untested) if we switched to using r/o map opens during reuse, and relied on the fact that read/write privs for a map are kept separate for userspace vs bpf progs, and that I think a bpf map opened as r/o in userspace can actually still be written to by attaching it to a bpf program that writes to it.\n\nWould that be more kosher (as I said though, I haven\u0027t actually verified this even works)?  It would certainly be a lot more confusing (assuming it even works)...\n\n--\n\nWas there some specific solution you had in mind?",
+      "parentUuid": "f1eb9f0a_18c74d94",
+      "revId": "470a7b36bb31701854632883045377d15ac3b359",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
