@@ -52,3 +52,7 @@ allow untrusted_app_25 mnt_sdcard_file:lnk_file r_file_perms;
 # allow sending RTM_GETNEIGH{TBL} messages.
 allow untrusted_app_25 self:netlink_route_socket nlmsg_getneigh;
 auditallow untrusted_app_25 self:netlink_route_socket nlmsg_getneigh;
+
+# Allow debuggable and secure properties to be read
+get_prop(untrusted_app_25, debuggable_prop)
+get_prop(untrusted_app_25, secure_prop)
