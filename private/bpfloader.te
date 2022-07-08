@@ -6,7 +6,7 @@ typeattribute bpfloader bpfdomain;
 allow bpfloader kmsg_device:chr_file w_file_perms;
 
 # These permissions are required to pin ebpf maps & programs.
-allow bpfloader bpffs_type:dir { add_name create remove_name search write };
+allow bpfloader bpffs_type:dir { add_name create remove_name rename search write };
 allow bpfloader bpffs_type:file { create getattr read rename setattr };
 allow { bpffs_type -fs_bpf } fs_bpf:filesystem associate;
 
@@ -27,8 +27,8 @@ allow bpfloader bpfloader_exec:file execute_no_trans;
 
 # TODO: get rid of init & vendor_init; Note: we don't care about getattr/mounton/search
 neverallow { domain -init -vendor_init } bpffs_type:dir { open read setattr };
-neverallow { domain -bpfloader } bpffs_type:dir { add_name create remove_name write };
-neverallow domain bpffs_type:dir ~{ add_name create getattr mounton open read remove_name search setattr write };
+neverallow { domain -bpfloader } bpffs_type:dir { add_name create remove_name rename write };
+neverallow domain bpffs_type:dir ~{ add_name create getattr mounton open read remove_name rename search setattr write };
 
 # TODO: get rid of init & vendor_init
 neverallow { domain -bpfloader -init -vendor_init } bpffs_type:file { map open setattr };
