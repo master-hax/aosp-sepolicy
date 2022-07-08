@@ -139,6 +139,10 @@ get_prop(apexd, vendor_default_prop)
 set_prop(apexd, ctl_start_prop)
 set_prop(apexd, ctl_stop_prop)
 
+# Allow set and get apex updating status
+set_prop(apexd, apex_update_status_prop)
+get_prop(apexd, apex_update_status_prop)
+
 # Allow apexd to execute rollbacks using shell.
 binder_call(apexd, system_server)
 allow apexd package_service:service_manager find;
