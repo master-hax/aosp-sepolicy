@@ -45,6 +45,7 @@ system_internal_prop(zygote_wrap_prop)
 system_internal_prop(ctl_mediatranscoding_prop)
 system_internal_prop(ctl_odsign_prop)
 system_internal_prop(virtualizationservice_prop)
+system_internal_prop(apex_update_status_prop)
 
 # Properties which can't be written outside system
 system_restricted_prop(device_config_virtualization_framework_native_prop)
@@ -628,10 +629,15 @@ neverallow {
 } rollback_test_prop:property_service set;
 
 neverallow {
+  domain
+  -init
+  -apexd
+} apex_update_status_prop:property_service set;
+
+neverallow {
   # Only allow init and profcollectd to access profcollectd_node_id_prop
   domain
   -init
   -dumpstate
   -profcollectd
 } profcollectd_node_id_prop:file r_file_perms;
-
