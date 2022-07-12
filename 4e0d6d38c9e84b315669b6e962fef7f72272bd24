@@ -260,6 +260,30 @@
       },
       "revId": "4e0d6d38c9e84b315669b6e962fef7f72272bd24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7e40a7c_f266fd0e",
+        "filename": "private/compat/33.0/33.0.ignore.cil",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2022-07-12T16:42:18Z",
+      "side": 1,
+      "message": "Technically the files (and directories they\u0027re in) are just outright new in T.\n\nThis is because they were moved/renamed from the old location to the new one during the T dev cycle as part of the move to mainline.\n\n(There was ample communication about the code being moved to mainline networking modules as part of T.)\n\nAlso any non-mainline code that touches these is broken, because their existence, format and content is not defined in any api surface.",
+      "parentUuid": "8519107b_806d277b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "4e0d6d38c9e84b315669b6e962fef7f72272bd24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
