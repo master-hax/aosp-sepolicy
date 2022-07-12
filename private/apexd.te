@@ -131,6 +131,10 @@ set_prop(apexd, powerctl_prop)
 # Allow apexd to stop itself
 set_prop(apexd, ctl_apexd_prop)
 
+# Allow set and get apex status
+set_prop(apexd, apex_status_prop)
+get_prop(apexd, apex_status_prop)
+
 # Find the vold service, and call into vold to manage FS checkpoints
 allow apexd vold_service:service_manager find;
 binder_call(apexd, vold)
