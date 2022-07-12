@@ -236,6 +236,30 @@
       },
       "revId": "4e0d6d38c9e84b315669b6e962fef7f72272bd24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8519107b_806d277b",
+        "filename": "private/compat/33.0/33.0.ignore.cil",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-07-12T15:05:09Z",
+      "side": 1,
+      "message": "That\u0027s not correct. It doesn\u0027t matter if the new types are private. What matters is if the previous type that these mapped to was public. I believe that it was since these previously mapped to fs_bpf (right?). I.e. vendors previously had access to these files, and with the new private types, they have lost their access, which is a Treble violation.\n\nI guess that we could make an argument that if any vendor component was accessing these files, that the breakage is WAI.",
+      "parentUuid": "4cdad0a5_cc92f10c",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "4e0d6d38c9e84b315669b6e962fef7f72272bd24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
