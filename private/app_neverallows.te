@@ -255,3 +255,12 @@ neverallow {
 
 # Only privileged apps may find the incident service
 neverallow all_untrusted_apps incident_service:service_manager find;
+
+# Do not allow untrusted app to read hidden system proprerties
+neverallow {
+  all_untrusted_apps
+  -untrusted_app_25
+  -untrusted_app_27
+  -untrusted_app_29
+  -untrusted_app_30
+} { untrusted_hidden_build_prop }:file read;
