@@ -1,1 +1,10 @@
 typeattribute profman coredomain;
+
+# profman acquires a flock when reading any profile file. Allow profman to lock
+# profile files next to the APKs so that it can read them.
+allow profman system_file:file lock;
+allow profman apk_data_file:file lock;
+allow profman vendor_app_file:file lock;
+
+# Allow profman to use file descriptors passed from artd.
+allow profman artd:fd use;

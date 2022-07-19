@@ -61,6 +61,9 @@ get_prop(dex2oat, device_config_runtime_native_boot_prop)
 # Allow dex2oat to read /apex/apex-info-list.xml
 allow dex2oat apex_info_file:file r_file_perms;
 
+# Allow dex2oat to use file descriptors passed from artd.
+allow dex2oat artd:fd use;
+
 ##################
 # A/B OTA Dexopt #
 ##################
