@@ -22,6 +22,30 @@
       },
       "revId": "6d12d643e3a095f2564e06f4375fc718af27982b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b6c26b7_c91b6499",
+        "filename": "public/attributes",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-07-19T14:27:56Z",
+      "side": 0,
+      "message": "It was only used for neverallows, and it did not have `expandattribute vendor_servce false;`, so this and the parent CL are compile-time only changes (we should probably have an automated way to verify this - I know selinux people used to check the compiled policy doesn\u0027t not change between builds). We can also see if this throws an error against the _rvc builds in presubmit once this is runnable there.",
+      "parentUuid": "30a13180_6603c48d",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 25
+      },
+      "revId": "6d12d643e3a095f2564e06f4375fc718af27982b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
