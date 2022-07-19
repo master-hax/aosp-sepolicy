@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65c0dcd3_c19e181d",
+        "filename": "build/soong/policy.go",
+        "patchSetId": 42
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-07-19T16:31:49Z",
+      "side": 1,
+      "message": "I removed the target and merged it together with se_policy_cil (see other comment).",
+      "parentUuid": "94901ce2_c387080f",
+      "revId": "fd0ac57867506ef2a2a23acbb63e40ed54c0bba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ce01f2f_0b7d1b6b",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-07-19T02:13:17Z",
       "side": 1,
       "message": "Could you please update the comment here? Could you maybe capture how this is different from se_policy_cil? Thanks",
+      "revId": "fd0ac57867506ef2a2a23acbb63e40ed54c0bba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ce51ea1_3022842e",
+        "filename": "build/soong/policy.go",
+        "patchSetId": 42
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-07-19T16:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ce01f2f_0b7d1b6b",
       "revId": "fd0ac57867506ef2a2a23acbb63e40ed54c0bba9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -71,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c52e54b_36190d8f",
+        "filename": "build/soong/policy.go",
+        "patchSetId": 42
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-07-19T16:31:49Z",
+      "side": 1,
+      "message": "Yes, the input is different but the output is the same as se_policy_cil.\n\nAnother detail that is different, though, is that additional_cil_files is applied *after* filter_out, while in se_policy_cil the order is additional_cil_files then filter_out. However, it looks like in the existing modules additional_cil_files and filter_out are never used at the same time, so I switched their order in the se_policy_cil implementation and removed the se_binary_cil target.",
+      "parentUuid": "d50a5a68_dbcaa899",
+      "revId": "fd0ac57867506ef2a2a23acbb63e40ed54c0bba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44be26d6_1a642b85",
         "filename": "tests/searchpolicy.py",
         "patchSetId": 42
@@ -82,6 +136,24 @@
       "writtenOn": "2022-07-19T02:17:04Z",
       "side": 1,
       "message": "I don\u0027t think there is a strong coupling between this change and the rest of the commit. Could you create a separate commit for it?\n\nThe reason is that I won\u0027t be surprised if something in postsubmit (cts or other) relies on the line order here. If we could expedite this change first, we could avoid any unnecessary reverting of the whole change. Thanks.",
+      "revId": "fd0ac57867506ef2a2a23acbb63e40ed54c0bba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c3f52c9_1daa6ec8",
+        "filename": "tests/searchpolicy.py",
+        "patchSetId": 42
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-07-19T16:31:49Z",
+      "side": 1,
+      "message": "Done. I created aosp/2159196",
+      "parentUuid": "44be26d6_1a642b85",
       "revId": "fd0ac57867506ef2a2a23acbb63e40ed54c0bba9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
