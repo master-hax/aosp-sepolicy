@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8070b003_c2393db7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 42
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2022-07-19T02:13:17Z",
+      "side": 1,
+      "message": "Inseob, could you review the changes to policy.go? Thanks.",
+      "revId": "fd0ac57867506ef2a2a23acbb63e40ed54c0bba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94901ce2_c387080f",
+        "filename": "build/soong/policy.go",
+        "patchSetId": 42
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2022-07-19T02:13:17Z",
+      "side": 1,
+      "message": "I think se_policy_cil_binary would be a more precise name for it?",
+      "revId": "fd0ac57867506ef2a2a23acbb63e40ed54c0bba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ce01f2f_0b7d1b6b",
+        "filename": "build/soong/policy.go",
+        "patchSetId": 42
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2022-07-19T02:13:17Z",
+      "side": 1,
+      "message": "Could you please update the comment here? Could you maybe capture how this is different from se_policy_cil? Thanks",
+      "revId": "fd0ac57867506ef2a2a23acbb63e40ed54c0bba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d50a5a68_dbcaa899",
+        "filename": "build/soong/policy.go",
+        "patchSetId": 42
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2022-07-19T02:13:17Z",
+      "side": 1,
+      "message": "If the only difference with se_policy_cil is in the input (and the output is the same format), maybe it will be easier to accept extra input in se_policy_cil? Something like an extra `BinSrc *string`?",
+      "revId": "fd0ac57867506ef2a2a23acbb63e40ed54c0bba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
