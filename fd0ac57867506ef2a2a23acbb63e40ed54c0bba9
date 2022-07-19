@@ -67,6 +67,23 @@
       "message": "If the only difference with se_policy_cil is in the input (and the output is the same format), maybe it will be easier to accept extra input in se_policy_cil? Something like an extra `BinSrc *string`?",
       "revId": "fd0ac57867506ef2a2a23acbb63e40ed54c0bba9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44be26d6_1a642b85",
+        "filename": "tests/searchpolicy.py",
+        "patchSetId": 42
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2022-07-19T02:17:04Z",
+      "side": 1,
+      "message": "I don\u0027t think there is a strong coupling between this change and the rest of the commit. Could you create a separate commit for it?\n\nThe reason is that I won\u0027t be surprised if something in postsubmit (cts or other) relies on the line order here. If we could expedite this change first, we could avoid any unnecessary reverting of the whole change. Thanks.",
+      "revId": "fd0ac57867506ef2a2a23acbb63e40ed54c0bba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
