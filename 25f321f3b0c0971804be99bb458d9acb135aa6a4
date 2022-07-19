@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "acf651b4_f953b3e0",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-07-19T14:23:24Z",
+      "side": 1,
+      "message": "I don\u0027t think this is a vsock.\n\nBut it looks like it is created by crosvm (which is spawned by vs) rather than vs itself (which is a service started by init).\n\nAnd on the third hand, Keir said \"The alternative method to this is create the control socket in virtualizationservice and pass the FD to crosvm.\" Which sounds preferbnle.",
+      "parentUuid": "2dfdd81f_c80ac8dc",
+      "range": {
+        "startLine": 42,
+        "startChar": 13,
+        "endLine": 42,
+        "endChar": 48
+      },
+      "revId": "25f321f3b0c0971804be99bb458d9acb135aa6a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe81be5a_073384b2",
         "filename": "private/crosvm.te",
         "patchSetId": 1
@@ -126,6 +150,30 @@
       "side": 1,
       "message": "Does it work? Pass tests? If so I guess only create is needed.",
       "parentUuid": "fbcdf2ac_e5266d92",
+      "range": {
+        "startLine": 44,
+        "startChar": 57,
+        "endLine": 44,
+        "endChar": 63
+      },
+      "revId": "25f321f3b0c0971804be99bb458d9acb135aa6a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be0d8dc4_6312ca25",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-07-19T14:23:24Z",
+      "side": 1,
+      "message": "create doesn\u0027t imply open, AFAICT.",
+      "parentUuid": "a59e1e56_f24f2498",
       "range": {
         "startLine": 44,
         "startChar": 57,
