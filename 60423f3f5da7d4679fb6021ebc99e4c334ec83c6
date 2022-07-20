@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "525ec117_6b392cc8",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-07-20T16:07:20Z",
+      "side": 1,
+      "message": "What signal do you send other than sigkill?",
+      "range": {
+        "startLine": 79,
+        "startChar": 49,
+        "endLine": 79,
+        "endChar": 55
+      },
+      "revId": "60423f3f5da7d4679fb6021ebc99e4c334ec83c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb6aae76_619f787a",
+        "filename": "private/dex2oat.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-07-20T16:07:20Z",
+      "side": 1,
+      "message": "Can we combine?\nallow dex2oat { odsign odrefresh artd }:fd use;",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 26
+      },
+      "revId": "60423f3f5da7d4679fb6021ebc99e4c334ec83c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4559f64_1f98e8a2",
+        "filename": "private/profman.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-07-20T16:07:20Z",
+      "side": 1,
+      "message": "OK, this confuses me. lock permission doesn\u0027t allow reading.\nAnd nothing here grants read to vendor_app_file.",
+      "range": {
+        "startLine": 3,
+        "startChar": 57,
+        "endLine": 4,
+        "endChar": 58
+      },
+      "revId": "60423f3f5da7d4679fb6021ebc99e4c334ec83c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52e3ab6c_1cb41687",
+        "filename": "private/profman.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-07-20T16:07:20Z",
+      "side": 1,
+      "message": "Can you coalesce these? \nallow profman { various types}:file lock;",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 40
+      },
+      "revId": "60423f3f5da7d4679fb6021ebc99e4c334ec83c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79914bd7_a0959192",
+        "filename": "private/profman.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-07-20T16:07:20Z",
+      "side": 1,
+      "message": "I approve your putting this in private rather than public.\nYou\u0027d make me even happier if you moved \"allow profman installd:fd use;\" here from public, and amalgamated it with this.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "60423f3f5da7d4679fb6021ebc99e4c334ec83c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3287d40d_a757bfd7",
+        "filename": "public/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-07-20T16:07:20Z",
+      "side": 1,
+      "message": "Can you add the \"# art service daemon\" here too?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "60423f3f5da7d4679fb6021ebc99e4c334ec83c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
