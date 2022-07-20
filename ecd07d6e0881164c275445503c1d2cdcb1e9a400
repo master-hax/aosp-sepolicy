@@ -136,6 +136,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b98bb3ff_26f47a54",
+        "filename": "build/soong/policy.go",
+        "patchSetId": 47
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-07-20T14:44:03Z",
+      "side": 1,
+      "message": "Yes, I decompile a binary policy into a cil file to catch the macro expansions. For more details, see section \"Anonymous groups statements\" in the design doc of the policy amend process, go/seamendc.",
+      "parentUuid": "b0d926c7_22be4e24",
+      "range": {
+        "startLine": 292,
+        "startChar": 1,
+        "endLine": 292,
+        "endChar": 23
+      },
+      "revId": "ecd07d6e0881164c275445503c1d2cdcb1e9a400",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2aecce0f_041109ac",
         "filename": "com.android.sepolicy/33/definitions/definitions.cil",
         "patchSetId": 47
@@ -147,6 +171,24 @@
       "writtenOn": "2022-07-20T02:14:50Z",
       "side": 1,
       "message": "I don\u0027t have enough background here: Is this file automatically generated? Will it require regular updates in the future?",
+      "revId": "ecd07d6e0881164c275445503c1d2cdcb1e9a400",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4330e0d7_155e209d",
+        "filename": "com.android.sepolicy/33/definitions/definitions.cil",
+        "patchSetId": 47
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-07-20T14:44:03Z",
+      "side": 1,
+      "message": "Unfortunately this file is manually generated. I would love to find a way to either get rid of this file or generate it automatically, but I don\u0027t know how to do that at the moment.\n\nThis definition file is needed by the seamendc binary to correctly parse the apex_sepolicy.cil file before applying to a binary policy.\n\nI try to describe why this file is needed in more details in the \"Design\" section of the go/seamendc design doc. If you have time to read that section, I would appreciate your feedback 😊",
+      "parentUuid": "2aecce0f_041109ac",
       "revId": "ecd07d6e0881164c275445503c1d2cdcb1e9a400",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
