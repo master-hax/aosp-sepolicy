@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d7541e5_1d21483d",
+        "filename": "Android.bp",
+        "patchSetId": 47
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-07-21T12:54:48Z",
+      "side": 1,
+      "message": "I removed the system_ext_* policies. However, removing the product_* policies I get the neverallow violations error I mentioned earlier.",
+      "parentUuid": "5f0f7192_944cfbb6",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 383,
+        "endChar": 32
+      },
+      "revId": "ecd07d6e0881164c275445503c1d2cdcb1e9a400",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f254a1ca_1467644f",
@@ -102,6 +126,30 @@
       "writtenOn": "2022-07-20T01:48:00Z",
       "side": 1,
       "message": "I think we also need mapping files here. see precompiled_sepolicy for inputs.",
+      "range": {
+        "startLine": 400,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 28
+      },
+      "revId": "ecd07d6e0881164c275445503c1d2cdcb1e9a400",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64029793_c6278c14",
+        "filename": "Android.bp",
+        "patchSetId": 47
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-07-21T12:54:48Z",
+      "side": 1,
+      "message": "Done. I created another module that is exactly like precompiled_sepolicy except for the apex_sepolicy part.",
+      "parentUuid": "f254a1ca_1467644f",
       "range": {
         "startLine": 400,
         "startChar": 0,
@@ -149,6 +197,30 @@
       "side": 1,
       "message": "or I thihk you can reuse precompiled_sepolicy module?",
       "parentUuid": "78df97e7_900e668e",
+      "range": {
+        "startLine": 419,
+        "startChar": 0,
+        "endLine": 425,
+        "endChar": 28
+      },
+      "revId": "ecd07d6e0881164c275445503c1d2cdcb1e9a400",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f92948e_1b4a950d",
+        "filename": "Android.bp",
+        "patchSetId": 47
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-07-21T12:54:48Z",
+      "side": 1,
+      "message": "Done. I also extended the tests in aosp/2149654 to compare the seamendc output against both the precompiled policy and a compilation from scratch.",
+      "parentUuid": "b36a0167_3794a4ad",
       "range": {
         "startLine": 419,
         "startChar": 0,
