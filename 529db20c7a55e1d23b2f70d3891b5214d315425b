@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c15d4504_ed8d9634",
+        "filename": "private/artd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-21T14:53:43Z",
+      "side": 1,
+      "message": "We don\u0027t do a domain transition when calling art_exec, so art_exec inherits all artd rules, including the neverallow rule.",
+      "parentUuid": "f7a96533_5eb911c6",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 33
+      },
+      "revId": "529db20c7a55e1d23b2f70d3891b5214d315425b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "577bf2d5_bd97a581",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf71774e_bf1284f3",
+        "filename": "private/coredomain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-21T14:53:43Z",
+      "side": 1,
+      "message": "Before we use a profile for compilation, we now run profman with the profile and the apk to check if the profile is usable, and fall back to other profiles if not. This is a new behavior.",
+      "parentUuid": "577bf2d5_bd97a581",
+      "range": {
+        "startLine": 80,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 16
+      },
+      "revId": "529db20c7a55e1d23b2f70d3891b5214d315425b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16aad36a_320c4705",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-07-21T14:14:51Z",
       "side": 1,
       "message": "It\u0027s actually art_exec that will exec dex2oat, but I take it that since artd can exec art_exec without a domain transition, it works to just list artd here?",
+      "range": {
+        "startLine": 60,
+        "startChar": 16,
+        "endLine": 60,
+        "endChar": 20
+      },
+      "revId": "529db20c7a55e1d23b2f70d3891b5214d315425b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1fa064d_914429d7",
+        "filename": "private/dex2oat.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-21T14:53:43Z",
+      "side": 1,
+      "message": "See the comment above. art_exec inherits all artd rules.",
+      "parentUuid": "16aad36a_320c4705",
       "range": {
         "startLine": 60,
         "startChar": 16,
@@ -116,6 +188,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "778c2236_e33c791d",
+        "filename": "private/profman.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-21T14:53:43Z",
+      "side": 1,
+      "message": "See the comment above. We are introducing a new behavior.\n\nI know there\u0027s an overlap, but I dare not change the public .te file because I\u0027m not sure what I will break.",
+      "parentUuid": "3a422de3_fe68ea37",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "529db20c7a55e1d23b2f70d3891b5214d315425b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4851f1f_14cc63ad",
+        "filename": "private/profman.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-21T14:53:43Z",
+      "side": 1,
+      "message": "I don\u0027t know if there is a style guide for .te files. It seems to me that many files wrap lines at 80 characters, so I did that too.",
+      "parentUuid": "dd93752e_94a1c997",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "529db20c7a55e1d23b2f70d3891b5214d315425b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76864939_7c9142b3",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-07-21T14:14:51Z",
       "side": 1,
       "message": "Nit: \"and artd\" (I suspect there may be more comments explaining stuff in relation to installd that should be updated to mention artd as well.)",
+      "range": {
+        "startLine": 1233,
+        "startChar": 18,
+        "endLine": 1233,
+        "endChar": 19
+      },
+      "revId": "529db20c7a55e1d23b2f70d3891b5214d315425b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14a052ba_3c96672e",
+        "filename": "public/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-21T14:53:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76864939_7c9142b3",
       "range": {
         "startLine": 1233,
         "startChar": 18,
