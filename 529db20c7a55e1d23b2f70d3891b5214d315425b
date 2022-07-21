@@ -169,6 +169,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4bcde686_e2f8ec08",
+        "filename": "private/coredomain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-21T20:55:39Z",
+      "side": 1,
+      "message": "This profman change doesn\u0027t depend on the other changes or vice versa, and it would be perfectly sensible to break it out into a separate CL (cf. small CLs: go/small-cls#what_is_small). Just making the CL description broad enough to encompass all the changes don\u0027t make them related in this sense.\n\nIt\u0027s useful if the CL description describes everything that goes into the change and why, in particular in these files where the history is extra important to understand why things are the way they are. So please extend the description to mention this.",
+      "parentUuid": "6f857c5d_bb656f71",
+      "range": {
+        "startLine": 80,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 16
+      },
+      "revId": "529db20c7a55e1d23b2f70d3891b5214d315425b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16aad36a_320c4705",
         "filename": "private/dex2oat.te",
         "patchSetId": 4
@@ -346,6 +370,30 @@
       "side": 1,
       "message": "TBH the style as Jiakai has it is pretty much the preferred format.\nIt at least has the benefit of minimal deltas for adding new file types.\nCodesearch handles this reasonably well tbh.\n(sesearch om the binary policy is what I use when all else fails.)",
       "parentUuid": "efeb4325_e2e609ee",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "529db20c7a55e1d23b2f70d3891b5214d315425b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b92bfa4d_6118295d",
+        "filename": "private/profman.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-21T20:55:39Z",
+      "side": 1,
+      "message": "I often want to search for, say, \"profman\" AND \"vendor_app_file\", because either by themselves produce lots of uninteresting hits. That gets harder this way.",
+      "parentUuid": "8af87ee5_98497dbe",
       "range": {
         "startLine": 5,
         "startChar": 0,
