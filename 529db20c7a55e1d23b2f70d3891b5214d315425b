@@ -191,6 +191,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "891d3682_a9896d6e",
+        "filename": "private/coredomain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-22T11:17:14Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. It can be controversial whether \"app compilation CUJ\" is a \"broad\" scope or not. However, I don\u0027t regard this as a critical issue. Debating on this might be an overkill.\n\nRegarding the CL description, initially, I thought about putting something there, but I then found that whatever I wrote couldn\u0027t add any useful information because the reason for every rule I added in this CL has a comment that already explains things. For this particular line, why it is needed is documented at the corresponding allow rule, and readers can find them by either searching for \"profman[^;]*vendor_app_file pcre:yes f:\\.te -f:prebuilts\" or coming to this CL from blame.",
+      "parentUuid": "4bcde686_e2f8ec08",
+      "range": {
+        "startLine": 80,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 16
+      },
+      "revId": "529db20c7a55e1d23b2f70d3891b5214d315425b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16aad36a_320c4705",
@@ -394,6 +418,30 @@
       "side": 1,
       "message": "I often want to search for, say, \"profman\" AND \"vendor_app_file\", because either by themselves produce lots of uninteresting hits. That gets harder this way.",
       "parentUuid": "8af87ee5_98497dbe",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "529db20c7a55e1d23b2f70d3891b5214d315425b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5554b6db_6d36812e",
+        "filename": "private/profman.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-22T11:17:14Z",
+      "side": 1,
+      "message": "Code Search can do multiple-line matches if you set \"pcre:yes\".\n\nE.g., https://source.corp.google.com/search?q\u003dprofman%5B%5E;%5D*privapp_data_file%20pcre:yes%20f:%5C.te%20-f:prebuilts\u0026sq\u003dpackage:%5Eandroid-internal$",
+      "parentUuid": "b92bfa4d_6118295d",
       "range": {
         "startLine": 5,
         "startChar": 0,
