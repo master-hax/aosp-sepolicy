@@ -30,6 +30,7 @@ void usage(const char *prog)
 static int read_binary_policy(char *path, sepol_policydb_t *pdb)
 {
     int rc = SEPOL_OK;
+    char *buff = NULL;
 
     FILE *file = fopen(path, "r");
     if (!file) {
@@ -44,24 +45,31 @@ static int read_binary_policy(char *path, sepol_policydb_t *pdb)
         fprintf(stderr, "Could not stat %s: %s.\n", path, strerror(errno));
         goto exit;
     }
-    if (!binarydata.st_size) {
+
+    uint32_t file_size = binarydata.st_size;
+    if (!file_size) {
         fprintf(stderr, "Binary policy file is empty.\n");
         rc = SEPOL_ERR;
         goto exit;
     }
 
-    struct sepol_policy_file *pf = NULL;
-    rc = sepol_policy_file_create(&pf);
-    if (rc != 0) {
-        fprintf(stderr, "Failed to create policy file: %d.\n", rc);
+    buff = malloc(file_size);
+    if (buff == NULL) {
+        perror("malloc failed");
+        rc = SEPOL_ERR;
         goto exit;
     }
-    sepol_policy_file_set_fp(pf, file);
 
-    rc = sepol_policydb_read(pdb, pf);
+    rc = fread(buff, file_size, 1, file);
+    if (rc != 1) {
+        fprintf(stderr, "Failure reading %s: %s.\n", path, strerror(errno));
+        rc = SEPOL_ERR;
+        goto exit;
+    }
+
+    rc = sepol_policydb_from_image(NULL, buff, file_size, pdb);
     if (rc != 0) {
         fprintf(stderr, "Failed to read binary policy: %d.\n", rc);
-        goto exit;
     }
 
 exit:
@@ -69,6 +77,7 @@ exit:
         perror("Failure closing binary file");
         rc = SEPOL_ERR;
     }
+    free(buff);
     return rc;
 }
 
