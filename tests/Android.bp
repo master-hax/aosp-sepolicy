@@ -43,6 +43,15 @@ python_binary_host {
     srcs: [
         "treble_sepolicy_tests.py",
     ],
+    version: {
+        py2: {
+            enabled: false,
+        },
+        py3: {
+            enabled: true,
+            embedded_launcher: true,
+        },
+    },
     libs: [
         "mini_cil_parser",
         "pysepolwrap",
@@ -55,6 +64,15 @@ python_binary_host {
     srcs: [
         "sepolicy_tests.py",
     ],
+    version: {
+        py2: {
+            enabled: false,
+        },
+        py3: {
+            enabled: true,
+            embedded_launcher: true,
+        },
+    },
     libs: ["pysepolwrap"],
     data: [":libsepolwrap"],
 }
@@ -64,6 +82,15 @@ python_binary_host {
     srcs: [
         "searchpolicy.py",
     ],
+    version: {
+        py2: {
+            enabled: false,
+        },
+        py3: {
+            enabled: true,
+            embedded_launcher: true,
+        },
+    },
     libs: ["pysepolwrap"],
     required: ["libsepolwrap"],
 }
@@ -73,6 +100,15 @@ python_binary_host {
     srcs: [
         "combine_maps.py",
     ],
+    version: {
+        py2: {
+            enabled: false,
+        },
+        py3: {
+            enabled: true,
+            embedded_launcher: true,
+        },
+    },
     libs: ["mini_cil_parser"],
 }
 
@@ -81,6 +117,15 @@ python_binary_host {
     srcs: [
         "fc_sort.py",
     ],
+    version: {
+        py2: {
+            enabled: false,
+        },
+        py3: {
+            enabled: true,
+            embedded_launcher: true,
+        },
+    },
 }
 
 python_test_host {
@@ -97,4 +142,13 @@ python_test_host {
 python_binary_host {
     name: "check_prop_prefix",
     srcs: ["check_prop_prefix.py"],
+    version: {
+        py2: {
+            enabled: false,
+        },
+        py3: {
+            enabled: true,
+            embedded_launcher: true,
+        },
+    },
 }
