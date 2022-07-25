@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02b42f4f_58a2c193",
+        "filename": "microdroid/system/private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1944405
+      },
+      "writtenOn": "2022-07-25T21:34:16Z",
+      "side": 1,
+      "message": "So, I lack the basic knowledge of SEPolicy. A quick guess would be that ending the name with \".\" is just the same as a wildcard? (match any servicemanager? ex: servicemanager.ready).\n\nIf that\u0027s the case, is it better to go with \"servicemanager.ready\" as opposed to \"servicemanager.\" since servicemanager.ready is the only current occurrence?\nAlso, since servicemanager.ready is a bool, would it be better to specifically define it as bool?",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 15
+      },
+      "revId": "184f3e23c247d944439b859adc9e740c55d3ade1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
