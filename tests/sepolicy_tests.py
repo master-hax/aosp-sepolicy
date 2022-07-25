@@ -15,10 +15,14 @@
 from optparse import OptionParser
 from optparse import Option, OptionValueError
 import os
+import pkgutil
 import policy
 import re
+import shutil
 import sys
-import distutils.ccompiler
+import tempfile
+
+SHARED_LIB_EXTENSION = '.dylib' if sys.platform == 'darwin' else '.so'
 
 #############################################################
 # Tests
@@ -146,63 +150,70 @@ Tests = [
 ]
 
 if __name__ == '__main__':
-    usage = "sepolicy_tests -f vendor_file_contexts -f "
-    usage +="plat_file_contexts -p policy [--test test] [--help]"
-    parser = OptionParser(option_class=MultipleOption, usage=usage)
-    parser.add_option("-f", "--file_contexts", dest="file_contexts",
-            metavar="FILE", action="extend", type="string")
-    parser.add_option("-p", "--policy", dest="policy", metavar="FILE")
-    parser.add_option("-t", "--test", dest="test", action="extend",
-            help="Test options include "+str(Tests))
+    temp_dir = tempfile.mkdtemp()
+    try:
+        libname = "libsepolwrap" + SHARED_LIB_EXTENSION
+        libpath = os.path.join(temp_dir, libname)
+        with open(libpath, "wb") as f:
+            blob = pkgutil.get_data("sepolicy_tests", libname)
+            if not blob:
+                sys.exit("Error: libsepolwrap does not exist. Is this binary corrupted?\n")
+            f.write(blob)
 
-    (options, args) = parser.parse_args()
+        usage = "sepolicy_tests -f vendor_file_contexts -f "
+        usage +="plat_file_contexts -p policy [--test test] [--help]"
+        parser = OptionParser(option_class=MultipleOption, usage=usage)
+        parser.add_option("-f", "--file_contexts", dest="file_contexts",
+                metavar="FILE", action="extend", type="string")
+        parser.add_option("-p", "--policy", dest="policy", metavar="FILE")
+        parser.add_option("-t", "--test", dest="test", action="extend",
+                help="Test options include "+str(Tests))
 
-    libpath = os.path.join(os.path.dirname(os.path.realpath(__file__)),
-        "libsepolwrap" + distutils.ccompiler.new_compiler().shared_lib_extension)
-    if not os.path.exists(libpath):
-        sys.exit("Error: libsepolwrap does not exist. Is this binary corrupted?\n")
+        (options, args) = parser.parse_args()
 
-    if not options.policy:
-        sys.exit("Must specify monolithic policy file\n" + parser.usage)
-    if not os.path.exists(options.policy):
-        sys.exit("Error: policy file " + options.policy + " does not exist\n"
-                + parser.usage)
+        if not options.policy:
+            sys.exit("Must specify monolithic policy file\n" + parser.usage)
+        if not os.path.exists(options.policy):
+            sys.exit("Error: policy file " + options.policy + " does not exist\n"
+                    + parser.usage)
 
-    if not options.file_contexts:
-        sys.exit("Error: Must specify file_contexts file(s)\n" + parser.usage)
-    for f in options.file_contexts:
-        if not os.path.exists(f):
-            sys.exit("Error: File_contexts file " + f + " does not exist\n" +
-                    parser.usage)
+        if not options.file_contexts:
+            sys.exit("Error: Must specify file_contexts file(s)\n" + parser.usage)
+        for f in options.file_contexts:
+            if not os.path.exists(f):
+                sys.exit("Error: File_contexts file " + f + " does not exist\n" +
+                        parser.usage)
 
-    pol = policy.Policy(options.policy, options.file_contexts, libpath)
+        pol = policy.Policy(options.policy, options.file_contexts, libpath)
 
-    results = ""
-    # If an individual test is not specified, run all tests.
-    if options.test is None or "TestBpffsTypeViolations" in options.test:
-        results += TestBpffsTypeViolations(pol)
-    if options.test is None or "TestDataTypeViolations" in options.test:
-        results += TestDataTypeViolations(pol)
-    if options.test is None or "TestProcTypeViolations" in options.test:
-        results += TestProcTypeViolations(pol)
-    if options.test is None or "TestSysfsTypeViolations" in options.test:
-        results += TestSysfsTypeViolations(pol)
-    if options.test is None or "TestSystemTypeViolations" in options.test:
-        results += TestSystemTypeViolations(pol)
-    if options.test is None or "TestDebugfsTypeViolations" in options.test:
-        results += TestDebugfsTypeViolations(pol)
-    if options.test is None or "TestTracefsTypeViolations" in options.test:
-        results += TestTracefsTypeViolations(pol)
-    if options.test is None or "TestVendorTypeViolations" in options.test:
-        results += TestVendorTypeViolations(pol)
-    if options.test is None or "TestCoreDataTypeViolations" in options.test:
-        results += TestCoreDataTypeViolations(pol)
-    if options.test is None or "TestPropertyTypeViolations" in options.test:
-        results += TestPropertyTypeViolations(pol)
-    if options.test is None or "TestAppDataTypeViolations" in options.test:
-        results += TestAppDataTypeViolations(pol)
-    if options.test is None or "TestDmaHeapDevTypeViolations" in options.test:
-        results += TestDmaHeapDevTypeViolations(pol)
+        results = ""
+        # If an individual test is not specified, run all tests.
+        if options.test is None or "TestBpffsTypeViolations" in options.test:
+            results += TestBpffsTypeViolations(pol)
+        if options.test is None or "TestDataTypeViolations" in options.test:
+            results += TestDataTypeViolations(pol)
+        if options.test is None or "TestProcTypeViolations" in options.test:
+            results += TestProcTypeViolations(pol)
+        if options.test is None or "TestSysfsTypeViolations" in options.test:
+            results += TestSysfsTypeViolations(pol)
+        if options.test is None or "TestSystemTypeViolations" in options.test:
+            results += TestSystemTypeViolations(pol)
+        if options.test is None or "TestDebugfsTypeViolations" in options.test:
+            results += TestDebugfsTypeViolations(pol)
+        if options.test is None or "TestTracefsTypeViolations" in options.test:
+            results += TestTracefsTypeViolations(pol)
+        if options.test is None or "TestVendorTypeViolations" in options.test:
+            results += TestVendorTypeViolations(pol)
+        if options.test is None or "TestCoreDataTypeViolations" in options.test:
+            results += TestCoreDataTypeViolations(pol)
+        if options.test is None or "TestPropertyTypeViolations" in options.test:
+            results += TestPropertyTypeViolations(pol)
+        if options.test is None or "TestAppDataTypeViolations" in options.test:
+            results += TestAppDataTypeViolations(pol)
+        if options.test is None or "TestDmaHeapDevTypeViolations" in options.test:
+            results += TestDmaHeapDevTypeViolations(pol)
 
-    if len(results) > 0:
-        sys.exit(results)
+        if len(results) > 0:
+            sys.exit(results)
+    finally:
+        shutil.rmtree(temp_dir)
