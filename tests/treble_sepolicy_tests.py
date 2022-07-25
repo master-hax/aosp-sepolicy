@@ -16,10 +16,13 @@ from optparse import OptionParser
 from optparse import Option, OptionValueError
 import os
 import mini_parser
+import pkgutil
 import policy
 from policy import MatchPathPrefix
 import re
+import shutil
 import sys
+import tempfile
 
 DEBUG=False
 SHARED_LIB_EXTENSION = '.dylib' if sys.platform == 'darwin' else '.so'
@@ -342,89 +345,96 @@ Tests = {"CoredomainViolations": TestCoredomainViolations,
          "ViolatorAttributes": TestViolatorAttributes}
 
 if __name__ == '__main__':
-    usage = "treble_sepolicy_tests "
-    usage += "-f nonplat_file_contexts -f plat_file_contexts "
-    usage += "-p curr_policy -b base_policy -o old_policy "
-    usage +="-m mapping file [--test test] [--help]"
-    parser = OptionParser(option_class=MultipleOption, usage=usage)
-    parser.add_option("-b", "--basepolicy", dest="basepolicy", metavar="FILE")
-    parser.add_option("-u", "--base-pub-policy", dest="base_pub_policy",
-                      metavar="FILE")
-    parser.add_option("-f", "--file_contexts", dest="file_contexts",
-            metavar="FILE", action="extend", type="string")
-    parser.add_option("-m", "--mapping", dest="mapping", metavar="FILE")
-    parser.add_option("-o", "--oldpolicy", dest="oldpolicy", metavar="FILE")
-    parser.add_option("-p", "--policy", dest="policy", metavar="FILE")
-    parser.add_option("-t", "--test", dest="tests", action="extend",
-            help="Test options include "+str(Tests))
-    parser.add_option("--fake-treble", action="store_true", dest="faketreble",
-            default=False)
+    temp_dir = tempfile.mkdtemp()
+    try:
+        libname = "libsepolwrap" + SHARED_LIB_EXTENSION
+        libpath = os.path.join(temp_dir, libname)
+        with open(libpath, "wb") as f:
+            blob = pkgutil.get_data("treble_sepolicy_tests", libname)
+            if not blob:
+                sys.exit("Error: libsepolwrap does not exist. Is this binary corrupted?\n")
+            f.write(blob)
 
-    (options, args) = parser.parse_args()
+        usage = "treble_sepolicy_tests "
+        usage += "-f nonplat_file_contexts -f plat_file_contexts "
+        usage += "-p curr_policy -b base_policy -o old_policy "
+        usage +="-m mapping file [--test test] [--help]"
+        parser = OptionParser(option_class=MultipleOption, usage=usage)
+        parser.add_option("-b", "--basepolicy", dest="basepolicy", metavar="FILE")
+        parser.add_option("-u", "--base-pub-policy", dest="base_pub_policy",
+                        metavar="FILE")
+        parser.add_option("-f", "--file_contexts", dest="file_contexts",
+                metavar="FILE", action="extend", type="string")
+        parser.add_option("-m", "--mapping", dest="mapping", metavar="FILE")
+        parser.add_option("-o", "--oldpolicy", dest="oldpolicy", metavar="FILE")
+        parser.add_option("-p", "--policy", dest="policy", metavar="FILE")
+        parser.add_option("-t", "--test", dest="tests", action="extend",
+                help="Test options include "+str(Tests))
+        parser.add_option("--fake-treble", action="store_true", dest="faketreble",
+                default=False)
 
-    if not options.policy:
-        sys.exit("Must specify current monolithic policy file\n" + parser.usage)
-    if not os.path.exists(options.policy):
-        sys.exit("Error: policy file " + options.policy + " does not exist\n"
-                + parser.usage)
-    if not options.file_contexts:
-        sys.exit("Error: Must specify file_contexts file(s)\n" + parser.usage)
-    for f in options.file_contexts:
-        if not os.path.exists(f):
-            sys.exit("Error: File_contexts file " + f + " does not exist\n" +
-                    parser.usage)
+        (options, args) = parser.parse_args()
 
-    libpath = os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                           "libsepolwrap" + SHARED_LIB_EXTENSION)
-    if not os.path.exists(libpath):
-        sys.exit("Error: libsepolwrap does not exist. Is this binary corrupted?\n")
+        if not options.policy:
+            sys.exit("Must specify current monolithic policy file\n" + parser.usage)
+        if not os.path.exists(options.policy):
+            sys.exit("Error: policy file " + options.policy + " does not exist\n"
+                    + parser.usage)
+        if not options.file_contexts:
+            sys.exit("Error: Must specify file_contexts file(s)\n" + parser.usage)
+        for f in options.file_contexts:
+            if not os.path.exists(f):
+                sys.exit("Error: File_contexts file " + f + " does not exist\n" +
+                        parser.usage)
 
-    # Mapping files and public platform policy are only necessary for the
-    # TrebleCompatMapping test.
-    if options.tests is None or options.tests == "TrebleCompatMapping":
-        if not options.basepolicy:
-            sys.exit("Must specify the current platform-only policy file\n"
-                     + parser.usage)
-        if not options.mapping:
-            sys.exit("Must specify a compatibility mapping file\n"
-                     + parser.usage)
-        if not options.oldpolicy:
-            sys.exit("Must specify the previous monolithic policy file\n"
-                     + parser.usage)
-        if not options.base_pub_policy:
-            sys.exit("Must specify the current platform-only public policy "
-                     + ".cil file\n" + parser.usage)
-        basepol = policy.Policy(options.basepolicy, None, libpath)
-        oldpol = policy.Policy(options.oldpolicy, None, libpath)
-        mapping = mini_parser.MiniCilParser(options.mapping)
-        pubpol = mini_parser.MiniCilParser(options.base_pub_policy)
-        compatSetup(basepol, oldpol, mapping, pubpol.types)
+        # Mapping files and public platform policy are only necessary for the
+        # TrebleCompatMapping test.
+        if options.tests is None or options.tests == "TrebleCompatMapping":
+            if not options.basepolicy:
+                sys.exit("Must specify the current platform-only policy file\n"
+                        + parser.usage)
+            if not options.mapping:
+                sys.exit("Must specify a compatibility mapping file\n"
+                        + parser.usage)
+            if not options.oldpolicy:
+                sys.exit("Must specify the previous monolithic policy file\n"
+                        + parser.usage)
+            if not options.base_pub_policy:
+                sys.exit("Must specify the current platform-only public policy "
+                        + ".cil file\n" + parser.usage)
+            basepol = policy.Policy(options.basepolicy, None, libpath)
+            oldpol = policy.Policy(options.oldpolicy, None, libpath)
+            mapping = mini_parser.MiniCilParser(options.mapping)
+            pubpol = mini_parser.MiniCilParser(options.base_pub_policy)
+            compatSetup(basepol, oldpol, mapping, pubpol.types)
 
-    if options.faketreble:
-        FakeTreble = True
+        if options.faketreble:
+            FakeTreble = True
 
-    pol = policy.Policy(options.policy, options.file_contexts, libpath)
-    setup(pol)
+        pol = policy.Policy(options.policy, options.file_contexts, libpath)
+        setup(pol)
 
-    if DEBUG:
-        PrintScontexts()
+        if DEBUG:
+            PrintScontexts()
 
-    results = ""
-    # If an individual test is not specified, run all tests.
-    if options.tests is None:
-        for t in Tests.values():
-            results += t()
-    else:
-        for tn in options.tests:
-            t = Tests.get(tn)
-            if t:
+        results = ""
+        # If an individual test is not specified, run all tests.
+        if options.tests is None:
+            for t in Tests.values():
                 results += t()
-            else:
-                err = "Error: unknown test: " + tn + "\n"
-                err += "Available tests:\n"
-                for tn in Tests.keys():
-                    err += tn + "\n"
-                sys.exit(err)
+        else:
+            for tn in options.tests:
+                t = Tests.get(tn)
+                if t:
+                    results += t()
+                else:
+                    err = "Error: unknown test: " + tn + "\n"
+                    err += "Available tests:\n"
+                    for tn in Tests.keys():
+                        err += tn + "\n"
+                    sys.exit(err)
 
-    if len(results) > 0:
-        sys.exit(results)
+        if len(results) > 0:
+            sys.exit(results)
+    finally:
+        shutil.rmtree(temp_dir)
