@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5c60e8e_bf62ab67",
+        "filename": "tests/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2022-07-26T00:29:53Z",
+      "side": 1,
+      "message": "The enabled values are the defaults, would simply\n\n```\nversion: {\n  py3: {\n    embedded_launcher: true,\n  }\n}\n```\n\nwork?\n(https://cs.android.com/android/platform/superproject/+/master:build/soong/python/python.go;l\u003d368;drc\u003d91aba9a11ed001f5d4e7443a8ec0aa7023e9c518)",
+      "revId": "f3e644f0340dd36e3832ad636776c67eb6058366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8675296_f7988e28",
+        "filename": "tests/sepolicy_tests.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2022-07-26T00:29:53Z",
+      "side": 1,
+      "message": "nit: adding the try/finally forces the re-indentation of a large chunk of the code. You could move the code to a separate function and add the try/finally around the call to that method, that would make the review easier (as less lines would be changed).",
+      "revId": "f3e644f0340dd36e3832ad636776c67eb6058366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
