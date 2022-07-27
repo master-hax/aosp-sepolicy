@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fab88a37_d81b0159",
+        "filename": "tools/seamendc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-07-27T15:16:02Z",
+      "side": 1,
+      "message": "Interesting. The speed improvement suggests that sepol_policydb_read itself isn\u0027t particularly efficient; it\u0027s a shame we can\u0027t easily fix that.\nWould setvbuf or fadvise(POSIX_FADV_SEQUENTIAL) also work?\nNot that it matters; what you have here is fine.\n\nLeave a comment for posterity on why you\u0027re doing the read this way?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 0
+      },
+      "revId": "7011bb879958a3c4ef4fa5792927ba7a93e3a8fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
