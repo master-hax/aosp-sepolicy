@@ -16,6 +16,29 @@
       "message": "Hi Inseob, PTAL. I think we need this to bring the benchmarks to the normal range.",
       "revId": "52921277cf5477f4cd5bed0a11a61394df9ec3fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efd8f70d_c318e2ca",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-07-27T09:34:12Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem like something we\u0027d want any payload to be able to do. In the host access to this is highly restricted (vold, init).\n\nCould we instead do this from the host via adb root?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 60
+      },
+      "revId": "52921277cf5477f4cd5bed0a11a61394df9ec3fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
