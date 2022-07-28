@@ -10,3 +10,9 @@ set_prop(hwservicemanager, hwservicemanager_prop)
 
 # hwservicemanager is using bootstrap bionic
 use_bootstrap_libs(hwservicemanager)
+
+# Allow scan for apex modules
+allow hwservicemanager apex_mnt_dir:dir r_dir_perms;
+
+# Allow read apex-info-list.xml
+allow hwservicemanager apex_info_file:file r_file_perms;
