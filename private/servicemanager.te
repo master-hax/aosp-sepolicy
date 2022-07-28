@@ -9,3 +9,9 @@ set_prop(servicemanager, servicemanager_prop)
 
 # servicemanager is using bootstrap bionic
 use_bootstrap_libs(servicemanager)
+
+# Allow scan for apex modules
+allow servicemanager apex_mnt_dir:dir r_dir_perms;
+
+# Allow read apex-info-list.xml
+allow servicemanager apex_info_file:file r_file_perms;
