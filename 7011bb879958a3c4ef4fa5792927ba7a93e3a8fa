@@ -22,6 +22,30 @@
       },
       "revId": "7011bb879958a3c4ef4fa5792927ba7a93e3a8fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cbb4ab5_b10c83b9",
+        "filename": "tools/seamendc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-07-28T14:32:54Z",
+      "side": 1,
+      "message": "From my tracing it appears fadvise(POSIX_FADV_SEQUENTIAL) has no impact compared to running sepol_policydb_read without it.\n\nI am not sure why fread+sepol_policydb_from_image would be faster than plain sepol_policydb_read, but it appears to be the case nonetheless. I expanded the method documentation for posterity.",
+      "parentUuid": "fab88a37_d81b0159",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 0
+      },
+      "revId": "7011bb879958a3c4ef4fa5792927ba7a93e3a8fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
