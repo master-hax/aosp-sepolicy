@@ -995,3 +995,19 @@ define(`use_bootstrap_libs', `
   allow $1 system_bootstrap_lib_file:dir r_dir_perms;
   allow $1 system_bootstrap_lib_file:file { execute read open getattr map };
 ')
+
+######################################
+# use_apex_info(domain)
+# Allow access to apex information
+define(`use_apex_info', `
+  get_prop($1, apexd_prop)
+  allow $1 apex_mnt_dir:dir r_dir_perms;
+  allow $1 apex_info_file:file r_file_perms;
+')
+
+######################################
+# use_libvintf(domain)
+# libvintf requires apex_info
+define(`use_libvintf', `
+  use_apex_info($1)
+')
