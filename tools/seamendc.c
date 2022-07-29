@@ -9,7 +9,8 @@
 #include <cil/cil.h>
 #include <cil/android.h>
 #include <sepol/policydb.h>
-#include "sepol/handle.h"
+#include <sepol/debug.h>
+#include <sepol/handle.h>
 
 void usage(const char *prog)
 {
@@ -163,10 +164,15 @@ file_err:
 
 /*
  * Write binary policy in pdb to file at path.
+ *
+ * We first write the policydb object into a memory region and then fwrite the
+ * region to file. This combination is slightly faster than using
+ * sepol_policydb_write.
  */
 static int write_binary_policy(sepol_policydb_t *pdb, char *path)
 {
     int rc = SEPOL_OK;
+    void *buff = NULL;
 
     FILE *file = fopen(path, "w");
     if (file == NULL) {
@@ -175,18 +181,19 @@ static int write_binary_policy(sepol_policydb_t *pdb, char *path)
         goto exit;
     }
 
-    struct sepol_policy_file *pf = NULL;
-    rc = sepol_policy_file_create(&pf);
+    size_t file_size;
+    rc = sepol_policydb_to_image(NULL, pdb, &buff, &file_size);
     if (rc != 0) {
-        fprintf(stderr, "Failed to create policy file: %d.\n", rc);
+        fprintf(stderr, "Failed to write binary policy to memory: %d.\n", rc);
         goto exit;
     }
-    sepol_policy_file_set_fp(pf, file);
 
-    rc = sepol_policydb_write(pdb, pf);
-    if (rc != 0) {
-        fprintf(stderr, "failed to write binary policy: %d.\n", rc);
-        goto exit;
+    rc = fwrite(buff, file_size, 1, file);
+    if (rc != 1) {
+        perror("Failure writing binary policy file");
+        rc = SEPOL_ERR;
+    } else {
+        rc = SEPOL_OK;
     }
 
 exit:
@@ -194,6 +201,7 @@ exit:
         perror("Failure closing binary file");
         rc = SEPOL_ERR;
     }
+    free(buff);
     return rc;
 }
 
