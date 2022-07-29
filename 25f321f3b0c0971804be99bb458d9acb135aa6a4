@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dbf8e257_321fe7c6",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1935515
+      },
+      "writtenOn": "2022-07-29T10:14:32Z",
+      "side": 1,
+      "message": "Well I do agree it\u0027s giving a lot of power to crosvm. A lot more than should be needed.\n\nThe service that spawns crosvm processes is virtualizationservice, so it makes sense that it could create and destroy the socket (which is a purely host-side Unix domain socket) and pass one end off.\n\nI don\u0027t think init needs to be involved, fortunately.",
+      "parentUuid": "2dfdd81f_c80ac8dc",
+      "range": {
+        "startLine": 42,
+        "startChar": 13,
+        "endLine": 42,
+        "endChar": 48
+      },
+      "revId": "25f321f3b0c0971804be99bb458d9acb135aa6a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe81be5a_073384b2",
         "filename": "private/crosvm.te",
         "patchSetId": 1
@@ -173,6 +197,30 @@
       "writtenOn": "2022-07-19T14:23:24Z",
       "side": 1,
       "message": "create doesn\u0027t imply open, AFAICT.",
+      "parentUuid": "a59e1e56_f24f2498",
+      "range": {
+        "startLine": 44,
+        "startChar": 57,
+        "endLine": 44,
+        "endChar": 63
+      },
+      "revId": "25f321f3b0c0971804be99bb458d9acb135aa6a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2ea86b3_d0f65201",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1935515
+      },
+      "writtenOn": "2022-07-29T10:14:32Z",
+      "side": 1,
+      "message": "Oh I see what you mean. Well indeed it does work. This is the minimal set of perms I needed to successfully create and use the control socket, with selinux enabled.",
       "parentUuid": "a59e1e56_f24f2498",
       "range": {
         "startLine": 44,
