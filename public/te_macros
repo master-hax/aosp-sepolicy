@@ -252,8 +252,6 @@ typeattribute $1 bluetoothdomain;
 # Add an attribute for hal implementations along with necessary
 # restrictions.
 define(`hal_attribute', `
-attribute hal_$1;
-expandattribute hal_$1 true;
 attribute hal_$1_client;
 expandattribute hal_$1_client true;
 attribute hal_$1_server;
@@ -264,7 +262,6 @@ neverallow { hal_$1_server -halserverdomain } domain:process fork;
 # performance reasons. Neverallow rules targeting expanded attributes can not be
 # verified by CTS since these attributes are already expanded by that time.
 build_test_only(`
-neverallow { hal_$1_server -hal_$1 } domain:process fork;
 neverallow { hal_$1_client -halclientdomain } domain:process fork;
 ')
 ')
@@ -281,7 +278,6 @@ neverallow { hal_$1_client -halclientdomain } domain:process fork;
 define(`hal_server_domain', `
 typeattribute $1 halserverdomain;
 typeattribute $1 $2_server;
-typeattribute $1 $2;
 ')
 
 #####################################
