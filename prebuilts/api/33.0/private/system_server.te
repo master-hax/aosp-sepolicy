@@ -1421,6 +1421,9 @@ neverallow {
 # Read/Write /proc/pressure/memory
 allow system_server proc_pressure_mem:file rw_file_perms;
 
+# Allow tethering inprocess to update the eBPF maps to offload tethering traffic by eBPF
+dontaudit system_server fs_bpf_tethering:dir search;
+
 # dexoptanalyzer is currently used only for secondary dex files which
 # system_server should never access.
 neverallow system_server dexoptanalyzer_exec:file no_x_file_perms;
