@@ -46,6 +46,30 @@
       },
       "revId": "0190f05c762b258fea438e8bf48c484edd64afcf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdc7ef4c_b4bf9147",
+        "filename": "public/hal_drm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1005970
+      },
+      "writtenOn": "2022-08-02T20:48:07Z",
+      "side": 1,
+      "message": "Steven, I do not know why dump_hal(hal_drm) does not work. Looks like dump_hal() macro (https://source.corp.google.com/android/system/sepolicy/public/te_macros;l\u003d858)\u0027s dumpstate still does not allow shell:fd use and shell:fifo_file write?\n\n\nAs for the btw: I will change hal_drm to hal_drm_server? I tested with the hal_drm_server and it works.",
+      "parentUuid": "2886a225_e1579695",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 0
+      },
+      "revId": "0190f05c762b258fea438e8bf48c484edd64afcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
