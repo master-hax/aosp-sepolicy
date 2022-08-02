@@ -16,6 +16,24 @@
       "message": "How are you going to maintain this file? For example, if I touch system/sepolicy/public, how can I know that I should also touch definitions.cil?\n\nCan we add a test which breaks the build and tells users how to fix?",
       "revId": "d40a70403c4d95a9f93c071a90e5bf9f3ffad30f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ce3454a_51f927d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-08-02T12:44:27Z",
+      "side": 1,
+      "message": "There are thests to verify that the contents of definitions.cil is up to date\nhttps://cs.android.com/android/platform/superproject/+/master:cts/hostsidetests/security/src/android/security/cts/SeamendcHostTest.java\n\nThe tests are currently disabled while I investigate a failure b/240573438. I\u0027ll re-enable the tests once the failure is fixed.",
+      "parentUuid": "b3cac83c_2c2d9045",
+      "revId": "d40a70403c4d95a9f93c071a90e5bf9f3ffad30f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
