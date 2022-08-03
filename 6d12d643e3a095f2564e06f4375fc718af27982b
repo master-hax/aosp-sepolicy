@@ -166,6 +166,30 @@
       },
       "revId": "6d12d643e3a095f2564e06f4375fc718af27982b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57775fee_0cd377af",
+        "filename": "public/attributes",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-08-03T21:54:12Z",
+      "side": 0,
+      "message": "We have tests specifically designed for a compatibility break which run at build time, and this is something we have all the information to detect if it is an issue.\n\nSince tests like \u0027google_required_freeze/boot_test/vendor_img_cf_x86_rvc on aosp_cf_x86_64_phone-userdebug on aosp-master\u0027 pass in presubmit, which would be compiling policy across dessert releases, we know the policy works together from one vendor to another. Though, cuttlefish vendor may not use \u0027vendor_service\u0027 attribute, we should still be suspicious that it will break.\n\n\u003e Example Version 2: Removing completely (foo type)\n\nFrom the SELinux docs, they suggest that we should add a type here.\n\nThough, I have two questions:\n- does this apply to expandattribute?\n- why doesn\u0027t our test catch it?",
+      "parentUuid": "bd3f490a_a950758e",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 25
+      },
+      "revId": "6d12d643e3a095f2564e06f4375fc718af27982b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
