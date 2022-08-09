@@ -822,6 +822,11 @@ get_prop(system_server, hypervisor_prop)
 # Read persist.wm.debug. properties
 get_prop(system_server, persist_wm_debug_prop)
 
+# Read ro.tuner.lazyhal
+get_prop(coredomain, tuner_config_prop)
+# Write ro.tuner.server.enable
+set_prop(system_server, tuner_server_ctl_prop)
+
 # Create a socket for connections from debuggerd.
 allow system_server system_ndebug_socket:sock_file create_file_perms;
 
