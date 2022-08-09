@@ -40,6 +40,7 @@ license {
     license_text: [
         "NOTICE",
     ],
+    bazel_module: { bp2build_available: true},
 }
 
 cc_defaults { name: "selinux_policy_version", cflags: ["-DSEPOLICY_VERSION=30"], }
