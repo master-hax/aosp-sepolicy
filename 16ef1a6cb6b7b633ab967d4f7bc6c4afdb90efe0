@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a52efef_91e58012",
+        "filename": "public/hal_dumpstate.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1347177
+      },
+      "writtenOn": "2022-08-12T01:39:02Z",
+      "side": 1,
+      "message": "Is f2fs a required feature for Android devices?\n\nIt seems the action is in places like ag/19584615. I would argue that this is a vendor feature. I see 3 options here:\n\nYou can dump the log in dumpstate, and move hal_dumpstate to dumpstate:\nhttps://source.corp.google.com/android/frameworks/native/cmds/dumpstate/Android.bp?q\u003d%22name:%20%5C%22dumpstate%5C%22%22%20-f:api%20f:bp$\u0026sq\u003dp:android$\n\nOr put it each device like ag/19590356\n\nOr use method in go/pixel-recycle to share it. I\u0027m still working on the details to make it possible. I can do this one for you if you can wait.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 52
+      },
+      "revId": "16ef1a6cb6b7b633ab967d4f7bc6c4afdb90efe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
