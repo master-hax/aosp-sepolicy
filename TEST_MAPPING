@@ -1,4 +1,14 @@
 {
+    // "mainline-presubmit": [
+    //     {
+    //     "name": "CtsSecurityHostTestCases[com.google.android.selinux.apex]",
+    //     "options": [
+    //         {
+    //         "include-filter": "android.security.cts.SeamendcHostTest"
+    //         }
+    //     ]
+    //     }
+    // ],
     "presubmit": [
         {
             "name": "CtsSecurityHostTestCases",
@@ -11,8 +21,10 @@
                 },
                 {
                     "include-filter": "android.security.cts.SELinuxHostTest#testGMSCoreDomain"
+                },
+                {
+                    "include-filter": "android.security.cts.SeamendcHostTest"
                 }
-
             ]
         },
         {
