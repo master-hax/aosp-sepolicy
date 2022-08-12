@@ -46,6 +46,29 @@
       },
       "revId": "16ef1a6cb6b7b633ab967d4f7bc6c4afdb90efe0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "994c059a_222c9556",
+        "filename": "public/hal_dumpstate.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-08-12T09:04:09Z",
+      "side": 1,
+      "message": "Do you need write access? The code changes in ag/19584600 only seem to read files.\nSo I think\nr_dir_file(hal_dumpstate, fscklogs)\nwould suffice. (You probably only need search in the directories, but I don\u0027t think that\u0027s important.)\n\nThere doesn\u0027t seem to be any good reason for dumpstate to create or modify files here.",
+      "range": {
+        "startLine": 19,
+        "startChar": 34,
+        "endLine": 19,
+        "endChar": 51
+      },
+      "revId": "16ef1a6cb6b7b633ab967d4f7bc6c4afdb90efe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
