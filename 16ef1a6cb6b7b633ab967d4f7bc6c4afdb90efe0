@@ -22,6 +22,30 @@
       },
       "revId": "16ef1a6cb6b7b633ab967d4f7bc6c4afdb90efe0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "171fbc84_35550b27",
+        "filename": "public/hal_dumpstate.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1176763
+      },
+      "writtenOn": "2022-08-12T04:02:56Z",
+      "side": 1,
+      "message": "This is not an f2fs-specific one, as fs_mgr provides fscklogs in a generic way. As similar as the sepolicy allows to rename this for bootreceiver to upload it, I interpret that this CL allows any vendors can decide to store the fscklog in dumpstate per products.\n\nI guess the way to implement dumpstate is up to vendors, and thus, I\u0027m not sure we need to create any assumption regarding to this.",
+      "parentUuid": "0a52efef_91e58012",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 52
+      },
+      "revId": "16ef1a6cb6b7b633ab967d4f7bc6c4afdb90efe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
