@@ -16,6 +16,24 @@
       "message": "Much breakage, but I\u0027m afraid I have no idea why.",
       "revId": "15e4f478d3ba573b722a04175c8a6960fc972b65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "411786c4_91be48f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-08-15T16:41:11Z",
+      "side": 1,
+      "message": "Looking at the test failures, it appears some of the vendor allowrules are missing. For example, in this failure\nhttps://android-build.googleplex.com/builds/tests/view?invocationId\u003dI09600010081004355\u0026testResultId\u003dTR82128203814767539\nI can see the following rules among the missing ones\nhttps://cs.android.com/android/platform/superproject/+/master:device/google/cuttlefish/shared/sepolicy/vendor/shell.te\nThose rules are vendor specific, in this case cuttlefish.\n\nI think the issue is that the precompiled sepolicy I am using as the baseline for the testSeamendcAgainstPrecompiledPolicies test is missing rules. The sepolicy is defined here\nhttps://cs.android.com/android/platform/superproject/+/master:system/sepolicy/Android.bp;l\u003d915;drc\u003d143988dedb15a3c397785c88efc8d4a0d13d9374\n\nThe vendor_sepolicy.cil dependency is limited to AOSP and it does not contain all the rules from device/google/cuttlefish. Is there a way I can add a dependency to the *real* device policy from within AOSP?",
+      "parentUuid": "38131958_6b2f09b0",
+      "revId": "15e4f478d3ba573b722a04175c8a6960fc972b65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
