@@ -70,6 +70,24 @@
       "parentUuid": "877e6ce2_4bd14a3c",
       "revId": "15e4f478d3ba573b722a04175c8a6960fc972b65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "062c5570_bafa15c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-08-16T14:07:51Z",
+      "side": 1,
+      "message": "Talking about the failures with Jeff, it appears the issue comes from the fact that in the SeamendcHostTest I am comparing the amended policy against the sepolicy loaded by the kernel\nhttps://cs.android.com/android/platform/superproject/+/master:cts/hostsidetests/security/src/android/security/cts/SeamendcHostTest.java;l\u003d74;drc\u003d93e41165bcc022d2c863bd7ab5a30c1d7cc966dc\nThe problem with that policy is that it is too difficult to predict what goes inside the policy exactly, because it depends on many factors like device partitions, build targets, whether it is a mixed build, etc.\n\nWhat Jeff recommended instead is to pull the CIL files from the device and try to replicate mimic as much as possible the steps selinux.cpp takes when following the compilation path\nhttps://cs.android.com/android/platform/superproject/+/master:system/core/init/selinux.cpp;l\u003d370-494;drc\u003d2d579af880afae96239c80765b11c7dbc2c1b264\nI am disabling the tests in aosp/2188075 and will rewrite them following this approach.\n\n(Adding Jeff to cc to make sure I did not misunderstand)",
+      "parentUuid": "26f7b4b4_10ed4646",
+      "revId": "15e4f478d3ba573b722a04175c8a6960fc972b65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
