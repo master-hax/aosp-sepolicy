@@ -20,7 +20,10 @@ import policy
 import re
 import shutil
 import sys
+<<<<<<< HEAD   (50fa5c Merge "Disallow untrusted apps to read ro.debuggable and ro.)
 import tempfile
+=======
+>>>>>>> BRANCH (42d563 Remove dependency to distutils)
 
 SHARED_LIB_EXTENSION = '.dylib' if sys.platform == 'darwin' else '.so'
 
@@ -165,6 +168,14 @@ def do_main(libpath):
 
     (options, args) = parser.parse_args()
 
+<<<<<<< HEAD   (50fa5c Merge "Disallow untrusted apps to read ro.debuggable and ro.)
+=======
+    libpath = os.path.join(os.path.dirname(os.path.realpath(__file__)),
+                           "libsepolwrap" + SHARED_LIB_EXTENSION)
+    if not os.path.exists(libpath):
+        sys.exit("Error: libsepolwrap does not exist. Is this binary corrupted?\n")
+
+>>>>>>> BRANCH (42d563 Remove dependency to distutils)
     if not options.policy:
         sys.exit("Must specify monolithic policy file\n" + parser.usage)
     if not os.path.exists(options.policy):

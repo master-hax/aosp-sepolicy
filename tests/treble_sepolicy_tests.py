@@ -22,7 +22,10 @@ from policy import MatchPathPrefix
 import re
 import shutil
 import sys
+<<<<<<< HEAD   (50fa5c Merge "Disallow untrusted apps to read ro.debuggable and ro.)
 import tempfile
+=======
+>>>>>>> BRANCH (42d563 Remove dependency to distutils)
 
 DEBUG=False
 SHARED_LIB_EXTENSION = '.dylib' if sys.platform == 'darwin' else '.so'
@@ -383,6 +386,14 @@ def do_main(libpath):
             sys.exit("Error: File_contexts file " + f + " does not exist\n" +
                     parser.usage)
 
+<<<<<<< HEAD   (50fa5c Merge "Disallow untrusted apps to read ro.debuggable and ro.)
+=======
+    libpath = os.path.join(os.path.dirname(os.path.realpath(__file__)),
+                           "libsepolwrap" + SHARED_LIB_EXTENSION)
+    if not os.path.exists(libpath):
+        sys.exit("Error: libsepolwrap does not exist. Is this binary corrupted?\n")
+
+>>>>>>> BRANCH (42d563 Remove dependency to distutils)
     # Mapping files and public platform policy are only necessary for the
     # TrebleCompatMapping test.
     if options.tests is None or options.tests == "TrebleCompatMapping":
