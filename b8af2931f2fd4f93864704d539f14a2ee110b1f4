@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9716165_95a01105",
+        "filename": "private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-08-23T05:12:28Z",
+      "side": 1,
+      "message": "No. Please don\u0027t use sys. prefix. See https://source.android.com/docs/core/architecture/configuration/add-system-properties#caveats\n\n\u003e  Don\u0027t use ambiguous or overloaded terms such as sys, system, dev, default, or config.",
+      "parentUuid": "299016a8_59d8c624",
+      "range": {
+        "startLine": 1428,
+        "startChar": 0,
+        "endLine": 1428,
+        "endChar": 3
+      },
+      "revId": "b8af2931f2fd4f93864704d539f14a2ee110b1f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "922f9d68_40dc7dec",
         "filename": "private/system_server.te",
         "patchSetId": 2
@@ -227,6 +251,30 @@
       "side": 1,
       "message": "This is for the service manager to call back to the lazy HAL to notify client number. Code is https://source.corp.google.com/tm-dev/frameworks/native/cmds/servicemanager/ServiceManager.cpp;rcl\u003dac2d2857a1a56bc020917c6b6ba4d063050de4c4;l\u003d669",
       "parentUuid": "5bd067c5_6694f90b",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 49
+      },
+      "revId": "b8af2931f2fd4f93864704d539f14a2ee110b1f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63f71a32_bd868b1a",
+        "filename": "vendor/servicemanager.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-08-23T05:12:28Z",
+      "side": 1,
+      "message": "Thanks. \n\nSteven (invited), what do you think about adding this rule as part of the macros that HAL use?",
+      "parentUuid": "b889b6df_e19ef3ab",
       "range": {
         "startLine": 2,
         "startChar": 0,
