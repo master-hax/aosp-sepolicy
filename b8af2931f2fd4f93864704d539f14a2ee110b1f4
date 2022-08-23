@@ -379,6 +379,30 @@
       },
       "revId": "b8af2931f2fd4f93864704d539f14a2ee110b1f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3feb7cd_cbc6755c",
+        "filename": "vendor/servicemanager.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-08-23T06:41:24Z",
+      "side": 1,
+      "message": "The correct way to give a service access to servicemmanager is to use the binder_use() macro. That includes the necessary permissions for calls in both directions.\n\ne.g.\nbinder_use(hal_tv_tuner_default)",
+      "parentUuid": "05f5feff_3a0bda8a",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 49
+      },
+      "revId": "b8af2931f2fd4f93864704d539f14a2ee110b1f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
