@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8cdc8292_637656f9",
+        "filename": "microdroid/system/private/kexec.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-08-24T06:58:02Z",
+      "side": 1,
+      "message": "```\n# cat /proc/$(pidof microdroid_manager)/status | grep Cap\nCapInh: 0000000000000000\nCapPrm: 000001ffffffffff\nCapEff: 000001ffffffffff\nCapBnd: 000001ffffffffff\nCapAmb: 0000000000000000\n```\n\nInterestingly, microdroid_manager has all(?) the capabilities, though most of them are blocked by selinux.",
+      "parentUuid": "91f9d164_f5c0f61a",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 37
+      },
+      "revId": "c7f94b190290a34dad6bd04a82c9eb00c438917a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51fcbce0_c805acba",
         "filename": "microdroid/system/private/microdroid_manager.te",
         "patchSetId": 1
