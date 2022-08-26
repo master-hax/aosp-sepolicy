@@ -1,0 +1,14 @@
+type rkpvm, domain, coredomain;
+type rkpvm_exec, system_file_type, exec_type, file_type;
+
+# When init runs a file labelled with rkpvm_exec, run it in the
+# rkpvm domain.
+init_daemon_domain(rkpvm)
+
+# Let the rkpvm domain use Binder.
+binder_use(rkpvm)
+# ... and host a binder service
+binder_service(rkpvm)
+
+# Let the rkpvm domain register the rkpvm_service with ServiceManager.
+add_service(rkpvm, rkpvm_service)
