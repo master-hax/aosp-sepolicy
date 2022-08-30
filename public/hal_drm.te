@@ -14,6 +14,9 @@ allow hal_drm self:process execmem;
 # Permit reading device's serial number from system properties
 get_prop(hal_drm, serialno_prop)
 
+# ChromeOS specific Widevine CDM properties
+get_prop(hal_drm, widevine_cdm_prop)
+
 # Read files already opened under /data
 allow hal_drm system_data_file:file { getattr read };
 

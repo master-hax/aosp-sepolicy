@@ -1429,3 +1429,8 @@ vendor.fingerprint.virtual.operation_authenticate_duration u:object_r:virtual_fi
 # properties for tuner
 ro.tuner.lazyhal    u:object_r:tuner_config_prop:s0 exact bool
 tuner.server.enable u:object_r:tuner_server_ctl_prop:s0 exact bool
+
+# ChromeOS specific Widevine CDM properties
+ro.product.cdm.device u:object_r:widevine_cdm_prop:s0 exact string
+ro.product.cdm.manufacturer u:object_r:widevine_cdm_prop:s0 exact string
+ro.product.cdm.model u:object_r:widevine_cdm_prop:s0 exact string

@@ -266,3 +266,8 @@ init.userspace_reboot.watchdog.timeoutmillis u:object_r:userspace_reboot_config_
 
 # surfaceflinger-settable
 graphics.display.kernel_idle_timer.enabled u:object_r:surfaceflinger_display_prop:s0 exact bool
+
+# ChromeOS specific Widevine CDM properties
+ro.product.cdm.device u:object_r:widevine_cdm_prop:s0 exact string
+ro.product.cdm.manufacturer u:object_r:widevine_cdm_prop:s0 exact string
+ro.product.cdm.model u:object_r:widevine_cdm_prop:s0 exact string
