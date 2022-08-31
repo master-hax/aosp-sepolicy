@@ -1081,6 +1081,10 @@ allowxperm system_server apk_data_file:file ioctl {
   FS_IOC_ENABLE_VERITY FS_IOC_MEASURE_VERITY
 };
 
+allowxperm system_server apk_tmp_file:file ioctl {
+  FS_IOC_MEASURE_VERITY
+};
+
 allowxperm system_server system_file:file ioctl {
   FS_IOC_MEASURE_VERITY
 };
