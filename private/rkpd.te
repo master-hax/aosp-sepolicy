@@ -1,0 +1,17 @@
+type rkpd, domain;
+type rkpd_exec, system_file_type, exec_type, file_type;
+
+typeattribute rkpd coredomain;
+
+binder_use(rkpd)
+binder_service(rkpd)
+
+init_daemon_domain(rkpd)
+
+set_prop(rkpd_registrar_service, ctl_interface_start_prop)
+set_prop(rkpd_refresh_service, ctl_interface_start_prop)
+
+add_service(rkpd, rkpd_registrar_service)
+add_service(rkpd, rkpd_refresh_service)
+
+selinux_check_access(rkpd)

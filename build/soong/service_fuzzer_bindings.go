@@ -310,6 +310,8 @@ var (
 		"resolver":                     []string{},
 		"resources":                    []string{},
 		"restrictions":                 []string{},
+		"rkpd.registrar":               []string{},
+		"rkpd.refresh":                 []string{},
 		"role":                         []string{},
 		"rollback":                     []string{},
 		"rttmanager":                   []string{},
