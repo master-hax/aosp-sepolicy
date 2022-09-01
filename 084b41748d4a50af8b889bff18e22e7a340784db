@@ -22,6 +22,30 @@
       },
       "revId": "084b41748d4a50af8b889bff18e22e7a340784db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1838582_b3f23fba",
+        "filename": "Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-09-01T16:37:46Z",
+      "side": 1,
+      "message": "This is the hash used by selinux to determine whether the precompiled_sepolicy is in a good state\nhttps://cs.android.com/android/platform/superproject/+/master:system/core/init/selinux.cpp;l\u003d259;drc\u003d89d6913cf2d02782662569009703ff2e0d34b689\n\nThis addition is necessary because aosp/2199179 makes the apex_sepolicy files mandatory on all builds. Without this line, selinux.cpp would never choose to load a precompiled sepolicy and always follow the compile-from-scratch path, that would introduce a significant boot time regression.",
+      "parentUuid": "5ccf98cf_14cc849f",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 480,
+        "endChar": 67
+      },
+      "revId": "084b41748d4a50af8b889bff18e22e7a340784db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
