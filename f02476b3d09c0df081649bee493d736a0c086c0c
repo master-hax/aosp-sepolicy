@@ -16,6 +16,52 @@
       "message": "(will let Jeff comment)",
       "revId": "f02476b3d09c0df081649bee493d736a0c086c0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a8e8ee5_827db54c",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-09-02T16:17:15Z",
+      "side": 1,
+      "message": "Could you add a comment to explain why you need to measure these two file types?",
+      "range": {
+        "startLine": 1084,
+        "startChar": 25,
+        "endLine": 1084,
+        "endChar": 42
+      },
+      "revId": "f02476b3d09c0df081649bee493d736a0c086c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31cc8c55_c98ec883",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-09-02T16:17:15Z",
+      "side": 1,
+      "message": "Nit: no braces for one item, but you can combine these two into one:\n\nallowxperm system_sever {apk_tmp_file system_file}:ioctl FS_IOC_MEASURE_VERITY;",
+      "range": {
+        "startLine": 1084,
+        "startChar": 0,
+        "endLine": 1090,
+        "endChar": 2
+      },
+      "revId": "f02476b3d09c0df081649bee493d736a0c086c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
