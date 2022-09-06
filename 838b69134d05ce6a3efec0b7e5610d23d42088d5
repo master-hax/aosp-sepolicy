@@ -16,6 +16,24 @@
       "message": "I am not too familiar with the BatteryStats service, but from my understanding, BatteryStatsImpl (which should be the only user of BatteryStatsHistory) belongs to system_server and not a platform_app. Are you using a separate application to change this property?\n\nThe extra rule is quite broad. I think you should probably define your own domain for your specific app.",
       "revId": "838b69134d05ce6a3efec0b7e5610d23d42088d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51107367_41f65b91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1952030
+      },
+      "writtenOn": "2022-09-06T18:17:35Z",
+      "side": 1,
+      "message": "Thanks Thiébaud, there was a number of tests that claimed to be platform_apps that call directly into the BatteryStatsImpl. It\u0027s possible the tests are wrong though, let me ask around.",
+      "parentUuid": "f23609f9_ef65bb85",
+      "revId": "838b69134d05ce6a3efec0b7e5610d23d42088d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
