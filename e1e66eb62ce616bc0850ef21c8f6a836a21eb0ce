@@ -16,6 +16,24 @@
       "message": "Is there a reason why these should be in AOSP, which applies to all Android devices, and not in ChromeOS-specific sepolicy?",
       "revId": "e1e66eb62ce616bc0850ef21c8f6a836a21eb0ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae2334c2_b96bcdec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1224300
+      },
+      "writtenOn": "2022-09-06T17:14:04Z",
+      "side": 1,
+      "message": "I did that because the repo upload hook told me to. If I should just override that, let me know.\n\n[COMMIT c23c87813363] sepolicy: Add ARC specific properties for Widevine CDM\n[FAILED] aosp_hook\n    \n    The source of truth for \u0027prebuilts/api/30.0/private/property_contexts\u0027 is in AOSP.\n    The source of truth for \u0027prebuilts/api/30.0/public/hal_drm.te\u0027 is in AOSP.\n    The source of truth for \u0027prebuilts/api/30.0/public/property.te\u0027 is in AOSP.\n    The source of truth for \u0027private/property_contexts\u0027 is in AOSP.\n    The source of truth for \u0027public/hal_drm.te\u0027 is in AOSP.\n    The source of truth for \u0027public/property.te\u0027 is in AOSP.\n    \n    If your change contains no confidential details (such as security fixes), please\n    upload and merge this change at https://android-review.googlesource.com/.\n    \n[FAILED] repohooks for platform/system/sepolicy failed in 0.136s",
+      "parentUuid": "c678f3b3_facb41f5",
+      "revId": "e1e66eb62ce616bc0850ef21c8f6a836a21eb0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
