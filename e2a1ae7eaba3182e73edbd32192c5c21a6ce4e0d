@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56468760_86e35f35",
+        "filename": "apex/com.android.remoteprovisioning-file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1937166
+      },
+      "writtenOn": "2022-09-07T15:20:27Z",
+      "side": 1,
+      "message": "this is for the other files inside the apex. So we\u0027ll still have to keep this.",
+      "parentUuid": "739079db_e22d2e90",
+      "revId": "e2a1ae7eaba3182e73edbd32192c5c21a6ce4e0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "841b0540_de9613f5",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-08-31T23:02:40Z",
       "side": 1,
       "message": "whoa... why both?\n\nAnd shouldn\u0027t these reference the apex path?",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 43
+      },
+      "revId": "e2a1ae7eaba3182e73edbd32192c5c21a6ce4e0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ab235f0_5273e410",
+        "filename": "apex/com.android.remoteprovisioning-file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1937166
+      },
+      "writtenOn": "2022-09-07T15:20:27Z",
+      "side": 1,
+      "message": "Nah.. these refer the internal apex path directly so I can simply pass /bin/rkpd and it would take care of /apex/com.android.rkpd/bin/rkpd.\n\nI have removed /system/bin/rkpd since that was initial",
+      "parentUuid": "841b0540_de9613f5",
       "range": {
         "startLine": 2,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ca34a8f_430e83e4",
+        "filename": "private/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1937166
+      },
+      "writtenOn": "2022-09-07T15:20:27Z",
+      "side": 1,
+      "message": "Yeah. We don\u0027t need this if we rely completely on apex only. This was added for the system image portion but I\u0027ve removed it now since apex version is working properly now.",
+      "parentUuid": "2484e111_d29326d8",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 287,
+        "endChar": 18
+      },
+      "revId": "e2a1ae7eaba3182e73edbd32192c5c21a6ce4e0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2194f4a1_64d12ec6",
@@ -77,6 +143,30 @@
       "writtenOn": "2022-08-31T23:02:40Z",
       "side": 1,
       "message": "As I mentioned in another change on this topic, we should use a concrete service name here, not an interface name.",
+      "range": {
+        "startLine": 104,
+        "startChar": 22,
+        "endLine": 104,
+        "endChar": 32
+      },
+      "revId": "e2a1ae7eaba3182e73edbd32192c5c21a6ce4e0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28c9900a_d8af615d",
+        "filename": "private/service_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1937166
+      },
+      "writtenOn": "2022-09-07T15:20:27Z",
+      "side": 1,
+      "message": "Done. Changed this to rkpd.registrar and rkpd.refresh.",
+      "parentUuid": "2194f4a1_64d12ec6",
       "range": {
         "startLine": 104,
         "startChar": 22,
