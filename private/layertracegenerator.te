@@ -1,0 +1,13 @@
+# layertracegenerator - processes surfaceflinger's transactions trace to generates layers trace
+
+type layertracegenerator, domain;
+typeattribute layertracegenerator coredomain;
+
+type layertracegenerator_exec, system_file_type, exec_type, file_type;
+
+# wm traces in /data/misc/wmtrace
+userdebug_or_eng(`
+  allow layertracegenerator wm_trace_data_file:dir rw_dir_perms;
+  allow layertracegenerator wm_trace_data_file:file rw_file_perms;
+')
+
