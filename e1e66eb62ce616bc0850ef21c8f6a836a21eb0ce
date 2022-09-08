@@ -52,6 +52,24 @@
       "parentUuid": "ae2334c2_b96bcdec",
       "revId": "e1e66eb62ce616bc0850ef21c8f6a836a21eb0ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fafcb946_efe87d09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1224300
+      },
+      "writtenOn": "2022-09-08T18:58:16Z",
+      "side": 1,
+      "message": "The property is being queried in the Widevine CDM code for all platforms, which is causing an selinux error (not just on ChromeOS).  So I can handle this two ways, let me know which you prefer:\n\n1. Leave this fix as-is and it should resolve the problem\n2. Change this fix to be in an ARC specific sepolicy and then also update the Widevine CDM code so that it only queries the property on ARC platforms (we have a common product name on all ARC platforms, so it can be checked based on that)",
+      "parentUuid": "fafca3ad_de7286ea",
+      "revId": "e1e66eb62ce616bc0850ef21c8f6a836a21eb0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
