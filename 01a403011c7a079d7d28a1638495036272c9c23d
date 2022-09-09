@@ -68,6 +68,30 @@
       },
       "revId": "01a403011c7a079d7d28a1638495036272c9c23d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef64fed9_65bc3501",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-09-09T14:31:44Z",
+      "side": 1,
+      "message": "Yeah, the /proc/\u003cpid\u003e entries get given the same label as the process they relate to. (Which is a bit mind bending when you first see it, but works rather well.)\n\nBut instead of the targets in the rules being e.g. profman:process they are profman:file / profman:dir, because we\u0027re talking about files/directories in procfs.\n\nTry it: `ls -lZ /proc`.",
+      "parentUuid": "49eab05f_ce5db53b",
+      "range": {
+        "startLine": 83,
+        "startChar": 17,
+        "endLine": 83,
+        "endChar": 24
+      },
+      "revId": "01a403011c7a079d7d28a1638495036272c9c23d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
