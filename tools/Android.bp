@@ -64,6 +64,13 @@ cc_binary {
     defaults: ["sepolicy_tools_defaults"],
     srcs: ["seamendc.c"],
     host_supported: true,
+    // seamendc is a program that is executed very early by init.
+    // Since it is before the mount namespaces are setup, /system/bin/linker
+    // and /system/lib/libc.so point to the mount points where nothing
+    // is mounted on yet. Therefore, seamendc has to have explicit knowledge about
+    // the paths where the bootstrap Bionic is. bootstrap:true sets DT_INTERP to
+    // /system/bin/bootstrap/linker.
+    bootstrap: true,
 }
 
 python_binary_host {

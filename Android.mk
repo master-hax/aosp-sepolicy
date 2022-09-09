@@ -305,6 +305,7 @@ LOCAL_REQUIRED_MODULES += \
     $(addprefix plat_,$(addsuffix .cil,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS))) \
     $(addsuffix .compat.cil,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS)) \
     plat_sepolicy.cil \
+    seamendc \
     secilc \
 
 ifneq ($(PRODUCT_PRECOMPILED_SEPOLICY),false)
