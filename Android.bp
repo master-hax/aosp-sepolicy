@@ -219,13 +219,13 @@ se_policy_cil {
 
 se_policy_cil {
     name: "decompiled_sepolicy-without_apex.cil",
-    src: ":precompiled_sepolicy-without_apex",
+    src: ":precompiled_sepolicy",
     decompile_binary: true,
 }
 
 se_policy_cil {
     name: "apex_sepolicy-33.decompiled.cil",
-    src: ":precompiled_sepolicy",
+    src: ":precompiled_sepolicy-with_apex",
     decompile_binary: true,
     filter_out: [":decompiled_sepolicy-without_apex.cil"],
     additional_cil_files: ["com.android.sepolicy/33/definitions/definitions.cil"],
@@ -700,7 +700,6 @@ precompiled_se_policy_binary {
     name: "precompiled_sepolicy",
     srcs: [
         ":plat_sepolicy.cil",
-        ":apex_sepolicy-33.cil",
         ":plat_pub_versioned.cil",
         ":system_ext_sepolicy.cil",
         ":product_sepolicy.cil",
@@ -742,9 +741,10 @@ precompiled_se_policy_binary {
 }
 
 precompiled_se_policy_binary {
-    name: "precompiled_sepolicy-without_apex",
+    name: "precompiled_sepolicy-with_apex",
     srcs: [
         ":plat_sepolicy.cil",
+        ":apex_sepolicy-33.cil",
         ":plat_pub_versioned.cil",
         ":system_ext_sepolicy.cil",
         ":product_sepolicy.cil",
