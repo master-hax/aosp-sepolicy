@@ -84,6 +84,7 @@ allow system_app {
   service_manager_type
   -apex_service
   -dnsresolver_service
+  -stats_service
   -dumpstate_service
   -installd_service
   -iorapd_service
@@ -97,6 +98,7 @@ allow system_app {
 # suppress denials for services system_app should not be accessing.
 dontaudit system_app {
   dnsresolver_service
+  stats_service
   dumpstate_service
   installd_service
   iorapd_service
