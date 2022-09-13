@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c5f8a92_feba1722",
+        "filename": "tools/fuzzer_bindings_check.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-09-13T00:53:13Z",
+      "side": 1,
+      "message": "nit: can we assert length is 2 here? (as a self-test)",
+      "revId": "a53d232f79a1108be1c54d1de144661be1b46e48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33b2f583_132d171f",
+        "filename": "tools/fuzzer_bindings_check.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-09-13T00:53:13Z",
+      "side": 1,
+      "message": "alright, here is the juicy part 😊 I suggest we try to make a really good open letter to tell people what to do:\n\n    error: Service {0} is being added, but we have no fuzzer on file for it.\n    Fuzzers are listed at $ANDROID_BUILD_TOP/system/sepolicy/build/soong/bindings.go\n\n    NOTE: automatic service fuzzers are currently not supported in Java (b/...) and Rust (b/...). In this case, please ignore this for now.\n\n    If you are writing a new service, it may be subject to attack from other potentially malicious processes. A fuzzer can be written automatically by adding these things:\n    - a cc_fuzz Android.bp entry\n    - a main file that constructs your service and calls \u0027fuzzService\u0027\n\n    An example can be found here:\n        $ANDROID_BUILD_TOP/hardware/interfaces/vibrator/aidl/default/fuzzer.cpp\n\n    This is only ~30 lines of configuration. It requires dependency injection for your service which is a good practice, and (in AOSP) you will get bugs automatically filed on you. You will find out about issues without needing to backport changes years later, and the system will automatically find ways to reproduce difficult to solve issues for you.\n\n    - Android Fuzzing and Security teams",
+      "range": {
+        "startLine": 51,
+        "startChar": 19,
+        "endLine": 53,
+        "endChar": 58
+      },
+      "revId": "a53d232f79a1108be1c54d1de144661be1b46e48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
