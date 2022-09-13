@@ -63,6 +63,8 @@ allow statsd {
   system_api_service
 }:service_manager find;
 
+add_service(statsd, fwk_stats_service)
+
 # Grant statsd to access health hal to access battery metrics.
 allow statsd hal_health_hwservice:hwservice_manager find;
 
