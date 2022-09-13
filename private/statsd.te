@@ -11,7 +11,14 @@ domain_auto_trans(statsd, perfetto_exec, perfetto)
 # Grant statsd with permissions to register the services.
 allow statsd {
   statscompanion_service
+  fwk_stats_service
 }:service_manager find;
+
+allow statsd {
+  fwk_stats_service
+}:service_manager add;
+
+add_service(statsd, fwk_stats_service)
 
 # Allow incidentd to obtain the statsd incident section.
 allow statsd incidentd:fifo_file write;
@@ -28,3 +35,5 @@ binder_call(statsd, surfaceflinger);
 # Allow statsd to read its system properties
 get_prop(statsd, device_config_statsd_native_prop)
 get_prop(statsd, device_config_statsd_native_boot_prop)
+
+binder_use(statsd)
