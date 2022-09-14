@@ -46,6 +46,30 @@
       },
       "revId": "19c4be6c0d12618f695a2baae16884323eabc4b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60a7f1e6_86f96579",
+        "filename": "private/property_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-09-14T14:53:40Z",
+      "side": 1,
+      "message": "\u003e This is not writable on user builds (other than init).\n\nI don\u0027t think it\u0027s true. We don\u0027t have any neverallows on log_prop or log_property_type, and at least vendor_init can write to log_prop: https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/vendor_init.te;l\u003d245;drc\u003d283aef2860e7f6195b010064bf9dccfd45127d71",
+      "parentUuid": "b8ba63a6_fb76e4a2",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 62
+      },
+      "revId": "19c4be6c0d12618f695a2baae16884323eabc4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
