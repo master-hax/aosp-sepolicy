@@ -94,6 +94,10 @@ read_runtime_log_tags(platform_app)
 allow platform_app system_server:udp_socket {
         connect getattr read recvfrom sendto write getopt setopt };
 
+# Allow all processes to connect to PRNG seeder socket.
+allow platform_app prng_seeder_socket:sock_file { read write getattr };
+allow platform_app prng_seeder_socket:unix_stream_socket { read write setopt getattr getopt shutdown connectto };
+
 # allow platform apps to connect to the property service
 set_prop(platform_app, test_boot_reason_prop)
 

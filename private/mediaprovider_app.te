@@ -69,3 +69,7 @@ dontaudit mediaprovider_app sysfs_vendor_sched:file w_file_perms;
 # bpfprog access for FUSE BPF
 allow mediaprovider_app fs_bpf:file read;
 allow mediaprovider_app bpfloader:bpf { map_read map_write prog_run };
+
+# Allow all processes to connect to PRNG seeder socket.
+allow mediaprovider_app prng_seeder_socket:sock_file { read write getattr };
+allow mediaprovider_app prng_seeder_socket:unix_stream_socket { read write setopt getattr getopt shutdown connectto };
