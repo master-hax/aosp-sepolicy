@@ -123,3 +123,7 @@ allow perfetto dumpstate:fd use;
 
 # system_dlkm_file for /system_dlkm partition
 allow dumpstate system_dlkm_file:dir getattr;
+
+# Read SDK extensions info
+allow dumpstate sdk_info_file:dir search;
+allow dumpstate sdk_info_file:file r_file_perms;
