@@ -121,6 +121,30 @@ allow domain boringssl_self_test_marker:dir search;
 # should be used.
 get_prop(domain, log_file_logger_prop)
 
+# Allow all processes to connect to PRNG seeder daemon.
+unix_socket_connect(domain, prng_seeder, prng_seeder)
+
+# DO NOT SUBMIT UNTIL THE FOLLOWING IS RESOLVED
+# The following seems to be needed in addition to unix_socket_connect,
+# i.e. we seem to needs allows for both prng_seeder:unix_stream_socket
+# and prng_seeder_socket:unix_stream_socket, however even this is
+# insufficient as MLS processes still can't connect, e.g
+#
+#   09-16 15:23:45.588  2513  2513 I ndroid.systemui: type=1400 audit(0.0:566):
+#   avc: denied { connectto } for path="/dev/socket/prng_seeder"
+#   scontext=u:r:platform_app:s0:c512,c768 tcontext=u:object_r:prng_seeder_socket:s0
+#   tclass=unix_stream_socket permissive=1 app=com.android.systemui
+#
+# And audit2allow says it's due to the level difference:
+#
+#   !!!! This avc is a constraint violation.  You would need to modify the attributes of
+#   either the source or target types to allow this access.
+#   Constraint rule:
+# 	mlsconstrain unix_stream_socket { connectto } ((l1 eq l2 -Fail-)
+# 	    or (t1 == mlstrustedsubject -Fail-)  or (t2 == mlstrustedsubject -Fail-) ); Constraint DENIED
+# 	Possible cause is the source level (s0:c512,c768) and target level (s0) are different.
+allow domain prng_seeder_socket:unix_stream_socket connectto;
+
 # No domains other than a select few can access the misc_block_device. This
 # block device is reserved for OTA use.
 # Do not assert this rule on userdebug/eng builds, due to some devices using
@@ -498,6 +522,7 @@ full_treble_only(`
     -logd # Logging by writing to logd Unix domain socket is public API
     -netd # netdomain needs this
     -mdnsd # netdomain needs this
+    -prng_seeder # Any process using libcryto needs this
     userdebug_or_eng(`-su') # communications with su are permitted only on userdebug or eng builds
     -init
     -tombstoned # linker to tombstoned
