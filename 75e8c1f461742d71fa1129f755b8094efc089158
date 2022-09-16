@@ -51,6 +51,24 @@
       "tag": "mailMessageId\u003d\u003cCALeUXe58v7Was+KJfhLFWQeJZaL2qNwW8ThOEMgqxj+BcA7\u003d2g@mail.gmail.com\u003e",
       "revId": "75e8c1f461742d71fa1129f755b8094efc089158",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bf15a55_b6d00a53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-09-16T18:21:13Z",
+      "side": 1,
+      "message": "The reason why I think it\u0027s necessary is that this property affects all processes. If a vendor (mistakenly or not) allows the log_prop permission, then it means a broader attack surface for the logd. Even worse, as it\u0027s readonly, there is no way to revert.\n\nOf course we can think that it\u0027s on the partner\u0027s fault to do that at the first place. However, log_prop has been public without any restrictions, for a while. Partners might be using log_prop with different purposes, resulting in unnecessary vulnerability of the logd.\n\nAnyway, I don\u0027t want to unblock this forever, so let me +2. However, I still strongly think that we definitely need a separate label and a neverallow rule.",
+      "parentUuid": "b5604748_b69496eb",
+      "revId": "75e8c1f461742d71fa1129f755b8094efc089158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
