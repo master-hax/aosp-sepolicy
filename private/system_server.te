@@ -330,6 +330,8 @@ hal_client_domain(system_server, hal_sensors)
 hal_client_domain(system_server, hal_tetheroffload)
 hal_client_domain(system_server, hal_thermal)
 hal_client_domain(system_server, hal_tv_cec)
+hal_client_domain(system_server, hal_tv_hdmi)
+hal_client_domain(system_server, hal_tv_hdmi_cec)
 hal_client_domain(system_server, hal_tv_input)
 hal_client_domain(system_server, hal_usb)
 hal_client_domain(system_server, hal_usb_gadget)
@@ -938,74 +940,74 @@ userdebug_or_eng(`
 add_service(system_server, batteryproperties_service)
 
 allow system_server keystore:keystore_key {
-	get_state
-	get
-	insert
-	delete
-	exist
-	list
-	reset
-	password
-	lock
-	unlock
-	is_empty
-	sign
-	verify
-	grant
-	duplicate
-	clear_uid
-	add_auth
-	user_changed
+        get_state
+        get
+        insert
+        delete
+        exist
+        list
+        reset
+        password
+        lock
+        unlock
+        is_empty
+        sign
+        verify
+        grant
+        duplicate
+        clear_uid
+        add_auth
+        user_changed
 };
 
 allow system_server keystore:keystore2 {
-	add_auth
-	change_password
-	change_user
-	clear_ns
-	clear_uid
-	get_state
-	lock
-	pull_metrics
-	reset
-	unlock
+        add_auth
+        change_password
+        change_user
+        clear_ns
+        clear_uid
+        get_state
+        lock
+        pull_metrics
+        reset
+        unlock
 };
 
 allow system_server keystore:keystore2_key {
-	delete
-	use_dev_id
-	grant
-	get_info
-	rebind
-	update
-	use
+        delete
+        use_dev_id
+        grant
+        get_info
+        rebind
+        update
+        use
 };
 
 # Allow Wifi module to manage Wi-Fi keys.
 allow system_server wifi_key:keystore2_key {
-	delete
-	get_info
-	rebind
-	update
-	use
+        delete
+        get_info
+        rebind
+        update
+        use
 };
 
 # Allow lock_settings service to manage RoR keys.
 allow system_server resume_on_reboot_key:keystore2_key {
-	delete
-	get_info
-	rebind
-	update
-	use
+        delete
+        get_info
+        rebind
+        update
+        use
 };
 
 # Allow lock_settings service to manage locksettings keys (e.g. the synthetic password key).
 allow system_server locksettings_key:keystore2_key {
-	delete
-	get_info
-	rebind
-	update
-	use
+        delete
+        get_info
+        rebind
+        update
+        use
 };
 
 
