@@ -10,3 +10,11 @@ allow derive_sdk apex_mnt_dir:dir r_dir_perms;
 # Prop rules: writable by derive_sdk, readable by bootclasspath (apps)
 set_prop(derive_sdk, module_sdkextensions_prop)
 neverallow { domain -init -derive_sdk } module_sdkextensions_prop:property_service set;
+
+# Allow dumpstate to call derive_sdk; allow derive_sdk to write data back to
+# dumpstate
+allow dumpstate derive_sdk_exec:file rx_file_perms;
+domain_auto_trans(dumpstate, derive_sdk_exec, derive_sdk)
+allow derive_sdk dumpstate:fd use;
+allow derive_sdk dumpstate:unix_stream_socket { read write };
+allow derive_sdk shell_data_file:file write;
