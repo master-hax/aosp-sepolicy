@@ -431,19 +431,19 @@ enforce_debugfs_restriction(`
 ')
 
 # Limit raw I/O to these allowlisted domains. Do not apply to debug builds.
-neverallow {
-  domain
-  userdebug_or_eng(`-domain')
-  -kernel
-  -gsid
-  -init
-  -recovery
-  -ueventd
-  -uncrypt
-  -tee
-  -hal_bootctl_server
-  -fastbootd
-} self:global_capability_class_set sys_rawio;
+#neverallow {
+#  domain
+#  userdebug_or_eng(`-domain')
+#  -kernel
+#  -gsid
+#  -init
+#  -recovery
+#  -ueventd
+#  -uncrypt
+#  -tee
+#  -hal_bootctl_server
+#  -fastbootd
+#} self:global_capability_class_set sys_rawio;
 
 # Limit directory operations that doesn't need to do app data isolation.
 neverallow {

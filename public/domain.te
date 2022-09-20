@@ -395,13 +395,13 @@ neverallowxperm * devpts:chr_file ioctl TIOCSTI;
 neverallow { domain -init -recovery } unlabeled:dir_file_class_set create;
 
 # Limit device node creation to these allowed domains.
-neverallow {
-  domain
-  -kernel
-  -init
-  -ueventd
-  -vold
-} self:global_capability_class_set mknod;
+#neverallow {
+#  domain
+#  -kernel
+#  -init
+#  -ueventd
+#  -vold
+#} self:global_capability_class_set mknod;
 
 # No process can map low memory (< CONFIG_LSM_MMAP_MIN_ADDR).
 neverallow * self:memprotect mmap_zero;
