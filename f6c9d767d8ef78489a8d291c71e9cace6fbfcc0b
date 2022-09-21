@@ -170,6 +170,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "24a84841_7b13efcd",
+        "filename": "private/domain.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-09-21T11:17:32Z",
+      "side": 1,
+      "message": "So, I think I understand what is happening.\n\nThere are 2 objects here, as far as SELinux is concerned.\nThe first is /dev/socket/prng_seeder, which is prng_seeder_socket:sock_file.\nAnd the other is the unix_stream_socket.\nNormally when a process with label foo creates a unix stream socket it inherits the label - so some_server would create a socket which would be some_server:sock_file.\nThat\u0027s why the macro expects the server label as the 3rd arg; it expects it to be the same as the stream socket label.\n\nIn your case you\u0027re explicitly labeling the unix stream socket as prng_seeder_socket; I think that\u0027s the unusual thing.\n\n(And when the client connects, it ends up with a unix stream socket with its own label; all domains are allowed to read \u0026 write self:unix_stream_socket, which is why you don\u0027t need to allow that explicitly.)\n\nSo what you have here works.\n\nAn alternative would be to change the .rc file to label the socket as prng_seeder rather than prng_seeder_socket, and then all you would need would be:\nunix_socket_connect(domain, prng_seeder, prng_seeder)",
+      "parentUuid": "424fa1c7_a92158e6",
+      "range": {
+        "startLine": 125,
+        "startChar": 42,
+        "endLine": 125,
+        "endChar": 47
+      },
+      "revId": "f6c9d767d8ef78489a8d291c71e9cace6fbfcc0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19211e2d_3002fa26",
         "filename": "private/file.te",
         "patchSetId": 8
