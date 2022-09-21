@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cc318a2_44b78e67",
+        "filename": "private/domain.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2022-09-21T08:56:43Z",
+      "side": 1,
+      "message": "+1 and seems to be consistent with other socket sepolicy... For whatever reasons, selinux checks for write permission on the socket entry in the filesystem when a process tries to connect.",
+      "parentUuid": "b8da1c4d_37bd390a",
+      "range": {
+        "startLine": 125,
+        "startChar": 42,
+        "endLine": 125,
+        "endChar": 47
+      },
+      "revId": "f6c9d767d8ef78489a8d291c71e9cace6fbfcc0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19211e2d_3002fa26",
@@ -166,6 +190,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a7f8768_42d66df9",
+        "filename": "private/init.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2022-09-21T08:56:43Z",
+      "side": 1,
+      "message": "Ah thanks! (Aside: we need to remove the transitive dependency on libcrypto that init somehow gained in the last cycle, at which point it won\u0027t need connecto anyway).",
+      "parentUuid": "183e2c92_fe3dd675",
+      "range": {
+        "startLine": 113,
+        "startChar": 70,
+        "endLine": 113,
+        "endChar": 79
+      },
+      "revId": "f6c9d767d8ef78489a8d291c71e9cace6fbfcc0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8759944_de446e05",
@@ -226,6 +274,30 @@
       "writtenOn": "2022-09-21T08:56:06Z",
       "side": 1,
       "message": "OK, so you are reading. But why? It\u0027s not mentioned in the comment at #2.",
+      "parentUuid": "07b5a9f4_bf20877e",
+      "range": {
+        "startLine": 12,
+        "startChar": 58,
+        "endLine": 12,
+        "endChar": 62
+      },
+      "revId": "f6c9d767d8ef78489a8d291c71e9cace6fbfcc0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "deaea7e2_0649657d",
+        "filename": "private/prng_seeder.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2022-09-21T08:56:43Z",
+      "side": 1,
+      "message": "Based on system call traces I assume this is because the Rust async stuff is doing a select loop in the background.",
       "parentUuid": "07b5a9f4_bf20877e",
       "range": {
         "startLine": 12,
