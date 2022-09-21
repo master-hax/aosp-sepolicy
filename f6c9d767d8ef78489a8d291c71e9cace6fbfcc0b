@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "19889e3c_ab5bf5ae",
+        "filename": "private/domain.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-09-21T09:32:08Z",
+      "side": 1,
+      "message": "Yeah, sorry I\u0027ve been a bit slow on the uptake. sock_file \u003d the socket file on the file system, and yeah, write access seems to be the key. And then unix_stream_socket is the actual socket.\nI\u0027m still slightly confused by the absence of read/write access for domain, although I have a suspicion about how it might be working.\nBut ultimately if it does work, then we\u0027re good.",
+      "parentUuid": "634a2f5d_b78efb40",
+      "range": {
+        "startLine": 125,
+        "startChar": 42,
+        "endLine": 125,
+        "endChar": 47
+      },
+      "revId": "f6c9d767d8ef78489a8d291c71e9cace6fbfcc0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19211e2d_3002fa26",
         "filename": "private/file.te",
         "patchSetId": 8
@@ -323,6 +347,30 @@
       "side": 1,
       "message": "Based on system call traces I assume this is because the Rust async stuff is doing a select loop in the background.",
       "parentUuid": "07b5a9f4_bf20877e",
+      "range": {
+        "startLine": 12,
+        "startChar": 58,
+        "endLine": 12,
+        "endChar": 62
+      },
+      "revId": "f6c9d767d8ef78489a8d291c71e9cace6fbfcc0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "768bf162_4a92ffb7",
+        "filename": "private/prng_seeder.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-09-21T09:32:08Z",
+      "side": 1,
+      "message": "Ah, interesting.",
+      "parentUuid": "deaea7e2_0649657d",
       "range": {
         "startLine": 12,
         "startChar": 58,
