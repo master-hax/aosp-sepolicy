@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8da1c4d_37bd390a",
+        "filename": "private/domain.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2022-09-21T01:49:46Z",
+      "side": 1,
+      "message": "Switching this from write to read results in denials like this:\n\n```\n09-21 01:31:05.227   249   249 I auditd  : type\u003d1400 audit(0.0:4): avc: denied { read } for comm\u003d\"prng_seeder\" path\u003d\"socket:[14763]\" dev\u003d\"sockfs\" ino\u003d14763 scontext\u003du:r:prng_seeder:s0 tcontext\u003du:object_r:prng_seeder_socket:s0 tclass\u003dunix_stream_socket permissive\u003d0\n09-21 01:31:05.227   249   249 W prng_seeder: type\u003d1400 audit(0.0:4): avc: denied { read } for path\u003d\"socket:[14763]\" dev\u003d\"sockfs\" ino\u003d14763 scontext\u003du:r:prng_seeder:s0 tcontext\u003du:object_r:prng_seeder_socket:s0 tclass\u003dunix_stream_socket permissive\u003d0\n```",
+      "parentUuid": "1b3bf663_fb4f3880",
+      "range": {
+        "startLine": 125,
+        "startChar": 42,
+        "endLine": 125,
+        "endChar": 47
+      },
+      "revId": "f6c9d767d8ef78489a8d291c71e9cace6fbfcc0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19211e2d_3002fa26",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-20T17:13:48Z",
       "side": 1,
       "message": "nit: Mention subject is needed for connectto and object for read/write?",
+      "range": {
+        "startLine": 125,
+        "startChar": 52,
+        "endLine": 126,
+        "endChar": 22
+      },
+      "revId": "f6c9d767d8ef78489a8d291c71e9cace6fbfcc0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f5e204f_857bd9dc",
+        "filename": "private/file.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2022-09-21T01:49:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19211e2d_3002fa26",
       "range": {
         "startLine": 125,
         "startChar": 52,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "183e2c92_fe3dd675",
+        "filename": "private/init.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2022-09-21T01:49:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a3a5323_6c1a47e4",
+      "range": {
+        "startLine": 113,
+        "startChar": 70,
+        "endLine": 113,
+        "endChar": 79
+      },
+      "revId": "f6c9d767d8ef78489a8d291c71e9cace6fbfcc0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8759944_de446e05",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-09-20T17:13:48Z",
       "side": 1,
       "message": "Why do you need read?",
+      "range": {
+        "startLine": 12,
+        "startChar": 58,
+        "endLine": 12,
+        "endChar": 62
+      },
+      "revId": "f6c9d767d8ef78489a8d291c71e9cace6fbfcc0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07b5a9f4_bf20877e",
+        "filename": "private/prng_seeder.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2022-09-21T01:49:46Z",
+      "side": 1,
+      "message": "I get these denials without:\n\n```\n09-21 01:31:05.227   249   249 I auditd  : type\u003d1400 audit(0.0:4): avc: denied { read } for comm\u003d\"prng_seeder\" path\u003d\"socket:[14763]\" dev\u003d\"sockfs\" ino\u003d14763 scontext\u003du:r:prng_seeder:s0 tcontext\u003du:object_r:prng_seeder_socket:s0 tclass\u003dunix_stream_socket permissive\u003d0\n09-21 01:31:05.227   249   249 W prng_seeder: type\u003d1400 audit(0.0:4): avc: denied { read } for path\u003d\"socket:[14763]\" dev\u003d\"sockfs\" ino\u003d14763 scontext\u003du:r:prng_seeder:s0 tcontext\u003du:object_r:prng_seeder_socket:s0 tclass\u003dunix_stream_socket permissive\u003d0\n```",
+      "parentUuid": "f8759944_de446e05",
       "range": {
         "startLine": 12,
         "startChar": 58,
