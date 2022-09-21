@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "424fa1c7_a92158e6",
+        "filename": "private/domain.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2022-09-21T11:01:15Z",
+      "side": 1,
+      "message": "\u003e unix_socket_connect(domain, prng_seeder, prng_seeder_socket)\n\nDone, and verified working, but this is troubling me.\n\nThe comments for unix_socket_connect(), and every other usage I can see, assume the third argument is the daemon\u0027s domain, so I think we\u0027re missing something.\n\nPutting the domain for the third argument brings us back to denials like\n```\n09-21 11:18:58.394  2495  2495 I ndroid.systemui: type\u003d1400 audit(0.0:688): avc: denied { connectto } for path\u003d\"/dev/socket/prng_seeder\" scontext\u003du:r:platform_app:s0:c512,c768 tcontext\u003du:object_r:prng_seeder_socket:s0 tclass\u003dunix_stream_socket permissive\u003d1 app\u003dcom.android.systemui\n```\n\nAnd using the domain as the third argument, and adding an allow for the socket connect, e.g.\n```\nunix_socket_connect(domain, prng_seeder, prng_seeder)\nallow domain prng_seeder_socket:unix_stream_socket connectto;\n```\nalso works with no denials - previously I was seeing denials with that combo, but that was before we had the correct MLS socket attributes.\n\nWDYT?",
+      "parentUuid": "19889e3c_ab5bf5ae",
+      "range": {
+        "startLine": 125,
+        "startChar": 42,
+        "endLine": 125,
+        "endChar": 47
+      },
+      "revId": "f6c9d767d8ef78489a8d291c71e9cace6fbfcc0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19211e2d_3002fa26",
         "filename": "private/file.te",
         "patchSetId": 8
