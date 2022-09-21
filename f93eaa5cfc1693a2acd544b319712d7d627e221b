@@ -352,6 +352,30 @@
       },
       "revId": "f93eaa5cfc1693a2acd544b319712d7d627e221b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac8e38fe_4515d92b",
+        "filename": "public/hwservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-09-21T16:01:46Z",
+      "side": 1,
+      "message": "Oops! I\u0027m sorry about that. AOSP version: https://android-review.googlesource.com/c/platform/system/sepolicy/+/2211952\n\nYes, it should be derived from service_manager_type.\n\nIs that error coming from changes that aren\u0027t included in this topic? That looks like a client in system_server is trying to get a hold of the HAL.\nIf that\u0027s the case, the hal will need to be added to system_server\u0027s permissions here:\nhttps://cs.android.com/android/platform/superproject/+/master:system/sepolicy/private/system_server.te;drc\u003daad4ae8a74d48e1320d8bbba92f0a0571a66c5a2;l\u003d305\n\n(also this change has a merge conflict already and needs to be rebased locally on your end)",
+      "parentUuid": "0597562b_56bd1a0a",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 72
+      },
+      "revId": "f93eaa5cfc1693a2acd544b319712d7d627e221b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
