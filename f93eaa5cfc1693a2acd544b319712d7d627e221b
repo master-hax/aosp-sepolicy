@@ -328,6 +328,30 @@
       },
       "revId": "f93eaa5cfc1693a2acd544b319712d7d627e221b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0597562b_56bd1a0a",
+        "filename": "public/hwservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-09-21T12:24:09Z",
+      "side": 1,
+      "message": "With these changes, even though the tests pass, I see this error -\nE SELinux : avc:  denied  { find } for pid\u003d634 uid\u003d1000 name\u003dandroid.hardware.tv.cec.IHdmiCec/default scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:hal_tv_hdmicec_service:s0 tclass\u003dservice_manager permissive\u003d0\n\nShould this have been derived from service_manager_type?",
+      "parentUuid": "d56b281c_43d04678",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 72
+      },
+      "revId": "f93eaa5cfc1693a2acd544b319712d7d627e221b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
