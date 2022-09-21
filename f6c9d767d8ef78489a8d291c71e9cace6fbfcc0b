@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c0a8ecb3_8c4f9e2f",
+        "filename": "private/domain.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-09-21T08:56:06Z",
+      "side": 1,
+      "message": "That change couldn\u0027t produce those denials.\n(They\u0027re saying prng_seeder couldn\u0027t read the socket; the rule here is saying that the client can read/write the socket. Also, the denials are showing up on unix_stream_socket, while this rule affects sock_file.)\n\nBut the other change below could.\n\nTBH I\u0027m confused by how this works at all, since I can\u0027t see where clients are allowed to read.\n\nI think you should probably go back to:\nunix_socket_connect(domain, prng_seeder, prng_seeder_socket)\n\nWhich is equivalent to these two lines.",
+      "parentUuid": "b8da1c4d_37bd390a",
+      "range": {
+        "startLine": 125,
+        "startChar": 42,
+        "endLine": 125,
+        "endChar": 47
+      },
+      "revId": "f6c9d767d8ef78489a8d291c71e9cace6fbfcc0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19211e2d_3002fa26",
         "filename": "private/file.te",
         "patchSetId": 8
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "I get these denials without:\n\n```\n09-21 01:31:05.227   249   249 I auditd  : type\u003d1400 audit(0.0:4): avc: denied { read } for comm\u003d\"prng_seeder\" path\u003d\"socket:[14763]\" dev\u003d\"sockfs\" ino\u003d14763 scontext\u003du:r:prng_seeder:s0 tcontext\u003du:object_r:prng_seeder_socket:s0 tclass\u003dunix_stream_socket permissive\u003d0\n09-21 01:31:05.227   249   249 W prng_seeder: type\u003d1400 audit(0.0:4): avc: denied { read } for path\u003d\"socket:[14763]\" dev\u003d\"sockfs\" ino\u003d14763 scontext\u003du:r:prng_seeder:s0 tcontext\u003du:object_r:prng_seeder_socket:s0 tclass\u003dunix_stream_socket permissive\u003d0\n```",
       "parentUuid": "f8759944_de446e05",
+      "range": {
+        "startLine": 12,
+        "startChar": 58,
+        "endLine": 12,
+        "endChar": 62
+      },
+      "revId": "f6c9d767d8ef78489a8d291c71e9cace6fbfcc0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff5b67d2_70411853",
+        "filename": "private/prng_seeder.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-09-21T08:56:06Z",
+      "side": 1,
+      "message": "OK, so you are reading. But why? It\u0027s not mentioned in the comment at #2.",
+      "parentUuid": "07b5a9f4_bf20877e",
       "range": {
         "startLine": 12,
         "startChar": 58,
