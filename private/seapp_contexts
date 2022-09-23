@@ -9,6 +9,7 @@
 #       seinfo (string)
 #       name (string)
 #       isPrivApp (boolean)
+#       isWebViewApp (boolean)
 #       minTargetSdkVersion (unsigned integer)
 #       fromRunAs (boolean)
 #
@@ -35,6 +36,7 @@
 # name= matches against the package name of the app.
 # isPrivApp=true will only match for applications preinstalled in
 #       /system/priv-app.
+# isWebViewApp=true will only match packages which are valid WebView providers.
 # minTargetSdkVersion will match applications with a targetSdkVersion
 #       greater than or equal to the specified value. If unspecified,
 #       it has a default value of 0.
@@ -53,10 +55,11 @@
 #       (5) Specified name= string before unspecified name= string;
 #             more specific name= string before less specific name= string.
 #       (6) Specified isPrivApp= before unspecified isPrivApp= boolean.
-#       (7) Higher value of minTargetSdkVersion= before lower value of
+#       (7) Specified isWebViewApp= before unspecified isWebViewApp= boolean.
+#       (8) Higher value of minTargetSdkVersion= before lower value of
 #              minTargetSdkVersion= integer. Note that minTargetSdkVersion=
 #              defaults to 0 if unspecified.
-#       (8) fromRunAs=true before fromRunAs=false.
+#       (9) fromRunAs=true before fromRunAs=false.
 # (A fixed selector is more specific than a prefix, i.e. ending in *, and a
 # longer prefix is more specific than a shorter prefix.)
 # Apps are checked against entries in precedence order until the first match,
@@ -176,4 +179,4 @@ user=_app minTargetSdkVersion=26 domain=untrusted_app_27 type=app_data_file leve
 user=_app domain=untrusted_app_25 type=app_data_file levelFrom=user
 user=_app minTargetSdkVersion=28 fromRunAs=true domain=runas_app levelFrom=all
 user=_app fromRunAs=true domain=runas_app levelFrom=user
-
+user=_app minTargetSdkVersion=33 isWebViewApp=true domain=webview_app type=app_data_file levelFrom=user
