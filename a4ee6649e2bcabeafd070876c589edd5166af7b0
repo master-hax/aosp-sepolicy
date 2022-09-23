@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92e4c715_1c17a9e2",
+        "filename": "microdroid/system/public/te_macros",
+        "patchSetId": 6
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1830881
+      },
+      "writtenOn": "2022-09-23T16:57:35Z",
+      "side": 1,
+      "message": "Without the changes for microdroid, pre-submit test fails (com.android.microdroid.test.MicrodroidTestCase#testMicrodroidBoots) (patchset 4 results)\n\nIn the current implementation libvintf will always check to see if there is VINTF data inside the APEXes.  \n\nTo prevent early boot up sepolicy errors, added a gate to only check APEX data if the apexd.all.ready property is set.  We could extend this to prevent other cases from ever reading APEX data?",
+      "parentUuid": "831172ab_2496d289",
+      "revId": "a4ee6649e2bcabeafd070876c589edd5166af7b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "006b1699_cb99870f",
         "filename": "public/te_macros",
         "patchSetId": 6
@@ -31,6 +49,30 @@
       "writtenOn": "2022-09-23T16:13:44Z",
       "side": 1,
       "message": "avoid aliasing policy terms - \u0027use_apex_info\u0027 is clear enough, and hints that more permissions may actually be granted.\n\nIf we have a specific context for VINTF configuration, then we should add use_libvintf.",
+      "range": {
+        "startLine": 1048,
+        "startChar": 0,
+        "endLine": 1053,
+        "endChar": 2
+      },
+      "revId": "a4ee6649e2bcabeafd070876c589edd5166af7b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f1578b5_6a1e1fdf",
+        "filename": "public/te_macros",
+        "patchSetId": 6
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 1830881
+      },
+      "writtenOn": "2022-09-23T16:57:35Z",
+      "side": 1,
+      "message": "OK, will change.\n\nWas looking at this from the client point of view, client knows it needs libvintf and that libvintf knows it needs apex_info.",
+      "parentUuid": "006b1699_cb99870f",
       "range": {
         "startLine": 1048,
         "startChar": 0,
