@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5ea521ad_6622afd5",
+        "filename": "private/dumpstate.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-09-23T09:47:15Z",
+      "side": 1,
+      "message": "Yes, su is permissive, so no selinux rules are applied to it - but only in userdebug_or_eng, of course. http://cs/android/system/sepolicy/private/su.te?rcl\u003d8fa427c6a3eaad7af2583c0a0ab9af404f41f140\u0026l\u003d23\n\nThis is slightly terrifying, but it seems to be existing practice - e.g. http://cs/android-internal/frameworks/native/cmds/dumpstate/DumpstateUtil.cpp?rcl\u003d81255c2b1e8cdd290c66aac31e5a932a23e29d62\u0026l\u003d273.\n\nPresumably you don\u0027t attempt this on a user build?\n\nAnd I guess you don\u0027t need this CL at all now?\n\nTBH I\u0027d prefer you to fix the permissions on wmtrace (the selinux protection is sufficient) and avoid using su.",
+      "parentUuid": "2d161340_e5b6fb1e",
+      "range": {
+        "startLine": 28,
+        "startChar": 1,
+        "endLine": 28,
+        "endChar": 62
+      },
+      "revId": "2ee1a914088bc9e8b334a2cb6292f6b63a80fda6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "05cdde50_05485b8f",
         "filename": "private/layertracegenerator.te",
         "patchSetId": 1
