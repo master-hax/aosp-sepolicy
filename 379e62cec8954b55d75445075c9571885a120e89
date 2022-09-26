@@ -141,6 +141,30 @@
       },
       "revId": "379e62cec8954b55d75445075c9571885a120e89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e1cab09_b7555a76",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-09-26T11:07:31Z",
+      "side": 1,
+      "message": "Yeah, that\u0027s intentional. There\u0027s 2 ways to handle it:\n1. Run a separate version of artd in each user, with the appropriate categories.\n2. Run one version across all users.\n\n1 is often more appropriate for apps, whereas 2 is often more appropriate for system processes like this.\n\nBut if you are taking option 2, you need to be very careful that you don\u0027t leak any information between users - e.g. profile data from one user to another.\n\nI assume you\u0027re taking account of that?",
+      "parentUuid": "a6c27d2e_03558685",
+      "range": {
+        "startLine": 3,
+        "startChar": 19,
+        "endLine": 3,
+        "endChar": 36
+      },
+      "revId": "379e62cec8954b55d75445075c9571885a120e89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
