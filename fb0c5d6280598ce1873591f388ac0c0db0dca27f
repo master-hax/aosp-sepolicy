@@ -52,6 +52,24 @@
       "parentUuid": "4a24ad3f_3c4c7a52",
       "revId": "fb0c5d6280598ce1873591f388ac0c0db0dca27f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ad7bff3_e9e9473f",
+        "filename": "private/dumpstate.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1937565
+      },
+      "writtenOn": "2022-09-26T09:50:14Z",
+      "side": 1,
+      "message": "`domain_auto_trans(dumpstate, derive_sdk_exec, derive_sdk)` looks like the correct function. It does require additional rules to allow derive_sdk to write to the file descriptor inherited from dumpstate as part of the fork + exec, and becomes a bit messy. Cf other tools executed from dumpstate (`rg -g\u0027!prebuilts\u0027 -F -e \u0027domain_auto_trans(dumpstate,\u0027`).",
+      "parentUuid": "caba5b89_51f5752e",
+      "revId": "fb0c5d6280598ce1873591f388ac0c0db0dca27f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
