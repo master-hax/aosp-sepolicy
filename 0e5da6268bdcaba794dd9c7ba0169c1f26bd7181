@@ -164,6 +164,24 @@
       "parentUuid": "6f54274e_3bf9db19",
       "revId": "0e5da6268bdcaba794dd9c7ba0169c1f26bd7181",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02d3f827_bcfe6b17",
+        "filename": "private/derive_sdk.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1937565
+      },
+      "writtenOn": "2022-09-26T12:52:12Z",
+      "side": 1,
+      "message": "\u003eAre you expecting it to write to those files?\nNo. My expectation is that dumpstate forks + execs derive_sdk, captures anything derive_sdk writes to its stdout, and adds that to the bugreport.\n\n\u003eAnd does everything work, even with those denials?\nNo.\n\nI think the problem is how I `RunCommandToFd` in dumpstate. Will investigate further. Thanks for the pointers!",
+      "parentUuid": "86a50a9e_92870852",
+      "revId": "0e5da6268bdcaba794dd9c7ba0169c1f26bd7181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
