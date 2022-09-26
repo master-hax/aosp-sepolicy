@@ -146,6 +146,24 @@
       "parentUuid": "67f3aeb4_3722b24b",
       "revId": "0e5da6268bdcaba794dd9c7ba0169c1f26bd7181",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86a50a9e_92870852",
+        "filename": "private/derive_sdk.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-09-26T12:17:07Z",
+      "side": 1,
+      "message": "Are you expecting it to write to those files?\nAnd does everything work, even with those denials?\n\nMy guess would be that you\u0027re forgetting to specify O_CLOEXEC on some of your file open calls. Ideally, fix that. Or use dontaudit to suppress the denials, but that\u0027s just covering up the bug.\n\n(Unless you are deliberately running derive_sdk with its stdout pointing at some of these files?)",
+      "parentUuid": "6f54274e_3bf9db19",
+      "revId": "0e5da6268bdcaba794dd9c7ba0169c1f26bd7181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
