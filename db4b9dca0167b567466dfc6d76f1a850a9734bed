@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f229c9f_a1f1be9e",
+        "filename": "private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2022-09-27T16:11:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "415551e6_17df2ce2",
+      "range": {
+        "startLine": 788,
+        "startChar": 42,
+        "endLine": 788,
+        "endChar": 45
+      },
+      "revId": "db4b9dca0167b567466dfc6d76f1a850a9734bed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b918ab4_6c8855ef",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-09-27T15:20:06Z",
       "side": 1,
       "message": "exported_system_prop was/is system_public_prop, so this is a change from the status quo.\nBut I guess that\u0027s the point. \nAnd existing vendor partitions are fine because of the compat.",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 22
+      },
+      "revId": "db4b9dca0167b567466dfc6d76f1a850a9734bed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2ddbbfa_01221a6b",
+        "filename": "public/property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2022-09-27T16:11:02Z",
+      "side": 1,
+      "message": "This was an oversight on my part.\n\nI\u0027ve now more closely duplicated the original behavior here, and there\u0027s now a change in the 3rd commit to switch locale_prop / timezone_prop to be system_restricted_prop.",
+      "parentUuid": "3b918ab4_6c8855ef",
       "range": {
         "startLine": 80,
         "startChar": 0,
