@@ -129,7 +129,8 @@ neverallow appdomain tombstone_data_file:file ~{ getattr read };
 
 # Execute the shell or other system executables.
 allow { appdomain -ephemeral_app -sdk_sandbox } shell_exec:file rx_file_perms;
-allow { appdomain -ephemeral_app -sdk_sandbox } toolbox_exec:file rx_file_perms;
+allow { appdomain -ephemeral_app } toolbox_exec:file rx_file_perms;
+# allow { appdomain -ephemeral_app -sdk_sandbox } toolbox_exec:file rx_file_perms;
 not_full_treble(`allow { appdomain -ephemeral_app -sdk_sandbox } vendor_file:file x_file_perms;')
 
 # Allow apps access to /vendor/app except for privileged
