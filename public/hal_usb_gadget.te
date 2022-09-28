@@ -2,6 +2,9 @@
 binder_call(hal_usb_gadget_client, hal_usb_gadget_server)
 binder_call(hal_usb_gadget_server, hal_usb_gadget_client)
 
+hal_attribute_service(hal_usb_gadget, hal_usb_gadget_service)
+binder_call(hal_usb_gadget_server, servicemanager)
+
 hal_attribute_hwservice(hal_usb_gadget, hal_usb_gadget_hwservice)
 
 # Configuring usb gadget functions
