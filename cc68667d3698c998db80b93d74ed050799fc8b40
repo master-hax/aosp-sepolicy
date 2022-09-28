@@ -46,6 +46,30 @@
       },
       "revId": "cc68667d3698c998db80b93d74ed050799fc8b40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd85d185_a9271f6c",
+        "filename": "private/derive_sdk.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1937565
+      },
+      "writtenOn": "2022-09-28T11:29:42Z",
+      "side": 1,
+      "message": "\u003ef you add a comment explaining why the shell_data_file access is there.\n\nI\u0027ve added\n\n```\n# Allow derive_sdk to write data back to dumpstate when forked from dumpstate.\n# The shell_data_file permissions are needed when a bugreport is taken:\n# dumpstate will redirect its stdout to a temporary shell_data_file:file, and\n# this makes derive_sdk append to that file.\n```",
+      "parentUuid": "8cdc7297_8e31601c",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 68
+      },
+      "revId": "cc68667d3698c998db80b93d74ed050799fc8b40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
