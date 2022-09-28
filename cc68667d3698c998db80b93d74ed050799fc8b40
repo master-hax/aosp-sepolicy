@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95517457_05d90b02",
+        "filename": "private/derive_sdk.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1937565
+      },
+      "writtenOn": "2022-09-28T06:54:28Z",
+      "side": 1,
+      "message": "(Continuation of discussion in PS2. Ping @alanstokes@google.com.)\n\nWhen running `adb shell dumpstate -v`, dumpstate\u0027s stdout is still connected to the interactive terminal, and this rule isn\u0027t needed. But when bugreportz (`adb bugreport`) is running, the dumpstatez service is started (`setprop ctl.start dumpstatez`), and dumpstate will redirect it\u0027s stdout to a shell_data_file (eg  /data/user_de/0/com.android.sh\nell/files/bugreports/bugreport-aosp_oriole-AOSP.MASTER-2022-09-27-15-18-54-dumpstate_log-3491.txt). When calling child processes, by default dumpstate will dup the child stdout to its own stdout, which is now the shell_data_file.\n\nI would have thought that selinux only cared about the child having write access to a file descriptor, but it seems that the fact dumpstate\u0027s stdout is redirected to a file is significant?\n\nI tried changing dumpstate to open a pipe (via `pipe2`) and pass in the write end to derive_sdk, but that required other SELinux rules and I abandoned it.\n\nI also tried adding a new binary to the SdkExtensions apex and calling that instead. Because of apex/com.android.sdkext-file_contexts:\n\n```\n(/.*)?                       u:object_r:system_file:s0\n/bin/derive_classpath        u:object_r:derive_classpath_exec:s0\n/bin/derive_sdk              u:object_r:derive_sdk_exec:s0\n```\n \nthe new binary became a system_file, and no selinux rules were required for bugreport/dumpstate/the new binary to work.\n\nI thought derive_sdk_exec would inherit all system_file rules\n\n```\ntype derive_sdk_exec, system_file_type, exec_type, file_type;\n```\n \nbut perhaps there\u0027s another rule I haven\u0027t found that removes or adds something.\n\nFinally, cf private/incident.te\n\n```\n# allow incident to communicate with dumpstate, and write incident report to\n# /data/data/com.android.shell/files/bugreports/tmp_incident_report\nallow incident dumpstate:fd use;\nallow incident dumpstate:unix_stream_socket { read write };\nallow incident shell_data_file:file write;\n```",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 68
+      },
+      "revId": "cc68667d3698c998db80b93d74ed050799fc8b40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
