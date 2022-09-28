@@ -16,6 +16,23 @@
       "message": "Hi All, the original commit aosp/1821714 was first introduced in android12-security-release branch as https://android.googlesource.com/platform/system/sepolicy/+/b2fd7a5acc84b1b21563ccc893a97bb93b33d64c with CVE-2021-39700.\n\nSince then, the mentioned CTS test started to fail. For Android12, a revert helped fix the failure.\n\nNow, Same has been observed on Android13 and revert is fixing the failure.\n\nCould you please have a look at this once?",
       "revId": "37778c361c25dbfd0f779ee8daa4ef76a65c390e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f950c70b_18f4cc85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-09-28T11:00:27Z",
+      "side": 1,
+      "message": "Denying access to this file doesn\u0027t fix the test, it makes it so that the test can\u0027t function properly. Perhaps that results in it passing, but that\u0027s not the right way to fix the issue since this test is enforcing an important security property. Can you file a bug and provide the test output and a bug report from the failing device? We can discuss next steps on the bug.",
+      "revId": "37778c361c25dbfd0f779ee8daa4ef76a65c390e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
