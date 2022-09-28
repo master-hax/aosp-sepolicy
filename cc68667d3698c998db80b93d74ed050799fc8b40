@@ -22,6 +22,30 @@
       },
       "revId": "cc68667d3698c998db80b93d74ed050799fc8b40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cdc7297_8e31601c",
+        "filename": "private/derive_sdk.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-09-28T09:40:28Z",
+      "side": 1,
+      "message": "\u003e I would have thought that selinux only cared about the child having write access to a file descriptor, but it seems that the fact dumpstate\u0027s stdout is redirected to a file is significant?\n\nThat\u0027s correct. This is part of mandatory access control; the process can\u0027t write to that file unless it has been permitted to. (Allowing read/write without open/create is a common selinux idiom; it allows the process access to files of that type, but only those to which it is given an fd by some more privileged process.)\n\n\u003e I thought derive_sdk_exec would inherit all system_file rules\n\nIt does (well, system_file_type rules, to be precise). But the executable and the process created by running it are different things with different labels.\n\nWhen executing it, you can either stay in the same domain, or switch to another one. Switching to another domain, which is what the CL currently does, seems like a good idea when you want to grant extra permissions only for that sub-process; otherwise the parent needs to have the union of all permissions required by it \u0026 its children.\n\n\nSo, to summarize: I\u0027d be happy with the CL in its current form, if you add a comment explaining why the shell_data_file access is there.",
+      "parentUuid": "95517457_05d90b02",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 68
+      },
+      "revId": "cc68667d3698c998db80b93d74ed050799fc8b40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
