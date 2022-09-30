@@ -174,6 +174,9 @@ genfscon sysfs /module/tcp_cubic/parameters u:object_r:sysfs_net:s0
 genfscon sysfs /module/wlan/parameters/fwpath u:object_r:sysfs_wlan_fwpath:s0
 genfscon sysfs /devices/virtual/timed_output/vibrator/enable u:object_r:sysfs_vibrator:s0
 genfscon sysfs /devices/virtual/misc/uhid u:object_r:sysfs_uhid:s0
+genfscon sysfs /devices/platform/11110000.usb/11110000.dwc3/xhci-hcd-exynos.4.auto/usb2/2-1 	u:object_r:sysfs_uhid:s0
+genfscon sysfs /devices/platform/11110000.usb/11110000.dwc3/xhci-hcd-exynos.5.auto/usb2/2-1 	u:object_r:sysfs_uhid:s0
+genfscon sysfs /devices/platform/soc/a600000.ssusb/a600000.dwc3/xhci-hcd.2.auto/usb1/1-1  	u:object_r:sysfs_uhid:s0
 genfscon sysfs /kernel/vendor_sched u:object_r:sysfs_vendor_sched:s0
 
 genfscon debugfs /kprobes                             u:object_r:debugfs_kprobes:s0
