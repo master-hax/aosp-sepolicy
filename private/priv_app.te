@@ -187,6 +187,8 @@ get_prop(priv_app, incremental_prop)
 # Required for Phonesky to be able to read APEX files under /data/apex/active/.
 allow priv_app apex_data_file:dir search;
 allow priv_app staging_data_file:file r_file_perms;
+allow priv_app vendor_apex_file:dir r_dir_perms;
+allow priv_app vendor_apex_file:file r_file_perms;
 # Required for Phonesky to be able to read staged files under /data/app-staging.
 allow priv_app staging_data_file:dir r_dir_perms;
 
