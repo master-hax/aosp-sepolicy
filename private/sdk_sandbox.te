@@ -10,6 +10,8 @@ typeattribute sdk_sandbox coredomain;
 net_domain(sdk_sandbox)
 app_domain(sdk_sandbox)
 
+auditallow sdk_sandbox property_type:file { getattr open read map };
+
 # Allow finding services. This is different from ephemeral_app policy.
 # Adding services manually to the allowlist is preferred hence app_api_service is not used.
 
