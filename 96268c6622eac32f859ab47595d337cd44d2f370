@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c5d0352d_5abd8469",
+        "filename": "microdroid/system/private/dice_service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-10-06T20:23:41Z",
+      "side": 0,
+      "message": "Tombstones are going to be debug-only. The secrets that microdroid has in memory are already specialised to the VM instance and pvmfw has destroyed the VM root secret already. That means a crashdump can only reveal the secrets of a debuggable VM instance (as should be the case!). Please point out any problems with that logic!",
+      "parentUuid": "8f7dad60_6be05c5b",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 48
+      },
+      "revId": "96268c6622eac32f859ab47595d337cd44d2f370",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "33733697_b5e5757c",
         "filename": "microdroid/system/private/dice_service.te",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-06T13:50:40Z",
       "side": 0,
       "message": "Doesn\u0027t MM need this now?\nI can see it probing for /sys/firmware/devicetree/base/chosen/avf,strict-boot, even if I don\u0027t understand what it\u0027s doing there.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 50
+      },
+      "revId": "96268c6622eac32f859ab47595d337cd44d2f370",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3efe2c37_306bcabb",
+        "filename": "microdroid/system/private/dice_service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-10-06T20:23:41Z",
+      "side": 0,
+      "message": "MM already has it.",
+      "parentUuid": "33733697_b5e5757c",
       "range": {
         "startLine": 23,
         "startChar": 0,
