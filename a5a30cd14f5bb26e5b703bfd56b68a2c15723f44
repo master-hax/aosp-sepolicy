@@ -16,6 +16,29 @@
       "message": "Hi Alan, could you review this change? These permissions are needed for the cl of adding new service https://r.android.com/2241274.",
       "revId": "a5a30cd14f5bb26e5b703bfd56b68a2c15723f44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6cc832c_7a4b15a9",
+        "filename": "microdroid/system/private/microdroid_app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-10-06T12:05:33Z",
+      "side": 1,
+      "message": "You shouldn\u0027t need this one, with vm_payload_binder_service. I mistakenly gave you an example where the second one was the service, but you then found that it\u0027s actually the service host you need.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 54
+      },
+      "revId": "a5a30cd14f5bb26e5b703bfd56b68a2c15723f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
