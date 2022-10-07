@@ -71,6 +71,8 @@ userdebug_or_eng(`
   allow shell boottrace_data_file:file create_file_perms;
 ')
 
+allow shell hal_keymint:binder {call};
+
 # allow shell access to services
 allow shell servicemanager:service_manager list;
 # don't allow shell to access GateKeeper service
@@ -81,6 +83,7 @@ allow shell {
   -apex_service
   -dnsresolver_service
   -gatekeeper_service
+  -hal_keymint_service
   -incident_service
   -installd_service
   -mdns_service
