@@ -158,6 +158,30 @@
       },
       "revId": "36645a53f87ef20af335247248dd99150053559f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aa29a0b_15f06034",
+        "filename": "private/priv_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-10-07T10:52:50Z",
+      "side": 1,
+      "message": "I support Deyao in that this isn\u0027t a Treble violation (and I am from Treble :)). The Play app doesn\u0027t do anything specific to SoC with these vendor APEXes. It treats them just like the system-side APEXes. This new access is needed simply because the vendor APEXes are about to be updatable via Play.\n\nNote that we even have \"allow { appdomain -ephemeral_app -sdk_sandbox } vendor_app_file:file execute;\" for APKs.",
+      "parentUuid": "6d17e476_e60c7716",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 62
+      },
+      "revId": "36645a53f87ef20af335247248dd99150053559f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
