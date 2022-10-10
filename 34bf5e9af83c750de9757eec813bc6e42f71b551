@@ -16,6 +16,24 @@
       "message": "This may generate a lot of logs. Could you gather the same information using local tests? \n\nIf not, it should be restricted to userdebug builds (using the `userdebug_or_eng` macro). Thanks.",
       "revId": "34bf5e9af83c750de9757eec813bc6e42f71b551",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8caf76c_123bafa5",
+        "filename": "private/sdk_sandbox.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-10-10T14:44:35Z",
+      "side": 1,
+      "message": "The purpose of this change would be to get information about what sysprops are being accessed in the sdk_sandbox in the wild, as it would help us understand how SDKs use them.\n\nFWIW, the SDK sandbox is iterated via a mainline beta program on user builds. Enabling the auditallows on userdebug or eng builds only would mean we are not going to get much relevant data about sysprops access.\n\nAt this point in time the logs traffic we should get from the auditallow should be minimal. If/When traffic increases, we can remove the audit. Would that make sense?\n\n@jeffv@google.com for opinions",
+      "parentUuid": "ee339f81_b757d561",
+      "revId": "34bf5e9af83c750de9757eec813bc6e42f71b551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
