@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f18a605_738cbe5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-10-11T10:55:17Z",
+      "side": 1,
+      "message": "This is going to cause performance problems, logging is expensive, and this will potentially cause a ton of logging. You need to properly test this first, and then omit expected access to minimize impact on others.\n\n1. locally disable auditing (adb root; adb shell auditctl -r 1000)\n2. Run a realistic test of an sdk_sandbox starting up.\n3. note all of the types that are accessed, and omit those from this rule.\n\nSo your rule becomes\n\nauditallow sdk_sandbox {\n  property_type\n  -x_prop\n  -y_prop\n  -z_prop\n}...\n\nNote that you won\u0027t be able to add device-specific property types here.\n\n4. You should test this on some actual devices (e.g. Pixel) and ensure that the amount of log spam isn\u0027t large. If it is, we should discuss if it can be checked in at all.",
+      "revId": "66cc9fbfab937986a8425aec21c77a20cea92a3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
