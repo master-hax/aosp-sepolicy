@@ -31,26 +31,26 @@ userdebug_or_eng(`
 
 # Allow apps to read the Test Harness Mode property. This property is used in
 # the implementation of ActivityManager.isDeviceInTestHarnessMode()
-get_prop(appdomain, test_harness_prop)
+get_prop({appdomain -sdk_sandbox}, test_harness_prop)
 
-get_prop(appdomain, boot_status_prop)
-get_prop(appdomain, dalvik_config_prop)
-get_prop(appdomain, media_config_prop)
-get_prop(appdomain, packagemanager_config_prop)
-get_prop(appdomain, radio_control_prop)
-get_prop(appdomain, surfaceflinger_color_prop)
-get_prop(appdomain, systemsound_config_prop)
-get_prop(appdomain, telephony_config_prop)
-get_prop(appdomain, userspace_reboot_config_prop)
-get_prop(appdomain, vold_config_prop)
-get_prop(appdomain, adbd_config_prop)
-get_prop(appdomain, dck_prop)
-get_prop(appdomain, persist_wm_debug_prop)
+get_prop({appdomain -sdk_sandbox}, boot_status_prop)
+get_prop({appdomain -sdk_sandbox}, dalvik_config_prop)
+get_prop({appdomain -sdk_sandbox}, media_config_prop)
+get_prop({appdomain -sdk_sandbox}, packagemanager_config_prop)
+get_prop({appdomain -sdk_sandbox}, radio_control_prop)
+get_prop({appdomain -sdk_sandbox}, surfaceflinger_color_prop)
+get_prop({appdomain -sdk_sandbox}, systemsound_config_prop)
+get_prop({appdomain -sdk_sandbox}, telephony_config_prop)
+get_prop({appdomain -sdk_sandbox}, userspace_reboot_config_prop)
+get_prop({appdomain -sdk_sandbox}, vold_config_prop)
+get_prop({appdomain -sdk_sandbox}, adbd_config_prop)
+get_prop({appdomain -sdk_sandbox}, dck_prop)
+get_prop({appdomain -sdk_sandbox}, persist_wm_debug_prop)
 
 # Allow ART to be configurable via device_config properties
 # (ART "runs" inside the app process)
-get_prop(appdomain, device_config_runtime_native_prop)
-get_prop(appdomain, device_config_runtime_native_boot_prop)
+get_prop({appdomain -sdk_sandbox}, device_config_runtime_native_prop)
+get_prop({appdomain -sdk_sandbox}, device_config_runtime_native_boot_prop)
 
 userdebug_or_eng(`perfetto_producer({ appdomain })')
 
@@ -98,19 +98,19 @@ neverallow { appdomain -shell userdebug_or_eng(`-su') }
 neverallow { appdomain -mediaprovider_app } storage_config_prop:file no_rw_file_perms;
 
 # Allow to read sendbug.preferred.domain
-get_prop(appdomain, sendbug_config_prop)
+get_prop({appdomain -sdk_sandbox}, sendbug_config_prop)
 
 # Allow to read graphics related properties.
-get_prop(appdomain, graphics_config_prop)
+get_prop({appdomain -sdk_sandbox}, graphics_config_prop)
 
 # Allow to read persist.config.calibration_fac
-get_prop(appdomain, camera_calibration_prop)
+get_prop({appdomain -sdk_sandbox}, camera_calibration_prop)
 
 # Allow to read db.log.detailed, db.log.slow_query_threshold*
-get_prop(appdomain, sqlite_log_prop)
+get_prop({appdomain -sdk_sandbox}, sqlite_log_prop)
 
 # Allow to read system_user_mode_emulation_prop, which is used by UserManager.java
-userdebug_or_eng(`get_prop(appdomain, system_user_mode_emulation_prop)')
+userdebug_or_eng(`get_prop({appdomain -sdk_sandbox}, system_user_mode_emulation_prop)')
 
 # Allow font file read by apps.
 allow appdomain font_data_file:file r_file_perms;
