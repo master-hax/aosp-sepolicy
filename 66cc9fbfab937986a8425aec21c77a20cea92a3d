@@ -16,6 +16,24 @@
       "message": "This is going to cause performance problems, logging is expensive, and this will potentially cause a ton of logging. You need to properly test this first, and then omit expected access to minimize impact on others.\n\n1. locally disable auditing (adb root; adb shell auditctl -r 1000)\n2. Run a realistic test of an sdk_sandbox starting up.\n3. note all of the types that are accessed, and omit those from this rule.\n\nSo your rule becomes\n\nauditallow sdk_sandbox {\n  property_type\n  -x_prop\n  -y_prop\n  -z_prop\n}...\n\nNote that you won\u0027t be able to add device-specific property types here.\n\n4. You should test this on some actual devices (e.g. Pixel) and ensure that the amount of log spam isn\u0027t large. If it is, we should discuss if it can be checked in at all.",
       "revId": "66cc9fbfab937986a8425aec21c77a20cea92a3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbadf028_7ad8a3ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-10-11T15:26:27Z",
+      "side": 1,
+      "message": "The most realistic test I could run was using the manual testing app from the sandbox team (go/sdk-sandbox-manual-testing). Using that app on a Pixel 6 and your instructions, I collected a list of expected properties (gpaste/5407541197537280) and removed those from the auditallow rule.",
+      "parentUuid": "6f18a605_738cbe5f",
+      "revId": "66cc9fbfab937986a8425aec21c77a20cea92a3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
