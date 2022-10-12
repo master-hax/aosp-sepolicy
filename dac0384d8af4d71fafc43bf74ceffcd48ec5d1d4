@@ -22,6 +22,53 @@
       },
       "revId": "dac0384d8af4d71fafc43bf74ceffcd48ec5d1d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b0aaf1b_30024acc",
+        "filename": "microdroid/system/private/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-10-12T15:30:46Z",
+      "side": 1,
+      "message": "+1. audit_control is only granted to auditctl in the main policy (so it can turn on rate limiting after boot), and we don\u0027t have that.",
+      "parentUuid": "1cd7924e_9b410ea3",
+      "range": {
+        "startLine": 439,
+        "startChar": 0,
+        "endLine": 439,
+        "endChar": 58
+      },
+      "revId": "dac0384d8af4d71fafc43bf74ceffcd48ec5d1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff34e31f_c15afd73",
+        "filename": "microdroid/system/private/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-10-12T15:30:46Z",
+      "side": 1,
+      "message": "This is nmlsg_relay in the policy Jiyong linked to. (No idea why.)\n\nWe should probably check that property set denials are being correctly logged.",
+      "range": {
+        "startLine": 440,
+        "startChar": 68,
+        "endLine": 440,
+        "endChar": 79
+      },
+      "revId": "dac0384d8af4d71fafc43bf74ceffcd48ec5d1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
