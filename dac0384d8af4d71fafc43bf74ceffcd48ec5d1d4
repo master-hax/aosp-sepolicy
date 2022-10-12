@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cd7924e_9b410ea3",
+        "filename": "microdroid/system/private/init.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-10-12T12:33:56Z",
+      "side": 1,
+      "message": "Does init really need this? In Android, this is granted only to auditctl and logd both of which don\u0027t exist in Microdroid.\n\nI instead see [1].\n[1] https://cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/init.te;drc\u003db07c12c39df776666dff1adec6ad55e2e4d12b74;l\u003d548",
+      "range": {
+        "startLine": 439,
+        "startChar": 0,
+        "endLine": 439,
+        "endChar": 58
+      },
+      "revId": "dac0384d8af4d71fafc43bf74ceffcd48ec5d1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
