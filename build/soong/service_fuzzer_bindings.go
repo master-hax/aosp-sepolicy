@@ -35,6 +35,7 @@ var (
 		"android.hardware.camera.provider.ICameraProvider/internal/0":             []string{},
 		"android.hardware.confirmationui.IConfirmationUI/default":                 []string{},
 		"android.hardware.contexthub.IContextHub/default":                         []string{},
+		"android.hardware.cpu.monitor.IMonitor/default":                           []string{},
 		"android.hardware.drm.IDrmFactory/clearkey":                               []string{},
 		"android.hardware.drm.ICryptoFactory/clearkey":                            []string{},
 		"android.hardware.dumpstate.IDumpstateDevice/default":                     []string{},
