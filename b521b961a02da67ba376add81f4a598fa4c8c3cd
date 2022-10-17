@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e7dee6c_33e37855",
+        "filename": "public/shell.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2022-10-17T03:09:36Z",
+      "side": 1,
+      "message": "`binder_call(shell, hal_keymint)` would be preferable. It only grants the ability to share file descriptors on top of the regular call.",
+      "revId": "b521b961a02da67ba376add81f4a598fa4c8c3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4594aade_f422554d",
+        "filename": "public/shell.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2022-10-17T03:09:36Z",
+      "side": 1,
+      "message": "Could this be added to the private/ directory instead? Thanks",
+      "revId": "b521b961a02da67ba376add81f4a598fa4c8c3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bd73d04_7130b863",
+        "filename": "public/shell.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2022-10-17T03:09:36Z",
+      "side": 1,
+      "message": "The issue is that any service provided by keymint will then be usable. I think this includes hal_secureclock_service and hal_sharedsecret_service which are defined in system/sepolicy/vendor/hal_keymint_default.te.",
+      "revId": "b521b961a02da67ba376add81f4a598fa4c8c3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
