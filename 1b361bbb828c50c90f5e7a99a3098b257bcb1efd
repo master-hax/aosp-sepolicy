@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f095ffa1_a66fe065",
+        "filename": "vendor/hal_contexthub_default.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1175853
+      },
+      "writtenOn": "2022-10-19T16:57:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "523edbf1_20e6a4bb",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 52
+      },
+      "revId": "1b361bbb828c50c90f5e7a99a3098b257bcb1efd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8c799cf_5930ee91",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-19T16:38:30Z",
       "side": 1,
       "message": "Shouldn\u0027t a HAL be talking to hwservice_manager?",
+      "range": {
+        "startLine": 8,
+        "startChar": 47,
+        "endLine": 8,
+        "endChar": 62
+      },
+      "revId": "1b361bbb828c50c90f5e7a99a3098b257bcb1efd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58c7d13b_06a14957",
+        "filename": "vendor/hal_contexthub_default.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1175853
+      },
+      "writtenOn": "2022-10-19T16:57:36Z",
+      "side": 1,
+      "message": "That\u0027s a good question. The SEpolicy is based on the error we got from logcat, and I saw the other sepolicies that are used from other HALs (from cs/) also mention `fwk_stats_service:service_manager`. Maybe because IStats.aidl is defined in `android.framework` rather than `android.hardware`?",
+      "parentUuid": "e8c799cf_5930ee91",
       "range": {
         "startLine": 8,
         "startChar": 47,
