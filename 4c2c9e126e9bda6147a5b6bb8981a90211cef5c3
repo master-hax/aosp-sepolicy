@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa66cf8c_f4765bdc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1929435
+      },
+      "writtenOn": "2022-10-19T14:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8c3a1ce_2203ddf3",
+      "revId": "4c2c9e126e9bda6147a5b6bb8981a90211cef5c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3cd215a2_0d89161d",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-10-19T00:46:44Z",
       "side": 1,
       "message": "Do you understand that this will expose your service to all apps? What kind of access control is in place in CredentialManagerServiceStub to ensure that only apps with sufficient permission will be able to call it? Please add a link to the feature bug or security review bug in the commit message. Thanks.",
+      "revId": "4c2c9e126e9bda6147a5b6bb8981a90211cef5c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca70dcf0_2024e99d",
+        "filename": "public/service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1929435
+      },
+      "writtenOn": "2022-10-19T14:57:07Z",
+      "side": 1,
+      "message": "Yes, Credential Manager is a sign-in helper and so, we do need all apps to be able to call it. We will be adding a privileged API too and will require a permission for that. As of now though, all apps can call credential manager.",
+      "parentUuid": "3cd215a2_0d89161d",
       "revId": "4c2c9e126e9bda6147a5b6bb8981a90211cef5c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
