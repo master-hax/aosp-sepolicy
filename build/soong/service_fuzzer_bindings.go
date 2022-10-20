@@ -153,6 +153,7 @@ var (
 		"batteryproperties":                                               []string{},
 		"batterystats":                                                    []string{},
 		"battery":                                                         []string{},
+		"binary_metadata":                                                 []string{},
 		"binder_calls_stats":                                              []string{},
 		"biometric":                                                       []string{},
 		"bluetooth_manager":                                               []string{},
