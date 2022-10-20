@@ -325,6 +325,7 @@ var (
 		"radio.sms":                    []string{},
 		"rcs":                          []string{},
 		"reboot_readiness":             []string{},
+		"remote_provisioning":          []string{},
 		"recovery":                     []string{},
 		"resolver":                     []string{},
 		"resources":                    []string{},
