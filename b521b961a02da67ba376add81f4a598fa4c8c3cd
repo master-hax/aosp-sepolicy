@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "069bc407_655873ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-20T20:26:22Z",
+      "side": 1,
+      "message": "This isn\u0027t related to VTS testing, this is done in order to allow OEMs to extract the RKP keys from the device in the factory. The HAL was made generic enough so that the same call to provision keys on a production device in the wild would be the same call used to extract the public key off of the device.\n\nOur original assumption, which turned out to be wrong, was that all OEMs would use factory images with SELinux turned off during device provisioning. Since this is not the case, we need to allow shell to access this particular service in order to facilitate this provisioning step in the factory.",
+      "parentUuid": "0acc06d0_1115cec2",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 49
+      },
+      "revId": "b521b961a02da67ba376add81f4a598fa4c8c3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35c38915_d50f03ff",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -37,6 +61,24 @@
       "writtenOn": "2022-10-17T08:43:54Z",
       "side": 1,
       "message": "Bug?",
+      "revId": "b521b961a02da67ba376add81f4a598fa4c8c3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebefa451_fb52b151",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-20T20:26:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35c38915_d50f03ff",
       "revId": "b521b961a02da67ba376add81f4a598fa4c8c3cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -75,6 +117,42 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5660bc29_efa4cfb1",
+        "filename": "public/shell.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-20T20:26:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e7dee6c_33e37855",
+      "revId": "b521b961a02da67ba376add81f4a598fa4c8c3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "242d1572_547d794b",
+        "filename": "public/shell.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-20T20:26:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4594aade_f422554d",
+      "revId": "b521b961a02da67ba376add81f4a598fa4c8c3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bd73d04_7130b863",
@@ -88,6 +166,24 @@
       "writtenOn": "2022-10-17T03:09:36Z",
       "side": 1,
       "message": "The issue is that any service provided by keymint will then be usable. I think this includes hal_secureclock_service and hal_sharedsecret_service which are defined in system/sepolicy/vendor/hal_keymint_default.te.",
+      "revId": "b521b961a02da67ba376add81f4a598fa4c8c3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0447ab52_3c82ba14",
+        "filename": "public/shell.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-20T20:26:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bd73d04_7130b863",
       "revId": "b521b961a02da67ba376add81f4a598fa4c8c3cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
