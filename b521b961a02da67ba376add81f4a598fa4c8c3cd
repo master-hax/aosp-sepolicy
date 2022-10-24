@@ -155,6 +155,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "58f9d11c_5f7d80b3",
+        "filename": "public/shell.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-10-24T16:09:42Z",
+      "side": 1,
+      "message": "AFAICT, `binder_call` is actually _more_ privileges than we need.\n\nShell really only needs to be able to make binder calls. We don\u0027t need to be able to transfer fds or binders. In fact, I think it\u0027s preferable that we do not allow binders to be transferred because that would explicitly prevent any keymint key operations from being performed.\n\nIs there some underlying reason that we want `binder_call` that I don\u0027t understand?",
+      "parentUuid": "5660bc29_efa4cfb1",
+      "revId": "b521b961a02da67ba376add81f4a598fa4c8c3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3bd73d04_7130b863",
         "filename": "public/shell.te",
         "patchSetId": 1
