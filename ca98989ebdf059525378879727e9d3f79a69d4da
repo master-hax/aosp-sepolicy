@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c30c4173_02850c94",
+        "filename": "public/keystore.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-10-24T21:04:30Z",
+      "side": 1,
+      "message": "aside: if we do intend to keep the option of moving the remote_provisioning service out of system_server, it might require introducing an attribute that can be applied to the domain that implements the service in order to allow that detail to changed with a mainline update. The clients would have rules to allow calling into domains with the attribute rather than naming the domain directly. The HAL sepolicy uses this a lot to decouple the interfaces from the implementation.",
+      "revId": "ca98989ebdf059525378879727e9d3f79a69d4da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
