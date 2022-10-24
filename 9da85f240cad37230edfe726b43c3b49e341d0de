@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "34551414_1433a29d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1543914
+      },
+      "writtenOn": "2022-10-24T17:22:57Z",
+      "side": 1,
+      "message": "Hi Steven, thanks for your questions.:)\n\nWe\u0027d like to add the extra abstraction here for the following two main reasons:\n\n* to avoid more overhead (both code complexity and performance) for the package manager. The binary_metadata service have to maintain a list of background installed apps. To achieve this via existing package manager requires massive refactoring. So the package manager team suggests to add a separate service.\n\n* to decouple the MBAs business logic to a separate service. We have an Android U feature (Background Install Control) and several upcoming Android V features depending on this service. These features require MBAs specific infos not necessarily fit into the package manager.\n\nPS: here are the links to some relevant docs.\ndesign doc: https://docs.google.com/document/d/1fVLqWk5oVvwOexJ6PvVzOQ3xteKoqbNaO3cZAtffLRs/edit?usp\u003dsharing\u0026resourcekey\u003d0-sxWpRSWTqmzUxfNZ_FuZ7Q\nBackground Install Control PRD:\nhttps://docs.google.com/document/d/1Htx2BIOFF-uGwrUo1s_CqFySzAIzbZ_y0wLXpL7otDA/edit?usp\u003dsharing",
+      "parentUuid": "39ee72b2_3ed84a3f",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 49
+      },
+      "revId": "9da85f240cad37230edfe726b43c3b49e341d0de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9a43efee_e1cd71f7",
