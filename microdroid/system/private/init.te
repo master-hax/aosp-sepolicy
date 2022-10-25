@@ -384,7 +384,7 @@ selinux_check_access(init)
 allow init kernel:security compute_create;
 
 # Create sockets for the services.
-allow init domain:unix_stream_socket { create bind setopt };
+allow init domain:unix_stream_socket { create bind listen setopt };
 allow init domain:unix_dgram_socket { create bind setopt };
 
 # Set any property.
