@@ -21,3 +21,6 @@ domain_auto_trans(compos, odrefresh_exec, odrefresh)
 domain_auto_trans(compos, compos_key_helper_exec, compos_key_helper)
 # And killing it on error
 allow compos compos_key_helper:process sigkill;
+
+# Allow compos to connect to authfs_service.
+allow compos socket_device:sock_file { write };

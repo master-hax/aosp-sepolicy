@@ -111,6 +111,10 @@ allow microdroid_manager serial_device:chr_file w_file_perms;
 # Allow microdroid_manager to handle extra_apks
 allow microdroid_manager extra_apk_file:dir create_dir_perms;
 
+# Allow microdroid_manager to connect to vm_payload_service
+allow microdroid_manager socket_device:dir { write add_name remove_name };
+allow microdroid_manager socket_device:sock_file { create unlink };
+
 # Domains other than microdroid can't write extra_apks
 neverallow { domain -microdroid_manager -init -vendor_init } extra_apk_file:file no_w_file_perms;
 neverallow { domain -microdroid_manager -init -vendor_init } extra_apk_file:dir no_w_dir_perms;

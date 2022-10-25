@@ -31,3 +31,6 @@ allow authfs_service authfs_fuse:file { open read write };
 # Allow killing the authfs process and unmount.
 allow authfs_service authfs:process sigkill;
 allow authfs_service authfs_fuse:filesystem unmount;
+
+allow authfs_service socket_device:dir { write add_name remove_name };
+allow authfs_service socket_device:sock_file { create unlink };
