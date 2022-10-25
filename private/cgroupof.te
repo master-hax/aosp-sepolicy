@@ -1,0 +1,8 @@
+type cgroupof, domain, coredomain;
+type cgroupof_exec, system_file_type, exec_type, file_type;
+
+# Allow cgroupof to read /proc/<pid>/cgroup. The directory and the file are labeled as
+# the type of the <pid> process. In order for cgroupof to read cgroup of "any? pid,
+# it needs read access to domain:[dir|file].
+allow cgroupof domain:dir r_dir_perms;
+allow cgroupof domain:file r_file_perms;
