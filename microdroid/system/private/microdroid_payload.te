@@ -51,3 +51,6 @@ allow microdroid_payload authfs_fuse:file create_file_perms;
 # Allow use of virtual_machine_payload_service.
 allow microdroid_payload vm_payload_binder_service:service_manager find;
 binder_call(microdroid_payload, microdroid_manager)
+
+allow microdroid_payload socket_device:sock_file { getattr write };
+allow microdroid_payload microdroid_manager:unix_stream_socket connectto;

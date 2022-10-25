@@ -27,7 +27,7 @@ allow domain proc_net_type:dir search;
 r_dir_file(domain, self)
 allow domain self:{ fifo_file file } rw_file_perms;
 allow domain self:unix_dgram_socket { create_socket_perms sendto };
-allow domain self:unix_stream_socket { create_stream_socket_perms connectto };
+allow domain self:unix_stream_socket { create_stream_socket_perms connectto getopt };
 
 # Inherit or receive open files from others.
 allow domain init:fd use;
