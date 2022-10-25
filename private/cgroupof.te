@@ -1,0 +1,20 @@
+type cgroupof_exec, system_file_type, exec_type, file_type;
+type cgroupof, domain, coredomain;
+
+# cgroupof should have access to /proc/<pid>/cgroup for apps (e.g.
+# u:r:platform_app:s0:c512,c768) thus should be mls trusted
+typeattribute cgroupof mlstrustedsubject;
+
+# Allow cgroupof to read /proc/<pid>/cgroup. The directory and the file are
+# labeled as the type of the <pid> process. In order for cgroupof to read those
+# of apps and adbd. The latter case is for testing-purpose VM's created via adb
+# shell.
+r_dir_file(cgroupof, { appdomain adbd })
+
+# Allow cgroupof to send the result back to virtualizationservice via
+# stdout/stderr
+allow cgroupof virtualizationservice:fd use;
+
+# cgropof_exec can only be used by virtualizationservice (and obviously by
+# itself)
+neverallow { domain -cgroupof -virtualizationservice } cgroupof_exec:file no_x_file_perms;
