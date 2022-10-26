@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "884d2a90_df896c77",
+        "filename": "private/cgroupof.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-10-26T14:15:05Z",
+      "side": 1,
+      "message": "We really want to protect the domain rather than the executable.\n\nI suggest\n\nneverallow { domain -virtualizationservice } cgroupof:process { dyntransition transition };",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 90
+      },
+      "revId": "ef73e99de28173c481a9fb7b8336f2e04028b53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
