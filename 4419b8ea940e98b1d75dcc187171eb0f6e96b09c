@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f762369c_275c534c",
+        "filename": "microdroid/system/private/microdroid_manager.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2022-10-26T11:52:49Z",
+      "side": 1,
+      "message": "Hi Alan,\n\nI think I probably need to use `vm_payload_service` here instead of `socket_device`, right?\n\nActually the error I got is\n```\navc:  denied  { add_name } for  pid\u003d102 comm\u003d\"microdroid_mana\" name\u003d\"vm_payload_service\" scontext\u003du:r:microdroid_manager:s0 tcontext\u003du:object_r:socket_device:s0 tclass\u003ddir permissive\u003d0\n```\nBut if I add the line `allow microdroid_manager vm_payload_service:dir add_name` here instead. I keep getting the same error.\n\nDo I miss something for vm_payload_service?",
+      "range": {
+        "startLine": 115,
+        "startChar": 51,
+        "endLine": 115,
+        "endChar": 59
+      },
+      "revId": "4419b8ea940e98b1d75dcc187171eb0f6e96b09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
