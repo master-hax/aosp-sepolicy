@@ -3,6 +3,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5e914e0d_109b2249",
+        "filename": "microdroid/system/private/compos_key_helper.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-10-26T12:59:54Z",
+      "side": 1,
+      "message": "I think this is almost certainly the wrong domain; this one doesn\u0027t do much communication with anything (deliberately).\n\nI think you want compos. But compos has the microdroid_payload attribute, so actually all you need to do is grant the permissions to microdroid_payload and you get compos for free.\n\n(Actually changing compos to make use of it is more of a challenge.)",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 76
+      },
+      "revId": "4419b8ea940e98b1d75dcc187171eb0f6e96b09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fd8b009_763d6087",
+        "filename": "microdroid/system/private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-10-26T12:59:54Z",
+      "side": 1,
+      "message": "You don\u0027t need this - create_stream_socket_perms includes getopt already.",
+      "range": {
+        "startLine": 30,
+        "startChar": 76,
+        "endLine": 30,
+        "endChar": 82
+      },
+      "revId": "4419b8ea940e98b1d75dcc187171eb0f6e96b09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "676ae8b5_1b6e6d32",
+        "filename": "microdroid/system/private/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-10-26T12:59:54Z",
+      "side": 1,
+      "message": "If this is being hosted by microdroid_manager, then conventionally we would give it the label microdroid_manager_socket. That then makes the unix_socket_connect call look more normal. But that\u0027s not necessarily better than what you have here, which is at least descriptive.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 70
+      },
+      "revId": "4419b8ea940e98b1d75dcc187171eb0f6e96b09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f762369c_275c534c",
         "filename": "microdroid/system/private/microdroid_manager.te",
         "patchSetId": 2
@@ -19,6 +88,99 @@
         "startChar": 51,
         "endLine": 115,
         "endChar": 59
+      },
+      "revId": "4419b8ea940e98b1d75dcc187171eb0f6e96b09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcdd704c_f3239eb4",
+        "filename": "microdroid/system/private/microdroid_manager.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-10-26T12:59:54Z",
+      "side": 1,
+      "message": "Do you need microdroid manager to create the socket file, or can that be done by init? (Init already has all the permissions to do that.)\n\npackages/modules/Virtualization/microdroid_manager/microdroid_manager.rc defines the microdroid_manager service, and in that you can specify that you want a socket created - e.g. cs/android-internal/system/core/debuggerd/tombstoned/tombstoned.rc, cs/android-internal/system/core/init/README.md.\n\nThis rule is roughly correct though - /dev is socket_device:dir, but /dev/vm_payload_service is vm_payload_service_socket:sock_file.",
+      "parentUuid": "f762369c_275c534c",
+      "range": {
+        "startLine": 115,
+        "startChar": 51,
+        "endLine": 115,
+        "endChar": 59
+      },
+      "revId": "4419b8ea940e98b1d75dcc187171eb0f6e96b09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2414f6e_7ed0323f",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-10-26T12:59:54Z",
+      "side": 1,
+      "message": "vm_payload_service_socket",
+      "range": {
+        "startLine": 55,
+        "startChar": 25,
+        "endLine": 55,
+        "endChar": 38
+      },
+      "revId": "4419b8ea940e98b1d75dcc187171eb0f6e96b09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12b906df_b1237fdd",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-10-26T12:59:54Z",
+      "side": 1,
+      "message": "Normally we express this using the unix_socket_connect macro in te_macros:\n\nunix_socket_connect(microdroid_payload, vm_payload_service, microdroid_manager)\n\n(That doesn\u0027t include the getattr though - not sure why you need that?)",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 0
+      },
+      "revId": "4419b8ea940e98b1d75dcc187171eb0f6e96b09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "748b6304_849084d1",
+        "filename": "microdroid/system/public/vm_payload_service.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-10-26T12:59:54Z",
+      "side": 1,
+      "message": "I don\u0027t think you need this; there isn\u0027t a vm_payload_service process, the socket is owned by microdroid_manager.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 32
       },
       "revId": "4419b8ea940e98b1d75dcc187171eb0f6e96b09c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
