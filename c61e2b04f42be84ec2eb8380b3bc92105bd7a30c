@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47a98abc_0f25c1dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-10-26T13:12:56Z",
+      "side": 1,
+      "message": "This makes me a little nervous. Also David is still working on the VS as child process approach; we should probably pick one.",
+      "revId": "c61e2b04f42be84ec2eb8380b3bc92105bd7a30c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31cc80ac_8564bf10",
+        "filename": "private/cgroupof.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-10-26T13:12:56Z",
+      "side": 1,
+      "message": "r_dir_file\n\nMore importantly: this seems far too broad; how can we restrict it? appdomain?\n\nGiven this provides a full bypass for the hidepid restriction, we should have neverallow rules to prevent it being run by anything other than VS.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 40
+      },
+      "revId": "c61e2b04f42be84ec2eb8380b3bc92105bd7a30c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
