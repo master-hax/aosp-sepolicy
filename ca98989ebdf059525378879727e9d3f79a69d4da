@@ -34,6 +34,24 @@
       "parentUuid": "c30c4173_02850c94",
       "revId": "ca98989ebdf059525378879727e9d3f79a69d4da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92647287_03292ae0",
+        "filename": "public/keystore.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-10-27T18:10:02Z",
+      "side": 1,
+      "message": "It\u0027d be something similar to what\u0027s done by the `hal_server_domain()`, `hal_attribute_service()`, etc. family of macros. A simplified sketch below. But this feels like it would be applicable to all interfaces from modules, to allow them to updated independently. Perhaps mainline has a playbook for this already that I haven\u0027t seen.\n\n```\nattribute remote_provisioning_server;\nattribute remote_provisioning_client;\nbinder_call(remote_provisioning_client, remote_provisioning_server)\ntypeattribute system_server remote_provisioning_server;\ntypeattribute keystore remote_provisioning_client;\n```",
+      "parentUuid": "a5b6c0b5_f7350e15",
+      "revId": "ca98989ebdf059525378879727e9d3f79a69d4da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
