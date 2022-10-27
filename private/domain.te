@@ -124,6 +124,12 @@ get_prop(domain, log_file_logger_prop)
 # Allow all processes to connect to PRNG seeder daemon.
 unix_socket_connect(domain, prng_seeder, prng_seeder)
 
+# Allow reading proc dir except for the sdk sandbox
+allow { domain -sdk_sandbox } proc:dir r_dir_perms;
+
+# Allow reads to /proc/cpuinfo except the sdk sandbox
+allow { domain -sdk_sandbox } proc_cpuinfo:file r_file_perms;
+
 # No domains other than a select few can access the misc_block_device. This
 # block device is reserved for OTA use.
 # Do not assert this rule on userdebug/eng builds, due to some devices using

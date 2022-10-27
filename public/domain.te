@@ -22,7 +22,6 @@ allow domain self:process {
     setrlimit
 };
 allow domain self:fd use;
-allow domain proc:dir r_dir_perms;
 allow domain proc_net_type:dir search;
 r_dir_file(domain, self)
 allow domain self:{ fifo_file file } rw_file_perms;
@@ -274,9 +273,6 @@ allow domain vendor_data_file:dir { getattr search };
 
 # required by the dynamic linker
 allow domain proc:lnk_file { getattr read };
-
-# /proc/cpuinfo
-allow domain proc_cpuinfo:file r_file_perms;
 
 # /dev/cpu_variant:.*
 allow domain dev_cpu_variant:file r_file_perms;

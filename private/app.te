@@ -446,7 +446,7 @@ allow { appdomain -isolated_app } hal_renderscript_hwservice:hwservice_manager f
 allow appdomain same_process_hal_file:file { execute read open getattr map };
 
 # TODO: switch to meminfo service
-allow appdomain proc_meminfo:file r_file_perms;
+allow { appdomain -sdk_sandbox } proc_meminfo:file r_file_perms;
 
 # For app fuse.
 allow appdomain app_fuse_file:file { getattr read append write map };
