@@ -1,0 +1,20 @@
+###
+### A domain for sandboxing the remote key provisioning daemon
+### app that is shipped via mainline.
+###
+typeattribute rkpd_app coredomain;
+
+app_domain(rkpd_app)
+
+# RKPD needs to be able to call the remote provisioning HALs
+hal_client_domain(rkpd_app, hal_keymint)
+
+# Grant access to certain system properties related to RKP
+get_prop(rkpd_app, device_config_remote_key_provisioning_native_prop)
+
+# Grant access to the normal services that are available to all apps
+allow rkpd_app app_api_service:service_manager find;
+
+# Grant access to statsd
+allow rkpd_app statsmanager_service:service_manager find;
+binder_call(rkpd_app, statsd)
