@@ -106,6 +106,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3de810e_118a4c58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-10-28T14:10:32Z",
+      "side": 1,
+      "message": "That\u0027s fine (and the CompOs tests are all passing). All payloads are allowed to run a vsock server, and it\u0027s ok for CompOs to directly use librpcbinder.\n\nCompOs is now using AVmPayload_notifyPayloadReady(), whereas previously it was directly connecting to VS. And it\u0027s that outbound connection that I have now blocked.\n\nCompOs has its own domain, but it has the microdroid_payload attribute so the neverallow rule here applies to it.",
+      "parentUuid": "05dae223_57c1cc01",
+      "revId": "960e1868233bea7d1629000456395fb4aa985dd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56661b7b_b00c402d",
