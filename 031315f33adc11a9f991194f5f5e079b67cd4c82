@@ -94,6 +94,30 @@
       },
       "revId": "031315f33adc11a9f991194f5f5e079b67cd4c82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eee25593_a0621aeb",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-10-31T00:32:30Z",
+      "side": 1,
+      "message": "I think vendor_configs_file are different from apex_info_file. The former are static while the latter is generated at runtime. The latter file is supposed to be an impl detail of apexd and its close friends like linkerconfig. \n\nDoes VintfDeviceInfo have to read apex_info_file? If so, for what purpose?",
+      "parentUuid": "8c32ca04_708e6497",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 31
+      },
+      "revId": "031315f33adc11a9f991194f5f5e079b67cd4c82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
