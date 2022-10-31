@@ -118,6 +118,30 @@
       },
       "revId": "031315f33adc11a9f991194f5f5e079b67cd4c82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76e7f56f_921e9f55",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2022-10-31T07:14:46Z",
+      "side": 1,
+      "message": "Linkerconfig files are also open to domain, hence, untrusted_app_25 can read them.\n\n\u003e Does VintfDeviceInfo have to read apex_info_file? If so, for what purpose?\n\nI guess the test is about to read VINTF from device. This has been safe, but since Rob\u0027s change to libvintf, reading VINTF requires reading apex_info_file as well to identify the source of vintf fragments from apexes.",
+      "parentUuid": "eee25593_a0621aeb",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 31
+      },
+      "revId": "031315f33adc11a9f991194f5f5e079b67cd4c82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
