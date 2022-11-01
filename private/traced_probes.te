@@ -103,6 +103,15 @@ userdebug_or_eng(`read_logd(traced_probes)')
 # Allow traced_probes to talk to statsd for logging metrics.
 unix_socket_send(traced_probes, statsdw, statsd)
 
+# Allow traced_probes to talk to statsd to retvire statsd atoms and insert them
+# into the trace.
+binder_call(traced_probes, statsd)
+allow traced_probes stats_service:service_manager find;
+allow statsd traced_probes:fd use;
+allow statsd traced_probes:fifo_file { read write };
+allow traced_probes statsd:fd use;
+allow traced_probes statsd:fifo_file { read write };
+
 ###
 ### Neverallow rules
 ###
