@@ -34,3 +34,6 @@ binder_call(update_engine, apexd)
 # let this domain use the hal service
 binder_use(update_engine)
 hal_client_domain(update_engine, hal_bootctl)
+
+allow update_engine self:capability ipc_lock;
+allow update_engine self:anon_inode create_file_perms;
