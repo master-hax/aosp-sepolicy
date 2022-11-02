@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c202457_c40ceb4d",
+        "filename": "public/app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2022-11-02T00:51:20Z",
+      "side": 1,
+      "message": "Does the app explicitly need access to that device or is it just a consequence of the current policy?\n\nFor the latter, maybe we should simply update the keymint policy to grant access to tee_device only for the server-side of the HAL:\n```\nallow hal_keymint_server tee_device:chr_file rw_file_perms\n```\n\n(note the extra `_server` suffix here).",
+      "revId": "8573c81327d86438553cd3ce6958333e7409e8f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
