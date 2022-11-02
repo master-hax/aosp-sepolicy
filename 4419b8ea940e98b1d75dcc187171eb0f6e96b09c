@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bbe96e3_4a92bc1d",
+        "filename": "microdroid/system/private/compos_key_helper.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-11-02T15:12:36Z",
+      "side": 1,
+      "message": "Ah, you are right. I\u0027d forgotten that it now talks back to M_M to get the DICE secrets.",
+      "parentUuid": "5dc6929e_fcfd74a8",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 76
+      },
+      "revId": "4419b8ea940e98b1d75dcc187171eb0f6e96b09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4fd8b009_763d6087",
@@ -215,6 +239,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "131ad7fd_53c9f72a",
+        "filename": "microdroid/system/private/microdroid_manager.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-11-02T15:12:36Z",
+      "side": 1,
+      "message": "\u003e Currently I think we need microdroid manager to create the socket, \n\nIf you get init to create the socket as part of starting the microdroid_manager socket it should all work. The DICE stuff still lives in MM.\nIt\u0027s just that init creates the sock_file for you and then creates and binds a socket to it and then makes the fd available for you to listen on via a call to android_get_control_socket. (See the tombstoned example, and cs/android/system/core/init/util.cpp?l\u003d92.) There\u0027s some Rust wrapper code for that here: system/security/prng_seeder/src/cutils_socket.rs.\nOf course that means that the RpcServer.cpp would need to look different - you get given a pre-bound socket rather than a pathname.",
+      "parentUuid": "8a80b5b8_c80f1d7c",
+      "range": {
+        "startLine": 115,
+        "startChar": 51,
+        "endLine": 115,
+        "endChar": 59
+      },
+      "revId": "4419b8ea940e98b1d75dcc187171eb0f6e96b09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2414f6e_7ed0323f",
         "filename": "microdroid/system/private/microdroid_payload.te",
         "patchSetId": 2
@@ -297,6 +345,30 @@
       "side": 1,
       "message": "It doesn\u0027t work when changing to \n```\nallow microdroid_payload socket_device:sock_file { getattr };\nunix_socket_connect(microdroid_payload, vm_payload_service, microdroid_manager)\n```\nThat causes errors like\n```\n11-02 12:43:38.746  3652  3833 I MicrodroidTests: Console: [    1.112650][   T21] audit: type\u003d1400 audit(1667389418.352:4): avc:  denied  { write } for  pid\u003d120 comm\u003d\"microdroid_laun\" name\u003d\"vm_payload_service\" dev\u003d\"tmpfs\" ino\u003d329 scontext\u003du:r:microdroid_app:s0 tcontext\u003du:object_r:socket_device:s0 tclass\u003dsock_file permissive\u003d0\n11-02 12:43:38.748  3652  3852 I MicrodroidTests: Payload: libc: Access denied finding property \"persist.sys.timezone\"\n11-02 12:43:38.749  3652  3834 I MicrodroidTests: Log: RpcSession E 11-02 11:43:38   120   120] Could not connect socket at path \u0027/dev/socket/vm_payload_service\u0027: Permission denied\n11-02 12:43:38.749  3652  3834 I MicrodroidTests: Log: microdroid_launcher E 11-02 11:43:38   120   120 libbinder_rpc_unstable.cpp:107] Failed to set up Unix Domain RPC client with path: /dev/socket/vm_payload_service error: -13 (Permission denied)\n11-02 12:43:38.749  3652  3834 I MicrodroidTests: Log: vm_payload E 11-02 11:43:38   120   120] vm_payload::vm_payload_service: Failed to connect to service: /dev/socket/vm_payload_service\n11-02 12:43:38.749  3652  3834 I MicrodroidTests: Log:\n```\n----\nI also tried to drop `getattr`, then I got the error\n```\navc:  denied  { getattr } for  pid\u003d120 comm\u003d\"microdroid_laun\" path\u003d\"/dev/socket/vm_payload_service\" dev\u003d\"tmpfs\" ino\u003d329 scontext\u003du:r:microdroid_app:s0 tcontext\u003du:object_r:socket_device:s0 tclass\u003dsock_file permissive\u003d0\n```",
       "parentUuid": "12b906df_b1237fdd",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 0
+      },
+      "revId": "4419b8ea940e98b1d75dcc187171eb0f6e96b09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcc024d5_0006c28f",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-11-02T15:12:36Z",
+      "side": 1,
+      "message": "\u003e avc:  denied  { write } for  pid\u003d120 comm\u003d\"microdroid_laun\" name\u003d\"vm_payload_service\" dev\u003d\"tmpfs\" ino\u003d329 scontext\u003du:r:microdroid_app:s0 tcontext\u003du:object_r:socket_device:s0 tclass\u003dsock_file permissive\u003d0\n\nSo the reason that is failing is because the label of /dev/socket/vm_payload_service is still socket_device instead of being vm_payload_service_socket.\n\nAnd that\u0027s another reason why we should get init to create the socket file \u0026 socket; it sets the label to the right thing.\n\nI\u0027m still puzzled by the getattr. I can understand the denial, but does it actually stop anything working? If it is needed, it\u0027s fine, should be harmless.",
+      "parentUuid": "2d88b58b_b87fe4ec",
       "range": {
         "startLine": 55,
         "startChar": 0,
