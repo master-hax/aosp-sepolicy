@@ -261,6 +261,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6998f37a_5ffd65a5",
+        "filename": "microdroid/system/private/microdroid_manager.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2022-11-03T12:47:39Z",
+      "side": 1,
+      "message": "I see. I thought you wanted to create a separate binary to register vm_payload_service like we do today for authfs_service[1]. Thanks for the clarification!\n\n[1] https://cs.android.com/android/platform/superproject/+/master:packages/modules/Virtualization/authfs/service/authfs_service.rc",
+      "parentUuid": "131ad7fd_53c9f72a",
+      "range": {
+        "startLine": 115,
+        "startChar": 51,
+        "endLine": 115,
+        "endChar": 59
+      },
+      "revId": "4419b8ea940e98b1d75dcc187171eb0f6e96b09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2414f6e_7ed0323f",
@@ -298,6 +322,30 @@
       "side": 1,
       "message": "Most MicrodroidTests do not pass when changing this to vm_payload_service_socket, I got the selinux errors (detailed in the comment below)",
       "parentUuid": "c2414f6e_7ed0323f",
+      "range": {
+        "startLine": 55,
+        "startChar": 25,
+        "endLine": 55,
+        "endChar": 38
+      },
+      "revId": "4419b8ea940e98b1d75dcc187171eb0f6e96b09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e598740_ec6a4695",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2022-11-03T12:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ec5d156_80f5966a",
       "range": {
         "startLine": 55,
         "startChar": 25,
@@ -369,6 +417,30 @@
       "side": 1,
       "message": "\u003e avc:  denied  { write } for  pid\u003d120 comm\u003d\"microdroid_laun\" name\u003d\"vm_payload_service\" dev\u003d\"tmpfs\" ino\u003d329 scontext\u003du:r:microdroid_app:s0 tcontext\u003du:object_r:socket_device:s0 tclass\u003dsock_file permissive\u003d0\n\nSo the reason that is failing is because the label of /dev/socket/vm_payload_service is still socket_device instead of being vm_payload_service_socket.\n\nAnd that\u0027s another reason why we should get init to create the socket file \u0026 socket; it sets the label to the right thing.\n\nI\u0027m still puzzled by the getattr. I can understand the denial, but does it actually stop anything working? If it is needed, it\u0027s fine, should be harmless.",
       "parentUuid": "2d88b58b_b87fe4ec",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 0
+      },
+      "revId": "4419b8ea940e98b1d75dcc187171eb0f6e96b09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fecc2930_f56a3b99",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2022-11-03T12:47:39Z",
+      "side": 1,
+      "message": "Yeah, creating the socket in init fixes the problem.\n\nI think getattr is needed in throwing error. We don\u0027t need it when things work.",
+      "parentUuid": "fcc024d5_0006c28f",
       "range": {
         "startLine": 55,
         "startChar": 0,
