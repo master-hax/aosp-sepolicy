@@ -42,3 +42,5 @@ get_prop(odrefresh, device_config_runtime_native_boot_prop)
 
 # Silently ignore the write to properties, e.g. for setting boot animation progress.
 dontaudit odrefresh property_socket:sock_file write;
+
+unix_socket_connect(odrefresh, authfs_service, authfs_service)

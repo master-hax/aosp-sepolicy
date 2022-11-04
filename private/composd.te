@@ -33,5 +33,8 @@ allow composd compos_fd_server:process signal;
 get_prop(composd, dalvik_config_prop)
 get_prop(composd, device_config_runtime_native_boot_prop)
 
+# Communicate with authfs_service
+unix_socket_connect(composd, authfs_service, authfs_service)
+
 # We never create any artifact files directly
 neverallow composd apex_art_data_file:file ~unlink;
