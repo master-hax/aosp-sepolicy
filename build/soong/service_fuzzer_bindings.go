@@ -101,6 +101,7 @@ var (
 		"android.hardware.wifi.hostapd.IHostapd/default":                          []string{},
 		"android.hardware.wifi.supplicant.ISupplicant/default":                    []string{},
 		"android.frameworks.stats.IStats/default":                                 []string{},
+		"android.frameworks.sensorservice.ISensorManager/default":                 []string{},
 		"android.se.omapi.ISecureElementService/default":                          []string{},
 		"android.system.keystore2.IKeystoreService/default":                       []string{},
 		"android.system.net.netd.INetd/default":                                   []string{},
