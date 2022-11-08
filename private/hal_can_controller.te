@@ -1,0 +1,8 @@
+# AIDL HAL for CAN buses (ICanController)
+
+binder_call(hal_can_controller_client, hal_can_controller_server)
+
+hal_attribute_service(hal_can_controller, hal_can_controller_service)
+binder_call(hal_can_controller, servicemanager)
+binder_call(hal_can_controller, canhalconfigurator)
+
