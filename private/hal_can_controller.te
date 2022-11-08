@@ -1,0 +1,22 @@
+# AIDL HAL for CAN buses (ICanController)
+
+binder_call(hal_can_controller_client, hal_can_controller_server)
+
+hal_attribute_service(hal_can_controller, hal_can_controller_service)
+binder_call(hal_can_controller, servicemanager)
+
+allow hal_can_controller self:global_capability_class_set net_admin;
+allow hal_can_controller self:netlink_generic_socket create_socket_perms_no_ioctl;
+allow hal_can_controller self:netlink_route_socket { nlmsg_readpriv nlmsg_write };
+
+allow hal_can_controller sysfs:dir r_dir_perms;
+
+allow hal_can_controller usb_serial_device:chr_file { ioctl read write open };
+allowxperm hal_can_controller usb_serial_device:chr_file ioctl {
+    TCGETS
+    TCSETSW
+    TIOCGSERIAL
+    TIOCSSERIAL
+    TIOCSETD
+    SIOCGIFNAME
+};

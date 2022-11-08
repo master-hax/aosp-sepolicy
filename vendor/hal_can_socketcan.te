@@ -13,6 +13,8 @@ allow hal_can_socketcan self:netlink_route_socket { create bind write nlmsg_writ
 allow hal_can_socketcan self:udp_socket { create ioctl };
 allowxperm hal_can_socketcan self:udp_socket ioctl {
     SIOCGIFINDEX
+    SIOCGIFFLAGS
+    SIOCSIFFLAGS
 };
 
 # Communicating with SocketCAN interfaces and bringing them up/down
