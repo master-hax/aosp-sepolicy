@@ -7,3 +7,16 @@ hal_attribute_hwservice(hal_can_controller, hal_can_controller_hwservice)
 binder_call(hal_can_bus_client, hal_can_bus_server)
 binder_call(hal_can_bus_server, hal_can_bus_client)
 hal_attribute_hwservice(hal_can_bus, hal_can_bus_hwservice)
+
+allow hal_can_controller sysfs:dir r_dir_perms;
+
+allow hal_can_controller usb_serial_device:chr_file { ioctl read write open };
+allowxperm hal_can_controller usb_serial_device:chr_file ioctl {
+    TCGETS
+    TCSETSW
+    TIOCGSERIAL
+    TIOCSSERIAL
+    TIOCSETD
+    SIOCGIFNAME
+};
+
