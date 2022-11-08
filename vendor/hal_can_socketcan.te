@@ -13,6 +13,8 @@ allow hal_can_socketcan self:netlink_route_socket { create bind write nlmsg_writ
 allow hal_can_socketcan self:udp_socket { create ioctl };
 allowxperm hal_can_socketcan self:udp_socket ioctl {
     SIOCGIFINDEX
+    SIOCGIFFLAGS
+    SIOCSIFFLAGS
 };
 
 # Communicating with SocketCAN interfaces and bringing them up/down
@@ -23,6 +25,7 @@ allowxperm hal_can_socketcan self:can_socket ioctl {
 };
 
 # Un-publishing ICanBus interfaces
+# TODO(b/261871477): Once the HIDL CAN HAL is removed, we can delete this.
 allow hal_can_socketcan hidl_manager_hwservice:hwservice_manager find;
 
 allow hal_can_socketcan sysfs:dir r_dir_perms;
