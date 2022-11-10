@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f75e202d_cf9bdd17",
+        "filename": "public/shell.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-11-10T15:57:40Z",
+      "side": 1,
+      "message": "What if we put the neverallow in hal_keymint.te?\n\n```\nneverallow { \n  *\n  -keystore\n} {\n  hal_keymint_service\n  hal_secureclock_service\n  hal_sharedsecret_service\n}:service_manager find;\n```\n\nDoes this syntax do what I think it does? (not allow anyone but keystore to find these).",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 23
+      },
+      "revId": "4d3dcd64d38339b06668c2e7273750e403d88bed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
