@@ -166,6 +166,30 @@
       },
       "revId": "031315f33adc11a9f991194f5f5e079b67cd4c82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a784f0f7_f6db8945",
+        "filename": "private/untrusted_app_25.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2022-11-10T07:39:45Z",
+      "side": 1,
+      "message": "Agreed. Allowing untrusted_app_25 to read apex-info-list.xml looks weird. \n\nInstead, I changed the source to \"domain\". I think allowing \"domain\" to read apex-info-list.xml doesn\u0027t cause any harm since the file itself only provides list of apexes. Relying on it isn\u0027t safe but reading it via APIs should be okay.",
+      "parentUuid": "0ba78636_22dcabbc",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 31
+      },
+      "revId": "031315f33adc11a9f991194f5f5e079b67cd4c82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
