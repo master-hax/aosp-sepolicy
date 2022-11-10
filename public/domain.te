@@ -212,6 +212,11 @@ allow domain vndk_sp_file:file { execute read open getattr map };
 allow domain vendor_configs_file:dir r_dir_perms;
 allow domain vendor_configs_file:file { read open getattr map };
 
+# All domains reading vendor_configs_file can access /apex/apex-info-list.xml as well.
+# It's because vendor configs can be in vendor apexes and apex-info-list tells which
+# apex belongs to vendor.
+use_apex_info(domain)
+
 full_treble_only(`
     # Allow all domains to be able to follow /system/vendor and/or
     # /vendor/odm symlinks.
