@@ -22,6 +22,30 @@
       },
       "revId": "4d3dcd64d38339b06668c2e7273750e403d88bed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaa15bee_0cc4e23f",
+        "filename": "public/shell.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-10T19:25:55Z",
+      "side": 1,
+      "message": "Yes, although is that behavior correct for secureclock and sharedsecret? I don\u0027t have enough context on those.\n\nAnd as a nit I think that would go into `domain.te` with\n\n```\nneverallow {\n  domain\n  -keystore\n} ...\n```",
+      "parentUuid": "f75e202d_cf9bdd17",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 23
+      },
+      "revId": "4d3dcd64d38339b06668c2e7273750e403d88bed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
