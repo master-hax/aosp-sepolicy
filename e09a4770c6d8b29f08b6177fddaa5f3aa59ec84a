@@ -16,6 +16,24 @@
       "message": "Although this doesn\u0027t look unsafe, I feel a bit uncomfortable granting access to all processes just to satisfy the xTS tests.\n\nCan the check be made via adb shell? If part of the the tests can be driven from the host, can it be a better way?\n\nAdding jeffv@ as we had a similar discussion at https://android-review.git.corp.google.com/c/platform/system/sepolicy/+/2272967/4/public/domain.te",
       "revId": "e09a4770c6d8b29f08b6177fddaa5f3aa59ec84a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "440715db_aa328a2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-11-14T10:53:14Z",
+      "side": 1,
+      "message": "This does seem overly broad. Can we just grant access to shell and test via a hostside test?",
+      "parentUuid": "a7bc619b_7466f6ff",
+      "revId": "e09a4770c6d8b29f08b6177fddaa5f3aa59ec84a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
