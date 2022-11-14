@@ -84,6 +84,10 @@ unix_socket_connect(virtualizationservice, tombstoned_crash, tombstoned)
 allow virtualizationservice tombstone_data_file:file { append getattr };
 allow virtualizationservice tombstoned:fd use;
 
+# Allow reading files under /proc/[crosvm pid]/, for collecting CPU & memory usage inside VM.
+allow virtualizationservice crosvm:file r_file_perms;
+allow virtualizationservice crosvm:dir r_dir_perms;
+
 neverallow {
   domain
   -init
