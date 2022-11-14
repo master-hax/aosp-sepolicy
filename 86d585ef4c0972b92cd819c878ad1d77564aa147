@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b00e045b_212e8438",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1471,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-11-14T08:46:54Z",
+      "side": 1,
+      "message": "nit; \"adaptive_haptics.enabled\" rather than \"adaptive_haptics_enable\" looks consistent, compared to other properties",
+      "range": {
+        "startLine": 1471,
+        "startChar": 13,
+        "endLine": 1471,
+        "endChar": 36
+      },
+      "revId": "86d585ef4c0972b92cd819c878ad1d77564aa147",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffd08855_ff04ee37",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1471,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-11-14T08:46:54Z",
+      "side": 1,
+      "message": "Can we remove \"sys.\" ?",
+      "range": {
+        "startLine": 1471,
+        "startChar": 0,
+        "endLine": 1471,
+        "endChar": 4
+      },
+      "revId": "86d585ef4c0972b92cd819c878ad1d77564aa147",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66780357_a69fe330",
+        "filename": "private/system_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-11-14T08:46:54Z",
+      "side": 1,
+      "message": "If system_app is the only domain writing this prop, consider adding neverallow rules.\n\n    neverallow { domain -init -system_app } adaptive_haptics_prop:property_service set;",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 43
+      },
+      "revId": "86d585ef4c0972b92cd819c878ad1d77564aa147",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed877e2c_a2e18a40",
+        "filename": "private/system_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-11-14T08:46:54Z",
+      "side": 1,
+      "message": "Which apps are writing this property? Are there any more specific domains (rather than system_app which includes all \"system apps\")?",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 19
+      },
+      "revId": "86d585ef4c0972b92cd819c878ad1d77564aa147",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
