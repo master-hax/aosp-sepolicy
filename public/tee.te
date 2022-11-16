@@ -8,4 +8,6 @@ type tee_device, dev_type;
 
 allow tee fingerprint_vendor_data_file:dir rw_dir_perms;
 allow tee fingerprint_vendor_data_file:file create_file_perms;
-
+allow tee block_device:dir search;
+allow tee tee_data_file:lnk_file read;
+allow tee vd_device:blk_file { open read write getattr ioctl};
