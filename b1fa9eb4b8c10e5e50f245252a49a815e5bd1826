@@ -22,6 +22,30 @@
       },
       "revId": "b1fa9eb4b8c10e5e50f245252a49a815e5bd1826",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89a68450_5feacf12",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-11-17T13:25:26Z",
+      "side": 1,
+      "message": "Umm, the motivation here was\n\n1) I just tried /dev/null for stdio, but couldn\u0027t see any outputs of payload\n2) I found that stdio proxy is not working.\n3) While debugging I added this to see stderr of microdroid launcher, to see where it fails while setting up the proxy\n\nHow about adding a TODO comment like \"remove this when stdio proxy works\"? Or do you think we can just ignore the outputs of microdroid launcher?",
+      "parentUuid": "0442df13_9dfa9629",
+      "range": {
+        "startLine": 67,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 24
+      },
+      "revId": "b1fa9eb4b8c10e5e50f245252a49a815e5bd1826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
