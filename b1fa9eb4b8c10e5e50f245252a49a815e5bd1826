@@ -46,6 +46,30 @@
       },
       "revId": "b1fa9eb4b8c10e5e50f245252a49a815e5bd1826",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a1efc25_8fcd98c1",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-11-17T14:10:51Z",
+      "side": 1,
+      "message": "Well, I\u0027d like to get rid of stdio proxy.\nIn the meantime, can we make microdroid launcher write to logcat instead of stdout?\n\n(Or have mm redirect its stdout to logs itself? Over in C++ we have logwrap_fork_execvp for that, since it\u0027s a fairly common need.)",
+      "parentUuid": "89a68450_5feacf12",
+      "range": {
+        "startLine": 67,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 24
+      },
+      "revId": "b1fa9eb4b8c10e5e50f245252a49a815e5bd1826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
