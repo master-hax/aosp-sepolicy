@@ -342,6 +342,7 @@ var (
 		"radio.phonesubinfo":           EXCEPTION_NO_FUZZER,
 		"radio.phone":                  EXCEPTION_NO_FUZZER,
 		"radio.sms":                    EXCEPTION_NO_FUZZER,
+		"remote_provisioning":          EXCEPTION_NO_FUZZER,
 		"rcs":                          EXCEPTION_NO_FUZZER,
 		"reboot_readiness":             EXCEPTION_NO_FUZZER,
 		"recovery":                     EXCEPTION_NO_FUZZER,
