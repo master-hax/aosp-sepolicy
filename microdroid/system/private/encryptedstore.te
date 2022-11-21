@@ -10,7 +10,7 @@ use_bootstrap_libs(encryptedstore)
 r_dir_file(encryptedstore, block_device)
 
 # encryptedstore accesses /dev/vd* block device file.
-allow encryptedstore vd_device:blk_file r_file_perms;
+allow encryptedstore vd_device:blk_file rw_file_perms;
 
 # allow encryptedstore to create dm-crypt devices
 allow encryptedstore dm_device:{chr_file blk_file} rw_file_perms;
@@ -23,6 +23,12 @@ allow encryptedstore microdroid_manager:fd use;
 
 # allow encryptedstore to log to the kernel
 allow encryptedstore kmsg_device:chr_file w_file_perms;
+
+# For formatting encrypted storage device
+allow encryptedstore e2fs_exec:file {execute_no_trans rx_file_perms};
+
+# encryptedstore to mount on /mnt/ directory
+allow encryptedstore tmpfs:dir  {add_name create mounton write };
 
 # Only microdroid_manager can run encryptedstore
 neverallow { domain -microdroid_manager } encryptedstore:process { transition dyntransition };
