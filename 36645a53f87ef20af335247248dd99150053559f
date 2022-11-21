@@ -421,6 +421,30 @@
       },
       "revId": "36645a53f87ef20af335247248dd99150053559f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e34ac5ce_2dfde6d3",
+        "filename": "private/priv_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-11-21T07:08:11Z",
+      "side": 1,
+      "message": "I shouldn\u0027t have used vendor_app_file being allowed as a prior example.\n\nThe vendor zygote wouldn\u0027t solve the problem because it would still need access to platform-private files because zygote and the framework need them. Perhaps, a proper fix would be banning (and not supporting) APKs in the vendor partition, but we are too late.\n\nAnyway, an installer app having Read-only access to files (be it apk or apex) that it needs to update is NOT a Treble violation.",
+      "parentUuid": "5bcf1369_e1574c81",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 62
+      },
+      "revId": "36645a53f87ef20af335247248dd99150053559f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
