@@ -46,6 +46,9 @@ allow zipfuse microdroid_manager:fd use;
 # allow signalling when the mount is ready
 set_prop(zipfuse, microdroid_manager_zipfuse_prop)
 
+# allow zipfuse to write kmsg_debug (stdio_to_kmsg) inherited from microdroid_manager.
+allow zipfuse kmsg_debug_device:chr_file w_file_perms;
+
 # Only microdroid_manager can run zipfuse
 neverallow { domain -microdroid_manager } zipfuse:process { transition dyntransition };
 

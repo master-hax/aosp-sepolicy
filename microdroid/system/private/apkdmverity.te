@@ -35,5 +35,8 @@ allow apkdmverity kmsg_device:chr_file w_file_perms;
 # apkdmverity is forked from microdroid_manager
 allow apkdmverity microdroid_manager:fd use;
 
+# allow apkdmverity to write kmsg_debug (stdio_to_kmsg) inherited from microdroid_manager.
+allow apkdmverity kmsg_debug_device:chr_file w_file_perms;
+
 # Only microdroid_manager can run apkdmverity
 neverallow { domain -microdroid_manager } apkdmverity:process { transition dyntransition };
