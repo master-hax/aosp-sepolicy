@@ -397,6 +397,30 @@
       },
       "revId": "36645a53f87ef20af335247248dd99150053559f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bcf1369_e1574c81",
+        "filename": "private/priv_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-11-21T06:50:53Z",
+      "side": 1,
+      "message": "Isn\u0027t vendor_app_file being allowed just an artifact of all apps using the same zygote and how we can\u0027t (or at least don\u0027t) differentiate between apps installed on system and vendor? To do that we would either need a separate vendor zygote, or at least plumb through regular zygote the information about the app\u0027s origin, and then add an additional selector in seapp_contexts to allow differentiating in selinux policy. Anyway, I don\u0027t see us adding support for that so I guess we just need to approve this change, but it seems like a bug to me.",
+      "parentUuid": "9d85b449_55832285",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 62
+      },
+      "revId": "36645a53f87ef20af335247248dd99150053559f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
