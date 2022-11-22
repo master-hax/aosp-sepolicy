@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "047599c6_484d1260",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-11-22T12:19:09Z",
+      "side": 1,
+      "message": "mke2fs\n(What\u0027s the difference?)",
+      "range": {
+        "startLine": 9,
+        "startChar": 35,
+        "endLine": 9,
+        "endChar": 39
+      },
+      "revId": "8e72aa5c465f8b38822fca86e2566809c4941328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14248498_9cd77b6b",
+        "filename": "microdroid/system/private/e2fs.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-11-22T12:19:09Z",
+      "side": 1,
+      "message": "Can we have a one-line comment to explain what this is?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 30
+      },
+      "revId": "8e72aa5c465f8b38822fca86e2566809c4941328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2366a844_c541a3fa",
+        "filename": "microdroid/system/private/e2fs.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-11-22T12:19:09Z",
+      "side": 1,
+      "message": "Nit: No braces if there\u0027s only one",
+      "range": {
+        "startLine": 4,
+        "startChar": 16,
+        "endLine": 4,
+        "endChar": 29
+      },
+      "revId": "8e72aa5c465f8b38822fca86e2566809c4941328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0040c62_23686972",
+        "filename": "microdroid/system/private/e2fs.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-11-22T12:19:09Z",
+      "side": 1,
+      "message": "Comments on these would also be welcome",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 44
+      },
+      "revId": "8e72aa5c465f8b38822fca86e2566809c4941328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "918e959c_960ea14f",
+        "filename": "microdroid/system/private/e2fs.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-11-22T12:19:09Z",
+      "side": 1,
+      "message": "Note to self: At some point we should extract these common things to an attribute",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 41
+      },
+      "revId": "8e72aa5c465f8b38822fca86e2566809c4941328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7520546f_a57116da",
+        "filename": "microdroid/system/private/encryptedstore.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-11-22T12:19:09Z",
+      "side": 1,
+      "message": "Is there a need to have a separate domain for mkfs, rather than just running it in the encryptedstore domain?\nIt\u0027s definitely a good idea for encryptedstore to have its own domain, but is the fact it runs mkfs just an implemnetation detail?\n\n(Over in host sepolicy we have e2fs for when it is run by init, but vold just runs it directly: cs/android-internal/system/sepolicy/private/init.te?rcl\u003df0ea953e606735e1eb62c58f11c28e572637d3a5\u0026l\u003d8, cs/android-internal/system/sepolicy/public/vold.te?rcl\u003db0f5998f1d24bf5c83dc1df09dd7dd6673d1db6f\u0026l\u003d41)",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 50
+      },
+      "revId": "8e72aa5c465f8b38822fca86e2566809c4941328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1068728_4091af83",
+        "filename": "microdroid/system/private/encryptedstore.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-11-22T12:19:09Z",
+      "side": 1,
+      "message": "You shouldn\u0027t need this - we shouldn\u0027t let e2fs inherit this socket, it will never use it.\n(There was a bug, which Inseob fixed, iirc)",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 64
+      },
+      "revId": "8e72aa5c465f8b38822fca86e2566809c4941328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36b3508f_6d29eeb8",
+        "filename": "microdroid/system/private/encryptedstore.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-11-22T12:19:09Z",
+      "side": 1,
+      "message": "Why do you need both of these?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 46
+      },
+      "revId": "8e72aa5c465f8b38822fca86e2566809c4941328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d5fe078_11289f17",
+        "filename": "microdroid/system/private/encryptedstore.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-11-22T12:19:09Z",
+      "side": 1,
+      "message": "Uber-nit: Spaces inside braces, throughout",
+      "range": {
+        "startLine": 36,
+        "startChar": 31,
+        "endLine": 36,
+        "endChar": 33
+      },
+      "revId": "8e72aa5c465f8b38822fca86e2566809c4941328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
