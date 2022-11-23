@@ -70,6 +70,30 @@
       },
       "revId": "48ac5697b9bb06a37ee4b473353395163d6841f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "585b25ab_843fe33f",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1935515
+      },
+      "writtenOn": "2022-11-23T15:30:42Z",
+      "side": 1,
+      "message": "Ah, there is another CL aosp/2314919 which I didn\u0027t tag you on. Cuttlefish will set this new property from its vendor init file. It has to because only `ro.boot.` can be set via bootconfig. Hence that revealed that none of these properties were vendor_init settable (but should be). Sorry for the lack of context!",
+      "parentUuid": "0fc98394_23e4710e",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 53
+      },
+      "revId": "48ac5697b9bb06a37ee4b473353395163d6841f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
