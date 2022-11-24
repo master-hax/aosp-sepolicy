@@ -1,0 +1,86 @@
+type virtmgr_exec, system_file_type, exec_type, file_type;
+
+# When init runs a file labelled with virtmgr_exec, run it in the virtmgr domain.
+init_daemon_domain(virtmgr)
+
+# Let the virtmgr domain use Binder.
+binder_use(virtmgr)
+# ... and host a binder service
+binder_service(virtmgr)
+
+# Allow calling into the system server so that it can check permissions.
+binder_call(virtmgr, system_server)
+allow virtmgr permission_service:service_manager find;
+# Allow virtmgr to access "package_native" service for staged apex info.
+allow virtmgr package_native_service:service_manager find;
+
+## # Let the virtmgr domain register the virtualization_service with ServiceManager.
+## add_service(virtmgr, virtualization_service)
+
+# When virtmgr execs a file with the crosvm_exec label, run it in the crosvm domain.
+domain_auto_trans(virtmgr, crosvm_exec, crosvm)
+
+# Let virtmgr (and specifically its children) mlock VM memory and page tables.
+allow virtmgr self:capability sys_resource;
+
+# Let virtmgr kill crosvm.
+allow virtmgr crosvm:process sigkill;
+
+# Let virtmgr access its data directory.
+allow virtmgr virtualizationservice_data_file:file create_file_perms;
+allow virtmgr virtualizationservice_data_file:dir create_dir_perms;
+
+# Let virtmgr manage crosvm control sockets.
+allow virtmgr virtualizationservice_data_file:sock_file create_file_perms;
+
+# Allow to use fd (e.g. /dev/pts/0) inherited from adbd so that we can redirect output from
+# crosvm to the console
+allow virtmgr adbd:fd use;
+allow virtmgr adbd:unix_stream_socket { read write };
+
+# Let virtmgr read and write files from its various clients, but not open them
+# directly as they must be passed over Binder by the client.
+allow virtmgr apk_data_file:file { getattr read };
+# Write access is needed for mutable partitions like instance.img
+allow virtmgr {
+  app_data_file
+  apex_compos_data_file
+  privapp_data_file
+}:file { getattr read write };
+
+# shell_data_file is used for automated tests and manual debugging.
+allow virtmgr shell_data_file:file { getattr read write };
+
+# Allow virtmgr to read apex-info-list.xml and access the APEX files listed there.
+allow virtmgr apex_info_file:file r_file_perms;
+allow virtmgr apex_data_file:dir search;
+allow virtmgr staging_data_file:file r_file_perms;
+allow virtmgr staging_data_file:dir search;
+
+# Run derive_classpath in our domain
+allow virtmgr derive_classpath_exec:file rx_file_perms;
+allow virtmgr apex_mnt_dir:dir r_dir_perms;
+# Ignore harmless denials on /proc/self/fd
+dontaudit virtmgr self:dir write;
+
+# Let virtmgr to accept vsock connection from the guest VMs
+allow virtmgr self:vsock_socket { create_socket_perms_no_ioctl listen accept };
+
+# Allow virtmgr to read/write its own sysprop. Only the process can do so.
+set_prop(virtmgr, virtualizationservice_prop)
+
+# Allow virtmgr to inspect hypervisor capabilities.
+get_prop(virtmgr, hypervisor_prop)
+
+# Allow writing stats to statsd
+unix_socket_send(virtmgr, statsdw, statsd)
+
+# Allow virtualization service to talk to tombstoned to push guest tombstones
+unix_socket_connect(virtmgr, tombstoned_crash, tombstoned)
+
+# Append to tombstone files passed as fds from tombstoned
+allow virtmgr tombstone_data_file:file { append getattr };
+allow virtmgr tombstoned:fd use;
+
+# Allow reading files under /proc/[crosvm pid]/, for collecting CPU & memory usage inside VM.
+r_dir_file(virtmgr, crosvm);
