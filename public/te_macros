@@ -190,20 +190,26 @@ allow $1 virtualization_service:service_manager find;
 binder_call($1, virtualizationservice)
 # Let virtualizationservice call back to the client.
 binder_call(virtualizationservice, $1)
+# Transition to virtmgr when the client executes it.
+domain_auto_trans($1, virtmgr_exec, virtmgr)
 # Let the client pass file descriptors to virtualizationservice and on
 # to crosvm
-allow { virtualizationservice crosvm } $1:fd use;
-# Allow piping console log to the client
-allow { virtualizationservice crosvm } $1:fifo_file { getattr write};
+allow { virtualizationservice virtmgr crosvm } $1:fd use;
+# Allow piping console log to the client, and signalling readiness over a pipe.
+allow { virtualizationservice virtmgr crosvm } $1:fifo_file { getattr read write };
 # Allow client to read/write vsock created by virtualizationservice to
 # communicate with the VM that it created. Notice that we do not grant
 # permission to create a vsock; the client can only connect to VMs
 # that it owns.
-allow $1 virtualizationservice:vsock_socket { getattr getopt read write };
+allow $1 { virtualizationservice virtmgr }:vsock_socket { getattr getopt read write };
 # Allow client to inspect hypervisor capabilities
 get_prop($1, hypervisor_prop)
 # Allow client to read (but not open) the crashdump provided by virtualizationservice
 allow $1 virtualizationservice_data_file:file { getattr read };
+# Allow virtmgr to communicate over UDS with the client.
+allow virtmgr $1:unix_stream_socket { getattr read write };
+# Allow client to terminate virtmgr. This is also used for parent-death notification.
+allow $1 virtmgr:process signal;
 ')
 
 #####################################
