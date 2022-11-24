@@ -70,6 +70,30 @@
       },
       "revId": "0065888fe751879514350c66e132386c9ceb7646",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04c90df0_9e14b6e9",
+        "filename": "private/init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1935515
+      },
+      "writtenOn": "2022-11-24T05:20:24Z",
+      "side": 0,
+      "message": "This change was motivated by aosp/2314919 where the new property is set by vendor_init, but vendor_init was unable to read the necessary `ro.boot.hypervisor.*`. Since I need to provide vendor_init read access to those properties, it seemed reasonable to allow vendor_init to write them too, as an alternative to setting via bootloader (perhaps some vendor would prefer to set them in their init scripts?).\n\nIn short, I can make do with merely adding read access to `ro.boot.hypervisor.*` for vendor_init if this is preferable.",
+      "parentUuid": "3ce1ba48_91ed70c9",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 65
+      },
+      "revId": "0065888fe751879514350c66e132386c9ceb7646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
