@@ -334,6 +334,12 @@ with_asan(`allow domain system_asan_options_file:file r_file_perms;')
 allow domain apex_mnt_dir:dir { getattr search };
 allow domain apex_mnt_dir:lnk_file r_file_perms;
 
+# All domains get access to /apex/vendor-apex-name-list.txt.
+# The file is used by libvintf to get the list of vendor apexes when reading device manifests.
+# It only contains the vendor apex names and is safer to expose than /apex/apex-info-list.xml,
+# which contains much more information (e.g. version).
+allow domain apex_name_list_file:file r_file_perms;
+
 ###
 ### neverallow rules
 ###
