@@ -3,6 +3,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a156df09_a5eac6ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-11-30T10:47:42Z",
+      "side": 1,
+      "message": "I strongly recommend against doing this. We reviewers don\u0027t know what permissions are actually necessary.",
+      "range": {
+        "startLine": 10,
+        "startChar": 30,
+        "endLine": 12,
+        "endChar": 67
+      },
+      "revId": "a543432fe04f0d111326d49cc052fd83dc095e85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f746c58_5a2d78d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-11-30T10:47:42Z",
+      "side": 1,
+      "message": "Should this be available for all apps? What about isolated_app? How confident are we in the multi-user separation working correctly here? Does virtmgr inherit the categories from the parent app? Should we require that the parent app uses the levelFrom\u003dall in order to ensure that selinux is enforcing per-app VM separation?",
+      "revId": "a543432fe04f0d111326d49cc052fd83dc095e85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a31d9bbf_f4e8825c",
         "filename": "public/virtmgr.te",
         "patchSetId": 3
@@ -14,6 +54,30 @@
       "writtenOn": "2022-11-30T02:22:46Z",
       "side": 1,
       "message": "I think we can try moving this to `private/virtmgr.te`, and then revert `private/compat/33.0` change.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 33
+      },
+      "revId": "a543432fe04f0d111326d49cc052fd83dc095e85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec9b8483_d930decb",
+        "filename": "public/virtmgr.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-11-30T10:47:42Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "a31d9bbf_f4e8825c",
       "range": {
         "startLine": 1,
         "startChar": 0,
