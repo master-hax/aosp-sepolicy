@@ -52,3 +52,10 @@ neverallow {
     -init
     -microdroid_manager
 } microdroid_config_prop:file no_rw_file_perms;
+
+# Only microdroid_manager & init can set the microdroid_lifecycle_prop sysprops
+neverallow {
+  domain
+  -init
+  -microdroid_manager
+} microdroid_lifecycle_prop:property_service set;
