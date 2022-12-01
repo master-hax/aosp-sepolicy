@@ -34,6 +34,10 @@ neverallow domain bpffs_type:dir ~{ add_name create getattr mounton open read re
 neverallow { domain -bpfloader } bpffs_type:file { map open setattr };
 neverallow { domain -bpfloader } bpffs_type:file { create getattr rename };
 neverallow { domain -bpfloader -gpuservice -lmkd -mediaprovider_app -netd -netutils_wrapper                -system_server } fs_bpf:file               read;
+<<<<<<< PATCH SET (62c456 add fs_bpf_loader selinux type)
+neverallow { domain -bpfloader                                                                                            } fs_bpf_loader:file        read;
+=======
+>>>>>>> BASE      (ebb45f remove init/vendor_init access to bpffs_type)
 neverallow { domain -bpfloader                                                              -network_stack                } fs_bpf_net_private:file   read;
 neverallow { domain -bpfloader                                                              -network_stack -system_server } fs_bpf_net_shared:file    read;
 neverallow { domain -bpfloader                                      -netd                   -network_stack -system_server } fs_bpf_netd_readonly:file read;
@@ -46,6 +50,8 @@ neverallow { domain -bpfloader } bpffs_type:lnk_file ~read;
 neverallow { domain -bpfdomain } bpffs_type:lnk_file read;
 
 neverallow { domain -bpfloader } *:bpf { map_create prog_load };
+neverallow { domain -bpfloader } fs_bpf_loader:bpf *;
+neverallow { domain -bpfloader } fs_bpf_loader:file open;
 
 neverallow {
   domain
