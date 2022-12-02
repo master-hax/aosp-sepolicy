@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4913807e_42830d6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2022-12-02T10:00:18Z",
+      "side": 1,
+      "message": "FAILED: out/soong/.intermediates/system/sepolicy/sepolicy_neverallows/policy\nout/host/linux-x86/bin/checkpolicy -M -c 30 -o out/soong/.intermediates/system/sepolicy/sepolicy_neverallows/policy out/soong/.intermediates/system/sepolicy/sepolicy_neverallows.checkpolicy.conf/android_common/sepolicy_neverallows.checkpolicy.conf # hash of input list: 3dd72144341d878094bd899c418dfc99c9016b3792c41283bd1afc203eecd905\nlibsepol.report_failure: neverallow on line 52 of system/sepolicy/private/bpfloader.te (or line 43803 of out/soong/.intermediates/system/sepolicy/sepolicy_neverallows.checkpolicy.conf/android_common/sepolicy_neverallows.checkpolicy.conf) violated by allow vendor_init fs_bpf_loader:file { open };\nlibsepol.report_failure: neverallow on line 52 of system/sepolicy/private/bpfloader.te (or line 43803 of out/soong/.intermediates/system/sepolicy/sepolicy_neverallows.checkpolicy.conf/android_common/sepolicy_neverallows.checkpolicy.conf) violated by allow init fs_bpf_loader:file { open };\nlibsepol.check_assertions: 2 neverallow failures occurred\nError while expanding policy",
+      "revId": "9fec84cfffce04cdaf84ab212dffc095c4f1e812",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
