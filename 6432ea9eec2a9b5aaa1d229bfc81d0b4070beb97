@@ -16,6 +16,24 @@
       "message": "looks like this fixed init, just vendor_init left.\n\nFAILED: out/soong/.intermediates/system/sepolicy/plat_policy_for_vendor.cil/android_common/plat_policy_for_vendor.cil\nout/host/linux-x86/bin/checkpolicy -C -M -c 30 -o out/soong/.intermediates/system/sepolicy/plat_policy_for_vendor.cil/android_common/plat_policy_for_vendor.cil out/soong/.intermediates/system/sepolicy/plat_policy_for_vendor.conf/android_common/plat_policy_for_vendor.conf \u0026\u0026 cat system/sepolicy/private/technical_debt.cil \u003e\u003e  out/soong/.intermediates/system/sepolicy/plat_policy_for_vendor.cil/android_common/plat_policy_for_vendor.cil \u0026\u0026 out/host/linux-x86/bin/secilc -m -M true -G -c 30 out/soong/.intermediates/system/sepolicy/plat_policy_for_vendor.cil/android_common/plat_policy_for_vendor.cil -o /dev/null -f /dev/null # hash of input list: 6e559a895c8d47ee372fecf016f5b2639b5d5d288a4777b8a065fc673afaa911\nneverallow check failed at out/soong/.intermediates/system/sepolicy/plat_policy_for_vendor.cil/android_common/plat_policy_for_vendor.cil:19930 from system/sepolicy/private/bpfloader.te:52\n  (neverallow base_typeattr_639 fs_bpf_loader (file (open)))\n    \u003croot\u003e\n    allow at out/soong/.intermediates/system/sepolicy/plat_policy_for_vendor.cil/android_common/plat_policy_for_vendor.cil:16310\n      (allow vendor_init base_typeattr_570 (file (read setattr map open)))\n\nFailed to generate binary\nFailed to build policydb",
       "revId": "6432ea9eec2a9b5aaa1d229bfc81d0b4070beb97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "315cdb76_abe9a78f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-12-02T10:26:12Z",
+      "side": 1,
+      "message": "Woot! Looks like we have the exact same rule in vendor_init:\n\nhttps://cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/vendor_init.te;l\u003d68",
+      "parentUuid": "37c4b7ba_6b90f1cc",
+      "revId": "6432ea9eec2a9b5aaa1d229bfc81d0b4070beb97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
