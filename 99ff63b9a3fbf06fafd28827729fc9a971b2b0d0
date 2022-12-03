@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16b06bb6_629b53fb",
+        "filename": "private/canhalconfigurator.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-03T03:31:17Z",
+      "side": 1,
+      "message": "prefer binder_use",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 52
+      },
+      "revId": "99ff63b9a3fbf06fafd28827729fc9a971b2b0d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62481e40_76e2e35f",
+        "filename": "public/hal_can.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-03T03:31:17Z",
+      "side": 1,
+      "message": "Why are new permissions required for a hal can controller? Were they originally given to a device-specific type that also used this attribute? Do all CAN HALs need this permission?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 0
+      },
+      "revId": "99ff63b9a3fbf06fafd28827729fc9a971b2b0d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50162625_2b374ff6",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-03T03:31:17Z",
+      "side": 1,
+      "message": "asking for Jeff to take a look. I\u0027m not familiar with these, but it seems like a lot of permissions.\n\n(also same question as the other one - why does the AIDL implementation need this new permission?)",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 16
+      },
+      "revId": "99ff63b9a3fbf06fafd28827729fc9a971b2b0d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
