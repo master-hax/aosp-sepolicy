@@ -16,6 +16,24 @@
       "message": "Mentioned this on https://android-review.git.corp.google.com/c/platform/system/bpf/+/2304696 but an alternative here is to simply not pin these programs in bpffs at all and rely on bpf link pinning for persistence - I\u0027ve tried that out locally \u0026 it looks like the program does stay attached and continue to run as expected after bpfloader exit. I don\u0027t have a strong opinion on which approach is better though",
       "revId": "e14e69a947a473ce81f220bae3caea122f5bca97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c2bec1d_72512fcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2022-12-03T09:52:06Z",
+      "side": 1,
+      "message": "Ah, yeah, sorry, I did see that comment, and I guessed it would probably work, but I think for debuggability (via adb root/shell) I\u0027d prefer for the programs to always be pinned.",
+      "parentUuid": "3eddb6b6_8d51b991",
+      "revId": "e14e69a947a473ce81f220bae3caea122f5bca97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
