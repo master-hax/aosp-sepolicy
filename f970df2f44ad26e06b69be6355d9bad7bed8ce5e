@@ -16,6 +16,24 @@
       "message": "Interesting. How does adb root work?",
       "revId": "f970df2f44ad26e06b69be6355d9bad7bed8ce5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d81cbef_184ef185",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-12-05T11:43:25Z",
+      "side": 1,
+      "message": "it sets service.adb.root to 1 and restarts itself upon `adb root` request from the client. during the next start, adbd does not drop its privileged from root (it by default starts as root). finally, it transitions its domain to su using the --root_seclabel flag.",
+      "parentUuid": "baa2aa04_ccb73578",
+      "revId": "f970df2f44ad26e06b69be6355d9bad7bed8ce5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
