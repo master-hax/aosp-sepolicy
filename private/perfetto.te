@@ -21,6 +21,9 @@ perfetto_producer(perfetto)
 # Allow to write and unlink traces into /data/misc/perfetto-traces.
 allow perfetto perfetto_traces_data_file:dir rw_dir_perms;
 allow perfetto perfetto_traces_data_file:file create_file_perms;
+# ... and /data/misc/perfetto-traces/bugreport*
+allow perfetto perfetto_traces_bugreport_data_file:file create_file_perms;
+allow perfetto perfetto_traces_bugreport_data_file:dir rw_dir_perms;
 
 # Allow perfetto to access the proxy service for reporting traces.
 allow perfetto tracingproxy_service:service_manager find;
