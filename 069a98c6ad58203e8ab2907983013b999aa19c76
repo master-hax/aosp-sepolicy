@@ -46,6 +46,30 @@
       },
       "revId": "069a98c6ad58203e8ab2907983013b999aa19c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e739750_2a6b869d",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-06T16:47:30Z",
+      "side": 0,
+      "message": "I was hoping you wouldn\u0027t ask that :-(\n\nThe original compat change is here, I think: cs/android-internal/system/sepolicy/prebuilts/api/30.0/private/compat/28.0/28.0.cil?rcl\u003d836124e880c3c61efbab85971df0430c96ba9633\u0026l\u003d1379\n\nThat says that vendor code from 28 or before that has access to proc should have access to proc_fs_verity on later system images.\n\nTo go the other way I think you have to add something like\n\n(typeattributeset proc_fs_verity_33_0 ( proc ))\n\nto system/sepolicy/private/compat/33.0/33.0.compat.cil. Which says vendor things up to 33 that can access proc_fs_verity should have access to proc afterwards.\n\nBut if you get a wall of error messages I\u0027m going to deny all responsibility.",
+      "parentUuid": "5a8b74e6_0982ac29",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 76
+      },
+      "revId": "069a98c6ad58203e8ab2907983013b999aa19c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
