@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff079fe3_02b79117",
+        "filename": "microdroid/system/public/su.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-06T11:43:55Z",
+      "side": 1,
+      "message": "Given how powerful su is, could we add\n\nneverallow {domain -adbd} su:process { transition dyntransition };",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 16
+      },
+      "revId": "1f4a542f1be55e10443c2500ca298c9caf8ece81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7476e38_d6827e8e",
+        "filename": "microdroid/system/public/su.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-06T11:43:55Z",
+      "side": 1,
+      "message": "Unrelated thought: net_domain doesn\u0027t do anything useful in Microdroid, we should probably empty out system/sepolicy/microdroid/system/private/net.te and/or remove the domain entirely.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 10
+      },
+      "revId": "1f4a542f1be55e10443c2500ca298c9caf8ece81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
