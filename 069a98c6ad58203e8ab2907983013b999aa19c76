@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "880828db_f19d7218",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-06T11:50:00Z",
+      "side": 0,
+      "message": "Removing this changes the label (to just proc). And proc_fs_verity is public, so there may be existing vendor policy referring to it.\n\nSo either you need to do some compat work here (reversing the previous compat changes), or you could just leave this genfscon as is.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 76
+      },
+      "revId": "069a98c6ad58203e8ab2907983013b999aa19c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
