@@ -59,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4b4ba58_325d5f1c",
+        "filename": "private/canhalconfigurator.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2022-12-07T22:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb6059c1_5857895c",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef4dc4b8_95520945",
@@ -72,6 +96,30 @@
       "writtenOn": "2022-12-07T12:20:49Z",
       "side": 1,
       "message": "A one-line comment at the top explaining what this is would help future readers.\n(Explaining what \"CAN\" is would also help.)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 65
+      },
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dbf9277_2db0841f",
+        "filename": "public/hal_can_controller.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2022-12-07T22:17:13Z",
+      "side": 1,
+      "message": "added a description",
+      "parentUuid": "ef4dc4b8_95520945",
       "range": {
         "startLine": 1,
         "startChar": 0,
@@ -124,6 +172,48 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "362331ed_ba702e89",
+        "filename": "public/hal_can_controller.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2022-12-07T22:17:13Z",
+      "side": 1,
+      "message": "I _think_ it\u0027s defined in `public/hal_can.te`?\n```\nhal_attribute_hwservice(hal_can_controller, hal_can_controller_hwservice)\n```\nHowever, my understanding of SEPolicy configuration is based on trial-and-error, so it\u0027s entirely possible it\u0027s auto-generated somehow.",
+      "parentUuid": "5e75024e_7d7ba89c",
+      "range": {
+        "startLine": 6,
+        "startChar": 6,
+        "endLine": 6,
+        "endChar": 24
+      },
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3354897_31864858",
+        "filename": "public/hal_can_controller.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2022-12-07T22:17:13Z",
+      "side": 1,
+      "message": "All of the other `hal_*.te` are defined in `public/` - is it not convention to have a HAL defined in `public/`?\n\nI moved it to `private/` and it seems to behave.",
+      "parentUuid": "f2ed5f24_4a616a1f",
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9cadbe8f_3d40433b",
         "filename": "public/hal_can_controller.te",
         "patchSetId": 6
@@ -135,6 +225,30 @@
       "writtenOn": "2022-12-07T12:20:49Z",
       "side": 1,
       "message": "I don\u0027t think this can be right - that\u0027s a service, not a domain (process).\n\nhal_can_controller_server, maybe?",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecb8f211_4d549da7",
+        "filename": "public/hal_can_controller.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2022-12-07T22:17:13Z",
+      "side": 1,
+      "message": "I must have copy pasted incorrectly, I don\u0027t think this section is needed.",
+      "parentUuid": "9cadbe8f_3d40433b",
       "range": {
         "startLine": 10,
         "startChar": 6,
@@ -192,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a7d54e7_18299c38",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2022-12-07T22:17:13Z",
+      "side": 1,
+      "message": "HIDL CAN HAL is still used on some targets - I still have to change some services depending on it before I can remove it.",
+      "parentUuid": "3b4afc85_6c0cf284",
+      "range": {
+        "startLine": 28,
+        "startChar": 24,
+        "endLine": 28,
+        "endChar": 64
+      },
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb9c3966_931046b0",
@@ -205,6 +343,30 @@
       "writtenOn": "2022-12-07T12:20:49Z",
       "side": 1,
       "message": "This seems to be duplicating a lot of what is now in hal_can_controller.te.\n\nThat shouldn\u0027t be needed.\n\nhal_server_domain(hal_can_socketcan, hal_can_controller) means that hal_can_socketcan automatically gets all the permissions you grant to hal_can_controller and hal_can_controller_server.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 2
+      },
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce8c8760_caa9bbc7",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2022-12-07T22:17:13Z",
+      "side": 1,
+      "message": "permissions de-duplicated",
+      "parentUuid": "fb9c3966_931046b0",
       "range": {
         "startLine": 12,
         "startChar": 0,
