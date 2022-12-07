@@ -1140,7 +1140,7 @@ neverallow {
   -simpleperf_app_runner
   -system_server # why?
   userdebug_or_eng(`-uncrypt')
-} shell_data_file:dir { open search };
+} shell_data_file:dir open;
 
 # servicemanager and vndservicemanager are the only processes which handle the
 # service_manager list request
