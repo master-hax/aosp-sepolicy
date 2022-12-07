@@ -34,6 +34,161 @@
       "parentUuid": "9c0794fe_b37176a0",
       "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb6059c1_5857895c",
+        "filename": "private/canhalconfigurator.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-07T12:20:49Z",
+      "side": 1,
+      "message": "The general rule for these files is that rules that affect domain foo (where foo is the source context) should be in foo.te.\n\nSo this rule should be in hal_can_controller.te rather than here.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef4dc4b8_95520945",
+        "filename": "public/hal_can_controller.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-07T12:20:49Z",
+      "side": 1,
+      "message": "A one-line comment at the top explaining what this is would help future readers.\n(Explaining what \"CAN\" is would also help.)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 65
+      },
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e75024e_7d7ba89c",
+        "filename": "public/hal_can_controller.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-07T12:20:49Z",
+      "side": 1,
+      "message": "Where is hal_can_controller defined?",
+      "range": {
+        "startLine": 6,
+        "startChar": 6,
+        "endLine": 6,
+        "endChar": 24
+      },
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2ed5f24_4a616a1f",
+        "filename": "public/hal_can_controller.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-07T12:20:49Z",
+      "side": 1,
+      "message": "I don\u0027t think any of this needs to be in public. Can you put all or most of it in private instead?\n\n(You may need to define hal_can_controller in public, so the vendor code can refer to it.)",
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cadbe8f_3d40433b",
+        "filename": "public/hal_can_controller.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-07T12:20:49Z",
+      "side": 1,
+      "message": "I don\u0027t think this can be right - that\u0027s a service, not a domain (process).\n\nhal_can_controller_server, maybe?",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b4afc85_6c0cf284",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-07T12:20:49Z",
+      "side": 1,
+      "message": "Is this still needed?",
+      "range": {
+        "startLine": 28,
+        "startChar": 24,
+        "endLine": 28,
+        "endChar": 64
+      },
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb9c3966_931046b0",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-07T12:20:49Z",
+      "side": 1,
+      "message": "This seems to be duplicating a lot of what is now in hal_can_controller.te.\n\nThat shouldn\u0027t be needed.\n\nhal_server_domain(hal_can_socketcan, hal_can_controller) means that hal_can_socketcan automatically gets all the permissions you grant to hal_can_controller and hal_can_controller_server.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 2
+      },
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
