@@ -16,6 +16,47 @@
       "message": "This passed presubmit tests.  Is there anything worth testing manually?  Or should we just land to see what will happen?",
       "revId": "afd743c8af27f85e3db1a20f1a7759442a047cbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19a3c804_7c78946c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-08T17:23:49Z",
+      "side": 1,
+      "message": "That\u0027s a good question. I think the latter, I\u0027m afraid.\nBreakage would only happen if there\u0027s a vendor reference to proc_fs_verity somewhere.",
+      "parentUuid": "adc30f25_ddc3ad53",
+      "revId": "afd743c8af27f85e3db1a20f1a7759442a047cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1d36d3b_c6fbddfa",
+        "filename": "private/compat/33.0/33.0.compat.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-08T17:23:49Z",
+      "side": 1,
+      "message": "This is entirely my fault, but actually this is the wrong file - the changes should be in system/sepolicy/private/compat/33.0/33.0.cil.\n\nOver there is a line saying this:\n(typeattributeset proc_fs_verity_33_0 (proc_fs_verity))\n\nWhich needs to change to reference proc instead.\n\n(This .compat file is for ad hoc bits of CIL; that file is where the main business of mapping version-specific attributes happens.)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 47
+      },
+      "revId": "afd743c8af27f85e3db1a20f1a7759442a047cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
