@@ -212,6 +212,48 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ea27316_a0b12df6",
+        "filename": "public/hal_can_controller.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-08T17:07:13Z",
+      "side": 1,
+      "message": "That\u0027s not it (those macros are defined in system/sepolicy/public/te_macros, FWIW).\nIt\u0027s actually here: cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/attributes;drc\u003d3accea479aa4797165b310e5e07aa8a34919485a;l\u003d330\n\n`hal_attribute(can_controller);` - which cunningly doesn\u0027t mention \"hal_can_controller\", defeating my search skills.\n\nThe hal macros always confuse me :-(",
+      "parentUuid": "362331ed_ba702e89",
+      "range": {
+        "startLine": 6,
+        "startChar": 6,
+        "endLine": 6,
+        "endChar": 24
+      },
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d747d75a_fa80d27b",
+        "filename": "public/hal_can_controller.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-08T17:07:13Z",
+      "side": 1,
+      "message": "Historically there\u0027s been a tendency to put stuff in public that doesn\u0027t really need to be there.\nIf your vendor policy compiles, that indicates that everything that needs to be public is.\n\nBut we should probably check with @smoreland@google.com that it\u0027s ok for hal_can_controller_service to be private not public.",
+      "parentUuid": "b3354897_31864858",
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cadbe8f_3d40433b",
@@ -332,6 +374,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "173975ab_d218255b",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-08T17:07:13Z",
+      "side": 1,
+      "message": "Could you update the comment and/or add a TODO?",
+      "parentUuid": "4a7d54e7_18299c38",
+      "range": {
+        "startLine": 28,
+        "startChar": 24,
+        "endLine": 28,
+        "endChar": 64
+      },
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fb9c3966_931046b0",
         "filename": "vendor/hal_can_socketcan.te",
         "patchSetId": 6
@@ -367,6 +433,30 @@
       "side": 1,
       "message": "permissions de-duplicated",
       "parentUuid": "fb9c3966_931046b0",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 2
+      },
+      "revId": "da5df54cc5bd41aae37993d810e5fa9f647feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5427ead2_8af072af",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-08T17:07:13Z",
+      "side": 1,
+      "message": "Thanks, this CL is much simpler \u0026 easier to understand now.",
+      "parentUuid": "ce8c8760_caa9bbc7",
       "range": {
         "startLine": 12,
         "startChar": 0,
