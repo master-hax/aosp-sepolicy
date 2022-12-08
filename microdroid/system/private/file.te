@@ -20,3 +20,5 @@ type sepolicy_test_file, file_type;
 
 # /system/bin/mke2fs - used to format encryptedstore block device
 type e2fs_exec, system_file_type, exec_type, file_type;
+
+type encryptedstore_file, fs_type, contextmount_type;
