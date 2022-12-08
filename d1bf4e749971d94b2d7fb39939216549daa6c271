@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "80de2666_61c0c302",
+        "filename": "private/crosvm.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1882526
+      },
+      "writtenOn": "2022-12-08T12:07:03Z",
+      "side": 1,
+      "message": "After confirming with Alan offline, I much prefer the idea of passing the (opened) file to crosvm, as we already do for the other images than to grant more permissions to it. For example, see how `add_preserved_fd` is used to [pass the kernel](https://source.corp.google.com/android/packages/modules/Virtualization/virtualizationservice/src/crosvm.rs;l\u003d773).",
+      "parentUuid": "904f94eb_617fe669",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 2
+      },
+      "revId": "d1bf4e749971d94b2d7fb39939216549daa6c271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bffae225_e2e47ce2",
         "filename": "public/domain.te",
         "patchSetId": 3
