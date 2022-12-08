@@ -211,6 +211,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "48e2d424_2b575de4",
+        "filename": "private/crosvm.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-08T14:39:46Z",
+      "side": 1,
+      "message": "\u003e \u003e How do we ask VS to run with the custom pvmfw?\n\u003e \n\u003e VS now looks for a sysprop that gives the path to the custom pvmfw: aosp/2316801.\n\nAh, I see, so the app doesn\u0027t get any say in it?\n(Are we guarding this with a permission? I think we should; it should need USE_CUSTOM_VIRTUAL_MACHINE_PERMISSION)\n\nWould it not be better to add this to VirtualMachineRawConfig, alongside kernel \u0026 initrd? That gets you the permission check for free.\n(Sorry if I\u0027m rehashing previous design discussions.)\n\n\u003e \n\u003e \u003e So asking to pushing the binary to some place (e.g. `/data/local/tmp`) or generate on the fly (b/243671509) seems to be the right choice.\n\u003e \n\u003e TBC, note that this isn\u0027t a \"OR\", it\u0027s a \"AND\": we want to push the result of b/243671509 (i.e. pvmfw+config).\n\nOK, well if we\u0027re going to grant \u003csomething\u003e the right to open shell_data_file, I\u0027m ok with giving it either to crosvm or VS. But I\u0027m still not convinced that\u0027s the right route.\n\nIf you\u0027re running the test via vm you already need to have root to run it, which opens up other possibilities - e.g. use shell to copy the file to somewhere that VS / crosvm can already read?",
+      "parentUuid": "371f2044_093dec00",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 2
+      },
+      "revId": "d1bf4e749971d94b2d7fb39939216549daa6c271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bffae225_e2e47ce2",
         "filename": "public/domain.te",
         "patchSetId": 3
