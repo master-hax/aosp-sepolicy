@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaa22258_78272046",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-12-08T21:19:11Z",
+      "side": 1,
+      "message": "Ah I see.  At least this is easily revertible I guess...",
+      "parentUuid": "19a3c804_7c78946c",
+      "revId": "afd743c8af27f85e3db1a20f1a7759442a047cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1d36d3b_c6fbddfa",
@@ -49,6 +67,30 @@
       "writtenOn": "2022-12-08T17:23:49Z",
       "side": 1,
       "message": "This is entirely my fault, but actually this is the wrong file - the changes should be in system/sepolicy/private/compat/33.0/33.0.cil.\n\nOver there is a line saying this:\n(typeattributeset proc_fs_verity_33_0 (proc_fs_verity))\n\nWhich needs to change to reference proc instead.\n\n(This .compat file is for ad hoc bits of CIL; that file is where the main business of mapping version-specific attributes happens.)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 47
+      },
+      "revId": "afd743c8af27f85e3db1a20f1a7759442a047cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "943f4f2f_452fa333",
+        "filename": "private/compat/33.0/33.0.compat.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-12-08T21:19:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1d36d3b_c6fbddfa",
       "range": {
         "startLine": 1,
         "startChar": 0,
