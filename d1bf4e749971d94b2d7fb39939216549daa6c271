@@ -139,6 +139,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "704296e5_a8d205af",
+        "filename": "private/crosvm.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2022-12-08T12:56:53Z",
+      "side": 1,
+      "message": "Other test artifacts are inside the VM apk (e.g. `assets/vm_config.json` in the `MicrodroidTestApp.apk`), but I\u0027m doing this for custom `pvmfw.img`, and it doesn\u0027t seem to be included in the VM app itself. Custom `pvmfw.img` seems to be in the grey area -- I think it\u0027s better not not built-in with virtualizationservice nor VM app. So asking to pushing the binary to some place (e.g. `/data/local/tmp`) or generate on the fly (b/243671509) seems to be the right choice.",
+      "parentUuid": "664c5793_2805cf6a",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 2
+      },
+      "revId": "d1bf4e749971d94b2d7fb39939216549daa6c271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bffae225_e2e47ce2",
         "filename": "public/domain.te",
         "patchSetId": 3
