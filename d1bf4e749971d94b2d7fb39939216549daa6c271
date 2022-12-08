@@ -187,6 +187,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "371f2044_093dec00",
+        "filename": "private/crosvm.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1882526
+      },
+      "writtenOn": "2022-12-08T14:30:39Z",
+      "side": 1,
+      "message": "\u003e I think it\u0027s better not not built-in with virtualizationservice nor VM app\n\n+1\n\n\u003e How do we ask VS to run with the custom pvmfw?\n\nVS now looks for a sysprop that gives the path to the custom pvmfw: aosp/2316801.\n\n\u003e So asking to pushing the binary to some place (e.g. `/data/local/tmp`) or generate on the fly (b/243671509) seems to be the right choice.\n\nTBC, note that this isn\u0027t a \"OR\", it\u0027s a \"AND\": we want to push the result of b/243671509 (i.e. pvmfw+config).",
+      "parentUuid": "22598484_842b3b30",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 2
+      },
+      "revId": "d1bf4e749971d94b2d7fb39939216549daa6c271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bffae225_e2e47ce2",
         "filename": "public/domain.te",
         "patchSetId": 3
