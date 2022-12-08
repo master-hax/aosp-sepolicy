@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e12d94e_4b404078",
+        "filename": "private/crosvm.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-08T09:58:24Z",
+      "side": 1,
+      "message": "The normal mechanism is that we get the app to open the file, and pass an fd to VS \u0026 thence to crosvm. Can we do that here?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 2
+      },
+      "revId": "d1bf4e749971d94b2d7fb39939216549daa6c271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bffae225_e2e47ce2",
+        "filename": "public/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-08T09:58:24Z",
+      "side": 1,
+      "message": "Can you just move this neverallow to private? It\u0027s confusing to have it partly public and partly private.\n(Maybe move all the shell_data_file rules to private.)",
+      "range": {
+        "startLine": 1132,
+        "startChar": 0,
+        "endLine": 1143,
+        "endChar": 27
+      },
+      "revId": "d1bf4e749971d94b2d7fb39939216549daa6c271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
