@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22d8d37e_3c0c5fa3",
+        "filename": "microdroid/system/private/encryptedstore.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-09T10:28:22Z",
+      "side": 1,
+      "message": "Why do you need relabelfrom here?",
+      "range": {
+        "startLine": 39,
+        "startChar": 78,
+        "endLine": 39,
+        "endChar": 89
+      },
+      "revId": "41ab0f3c977a27bf1d594071d1f0919f11974ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44dcf321_c66526b6",
+        "filename": "microdroid/system/private/file.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-09T10:28:22Z",
+      "side": 1,
+      "message": "Can you have separate labels for the fs \u0026 file? \n\nSee cs/android-internal/system/sepolicy/public/file.te?rcl\u003d3e1dc57bf4f4aed2c117e2a743c59e3076f57338\u0026l\u003d622.\n(I\u0027m not sure why that causes problems, but I\u0027d prefer not to take chances.)\n\nThat check is missing from microdroid policy for some reason; we should add it back.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 64
+      },
+      "revId": "41ab0f3c977a27bf1d594071d1f0919f11974ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d1c63e3_6b99c536",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-09T10:28:22Z",
+      "side": 1,
+      "message": "create_dir_perms\n(Otherwise you can\u0027t create subdirectories)",
+      "range": {
+        "startLine": 60,
+        "startChar": 49,
+        "endLine": 60,
+        "endChar": 61
+      },
+      "revId": "41ab0f3c977a27bf1d594071d1f0919f11974ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9148bc2a_50e1a2b3",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-09T10:28:22Z",
+      "side": 1,
+      "message": "This should probably be \"neverallow domain\"; it seems unlikely, but we don\u0027t want any other process to be tricked into executing code from here.",
+      "range": {
+        "startLine": 64,
+        "startChar": 11,
+        "endLine": 64,
+        "endChar": 29
+      },
+      "revId": "41ab0f3c977a27bf1d594071d1f0919f11974ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7711aaf0_d647b955",
+        "filename": "microdroid/system/public/file.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-09T10:28:22Z",
+      "side": 1,
+      "message": "Not used anywhere?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 34
+      },
+      "revId": "41ab0f3c977a27bf1d594071d1f0919f11974ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
