@@ -27,6 +27,8 @@ allow hal_camera hal_allocator_server:fd use;
 allow hal_camera shell:fd use;
 allow hal_camera shell:fifo_file write;
 
+get_prop(hal_camera, device_config_camera_native_prop)
+
 ###
 ### neverallow rules
 ###
