@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "838397e6_27cc1c0e",
+        "filename": "microdroid/system/private/encryptedstore.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-12-09T19:28:58Z",
+      "side": 1,
+      "message": "No idea, but I get selinux denial without it:\n12-09 19:18:38.803  3296  3331 I MicrodroidTests: Console: [   19.120456] audit: type\u003d1400 audit(1670613518.947:4): avc:  denied  { relabelfrom } for  pid\u003d141 comm\u003d\"encryptedstore\" scontext\u003du:r:encryptedstore:s0 tcontext\u003du:object_r:encryptedstore_fs:s0 tclass\u003dfilesystem permissive\u003d0\n\n\nInvestigating....",
+      "parentUuid": "22d8d37e_3c0c5fa3",
+      "range": {
+        "startLine": 39,
+        "startChar": 78,
+        "endLine": 39,
+        "endChar": 89
+      },
+      "revId": "41ab0f3c977a27bf1d594071d1f0919f11974ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44dcf321_c66526b6",
         "filename": "microdroid/system/private/file.te",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-09T10:28:22Z",
       "side": 1,
       "message": "Can you have separate labels for the fs \u0026 file? \n\nSee cs/android-internal/system/sepolicy/public/file.te?rcl\u003d3e1dc57bf4f4aed2c117e2a743c59e3076f57338\u0026l\u003d622.\n(I\u0027m not sure why that causes problems, but I\u0027d prefer not to take chances.)\n\nThat check is missing from microdroid policy for some reason; we should add it back.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 64
+      },
+      "revId": "41ab0f3c977a27bf1d594071d1f0919f11974ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad1f7236_4b986596",
+        "filename": "microdroid/system/private/file.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-12-09T19:28:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44dcf321_c66526b6",
       "range": {
         "startLine": 23,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "819e3dcb_dffbbf76",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-12-09T19:28:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d1c63e3_6b99c536",
+      "range": {
+        "startLine": 60,
+        "startChar": 49,
+        "endLine": 60,
+        "endChar": 61
+      },
+      "revId": "41ab0f3c977a27bf1d594071d1f0919f11974ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9148bc2a_50e1a2b3",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a37eba85_ce55e54b",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-12-09T19:28:58Z",
+      "side": 1,
+      "message": "Makes sense, it is writable after all!",
+      "parentUuid": "9148bc2a_50e1a2b3",
+      "range": {
+        "startLine": 64,
+        "startChar": 11,
+        "endLine": 64,
+        "endChar": 29
+      },
+      "revId": "41ab0f3c977a27bf1d594071d1f0919f11974ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7711aaf0_d647b955",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-12-09T10:28:22Z",
       "side": 1,
       "message": "Not used anywhere?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 34
+      },
+      "revId": "41ab0f3c977a27bf1d594071d1f0919f11974ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "077ecacd_1884ab88",
+        "filename": "microdroid/system/public/file.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-12-09T19:28:58Z",
+      "side": 1,
+      "message": "Ouch, that\u0027s the remains of previous rough version. Removing..",
+      "parentUuid": "7711aaf0_d647b955",
       "range": {
         "startLine": 13,
         "startChar": 0,
