@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e347ee88_0c636a11",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-12T18:06:45Z",
+      "side": 1,
+      "message": "\u003e There are other types of app data files, such as bluetooth_data_file, nfc_data_file, etc. Are we sure that bluetooth packages etc. don\u0027t use symlinks for secondary dex files?\n\nYes. \"Secondary\" means loaded from another app, I think? That rule I pointed you at blocks one app reading symlinks from another app\u0027s data directory at all, except for privapp_data_file; there are no other exceptions.",
+      "parentUuid": "9bba5d35_b0f4c8ed",
+      "range": {
+        "startLine": 85,
+        "startChar": 11,
+        "endLine": 85,
+        "endChar": 29
+      },
+      "revId": "00c3c1592d61f7864f77b004463ed3a9db6bae2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "74c94bdf_4180094e",
         "filename": "public/domain.te",
         "patchSetId": 1
