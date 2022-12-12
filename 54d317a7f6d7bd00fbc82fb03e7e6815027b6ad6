@@ -22,6 +22,30 @@
       },
       "revId": "54d317a7f6d7bd00fbc82fb03e7e6815027b6ad6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8f99845_6574a4cb",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2022-12-12T18:35:41Z",
+      "side": 1,
+      "message": "https://source.corp.google.com/android/hardware/interfaces/automotive/can/1.0/default/libnetdevice/common.cpp?q\u003dif_nametoindex\u0026ss\u003dpiper%2FGoogle%2Fandroid:hardware%2Finterfaces%2Fautomotive%2Fcan%2F1.0%2Fdefault%2Flibnetdevice%2F\n\nlibnetdevice uses `if_nametoindex` to get the index of an interface given its name.\nIf we get back a non-zero index, we know that the interface exists.\n\nI added some comments to explain what each ioctl does, along with the man number to make it easier to look them up\n\nThe new ones I added allow me to get the settings for an interface, modify the settings, and then write them back.\nhttps://source.corp.google.com/android/hardware/interfaces/automotive/can/1.0/default/libnetdevice/libnetdevice.cpp?q\u003dSIOC%5BG%7CS%5DIFFLAGS\u0026ss\u003dpiper%2FGoogle%2Fandroid:hardware%2Finterfaces%2Fautomotive%2Fcan%2F1.0%2Fdefault%2Flibnetdevice%2F",
+      "parentUuid": "45404b5c_ac445e52",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 47
+      },
+      "revId": "54d317a7f6d7bd00fbc82fb03e7e6815027b6ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
