@@ -84,6 +84,17 @@ allow artd app_data_file_type:dir { create_dir_perms relabelfrom relabelto };
 allow artd app_data_file_type:file { create_file_perms relabelfrom relabelto };
 allow artd app_data_file_type:lnk_file r_file_perms;
 
+# Read access to SELinux context files, for restorecon.
+allow artd file_contexts_file:file r_file_perms;
+allow artd seapp_contexts_file:file r_file_perms;
+
+# Check validity of SELinux context, for restorecon.
+selinux_check_context(artd)
+
+# Reading access to package list file (/data/system/packages.list), for
+# restorecon.
+allow artd packages_list_file:file r_file_perms;
+
 # Never allow running other binaries without a domain transition.
 # The only exception is art_exec. It is allowed to use the artd domain because
 # it is a thin wrapper that executes other binaries on behalf of artd.
