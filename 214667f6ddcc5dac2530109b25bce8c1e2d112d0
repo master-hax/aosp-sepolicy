@@ -22,6 +22,30 @@
       },
       "revId": "214667f6ddcc5dac2530109b25bce8c1e2d112d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaa04cee_6229ef9b",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-12-12T17:19:47Z",
+      "side": 1,
+      "message": "I need this because otherwise restorecon fails. I guess installd gets this transitively from some other rule, but I wasn\u0027t able to figure out which one. I\u0027m also wondering why restorecon needs this. Is there a way to print the stacktrace when an SELinux denial happens?\n\nRegarding restorecon in app directories, we have to do this because we create `oat` folders next to the secondary dex files in app directories on the fly when we compile secondary dex files.",
+      "parentUuid": "b1f2303d_e548907f",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 48
+      },
+      "revId": "214667f6ddcc5dac2530109b25bce8c1e2d112d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
