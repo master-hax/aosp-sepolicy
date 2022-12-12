@@ -46,6 +46,30 @@
       },
       "revId": "214667f6ddcc5dac2530109b25bce8c1e2d112d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1a8b9fe_71669266",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-12T17:49:43Z",
+      "side": 1,
+      "message": "\u003e I need this because otherwise restorecon fails. I guess installd gets this transitively from some other rule, but I wasn\u0027t able to figure out which one.\n\nIt doesn\u0027t seem to - and nothing much does:\n\n```\n$ /usr/bin/sesearch -A   -t packages_list_file -c file -p read /tmp/policy\nallow heapprofd packages_list_file:file { getattr ioctl lock map open read watch watch_reads };\nallow init packages_list_file:file { create getattr map open read relabelfrom relabelto setattr unlink write };\nallow logd packages_list_file:file { getattr ioctl lock map open read watch watch_reads };\nallow runas packages_list_file:file { getattr ioctl lock map open read watch watch_reads };\nallow sdcardd packages_list_file:file { getattr ioctl lock map open read watch watch_reads };\nallow simpleperf_app_runner packages_list_file:file { getattr ioctl lock map open read watch watch_reads };\nallow storaged packages_list_file:file { getattr ioctl lock map open read watch watch_reads };\nallow system_server packages_list_file:file { append create getattr ioctl lock map open read rename setattr unlink watch watch_reads write };\nallow traced_perf packages_list_file:file { getattr ioctl lock map open read watch watch_reads };\nallow traced_probes packages_list_file:file { getattr ioctl lock map open read watch watch_reads };\n```\n\n\n\n\u003e  I\u0027m also wondering why restorecon needs this. Is there a way to print the stacktrace when an SELinux denial happens?\n\nThere is, but it\u0027s a little complicated: https://source.android.com/docs/security/features/selinux/validate#dumping_user_and_kernel_stacks\n\n\n\n\u003e \n\u003e Regarding restorecon in app directories, we have to do this because we create `oat` folders next to the secondary dex files in app directories on the fly when we compile secondary dex files.\n\nSo you just restorecon the newly created folder? That\u0027s less of a problem.",
+      "parentUuid": "aaa04cee_6229ef9b",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 48
+      },
+      "revId": "214667f6ddcc5dac2530109b25bce8c1e2d112d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
