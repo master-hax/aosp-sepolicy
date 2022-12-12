@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b46d5c9c_1eb8bd54",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-12-12T18:59:20Z",
+      "side": 1,
+      "message": "No, \"secondary\" just means an APK/JAR in app data directory (as opposed to an APK/JAR in canonical code directories like /data/app). It can be loaded by the app itself or by other apps. For example, GMS has some secondary dex files in its own app data directory, which are symlinks to some files in /system if they are not updated, and both GMS and other apps are using them.\n\nSo, it\u0027s possible that a bluetooth package has its own secondary dex files in its own app data directory, which are symlinks.",
+      "parentUuid": "e347ee88_0c636a11",
+      "range": {
+        "startLine": 85,
+        "startChar": 11,
+        "endLine": 85,
+        "endChar": 29
+      },
+      "revId": "00c3c1592d61f7864f77b004463ed3a9db6bae2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74c94bdf_4180094e",
