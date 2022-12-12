@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04077780_09b7ceec",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-12T16:58:24Z",
+      "side": 1,
+      "message": "For this particular one, I think you only need to allow privapp_data_file, as we don\u0027t allow symlinks elsewhere: cs.android.com/android/platform/superproject/+/master:system/sepolicy/private/mls;drc\u003d06edcd8250a249192981c7fbeea196249394b9ad;l\u003d69\n\nAnd that avoids touching the scary neverallow below.",
+      "range": {
+        "startLine": 85,
+        "startChar": 11,
+        "endLine": 85,
+        "endChar": 29
+      },
+      "revId": "00c3c1592d61f7864f77b004463ed3a9db6bae2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44c2654f_b0e57d6d",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-12T16:58:24Z",
+      "side": 1,
+      "message": "FWIW { getattr read } is all you actually need for lnk_file; but r_file_perms is commonly used \u0026 harmless.",
+      "range": {
+        "startLine": 85,
+        "startChar": 39,
+        "endLine": 85,
+        "endChar": 51
+      },
+      "revId": "00c3c1592d61f7864f77b004463ed3a9db6bae2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74c94bdf_4180094e",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-12T16:58:24Z",
+      "side": 1,
+      "message": "This one is a little scary; I can see potential symlink attacks given that shell_data_file can be written to via adb.",
+      "range": {
+        "startLine": 1111,
+        "startChar": 1,
+        "endLine": 1111,
+        "endChar": 7
+      },
+      "revId": "00c3c1592d61f7864f77b004463ed3a9db6bae2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
