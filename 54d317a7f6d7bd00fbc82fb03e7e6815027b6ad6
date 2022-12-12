@@ -70,6 +70,30 @@
       },
       "revId": "54d317a7f6d7bd00fbc82fb03e7e6815027b6ad6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21369c47_f6f43ad1",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2022-12-12T23:35:18Z",
+      "side": 1,
+      "message": "fair point, `SIOCGIFINDEX` has application beyond `if_nametoindex`, and we *happen* to use that in the default impl. \n\nI\u0027ll shorten the comment to `see man page for netdevice(7) for more info`, which would be more informative than I could describe in this file.",
+      "parentUuid": "aa9848e5_47ad5c2f",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 47
+      },
+      "revId": "54d317a7f6d7bd00fbc82fb03e7e6815027b6ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
