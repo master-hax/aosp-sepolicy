@@ -46,6 +46,30 @@
       },
       "revId": "54d317a7f6d7bd00fbc82fb03e7e6815027b6ad6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa9848e5_47ad5c2f",
+        "filename": "vendor/hal_can_socketcan.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-12T22:20:47Z",
+      "side": 1,
+      "message": "I\u0027d honestly suggest deleting the comments, because there is the risk the comments are wrong. If we have a comment in SELinux, then usually it should be about why we need the permission (for instance, what we need to do with it, or where it is used - though never suggesting that\u0027s the only place it may be used - because once we add it can be used elsewhere).\n\nI think the comments that Chris has added are in line with what was here before, but I\u0027d suggest removing most comments from sepolicy.",
+      "parentUuid": "f8f99845_6574a4cb",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 47
+      },
+      "revId": "54d317a7f6d7bd00fbc82fb03e7e6815027b6ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
