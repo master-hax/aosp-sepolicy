@@ -45,6 +45,29 @@
       },
       "revId": "b34f7d381c7bb1b97b6bfe6eac091d0f11cf52ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96a75642_19ee9d72",
+        "filename": "private/sdk_sandbox.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1439319
+      },
+      "writtenOn": "2022-12-13T10:18:10Z",
+      "side": 1,
+      "message": "I think there are concerns in letting privileged process have access to that directory: https://b.corp.google.com/issues/152001555#comment9\n\nMaybe we can follow ag/16391438 to override which directory is used for filter directory? It needs root access though. Can we enable root and override filter directory automatically when `--module-parameter run_on_sdk_sandbox` is passed to atest?",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 50
+      },
+      "revId": "b34f7d381c7bb1b97b6bfe6eac091d0f11cf52ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
