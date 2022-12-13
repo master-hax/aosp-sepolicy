@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2acf192d_845c7644",
+        "filename": "private/sdk_sandbox.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-12-13T10:30:30Z",
+      "side": 1,
+      "message": "File write permissions are inherited from appdomain [1]. Directory write permissions do not seem to be required from the test infrastructure.\n\nIf you think it would be more clear I can add the write permissions here more explicitly. Or did you mean I should rephrase the comment?\n\n[1]: http://cs/android-internal/system/sepolicy/private/app.te;l\u003d346;rcl\u003d078b12548b09debcd92b3d269c585fda66f2b490",
+      "parentUuid": "699cf3ea_55226204",
+      "range": {
+        "startLine": 216,
+        "startChar": 17,
+        "endLine": 216,
+        "endChar": 22
+      },
+      "revId": "b34f7d381c7bb1b97b6bfe6eac091d0f11cf52ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9d6e9161_63763702",
@@ -60,6 +84,30 @@
       "writtenOn": "2022-12-13T10:18:10Z",
       "side": 1,
       "message": "I think there are concerns in letting privileged process have access to that directory: https://b.corp.google.com/issues/152001555#comment9\n\nMaybe we can follow ag/16391438 to override which directory is used for filter directory? It needs root access though. Can we enable root and override filter directory automatically when `--module-parameter run_on_sdk_sandbox` is passed to atest?",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 50
+      },
+      "revId": "b34f7d381c7bb1b97b6bfe6eac091d0f11cf52ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "087f0426_aaf74d4c",
+        "filename": "private/sdk_sandbox.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2022-12-13T10:30:30Z",
+      "side": 1,
+      "message": "Rewriting the test infrastructure to not rely on /data/local/tmp is definitely a more sound option, but that is going to be a major effort to achieve. Tests rely on reading/writing data in /data/local/tmp for various things, for example CtsAppOps2TestCases push a testing apk in /data/local/tmp and load the apk during testing\nhttp://cs/android-internal/cts/tests/tests/appop2/src/android/app/appops2/cts/AppOpsLoggingTest.kt;l\u003d99;rcl\u003dc101d188f8cccd50f54b185d1a9fb9421951e73a\n\nWould it make sense to allow the sdk_sandbox access to /data/local/tmp as a stopgap solution until we have the resources to tackle the testing infra changes?\n@brambonne@google.com @jeffv@google.com for comments",
+      "parentUuid": "96a75642_19ee9d72",
       "range": {
         "startLine": 217,
         "startChar": 0,
