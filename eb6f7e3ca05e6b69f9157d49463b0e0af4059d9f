@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c42ba20f_b9ec2289",
+        "filename": "public/property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-12-13T07:17:03Z",
+      "side": 1,
+      "message": "`system_restricted_prop` seems enough for now, unless you want to set the property via `.mk` files like:\n\n    PRODUCT_VENDOR_PROPERTIES +\u003d persist.device_config.camera_native.some_flag\u003dsome_value\n    \nIf you don\u0027t use `PRODUCT_VENDOR_PROPERTIES`, change this to `system_restricted_prop`.",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 52
+      },
+      "revId": "eb6f7e3ca05e6b69f9157d49463b0e0af4059d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
