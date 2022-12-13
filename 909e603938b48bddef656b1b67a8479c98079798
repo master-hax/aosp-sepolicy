@@ -89,6 +89,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dee1bed4_17186053",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1044551
+      },
+      "writtenOn": "2022-12-13T00:55:58Z",
+      "side": 1,
+      "message": "A lot of our property stuff deals nicely with bools, so keeping it true/false is certainly easier and less error prone ...",
+      "parentUuid": "56c1ae08_2a9a8f32",
+      "revId": "909e603938b48bddef656b1b67a8479c98079798",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ddf144fc_e72b0dce",
@@ -102,6 +120,30 @@
       "writtenOn": "2022-12-13T00:32:37Z",
       "side": 1,
       "message": "a `bool` property having a name `state` sounds a bit odd to me. What exactly does this encode?",
+      "range": {
+        "startLine": 645,
+        "startChar": 55,
+        "endLine": 645,
+        "endChar": 59
+      },
+      "revId": "909e603938b48bddef656b1b67a8479c98079798",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c12e2895_0afb80c8",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1044551
+      },
+      "writtenOn": "2022-12-13T00:55:58Z",
+      "side": 1,
+      "message": "Whether or not fuse-bpf, the feature, is running.\n\nWhat if I change it to ro.fuse.bpf.is_running? Would people be happier?",
+      "parentUuid": "ddf144fc_e72b0dce",
       "range": {
         "startLine": 645,
         "startChar": 55,
