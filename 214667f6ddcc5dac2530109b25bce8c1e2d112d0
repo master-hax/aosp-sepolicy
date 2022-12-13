@@ -94,6 +94,30 @@
       },
       "revId": "214667f6ddcc5dac2530109b25bce8c1e2d112d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c3ca1c5_d78833a5",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-12-13T10:04:45Z",
+      "side": 1,
+      "message": "Well, the other way to do it is to set the label correctly as you create it. But that\u0027s not easy either (you need to compute the label, including the categories, and it requires a bunch of different selinux permissions).\nSo create directory + restorecon is the normal way of doing it.\n\nWhat I was worried about was running restorecon on unrelated files, but if you\u0027re not doing that it\u0027s fine.\n\nIt looks like the access to packages_list_file is here: cs.android.com/android/platform/superproject/+/master:external/selinux/libselinux/src/android/android_device.c;drc\u003d4d132a10b0f7372cac13853eac258e827eda1d45;l\u003d451\n\nThat\u0027s used if the seinfo isn\u0027t present. But I thought you were passing in the seinfo? It appears in art/artd/binder/com/android/server/art/OutputArtifacts.aidl.",
+      "parentUuid": "824b93fc_bc29cec8",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 48
+      },
+      "revId": "214667f6ddcc5dac2530109b25bce8c1e2d112d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
