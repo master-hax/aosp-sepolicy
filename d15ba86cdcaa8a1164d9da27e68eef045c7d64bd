@@ -45,6 +45,30 @@
       },
       "revId": "d15ba86cdcaa8a1164d9da27e68eef045c7d64bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9428b09f_99ec7d71",
+        "filename": "public/init.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2022-12-13T07:51:03Z",
+      "side": 1,
+      "message": "it\u0027s for creating file whiteouts, which are character file with device number (0,0) (see \"whiteouts and opaque directories\" in https://www.kernel.org/doc/Documentation/filesystems/overlayfs.txt). \n\nWhen overlayfs is mounted, ovl_check_rename_whiteout() is called, and it tries creating / renaming / removing some files in the overlayfs workdir, asserting that file whiteouts are created (thus file rename is needed). After the check is done, it cleans up the workdir, which now contains whiteout, thus the chr_file unlink.",
+      "parentUuid": "f381bc0d_95046a6b",
+      "range": {
+        "startLine": 383,
+        "startChar": 28,
+        "endLine": 383,
+        "endChar": 36
+      },
+      "revId": "d15ba86cdcaa8a1164d9da27e68eef045c7d64bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
