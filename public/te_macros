@@ -185,30 +185,23 @@ neverallow $1 ~$1_userfaultfd:anon_inode *;
 # Allow domain to create and communicate with a virtual machine using
 # virtualizationservice.
 define(`virtualizationservice_use', `
-allow $1 virtualization_service:service_manager find;
-# Let the client call virtualizationservice.
-binder_call($1, virtualizationservice)
-# Let virtualizationservice call back to the client.
-binder_call(virtualizationservice, $1)
 # Transition to virtmgr when the client executes it.
 domain_auto_trans($1, virtmgr_exec, virtmgr)
 # Allow virtmgr to communicate over UDS with the client.
-allow virtmgr $1:unix_stream_socket { getattr read write };
-# Allow virtmgr and the client to signal each other using pipes.
-allow virtmgr $1:fifo_file { getattr read write };
-# Let the client pass file descriptors to virtualizationservice/virtmgr and on
-# to crosvm
-allow { virtualizationservice virtmgr crosvm } $1:fd use;
+allow { virtmgr crosvm } $1:unix_stream_socket { getattr read write };
+# Let the client pass file descriptors to virtmgr and on to crosvm.
+allow { virtmgr crosvm } $1:fd use;
+# Let the client use file descriptors created by virtmgr.
+allow $1 virtmgr:fd use;
 # Allow piping console log to the client
-allow { virtualizationservice crosvm } $1:fifo_file { getattr write};
-# Allow client to read/write vsock created by virtualizationservice to
-# communicate with the VM that it created. Notice that we do not grant
-# permission to create a vsock; the client can only connect to VMs
-# that it owns.
-allow $1 virtualizationservice:vsock_socket { getattr getopt read write };
+allow { virtmgr crosvm } $1:fifo_file { getattr read write };
+# Allow client to read/write vsock created by virtmgr to communicate with the VM
+# that it created. Notice that we do not grant permission to create a vsock;
+# the client can only connect to VMs that it owns.
+allow $1 virtmgr:vsock_socket { getattr getopt read write };
 # Allow client to inspect hypervisor capabilities
 get_prop($1, hypervisor_prop)
-# Allow client to read (but not open) the crashdump provided by virtualizationservice
+# Allow client to read (but not open) the crashdump provided by virtmgr
 allow $1 virtualizationservice_data_file:file { getattr read };
 ')
 
