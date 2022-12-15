@@ -22,6 +22,30 @@
       },
       "revId": "f6c31c33c13e87da8788d4e21a96ad8ecaec69e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38cb6637_d271f343",
+        "filename": "private/rkpd_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-12-15T16:56:38Z",
+      "side": 1,
+      "message": "Bit more context from `service_contexts`:\n```\nmedia.metrics                             u:object_r:mediametrics_service:s0\n...\nmedia.drm                                 u:object_r:mediadrmserver_service:s0\n```\n\nI wonder what code path is trying to access the `media.metrics` service? I cannot find one in our code base, nor anywhere in Java actually.\n\nIt would be nice to know why we need this. Maybe add a comment, because it seems to be a subtle requirement.",
+      "parentUuid": "9155eefd_d5d5ce44",
+      "range": {
+        "startLine": 20,
+        "startChar": 14,
+        "endLine": 20,
+        "endChar": 50
+      },
+      "revId": "f6c31c33c13e87da8788d4e21a96ad8ecaec69e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
