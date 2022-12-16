@@ -16,6 +16,29 @@
       "message": "+ Jiyong while Steven is out. This is for moving libsensorndkbridge to use the AIDL sensorservice in https://googleplex-android-review.git.corp.google.com/c/platform/frameworks/hardware/interfaces/+/20696278",
       "revId": "89e0a6d93bf96165761966a2e792b92e498427ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47986e8a_24d601b9",
+        "filename": "vendor/hal_camera_default.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-12-16T00:53:04Z",
+      "side": 1,
+      "message": "Is this `fwk_sensor_service` used? Nobody seems to be able to add that service. Search query is [1]. I expected somethihg like `add_service(something, fwk_sensor_service)`, but there isn\u0027t.\n\nAlso, please don\u0027t give the permission explicitly like this. Use macros [2]. So, for example,\n\n```\nin hal_camera_default.te:\nhal_client_domain(hal_camera_default, fw_sensor_service);\n\nin public/attributes:\nhal_attribute(fw_sensor_service); \n\nin public/fwk_sensor_service.te:\nhal_attribute_service(fwk_sensor_service, ...)\n\n\n[1] https://cs.android.com/search?q\u003dfwk_sensor_service%20f:sepolicy%20\u0026ss\u003dandroid%2Fplatform%2Fsuperproject\n\n[2] https://source.android.com/docs/core/architecture/aidl/aidl-hals#sepolicy",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 65
+      },
+      "revId": "89e0a6d93bf96165761966a2e792b92e498427ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
