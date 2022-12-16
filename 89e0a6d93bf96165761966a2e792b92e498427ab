@@ -39,6 +39,30 @@
       },
       "revId": "89e0a6d93bf96165761966a2e792b92e498427ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f286fb2_00a04621",
+        "filename": "vendor/hal_camera_default.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-16T00:56:57Z",
+      "side": 1,
+      "message": "Yes, this resolves the avc denial when trying to get the service.\n\nThe hal_client_domain() macro doesn\u0027t work for this right now, probably because of the other missing macros you mention.\n\nI\u0027ll try to add all of that and see how it goes! Thanks.",
+      "parentUuid": "47986e8a_24d601b9",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 65
+      },
+      "revId": "89e0a6d93bf96165761966a2e792b92e498427ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
