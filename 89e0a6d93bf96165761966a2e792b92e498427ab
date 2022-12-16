@@ -111,6 +111,30 @@
       },
       "revId": "89e0a6d93bf96165761966a2e792b92e498427ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "035a1f81_5ece56f6",
+        "filename": "vendor/hal_camera_default.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-16T18:32:09Z",
+      "side": 1,
+      "message": "Changing `system_server_service` to `protected_service` like the rest of the HALs. Then removing the call to hal_attribute and setting up the client/server/service types manually (to avoid the neverallows) works.\n\nSo all of this gets me back to same point as the original single line change as far as I can tell. This is the only framework service doing this, so I\u0027m not sure if this is the correct thing to do.",
+      "parentUuid": "49182dc5_30b83dd5",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 65
+      },
+      "revId": "89e0a6d93bf96165761966a2e792b92e498427ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
