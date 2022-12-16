@@ -63,6 +63,30 @@
       },
       "revId": "89e0a6d93bf96165761966a2e792b92e498427ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a67d6896_95fd3062",
+        "filename": "vendor/hal_camera_default.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-16T16:28:49Z",
+      "side": 1,
+      "message": "I tried a lot of things and couldn\u0027t find a solution using these macros. I\u0027m getting a lot of neverallows that are hard to understand and track down.\n\nNone of the existing android.frameworks* or android.system* services use any of the hal_* macros, so it seems like I need to do something else? Maybe the neverallows are coming form having system_server as the service?\n\nThe current patchset errors are in this paste: https://paste.googleplex.com/6310075575566336",
+      "parentUuid": "2f286fb2_00a04621",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 65
+      },
+      "revId": "89e0a6d93bf96165761966a2e792b92e498427ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
