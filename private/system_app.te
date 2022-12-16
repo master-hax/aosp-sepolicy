@@ -25,6 +25,7 @@ allow system_app misc_user_data_file:file create_file_perms;
 # Needed so that Settings can access NOTICE files inside apex
 # files located in the assets/ directory.
 allow system_app apex_data_file:dir search;
+allow system_app system_security_cacerts_file:dir search;
 allow system_app staging_data_file:file r_file_perms;
 
 # Read wallpaper file.
