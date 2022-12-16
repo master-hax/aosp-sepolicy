@@ -87,6 +87,30 @@
       },
       "revId": "89e0a6d93bf96165761966a2e792b92e498427ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49182dc5_30b83dd5",
+        "filename": "vendor/hal_camera_default.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-16T17:49:56Z",
+      "side": 1,
+      "message": "It looks like `system_server_service` conflicts with some `allow incidentd` to find the service. Removing `system_server_service` from the type gets past that.\n\nThe other 2 neverallows are hal_attribute macro that adds the no fork rules, which system_server violates.",
+      "parentUuid": "a67d6896_95fd3062",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 65
+      },
+      "revId": "89e0a6d93bf96165761966a2e792b92e498427ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
