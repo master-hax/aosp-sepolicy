@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85892e80_54123fc7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-19T19:29:54Z",
+      "side": 1,
+      "message": "WDYT?",
+      "revId": "b0623e8245cb514b40d089ba040080020d90401a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ca42c88_77fd3ef2",
+        "filename": "private/service_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-19T19:29:54Z",
+      "side": 1,
+      "message": "leave this as it is - w/o \u0027hal_\u0027 like the stats service or cameraservice",
+      "range": {
+        "startLine": 3,
+        "startChar": 80,
+        "endLine": 3,
+        "endChar": 84
+      },
+      "revId": "b0623e8245cb514b40d089ba040080020d90401a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87e87444_9792dd07",
+        "filename": "public/attributes",
+        "patchSetId": 4
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-19T19:29:54Z",
+      "side": 1,
+      "message": "this would be \u0027hal_attribute\u0027, but avoid this and go with the cameraservice/system suspend layout.\n\nYes, this means we give specific vendor services ability to talk to specific framework processes, but this will happen anyway. One might think, in order to get the \"clean\" architecture to be testable, we would need to hide all of the public types so that vendor code would only be able to grant permissions based on talking to X_server, but frequently they will also use Y_server without declaring it (if it happens to be in the same process), so it doesn\u0027t buy us much.\n\nSo, if we wanted to clean it up, we would still need to be careful. If an ll-ndk library is a client, it might warrant this complexity. In order to clean it up, we could also generalize hal_attribute into \u0027client_server_attribute\u0027 or similar, and that way we could add hal_/fwk_ prefixes independently (and the hal_client_domain etc.. things would also have to be made more generic)\n\nRegardless - go with the simplest policy that you can for now, like these:\n\n    type fwk_stats_service, app_api_service, system_server_service, service_manager_type;\n    type fwk_sensor_service, system_server_service, service_manager_type;\n\nThis has been discussed some in the past. trong@ was cleaning it up for a while, but if we do invent a new way of doing it, we should apply it to the others simultaneously, in order to understand the problems there.",
+      "range": {
+        "startLine": 410,
+        "startChar": 0,
+        "endLine": 416,
+        "endChar": 0
+      },
+      "revId": "b0623e8245cb514b40d089ba040080020d90401a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
