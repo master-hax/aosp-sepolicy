@@ -22,6 +22,30 @@
       },
       "revId": "bb884af1d784cb84e7f587499d53910384a12149",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3548caf3_25052137",
+        "filename": "prebuilts/api/33.0/private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1974186
+      },
+      "writtenOn": "2022-12-20T09:31:34Z",
+      "side": 1,
+      "message": "I thought that it might be problematic, but if I don\u0027t change it I can not even build, I get this error:\n\n[  0% 5/5495] //system/sepolicy:sepolicy_freeze_test sepolicy_freeze_test\nFAILED: out/soong/.intermediates/system/sepolicy/sepolicy_freeze_test/freeze_test\ndiff -r -q -x bug_map system/sepolicy/public system/sepolicy/prebuilts/api/33.0/public \u0026\u0026 diff -r -q -x bug_map system/sepolicy/private system/sepolicy/prebuilts/api/33.0/private \u0026\u0026 touch out/soong/.intermediates/system/sepolicy/sepolicy_freeze_test/freeze_test # hash of input list: 29c7d44b35db73f8dfe2664076b372f9fb2742b13d5a0299968a45f3c6f8003e\nFiles system/sepolicy/private/property_contexts and system/sepolicy/prebuilts/api/33.0/private/property_contexts differ\n12:24:10 ninja failed with: exit status 1\n\nMaybe there is another way ?",
+      "parentUuid": "a8e462c7_a7d6640a",
+      "range": {
+        "startLine": 473,
+        "startChar": 0,
+        "endLine": 483,
+        "endChar": 92
+      },
+      "revId": "bb884af1d784cb84e7f587499d53910384a12149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
