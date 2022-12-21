@@ -264,6 +264,30 @@
       },
       "revId": "491796644b5604752d5a3ef40f7a0b72fb4ab08a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54c10b7a_eec001c8",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-12-21T03:32:32Z",
+      "side": 1,
+      "message": "Ah, sorry for confusion. `virtual_fingerprint_hal_prop` is vendor_internal_prop so we can\u0027t use `virtual_fingerprint_hal_prop` here.\n\nCould you rename the property to remove `ro.vendor.` prefix? If system_server wants to read the property, we shouldn\u0027t use the vendor prefix. refer to https://source.android.com/docs/core/architecture/configuration/add-system-properties for how to.",
+      "parentUuid": "9ee00d46_bfcf3c3d",
+      "range": {
+        "startLine": 1475,
+        "startChar": 40,
+        "endLine": 1475,
+        "endChar": 71
+      },
+      "revId": "491796644b5604752d5a3ef40f7a0b72fb4ab08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
