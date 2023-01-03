@@ -1,0 +1,366 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "690b05b4_2161e70a",
+        "filename": "private/crosvm.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-03T15:28:45Z",
+      "side": 1,
+      "message": "Could you add a comment on why this needs mlstrustedsubject?\n(And maybe move it to a line of its own - typeattribute crosvm mlstrustedsubject)",
+      "range": {
+        "startLine": 1,
+        "startChar": 33,
+        "endLine": 1,
+        "endChar": 50
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f3784e5_67e142d4",
+        "filename": "private/crosvm.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-03T15:28:45Z",
+      "side": 1,
+      "message": "You\u0027re going to hate this, but actually that\u0027s a terrible name.\nvirtualization_manager?\n\n(At least within the policy; it\u0027s fine as the name of the executable etc)",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 20
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9aca377_05af8cc3",
+        "filename": "private/crosvm.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-03T15:28:45Z",
+      "side": 1,
+      "message": "Why this change? What extra permissions are you using?\nWould rw_socket_perms_no_ioctl suffice?",
+      "range": {
+        "startLine": 65,
+        "startChar": 37,
+        "endLine": 65,
+        "endChar": 52
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb5e4181_9ac31919",
+        "filename": "private/virtmgr.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-03T15:28:45Z",
+      "side": 1,
+      "message": "As above.\n\nAnd this one is slightly more worrying. Could we make the targets mlstrustedobject instead?",
+      "range": {
+        "startLine": 3,
+        "startChar": 34,
+        "endLine": 3,
+        "endChar": 51
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a70e5c76_87fe57e3",
+        "filename": "private/virtmgr.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-03T15:28:45Z",
+      "side": 1,
+      "message": "Delete? (VS can\u0027t find VM.)",
+      "range": {
+        "startLine": 13,
+        "startChar": 62,
+        "endLine": 13,
+        "endChar": 78
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53696bad_bcc5935e",
+        "filename": "private/virtmgr.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-03T15:28:45Z",
+      "side": 1,
+      "message": "Nit: move these into one block, merge the comments?\nWe may add more system server services here later",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 58
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b48c562_5e8af4b7",
+        "filename": "private/virtmgr.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-03T15:28:45Z",
+      "side": 1,
+      "message": "VirtualizationServices\u0027s",
+      "range": {
+        "startLine": 30,
+        "startChar": 34,
+        "endLine": 30,
+        "endChar": 37
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9478d3e7_c83e0a58",
+        "filename": "private/virtmgr.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-03T15:28:45Z",
+      "side": 1,
+      "message": "rw_dir_perms",
+      "range": {
+        "startLine": 31,
+        "startChar": 50,
+        "endLine": 31,
+        "endChar": 97
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7fe2d10_64d6922a",
+        "filename": "private/virtmgr.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-03T15:28:45Z",
+      "side": 1,
+      "message": "Uber-nit: the original didn\u0027t have this blank line, as a subtle hint that the next rule is also related to derive_classpath. Maybe we should just say that explicitly.",
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e63685a7_611c7116",
+        "filename": "private/virtmgr.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-03T15:28:45Z",
+      "side": 1,
+      "message": "I thought the commit message said this was still going to be done by VS?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 32
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07e167ae_19a70522",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-03T15:28:45Z",
+      "side": 1,
+      "message": "And again",
+      "range": {
+        "startLine": 1,
+        "startChar": 48,
+        "endLine": 1,
+        "endChar": 65
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91e8f162_983b5707",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-03T15:28:45Z",
+      "side": 1,
+      "message": "I don\u0027t think you need this - it allows apps, system server etc to access the service, but they shouldn\u0027t be doing that?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 37
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1456a7f1_9d0c6cb9",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-03T15:28:45Z",
+      "side": 1,
+      "message": "Can you put this at the bottom with the other neverallows?\n(That\u0027s supposed to be the convention)",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 20
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45e211c6_82c636cd",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-03T15:28:45Z",
+      "side": 1,
+      "message": "Can you comment this? It\u0027s an unusual set of permissions",
+      "range": {
+        "startLine": 31,
+        "startChar": 79,
+        "endLine": 31,
+        "endChar": 98
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61386fc3_33544aa9",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-03T15:28:45Z",
+      "side": 1,
+      "message": "I thought that was for virtmgr now?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 93
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9318c35d_2b350b1a",
+        "filename": "public/te_macros",
+        "patchSetId": 6
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-03T15:28:45Z",
+      "side": 1,
+      "message": "-\u003e virtmgr and virtualizationservice",
+      "range": {
+        "startLine": 186,
+        "startChar": 2,
+        "endLine": 186,
+        "endChar": 23
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
