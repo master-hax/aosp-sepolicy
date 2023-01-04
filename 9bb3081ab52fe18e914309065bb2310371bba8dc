@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2ec41d7_c8c30a75",
+        "filename": "private/crosvm.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-01-04T10:20:28Z",
+      "side": 1,
+      "message": "Replaced with mlstrustedobject on virtualizationservice_data_file and kvm_device",
+      "parentUuid": "690b05b4_2161e70a",
+      "range": {
+        "startLine": 1,
+        "startChar": 33,
+        "endLine": 1,
+        "endChar": 50
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f3784e5_67e142d4",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-03T15:28:45Z",
       "side": 1,
       "message": "You\u0027re going to hate this, but actually that\u0027s a terrible name.\nvirtualization_manager?\n\n(At least within the policy; it\u0027s fine as the name of the executable etc)",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 20
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3fc78b1_2917dacd",
+        "filename": "private/crosvm.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-01-04T10:20:28Z",
+      "side": 1,
+      "message": "Haha, don\u0027t mind. Changed to \u0027virtualizationmanager\u0027 (to match \u0027virtualizationservice\u0027 domain).",
+      "parentUuid": "5f3784e5_67e142d4",
       "range": {
         "startLine": 17,
         "startChar": 13,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4a60fef_c6b4003c",
+        "filename": "private/crosvm.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-01-04T10:20:28Z",
+      "side": 1,
+      "message": "Hmm, now it seems happy with the original...",
+      "parentUuid": "b9aca377_05af8cc3",
+      "range": {
+        "startLine": 65,
+        "startChar": 37,
+        "endLine": 65,
+        "endChar": 52
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb5e4181_9ac31919",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-01-03T15:28:45Z",
       "side": 1,
       "message": "As above.\n\nAnd this one is slightly more worrying. Could we make the targets mlstrustedobject instead?",
+      "range": {
+        "startLine": 3,
+        "startChar": 34,
+        "endLine": 3,
+        "endChar": 51
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30abe330_82186caf",
+        "filename": "private/virtmgr.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-01-04T10:20:28Z",
+      "side": 1,
+      "message": "Ah, ok. Replaced with mlstrustedobject on virtualizationservice_data_file",
+      "parentUuid": "fb5e4181_9ac31919",
       "range": {
         "startLine": 3,
         "startChar": 34,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c320b517_4756ead8",
+        "filename": "private/virtmgr.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-01-04T10:20:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a70e5c76_87fe57e3",
+      "range": {
+        "startLine": 13,
+        "startChar": 62,
+        "endLine": 13,
+        "endChar": 78
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53696bad_bcc5935e",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-01-03T15:28:45Z",
       "side": 1,
       "message": "Nit: move these into one block, merge the comments?\nWe may add more system server services here later",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 58
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84329585_02ca5fa0",
+        "filename": "private/virtmgr.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-01-04T10:20:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53696bad_bcc5935e",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2c8e31a_de975c67",
+        "filename": "private/virtmgr.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-01-04T10:20:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b48c562_5e8af4b7",
+      "range": {
+        "startLine": 30,
+        "startChar": 34,
+        "endLine": 30,
+        "endChar": 37
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9478d3e7_c83e0a58",
@@ -175,6 +343,30 @@
       "writtenOn": "2023-01-03T15:28:45Z",
       "side": 1,
       "message": "rw_dir_perms",
+      "range": {
+        "startLine": 31,
+        "startChar": 50,
+        "endLine": 31,
+        "endChar": 97
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5fe4a00_36ae157c",
+        "filename": "private/virtmgr.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-01-04T10:20:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9478d3e7_c83e0a58",
       "range": {
         "startLine": 31,
         "startChar": 50,
@@ -202,6 +394,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0360a82_7ca0f0f4",
+        "filename": "private/virtmgr.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-01-04T10:20:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7fe2d10_64d6922a",
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e63685a7_611c7116",
@@ -215,6 +425,30 @@
       "writtenOn": "2023-01-03T15:28:45Z",
       "side": 1,
       "message": "I thought the commit message said this was still going to be done by VS?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 32
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc4b42ed_e8b127dc",
+        "filename": "private/virtmgr.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-01-04T10:20:28Z",
+      "side": 1,
+      "message": "VS does guest tombstones, virtmgr does ramdumps",
+      "parentUuid": "e63685a7_611c7116",
       "range": {
         "startLine": 71,
         "startChar": 0,
@@ -248,6 +482,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "502a8140_01b81666",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-01-04T10:20:28Z",
+      "side": 1,
+      "message": "This one needs to be mlstrustedsubject. Added a comment.",
+      "parentUuid": "07e167ae_19a70522",
+      "range": {
+        "startLine": 1,
+        "startChar": 48,
+        "endLine": 1,
+        "endChar": 65
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91e8f162_983b5707",
@@ -261,6 +519,30 @@
       "writtenOn": "2023-01-03T15:28:45Z",
       "side": 1,
       "message": "I don\u0027t think you need this - it allows apps, system server etc to access the service, but they shouldn\u0027t be doing that?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 37
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4c17d5d_f900261f",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-01-04T10:20:28Z",
+      "side": 1,
+      "message": "Interesting... Done",
+      "parentUuid": "91e8f162_983b5707",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -294,6 +576,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "467d538d_3f5ce9e7",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-01-04T10:20:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1456a7f1_9d0c6cb9",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 20
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45e211c6_82c636cd",
@@ -307,6 +613,30 @@
       "writtenOn": "2023-01-03T15:28:45Z",
       "side": 1,
       "message": "Can you comment this? It\u0027s an unusual set of permissions",
+      "range": {
+        "startLine": 31,
+        "startChar": 79,
+        "endLine": 31,
+        "endChar": 98
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "807c3217_5ad2aa82",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-01-04T10:20:28Z",
+      "side": 1,
+      "message": "Done, and simplified. The getattr is to tell if the directory entry is actually a file, but we can tell that from the error message anyway.",
+      "parentUuid": "45e211c6_82c636cd",
       "range": {
         "startLine": 31,
         "startChar": 79,
@@ -340,6 +670,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a6e8e7e_84eee6b0",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-01-04T10:20:28Z",
+      "side": 1,
+      "message": "It needs it for the tombstone service.",
+      "parentUuid": "61386fc3_33544aa9",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 93
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9318c35d_2b350b1a",
@@ -353,6 +707,30 @@
       "writtenOn": "2023-01-03T15:28:45Z",
       "side": 1,
       "message": "-\u003e virtmgr and virtualizationservice",
+      "range": {
+        "startLine": 186,
+        "startChar": 2,
+        "endLine": 186,
+        "endChar": 23
+      },
+      "revId": "9bb3081ab52fe18e914309065bb2310371bba8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeac75fe_b0c55aed",
+        "filename": "public/te_macros",
+        "patchSetId": 6
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-01-04T10:20:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9318c35d_2b350b1a",
       "range": {
         "startLine": 186,
         "startChar": 2,
