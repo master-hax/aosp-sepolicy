@@ -161,10 +161,13 @@ allow domain linkerconfig_file:file r_file_perms;
 # Allow all processes to check for the existence of the boringssl_self_test_marker files.
 allow domain boringssl_self_test_marker:dir search;
 
+<<<<<<< HEAD   (17ac4a Merge "Add newline between contexts inputs")
 # Allow all processes to read the file_logger property that liblog uses to check if file_logger
 # should be used.
 get_prop(domain, log_file_logger_prop)
 
+=======
+>>>>>>> BRANCH (0e1b56 Merge cherrypicks of [20063690, 20090104] into tm-qpr1-relea)
 # Allow all processes to connect to PRNG seeder daemon.
 unix_socket_connect(domain, prng_seeder, prng_seeder)
 
