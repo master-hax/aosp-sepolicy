@@ -1,0 +1,41 @@
+# This file is derived from https://git.codelinaro.org/clo/la/platform/system/sepolicy/-/blob/clo/main/private/gpuservice.te licensed under public domain.
+
+# Changes from Qualcomm Innovation Center are provided under the following license:
+
+# Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause-Clear
+
+# asrmservice - server for system resource manager
+typeattribute asrmservice coredomain;
+typeattribute asrmservice bpfdomain;
+
+type asrmservice_exec, system_file_type, exec_type, file_type;
+
+init_daemon_domain(asrmservice)
+
+# Needed for reading tracepoint ids in order to attach bpf programs
+allow asrmservice debugfs_tracing:file r_file_perms;
+allow asrmservice self:perf_event { cpu kernel open read write };
+neverallow asrmservice self:perf_event ~{ cpu kernel open read write };
+
+# Needed for interact with bpf fs.
+# Write is needed to open read/write bpf maps.
+allow asrmservice fs_bpf:dir search;
+allow asrmservice fs_bpf:file { read write };
+
+# Needed for enabling bpf programs and accessing bpf maps (read-only and read/write).
+allow asrmservice bpfloader:bpf { map_read map_write prog_run };
+
+# Needed for getting a prop to ensure bpf programs loaded.
+get_prop(asrmservice, bpf_progs_loaded_prop)
+
+# Needed for getting a prop from  hwservicemanager_prop
+#allow asrmservice hwservicemanager_prop:file { getattr map open read };
+get_prop(asrmservice, hwservicemanager_prop)
+
+
+# add_service(asrmservice, asrm_service)
+
+# Only uncomment below line when in development
+# userdebug_or_eng(`permissive vendor_asrmservice;')
+
