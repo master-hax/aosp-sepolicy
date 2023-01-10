@@ -1,0 +1,23 @@
+# asrmservice - server for system resource manager
+typeattribute asrmservice coredomain;
+typeattribute asrmservice bpfdomain;
+
+type asrmservice_exec, system_file_type, exec_type, file_type;
+
+init_daemon_domain(asrmservice)
+
+# Needed for reading tracepoint ids in order to attach bpf programs
+allow asrmservice debugfs_tracing:file r_file_perms;
+allow asrmservice self:perf_event { cpu kernel open read write };
+neverallow asrmservice self:perf_event ~{ cpu kernel open read write };
+
+# Needed for interact with bpf fs.
+# Write is needed to open read/write bpf maps.
+allow asrmservice fs_bpf:dir search;
+allow asrmservice fs_bpf:file { read write };
+
+# Needed for running bpf programs und accessing bpf maps (read-only and read/write).
+allow asrmservice bpfloader:bpf { map_read map_write prog_run };
+
+get_prop(asrmservice, hwservicemanager_prop)
+
