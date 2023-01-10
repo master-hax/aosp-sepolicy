@@ -257,6 +257,7 @@ var (
 		"grammatical_inflection":       EXCEPTION_NO_FUZZER,
 		"graphicsstats":                EXCEPTION_NO_FUZZER,
 		"gpu":                          EXCEPTION_NO_FUZZER,
+		"asrm":                         EXCEPTION_NO_FUZZER,
 		"hardware":                     EXCEPTION_NO_FUZZER,
 		"hardware_properties":          EXCEPTION_NO_FUZZER,
 		"hdmi_control":                 EXCEPTION_NO_FUZZER,

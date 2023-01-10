@@ -1,3 +1,8 @@
+# Changes from Qualcomm Innovation Center are provided under the following license:
+# Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause-Clear
+
+
 get_prop(coredomain, boot_status_prop)
 get_prop(coredomain, camera_config_prop)
 get_prop(coredomain, dalvik_config_prop)
@@ -171,6 +176,7 @@ full_treble_only(`
     -atrace
     -dumpstate
     -gpuservice
+    -asrmservice
     -init
     -traced_perf
     -traced_probes

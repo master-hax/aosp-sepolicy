@@ -1,3 +1,7 @@
+# Changes from Qualcomm Innovation Center are provided under the following license:
+# Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause-Clear
+
 type bpfloader_exec, system_file_type, exec_type, file_type;
 
 typeattribute bpfloader bpfdomain;
@@ -33,13 +37,13 @@ neverallow domain bpffs_type:dir ~{ add_name create getattr mounton open read re
 # TODO: get rid of init & vendor_init
 neverallow { domain -bpfloader -init -vendor_init } bpffs_type:file { map open setattr };
 neverallow { domain -bpfloader } bpffs_type:file { create rename };
-neverallow { domain -bpfloader -gpuservice -init -lmkd -mediaprovider_app -netd -netutils_wrapper                -system_server -vendor_init } fs_bpf:file               read;
+neverallow { domain -bpfloader -gpuservice -asrmservice -init -lmkd -mediaprovider_app -netd -netutils_wrapper                -system_server -vendor_init } fs_bpf:file               read;
 neverallow { domain -bpfloader             -init                                                  -network_stack                -vendor_init } fs_bpf_net_private:file   read;
 neverallow { domain -bpfloader             -init                                                  -network_stack -system_server -vendor_init } fs_bpf_net_shared:file    read;
 neverallow { domain -bpfloader             -init                          -netd                   -network_stack -system_server -vendor_init } fs_bpf_netd_readonly:file read;
 neverallow { domain -bpfloader             -init                          -netd -netutils_wrapper -network_stack -system_server -vendor_init } fs_bpf_netd_shared:file   read;
 neverallow { domain -bpfloader             -init                                                  -network_stack                -vendor_init } fs_bpf_tethering:file     read;
-neverallow { domain -bpfloader -gpuservice                                -netd -netutils_wrapper -network_stack -system_server              } { bpffs_type -fs_bpf_vendor }:file write;
+neverallow { domain -bpfloader -gpuservice                                -netd -netutils_wrapper -network_stack -system_server -asrmservice } { bpffs_type -fs_bpf_vendor }:file write;
 neverallow domain bpffs_type:file ~{ create map open read rename setattr write };
 
 neverallow { domain -bpfloader } *:bpf { map_create prog_load };
@@ -48,6 +52,7 @@ neverallow {
   domain
   -bpfloader
   -gpuservice
+  -asrmservice
   -hal_health_server
   -mediaprovider_app
   -netd
@@ -55,7 +60,7 @@ neverallow {
   -network_stack
   -system_server
 } *:bpf prog_run;
-neverallow { domain -bpfloader -gpuservice -lmkd -mediaprovider_app -netd -network_stack -system_server } *:bpf { map_read map_write };
+neverallow { domain -bpfloader -gpuservice -asrmservice -lmkd -mediaprovider_app -netd -network_stack -system_server } *:bpf { map_read map_write };
 neverallow { domain -bpfloader -init } bpfloader_exec:file { execute execute_no_trans };
 
 neverallow { coredomain -bpfloader -init } fs_bpf_vendor:file *;
