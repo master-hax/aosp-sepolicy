@@ -34,14 +34,14 @@ neverallow { domain -bpfloader } bpffs_type:dir { add_name create remove_name wr
 
 neverallow { domain            } bpffs_type:file ~{ create getattr map open read rename setattr write };
 neverallow { domain -bpfloader } bpffs_type:file { create getattr map open rename setattr };
-neverallow { domain -bpfloader -gpuservice -lmkd -mediaprovider_app -netd -netutils_wrapper                -system_server } fs_bpf:file               read;
+neverallow { domain -asrmservice -bpfloader -gpuservice -lmkd -mediaprovider_app -netd -netutils_wrapper   -system_server } fs_bpf:file               read;
 neverallow { domain -bpfloader                                                                                            } fs_bpf_loader:file        read;
 neverallow { domain -bpfloader                                                              -network_stack                } fs_bpf_net_private:file   read;
 neverallow { domain -bpfloader                                                              -network_stack -system_server } fs_bpf_net_shared:file    read;
 neverallow { domain -bpfloader                                      -netd                   -network_stack -system_server } fs_bpf_netd_readonly:file read;
 neverallow { domain -bpfloader                                      -netd -netutils_wrapper -network_stack -system_server } fs_bpf_netd_shared:file   read;
 neverallow { domain -bpfloader                                                              -network_stack                } fs_bpf_tethering:file     read;
-neverallow { domain -bpfloader -gpuservice                          -netd -netutils_wrapper -network_stack -system_server } { bpffs_type -fs_bpf_vendor }:file write;
+neverallow { domain -asrmservice -bpfloader -gpuservice                          -netd -netutils_wrapper -network_stack -system_server } { bpffs_type -fs_bpf_vendor }:file write;
 
 neverallow { domain -bpfloader } bpffs_type:lnk_file ~read;
 neverallow { domain -bpfdomain } bpffs_type:lnk_file read;
@@ -54,6 +54,7 @@ neverallow { domain -bpfloader } fs_bpf_loader:file *;
 
 neverallow {
   domain
+  -asrmservice
   -bpfloader
   -gpuservice
   -hal_health_server
@@ -63,7 +64,7 @@ neverallow {
   -network_stack
   -system_server
 } *:bpf prog_run;
-neverallow { domain -bpfloader -gpuservice -lmkd -mediaprovider_app -netd -network_stack -system_server } *:bpf { map_read map_write };
+neverallow { domain -asrmservice -bpfloader -gpuservice -lmkd -mediaprovider_app -netd -network_stack -system_server } *:bpf { map_read map_write };
 neverallow { domain -bpfloader -init } bpfloader_exec:file { execute execute_no_trans };
 
 neverallow { coredomain -bpfloader } fs_bpf_vendor:file *;
