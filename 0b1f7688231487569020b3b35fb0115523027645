@@ -16,6 +16,29 @@
       "message": "Can you please provide more context on the reason for this change? What is asrmservice and where is its code? Why does it need access to bpf maps? Why does it need permission to attach bpf programs to tracepoints? The implications of granting these permissions are not clear to me from the commit message or the linked bug",
       "revId": "0b1f7688231487569020b3b35fb0115523027645",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f52f3269_ea01ff4f",
+        "filename": "private/asrmservice.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2023-01-13T02:32:40Z",
+      "side": 1,
+      "message": "read permission should not be necessary here if the only reason for perf event permissions is to allow tracepoint program attachment, see e.g. system_server which has only `open write cpu kernel`. Is there another reason this needs to be granted?",
+      "range": {
+        "startLine": 18,
+        "startChar": 52,
+        "endLine": 18,
+        "endChar": 56
+      },
+      "revId": "0b1f7688231487569020b3b35fb0115523027645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
