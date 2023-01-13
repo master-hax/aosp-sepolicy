@@ -16,6 +16,24 @@
       "message": "I\u0027m not sure this is correct.\n\nThese \"Rkp Only\" properties apply only to keymint, I think.\n\nrkpd certainly doesn\u0027t read them now. And if it did I\u0027m not sure it would know how to map them since these properties refer to keymint specifically (tee or strongbox).",
       "revId": "7b9b6a04ed830baae57a574d0f099555f1616491",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2d3c36b_0fd35d83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2023-01-13T00:49:15Z",
+      "side": 1,
+      "message": "Interesting! That\u0027s what I thought, but this denial came up in presubmit.\n\n  01-12 01:43:24.128  5018  5018 I auditd  : type\u003d1400 audit(0.0:130): avc: denied { read } for comm\u003d\"pool-3-thread-1\" name\u003d\"u:object_r:remote_prov_prop:s0\" dev\u003d\"tmpfs\" ino\u003d299 scontext\u003du:r:rkpdapp:s0:c512,c768 tcontext\u003du:object_r:remote_prov_prop:s0 tclass\u003dfile permissive\u003d0 app\u003dcom.google.android.rkpdapp\n\nRKPD reads the props here.\nhttps://android.googlesource.com/platform/packages/modules/RemoteKeyProvisioning/+/refs/heads/master/app/src/com/android/rkpdapp/ProvisionerMetrics.java#241",
+      "parentUuid": "64063844_71a826e8",
+      "revId": "7b9b6a04ed830baae57a574d0f099555f1616491",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
