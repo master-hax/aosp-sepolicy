@@ -94,6 +94,30 @@
       },
       "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2913926b_f246420e",
+        "filename": "public/hal_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2023-01-13T18:25:03Z",
+      "side": 1,
+      "message": "Hah, so I happened to learn about this yesterday, due to a forward porting bug of a patch I wrote for prodkernel being incorrectly applied to 5.15, but:\n\nhttps://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id\u003dc427bfec18f2190b8f4718785ee8ed2db4f84ee6\n\nnet: core: enable SO_BINDTODEVICE for non-root users\n\nWhich is in Linux ~5.6..5.7 so in Pixel 6+\n\n---\n\nNow a separate question is whether we\u0027re actually OK with this change for Android... since it might break some network binding assumptions.",
+      "parentUuid": "02acc07e_f7ea4381",
+      "range": {
+        "startLine": 7,
+        "startChar": 3,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
