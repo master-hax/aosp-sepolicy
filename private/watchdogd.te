@@ -1,3 +1,5 @@
 typeattribute watchdogd coredomain;
 
 init_daemon_domain(watchdogd)
+
+allow watchdogd self:capability sys_nice;
