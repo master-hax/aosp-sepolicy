@@ -99,6 +99,30 @@
       },
       "revId": "0b1f7688231487569020b3b35fb0115523027645",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "966a11fd_be7401fa",
+        "filename": "private/asrmservice.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1927740
+      },
+      "writtenOn": "2023-01-13T07:35:39Z",
+      "side": 1,
+      "message": "Can\u0027t remove read permission, will failed as below code shown.\nstruct perf_reader *reader \u003d static_cast\u003cperf_reader*\u003e(bpf_open_perf_buffer(\n                perf_reader_raw, perf_reader_lost, (void*)\u0026cpu, -1, cpu, /* page_cnt */1));\t\n            if (reader \u003d\u003d NULL){\t\n                ALOGE(\"reader init failed: %s\", strerror(errno));\t\n                goto fail_1;\n            }",
+      "parentUuid": "eae87f40_eea56a9e",
+      "range": {
+        "startLine": 18,
+        "startChar": 52,
+        "endLine": 18,
+        "endChar": 56
+      },
+      "revId": "0b1f7688231487569020b3b35fb0115523027645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
