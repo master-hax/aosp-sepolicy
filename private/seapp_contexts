@@ -122,7 +122,7 @@ neverallow user=((?!shared_relro).)* domain=shared_relro
 
 # neverallow non-isolated uids into isolated_app domain
 # and vice versa
-neverallow user=_isolated domain=((?!isolated_app).)*
+neverallow user=_isolated isSolitary=false domain=((?!isolated_app).)*
 neverallow user=((?!_isolated).)* domain=isolated_app
 
 # uid shell should always be in shell domain, however non-shell
@@ -178,4 +178,5 @@ user=_app minTargetSdkVersion=26 domain=untrusted_app_27 type=app_data_file leve
 user=_app domain=untrusted_app_25 type=app_data_file levelFrom=user
 user=_app minTargetSdkVersion=28 fromRunAs=true domain=runas_app levelFrom=all
 user=_app fromRunAs=true domain=runas_app levelFrom=user
+user=isolated isSolitary=true domain=solitary_app levelFrom=all
 
