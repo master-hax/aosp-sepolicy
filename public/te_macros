@@ -228,6 +228,13 @@ neverallow { domain -$1 -crash_dump userdebug_or_eng(`-llkd') -runas_app -simple
 ')
 
 #####################################
+# solitary_app_domain(domain)
+# Allow a base set of permissions required for all solitary apps.
+define(`solitary_app_domain', `
+typeattribute $1 solitary_app_all;
+')
+
+#####################################
 # untrusted_app_domain(domain)
 # Allow a base set of permissions required for all untrusted apps.
 define(`untrusted_app_domain', `

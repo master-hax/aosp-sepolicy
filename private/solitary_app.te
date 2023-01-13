@@ -1,0 +1,13 @@
+typeattribute solitary_app coredomain;
+
+app_domain(solitary_app)
+
+# reuse ephemeral app to apply its neverallow statements
+typeattribute solitary_app_all ephemeral_app;
+
+solitary_app_domain(solitary_app)
+
+allow solitary_app_all cameraserver_service:service_manager find;
+allow solitary_app_all content_capture_service:service_manager find;
+allow solitary_app_all device_state_service:service_manager find;
+allow solitary_app_all privapp_data_file:dir { getattr search };
