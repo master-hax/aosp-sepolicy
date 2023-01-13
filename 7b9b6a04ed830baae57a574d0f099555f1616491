@@ -34,6 +34,24 @@
       "parentUuid": "64063844_71a826e8",
       "revId": "7b9b6a04ed830baae57a574d0f099555f1616491",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c1c8746_d295f652",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-01-13T01:17:43Z",
+      "side": 1,
+      "message": "Actually... yeah. I think it\u0027s probably best to keep that.\n\n30 minutes ago I convinced myself that code in the metrics recording was wrong. But it\u0027s fine, because:\n1. The remotely provisioned component names are fixed -- \"default\" _must_ correspond with TEE keymint, and \"strongbox\" _must_ correspond with strongbox. Else things explode.\n2. rkpdapp doesn\u0027t read these for any other purpose, but that\u0027s fine. It\u0027s helpful to include the info in the metrics.\n\nSo past me was wrong. Now me says this is fine 😊",
+      "parentUuid": "c2d3c36b_0fd35d83",
+      "revId": "7b9b6a04ed830baae57a574d0f099555f1616491",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
