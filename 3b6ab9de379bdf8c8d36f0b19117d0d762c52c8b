@@ -46,6 +46,30 @@
       },
       "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e38c131b_9bcb3712",
+        "filename": "public/hal_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2023-01-13T12:06:37Z",
+      "side": 1,
+      "message": "Yeah, I\u0027m not following why this is a good idea to do - *especially* so in non-auto-specific logic...\n\nWhat specific setsockopt(s) requires net_raw?\nIs there a design doc / discussion for this somewhere?\nI tried following the link to the bug, but that doesn\u0027t seem useful...\nWhy can\u0027t this use normal Android access permission model for binding to networks?\n\nAlso why does this also allow net_admin?\n(does this mean a separate neverallow for net_admin should be added?)",
+      "parentUuid": "9917eb6c_d9fa0ed8",
+      "range": {
+        "startLine": 7,
+        "startChar": 3,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
