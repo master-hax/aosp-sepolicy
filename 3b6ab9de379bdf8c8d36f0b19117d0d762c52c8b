@@ -70,6 +70,30 @@
       },
       "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02acc07e_f7ea4381",
+        "filename": "public/hal_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-01-13T18:08:49Z",
+      "side": 1,
+      "message": "Yes, we only need net_raw, I can add a never allow rule for net_admin.\n\nThe reason we need this is for this CL: ag/20964735 to work. Specifically, we use the grpc\u0027s SetSocketMutator function. We need to use setsockopt(SO_BINDTODEVICE) to bind the socket fd to a specific interface.",
+      "parentUuid": "e38c131b_9bcb3712",
+      "range": {
+        "startLine": 7,
+        "startChar": 3,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
