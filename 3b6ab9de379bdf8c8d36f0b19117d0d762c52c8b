@@ -166,6 +166,30 @@
       },
       "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e6d4464_463c5f4d",
+        "filename": "public/hal_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2023-01-13T18:54:24Z",
+      "side": 1,
+      "message": "https://source.corp.google.com/aosp-master/frameworks/native/include/android/multinetwork.h;l\u003d72\n\n/**\n * Set the network to be used by the given socket file descriptor.\n *\n * To clear a previous socket binding, invoke with NETWORK_UNSPECIFIED.\n *\n * This is the equivalent of: [android.net.Network#bindSocket()](https://developer.android.com/reference/android/net/Network.html#bindSocket(java.net.Socket))\n *\n * Available since API level 23.\n */\nint android_setsocknetwork(net_handle_t network, int fd) __INTRODUCED_IN(23);",
+      "parentUuid": "32524175_38054584",
+      "range": {
+        "startLine": 7,
+        "startChar": 3,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
