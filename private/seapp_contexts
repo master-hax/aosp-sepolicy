@@ -11,6 +11,7 @@
 #       isPrivApp (boolean)
 #       minTargetSdkVersion (unsigned integer)
 #       fromRunAs (boolean)
+#       separateUidOnly (boolean)
 #
 # All specified input selectors in an entry must match (i.e. logical AND).
 # An unspecified string or boolean selector with no default will match any
@@ -40,6 +41,8 @@
 #       it has a default value of 0.
 # fromRunAs=true means the process being labeled is started by run-as. Default
 # is false.
+# separateUidOnly=true means the process uses the an isolated Uid but runs in a
+# default untrusted_app domain.
 #
 # Precedence: entries are compared using the following rules, in the order shown
 # (see external/selinux/libselinux/src/android/android_platform.c,
@@ -57,6 +60,7 @@
 #              minTargetSdkVersion= integer. Note that minTargetSdkVersion=
 #              defaults to 0 if unspecified.
 #       (8) fromRunAs=true before fromRunAs=false.
+#       (9) separateUid=true before separateUid=false
 # (A fixed selector is more specific than a prefix, i.e. ending in *, and a
 # longer prefix is more specific than a shorter prefix.)
 # Apps are checked against entries in precedence order until the first match,
@@ -122,7 +126,7 @@ neverallow user=((?!shared_relro).)* domain=shared_relro
 
 # neverallow non-isolated uids into isolated_app domain
 # and vice versa
-neverallow user=_isolated domain=((?!isolated_app).)*
+neverallow user=_isolated separateUidOnly=false domain=((?!isolated_app).)*
 neverallow user=((?!_isolated).)* domain=isolated_app
 
 # uid shell should always be in shell domain, however non-shell
@@ -153,6 +157,7 @@ user=shared_relro domain=shared_relro levelFrom=all
 user=shell seinfo=platform domain=shell name=com.android.shell type=shell_data_file
 user=webview_zygote seinfo=webview_zygote domain=webview_zygote
 user=_isolated domain=isolated_app levelFrom=user
+user=_isolated separateUidOnly=true domain=untrusted_app levelFrom=user
 user=_sdksandbox domain=sdk_sandbox type=sdk_sandbox_data_file levelFrom=all
 user=_app seinfo=app_zygote domain=app_zygote levelFrom=user
 user=_app seinfo=media domain=mediaprovider type=app_data_file levelFrom=user
