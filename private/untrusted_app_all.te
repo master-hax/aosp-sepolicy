@@ -188,3 +188,6 @@ with_native_coverage(`
   allow domain method_trace_data_file:dir create_dir_perms;
   allow domain method_trace_data_file:file create_file_perms;
 ')
+
+neverallow untrusted_app_all mdnsd_socket:sock_file write;
+neverallow untrusted_app_all mdnsd:unix_stream_socket connectto;
