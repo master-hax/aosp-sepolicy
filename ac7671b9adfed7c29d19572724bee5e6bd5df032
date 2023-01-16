@@ -16,6 +16,24 @@
       "message": "This change is similar to aosp/1710967. I noticed that aosp/1710967 keeps the existing exact properties with a comment `A set of ART properties listed explicitly for compatibility purposes`. Alan, do you know what exactly the \"compatibility purposes\" are? Do we need to do the same?",
       "revId": "ac7671b9adfed7c29d19572724bee5e6bd5df032",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "354b5446_3d7b8085",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-16T10:23:02Z",
+      "side": 1,
+      "message": "The (long) comment thread on that CL explains it, I think, although it takes some wading through. The properties are implicitly part of the system-vendor (Treble) interface that needs to be kept stable.\n\nJiyong says\n\u003e I didn\u0027t know that those properties have been just hints, but I am not sure if that\u0027s the right policy even after ART becomes a Google-owned updatable module. When ART was part of the platform, OEMs have the full responsibility of the device\u0027s performance and health and they had a chance to adjust to the changes we have made to the knobs in the new release.\n\u003e\n\u003e Now, part (most?) of the responsibility is on us. If the knobs are unreliable (for example, a knob can be removed or renamed), how would we make sure that an ART update doesn\u0027t regress the performance and health?\n\u003e\n\u003e I think we need to have a minimal set of system properties that we guarantee their existence and semantic over a couple of years. We may use sepolicy to keep the guarantee, but if the ART team has their own way of doing that I don\u0027t object to it.\n\nSo the decision was to keep the existing properties, as a way of discouraging renaming or disregarding them, but adding the prefix rules to allow new properties to be added with existing sepolicy.\n\nIt\u0027s not clear to me that it is ok to remove the explicit ones yet.",
+      "parentUuid": "a5243416_9d264052",
+      "revId": "ac7671b9adfed7c29d19572724bee5e6bd5df032",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
