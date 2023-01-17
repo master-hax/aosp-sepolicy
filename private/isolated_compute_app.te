@@ -1,0 +1,30 @@
+###
+### isolated_compute_apps.
+###
+### This file defines the rules for isolated apps that requires the permission
+### to gather data with service manager and require computational resources to
+### improve the performance to process data under a sandbox. This
+### isolated_compute_app restricts data egress to protect the privacy.
+###
+### TODO: Optimize rules isolated_app allows but isolated_compute_app does not.
+###
+
+typeattribute isolated_compute_app coredomain;
+
+app_domain(isolated_compute_app)
+isolated_app_domain(isolated_compute_app)
+
+allow isolated_compute_app audioserver_service:service_manager find;
+allow isolated_compute_app cameraserver_service:service_manager find;
+allow isolated_compute_app content_capture_service:service_manager find;
+allow isolated_compute_app device_state_service:service_manager find;
+hwbinder_use(isolated_compute_app)
+
+# Write app-specific trace data to the Perfetto traced damon. This requires
+# connecting to its producer socket and obtaining a (per-process) tmpfs fd.
+perfetto_producer(isolated_app)
+
+# Allow profiling if the main app has been marked as profileable or
+# debuggable.
+can_profile_heap(isolated_app_all)
+can_profile_perf(isolated_app_all)
