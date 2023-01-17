@@ -11,6 +11,10 @@ r_dir_file(mediaprovider_app, mnt_pass_through_file)
 # Allow MediaProvider to host a FUSE daemon for external storage
 allow mediaprovider_app fuse_device:chr_file { read write ioctl getattr };
 
+# Allow MediaProvier to access fuseblk devices for external storage.
+allow mediaprovider_app fuseblk:dir rw_dir_perms;
+allow mediaprovider_app fuseblk:file rw_file_perms;
+
 # Allow MediaProvider to read/write media_rw_data_file files and dirs
 allow mediaprovider_app media_userdir_file:dir r_dir_perms;
 allow mediaprovider_app media_rw_data_file:file create_file_perms;
@@ -65,6 +69,9 @@ allow mediaprovider_app gpu_device:dir r_dir_perms;
 
 dontaudit mediaprovider_app sysfs_vendor_sched:dir search;
 dontaudit mediaprovider_app sysfs_vendor_sched:file w_file_perms;
+
+dontaudit mediaprovider_app fuseblk:dir { create unlink };
+dontaudit mediaprovider_app fuseblk:file create;
 
 # bpfprog access for FUSE BPF
 allow mediaprovider_app fs_bpf:file read;
