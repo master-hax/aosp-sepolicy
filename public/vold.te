@@ -168,12 +168,16 @@ allow vold kmsg_device:chr_file rw_file_perms;
 # Run fsck in the fsck domain.
 allow vold fsck_exec:file { r_file_perms execute };
 
+# Run fuseblk in the fuseblk domain.
+allow vold fuseblk_exec:file { r_file_perms execute };
+
 # Log fsck results
 allow vold fscklogs:dir rw_dir_perms;
 allow vold fscklogs:file create_file_perms;
 
 # Mount and unmount filesystems.
 allow vold labeledfs:filesystem { mount unmount remount };
+allow vold fuseblk:filesystem { mount unmount remount };
 
 # Create and mount on /data/tmp_mnt and management of expansion mounts
 allow vold {
@@ -205,6 +209,10 @@ allow vold unlabeled:file { r_file_perms setattr relabelfrom };
 # Access to FUSE control filesystem to hard-abort FUSE mounts
 allow vold fusectlfs:file rw_file_perms;
 allow vold fusectlfs:dir rw_dir_perms;
+
+# Access to the fuseblk filesystems.
+allow vold fuseblk:dir rw_dir_perms;
+allow vold fuseblk:file rw_file_perms;
 
 # Allow vold to use wake locks.  Needed for idle maintenance and moving storage.
 wakelock_use(vold)
@@ -347,3 +355,4 @@ neverallow vold fsck_exec:file execute_no_trans;
 neverallow { domain -init } vold:process { transition dyntransition };
 neverallow vold *:process ptrace;
 neverallow vold *:rawip_socket *;
+neverallow vold fuseblk_exec:file execute_no_trans;
