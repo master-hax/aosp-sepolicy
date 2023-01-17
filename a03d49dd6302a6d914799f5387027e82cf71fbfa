@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b07bfeb_4668ecf7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1176763
+      },
+      "writtenOn": "2023-01-17T23:10:50Z",
+      "side": 1,
+      "message": "Jiyong, presubmit is failing w/\nSELinux: The following public types were found added to the policy without an entry into the compatibility mapping file(s) found in private/compat/V.v/V.v[.ignore].cil, where V.v is the latest API level.\nzoned_block_device\n\nIf I leave cil changes w/o prebuilt update, I got another failure. What is the right way to fix this presubmit tests?",
+      "revId": "a03d49dd6302a6d914799f5387027e82cf71fbfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
