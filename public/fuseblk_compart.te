@@ -1,0 +1,29 @@
+# Compartmentalized domain specifically for mounting fuseblk filesystems.
+# We need this to not grant fusebk_fs sys_admin permissions.
+type fuseblk_compart_exec, system_file_type, exec_type, file_type;
+type fuseblk_compart, domain;
+
+# Required for mount and unmounting. We can't minimize this permission,
+# even though we only allow mount/unmount.
+allow fuseblk_compart self:global_capability_class_set sys_admin;
+
+# Permissions for the fuseblk filesystem.
+allow fuseblk_compart fuse_device:chr_file rw_file_perms;
+allow fuseblk_compart fuseblk:filesystem { mount unmount };
+allow fuseblk_compart fuseblk_fs:fd use;
+
+# Look through block devices to find the correct one.
+allow fuseblk_compart block_device:dir search;
+
+# Permissions to mount on the media_rw directory for USB drives.
+allow fuseblk_compart mnt_media_rw_file:dir search;
+allow fuseblk_compart mnt_media_rw_stub_file:dir mounton;
+
+###
+### neverallow rules
+###
+
+# Only allow entry from fuseblk_fs, and only through fuseblk_compart_exec binary.
+neverallow { domain -fuseblk_fs } fuseblk_compart:process transition;
+neverallow * fuseblk_compart:process dyntransition;
+neverallow fuseblk_compart { file_type fs_type -fuseblk_compart_exec }:file entrypoint;
