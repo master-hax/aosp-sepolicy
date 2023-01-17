@@ -70,6 +70,24 @@
       "parentUuid": "9d73c3ad_7a5b7c3c",
       "revId": "cda13660d702b5351d1932ff512309aef7df361c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38bc1e61_57013a74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-17T15:22:33Z",
+      "side": 1,
+      "message": "Tests in MTS follow head, but those in CTS stay with each platform release. Hence I think CTS gives a much stronger compat guarantee than MTS, not the other way around. The relevant tests in this case are the ones that install and test the module on each supported platform release.\n\nThe problem with CTS is that we have to find a way to test the properties on a user build. That may be tricky, if we want to check that the properties not only still are present but also picked up by ART appropriately.\n\nAs for having this file as an authoritative source, if it isn\u0027t tested somehow I\u0027m pretty sure it won\u0027t be trustworthy in the long run.",
+      "parentUuid": "eecb180a_87745cab",
+      "revId": "cda13660d702b5351d1932ff512309aef7df361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
