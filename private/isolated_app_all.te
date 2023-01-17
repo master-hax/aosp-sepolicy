@@ -80,26 +80,8 @@ neverallow isolated_app_all { app_data_file privapp_data_file sdk_sandbox_data_f
 neverallow isolated_app_all anr_data_file:file ~{ open append };
 neverallow isolated_app_all anr_data_file:dir ~search;
 
-# Isolated apps must not be permitted to use HwBinder
-neverallow isolated_app hwbinder_device:chr_file *;
-neverallow isolated_app *:hwservice_manager *;
-
 # Isolated apps must not be permitted to use VndBinder
 neverallow isolated_app_all vndbinder_device:chr_file *;
-
-# Isolated apps must not be permitted to perform actions on Binder and VndBinder service_manager
-# except the find actions for services allowlisted below.
-neverallow isolated_app *:service_manager ~find;
-
-# b/17487348
-# Isolated apps can only access three services,
-# activity_service, display_service, webviewupdate_service.
-neverallow isolated_app {
-    service_manager_type
-    -activity_service
-    -display_service
-    -webviewupdate_service
-}:service_manager find;
 
 # Isolated apps shouldn't be able to access the driver directly.
 # TODO: check isolated_compute_app needs to use gpu for computation
