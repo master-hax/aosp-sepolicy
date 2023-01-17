@@ -22,6 +22,30 @@
       },
       "revId": "e908f53364875554af57f8ac1016d1a47a4a110c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51787e73_12854e42",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-17T17:18:27Z",
+      "side": 1,
+      "message": "I am not sure if this makes sense but this is what I have in mind - we need a mechanism that selects apps with one of the isolated UIDs and make it run under the context other than `isolated_app`, which being said is not actually an isolated app but just a normal app that reuses one of the isolated UIDs. That\u0027s why I put the `untrusted_app` domain as a default context for these cases.\n\nOur sandboxed detection project provides every vendor with their own freedom to have different implementations (which evolves fast and needs to change the policy all the time) that have a separated UID and being also secured by their own policies. Therefore we leverage this mechanism, and also provide a way that the vendors can choose to define their apps in a more strict context. They are able to write their own `seapp_contexts` with the package name selector. If they choose not to, their UID separated app will run in the `untrusted_app` domain, which is intended as they are just normal apps with a UID borrowed from `isolated_app`.",
+      "parentUuid": "88fbc4bd_9da6bdc8",
+      "range": {
+        "startLine": 45,
+        "startChar": 10,
+        "endLine": 45,
+        "endChar": 30
+      },
+      "revId": "e908f53364875554af57f8ac1016d1a47a4a110c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
