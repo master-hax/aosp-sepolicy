@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "447b362f_452ec68b",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-17T10:54:31Z",
+      "side": 1,
+      "message": "I\u0027m a little unhappy about this, since it gives you full write/delete access to all APKs.\n\nCould you:\n- Create the top level directory\n- Restorecon the directory\n- Create files \u0026 subdirectories (which will inherit the correct label)\n- Restorecon again if needed?\n\n(I can\u0027t now remember why you need to restorecon at the end rather than the beginning.)",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 64
+      },
+      "revId": "1a645f24be2ec228592c0356ce786ac4d5a93a5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
