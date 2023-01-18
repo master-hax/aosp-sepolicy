@@ -88,6 +88,24 @@
       "parentUuid": "eecb180a_87745cab",
       "revId": "cda13660d702b5351d1932ff512309aef7df361c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea03fba6_f05db41b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2023-01-18T02:30:57Z",
+      "side": 1,
+      "message": "Re Jiakai:\n\nI think such an SELinux denial is WAI, isn\u0027t it? The updated ART shouldn\u0027t read new sysprops on old devices, or those should at least be no-ops.\n\nSo what about this?\n\n```\npm.dexopt.foo    u:object_r:exported_pm_prop:s0 exact string\npm.dexopt.bar    u:object_r:exported_pm_prop:s0 exact string\n...\n\npm.dexopt.       u:object_r:future_pm_prop:s0 prefix\n\n\n# ART may introduce new sysprops. Those shouldn\u0027t cause selinux denial on old\n# platforms.\ndontaudit appdomain future_pm_prop:file read;\n```",
+      "parentUuid": "38bc1e61_57013a74",
+      "revId": "cda13660d702b5351d1932ff512309aef7df361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
