@@ -16,6 +16,52 @@
       "message": "LGTM but the security team needs to confirm this is the way",
       "revId": "718ea7b16046ed0ed542561f0d704b16e8ce3023",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dea74462_bb917a47",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-18T13:54:13Z",
+      "side": 1,
+      "message": "That isn\u0027t what this does - and in any case the comment should explain why you are doing this.",
+      "range": {
+        "startLine": 269,
+        "startChar": 2,
+        "endLine": 269,
+        "endChar": 20
+      },
+      "revId": "718ea7b16046ed0ed542561f0d704b16e8ce3023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42a7458f_e0db8f16",
+        "filename": "private/compat/33.0/33.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-18T13:54:13Z",
+      "side": 1,
+      "message": "I don\u0027t think you can just ignore this for older vendor policy - that policy might grant things to untrusted_app assuming it would include everything from 32 onwards.\nSo I think you have to map this to untrusted_app in the mapping file. See https://source.android.com/docs/security/features/selinux/compatibility#new-types",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 20
+      },
+      "revId": "718ea7b16046ed0ed542561f0d704b16e8ce3023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
