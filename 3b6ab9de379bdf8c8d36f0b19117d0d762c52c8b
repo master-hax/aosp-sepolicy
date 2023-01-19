@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1c0fae0_07de7482",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2023-01-19T20:47:41Z",
+      "side": 1,
+      "message": "-1 to this from me as well. There are already NDK APIs to select networks and we should use those. As for needing to obtain a net_handle_t - it\u0027s true that that is difficult without calling Java APIs, but in general if you can\u0027t call Java APIs you can\u0027t obtain the state of networking at all anyway.\n\nWhere does this code live? How does it know what interface to use, and how does it know that that interface is currently connected and can be used? Is this all just hardcoded?",
+      "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b9d6935a_9206644b",
         "filename": "public/hal_neverallows.te",
         "patchSetId": 1
