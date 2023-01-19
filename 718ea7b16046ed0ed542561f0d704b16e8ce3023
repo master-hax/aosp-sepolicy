@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec0eb251_70f2c5d9",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1758351
+      },
+      "writtenOn": "2023-01-19T05:42:34Z",
+      "side": 1,
+      "message": "Thanks, have fixed the comment to add more context of why we make the rules change. Please kindly let me know if it is still not clear.",
+      "parentUuid": "dea74462_bb917a47",
+      "range": {
+        "startLine": 269,
+        "startChar": 2,
+        "endLine": 269,
+        "endChar": 20
+      },
+      "revId": "718ea7b16046ed0ed542561f0d704b16e8ce3023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42a7458f_e0db8f16",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-01-18T13:54:13Z",
       "side": 1,
       "message": "I don\u0027t think you can just ignore this for older vendor policy - that policy might grant things to untrusted_app assuming it would include everything from 32 onwards.\nSo I think you have to map this to untrusted_app in the mapping file. See https://source.android.com/docs/security/features/selinux/compatibility#new-types",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 20
+      },
+      "revId": "718ea7b16046ed0ed542561f0d704b16e8ce3023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fe56300_87b6e3e0",
+        "filename": "private/compat/33.0/33.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1758351
+      },
+      "writtenOn": "2023-01-19T05:42:34Z",
+      "side": 1,
+      "message": "Thanks for the advice. Could you please kindly explain further about what I suppose modify here?\nI refer to the previous CL aosp/1752122 to add untrusted_app_30 which adds untrusted_app_30 to the private/compat/31.0/31.0.ignore.cil. So I did similar change here.\nAlso I can see in private/compat/32.0/32.0.cil it already maps (typeattributeset untrusted_app_32_0 (untrusted_app)).\nWhat else do we need to put in private/compat/33.0/33.0.cil?",
+      "parentUuid": "42a7458f_e0db8f16",
       "range": {
         "startLine": 52,
         "startChar": 4,
