@@ -190,6 +190,30 @@
       },
       "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed1860e6_9b0055b1",
+        "filename": "public/hal_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2023-01-19T19:00:54Z",
+      "side": 1,
+      "message": "This doesn\u0027t require any changes in gRPC, just the same socket mutator as in http://ag/20964735\n\nThe tedious (as in: more code) part is that it requires selecting a network and not picking via interface name. The benefit would be making this more reliable on Android, probably.",
+      "parentUuid": "9e6d4464_463c5f4d",
+      "range": {
+        "startLine": 7,
+        "startChar": 3,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
