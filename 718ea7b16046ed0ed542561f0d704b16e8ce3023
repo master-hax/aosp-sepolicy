@@ -110,6 +110,30 @@
       },
       "revId": "718ea7b16046ed0ed542561f0d704b16e8ce3023",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfe002b0_5098a8a6",
+        "filename": "private/compat/33.0/33.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-01-19T10:04:14Z",
+      "side": 1,
+      "message": "This is a good point Alan. Partners can and do add custom policy to these domains, and we risk breaking that if they (for example) grant something to untrusted_app{_30, _27, etc}, particularly on system-only/GSI updates. It not having caused problems in the past is not a good reason for us to continue to do fragile things.\n\nThe solution is easy, you just map this new type to the old type in policy. See for example here where existing properties were given a new selinux type (locale_prop, timezone_prop) and mapped to their previous type (exported_system_prop) to ensure backwards compat. https://android-review.git.corp.google.com/c/platform/system/sepolicy/+/2229399/3/private/compat/33.0/33.0.cil\n\nYou need to do something similar.",
+      "parentUuid": "4fe56300_87b6e3e0",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 20
+      },
+      "revId": "718ea7b16046ed0ed542561f0d704b16e8ce3023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
