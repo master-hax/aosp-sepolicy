@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08c30590_c1163a56",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-19T15:05:13Z",
+      "side": 1,
+      "message": "Do I understand correctly that the effect of this approach is that ART will be blocked from reading newly added system properties on old platforms, even if they were to have values set?\n\nWe still won\u0027t be forcefully stopped (with an selinux denial) from reading unlisted values on head? Also, there\u0027s nothing here that keeps us honest in heeding old values (which would be the point of CTS tests).",
+      "range": {
+        "startLine": 540,
+        "startChar": 0,
+        "endLine": 546,
+        "endChar": 42
+      },
+      "revId": "9bbc1c0e7266cbb753e97838baf89d3ebee1062b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
