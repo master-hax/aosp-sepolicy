@@ -20,6 +20,167 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "02151f7e_72326594",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-01-19T10:07:00Z",
+      "side": 1,
+      "message": "it\u0027s fine to have this here, but you should include the other expanded domains (isolated_app and isolated_compute_app) too as is done with untrusted_app_all, untrusted_app, etc.",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 18
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b55c9b4_25ccbc54",
+        "filename": "private/compat/33.0/33.0.ignore.cil",
+        "patchSetId": 9
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-01-19T10:07:00Z",
+      "side": 1,
+      "message": "alphabetical order (I see there are some other mistakes here, but please put your in the right place (between hypervisor...and keystore...).",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 24
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a620580_efd1bd50",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-01-19T10:07:00Z",
+      "side": 1,
+      "message": "Is this something that you want to allow for isolated_compute_app? e.g. to pass in file-backed media, but this provides a separate path to export data. You could (for example) just allow \"read\" instead of \"write\" so that it can consume data but not write it back out. OTOH, this is still a safe default as it disallows direct access to files, and only allows read and/or write if the file is passed in by the parent app.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 78
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "566c3263_17728992",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-01-19T10:07:00Z",
+      "side": 1,
+      "message": "Should probably just disallow this for isolated_compute_app.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 123
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dc0dd3d_f9635ef5",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-01-19T10:07:00Z",
+      "side": 1,
+      "message": "is this needed for isolated_compute_app?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 66
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b53909c_4d68fb75",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-01-19T10:07:00Z",
+      "side": 1,
+      "message": "Is this necessary for isolated_compute_app?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 107
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "666830ce_565d6938",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-01-19T10:07:00Z",
+      "side": 1,
+      "message": "we should probably review what data could possibly leak due to performance tracing. My gut instinct is that we would prefer to keep this access, but let\u0027s do it intentionally, not just default to it.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 34
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1cd1455e_5bfed471",
         "filename": "private/isolated_compute_app.te",
         "patchSetId": 9
@@ -77,6 +238,53 @@
         "startChar": 14,
         "endLine": 10,
         "endChar": 34
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f01efbb_80f96b65",
+        "filename": "private/isolated_compute_app.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-01-19T10:07:00Z",
+      "side": 1,
+      "message": "+1. Ideally we can use this for multiple use cases.",
+      "parentUuid": "7033780f_083ca151",
+      "range": {
+        "startLine": 10,
+        "startChar": 14,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24c87d03_98d87f03",
+        "filename": "private/technical_debt.cil",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-01-19T10:07:00Z",
+      "side": 1,
+      "message": "I think these may be the codec services that you want to grant isolate_compute_app access to.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 83
       },
       "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
