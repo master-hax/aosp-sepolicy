@@ -46,6 +46,30 @@
       },
       "revId": "9bbc1c0e7266cbb753e97838baf89d3ebee1062b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb7f4dab_fee716ae",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-20T14:51:11Z",
+      "side": 1,
+      "message": "\u003e but also existing sysprops that are not listed\n\nSure, but I don\u0027t think we\u0027ll remove properties here unless we make a meditated decision that we don\u0027t need to support them, so I focused on just new ones.\n\nIiuc we\u0027ll use the defaults instead of any values that may be set, and there\u0027ll be a bit of extra noise in the logs that\u0027s probably easy to miss. Iow we\u0027re only likely to notice if we have tests that change values from their defaults, which I don\u0027t think we have.\n\nHence, unless I\u0027m missing something, this doesn\u0027t look like it\u0027ll bring any particularly strong guarantee. On head I think we need something more forceful if the exported_pm_prop list is to provide any real value. Is it possible to override `dontaudit` in CI tests and/or local builds on master?",
+      "parentUuid": "ce62fc5a_8eea6ffb",
+      "range": {
+        "startLine": 540,
+        "startChar": 0,
+        "endLine": 546,
+        "endChar": 42
+      },
+      "revId": "9bbc1c0e7266cbb753e97838baf89d3ebee1062b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
