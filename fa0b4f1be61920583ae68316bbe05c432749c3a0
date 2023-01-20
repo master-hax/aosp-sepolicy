@@ -77,6 +77,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "409727f1_b7c4a363",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-20T11:27:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02151f7e_72326594",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 18
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b55c9b4_25ccbc54",
@@ -90,6 +114,30 @@
       "writtenOn": "2023-01-19T10:07:00Z",
       "side": 1,
       "message": "alphabetical order (I see there are some other mistakes here, but please put your in the right place (between hypervisor...and keystore...).",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 24
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11e63501_4a4da62b",
+        "filename": "private/compat/33.0/33.0.ignore.cil",
+        "patchSetId": 9
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-20T11:27:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b55c9b4_25ccbc54",
       "range": {
         "startLine": 53,
         "startChar": 4,
@@ -123,6 +171,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de479b1d_9a252e44",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-20T11:27:29Z",
+      "side": 1,
+      "message": "I know TrustedHotword will need to have access to ParcelFileDescriptor for both read and write. Is that correct @augale@google.com? I think it is safe to leave it for now if there is no security vulnerability.",
+      "parentUuid": "2a620580_efd1bd50",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 78
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "566c3263_17728992",
@@ -136,6 +208,30 @@
       "writtenOn": "2023-01-19T10:07:00Z",
       "side": 1,
       "message": "Should probably just disallow this for isolated_compute_app.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 123
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86db5d16_9f9b81c8",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-20T11:27:29Z",
+      "side": 1,
+      "message": "Sg. I wouldn\u0027t want isolated_compute_app to be able to get any network access.",
+      "parentUuid": "566c3263_17728992",
       "range": {
         "startLine": 14,
         "startChar": 0,
@@ -169,6 +265,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b3a8990_66e7e0be",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-20T11:27:29Z",
+      "side": 1,
+      "message": "I think we can safely move it to isolated_app.",
+      "parentUuid": "9dc0dd3d_f9635ef5",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 66
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b53909c_4d68fb75",
@@ -182,6 +302,30 @@
       "writtenOn": "2023-01-19T10:07:00Z",
       "side": 1,
       "message": "Is this necessary for isolated_compute_app?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 107
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "841c4c6f_b0ce0de5",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-20T11:27:29Z",
+      "side": 1,
+      "message": "I think we should not let isolated_compute_app to write to sdcard files even if it is passed by another process. Otherwise the data can be leaked with the sdcard.",
+      "parentUuid": "4b53909c_4d68fb75",
       "range": {
         "startLine": 29,
         "startChar": 0,
@@ -215,6 +359,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df8d88f1_cc57d74f",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-20T11:27:29Z",
+      "side": 1,
+      "message": "Agree. Moved to isolated_app.",
+      "parentUuid": "666830ce_565d6938",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 34
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cd1455e_5bfed471",
@@ -228,6 +396,24 @@
       "writtenOn": "2023-01-18T22:54:30Z",
       "side": 1,
       "message": "add a TODO for optimizing the security characteristics here. There may be things isolated_app allows that we don\u0027t really need.",
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "885dd7c1_3f9c72ee",
+        "filename": "private/isolated_compute_app.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-20T11:27:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd1455e_5bfed471",
       "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -340,6 +526,30 @@
       "writtenOn": "2023-01-19T10:07:00Z",
       "side": 1,
       "message": "I think these may be the codec services that you want to grant isolate_compute_app access to.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 83
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4206aa0b_0d373c8f",
+        "filename": "private/technical_debt.cil",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-20T11:27:29Z",
+      "side": 1,
+      "message": "Talked to charliewang@ and yes they confirmed they need those.",
+      "parentUuid": "24c87d03_98d87f03",
       "range": {
         "startLine": 15,
         "startChar": 0,
