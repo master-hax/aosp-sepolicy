@@ -221,6 +221,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7b3cbf06_aadf46aa",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1622353
+      },
+      "writtenOn": "2023-01-20T18:20:26Z",
+      "side": 1,
+      "message": "Given we are going to use it in conjunction with only allowing the system to talk to the isolated process in the first place, through Android APIs - so I think it adds a bit more safety.\n\nThat said, if we can restrict it to only read access, that to me is a bit safer. I\u0027d like to try this (maybe as a follow up in a couple of weeks), so we don\u0027t disrupt the IC timelines for the project.",
+      "parentUuid": "2a620580_efd1bd50",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 78
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "566c3263_17728992",
         "filename": "private/isolated_app_all.te",
         "patchSetId": 9
@@ -255,6 +279,30 @@
       "writtenOn": "2023-01-20T11:27:29Z",
       "side": 1,
       "message": "Sg. I wouldn\u0027t want isolated_compute_app to be able to get any network access.",
+      "parentUuid": "566c3263_17728992",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 123
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69c3936c_77ae9da1",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1622353
+      },
+      "writtenOn": "2023-01-20T18:20:26Z",
+      "side": 1,
+      "message": "We might need sockets for the other project actually. charliewang@ can comment",
       "parentUuid": "566c3263_17728992",
       "range": {
         "startLine": 14,
@@ -315,6 +363,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9cf49a4_b7e012cf",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1622353
+      },
+      "writtenOn": "2023-01-20T18:20:26Z",
+      "side": 1,
+      "message": "+1 for not needed, and we should see if display / activity service is needed either",
+      "parentUuid": "9dc0dd3d_f9635ef5",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 66
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4b53909c_4d68fb75",
         "filename": "private/isolated_app_all.te",
         "patchSetId": 9
@@ -362,6 +434,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5886e5d_b781286b",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1622353
+      },
+      "writtenOn": "2023-01-20T18:20:26Z",
+      "side": 1,
+      "message": "This seems to be webview specific, should this be moved to isolated_app?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 54
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "666830ce_565d6938",
         "filename": "private/isolated_app_all.te",
         "patchSetId": 9
@@ -396,6 +491,30 @@
       "writtenOn": "2023-01-20T11:27:29Z",
       "side": 1,
       "message": "Agree. Moved to isolated_app.",
+      "parentUuid": "666830ce_565d6938",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 34
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91ea4ce0_eecfa0df",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1622353
+      },
+      "writtenOn": "2023-01-20T18:20:26Z",
+      "side": 1,
+      "message": "I actually think this is needed: I think this is an exfiltration vector, but it\u0027s probably a reasonable tradeoff between privacy/security and usability. We need to be able to analyze performance characteristics of the process",
       "parentUuid": "666830ce_565d6938",
       "range": {
         "startLine": 59,
@@ -573,6 +692,30 @@
       "writtenOn": "2023-01-20T11:27:29Z",
       "side": 1,
       "message": "Talked to charliewang@ and yes they confirmed they need those.",
+      "parentUuid": "24c87d03_98d87f03",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 83
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ebd62d1_3f3b1ecc",
+        "filename": "private/technical_debt.cil",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1622353
+      },
+      "writtenOn": "2023-01-20T18:20:26Z",
+      "side": 1,
+      "message": "I think we might want to do this in iterations: let\u0027s first land everything for Charles\u0027s team and then review the incremental change for codec for Charlie\u0027s team (note the subtle difference)",
       "parentUuid": "24c87d03_98d87f03",
       "range": {
         "startLine": 15,
