@@ -53,3 +53,11 @@ neverallow {
     -init
     -microdroid_manager
 } {microdroid_config_prop microdroid_lifecycle_prop}:file no_rw_file_perms;
+
+# Only microdroid_manager and microdroid_payload can start tombstone_transmit
+neverallow {
+    domain
+    -init
+    -microdroid_manager
+    -microdroid_payload
+} ctl_tombstone_transmit_prop:property_service set;

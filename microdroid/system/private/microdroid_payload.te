@@ -60,5 +60,18 @@ unix_socket_connect(microdroid_payload, vm_payload_service, microdroid_manager)
 allow microdroid_payload encryptedstore_file:dir create_dir_perms;
 allow microdroid_payload encryptedstore_file:file create_file_perms;
 
+# Payload can set tombstone export
+set_prop(microdroid_payload, ctl_tombstone_transmit_prop)
+
+# Read tombstone_transmit_status_prop to wait for initialization of tombstone_transmit
+get_prop(microdroid_payload, tombstone_transmit_status_prop)
+
+# Allow microdroid_payload to run kexec to load crashkernel
+domain_auto_trans(microdroid_payload, kexec_exec, kexec)
+
+# Payload needs to read /proc/cmdline to see if crashkernel= parameter is set
+# or not; if set, it executes kexec to load the crashkernel into memory.
+allow microdroid_payload proc_cmdline:file r_file_perms;
+
 # Never allow microdroid_payload to connect to vsock
 neverallow microdroid_payload self:vsock_socket connect;
