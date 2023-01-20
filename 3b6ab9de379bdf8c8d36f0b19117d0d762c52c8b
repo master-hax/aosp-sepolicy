@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e27f572d_ed7f5fa8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2023-01-20T23:27:49Z",
+      "side": 1,
+      "message": "Actually, in the case of most of our other uses (Yu\u0027s use also fits here IMO), we want to grab net_handle_t of a network with VEHICLE_INTERNAL capability. So far we\u0027ve been \"hardcoding\" (via custom config file) to a specific interface name because of missing NDK APIs to fetch it by network capability.\n\nA good part of these services are AIDL HAL proxies - they are native, separate processes and don\u0027t have any Java components (their clients may be Java, but we can\u0027t modify e.g. GNSS, Radio or Supplicant HAL to inject this implementation-specific info).\n\nThe lifecycle of these processes starts early in the boot process and the interface is present (hardwired) all the time, from boot until shutdown (unless there\u0027s some hardware fault).",
+      "parentUuid": "f396af6e_531abab1",
+      "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b9d6935a_9206644b",
         "filename": "public/hal_neverallows.te",
         "patchSetId": 1
