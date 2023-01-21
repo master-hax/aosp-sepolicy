@@ -126,6 +126,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e8675f8_a09432a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2023-01-21T09:08:35Z",
+      "side": 1,
+      "message": "netd already knows which interfaces map to which netids, since this is required for iproute/iptables configuration which it performs, and other things - and we require for there to be at most one netid associated with an interface otherwise packet marking simply doesn\u0027t work (note that the reverse is not true: not all interfaces are assigned to a netid).\n\n# iptables-save -t mangle | egrep \u0027^-A routectrl_mangle_INPUT -i wlan0 -j MARK --set-xmark 0x\u0027                                                                             \n-A routectrl_mangle_INPUT -i wlan0 -j MARK --set-xmark 0x30073/0xffefffff\n\nthe netid for wlan0 is thus 0x30073 \u0026 0xFFFF \u003d\u003d 0x73, which IFIRC means the net handle is netIdToNetHandle(0x73) \u003d\u003d 0x73cafed00d\n\n(side note: it\u0027s also possible to figure this out as the shell user just from inspecting the ip rule/route configuration, though it\u0027s much more annoying to do)\n\nIt doesn\u0027t seem unreasonable to add a native api to lookup a network by interface name...\n\nIt seems pretty trivial to do - netd just needs to iterate over all the Network objects looking for one where hasInterface(\"eth0\") returns true and return netIdtoNetHandle(Network.getNetId())\n\nsee system/netd/server/Network.h:\n  class Network {\n    unsigned getNetId() const;\n    bool hasInterface(const std::string\u0026 interface) const;\n\nI guess the question is whether via binder (presumably a privileged rpc?) or via fwmarkserver (allowing binding directly to an interface in addition to a nethandle)\n\nOf course... this would have no notification system, and netids can come and go... but for a use case like this one where AFAICT they\u0027re static... it seems reasonable enough to me for a root/system uid priv binder call?\n\nThat said I\u0027m not sure whether this is a good idea or not... Lorenzo?",
+      "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9d6935a_9206644b",
