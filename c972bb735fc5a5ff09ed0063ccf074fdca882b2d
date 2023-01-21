@@ -16,6 +16,24 @@
       "message": "One of the trickiest things about this change is that it also needs to be applied throughout the Android ecosystem. I will note a couple of resources in the bug, but consider this query:\nhttps://cs.android.com/search?q\u003disolated_app%20f:te$%20-f:system%2Fsepolicy\n\nIn order to get rid of this, I would strongly encourage to avoid renaming \u0027isolated_app\u0027 to \u0027isolated_app_all\u0027. Instead, we can change the type of isolated_app to be an attribute. This will avoid having to make 100s of additional changes or more across our tree and in downstream branches. The type which is isolated_app now would become something like isolated_base_app or isolated_minimal_app. Hopefully only a few places in ActivityManager would need to be fixed up.\n\nThough it is nicer, and if we want the rename, some of the things we can do:\n- add a compliance test which analyzes all members of isolated_app_all and only allows them to have specific differences, so that we can check this. Regardless of the rename, this will be a good things to do. treble_sepolicy_tests.py is a good example of how to do this in the build, and CtsSecurityHostTestCases is also another good starting point.\n- write a sed script which performs this change and check it into the tree, so partners can one-click fix this issue\n\nThank you!",
       "revId": "c972bb735fc5a5ff09ed0063ccf074fdca882b2d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7078f6d1_50d4c1c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-21T14:12:21Z",
+      "side": 1,
+      "message": "Thanks Steven for the very detailed feedback! This really provides a lot of information! I understand your concern, but I am not sure if we really need those changes from the vendor sides. \n\nPlease do correct me if I am missing anything - from the query you provided, I even think those usages are intended to be not changed. We are not renaming `isolated_app` to `isolated_app_all`. Instead, `isolated_app` stays what it is and will always do. We are just grouping some of the properties of `isolated_app` into a attribute that can be shared, how isolated_app should work needs not to be changed. With this change, we can extend isolated-like types with fewer changes and better readability.\n\nThanks :)",
+      "parentUuid": "044cfb9d_a26dcfed",
+      "revId": "c972bb735fc5a5ff09ed0063ccf074fdca882b2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
