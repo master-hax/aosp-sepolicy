@@ -243,6 +243,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a42372b_1461535c",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-23T13:37:01Z",
+      "side": 1,
+      "message": "Sg. Let\u0027s leave some of the access shared for both isolated_app and isolated_compute_app if there is no existing security concern on it.",
+      "parentUuid": "7b3cbf06_aadf46aa",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 78
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "566c3263_17728992",
@@ -304,6 +328,30 @@
       "side": 1,
       "message": "We might need sockets for the other project actually. charliewang@ can comment",
       "parentUuid": "566c3263_17728992",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 123
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ae25435_fe8f972a",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-23T13:37:01Z",
+      "side": 1,
+      "message": "Let\u0027s leave the need for sockets for the next iteration for Charlie\u0027s project since I think we still need to discuss what access in particular we need. :)",
+      "parentUuid": "69c3936c_77ae9da1",
       "range": {
         "startLine": 14,
         "startChar": 0,
@@ -385,6 +433,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f4223ee_c6bfece3",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-23T13:37:01Z",
+      "side": 1,
+      "message": "Fixed for webview. \n\nWe do need display service for using camera characteristic feature, and activity service to request service binders.",
+      "parentUuid": "e9cf49a4_b7e012cf",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 66
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b53909c_4d68fb75",
@@ -445,6 +517,30 @@
       "writtenOn": "2023-01-20T18:20:26Z",
       "side": 1,
       "message": "This seems to be webview specific, should this be moved to isolated_app?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 54
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a200fadf_bfd69fd1",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-23T13:37:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5886e5d_b781286b",
       "range": {
         "startLine": 37,
         "startChar": 0,
@@ -516,6 +612,30 @@
       "side": 1,
       "message": "I actually think this is needed: I think this is an exfiltration vector, but it\u0027s probably a reasonable tradeoff between privacy/security and usability. We need to be able to analyze performance characteristics of the process",
       "parentUuid": "666830ce_565d6938",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 34
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4deba9c8_993bc494",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-23T13:37:01Z",
+      "side": 1,
+      "message": "I have place this under both types so it is needed and not granted by default.",
+      "parentUuid": "91ea4ce0_eecfa0df",
       "range": {
         "startLine": 59,
         "startChar": 0,
@@ -717,6 +837,30 @@
       "side": 1,
       "message": "I think we might want to do this in iterations: let\u0027s first land everything for Charles\u0027s team and then review the incremental change for codec for Charlie\u0027s team (note the subtle difference)",
       "parentUuid": "24c87d03_98d87f03",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 83
+      },
+      "revId": "fa0b4f1be61920583ae68316bbe05c432749c3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bbf5b2d_d5212132",
+        "filename": "private/technical_debt.cil",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-23T13:37:01Z",
+      "side": 1,
+      "message": "Agree. Let\u0027s focus on the access need for us first, and keep iterate on making this type work for both projects.",
+      "parentUuid": "7ebd62d1_3f3b1ecc",
       "range": {
         "startLine": 15,
         "startChar": 0,
