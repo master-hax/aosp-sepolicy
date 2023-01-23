@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f32958e_8af6b53f",
+        "filename": "private/platform_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-01-23T09:36:47Z",
+      "side": 1,
+      "message": "This is not acceptable. It bypasses multi-user separation on debug builds. This is a significant security risk, e.g. allowing a normal-profile to access information from the work-profile on droidfood devices, and vice versa.\n\nAn alternative solution that _might_ be acceptable (I would need to think about it more) would be to have wm_trace_data_file have the mlstrustedobject attribute.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 47
+      },
+      "revId": "cf9033c0393dfb7afad48dbe6badafc2c28b6a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
