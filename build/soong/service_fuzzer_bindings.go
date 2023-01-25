@@ -23,6 +23,7 @@ var EXCEPTION_NO_FUZZER = []string{}
 
 var (
 	ServiceFuzzerBindings = map[string][]string{
+		"android.app.ondevicepersonalization.ondevicepersonalizationsystemservice": EXCEPTION_NO_FUZZER,
 		"android.hardware.audio.core.IConfig/default":                             EXCEPTION_NO_FUZZER,
 		"android.hardware.audio.core.IModule/default":                             EXCEPTION_NO_FUZZER,
 		"android.hardware.audio.core.IModule/a2dp":                                EXCEPTION_NO_FUZZER,
