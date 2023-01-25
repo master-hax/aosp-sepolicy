@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbdcf1ba_483088e9",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 17
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-01-25T09:27:24Z",
+      "side": 0,
+      "message": "I don\u0027t think removing these are fine. Instead, how about relaxing these, like:\n\n    neverallow { isolated_app_all -isolated_compute_app } hwbinder_device:chr_file *;\n    neverallow { isolated_app_all -isolated_compute_app } *:hwservice_manager *;\n    ... (same below)",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 23
+      },
+      "revId": "5fdbc3d5df510c3d03fe826e842392c4b195d448",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
