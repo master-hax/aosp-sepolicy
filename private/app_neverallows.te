@@ -255,6 +255,7 @@ neverallow {
 
 # Only privileged apps may find the incident service
 neverallow all_untrusted_apps incident_service:service_manager find;
+<<<<<<< HEAD   (3d8ae7 [automerger skipped] Disallow untrusted apps to read ro.debu)
 
 # Do not allow untrusted app to read hidden system proprerties.
 # We do not include in the exclusions other normally untrusted applications such as mediaprovider
@@ -288,3 +289,5 @@ neverallow {
   -untrusted_app_30
   -untrusted_app_32
 } mdnsd:unix_stream_socket connectto;
+=======
+>>>>>>> BRANCH (c6aec9 Drop back-compatibility for hiding ro.debuggable and ro.secu)

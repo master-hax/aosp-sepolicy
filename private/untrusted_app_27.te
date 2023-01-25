@@ -41,9 +41,14 @@ allow untrusted_app_27 mnt_sdcard_file:lnk_file r_file_perms;
 allow untrusted_app_27 self:netlink_route_socket nlmsg_getneigh;
 auditallow untrusted_app_27 self:netlink_route_socket nlmsg_getneigh;
 
+<<<<<<< HEAD   (3d8ae7 [automerger skipped] Disallow untrusted apps to read ro.debu)
 # Connect to mdnsd via mdnsd socket.
 unix_socket_connect(untrusted_app_27, mdnsd, mdnsd)
 userdebug_or_eng(`
   auditallow untrusted_app_27 mdnsd_socket:sock_file write;
   auditallow untrusted_app_27 mdnsd:unix_stream_socket connectto;
 ')
+=======
+# Allow hidden build props
+get_prop({ untrusted_app_27 userdebug_or_eng(`-untrusted_app_27') }, userdebug_or_eng_prop)
+>>>>>>> BRANCH (c6aec9 Drop back-compatibility for hiding ro.debuggable and ro.secu)
