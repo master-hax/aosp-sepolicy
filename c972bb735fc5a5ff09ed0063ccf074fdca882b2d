@@ -195,6 +195,24 @@
       "parentUuid": "adf0edff_cb64cf2a",
       "revId": "c972bb735fc5a5ff09ed0063ccf074fdca882b2d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff0e4f02_14d77f0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-01-25T04:41:48Z",
+      "side": 1,
+      "message": "I\u0027m against the idea reusing the name `isolated_app` as public types can\u0027t easily be changed, just like our Java APIs.\n\n\u003e One of the trickiest things about this change is that it also needs to be applied throughout the Android ecosystem.\n\nFirst question: why can\u0027t we use `isolated_app` if we just associate `isolated_app` with `isolated_app_all`? This change isn\u0027t relaxing anything, except that giving `isolated_app_all` to some apps may not restrict permission for the apps on old vendors as intended. But we can\u0027t expect any new policies to be enforced for old vendors automatically.\n\nSecond question: we can\u0027t anyway avoid these kinds of huge refactoring if we try to change the sepolicy API, which is what you suggested\n\n\u003e Instead, we can change the type of isolated_app to be an attribute. This will avoid having to make 100s of additional changes or more across our tree and in downstream branches.\n\nUnfortunately, this won\u0027t work. Older vendors have `(type isolated_app)` under `vendor/etc/selinux/plat_pub_versioned.cil` which will conflict if we add `(typeattribute isolated_app)`.\n\nI think we should land this change as-is, and patch sepolicy outside system/sepolicy if they want to apply this change themselves.",
+      "parentUuid": "8004c3d3_7e84b739",
+      "revId": "c972bb735fc5a5ff09ed0063ccf074fdca882b2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
