@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d7e508fc_1ad4a112",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2023-01-25T03:01:01Z",
+      "side": 1,
+      "message": "Since this design was written down we have deliberately avoided making promises about the contents of the firewall mark because otherwise privileged system components might hardcode that knowledge, at which point we\u0027d no longer be able to change it because by doing so we\u0027d break some system component. That\u0027s the reason we have the nethandle actually.\n\nCan we use SO_BINDTODEVICE instead? While it\u0027s only supported in 5.6+ kernels, maybe that\u0027s enough here? Or the patch could be backported to applicable auto kernels?\n\nIt\u0027s technically possible to add an IPC to netd or a FwmarkServer command that binds a socket to the network containing the specified interface, but it\u0027s by far easier to do this via SO_BINDTODEVICE.",
+      "parentUuid": "2e8675f8_a09432a8",
+      "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b9d6935a_9206644b",
         "filename": "public/hal_neverallows.te",
         "patchSetId": 1
