@@ -422,6 +422,30 @@
       },
       "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b6f4c85_333979f3",
+        "filename": "public/hal_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1880185
+      },
+      "writtenOn": "2023-01-26T06:08:35Z",
+      "side": 1,
+      "message": "android_setsocknetwork  is using a netid  which is different from if_nametoindex.\nAnd android_setsocknetwork basically not using SO_BINDTODEVIE, and relies on Android netd and SO_MARK.",
+      "parentUuid": "0088212b_5c9c47c9",
+      "range": {
+        "startLine": 7,
+        "startChar": 3,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
