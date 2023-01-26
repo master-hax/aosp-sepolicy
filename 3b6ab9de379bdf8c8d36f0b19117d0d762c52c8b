@@ -163,6 +163,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b7aeec9f_83e53303",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2023-01-26T09:24:12Z",
+      "side": 1,
+      "message": "Will SO_BINDTODEVICE reliably work (is the routing table even setup to always honour oif? for all uids? or just uid\u003d0?), and if it does work for all uids, then we need to break it - because, now on 5.6+, it\u0027s a security issue if it works, no?\n\nbluejay:/ # ip link show | egrep UP\n1: lo: \u003cLOOPBACK,UP,LOWER_UP\u003e\n2: dummy0: \u003cBROADCAST,NOARP,UP,LOWER_UP\u003e\n15: rmnet1: \u003cPOINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP\u003e mtu 1436\n47: wlan0: \u003cBROADCAST,MULTICAST,UP,LOWER_UP\u003e mtu 1500\n4234: v4-wlan0: \u003cPOINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP\u003e mtu 1472\n4349: ipsec23140@lo: \u003cNOARP,UP,LOWER_UP\u003e mtu 1280\n4350: v4-rmnet1: \u003cPOINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP\u003e mtu 1408\n\nbluejay:/ # ip -4 rule show | egrep oif\n11000:  from all iif lo oif dummy0 uidrange 0-0 lookup dummy0\n11000:  from all iif lo oif wlan0 uidrange 0-0 lookup wlan0\n11000:  from all iif lo oif v4-wlan0 uidrange 0-0 lookup v4-wlan0\n11000:  from all iif lo oif ipsec23140 uidrange 0-0 lookup ipsec23140\n11000:  from all iif lo oif rmnet1 uidrange 0-0 lookup rmnet1\n11000:  from all iif lo oif v4-rmnet1 uidrange 0-0 lookup v4-rmnet1\n\n17000:  from all iif lo oif dummy0 lookup dummy0\n17000:  from all iif lo oif wlan0 lookup wlan0\n17000:  from all iif lo oif v4-wlan0 lookup v4-wlan0\n\n17000:  from all fwmark 0xc0000/0xc0000 iif lo oif ipsec23140 lookup ipsec23140\n17000:  from all fwmark 0x40000/0x40000 iif lo oif rmnet1 lookup rmnet1\n17000:  from all fwmark 0x40000/0x40000 iif lo oif v4-rmnet1 lookup v4-rmnet1\n\nbluejay:/ # ip -4 route show table dummy0\ndefault dev dummy0 proto static scope link\n\nbluejay:/ # ip -4 route show table wlan0\n\nbluejay:/ # ip -4 route show table v4-wlan0\ndefault via 192.0.0.5 dev v4-wlan0 proto static\n\nbluejay:/ # ip -4 route show table ipsec23140\n\nbluejay:/ # ip -4 route show table rmnet1\n\nbluejay:/ # ip -4 route show table v4-rmnet1\ndefault via 192.0.0.4 dev v4-rmnet1 proto static\n\nSo I guess, as uid\u003d0 ipv4 SO_BINDTODEVICE will work for dummy0, v4-wlan0, v4-rmnet1 interfaces - but not the others.\n(and it\u0027ll work for non-uid\u003d0 for dummy0 and v4-wlan0, the latter being the default network, or with appropriate fwmark privs set for the others)\n\n---\n\nI think the answer is ipv4/6 SO_BINDTODEVICE will work for uid\u003d0 for interfaces which have some level of ipv4/6 connectivity (note: netd must be aware of both the interface and the connectivity).\n\nBut it won\u0027t work out of the box for non uid\u003d0 stuff (IFIRC setting fwmark would require NET_ADMIN or NET_RAW again).\n\nSo perhaps the easiest thing is to backport the kernel patch???",
+      "parentUuid": "d7e508fc_1ad4a112",
+      "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b9d6935a_9206644b",
         "filename": "public/hal_neverallows.te",
         "patchSetId": 1
