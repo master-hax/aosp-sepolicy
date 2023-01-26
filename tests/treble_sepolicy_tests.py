@@ -27,6 +27,8 @@ import tempfile
 DEBUG=False
 SHARED_LIB_EXTENSION = '.dylib' if sys.platform == 'darwin' else '.so'
 
+# TODO(b/266998144): consider rename this file.
+
 '''
 Use file_contexts and policy to verify Treble requirements
 are not violated.
@@ -322,6 +324,54 @@ def TestCoreDataTypeViolations():
     return pol.AssertPathTypesDoNotHaveAttr(["/data/vendor/", "/data/vendor_ce/",
         "/data/vendor_de/"], [], "core_data_file_type")
 
+# TODO move this to sepolicy_tests
+def TestIsolatedAttributeConsistency():
+  global pol
+  ret = ""
+  permissionAllowList = {
+      # hardware related
+      "hal_allocator_default":["fd", "binder"],
+      "hal_graphics_allocator_default":["fd", "binder"],
+      "hal_graphics_allocator_service":["service_manager"],
+      "hal_graphics_allocator_hwservice":["hwservice_manager"],
+      "hal_graphics_allocator_server": ["binder", "service_manager"],
+      "hal_graphics_mapper_hwservice": ["hwservice_manager"],
+      "hidl_allocator_hwservice": ["hwservice_manager"],
+      "hidl_manager_hwservice": ["hwservice_manager"],
+      "hidl_memory_hwservice": ["hwservice_manager"],
+      "hwservicemanager" : ["binder"],
+      "hwservicemanager_prop" : ["file"],
+      "hwbinder_device" : ["chr_file"],
+      "mediacodec":["binder"],
+      # system services
+      "audioserver_service":["service_manager"],
+      "cameraserver_service":["service_manager"],
+      "content_capture_service":["service_manager"],
+      "device_state_service":["service_manager"],
+      "servicemanager":["fd"]
+  }
+
+  isolatedMemberTypes = pol.QueryTypeAttribute(Type="isolated_app_all", IsAttr=True)
+  baseRules = pol.QueryExpandedTERule(scontext=["isolated_app"])
+  basePermissionSet = set([":".join([rule.tctx, rule.tclass, perm])
+                        for rule in baseRules for perm in rule.perms])
+  for subType in isolatedMemberTypes:
+      if subType == "isolated_app" : continue
+      currentTypeRule = pol.QueryExpandedTERule(scontext=[subType])
+      typePermissionSet = set([":".join([rule.tctx, rule.tclass, perm])
+                            for rule in currentTypeRule for perm in rule.perms
+                            if not rule.tctx in [subType, subType + "_userfaultfd"]])
+      deltaPermissionSet = typePermissionSet.difference(basePermissionSet)
+      for perm in sorted(list(deltaPermissionSet)):
+         tctx, tclass, p = perm.split(":")
+         if tctx not in permissionAllowList or tclass not in permissionAllowList[tctx]:
+             ret += "allow %s %s:%s %s;" % (subType, tctx, tclass, p)
+  if ret:
+      ret = ("Found prohibited permission granted for isolated like types. " + \
+         "Please replace your allow statements that involve \"-isolated_app\" with " + \
+         "\"-isolated_app_all\". Violations are shown as the following: \n")  + ret
+  return ret
+
 ###
 # extend OptionParser to allow the same option flag to be used multiple times.
 # This is used to allow multiple file_contexts files and tests to be
@@ -342,7 +392,8 @@ class MultipleOption(Option):
 Tests = {"CoredomainViolations": TestCoredomainViolations,
          "CoreDatatypeViolations": TestCoreDataTypeViolations,
          "TrebleCompatMapping": TestTrebleCompatMapping,
-         "ViolatorAttributes": TestViolatorAttributes}
+         "ViolatorAttributes": TestViolatorAttributes,
+         "IsolatedAttributeConsistency": TestIsolatedAttributeConsistency}
 
 def do_main(libpath):
     """
