@@ -27,6 +27,8 @@ import tempfile
 DEBUG=False
 SHARED_LIB_EXTENSION = '.dylib' if sys.platform == 'darwin' else '.so'
 
+# TODO(b/266998144): consider rename this file.
+
 '''
 Use file_contexts and policy to verify Treble requirements
 are not violated.
