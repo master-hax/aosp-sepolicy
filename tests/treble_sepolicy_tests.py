@@ -322,6 +322,47 @@ def TestCoreDataTypeViolations():
     return pol.AssertPathTypesDoNotHaveAttr(["/data/vendor/", "/data/vendor_ce/",
         "/data/vendor_de/"], [], "core_data_file_type")
 
+def TestIsolatedComplianceViolations():
+  global pol
+  ret = ""
+  permissionAllowList = {
+      # hardware related
+      "hwservicemanager" : ["binder"],
+      "hwservicemanager_prop" : ["file"],
+      "hwbinder_device" : ["chr_file"],
+      "hidl_memory_hwservice": ["hwservice_manager"],
+      "hal_neuralnetworks_service" : ["binder", "service_manager", "fd"],
+      "hal_graphics_allocator_server": ["binder", "service_manager"],
+      "hal_allocator_server":["fd", "binder"],
+      "device_config_nnapi_native_prop":["file"],
+      # system services
+      "servicemanager":["fd"],
+      "content_capture_service":["service_manager"],
+      "audioserver_service":["service_manager"],
+      "cameraserver_service":["service_manager"],
+      "device_state_service":["service_manager"]
+  }
+
+  isolatedLikeTypes = pol.QueryTypeAttribute(Type="isolated_app_all", IsAttr=True)
+  sharedRules = pol.QueryTERule(scontext=["isolated_app_all"])
+  sharedPermissionSet = set([":".join([r.tctx, r.tclass, p]) for r in sharedRules for p in r.perms])
+  for t in isolatedLikeTypes:
+      if t == "isolated_app" : continue
+      currentTypeRule = pol.QueryTERule(scontext=[t])
+      # Check if the type is granted unexpected permission
+      typePermissionSet = set([":".join([r.tctx, r.tclass, p]) for r in currentTypeRule for p in r.perms if r.tctx != t])
+      deltaPermission = typePermissionSet - sharedPermissionSet
+      for perm in deltaPermission:
+         tctx, tclass, p = perm.split(":")
+         if p == "write" or tctx not in permissionAllowList or p not in permissionAllowList[tctx]:
+             ret += "allow " + t + " " + tctx + ":" + tclass + " " + p + "; "
+
+  if ret:
+      ret = ("Found prohibited permission granted for isolated like types. " + \
+         "Please replace your allow statements that involve \"-isolated_app\" with " + \
+         "\"-isolated_app_all\". Violations are shown as the following: \n")  + ret
+  return ret
+
 ###
 # extend OptionParser to allow the same option flag to be used multiple times.
 # This is used to allow multiple file_contexts files and tests to be
@@ -342,7 +383,9 @@ class MultipleOption(Option):
 Tests = {"CoredomainViolations": TestCoredomainViolations,
          "CoreDatatypeViolations": TestCoreDataTypeViolations,
          "TrebleCompatMapping": TestTrebleCompatMapping,
-         "ViolatorAttributes": TestViolatorAttributes}
+         "ViolatorAttributes": TestViolatorAttributes,
+         "IsolatedComplianceViolations": TestIsolatedComplianceViolations
+         }
 
 def do_main(libpath):
     """
