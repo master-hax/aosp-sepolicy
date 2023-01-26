@@ -65,6 +65,7 @@ class Policy:
     __libsepolwrap = None
     __policydbP = None
     __BUFSIZE = 2048
+    __ISOLATEDALL = set(["isolated_app", "isolated_compute_app"])
 
     def AssertPathTypesDoNotHaveAttr(self, MatchPrefix, DoNotMatchPrefix, Attr, ExcludedTypes = []):
         # Query policy for the types associated with Attr
@@ -130,6 +131,16 @@ class Policy:
             ret += "The following types have both system_property_type "
             ret += "and vendor_property_type: "
             ret += " ".join(str(x) for x in sorted(violators)) + "\n"
+        return ret
+
+    def AssertIsolatedAttributeConsistency(self):
+        memberTypes = self.QueryTypeAttribute(Type="isolated_app_all", IsAttr=True)
+        violators = self.__ISOLATEDALL - memberTypes
+        ret = ""
+        if len(violators) > 0:
+                ret += "The following types should be associated with the "
+                ret += "attribute isolated_app_all: "
+                ret += " ".join(str(x) for x in sorted(violators)) + "\n"
         return ret
 
     # Return all file_contexts entries that map to the input Type.

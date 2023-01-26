@@ -115,7 +115,8 @@ def TestDmaHeapDevTypeViolations(pol):
     return pol.AssertPathTypesHaveAttr(["/dev/dma_heap/"], [],
                                        "dmabuf_heap_device_type")
 
-
+def TestIsolatedAttributeConsistency(pol):
+    return pol.AssertIsolatedAttributeConsistency()
 
 ###
 # extend OptionParser to allow the same option flag to be used multiple times.
@@ -147,6 +148,7 @@ Tests = [
     "TestPropertyTypeViolations",
     "TestAppDataTypeViolations",
     "TestDmaHeapDevTypeViolations",
+    "TestIsolatedAttributeConsistency"
 ]
 
 def do_main(libpath):
@@ -206,6 +208,8 @@ def do_main(libpath):
         results += TestAppDataTypeViolations(pol)
     if options.test is None or "TestDmaHeapDevTypeViolations" in options.test:
         results += TestDmaHeapDevTypeViolations(pol)
+    if options.test is None or "TestIsolatedAttributeConsistency" in options.test:
+            results += TestIsolatedAttributeConsistency(pol)
 
     if len(results) > 0:
         sys.exit(results)
