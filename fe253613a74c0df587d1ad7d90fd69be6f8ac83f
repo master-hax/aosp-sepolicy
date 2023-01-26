@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a85add14_653e8d7c",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-26T20:58:14Z",
+      "side": 1,
+      "message": "isolated_app_all should include this?",
+      "range": {
+        "startLine": 8,
+        "startChar": 2,
+        "endLine": 8,
+        "endChar": 22
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbccfb61_a731c89f",
+        "filename": "private/isolated_app.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-26T20:58:14Z",
+      "side": 1,
+      "message": "this should be a neverallow instead of a comment",
+      "range": {
+        "startLine": 15,
+        "startChar": 53,
+        "endLine": 16,
+        "endChar": 12
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "872dab99_398a96fa",
+        "filename": "private/isolated_app.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-26T20:58:14Z",
+      "side": 1,
+      "message": "this is out of date",
+      "range": {
+        "startLine": 20,
+        "startChar": 22,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8fec257_98ba448c",
+        "filename": "private/isolated_app_all.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-26T20:58:14Z",
+      "side": 1,
+      "message": "we should add an additional rule in these cases, something like:\n\n    neverallow isolated_compute_app { \u003cbase_service_type\u003e -\u003callowed_service\u003e }:hwservice_manager *;",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 76
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45fddd3b_9c6ad346",
+        "filename": "private/isolated_compute_app.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-26T20:58:14Z",
+      "side": 1,
+      "message": "What does this mean? and do we have a bug for it?",
+      "range": {
+        "startLine": 9,
+        "startChar": 10,
+        "endLine": 9,
+        "endChar": 18
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f4caedb_6dc6a062",
+        "filename": "private/isolated_compute_app.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-26T20:58:14Z",
+      "side": 1,
+      "message": "this rule should be in isolated_app.te - or it should be about isolated_compute_app, or it should be factored out and part of isolated_app_all",
+      "range": {
+        "startLine": 25,
+        "startChar": 18,
+        "endLine": 25,
+        "endChar": 30
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f98ddbda_6b4d2d1a",
+        "filename": "private/isolated_compute_app.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-26T20:58:14Z",
+      "side": 1,
+      "message": "these should be in isolated_app_all or about isolated_compute_app",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 34
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f24e109_3575ff1b",
+        "filename": "private/technical_debt.cil",
+        "patchSetId": 23
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-26T20:58:14Z",
+      "side": 1,
+      "message": "Can we leave the exception here, and we can grant the permission to isolated_app_all separately? That way, the isolated_app_all file itself will contain all the rules about it. With this change, the rules for isolated_app_all are split into two files. The reason this is in technical_debt.cil is because we don\u0027t know all types with the hal_allocator_client attribute, but we should know all instances of isolated_app_all",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 57
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05037121_e9fb8526",
+        "filename": "public/isolated_compute_app.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-26T20:58:14Z",
+      "side": 1,
+      "message": "Can this be a private type? Is it expected vendors need to add additional permission to it? Nothing on the vendor image should have this type",
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
