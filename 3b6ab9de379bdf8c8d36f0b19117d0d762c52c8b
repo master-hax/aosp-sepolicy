@@ -446,6 +446,30 @@
       },
       "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3bc64aa_3e16da02",
+        "filename": "public/hal_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1880185
+      },
+      "writtenOn": "2023-01-26T06:20:54Z",
+      "side": 1,
+      "message": "BTW Andoird GKI kernel 13-5.15 and 14-5.15 both have \nif (sk-\u003esk_bound_dev_if \u0026\u0026 !ns_capable(net-\u003euser_ns, CAP_NET_RAW))\nwhich allows non-root to bind_to_device.\nhttps://android.googlesource.com/kernel/common/+/refs/heads/android13-5.15/net/core/sock.c#596",
+      "parentUuid": "2b6f4c85_333979f3",
+      "range": {
+        "startLine": 7,
+        "startChar": 3,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "3b6ab9de379bdf8c8d36f0b19117d0d762c52c8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
