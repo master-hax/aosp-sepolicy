@@ -24,6 +24,29 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bbe6311_74148a3f",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-01-27T07:20:36Z",
+      "side": 1,
+      "message": "I mentioned this in a separate review, but can you include isolated_app and isolated_compute_app here as well, similar to what\u0027s done below for untrusted_app?\n\nCan be done in a separate change if you\u0027d prefer because otherwise this change LGTM.",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 18
+      },
+      "revId": "33028e32bf96db99905377d0ca45fd4a81dd8347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f31116d_3f9b11ee",
@@ -37,6 +60,30 @@
       "writtenOn": "2023-01-26T20:59:47Z",
       "side": 1,
       "message": "maybe this is more a question for Jeff, but why do we have macros for these?",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 2
+      },
+      "revId": "33028e32bf96db99905377d0ca45fd4a81dd8347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3886687_e40a74bd",
+        "filename": "public/te_macros",
+        "patchSetId": 8
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-01-27T07:20:36Z",
+      "side": 1,
+      "message": "It does seem unnecessary for assigning a single attribute. I believe they\u0027re just following precedent from the above untrusted_app_domain() macro. That one is intentionally a macro since we expect partners to use it (Qualcomm requested it). It\u0027s convenient to do it as a macro because, if for some reason we need to do something fancy fixes, we can fix it in a single place. That has been very convient over the years (e.g. with the get_prop() macro). I don\u0027t have strong feelings about what is the right thing to do here. Following precedent seems fine to me.",
+      "parentUuid": "7f31116d_3f9b11ee",
       "range": {
         "startLine": 237,
         "startChar": 0,
