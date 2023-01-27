@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46cf685d_7612f015",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-27T07:50:21Z",
+      "side": 1,
+      "message": "What is the reason behind include the member of an attribute? I see for untrusted_app it includes all the members of it?",
+      "parentUuid": "a85add14_653e8d7c",
+      "range": {
+        "startLine": 8,
+        "startChar": 2,
+        "endLine": 8,
+        "endChar": 22
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dbccfb61_a731c89f",
         "filename": "private/isolated_app.te",
         "patchSetId": 23
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-26T20:58:14Z",
       "side": 1,
       "message": "this should be a neverallow instead of a comment",
+      "range": {
+        "startLine": 15,
+        "startChar": 53,
+        "endLine": 16,
+        "endChar": 12
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e4b4d97_e8a240a3",
+        "filename": "private/isolated_app.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-27T07:50:21Z",
+      "side": 1,
+      "message": "It is handled in the neverallow statement below I think.",
+      "parentUuid": "dbccfb61_a731c89f",
       "range": {
         "startLine": 15,
         "startChar": 53,
@@ -60,6 +108,30 @@
       "writtenOn": "2023-01-26T20:58:14Z",
       "side": 1,
       "message": "this is out of date",
+      "range": {
+        "startLine": 20,
+        "startChar": 22,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30e12fcd_62192b3f",
+        "filename": "private/isolated_app.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-27T07:50:21Z",
+      "side": 1,
+      "message": "Do you mean the bug is fixed? I still see the same comment on the codebase tho",
+      "parentUuid": "872dab99_398a96fa",
       "range": {
         "startLine": 20,
         "startChar": 22,
@@ -118,6 +190,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8835b1b_64575238",
+        "filename": "private/isolated_compute_app.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-27T07:50:21Z",
+      "side": 1,
+      "message": "This is for",
+      "parentUuid": "45fddd3b_9c6ad346",
+      "range": {
+        "startLine": 9,
+        "startChar": 10,
+        "endLine": 9,
+        "endChar": 18
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f4caedb_6dc6a062",
         "filename": "private/isolated_compute_app.te",
         "patchSetId": 23
@@ -129,6 +225,30 @@
       "writtenOn": "2023-01-26T20:58:14Z",
       "side": 1,
       "message": "this rule should be in isolated_app.te - or it should be about isolated_compute_app, or it should be factored out and part of isolated_app_all",
+      "range": {
+        "startLine": 25,
+        "startChar": 18,
+        "endLine": 25,
+        "endChar": 30
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42575166_3f8b9f99",
+        "filename": "private/isolated_compute_app.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-27T07:50:21Z",
+      "side": 1,
+      "message": "Ah typo. It is intended to be added separately here.",
+      "parentUuid": "2f4caedb_6dc6a062",
       "range": {
         "startLine": 25,
         "startChar": 18,
@@ -152,6 +272,30 @@
       "writtenOn": "2023-01-26T20:58:14Z",
       "side": 1,
       "message": "these should be in isolated_app_all or about isolated_compute_app",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 34
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae071718_0288936c",
+        "filename": "private/isolated_compute_app.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-27T07:50:21Z",
+      "side": 1,
+      "message": "same above.",
+      "parentUuid": "f98ddbda_6b4d2d1a",
       "range": {
         "startLine": 26,
         "startChar": 0,
