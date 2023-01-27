@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "78f9f70e_1a68fe7e",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-01-27T08:23:47Z",
+      "side": 1,
+      "message": "I asked them to include this (similar to untrusted_app_all) below. all_untrusted_apps is used primarily for neverallow rules, and using attributes in neverallow statements can result in test bypasses. For example, when partners customize devices they could potentially remove the isolated_app_all attribute from either of these domains grant the permissions individually to domains, and bypass neverallows. CTS would pass, but the neverallow rules would not be enforced.\n\nNote, you should also include isolated_app here.",
+      "parentUuid": "a85add14_653e8d7c",
+      "range": {
+        "startLine": 8,
+        "startChar": 2,
+        "endLine": 8,
+        "endChar": 22
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dbccfb61_a731c89f",
         "filename": "private/isolated_app.te",
         "patchSetId": 23
