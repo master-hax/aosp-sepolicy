@@ -214,6 +214,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f487837_94442606",
+        "filename": "private/isolated_app.te",
+        "patchSetId": 23
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-28T02:13:40Z",
+      "side": 1,
+      "message": "Oh I understand. Fixed.",
+      "parentUuid": "2c4b38a2_695f1ac1",
+      "range": {
+        "startLine": 20,
+        "startChar": 22,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8fec257_98ba448c",
@@ -487,6 +511,30 @@
       "side": 1,
       "message": "What about using only isolated_app_all in this file, and add hal permissions to isolated_compute_app only? That we don\u0027t grant isolated_app these attribute with isolated_app_all. I am not sure how that can work though - its prompting out conflicts on neverallow statement if enabling these using `typeattribute isolated_compute_app hal_allocator_client` or `hal_client_domain(isolated_compute_app, hal_allocator_client)`",
       "parentUuid": "4f24e109_3575ff1b",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 57
+      },
+      "revId": "fe253613a74c0df587d1ad7d90fd69be6f8ac83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a157561d_faaa32af",
+        "filename": "private/technical_debt.cil",
+        "patchSetId": 23
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-28T02:13:40Z",
+      "side": 1,
+      "message": "Nevermind I managed to move this attribute in to isolated_compute_app.",
+      "parentUuid": "dab4197b_0365897a",
       "range": {
         "startLine": 12,
         "startChar": 0,
