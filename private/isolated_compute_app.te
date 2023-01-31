@@ -18,7 +18,12 @@ isolated_app_domain(isolated_compute_app)
 allow isolated_compute_app audioserver_service:service_manager find;
 allow isolated_compute_app cameraserver_service:service_manager find;
 allow isolated_compute_app content_capture_service:service_manager find;
+<<<<<<< PATCH SET (b6fcf4 Extension of isoalted_compute_app for Iris)
+allow isolated_compute_app device_state_service:service_manager find;
+allow isolated_compute_app mediaserver_service:service_manager find;
+=======
 allow isolated_compute_app speech_recognition_service:service_manager find;
+>>>>>>> BASE      (b853da Add isolated_compute_app domain)
 
 # Enable access to hardware services for camera functionalilites
 hal_client_domain(isolated_compute_app, hal_allocator)
