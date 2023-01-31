@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7124425_ede22dea",
+        "filename": "private/isolated_compute_app.te",
+        "patchSetId": 27
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-01-31T15:33:23Z",
+      "side": 1,
+      "message": "The followings are confirmed services we need: \n\nOur project (This CL):\n- Audio \n- Camera \n- Speech recognition\n- Device state (needed by camera service)\n- Content capture\n\nCharlie\u0027s project (Followup CL):\n- Media server, codex and omx \n\nThose HIDL and HAL services are crucial and comes by hal_graphics_allocator_client, which is needed for camera to function properly.\n\nThis is everything we need.",
+      "parentUuid": "e63e7898_1e7251b7",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 69
+      },
+      "revId": "82aa09ff822e8dc75ca90c03250d65acb14e2b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "023344a0_a02fadf4",
