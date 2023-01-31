@@ -261,7 +261,7 @@ var (
 		"hardware":                     EXCEPTION_NO_FUZZER,
 		"hardware_properties":          EXCEPTION_NO_FUZZER,
 		"hdmi_control":                 EXCEPTION_NO_FUZZER,
-		"healthconnect":                EXCEPTION_NO_FUZZER,
+		"health_connect":               EXCEPTION_NO_FUZZER,
 		"ions":                         EXCEPTION_NO_FUZZER,
 		"idmap":                        EXCEPTION_NO_FUZZER,
 		"incident":                     EXCEPTION_NO_FUZZER,
