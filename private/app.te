@@ -506,5 +506,4 @@ neverallow {
 }:file no_x_file_perms;
 
 # For now, don't allow apps other than gmscore to access /data/misc_ce/<userid>/checkin
-neverallow { appdomain -gmscore_app } checkin_data_file:dir *;
-neverallow { appdomain -gmscore_app } checkin_data_file:file *;
+neverallow { domain -gmscore_app -init -vold_prepare_subdirs } checkin_data_file:{dir file} *;
