@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f46e28ca_8bcc4c6c",
+        "filename": "tests/treble_sepolicy_tests.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-01T12:30:08Z",
+      "side": 1,
+      "message": "why not do this right away instead of as a TODO? You can move things needed by both treble_sepolicy_tests.py and sepolicy_tests.py to policy.py",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 6
+      },
+      "revId": "ab63d3bd500135448d0e8def6400ba6c316d5a17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27e0f5c6_393068e9",
+        "filename": "tests/treble_sepolicy_tests.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-01T12:30:08Z",
+      "side": 1,
+      "message": "I don\u0027t think you want to do any of this. Just assert that isolated_app and isolated_compute_app have the isolated_app_all attribute, and then enforce specific properties that you want using neverallow tests in policy.",
+      "range": {
+        "startLine": 358,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 83
+      },
+      "revId": "ab63d3bd500135448d0e8def6400ba6c316d5a17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
