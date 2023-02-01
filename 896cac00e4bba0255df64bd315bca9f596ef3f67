@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "87554cf4_060042a8",
+        "filename": "private/fuseblk_compart.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1963014
+      },
+      "writtenOn": "2023-02-01T14:39:41Z",
+      "side": 1,
+      "message": "For fuseblk, I went with fuseblk_fs as the domain and fuseblk as the filesystem because the convention in file.te seemed to be that specific filesystems are referred to by their name (see fuse). I think I can rename it from fuseblk_fs to something else, but renaming to fuseblk might lead to some confusion.\n\nFor fuseblk_untrusted, my particular worry is that while the naming pattern is fuseblk/fuseblk_untrusted like fsck/fsck_untrusted, we are doing something a bit different here in that fuseblk_untrusted isn\u0027t really untrusted, it has a lot of permissions, it just doesn\u0027t happen to have sys_admin and the associated mounting permissions. Unlike fsck/fsck_untrusted, it\u0027s not a strict hierarchy where you should choose based on the trust level of your program, fuseblk should transition in and out of fuseblk_compart.\n\nWhat do you think? This is minor and I can change it either way. Perhaps something like \"fuseblk_binary\" and \"fuseblk_admin\" might be more clear?",
+      "parentUuid": "64b1bee8_63627918",
+      "range": {
+        "startLine": 1,
+        "startChar": 14,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "67a6f8f7_c0da5f53",
         "filename": "private/mediaprovider_app.te",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-01T10:59:10Z",
       "side": 1,
       "message": "should this be create_dir_perms (and create_file_perms below)? Should mediaprovider be allowed to create files and dirs?",
+      "range": {
+        "startLine": 15,
+        "startChar": 36,
+        "endLine": 15,
+        "endChar": 48
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41ff09bc_e35e5a32",
+        "filename": "private/mediaprovider_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1963014
+      },
+      "writtenOn": "2023-02-01T14:39:41Z",
+      "side": 1,
+      "message": "Yes, this was an artifact of a previous schema that blocked file creation. Changed.",
+      "parentUuid": "67a6f8f7_c0da5f53",
       "range": {
         "startLine": 15,
         "startChar": 36,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4df519b8_650be6ba",
+        "filename": "private/vold.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1963014
+      },
+      "writtenOn": "2023-02-01T14:39:41Z",
+      "side": 1,
+      "message": "Removed. Simplified vold code to not explicitly set the domain.",
+      "parentUuid": "4721731f_95438885",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 12
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d5b1ef7_9bb5d69e",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-02-01T10:59:10Z",
       "side": 1,
       "message": "Line 55 is already accomplishing this, so you can delete this line. See:\nhttps://cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/global_macros?q\u003dglobal_capability_class_set",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 70
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "027b904c_a4c0fd39",
+        "filename": "public/fsck_untrusted.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1963014
+      },
+      "writtenOn": "2023-02-01T14:39:41Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "6d5b1ef7_9bb5d69e",
       "range": {
         "startLine": 54,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ba8ee55_dc7b8e52",
+        "filename": "public/ioctl_defines",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1963014
+      },
+      "writtenOn": "2023-02-01T14:39:41Z",
+      "side": 1,
+      "message": "Discussed internally.",
+      "parentUuid": "82e99431_07de2ab7",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 33
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7b1fb82_c388967e",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-02-01T10:59:10Z",
       "side": 1,
       "message": "delete, this is should already be included by the domain_trans() macro that you\u0027re using elsewhere.",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 54
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f07a2aef_0a53aee9",
+        "filename": "public/vold.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1963014
+      },
+      "writtenOn": "2023-02-01T14:39:41Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "b7b1fb82_c388967e",
       "range": {
         "startLine": 171,
         "startChar": 0,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b24d4283_9ceea359",
+        "filename": "public/vold.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1963014
+      },
+      "writtenOn": "2023-02-01T14:39:41Z",
+      "side": 1,
+      "message": "Yes. Removed.",
+      "parentUuid": "4d2815ef_79be9155",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 56
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f492fbf_ac92d975",
@@ -192,6 +360,30 @@
       "writtenOn": "2023-02-01T10:59:10Z",
       "side": 1,
       "message": "do we really want this? Don\u0027t we want only the non-sys-admin thing to access this?",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 38
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d0ffd15_886fc52d",
+        "filename": "public/vold.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1963014
+      },
+      "writtenOn": "2023-02-01T14:39:41Z",
+      "side": 1,
+      "message": "Correct. Removed.",
+      "parentUuid": "3f492fbf_ac92d975",
       "range": {
         "startLine": 213,
         "startChar": 0,
