@@ -16,6 +16,190 @@
       "message": "Need to merge https://android-review.git.corp.google.com/c/platform/system/vold/+/2398952?tab\u003dcomments first. Failures are from a conflict between AOSP and internal commits.",
       "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64b1bee8_63627918",
+        "filename": "private/fuseblk_compart.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-01T10:59:10Z",
+      "side": 1,
+      "message": "for naming consistency, I wonder if you should use fuseblk and fuseblk_untrusted?",
+      "range": {
+        "startLine": 1,
+        "startChar": 14,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67a6f8f7_c0da5f53",
+        "filename": "private/mediaprovider_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-01T10:59:10Z",
+      "side": 1,
+      "message": "should this be create_dir_perms (and create_file_perms below)? Should mediaprovider be allowed to create files and dirs?",
+      "range": {
+        "startLine": 15,
+        "startChar": 36,
+        "endLine": 15,
+        "endChar": 48
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4721731f_95438885",
+        "filename": "private/vold.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-01T10:59:10Z",
+      "side": 1,
+      "message": "I think you actually want domain_auto_trans() here. The above instances needed to use domain_trans() because the same domain is used to enter different domains, but that\u0027s not the case here. You can then simplify your code to not include the setcon() (or whatever it is you\u0027re using). It will automatically do the correct domain transition.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 12
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d5b1ef7_9bb5d69e",
+        "filename": "public/fsck_untrusted.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-01T10:59:10Z",
+      "side": 1,
+      "message": "Line 55 is already accomplishing this, so you can delete this line. See:\nhttps://cs.android.com/android/platform/superproject/+/master:system/sepolicy/public/global_macros?q\u003dglobal_capability_class_set",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 70
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82e99431_07de2ab7",
+        "filename": "public/ioctl_defines",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-01T10:59:10Z",
+      "side": 1,
+      "message": "I can\u0027t seem to figure out where this is used.",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 33
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7b1fb82_c388967e",
+        "filename": "public/vold.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-01T10:59:10Z",
+      "side": 1,
+      "message": "delete, this is should already be included by the domain_trans() macro that you\u0027re using elsewhere.",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 54
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d2815ef_79be9155",
+        "filename": "public/vold.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-01T10:59:10Z",
+      "side": 1,
+      "message": "Isn\u0027t this being handled elsewhere?",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 56
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f492fbf_ac92d975",
+        "filename": "public/vold.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-01T10:59:10Z",
+      "side": 1,
+      "message": "do we really want this? Don\u0027t we want only the non-sys-admin thing to access this?",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 38
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
