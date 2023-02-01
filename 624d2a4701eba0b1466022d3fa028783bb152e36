@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "50f73103_b1f53afe",
+        "filename": "private/device_as_webcam.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-01T07:31:48Z",
+      "side": 1,
+      "message": "this is causing the failure in wembley sepolicy. Note that Wembley should not have neverallow rules in their local policy, so you can feel free to just delete the rule that\u0027s causing the build failure.\n\nBut perhaps more importantly, why is this here? It appears to be unnecessary. You don\u0027t need it to access your app\u0027s private data. Perhaps just delete it?",
+      "range": {
+        "startLine": 6,
+        "startChar": 44,
+        "endLine": 6,
+        "endChar": 55
+      },
+      "revId": "624d2a4701eba0b1466022d3fa028783bb152e36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2bc63024_c3f33c04",
         "filename": "private/device_as_webcam.te",
         "patchSetId": 1
