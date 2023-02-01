@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "753af211_6045a15c",
+        "filename": "microdroid/system/private/dex2oat.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2023-02-01T17:20:04Z",
+      "side": 1,
+      "message": "Phew, I first thought we missed to actually enable userfaultfd for the whole time, but we did allow this property read for odrefresh.  By code search, I *think* it\u0027s just that in U this new read property is added to dex2oat.\n\nhttp://cs/android-internal/art/dex2oat/dex2oat.cc;l\u003d1106;rcl\u003dff2c9e2229316cdfdc75b9befc38eaac6fb9e3e5\n\nIn any case, no reason to allow the property access only to odrefresh but not dex2oat.",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 42
+      },
+      "revId": "313fbd00185cefa4d35b34926e5861e3eb7f779a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
