@@ -22,6 +22,30 @@
       },
       "revId": "4fd76147c499c7da3cda5ca2a4f922d46d610bfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9c0cd3d_f0517c09",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1963014
+      },
+      "writtenOn": "2023-02-02T12:46:31Z",
+      "side": 0,
+      "message": "It is intentional. That context should only be applicable for devices that are using the 5.15 Linux kernel with the ntfs3 ko applied that attempt to mount ntfs3 filesystems, or external commercial licenses. \n\nFor ntfs3, we don\u0027t want devices to do that, since ntfs3 is a bit of a security hole. For external commercial support, it\u0027s possible that there are devices with that support (and custom vold or other mounting mechanisms as applicable) and that this will break them, but we don\u0027t officially support this in any other way.",
+      "parentUuid": "dc8049d2_81aa6953",
+      "range": {
+        "startLine": 387,
+        "startChar": 0,
+        "endLine": 387,
+        "endChar": 34
+      },
+      "revId": "4fd76147c499c7da3cda5ca2a4f922d46d610bfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
