@@ -74,6 +74,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "74e4c0dd_551157c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2023-02-02T16:28:23Z",
+      "side": 1,
+      "message": "\u003e We are checking one of the runtime_native_boot prop in dex2oat to determine whether to use userfaultfd GC or not\n\nThat change you mentioned landed last Nov (aosp/2308662).  So I think we\u0027re still good for T?  At least the log says I have tested manually when I enabled userfaultfd support (b/209488862#comment20).\n\nIf this is a major feature (or if there\u0027ll be others in the future), we can add test coverage to ensure the output is identical. Just let me know!",
+      "parentUuid": "927708f8_2dc1b663",
+      "revId": "313fbd00185cefa4d35b34926e5861e3eb7f779a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "753af211_6045a15c",
         "filename": "microdroid/system/private/dex2oat.te",
         "patchSetId": 1
