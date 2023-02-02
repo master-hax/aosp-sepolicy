@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f207521a_40a01bd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2023-02-02T18:26:50Z",
+      "side": 1,
+      "message": "I\u0027m touching crash_dump only because imo it makes sense to have one list of undumpable domains between it \u0026 profilers, and otherwise trying to keep crash_dump related changes to a minimum for this patch (the new stuff in domain.te is a rephrasing of the private/crash_dump.te). Also being conservative in general as I don\u0027t have a fresh e2e understanding of crash_dump.\n\nHowever, I\u0027m happy to stack a followup change that\u0027s more specific to crash_dump, since I agree that this is as good time as any to improve the rules. Let me start on that today.\n\n(I was aware of your change, and named the new attribute after it.)",
+      "parentUuid": "82045361_821596cb",
+      "revId": "646a22726bbf80a6f905011a720e06f131778922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b39603f_b0b4d33c",
         "filename": "private/domain.te",
         "patchSetId": 1
@@ -48,6 +66,30 @@
       "writtenOn": "2023-02-02T17:16:57Z",
       "side": 1,
       "message": "+ptrace ?",
+      "range": {
+        "startLine": 53,
+        "startChar": 11,
+        "endLine": 53,
+        "endChar": 34
+      },
+      "revId": "646a22726bbf80a6f905011a720e06f131778922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37fbce5b_9c814085",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2023-02-02T18:26:50Z",
+      "side": 1,
+      "message": "Done. Previously private/crash_dump.te didn\u0027t explicitly relist ptrace, but I assume there\u0027s no harm in that (are neverallows compile time only?).",
+      "parentUuid": "9b39603f_b0b4d33c",
       "range": {
         "startLine": 53,
         "startChar": 11,
