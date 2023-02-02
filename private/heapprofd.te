@@ -1,14 +1,4 @@
 # Android heap profiling daemon. go/heapprofd.
-#
-# On user builds, this daemon is responsible for receiving the initial
-# profiling configuration, finding matching target processes (if profiling by
-# process name), and sending the activation signal to them (+ setting system
-# properties for new processes to start profiling from startup). When profiling
-# is triggered in a process, it spawns a private heapprofd subprocess (in its
-# own SELinux domain), which will exclusively handle profiling of its parent.
-#
-# On debug builds, this central daemon performs profiling for all target
-# processes (which talk directly to this daemon).
 type heapprofd_exec, exec_type, file_type, system_file_type;
 type heapprofd_tmpfs, file_type;
 
@@ -20,6 +10,12 @@ tmpfs_domain(heapprofd)
 typeattribute heapprofd_tmpfs mlstrustedobject;
 
 set_prop(heapprofd, heapprofd_prop);
+
+# Allow every process to check the heapprofd.enable properties to determine
+# whether to load the heap profiling library. This does not necessarily enable
+# heap profiling, as initialization will fail if it does not have the
+# necessary SELinux permissions.
+get_prop(domain, heapprofd_prop);
 
 # Necessary for /proc/[pid]/cmdline access & sending signals.
 typeattribute heapprofd mlstrustedsubject;
@@ -55,25 +51,6 @@ allow heapprofd self:global_capability_class_set dac_read_search;
 
 # For checking profileability.
 allow heapprofd packages_list_file:file r_file_perms;
-
-# This is going to happen on user but is benign because central heapprofd
-# does not actually need these permission.
-# If the dac_read_search capability check is rejected, the kernel then tries
-# to perform a dac_override capability check, so we need to dontaudit that
-# as well.
-dontaudit heapprofd self:global_capability_class_set { dac_read_search dac_override };
-
-never_profile_heap(`{
-  bpfloader
-  init
-  kernel
-  keystore
-  llkd
-  logd
-  ueventd
-  vendor_init
-  vold
-}')
 
 full_treble_only(`
   neverallow heapprofd vendor_file:file { no_w_file_perms no_x_file_perms };

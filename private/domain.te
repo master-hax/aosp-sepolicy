@@ -7,49 +7,76 @@
 domain_auto_trans({ domain userdebug_or_eng(`-su') -crosvm }, crash_dump_exec, crash_dump);
 allow domain crash_dump:process sigchld;
 
-# Allow every process to check the heapprofd.enable properties to determine
-# whether to load the heap profiling library. This does not necessarily enable
-# heap profiling, as initialization will fail if it does not have the
-# necessary SELinux permissions.
-get_prop(domain, heapprofd_prop);
-# Allow heap profiling on debug builds.
-userdebug_or_eng(`can_profile_heap({
-  domain
-  -bpfloader
-  -init
-  -kernel
-  -keystore
-  -llkd
-  -logd
-  -logpersist
-  -recovery
-  -recovery_persist
-  -recovery_refresh
-  -ueventd
-  -vendor_init
-  -vold
-})')
+# Processes excluded from crash dumping and performance profiling.
+# Set defined here to keep it close to the referencing rules.
+# TODO(b/236672526): Remove exception for crosvm
+typeattribute  apexd        no_dump_domain;
+typeattribute  bpfloader    no_dump_domain;
+typeattribute  crash_dump   no_dump_domain;
+typeattribute  crosvm       no_dump_domain;
+typeattribute  diced        no_dump_domain;
+typeattribute  init         no_dump_domain;
+typeattribute  kernel       no_dump_domain;
+typeattribute  keystore     no_dump_domain;
+typeattribute  llkd         no_dump_domain;
+typeattribute  logd         no_dump_domain;
+typeattribute  ueventd      no_dump_domain;
+typeattribute  vendor_init  no_dump_domain;
+typeattribute  vold         no_dump_domain;
 
-# As above, allow perf profiling most processes on debug builds.
-# zygote is excluded as system-wide profiling could end up with it
-# (unexpectedly) holding an open fd across a fork.
-userdebug_or_eng(`can_profile_perf({
+# Allow crash dumping.
+allow crash_dump {
   domain
-  -bpfloader
-  -init
-  -kernel
-  -keystore
-  -llkd
-  -logd
+  -no_dump_domain
+}:process { ptrace signal sigchld sigstop sigkill };
+
+userdebug_or_eng(`
+  allow crash_dump {
+    apexd
+    keystore
+    llkd
+    logd
+    vold
+  }:process { ptrace signal sigchld sigstop sigkill };
+')
+
+# sigchld not explicitly forbidden since it's part of the
+# domain-transition-on-exec macros, and is by itself not sensitive.
+neverallow crash_dump {
+  no_dump_domain
+  -crash_dump # self-signal is ok
+  userdebug_or_eng(`-apexd')
+  userdebug_or_eng(`-keystore')
+  userdebug_or_eng(`-llkd')
+  userdebug_or_eng(`-logd')
+  userdebug_or_eng(`-vold')
+}:process { ptrace signal sigstop sigkill };
+
+# Allow heap profiling by heapprofd (native and custom heaps) and java heap
+# graphs (perfetto_hprof ART plugin).
+can_profile_heap({
+  domain
+  -no_dump_domain
+  -zygote # potential issues with forking with fds open
+  -app_zygote
+  -webview_zygote
   -logpersist
-  -recovery
-  -recovery_persist
   -recovery_refresh
-  -ueventd
-  -vendor_init
-  -vold
-  -zygote
-})')
+  -recovery_persist
+})
+
+never_profile_heap(no_dump_domain)
+
+# Allow callstack profiling by traced_perf.
+can_profile_perf({
+  domain
+  -no_dump_domain
+  -zygote # potential issues with forking with fds open
+  -app_zygote
+  -webview_zygote
+})
+
+never_profile_perf(no_dump_domain)
 
 # Everyone can access the IncFS list of features.
 r_dir_file(domain, sysfs_fs_incfs_features);
@@ -556,9 +583,9 @@ full_treble_only(`
     userdebug_or_eng(`-su') # communications with su are permitted only on userdebug or eng builds
     -init
     -tombstoned # linker to tombstoned
-    userdebug_or_eng(`-heapprofd')
-    userdebug_or_eng(`-traced')
-    userdebug_or_eng(`-traced_perf')
+    -heapprofd
+    -traced
+    -traced_perf
   });
 ')
 
