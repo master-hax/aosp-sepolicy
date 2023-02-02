@@ -38,15 +38,30 @@ can_profile_perf(isolated_compute_app)
 ##### Neverallow
 #####
 
-# Do not allow isolated_compute_app to access hardware service except for the
-# ones necessary for camera service.
-# TODO (b/266555480): The permission should be guarded by compliance test.
-# Remove the negation for member domains when refactorization is done.
-# neverallow isolated_compute_app {
-# hwservice_manager_type
-#  -hal_graphics_allocator_hwservice
-#  -hal_graphics_mapper_hwservice
-#  -hidl_allocator_hwservice
-#  -hidl_manager_hwservice
-#  -hidl_memory_hwservice
-# }:hwservice_manager *;
+# Do not allow isolated_compute_app to access hardware service except the find
+# actions for services allowlisted below.
+neverallow isolated_compute_app *:hwservice_manager ~find;
+
+# The isolated_compute_app can only access the following hwservices.
+# TODO(b/266943251): update the list with the omx and codec need
+neverallow isolated_compute_app {
+  hwservice_manager_type
+  -hal_graphics_allocator_hwservice
+  -hal_graphics_mapper_hwservice
+  -hidl_allocator_hwservice
+  -hidl_manager_hwservice
+  -hidl_memory_hwservice
+}:hwservice_manager *;
+
+# Do not allow other system services than the following.
+# TODO(b/266943251): update the list with the media server service
+neverallow isolated_compute_app {
+  service_manager_type
+  -activity_service
+  -display_service
+  -audioserver_service
+  -cameraserver_service
+  -content_capture_service
+  -device_state_service
+  -speech_recognition_service
+}:service_manager find;
