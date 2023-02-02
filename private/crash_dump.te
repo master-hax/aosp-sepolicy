@@ -2,12 +2,12 @@ typeattribute crash_dump coredomain;
 
 # See also additional domain-wide rules in private/domain.te.
 
+# Read ART APEX data directory
+allow crash_dump apex_art_data_file:dir { getattr search };
+allow crash_dump apex_art_data_file:file r_file_perms;
+
 # Crash dump does not need to access devices passed across exec().
 dontaudit crash_dump { devpts dev_type }:chr_file { read write };
 
 neverallow crash_dump self:process ptrace;
 neverallow crash_dump gpu_device:chr_file *;
-
-# Read ART APEX data directory
-allow crash_dump apex_art_data_file:dir { getattr search };
-allow crash_dump apex_art_data_file:file r_file_perms;

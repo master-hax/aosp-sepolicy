@@ -1,12 +1,3 @@
-# Transition to crash_dump when /system/bin/crash_dump* is executed.
-# This occurs when the process crashes.
-# We do not apply this to the su domain to avoid interfering with
-# tests (b/114136122)
-# We exempt crosvm because parts of its memory are inaccessible to the
-# kernel. TODO(b/238324526): Remove this.
-domain_auto_trans({ domain userdebug_or_eng(`-su') -crosvm }, crash_dump_exec, crash_dump);
-allow domain crash_dump:process sigchld;
-
 # Processes excluded from crash dumping and performance profiling.
 # Set defined here to keep it close to the referencing rules.
 # TODO(b/236672526): Remove exception for crosvm
@@ -24,7 +15,17 @@ typeattribute  ueventd      no_dump_domain;
 typeattribute  vendor_init  no_dump_domain;
 typeattribute  vold         no_dump_domain;
 
-# Allow crash dumping.
+# Transition to crash_dump when /system/bin/crash_dump* is executed.
+# This occurs when the process crashes.
+# We do not apply this to the su domain to avoid interfering with
+# tests (b/114136122).
+domain_auto_trans({ domain -no_dump_domain userdebug_or_eng(`-su') }, crash_dump_exec, crash_dump);
+allow domain crash_dump:process sigchld;
+
+neverallow { no_dump_domain -crash_dump } crash_dump_exec:file no_x_file_perms;
+neverallow no_dump_domain crash_dump:process { transition dyntransition };
+
+# Allow crash dumping operations.
 allow crash_dump {
   domain
   -no_dump_domain
@@ -44,7 +45,7 @@ userdebug_or_eng(`
 # domain-transition-on-exec macros, and is by itself not sensitive.
 neverallow crash_dump {
   no_dump_domain
-  -crash_dump # self-signal is ok
+  -crash_dump # self-signal is ok, ptrace disallowed in private/crash_dump.te
   userdebug_or_eng(`-apexd')
   userdebug_or_eng(`-keystore')
   userdebug_or_eng(`-llkd')
