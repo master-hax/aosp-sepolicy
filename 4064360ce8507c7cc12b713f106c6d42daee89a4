@@ -16,6 +16,24 @@
       "message": "We know this shouldn\u0027t pass now. So, why doesn\u0027t it catch the cases of added policy we have in the tree now? Do you know?",
       "revId": "4064360ce8507c7cc12b713f106c6d42daee89a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9550fb51_7c1cf6e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-02-02T17:07:50Z",
+      "side": 1,
+      "message": "I made change to this test to verify if isolated_app and isolated_compute_app has a attribute of isolated_app_all. (Thanks Jeff for the advice!) Then, instead of explicitly matching permissions in this file we use neverallow statement defined in isolated_app_all to detect violations.\n\nThe reason why this is passing is because I made some exceptions on neverallow in isolated_compute_app which lets it pass the presubmit for the first iteration. A new patch (aosp/2418499) is uploaded with well written neverallows and I do see presubmit failures :)",
+      "parentUuid": "614100b5_a7157ba2",
+      "revId": "4064360ce8507c7cc12b713f106c6d42daee89a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
