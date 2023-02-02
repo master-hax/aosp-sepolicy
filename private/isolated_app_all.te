@@ -54,7 +54,7 @@ neverallow isolated_app_all vndbinder_device:chr_file *;
 
 # Isolated apps must not be permitted to perform actions on Binder and VndBinder service_manager
 # except the find actions for services allowlisted below.
-neverallow { isolated_app_all -isolated_compute_app } *:service_manager ~find;
+neverallow isolated_app_all *:service_manager ~find;
 
 # b/17487348
 # Isolated apps can only access three services,
@@ -88,9 +88,7 @@ neverallow isolated_app_all webview_zygote:sock_file write;
 
 # Limit the /sys files which isolated_app_all can access. This is important
 # for controlling isolated_app_all attack surface.
-# TODO (b/266555480): The permission should be guarded by compliance test.
-# Remove the negation for member domains when refactorization is done.
-neverallow { isolated_app_all -isolated_compute_app } {
+neverallow isolated_app_all {
   sysfs_type
   -sysfs_devices_system_cpu
   -sysfs_transparent_hugepage
