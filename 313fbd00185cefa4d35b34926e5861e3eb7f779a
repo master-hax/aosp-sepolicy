@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "109e4968_0b919386",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-02T02:34:47Z",
+      "side": 1,
+      "message": "Sorry, I didn\u0027t notice that this change is about adding an `dontaudit`. We should add an `allow` instead.",
+      "parentUuid": "2dee5789_30580078",
+      "revId": "313fbd00185cefa4d35b34926e5861e3eb7f779a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "753af211_6045a15c",
@@ -79,6 +97,30 @@
       "side": 1,
       "message": "Sorry, yes, that\u0027s my gut feeling.\n\nJiakai, WDYT?",
       "parentUuid": "705b45aa_b7fbf6c6",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 42
+      },
+      "revId": "313fbd00185cefa4d35b34926e5861e3eb7f779a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "051092c9_0c784b9b",
+        "filename": "microdroid/system/private/dex2oat.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-02T02:34:47Z",
+      "side": 1,
+      "message": "Oops, I missed this discussion. Yes, we should allow dex2oat to access this sysprop rather than suppressing the denials.",
+      "parentUuid": "7991cc5b_a6817392",
       "range": {
         "startLine": 38,
         "startChar": 4,
