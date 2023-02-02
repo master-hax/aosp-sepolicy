@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d3fe364f_2b9d92a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1458990
+      },
+      "writtenOn": "2023-02-02T10:49:00Z",
+      "side": 1,
+      "message": "I found that incidentd also wants to get the properties.\nI attached the log in b/211547922#comment12.",
+      "revId": "ca89fc8fdc18bb2bfb1b21c1259122c0907551b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e4fa4bd1_bd790448",
         "filename": "private/zygote.te",
         "patchSetId": 1
@@ -31,6 +48,30 @@
       "writtenOn": "2023-02-01T11:20:44Z",
       "side": 1,
       "message": "Why does zygote need to read this and not other things? It looks like this is now an API.",
+      "range": {
+        "startLine": 199,
+        "startChar": 9,
+        "endLine": 199,
+        "endChar": 15
+      },
+      "revId": "ca89fc8fdc18bb2bfb1b21c1259122c0907551b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d2211e0_8e956863",
+        "filename": "private/zygote.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1458990
+      },
+      "writtenOn": "2023-02-02T10:49:00Z",
+      "side": 1,
+      "message": "Looks like zygote preloads \"android.os.Build\" and initialize the static variables via getString\n\n```\n   (android.os.Build) String PRODUCT_FOR_ATTESTATION \u003d getString(...)\n-\u003e (android.os.Build) getString \n-\u003e (android.os.SystemProperties) get\n\n```\nIt seems that they are still in the same process, so we saw that zygote would like to read the properties in the avc log.      \nI attached the log in b/211547922#comment12 for reference.",
+      "parentUuid": "e4fa4bd1_bd790448",
       "range": {
         "startLine": 199,
         "startChar": 9,
