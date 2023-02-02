@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2dee5789_30580078",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-02T02:31:48Z",
+      "side": 1,
+      "message": "This change itself LGTM. However, this denial doesn\u0027t look harmless. We are checking one of the runtime_native_boot prop in dex2oat to [determine whether to use userfaultfd GC or not](http://cs/android-internal/art/runtime/gc/collector/mark_compact.cc;l\u003d146;rcl\u003d19ab849beee801f804a990bf150bd871fb5e45aa). Since this permission is missing on T, does that mean CompOS can\u0027t generate the artifacts for the right GC?",
+      "revId": "313fbd00185cefa4d35b34926e5861e3eb7f779a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "753af211_6045a15c",
         "filename": "microdroid/system/private/dex2oat.te",
         "patchSetId": 1
