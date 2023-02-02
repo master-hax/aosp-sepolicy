@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "65e2b984335957a208c28594029722ebbc99c50f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03f11174_f20b58ab",
+        "filename": "microdroid/system/private/dex2oat.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-02T11:03:46Z",
+      "side": 1,
+      "message": "I think we should allow this as well. dex2oat could be using them, though I don\u0027t know how.\n\nI guess this dontaudit rule was added early. Now CompOS is [passing the sysprops to the VM](http://cs/android-internal/packages/modules/Virtualization/compos/common/odrefresh.rs;l\u003d40;rcl\u003ddeeae2927b37fb1f56eba384e094accc95a4ef1b), and we check them in odrefresh at boot time to make sure their values in the VM are consistent with the values in Android, so it makes sense to allow dex2oat to access them.\n\nThis is probably out of scope of this CL though.",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 22
+      },
+      "revId": "65e2b984335957a208c28594029722ebbc99c50f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
