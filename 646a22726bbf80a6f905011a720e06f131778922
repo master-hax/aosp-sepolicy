@@ -16,6 +16,46 @@
       "message": "Hello, as discussed, PTAL at the selinux side of go/perfetto-prof-system. The perfetto-side change is in the same topic, but I\u0027m still looking into the appropriate CTS test changes.",
       "revId": "646a22726bbf80a6f905011a720e06f131778922",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82045361_821596cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-02-02T17:16:57Z",
+      "side": 1,
+      "message": "I don\u0027t know the context here, but I implemented something vaguely similar for Microdroid sepolicy: cs.android.com/search?q\u003dno_crash_dump%20f:microdroid\u0026sq\u003d\u0026ss\u003dandroid%2Fplatform%2Fsuperproject\n\nDo you need something similar to [these neverallows](cs.android.com/android/platform/superproject/+/master:system/sepolicy/microdroid/system/private/domain.te;drc\u003d7e754a1c5631f98b53064e4edd27d6439f9b7609;l\u003d551), to make sure the processes can\u0027t spawn crashdump?",
+      "revId": "646a22726bbf80a6f905011a720e06f131778922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b39603f_b0b4d33c",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-02-02T17:16:57Z",
+      "side": 1,
+      "message": "+ptrace ?",
+      "range": {
+        "startLine": 53,
+        "startChar": 11,
+        "endLine": 53,
+        "endChar": 34
+      },
+      "revId": "646a22726bbf80a6f905011a720e06f131778922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
