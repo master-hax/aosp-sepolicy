@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b5864d0b_5b946011",
+        "filename": "private/fuseblk_compart.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-02T10:12:25Z",
+      "side": 1,
+      "message": "\u003e For fuseblk, I went with fuseblk_fs as the domain and fuseblk as the filesystem because the convention in file.te seemed to be that specific filesystems are referred to by their name (see fuse). I think I can rename it from fuseblk_fs to something else, but renaming to fuseblk might lead to some confusion.\n\nDoesn\u0027t this seem slightly backwards? presumably \"fs\" stands for \"filesystem\". So the actual filesystem doesn\u0027t have \"_fs\" but the process does?\n\nI wouldn\u0027t go with fuseblk_binary. A very common naming convention in Android is that daemons end in \"d\" e.g. installd, vold, adbd, netd, etc. Perhaps fuseblkd?\n\n\u003e For fuseblk_untrusted, my particular worry is that while the naming pattern is fuseblk/fuseblk_untrusted like fsck/fsck_untrusted, we are doing something a bit different here in that fuseblk_untrusted isn\u0027t really untrusted, it has a lot of permissions, it just doesn\u0027t happen to have sys_admin and the associated mounting permissions. Unlike fsck/fsck_untrusted, it\u0027s not a strict hierarchy where you should choose based on the trust level of your program, fuseblk should transition in and out of fuseblk_compart.\n\nIsn\u0027t this true for the others as well? fuseblk doesn\u0027t look privileged to me compared to fsck_untrusted. Untrusted is simply saying that compromising this daemon doesn\u0027t lead to a complete device compromise via CAP_SYS_ADMIN, or the ability to mount filesystems.\n\nI wonder if you should go with fuseblkd and fuseblkd_untrusted?",
+      "parentUuid": "87554cf4_060042a8",
+      "range": {
+        "startLine": 1,
+        "startChar": 14,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "896cac00e4bba0255df64bd315bca9f596ef3f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "67a6f8f7_c0da5f53",
         "filename": "private/mediaprovider_app.te",
         "patchSetId": 2
