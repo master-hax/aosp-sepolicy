@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5593e3de_b0f1e8f5",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2023-02-03T10:58:57Z",
+      "side": 1,
+      "message": "So is your recommendation then to go back to listing the domains individually in each rule (across multiple files) then? I\u0027d prefer to find a way for the list to only be defined in one place to ease reasoning on existing rules and maintenance for future exclusions, but am unsure of how to best write that in sepolicy lang.\n\n(I tried doing a define(`no_dump_domain\u0027, `{ ...list... }\u0027 before but the language doesn\u0027t seem to allow for `allow { set -{set} }` syntax, so that didn\u0027t work.)",
+      "parentUuid": "6ca0be98_e2deb659",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 43
+      },
+      "revId": "4a7ca4cbcdda2a37a87ebb1de25ad775b795db3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dfd1843d_a8f268e0",
         "filename": "private/domain.te",
         "patchSetId": 2
