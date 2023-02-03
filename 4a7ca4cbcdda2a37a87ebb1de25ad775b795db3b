@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71b1ed42_6459c2e1",
+        "filename": "private/app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-03T09:52:41Z",
+      "side": 1,
+      "message": "Can you add a comment here that application opt-out is done within the perfetto daemon?",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 40
+      },
+      "revId": "4a7ca4cbcdda2a37a87ebb1de25ad775b795db3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ca0be98_e2deb659",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-03T09:52:41Z",
+      "side": 1,
+      "message": "It doesn\u0027t seem to me like we get much value out of adding this attribute, plus it has additional downside:\n1. It has a performance cost on slow-path policy lookups (not on cached lookups though). Adding a single attribute isn\u0027t the worst thing, but during Treble (for example) we added a huge number of attributes and it caused problems. It\u0027s better to avoid it unless necessary.\n2. If you\u0027re going to enforce security sensitive rules on an attribute, you need to add an additional test (e.g. in tests/sepolicy_tests.py) that assert that each of these domains has this attribute. That ensures that partners do not remove the attribute.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 43
+      },
+      "revId": "4a7ca4cbcdda2a37a87ebb1de25ad775b795db3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfd1843d_a8f268e0",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-03T09:52:41Z",
+      "side": 1,
+      "message": "policy is organized scontext, so this should remain in crash_dump.te.",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 16
+      },
+      "revId": "4a7ca4cbcdda2a37a87ebb1de25ad775b795db3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
