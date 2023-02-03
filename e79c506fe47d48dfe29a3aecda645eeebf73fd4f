@@ -22,6 +22,30 @@
       },
       "revId": "e79c506fe47d48dfe29a3aecda645eeebf73fd4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d98fcf4e_81c76aa4",
+        "filename": "private/app_zygote.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2023-02-03T15:13:56Z",
+      "side": 0,
+      "message": "I\u0027m excluding app_zygote from profiling entirely. Zygotes are tricky since they fork and assert that there are no unexpected fds open, which could conflict with the signal handling or the entire heapprofd client library.\n\nIn other words, I don\u0027t think we should be attempting to profile them to begin with, but engineers can set permissive-selinux mode to attempt this locally if necessary.\n\n---\n\nSimilarly, hal_configstore_server seems to be seccomp\u0027d to the extent that profiling will be unsuccessful, AND is deprecated, so I\u0027m excluding it completely and simplifying the neverallows.",
+      "parentUuid": "215fa920_69c07768",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 33
+      },
+      "revId": "e79c506fe47d48dfe29a3aecda645eeebf73fd4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
