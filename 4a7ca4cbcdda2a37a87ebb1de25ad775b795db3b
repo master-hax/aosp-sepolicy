@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b186c154_9406b07d",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2023-02-03T11:30:49Z",
+      "side": 1,
+      "message": "Hmm, maybe I\u0027m holding it wrong. Here\u0027s what I was trying:\n```\ndefine(`no_dump_domain\u0027,`{\n  apexd        \n  bpfloader    \n  crash_dump   \n  crosvm       \n  diced        \n  init         \n  kernel       \n  keystore     \n  llkd         \n  logd         \n  ueventd      \n  vendor_init  \n  vold         \n}\u0027)\n\nallow crash_dump {\n  domain\n  -no_dump_domain\n}:process { ptrace signal sigchld sigstop sigkill };\n```\n\nWhich fails with:\n```\nsystem/sepolicy/private/domain.te:48:ERROR \u0027syntax error\u0027 at token \u0027{\u0027 on line 47260:\n  -{\n  domain\ncheckpolicy:  error(s) encountered while parsing configuration\n```\n\nMaybe I can instead define the list as { domain -x -y -z } and then use no_dump_domain and ~no_dump_domain directly. Let me experiment further.",
+      "parentUuid": "cfc58d72_a4847744",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 43
+      },
+      "revId": "4a7ca4cbcdda2a37a87ebb1de25ad775b795db3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dfd1843d_a8f268e0",
         "filename": "private/domain.te",
         "patchSetId": 2
