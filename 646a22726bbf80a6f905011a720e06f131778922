@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfb05039_69394021",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-02-03T09:00:34Z",
+      "side": 1,
+      "message": "Ack, sounds good.",
+      "parentUuid": "f207521a_40a01bd8",
+      "revId": "646a22726bbf80a6f905011a720e06f131778922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b39603f_b0b4d33c",
@@ -90,6 +108,30 @@
       "side": 1,
       "message": "Done. Previously private/crash_dump.te didn\u0027t explicitly relist ptrace, but I assume there\u0027s no harm in that (are neverallows compile time only?).",
       "parentUuid": "9b39603f_b0b4d33c",
+      "range": {
+        "startLine": 53,
+        "startChar": 11,
+        "endLine": 53,
+        "endChar": 34
+      },
+      "revId": "646a22726bbf80a6f905011a720e06f131778922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87deddd6_d08eadef",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-02-03T09:00:34Z",
+      "side": 1,
+      "message": "\u003e Previously private/crash_dump.te didn\u0027t explicitly relist ptrace\n\nI guess in Microdroid we wanted to be as explicit as possible, because we wanted to make absolutely sure these domains weren\u0027t crashdumped because it might expose VM secrets.\n\n\u003e are neverallows compile time only?\n\nYes.",
+      "parentUuid": "37fbce5b_9c814085",
       "range": {
         "startLine": 53,
         "startChar": 11,
