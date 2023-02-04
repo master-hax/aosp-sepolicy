@@ -68,6 +68,30 @@
       },
       "revId": "b64e9fbc2a6d72a341b245acc7bb1b5993db056c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "266aab25_a4e0671c",
+        "filename": "public/statsd.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1286922
+      },
+      "writtenOn": "2023-02-04T03:31:52Z",
+      "side": 1,
+      "message": "There are a few dirs that are still stats_data_file:\n - data/misc/stats_data \n - data/misc/stats_metadata\n - data/misc/stats_active_metric\n - data/misc/train_info\n \nThe idea is for these dirs to only have read/write from statsd, but for system server to have read/write on stats_config_file (data/misc/stats_service). Let us know if we\u0027ve done this incorrectly.",
+      "parentUuid": "a2eb8126_5db1b6bf",
+      "range": {
+        "startLine": 28,
+        "startChar": 13,
+        "endLine": 28,
+        "endChar": 28
+      },
+      "revId": "b64e9fbc2a6d72a341b245acc7bb1b5993db056c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
