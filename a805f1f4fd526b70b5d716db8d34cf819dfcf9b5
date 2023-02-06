@@ -46,6 +46,30 @@
       },
       "revId": "a805f1f4fd526b70b5d716db8d34cf819dfcf9b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a7f8cc8_4a9d16b3",
+        "filename": "tests/policy.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-02-06T21:49:58Z",
+      "side": 1,
+      "message": "The whole point is that these are isolated services. We cannot give isolated_compute_app more permissions. It\u0027s a risk. If what you are saying were true, we should use system_app or platform_app, not introduce another version of isolated_app. The security properties of your project depend on removing these permissions.\n\nThis CL, as it is, is testing something which we really aren\u0027t concerned partners modify. Technically it does add more coverage, but it\u0027s guarding against malicious action, essentially. What we need to do is remove the permissions that are given to isolated_compute_app that we know about and are easy to accidentally give, and we need to remove those permissions.",
+      "parentUuid": "f4358451_ec830675",
+      "range": {
+        "startLine": 138,
+        "startChar": 20,
+        "endLine": 138,
+        "endChar": 52
+      },
+      "revId": "a805f1f4fd526b70b5d716db8d34cf819dfcf9b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
