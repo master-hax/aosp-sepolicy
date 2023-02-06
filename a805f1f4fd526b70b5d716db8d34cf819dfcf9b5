@@ -22,6 +22,30 @@
       },
       "revId": "a805f1f4fd526b70b5d716db8d34cf819dfcf9b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4358451_ec830675",
+        "filename": "tests/policy.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1985265
+      },
+      "writtenOn": "2023-02-06T15:58:36Z",
+      "side": 1,
+      "message": "I think the reason that we need compliance test is to make sure partners to correctly setting up these domains, and that is why Jeff suggest we do this instead, iiuc (https://android-review.git.corp.google.com/c/platform/system/sepolicy/+/2402879/comment/27e0f5c6_393068e9/). \n\nYes we need to verify we don\u0027t grant isolated_compute_app unnecessary permissions. In this case we use neverallow rules to catch the violations. These neverallow rules shall catch the same thing as isolated_app did, but more relaxed on certain access (e.g., camera_service and other we explicitly added, but not the rest of the services). \n\nThe rest of the permissions are ones that can be allowed for isolated_app too. In that case it does no harm to assign them to isolated_compute_app. I think we don\u0027t need to guarantee P(isolated_compute_app) - P(isolated_app). We just need to make sure those permissions we granted to isolated_compute_app are correctly relaxed and restricted, and this should be done with neverallow rules. \n\n(Jeff please correct me if I have any misunderstanding on this)",
+      "parentUuid": "495f50f2_774261fd",
+      "range": {
+        "startLine": 138,
+        "startChar": 20,
+        "endLine": 138,
+        "endChar": 52
+      },
+      "revId": "a805f1f4fd526b70b5d716db8d34cf819dfcf9b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
