@@ -16,6 +16,24 @@
       "message": "I think this might be too broad and we should define a specific type for that directory. @alanstokes@google.com what do you reckon? Thanks.",
       "revId": "dae64483a405a8f6387b39febcd283467c43aa7e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9314eb0d_7113c66f",
+        "filename": "public/dumpstate.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-02-06T09:50:19Z",
+      "side": 1,
+      "message": "Well, dumpstate already has search access (everything does), and read access to the files (most things don\u0027t).\nBut I\u0027m inclined to agree - we don\u0027t allow read access to these directories, only search, except for a small number of exceptions, and system_data_file is very broad.\nAlso, it seems like a good general principle to limit access to these new files to only the things that actually need it. A new label for the directory seems like a good answer to both.",
+      "parentUuid": "ddd8e0bc_cd9c9c5e",
+      "revId": "dae64483a405a8f6387b39febcd283467c43aa7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
