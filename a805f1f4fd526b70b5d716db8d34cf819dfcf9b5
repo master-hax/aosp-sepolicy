@@ -70,6 +70,30 @@
       },
       "revId": "a805f1f4fd526b70b5d716db8d34cf819dfcf9b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43bc48d4_e1d79d90",
+        "filename": "tests/policy.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-07T17:29:36Z",
+      "side": 1,
+      "message": "If you want to prevent isolated_compute_app from having additional permissions, then enforce that with neverallow rules.\n\nWhat this is attempting to address is that attributes can be removed from policy (e.g. on partner devices) which will remove the enforcement of neverallow rules applied to isolated_app_all.\n\nBasically, if you want to enforce neverallow rules to attributes, you need additional tests that the attribute is applied as expected.",
+      "parentUuid": "7a7f8cc8_4a9d16b3",
+      "range": {
+        "startLine": 138,
+        "startChar": 20,
+        "endLine": 138,
+        "endChar": 52
+      },
+      "revId": "a805f1f4fd526b70b5d716db8d34cf819dfcf9b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
