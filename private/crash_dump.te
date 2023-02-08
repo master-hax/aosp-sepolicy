@@ -9,7 +9,6 @@ allow crash_dump {
   -bpfloader
   -crash_dump
   -crosvm # TODO(b/236672526): Remove exception for crosvm
-  -diced
   -init
   -kernel
   -keystore
@@ -41,7 +40,6 @@ neverallow crash_dump {
   apexd
   userdebug_or_eng(`-apexd')
   bpfloader
-  diced
   init
   kernel
   keystore
