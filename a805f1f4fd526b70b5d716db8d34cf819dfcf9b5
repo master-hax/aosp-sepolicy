@@ -118,6 +118,30 @@
       },
       "revId": "a805f1f4fd526b70b5d716db8d34cf819dfcf9b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9311abc1_1ab45a7f",
+        "filename": "tests/policy.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-08T07:46:18Z",
+      "side": 1,
+      "message": "I see your point, but I have a couple of concerns.\n\n1. partners have customizations that might be necessary if they use this domain. e.g. at least one SoC vendor has a separate service for custom codecs that they provide. Shouldn\u0027t they be able to grant access to that? Clearly access to hardware accelerated codecs is fine since we\u0027re doing it. If this is intended to be a generally useful domain. Is it a feature or a bug to overly constrain this domain?\n2. To the point above, we generally try to enforce specific security properties (e.g. no network or disk access), not a broad \"no customization\" mandate.",
+      "parentUuid": "41ca45c1_fac6a902",
+      "range": {
+        "startLine": 138,
+        "startChar": 20,
+        "endLine": 138,
+        "endChar": 52
+      },
+      "revId": "a805f1f4fd526b70b5d716db8d34cf819dfcf9b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
