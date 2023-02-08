@@ -142,6 +142,30 @@
       },
       "revId": "a805f1f4fd526b70b5d716db8d34cf819dfcf9b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68ac7135_3c417ccf",
+        "filename": "tests/policy.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-02-08T20:11:43Z",
+      "side": 1,
+      "message": "I don\u0027t expect (1) to happen much in practice, and at least for the current use case and extra permissions don\u0027t seem to be required now.\n\nWe can forget this as a compliance test and provide a place for partners to add more exceptions (this is file is a build test btw, not the CTS/VTS test AFAIU), but there are still 30+ places in our tree that should be cleaned up. I don\u0027t really care about the \u0027compliance\u0027 part - I really only care that we are detecting this case of unnecessary permissions.",
+      "parentUuid": "9311abc1_1ab45a7f",
+      "range": {
+        "startLine": 138,
+        "startChar": 20,
+        "endLine": 138,
+        "endChar": 52
+      },
+      "revId": "a805f1f4fd526b70b5d716db8d34cf819dfcf9b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
