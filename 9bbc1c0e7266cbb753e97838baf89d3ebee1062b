@@ -118,6 +118,30 @@
       },
       "revId": "9bbc1c0e7266cbb753e97838baf89d3ebee1062b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3355be7_16a8c816",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-02-09T21:23:44Z",
+      "side": 1,
+      "message": "\u003e We can give each sysprop a value in build/make/target/product/runtime_libart.mk, and then add a boot-time check to check if we can read all the values.\n\nThat\u0027d be bloaty, and we\u0027d also have to give each property a default that we _don\u0027t_ want it to have, just to be able to override it with the different value it should have. We\u0027d also have to do it in S and T.\n\n\u003e If they found that their change doesn\u0027t take effect, they would file bugs against us.\n\nEither that, or they do some hacky workaround because it takes time and effort to escalate to us.\n\nSo, unless we add some sort of test that exercise overrides for all properties, I stand by my conclusion that the exported_pm_prop list doesn\u0027t provide any confidence, but I don\u0027t think it\u0027s important enough to prioritise a fix.",
+      "parentUuid": "e700e570_342a8557",
+      "range": {
+        "startLine": 540,
+        "startChar": 0,
+        "endLine": 546,
+        "endChar": 42
+      },
+      "revId": "9bbc1c0e7266cbb753e97838baf89d3ebee1062b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
