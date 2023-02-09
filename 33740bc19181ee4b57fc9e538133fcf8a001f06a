@@ -16,6 +16,47 @@
       "message": "Alan, I can\u0027t really test this until it rolls, but let me know what you think.",
       "revId": "33740bc19181ee4b57fc9e538133fcf8a001f06a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e5da1d5_6a8a95d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-02-09T11:37:57Z",
+      "side": 1,
+      "message": "Well, it should mean the denial no longer shows up in the boot test.\n\nAnd I don\u0027t see it over at android-build.googleplex.com/builds/tests/view?invocationId\u003dI07700010130470358\u0026testResultId\u003dTR09028495738513085\u0026tab\u003dartifacts.",
+      "parentUuid": "1f93326d_0dda65bf",
+      "revId": "33740bc19181ee4b57fc9e538133fcf8a001f06a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ac2c2eb_ec3876c3",
+        "filename": "vendor/hal_camera_default.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-02-09T11:37:57Z",
+      "side": 1,
+      "message": "Nit: Could you add a comment explaining why this is needed?\n(We haven\u0027t always been good at that, but it really helps when trying to figure things out.)\nAnd if you could move it next to the other get_prop above that would be tidier.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 51
+      },
+      "revId": "33740bc19181ee4b57fc9e538133fcf8a001f06a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
