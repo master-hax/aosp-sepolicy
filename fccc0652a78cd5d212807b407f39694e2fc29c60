@@ -33,6 +33,24 @@
       "message": "I don\u0027t see any examples of this in the other policies. Is there a more restrictive way to do this? I\u0027m not a good reviewer (and don\u0027t have owners) for this though.",
       "revId": "fccc0652a78cd5d212807b407f39694e2fc29c60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c618e514_7d086010",
+        "filename": "public/hal_fingerprint.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1951990
+      },
+      "writtenOn": "2023-02-09T15:08:03Z",
+      "side": 1,
+      "message": "The servicemanager gets this sepolicy violation only after virtual fingerprint HAL turns into a lazy HAL service from which the reference count is retrieved. I would think that servicemanager should have binder access to all of the services under its management. There might be some implicit permission rule by other types (other than hal_fingerprint)? I wonder if jbires@ (owner reviewer of this CL) has some suggestions, thanks",
+      "parentUuid": "3ef7f12e_a38dae03",
+      "revId": "fccc0652a78cd5d212807b407f39694e2fc29c60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
