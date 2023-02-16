@@ -390,7 +390,7 @@ neverallow domain { contextmount_type -authfs_fuse -encryptedstore_file }:dir_fi
 
 neverallow { domain -init -vendor_init } vendor_default_prop:property_service set;
 
-neverallow { domain -init } build_prop:property_service set;
+neverallow { domain -init -init_debug_policy } build_prop:property_service set;
 
 # Never allow anyone to connect or write to
 # the tombstoned intercept socket.
