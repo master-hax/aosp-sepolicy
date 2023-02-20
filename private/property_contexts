@@ -1072,6 +1072,11 @@ ro.product.vendor.device            u:object_r:build_vendor_prop:s0 exact string
 ro.product.vendor.manufacturer      u:object_r:build_vendor_prop:s0 exact string
 ro.product.vendor.model             u:object_r:build_vendor_prop:s0 exact string
 ro.product.vendor.name              u:object_r:build_vendor_prop:s0 exact string
+ro.product.vendor.brand_for_attestation         u:object_r:build_vendor_prop:s0 exact string
+ro.product.vendor.device_for_attestation        u:object_r:build_vendor_prop:s0 exact string
+ro.product.vendor.manufacturer_for_attestation  u:object_r:build_vendor_prop:s0 exact string
+ro.product.vendor.model_for_attestation         u:object_r:build_vendor_prop:s0 exact string
+ro.product.vendor.name_for_attestation          u:object_r:build_vendor_prop:s0 exact string
 ro.product.vendor_dlkm.brand        u:object_r:build_vendor_prop:s0 exact string
 ro.product.vendor_dlkm.device       u:object_r:build_vendor_prop:s0 exact string
 ro.product.vendor_dlkm.manufacturer u:object_r:build_vendor_prop:s0 exact string
@@ -1079,9 +1084,11 @@ ro.product.vendor_dlkm.model        u:object_r:build_vendor_prop:s0 exact string
 ro.product.vendor_dlkm.name         u:object_r:build_vendor_prop:s0 exact string
 
 # build props for attestation feature are set by property_service
-ro.product.brand_for_attestation u:object_r:build_attestation_prop:s0 exact string
-ro.product.model_for_attestation u:object_r:build_attestation_prop:s0 exact string
-ro.product.name_for_attestation  u:object_r:build_attestation_prop:s0 exact string
+ro.product.brand_for_attestation         u:object_r:build_attestation_prop:s0 exact string
+ro.product.device_for_attestation        u:object_r:build_attestation_prop:s0 exact string
+ro.product.manufacturer_for_attestation  u:object_r:build_attestation_prop:s0 exact string
+ro.product.model_for_attestation         u:object_r:build_attestation_prop:s0 exact string
+ro.product.name_for_attestation          u:object_r:build_attestation_prop:s0 exact string
 
 # GRF property for the first api level of the vendor partition
 ro.board.first_api_level u:object_r:build_vendor_prop:s0 exact int
