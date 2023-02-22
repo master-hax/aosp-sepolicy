@@ -121,6 +121,11 @@ allow apexd sysfs_dm:file rw_file_perms;
 allow apexd sysfs_loop:dir r_dir_perms;
 allow apexd sysfs_loop:file rw_file_perms;
 
+# Allow apexd access to /sys/fs/selinux/policyvers for compatibility check
+allow apexd selinuxfs:file r_file_perms;
+# Allow apexd to read /proc/config.gz for compatibility check
+allow apexd config_gz:file { read open };
+
 # Allow apexd to log to the kernel.
 allow apexd kmsg_device:chr_file w_file_perms;
 
