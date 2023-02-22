@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "571f2309_8835943d",
+        "filename": "public/ioctl_defines",
+        "patchSetId": 2
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2023-02-22T23:30:48Z",
+      "side": 1,
+      "message": "Please use the correct number which is `0xc080661a`.  (Try `printf(\"%x\\n\", FS_IOC_GET_ENCRYPTION_KEY_STATUS)` in a C program that includes `\u003clinux/fscrypt.h\u003e`.)  IIRC, SELinux actually only looks at the low 16 bits, so I guess it worked anyway.  But we might as well use the correct full number.",
+      "range": {
+        "startLine": 829,
+        "startChar": 44,
+        "endLine": 829,
+        "endChar": 54
+      },
+      "revId": "d83f0f6bb2dd666a390b8b2f8c4e51d26965aab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
