@@ -106,6 +106,8 @@ allow system_server zygote:process sigchld;
 allow system_server {
   app_zygote
   crash_dump
+  crosvm
+  virtualizationmanager
   webview_zygote
   zygote
 }:process { getpgid sigkill signull };
