@@ -94,6 +94,30 @@
       },
       "revId": "61a3dc114067b3ffbf612c09040a845ca7307ba4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6601832_51031858",
+        "filename": "private/apexd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1965505
+      },
+      "writtenOn": "2023-02-27T23:03:53Z",
+      "side": 1,
+      "message": "Your thoughts are correct, with this code in apexd.cpp:\n\n```\n  // Disable RuntimeInfo check to avoid requiring read permission of /proc\n  // and other restricted resources\n  vintf::CheckFlags::Type flags \u003d vintf::CheckFlags::DEFAULT;\n  flags \u003d flags.disableRuntimeInfo();\n\n  if (vintf_with_new_apex-\u003echeckCompatibility(\u0026error, flags) ...\n```\n\nthen we do not need to grant the permissions to apexd for running its testing.\n\nQuestion: Is the libvintf testing lower in quality because of disabling RuntimeInfo?  Are we skipping some checks that would catch a bad apex update?\n\n(in testing, both test_badX apexes are still caught by apexd with these modifications, but these two are not an exhaustive bad apex test)",
+      "parentUuid": "a213d2e5_3bef82f2",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 0
+      },
+      "revId": "61a3dc114067b3ffbf612c09040a845ca7307ba4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
