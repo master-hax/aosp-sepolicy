@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5c48829_5571fe4c",
+        "filename": "vendor/hal_wifi_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-02-28T09:42:47Z",
+      "side": 1,
+      "message": "Can you add this in public/hal_wifi.te instead?\n\nIt should be\nbinder_use(hal_wifi_server)\n\nand it should replace line 8 binder_call(hal_wifi_server, servicemanager)",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "4c0f1a5278ee3af2b5953e21ea385665000bbf0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
