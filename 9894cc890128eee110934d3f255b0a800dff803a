@@ -118,6 +118,70 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b5fb06e_7d41f4a0",
+        "filename": "microdroid/system/private/traced_probes.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2023-03-03T13:27:53Z",
+      "side": 1,
+      "message": "This particular comment is inaccurate. The perfetto_producer macro doesn\u0027t require the producer\u0027s shared memory type. This is instead to satisfy traced.te:36.",
+      "parentUuid": "b31d5b85_01b0ff08",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 37
+      },
+      "revId": "9894cc890128eee110934d3f255b0a800dff803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eea572ee_0f1b65de",
+        "filename": "microdroid/system/private/traced_probes.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2023-03-03T13:27:53Z",
+      "side": 1,
+      "message": "If getting userspace atrace annotations from processes becomes necessary (i.e. ATRACE_BEGIN() and other macros), then we\u0027ll need to carry over atrace.te and allow traced_probes.te to exec it with a domain transition.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 0
+      },
+      "revId": "9894cc890128eee110934d3f255b0a800dff803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f525808_77674b12",
+        "filename": "microdroid/system/private/traced_probes.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2023-03-03T13:27:53Z",
+      "side": 1,
+      "message": "procfs access is very useful to have, reading /proc/pid/cmdline and /proc/pid/status gives processes proper names and pid\u003c-\u003etid associations.",
+      "revId": "9894cc890128eee110934d3f255b0a800dff803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d7c85869_155a990f",
         "filename": "microdroid/system/private/traced_probes.te",
         "patchSetId": 1
