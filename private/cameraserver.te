@@ -7,3 +7,16 @@ tmpfs_domain(cameraserver)
 
 allow cameraserver gpu_device:chr_file rw_file_perms;
 allow cameraserver gpu_device:dir r_dir_perms;
+
+# read pipe-max-size configuration
+allow cameraserver proc_pipe_conf:file r_file_perms;
+
+# Talk to tombstoned to get watchdog traces.
+unix_socket_connect(cameraserver, tombstoned_intercept, tombstoned)
+
+# Send signals to trigger stack trace.
+allow cameraserver hal_camera_server:process { signull signal };
+
+# Allow CAP_KILL to send debug signals to the Camera HAL that may have
+# been started from a different user.
+allow cameraserver self:capability kill;
