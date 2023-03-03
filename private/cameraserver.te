@@ -7,3 +7,6 @@ tmpfs_domain(cameraserver)
 
 allow cameraserver gpu_device:chr_file rw_file_perms;
 allow cameraserver gpu_device:dir r_dir_perms;
+
+# Send signals to trigger stack trace.
+allow cameraserver hal_camera_server:process signal;
