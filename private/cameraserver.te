@@ -7,3 +7,9 @@ tmpfs_domain(cameraserver)
 
 allow cameraserver gpu_device:chr_file rw_file_perms;
 allow cameraserver gpu_device:dir r_dir_perms;
+
+# Talk to tombstoned to get watchdog traces.
+unix_socket_connect(cameraserver, tombstoned_intercept, tombstoned)
+
+# Send signals to trigger strack trace.
+allow cameraserver hal_camera_server:process { signull sigkill signal };

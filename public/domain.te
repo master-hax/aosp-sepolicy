@@ -998,8 +998,8 @@ neverallow domain tombstoned_crash_socket:unix_stream_socket connectto;
 
 # Never allow anyone except dumpstate, incidentd, or the system server to connect or write to
 # the tombstoned intercept socket.
-neverallow { domain -dumpstate -incidentd -system_server } tombstoned_intercept_socket:sock_file write;
-neverallow { domain -dumpstate -incidentd -system_server } tombstoned_intercept_socket:unix_stream_socket connectto;
+neverallow { domain -dumpstate -incidentd -system_server -cameraserver } tombstoned_intercept_socket:sock_file write;
+neverallow { domain -dumpstate -incidentd -system_server -cameraserver } tombstoned_intercept_socket:unix_stream_socket connectto;
 
 # Never allow anyone but system_server to read heapdumps in /data/system/heapdump.
 neverallow { domain -init -system_server } heapdump_data_file:file read;
