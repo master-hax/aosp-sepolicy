@@ -472,6 +472,10 @@ allow appdomain app_fuse_file:file { getattr read append write map };
 # For cts/tests/tests/permission/src/android/permission/cts/FileSystemPermissionTest.java.
 # testRunAsHasCorrectCapabilities
 allow appdomain runas_exec:file getattr;
+
+# CTS is a client of libvintf which uses apex_info
+use_apex_info(appdomain)
+
 # Others are either allowed elsewhere or not desired.
 
 # Connect to adbd and use a socket transferred from it.
