@@ -67,6 +67,7 @@ class TestPolicy:
         self.oldalltypes = set()
         self.compatMapping = None
         self.pubtypes = set()
+        self.basePolicy = None
 
         # Distinguish between PRODUCT_FULL_TREBLE and PRODUCT_FULL_TREBLE_OVERRIDE
         self.FakeTreble = False
@@ -165,6 +166,7 @@ class TestPolicy:
 
     # setup for the policy compatibility tests
     def compatSetup(self, basepol, oldpol, mapping, types):
+        self.basePolicy = basepol
         self.GetAllTypes(basepol, oldpol)
         self.compatMapping = mapping
         self.pubtypes = types
@@ -282,7 +284,21 @@ def TestNoUnmappedRmTypes(test_policy):
 def TestTrebleCompatMapping(test_policy):
     ret = TestNoUnmappedNewTypes(test_policy)
     ret += TestNoUnmappedRmTypes(test_policy)
+    ret += TestNoAttributeRemoved(test_policy)
     return ret
+
+def TestNoAttributeRemoved(test_policy):
+    """Ensures that no attribute on public domains have been removed."""
+    public_domains = test_policy.alltypes & test_policy.alldomains.keys()
+    for t in public_domains:
+        previous_attrs = test_policy.basePolicy.QueryTypeAttribute(t, False)
+        current_attrs = test_policy.alldomains[t].attributes
+        if previous_attrs > current_attrs:
+            delta = previous_attrs - current_attrs
+            ret += "SELinux: The following attribute(s) have been removed from "
+            ret += "the public type " + t + ": {" + ",".join(delta) + "}"
+            ret += "Attributes on public types must remain intact."
+    return ""
 
 def TestViolatorAttribute(test_policy, attribute):
     ret = ""
