@@ -118,6 +118,30 @@
       },
       "revId": "13e5f1d735b5b99ee285232b70cda062e0cff2ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9ceae94_1185ae26",
+        "filename": "private/app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-03-15T10:39:54Z",
+      "side": 1,
+      "message": "\u003e The issue is that the app calls VintfObject APIs ... which internally requires the apex-info-list.xml file when it retrieves the manifests.\n\nThat\u0027s ok - but the read of the file should be done in the context of system server, with an appropriate permission check, not in the context of the calling app.\n\n\u003e I think as a short-term solution, we can either do this change, \n\nIf we do this change (allow all apps to access the file) we will never be able to undo it. So we should not.",
+      "parentUuid": "4fc32fdd_72a14fc2",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 24
+      },
+      "revId": "13e5f1d735b5b99ee285232b70cda062e0cff2ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
