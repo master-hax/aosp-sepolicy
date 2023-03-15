@@ -20,6 +20,10 @@ allow composd apex_art_staging_data_file:file { getattr unlink };
 # Delete files in the odrefresh target directory
 allow composd apex_art_data_file:file unlink;
 
+# Enable fs-verity
+allow composd apex_art_data_file:file { open ioctl read write };
+allowxperm composd apex_art_data_file:file ioctl FS_IOC_ENABLE_VERITY;
+
 # Access our APEX data files
 allow composd apex_module_data_file:dir search;
 allow composd apex_compos_data_file:dir create_dir_perms;
@@ -34,4 +38,4 @@ get_prop(composd, dalvik_config_prop)
 get_prop(composd, device_config_runtime_native_boot_prop)
 
 # We never create any artifact files directly
-neverallow composd apex_art_data_file:file ~unlink;
+neverallow composd apex_art_data_file:file ~{ open ioctl read unlink write };
