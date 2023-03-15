@@ -142,6 +142,30 @@
       },
       "revId": "13e5f1d735b5b99ee285232b70cda062e0cff2ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c68024e_ccd2267c",
+        "filename": "private/app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-03-15T23:29:01Z",
+      "side": 1,
+      "message": "My short-term suggestion is that, here:\n\nhttps://cs.android.com/android/platform/superproject/+/master:system/libvintf/VintfObject.cpp;l\u003d91;drc\u003d7884e551eb6f054c86bf7dbf138a2351104e2414\n\nFor `getDeviceManifest`, create a separate `getDeviceManifestInternal(bool fetchApexManifests)` function that conditionally fetch the APEX manifests. Then:\n\n* getDeviceManifest should call `getDeviceManifestInternal(true)`\n* fetchFrameworkCompatibilityMatrix should call `getDeviceManifestInternal(false)`. This will skip the check on `isApexReady()` etc. all together. https://cs.android.com/android/platform/superproject/+/master:system/libvintf/VintfObject.cpp;l\u003d132;drc\u003d7884e551eb6f054c86bf7dbf138a2351104e2414",
+      "parentUuid": "d9ceae94_1185ae26",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 24
+      },
+      "revId": "13e5f1d735b5b99ee285232b70cda062e0cff2ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
