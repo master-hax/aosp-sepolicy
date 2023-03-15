@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c429377a_fe0c9272",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-03-15T11:21:47Z",
+      "side": 1,
+      "message": "I think this is basically fine; it\u0027s a shame we\u0027re expanding the set of things that can access apex_art_data_file, but composd needs to be pretty trusted anyway, and of course we have odsign to check for tampering.\n\nJiakai - any objections?",
+      "revId": "e1b73007ef0536046b8c5c72da0bae3069a6c1b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2b146bf_2cb9061e",
@@ -43,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e2198bc4_7d5b7785",
+        "filename": "private/composd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-03-15T11:21:47Z",
+      "side": 1,
+      "message": "Yes please",
+      "parentUuid": "e2b146bf_2cb9061e",
+      "range": {
+        "startLine": 21,
+        "startChar": 38,
+        "endLine": 21,
+        "endChar": 45
+      },
+      "revId": "e1b73007ef0536046b8c5c72da0bae3069a6c1b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "61c2b38a_fcca57f1",
         "filename": "private/composd.te",
         "patchSetId": 1
@@ -54,6 +95,30 @@
       "writtenOn": "2023-03-15T00:45:55Z",
       "side": 1,
       "message": "Is it better to change to `create`?",
+      "range": {
+        "startLine": 41,
+        "startChar": 43,
+        "endLine": 41,
+        "endChar": 76
+      },
+      "revId": "e1b73007ef0536046b8c5c72da0bae3069a6c1b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "830d3ea6_a5fc6573",
+        "filename": "private/composd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-03-15T11:21:47Z",
+      "side": 1,
+      "message": "Yeah, I think that\u0027s clearer and achieves the right things.",
+      "parentUuid": "61c2b38a_fcca57f1",
       "range": {
         "startLine": 41,
         "startChar": 43,
