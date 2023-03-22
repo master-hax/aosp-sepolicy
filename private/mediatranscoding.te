@@ -20,6 +20,7 @@ hal_client_domain(mediatranscoding, hal_omx)
 hal_client_domain(mediatranscoding, hal_codec2)
 hal_client_domain(mediatranscoding, hal_allocator)
 
+allow mediatranscoding surfaceflinger_service:service_manager find;
 allow mediatranscoding mediaserver_service:service_manager find;
 allow mediatranscoding mediametrics_service:service_manager find;
 allow mediatranscoding mediaextractor_service:service_manager find;
