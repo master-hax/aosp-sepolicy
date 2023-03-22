@@ -51,6 +51,10 @@ binder_call(statsd, mediametrics)
 allow statsd mediaserver_service:service_manager find;
 binder_call(statsd, mediaserver)
 
+# Allow statsd to interact with trace_probes
+allow statsd traced_probes:service_manager find;
+binder_call(statsd, traced_probes)
+
 # Allow logd access.
 read_logd(statsd)
 control_logd(statsd)
