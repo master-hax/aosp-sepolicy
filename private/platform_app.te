@@ -45,6 +45,11 @@ userdebug_or_eng(`
 ')
 neverallow { domain -init -dumpstate userdebug_or_eng(`-domain') } persist_wm_debug_prop:property_service set;
 
+userdebug_or_eng(`
+  set_prop(platform_app, persist_sysui_builder_extras_prop)
+')
+neverallow { domain -init userdebug_or_eng(`-shell -platform_app') } persist_sysui_builder_extras_prop:property_service set;
+
 # com.android.captiveportallogin reads /proc/vmstat
 allow platform_app {
   proc_vmstat
