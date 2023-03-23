@@ -129,6 +129,10 @@ allow microdroid_manager kmsg_debug_device:chr_file w_file_perms;
 # Read tombstone_transmit_status_prop to wait for initialization of tombstone_transmit
 get_prop(microdroid_manager, tombstone_transmit_status_prop)
 
+# Allow init_debug_policy to read AVF debug policy
+allow init_debug_policy sysfs_dt_avf:dir search;
+allow init_debug_policy sysfs_dt_avf:file { open read };
+
 # Domains other than microdroid can't write extra_apks
 neverallow { domain -microdroid_manager -init -vendor_init } extra_apk_file:file no_w_file_perms;
 neverallow { domain -microdroid_manager -init -vendor_init } extra_apk_file:dir no_w_dir_perms;
