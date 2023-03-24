@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cfd42fc_c3cbdb51",
+        "filename": "microdroid/system/private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-03-24T09:22:24Z",
+      "side": 1,
+      "message": "I wonder if this is slightly too strong; it seems reasonable to allow a domain to ptrace itself.\n\nI\u0027m not sure if\nneverallow { domain -crash_dump } { domain -self }:process ptrace;\nactually works though.\n\nAnd in practice we don\u0027t currently grant self ptrace anywhere in Microdroid, although we do in system policy.",
+      "range": {
+        "startLine": 555,
+        "startChar": 0,
+        "endLine": 555,
+        "endChar": 56
+      },
+      "revId": "e2696aa9017baaa467f11eed2ddd1ebf07067724",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
