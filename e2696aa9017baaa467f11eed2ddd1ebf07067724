@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b32dc09_612f929f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-03-24T17:12:16Z",
+      "side": 1,
+      "message": "It may indicate there\u0027s an allow missing, which might conflict with the neverallow here. But that seems slightly hypothetical. I\u0027m happy to tighten now \u0026 relax if needed.",
+      "parentUuid": "0136258d_420e7cee",
+      "revId": "e2696aa9017baaa467f11eed2ddd1ebf07067724",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4cfd42fc_c3cbdb51",
         "filename": "microdroid/system/private/domain.te",
         "patchSetId": 1
@@ -93,6 +111,29 @@
       "parentUuid": "4cfd42fc_c3cbdb51",
       "range": {
         "startLine": 555,
+        "startChar": 0,
+        "endLine": 555,
+        "endChar": 56
+      },
+      "revId": "e2696aa9017baaa467f11eed2ddd1ebf07067724",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a6dcde3_906f903c",
+        "filename": "microdroid/system/private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-03-24T17:12:16Z",
+      "side": 1,
+      "message": "I just noticed that we\u0027re missing \nneverallow crash_dump self:process ptrace;\n\nfrom system/sepolicy/microdroid/system/private/crash_dump.te; it\u0027s there in system policy (cs/android-internal/system/sepolicy/private/crash_dump.te?rcl\u003d5e94b1698c65945f877b19829c54606add0fc80c\u0026l\u003d59).\n\nWould you mind adding it while you\u0027re here?",
+      "range": {
+        "startLine": 554,
         "startChar": 0,
         "endLine": 555,
         "endChar": 56
