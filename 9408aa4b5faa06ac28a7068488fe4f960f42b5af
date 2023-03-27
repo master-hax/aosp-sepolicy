@@ -52,6 +52,24 @@
       "parentUuid": "ed950a22_e5cd9f02",
       "revId": "9408aa4b5faa06ac28a7068488fe4f960f42b5af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b43ada0_0bf0978f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-03-27T04:12:07Z",
+      "side": 1,
+      "message": "```\n[   10.597850] init: starting service \u0027prng_seeder\u0027...\n[   10.598175] init: Created socket \u0027/dev/socket/prng_seeder\u0027, mode 666, user 1092, group 1092\n[   10.600837] init: ... started service \u0027prng_seeder\u0027 has pid 211\n[   10.601125] init: processing action (ro.product.cpu.abilist32\u003d* \u0026\u0026 early-init) from (/vendor/etc/init/boringssl_self_test.rc:2)\n[   10.601616] init: starting service \u0027boringssl_self_test32_vendor\u0027...\n[   10.603365] init: ... started service \u0027boringssl_self_test32_vendor\u0027 has pid 212\n[   10.603624] init: SVC_EXEC service \u0027boringssl_self_test32_vendor\u0027 pid 212 (uid 0 gid 0+0 context default) started; waiting...\n[   10.635795] prng_seeder: Hanging forever because setup failed: Unable to open hwrng /dev/hw_random\n[   10.635795] \n[   10.636309] Caused by:\n[   10.636407]     Permission denied (os error 13)\n[   63.753760] cfg80211: failed to load regulatory.db\n```\n\nSeems unrelated to this change, right? Let\u0027s try presubmit again",
+      "parentUuid": "578ebd77_d0bce4f7",
+      "revId": "9408aa4b5faa06ac28a7068488fe4f960f42b5af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
