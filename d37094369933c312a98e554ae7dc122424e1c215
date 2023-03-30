@@ -39,6 +39,30 @@
       },
       "revId": "d37094369933c312a98e554ae7dc122424e1c215",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b9fe905_87fcda44",
+        "filename": "private/cameraserver.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1482458
+      },
+      "writtenOn": "2023-03-30T10:11:28Z",
+      "side": 1,
+      "message": "I think that removing \u0027CAP_KILL\u0027 wouldn\u0027t be a obstacle here.\n\nThe default camera HAL provider implementation provided in the AOSP is using \u0027cameraserver\u0027 UID, and many SoCs are honoring the default implementation.\nSo, most of the camera HAL on the market should use \u0027cameraserver\u0027.\n\nIf there is a SoC or an OEM using different UID then they can update their .rc to allow sending debug signal. (a kind of opt-in policy, just like what had done with the camera watchdog HAL reset trigger)",
+      "parentUuid": "d4b197f9_7eff1446",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 36
+      },
+      "revId": "d37094369933c312a98e554ae7dc122424e1c215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
