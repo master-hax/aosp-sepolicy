@@ -752,3 +752,10 @@ neverallow { domain -init } mtectrl:process { dyntransition transition };
 
 # For now, don't allow processes other than gmscore to access /data/misc_ce/<userid>/checkin
 neverallow { domain -gmscore_app -init -vold_prepare_subdirs } checkin_data_file:{dir file} *;
+
+# ART properties should not be changed after boot because the runtime may not
+# work properly with the changes. However, we allow shell to change them for
+# debugging purposes, assuming the developer knows what they are doing.
+# Properties that are safe to change should be moved to
+# dalvik_dynamic_config_prop.
+neverallow { domain -init -shell -vendor_init } dalvik_config_prop:property_service set;
