@@ -57,6 +57,30 @@
       },
       "revId": "29815c648498809a7383943ed43c7085540b34c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2d1d469_ccde17d4",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1000701
+      },
+      "writtenOn": "2023-03-30T21:22:45Z",
+      "side": 1,
+      "message": "I\u0027m not really working on incidentd anymore. @yaochen, is anyone?\n\nBut either way, is this making camera able to read tombstones? That does NOT sound okay. In general, services shouldn\u0027t be doing their own logging upload or reporting.  They should trigger a bugreport, which will follow all of the privacy rules surrounding bugreport and tombstone data.\n\nThis is fundamentally a privacy issue, so there needs to be a PDD for this.",
+      "parentUuid": "c79278fc_cda8bdda",
+      "range": {
+        "startLine": 1001,
+        "startChar": 58,
+        "endLine": 1001,
+        "endChar": 70
+      },
+      "revId": "29815c648498809a7383943ed43c7085540b34c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
