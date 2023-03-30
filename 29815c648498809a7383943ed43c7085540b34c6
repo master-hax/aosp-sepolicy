@@ -81,6 +81,30 @@
       },
       "revId": "29815c648498809a7383943ed43c7085540b34c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "055b55c3_7eeebb16",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1010050
+      },
+      "writtenOn": "2023-03-30T21:35:24Z",
+      "side": 1,
+      "message": "Grabbing a bugreport for every camera service watchdog firing would presumably not be acceptable on released user- builds, though it would make a lot of sense for dogfooding.\n\nIs this something where userdebug- and user- builds are allowed to diverge?\n\nWe\u0027re basically trying to figure out how to get debug information that is lost if the stack traces aren\u0027t captured before this watchdog fires and kills the service to recover operation.  Before the watchdog, everything would just be deadlocked so a bug report would have the necessary information; with the watchdog (which improves the user experience greatly) we can\u0027t get that and it makes it much harder to fix the problem causing the restart.",
+      "parentUuid": "e2d1d469_ccde17d4",
+      "range": {
+        "startLine": 1001,
+        "startChar": 58,
+        "endLine": 1001,
+        "endChar": 70
+      },
+      "revId": "29815c648498809a7383943ed43c7085540b34c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
