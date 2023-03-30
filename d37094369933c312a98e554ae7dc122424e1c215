@@ -16,6 +16,29 @@
       "message": "Adding Jeffrey for security review. \n\nThis CL (along with aosp/2470180) allows the camera service watchdog to print out the stack traces of the camera HAL when fired which is highly useful for debugging \nsince the watchdog mainly monitors calls to the HAL. It changes one of the \"Never allow\" rules, is this allowed/would this cause any security issues?",
       "revId": "d37094369933c312a98e554ae7dc122424e1c215",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4b197f9_7eff1446",
+        "filename": "private/cameraserver.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-03-30T05:44:36Z",
+      "side": 1,
+      "message": "This is not ideal to allow because it grants cameraserver permission to kill anything on the system. Can we instead have the camera HAL run as the same UID as cameraserver?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 36
+      },
+      "revId": "d37094369933c312a98e554ae7dc122424e1c215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
