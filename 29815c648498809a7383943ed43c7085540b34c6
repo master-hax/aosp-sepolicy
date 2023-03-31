@@ -153,6 +153,30 @@
       },
       "revId": "29815c648498809a7383943ed43c7085540b34c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76d7e5ea_07b620f2",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-03-31T07:23:01Z",
+      "side": 1,
+      "message": "\u003e Grabbing a bugreport for every camera service watchdog firing would presumably not be acceptable on released user- builds, though it would make a lot of sense for dogfooding.\n\nbugreports require user consent even on userdebug/dogfood devices. Consent must be granted for each bugreport.\n\n`kill -SIGABRT \u003cpid\u003e` results in a tombstone in the system log. I just tested this on my device. Would that be sufficient?",
+      "parentUuid": "922576bc_30c98577",
+      "range": {
+        "startLine": 1001,
+        "startChar": 58,
+        "endLine": 1001,
+        "endChar": 70
+      },
+      "revId": "29815c648498809a7383943ed43c7085540b34c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
