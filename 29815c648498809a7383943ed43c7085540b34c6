@@ -201,6 +201,30 @@
       },
       "revId": "29815c648498809a7383943ed43c7085540b34c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e346387_baa08f3a",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1010050
+      },
+      "writtenOn": "2023-03-31T18:27:25Z",
+      "side": 1,
+      "message": "\u003e kill -SIGABRT \u003cpid\u003e results in a tombstone in the system log. I just tested this on my device. Would that be sufficient?\n\nThe watchdog kills the camera server process via `abort()` which I\u0027d assume (but could be wrong) has the same effect as `kill -SIGABRT`, but that only gets the stack trace of the watchdog thread; we need the stack traces of the rest of the camera service and the camera HAL.  But in case I\u0027m wrong, is there a way to trigger the `kill` behavior from within the process itself?",
+      "parentUuid": "08b333f6_f1af4a06",
+      "range": {
+        "startLine": 1001,
+        "startChar": 58,
+        "endLine": 1001,
+        "endChar": 70
+      },
+      "revId": "29815c648498809a7383943ed43c7085540b34c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
