@@ -129,6 +129,30 @@
       },
       "revId": "29815c648498809a7383943ed43c7085540b34c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "922576bc_30c98577",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1482458
+      },
+      "writtenOn": "2023-03-31T06:50:49Z",
+      "side": 1,
+      "message": "As Eddy already mentioned above, what we are trying to acheive is to preserve the stack trace of camera HAL when camera watchdog bites. We faced numbers of customer report about camera malfunction which is related to the HAL deadlock. However, without the proper stack trace, it is nearly impossible to further investigate the root cause of the deadlock which fires camera watchdog.\n\nthe currently CLs are gathering the stack trace with debuggerd_trigger_dump and redirect it to the platform log. So that, the stack trace can be retrived later once bugreport is triggered by user. it is kind of aggresive.\n\nif there is an alternative less privacy concern way to preserve the stack trace, we are more than happy to follow. (Does just sending a kDebuggerd* signal to camera HAL work for this purpose?)",
+      "parentUuid": "f4bd2789_1cb4ef84",
+      "range": {
+        "startLine": 1001,
+        "startChar": 58,
+        "endLine": 1001,
+        "endChar": 70
+      },
+      "revId": "29815c648498809a7383943ed43c7085540b34c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
