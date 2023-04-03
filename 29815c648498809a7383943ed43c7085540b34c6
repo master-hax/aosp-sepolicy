@@ -225,6 +225,30 @@
       },
       "revId": "29815c648498809a7383943ed43c7085540b34c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e2a9d23_350c2a7e",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1482458
+      },
+      "writtenOn": "2023-04-03T09:28:22Z",
+      "side": 1,
+      "message": "\u003e but that only gets the stack trace of the watchdog thread;\n\nI want to clarify one thing. the watchdog successfully creates a tombstone for the camera server process aith `abort()`.\n\nthe problem was the HAL process, which is restarted with `onrestart class_restart`. the HAL is restarted when watchdog aborts the camera server, but there is no debug info was left.\n\nAfter some testing, it looks like that sending SIGABRT to the HAL process creates a tomestone, and restart the HAL as intended. (if they are started with the same used id)\n\nSo, I\u0027ve updated the CLs not to directly rely on `debuggerd_trigger_dump`. Please take a look.",
+      "parentUuid": "3e346387_baa08f3a",
+      "range": {
+        "startLine": 1001,
+        "startChar": 58,
+        "endLine": 1001,
+        "endChar": 70
+      },
+      "revId": "29815c648498809a7383943ed43c7085540b34c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
