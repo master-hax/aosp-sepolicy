@@ -151,53 +151,53 @@ binder_call(appdomain, sdk_sandbox)
 
 # Allow access to external storage; we have several visible mount points under /storage
 # and symlinks to primary storage at places like /storage/sdcard0 and /mnt/user/0/primary
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox } storage_file:dir r_dir_perms;
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox } storage_file:lnk_file r_file_perms;
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox } mnt_user_file:dir r_dir_perms;
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox } mnt_user_file:lnk_file r_file_perms;
+allow unrestricted_app storage_file:dir r_dir_perms;
+allow unrestricted_app storage_file:lnk_file r_file_perms;
+allow unrestricted_app mnt_user_file:dir r_dir_perms;
+allow unrestricted_app mnt_user_file:lnk_file r_file_perms;
 
 # Read/write visible storage
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox } { sdcard_type fuse }:dir create_dir_perms;
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox } { sdcard_type fuse }:file create_file_perms;
+allow unrestricted_app { sdcard_type fuse }:dir create_dir_perms;
+allow unrestricted_app { sdcard_type fuse }:file create_file_perms;
 # This should be removed if sdcardfs is modified to alter the secontext for its
 # accesses to the underlying FS.
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox } media_rw_data_file:dir create_dir_perms;
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox } media_rw_data_file:file create_file_perms;
+allow unrestricted_app media_rw_data_file:dir create_dir_perms;
+allow unrestricted_app media_rw_data_file:file create_file_perms;
 
 # Allow apps to use the USB Accessory interface.
 # http://developer.android.com/guide/topics/connectivity/usb/accessory.html
 #
 # USB devices are first opened by the system server (USBDeviceManagerService)
 # and the file descriptor is passed to the right Activity via binder.
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox } usb_device:chr_file { read write getattr ioctl };
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox } usbaccessory_device:chr_file { read write getattr };
+allow unrestricted_app usb_device:chr_file { read write getattr ioctl };
+allow unrestricted_app usbaccessory_device:chr_file { read write getattr };
 
 #logd access
 control_logd({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox })
 
 # application inherit logd write socket (urge is to deprecate this long term)
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox } keystore:keystore_key { get_state get insert delete exist list sign verify };
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox } keystore:keystore2_key { delete use get_info rebind update };
+allow unrestricted_app keystore:keystore_key { get_state get insert delete exist list sign verify };
+allow unrestricted_app keystore:keystore2_key { delete use get_info rebind update };
 
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox } keystore_maintenance_service:service_manager find;
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox } keystore:keystore2 get_state;
+allow unrestricted_app keystore_maintenance_service:service_manager find;
+allow unrestricted_app keystore:keystore2 get_state;
 
-use_keystore({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox })
+use_keystore(unrestricted_app)
 
-use_credstore({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox })
+use_credstore(unrestricted_app)
 
 # For app fuse.
-pdx_client({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox }, display_client)
-pdx_client({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox }, display_manager)
-pdx_client({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox }, display_vsync)
-pdx_client({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox }, performance_client)
+pdx_client(unrestricted_app, display_client)
+pdx_client(unrestricted_app, display_manager)
+pdx_client(unrestricted_app, display_vsync)
+pdx_client(unrestricted_app, performance_client)
 # Apps do not directly open the IPC socket for bufferhubd.
-pdx_use({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox }, bufferhub_client)
+pdx_use(unrestricted_app, bufferhub_client)
 
 # Apps receive an open tun fd from the framework for
 # device traffic. Do not allow untrusted app to directly open tun_device
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox } tun_device:chr_file { read write getattr append ioctl };
-allowxperm { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox } tun_device:chr_file ioctl TUNGETIFF;
+allow unrestricted_app tun_device:chr_file { read write getattr append ioctl };
+allowxperm unrestricted_app tun_device:chr_file ioctl TUNGETIFF;
 
 
 # WebView and other application-specific JIT compilers
