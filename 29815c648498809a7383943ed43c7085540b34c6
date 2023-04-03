@@ -273,6 +273,30 @@
       },
       "revId": "29815c648498809a7383943ed43c7085540b34c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf7d6910_8471ae06",
+        "filename": "public/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-04-03T22:45:23Z",
+      "side": 1,
+      "message": "\u003e The watchdog kills the camera server process via abort() which I\u0027d assume (but could be wrong) has the same effect as kill -SIGABRT\n\nyeah, abort() is basically tgkill(SIGABRT).\n\n\u003e but that only gets the stack trace of the watchdog thread\n\nin logcat you mean? the tombstone should still contain all the threads in that process.\n\n\u003e we need the stack traces of the rest of the camera service and the camera HAL\n\nit sounds like you\u0027re talking about multiple processes?\n\nin which case...\n\n\u003e After some testing, it looks like that sending SIGABRT to the HAL process creates a tomestone, and restart the HAL as intended\n\nyes, that sounds like what you want to do. i think +essick already does similar over in media land?",
+      "parentUuid": "7c28a843_e6c83159",
+      "range": {
+        "startLine": 1001,
+        "startChar": 58,
+        "endLine": 1001,
+        "endChar": 70
+      },
+      "revId": "29815c648498809a7383943ed43c7085540b34c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
