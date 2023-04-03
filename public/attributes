@@ -206,6 +206,10 @@ attribute appdomain;
 # All third party apps (except isolated_app and ephemeral_app)
 attribute untrusted_app_all;
 
+# All apps that are not restricted (that is, appdomain without
+# isolated_app_all, ephemeral_app or sdk_sandbox).
+attribute unrestricted_app_all;
+
 # All apps with UID between AID_ISOLATED_START (99000) and AID_ISOLATED_END (99999).
 attribute isolated_app_all;
 

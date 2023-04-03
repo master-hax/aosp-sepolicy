@@ -64,3 +64,6 @@
 ;     typeattribute { system_property_type && vendor_property_type } system_and_vendor_property_type;
 (typeattribute system_and_vendor_property_type)
 (typeattributeset system_and_vendor_property_type ((and (system_property_type) (vendor_property_type))))
+
+; Apps which are not restricted.
+(typeattributeset unrestricted_app_all ((and (appdomain) ((not (or (isolated_app_all) (or (ephemeral_app) (sdk_sandbox))))))))
