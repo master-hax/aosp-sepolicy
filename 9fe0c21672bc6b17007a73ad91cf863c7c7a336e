@@ -16,6 +16,23 @@
       "message": "Jeff, does this make sense?\nDoes \u0027signal\u0027 allow sigterm, but not sigkill, and this is needed?\n\nRelevant code at http://cs/h/android/platform/superproject/+/master:packages/modules/Connectivity/service/jni/com_android_server_connectivity_ClatCoordinator.cpp?l\u003d387",
       "revId": "9fe0c21672bc6b17007a73ad91cf863c7c7a336e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa203a26_d9974262",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2023-04-05T07:59:54Z",
+      "side": 1,
+      "message": "(note: the reason the sigterm times out is *probably* because my attempts to thread clatd have resulted in shutdown taking longer than it should, which is a different issue, so it\u0027s likely this doesn\u0027t normally happen)",
+      "revId": "9fe0c21672bc6b17007a73ad91cf863c7c7a336e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
