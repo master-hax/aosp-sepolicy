@@ -16,6 +16,63 @@
       "message": "Great, thanks. Inseob, let us know your thoughts on the merge with sepolicy_tests.py.",
       "revId": "fd81790a6ea510b219fa04cf85211d08c7039e70",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "005172b4_94f7a71e",
+        "filename": "tests/apex_sepolicy_tests.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2023-04-06T07:15:04Z",
+      "side": 1,
+      "message": "No need for `.readlines()`, file objects are inherently line iterators.",
+      "range": {
+        "startLine": 147,
+        "startChar": 33,
+        "endLine": 147,
+        "endChar": 45
+      },
+      "revId": "fd81790a6ea510b219fa04cf85211d08c7039e70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64dad26e_9aedfad7",
+        "filename": "tests/apex_sepolicy_tests.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2023-04-06T07:15:04Z",
+      "side": 1,
+      "message": "Use `with tempfile.TemporaryDirectory() as temp_dir:` instead of the try/finally and rmtree.",
+      "revId": "fd81790a6ea510b219fa04cf85211d08c7039e70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f906cbbe_76341bc0",
+        "filename": "tests/apex_sepolicy_tests.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2023-04-06T07:15:04Z",
+      "side": 1,
+      "message": "you should move this code into a function and pass `lib_path`/`policy_path` to `main()` instead of making them global variables.",
+      "revId": "fd81790a6ea510b219fa04cf85211d08c7039e70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
