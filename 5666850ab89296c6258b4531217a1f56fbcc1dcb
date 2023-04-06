@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf23f186_8e797c28",
+        "filename": "tests/apex_sepolicy_tests.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-04-06T02:29:09Z",
+      "side": 1,
+      "message": "Deduplicating could be a separate change. But merging this into sepolicy_tests.py doesn\u0027t seem right because sepolicy_tests.py is very specific to file_contexts of partitions just like apex_sepolicy_tests.py is specific to apex file_contexts. What do you think, Inseob?",
+      "parentUuid": "04ee1fa6_d96c2c41",
+      "revId": "5666850ab89296c6258b4531217a1f56fbcc1dcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e475fc7b_d35249c2",
         "filename": "tests/apex_sepolicy_tests.py",
         "patchSetId": 5
@@ -48,6 +66,24 @@
       "writtenOn": "2023-04-06T02:06:05Z",
       "side": 1,
       "message": "Could we unit test this? I know this is not the norm yet in tests/ but it is worth thinking about it. We could add a basic set of policies (fixtures) to verify that this is working as we expect. Thanks.",
+      "revId": "5666850ab89296c6258b4531217a1f56fbcc1dcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bd45a4d_22d95b06",
+        "filename": "tests/apex_sepolicy_tests.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-04-06T02:29:09Z",
+      "side": 1,
+      "message": "\u003e  We could add a basic set of policies (fixtures) to verify that this is working as we expect. \n\nThis sounds like more than just unit tests. I\u0027m fine with whatever-we-call tests for this file using the actual precompiled_sepolicy.",
+      "parentUuid": "e475fc7b_d35249c2",
       "revId": "5666850ab89296c6258b4531217a1f56fbcc1dcb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
