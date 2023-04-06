@@ -109,6 +109,30 @@ rules = [
 ]
 
 
+def check_line(pol: policy.Policy, line: str) -> List[str]:
+    """Parses a file_contexts line and runs checks"""
+    # skip empty/comment line
+    line = line.strip()
+    if line == '' or line[0] == '#':
+        return []
+
+    # parse
+    split = line.split()
+    if len(split) != 2:
+        return [f"Error: invalid file_contexts: {line}"]
+    path, context = split[0], split[1]
+    if len(context.split(':')) != 4:
+        return [f"Error: invalid file_contexts: {line}"]
+    tcontext = context.split(':')[2]
+
+    # check rules
+    errors = []
+    for matcher, rule in rules:
+        if match_path(path, matcher):
+            errors.extend(check_rule(pol, path, tcontext, rule))
+    return errors
+
+
 def do_main():
     """Do testing"""
     parser = argparse.ArgumentParser()
@@ -121,22 +145,7 @@ def do_main():
     errors = []
     with open(args.file_contexts, 'rt', encoding='utf-8') as file_contexts:
         for line in file_contexts.readlines():
-            # skip empty/comment line
-            line = line.strip()
-            if line == '' or line[0] == '#':
-                continue
-
-            # parse
-            split = line.split()
-            if len(split) != 2:
-                sys.exit(f"Error: invalid file_contexts: {line}\n")
-            path, context = split[0], split[1]
-            tcontext = context.split(':')[2]
-
-            # check rules
-            for matcher, rule in rules:
-                if match_path(path, matcher):
-                    errors.extend(check_rule(pol, path, tcontext, rule))
+            errors.extend(check_line(pol, line))
     if len(errors) > 0:
         sys.exit('\n'.join(errors))
 
