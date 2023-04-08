@@ -28,6 +28,11 @@ allow radio system_api_service:service_manager find;
 allow radio timedetector_service:service_manager find;
 allow radio timezonedetector_service:service_manager find;
 
+# Used by DataStallRecoveryStats to collect TCP statistics
+# and metrics when data stall occurs.
+allow radio self:netlink_tcpdiag_socket
+    { create_socket_perms_no_ioctl nlmsg_read nlmsg_write };
+
 # Perform HwBinder IPC.
 hwbinder_use(radio)
 hal_client_domain(radio, hal_telephony)
