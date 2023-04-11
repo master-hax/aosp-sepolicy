@@ -18,6 +18,7 @@ bluetooth_domain(untrusted_app_29)
 # allow sending RTM_GETNEIGH{TBL} messages.
 allow untrusted_app_29 self:netlink_route_socket nlmsg_getneigh;
 auditallow untrusted_app_29 self:netlink_route_socket nlmsg_getneigh;
+<<<<<<< HEAD   (7ba515 Use py3 for apex_sepolicy_tests_test)
 
 # Connect to mdnsd via mdnsd socket.
 unix_socket_connect(untrusted_app_29, mdnsd, mdnsd)
@@ -25,3 +26,5 @@ userdebug_or_eng(`
   auditallow untrusted_app_29 mdnsd_socket:sock_file write;
   auditallow untrusted_app_29 mdnsd:unix_stream_socket connectto;
 ')
+=======
+>>>>>>> BRANCH (c1e7f5 Merge cherrypicks of ['googleplex-android-review.googlesourc)

@@ -40,6 +40,7 @@ allow untrusted_app_27 mnt_sdcard_file:lnk_file r_file_perms;
 # allow sending RTM_GETNEIGH{TBL} messages.
 allow untrusted_app_27 self:netlink_route_socket nlmsg_getneigh;
 auditallow untrusted_app_27 self:netlink_route_socket nlmsg_getneigh;
+<<<<<<< HEAD   (7ba515 Use py3 for apex_sepolicy_tests_test)
 
 # Connect to mdnsd via mdnsd socket.
 unix_socket_connect(untrusted_app_27, mdnsd, mdnsd)
@@ -47,3 +48,5 @@ userdebug_or_eng(`
   auditallow untrusted_app_27 mdnsd_socket:sock_file write;
   auditallow untrusted_app_27 mdnsd:unix_stream_socket connectto;
 ')
+=======
+>>>>>>> BRANCH (c1e7f5 Merge cherrypicks of ['googleplex-android-review.googlesourc)
