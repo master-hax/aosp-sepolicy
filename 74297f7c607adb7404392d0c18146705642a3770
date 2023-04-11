@@ -16,6 +16,46 @@
       "message": "Hi Tri, Jiyong, one question for you: is it possible to make the `persist.graphics.egl` writable by developer options but not `adb shell setprop`?",
       "revId": "74297f7c607adb7404392d0c18146705642a3770",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad13e0df_6726a708",
+        "filename": "private/compat/33.0/33.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2023-04-11T00:51:20Z",
+      "side": 1,
+      "message": "You only need to touch this file. 32 and below don\u0027t have to be touched.",
+      "revId": "74297f7c607adb7404392d0c18146705642a3770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b070ade_de20d780",
+        "filename": "private/system_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2023-04-11T00:51:20Z",
+      "side": 1,
+      "message": "can this be narrowed down further? system_app still covers a lot of apps and I don\u0027t think they all need this ability to set the prop.",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 55,
+        "endChar": 19
+      },
+      "revId": "74297f7c607adb7404392d0c18146705642a3770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
