@@ -3,6 +3,115 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "75f86b85_ec0b1d3c",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2023-04-11T13:27:21Z",
+      "side": 1,
+      "message": "is this exception because of WebView?",
+      "range": {
+        "startLine": 176,
+        "startChar": 2,
+        "endLine": 176,
+        "endChar": 19
+      },
+      "revId": "d871cb2fb5e7babdc6c63472da722da2ec8fb311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16f4621c_639b60af",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2023-04-11T13:27:21Z",
+      "side": 1,
+      "message": "nit: indentation",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 1
+      },
+      "revId": "d871cb2fb5e7babdc6c63472da722da2ec8fb311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dade0289_1346d6b4",
+        "filename": "private/sdk_sandbox_34.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2023-04-11T13:27:21Z",
+      "side": 1,
+      "message": "this looks like the same list of services defined for sdk_sandbox_next. I thought we wanted to be more lenient for sdk_sandbox_34. The current list for ephemeral_app contains the following services\nhttps://cs.android.com/android/platform/superproject/+/master:system/sepolicy/private/ephemeral_app.te;l\u003d37-46;drc\u003d941ba723baceac19151560e8a1d2830b9be6493c\n\nNote in particular that ephemeral_app_api_service is an umbrella type that covers many services.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 64
+      },
+      "revId": "d871cb2fb5e7babdc6c63472da722da2ec8fb311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4e95547_cf124f86",
+        "filename": "private/sdk_sandbox_all.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2023-04-11T13:27:21Z",
+      "side": 1,
+      "message": "nit: blank line",
+      "revId": "d871cb2fb5e7babdc6c63472da722da2ec8fb311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18590146_31ffc183",
+        "filename": "private/sdk_sandbox_next.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2023-04-11T13:27:21Z",
+      "side": 1,
+      "message": "is the audited domain still in the plans?\nIn that case you can remove the auditallow from this file, and we can put it in the audited domain when we create it.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 33
+      },
+      "revId": "d871cb2fb5e7babdc6c63472da722da2ec8fb311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c9776bd_b8faf593",
         "filename": "private/seapp_contexts",
         "patchSetId": 1
@@ -14,6 +123,30 @@
       "writtenOn": "2023-04-06T11:04:21Z",
       "side": 1,
       "message": "Adding a similar line for sdk_sandbox_next produces this compile time error:\nError: Duplicate line detected in file: system/sepolicy/private/seapp_contexts\nLines 167 and 168 match on all inputs!\n10:38:45 ninja failed with: exit status 1",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 79
+      },
+      "revId": "d871cb2fb5e7babdc6c63472da722da2ec8fb311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08044819_8475a51f",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2023-04-11T13:27:21Z",
+      "side": 1,
+      "message": "I think you can differentiate based on the sdk level, similar to how minTargetSdkVersion is used for untrusted_app below. I am not sure how that would interact with the sdk sandbox practice of using the sdk level of the lowest sdk in the sandbox, though.",
+      "parentUuid": "4c9776bd_b8faf593",
       "range": {
         "startLine": 167,
         "startChar": 0,
