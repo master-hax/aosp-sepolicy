@@ -122,6 +122,30 @@
       },
       "revId": "74297f7c607adb7404392d0c18146705642a3770",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d47f6049_85d16ca7",
+        "filename": "private/system_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2023-04-12T01:15:22Z",
+      "side": 1,
+      "message": "Unfortunately, system_app is shared with the Settings app and a few more. Ideally, the Settings app should have it\u0027s own selinux domain but that\u0027s a much bigger issue that is outside the scope of this CL.\n\nMy question then is why does this have to be set by the settings app. AFAIK, it has its own persistent database (the provider) where settings are stored and it also provides APIs to retrieve the values. Why can\u0027t we use that database?",
+      "parentUuid": "a1a73a9d_e6bd30ac",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 55,
+        "endChar": 19
+      },
+      "revId": "74297f7c607adb7404392d0c18146705642a3770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
