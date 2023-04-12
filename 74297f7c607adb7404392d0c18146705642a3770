@@ -194,6 +194,30 @@
       },
       "revId": "74297f7c607adb7404392d0c18146705642a3770",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f43b5580_e75fe3d5",
+        "filename": "private/system_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2023-04-12T01:50:28Z",
+      "side": 1,
+      "message": "Jiyong, what you pointed to is a public API. The value of `persist.graphics.egl` will control which GLES drivers to load by the graphics driver loader, the graphics drivers are loaded into application processes and hence we must be careful about which component can modify the value of it.\n\nThe reason why we would want Settings UI to access this property is that we will be developing a developer option UI toggle to switch which graphics drivers to load.\n\nWe have a design doc here: https://docs.google.com/document/d/1B6_54-gljXAVXWwYWQuGn3yLBuY_-SQRQghwOfUMv2o/edit#heading\u003dh.xncl2kne560g",
+      "parentUuid": "a8bcd745_fc8abf04",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 55,
+        "endChar": 19
+      },
+      "revId": "74297f7c607adb7404392d0c18146705642a3770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
