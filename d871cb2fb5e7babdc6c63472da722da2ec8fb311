@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3e10ef5_f52c7b16",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1597535
+      },
+      "writtenOn": "2023-04-12T17:17:40Z",
+      "side": 1,
+      "message": "Removing this now actually caused no issues, so I\u0027ve done so. (not having this was probably causing conflicts when sdk_sandbox_34 was an untrusted_app domain)",
+      "parentUuid": "75f86b85_ec0b1d3c",
+      "range": {
+        "startLine": 176,
+        "startChar": 2,
+        "endLine": 176,
+        "endChar": 19
+      },
+      "revId": "d871cb2fb5e7babdc6c63472da722da2ec8fb311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16f4621c_639b60af",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-11T13:27:21Z",
       "side": 1,
       "message": "nit: indentation",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 1
+      },
+      "revId": "d871cb2fb5e7babdc6c63472da722da2ec8fb311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "660b1a21_d4f9800c",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1597535
+      },
+      "writtenOn": "2023-04-12T17:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16f4621c_639b60af",
       "range": {
         "startLine": 177,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2eb78615_d950c13c",
+        "filename": "private/sdk_sandbox_34.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1597535
+      },
+      "writtenOn": "2023-04-12T17:17:40Z",
+      "side": 1,
+      "message": "The list isn\u0027t exactly the same as the one in sdk_sandbox_next.te, but I\u0027ve taken your suggestion now of using the ephermeral_app_api_service umbrella here. I have also added allow rules for services sdk_sandbox is allowed to access. PTAL.",
+      "parentUuid": "dade0289_1346d6b4",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 64
+      },
+      "revId": "d871cb2fb5e7babdc6c63472da722da2ec8fb311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4e95547_cf124f86",
@@ -87,6 +159,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0065205_742daadb",
+        "filename": "private/sdk_sandbox_all.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1597535
+      },
+      "writtenOn": "2023-04-12T17:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4e95547_cf124f86",
+      "revId": "d871cb2fb5e7babdc6c63472da722da2ec8fb311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18590146_31ffc183",
@@ -100,6 +190,54 @@
       "writtenOn": "2023-04-11T13:27:21Z",
       "side": 1,
       "message": "is the audited domain still in the plans?\nIn that case you can remove the auditallow from this file, and we can put it in the audited domain when we create it.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 33
+      },
+      "revId": "d871cb2fb5e7babdc6c63472da722da2ec8fb311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "878b32ba_ee2209d6",
+        "filename": "private/sdk_sandbox_next.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1597535
+      },
+      "writtenOn": "2023-04-12T17:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18590146_31ffc183",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 33
+      },
+      "revId": "d871cb2fb5e7babdc6c63472da722da2ec8fb311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1701aa90_7ab885ba",
+        "filename": "private/sdk_sandbox_next.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1597535
+      },
+      "writtenOn": "2023-04-12T17:17:40Z",
+      "side": 1,
+      "message": "ah yes I meant to delete this, thanks!",
+      "parentUuid": "18590146_31ffc183",
       "range": {
         "startLine": 14,
         "startChar": 0,
@@ -147,6 +285,30 @@
       "side": 1,
       "message": "I think you can differentiate based on the sdk level, similar to how minTargetSdkVersion is used for untrusted_app below. I am not sure how that would interact with the sdk sandbox practice of using the sdk level of the lowest sdk in the sandbox, though.",
       "parentUuid": "4c9776bd_b8faf593",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 79
+      },
+      "revId": "d871cb2fb5e7babdc6c63472da722da2ec8fb311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dca8d9d_52dfe8f4",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1597535
+      },
+      "writtenOn": "2023-04-12T17:17:40Z",
+      "side": 1,
+      "message": "thanks for the suggestion, adding a minTargetSdkVersion\u003d35 tag made this compile, and is safe on sdk level 34. (we\u0027ll keep updating this file for each release).\nThe effectiveTargetSdkVersion check will change this at runtime anyway on V+ devices.",
+      "parentUuid": "08044819_8475a51f",
       "range": {
         "startLine": 167,
         "startChar": 0,
