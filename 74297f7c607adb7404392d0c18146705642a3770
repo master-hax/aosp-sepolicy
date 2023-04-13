@@ -290,6 +290,30 @@
       },
       "revId": "74297f7c607adb7404392d0c18146705642a3770",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f082bd46_2f8096d2",
+        "filename": "private/system_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-04-13T09:30:52Z",
+      "side": 1,
+      "message": "I like the approach, and restricting the access here is good.\nHowever your implementation of the permission check is checking a UID rather than a permission, so in fact you are still exposing the property to anything in the system server UI. (I left a comment on that CL)",
+      "parentUuid": "4abcdb4c_6dcc426f",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 55,
+        "endChar": 19
+      },
+      "revId": "74297f7c607adb7404392d0c18146705642a3770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
