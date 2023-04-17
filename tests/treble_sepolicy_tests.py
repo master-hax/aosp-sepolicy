@@ -370,7 +370,7 @@ def TestIsolatedAttributeConsistency(test_policy):
       tctx = resolveHalServerSubtype(tctx)
       if tctx not in permissionAllowList \
           or tclass not in permissionAllowList[tctx] \
-          or ( p == "write" and not perm.startswith("hwbinder_device:chr_file") ) \
+          or ( p == "write" and not perm.startswith("hwbinder_device:chr_file")) \
           or ( p == "rw_file_perms"):
         violated_permissions += [perm]
     return violated_permissions
