@@ -312,7 +312,7 @@ def TestCoreDataTypeViolations(test_policy):
 # TODO move this to sepolicy_tests
 def TestIsolatedAttributeConsistency(test_policy):
   permissionAllowList = {
-      # hardware related
+      # access given from technical_debt.cil
       "codec2_config_prop" : ["file"],
       "device_config_nnapi_native_prop":["file"],
       "dmabuf_system_heap_device":["chr_file"],
@@ -325,6 +325,7 @@ def TestIsolatedAttributeConsistency(test_policy):
       "hal_graphics_allocator_server":["binder", "service_manager"],
       "hal_graphics_mapper_hwservice":["hwservice_manager"],
       "hal_neuralnetworks": ["binder", "fd"],
+      "hal_neuralnetworks_service": ["service_manager"],
       "hal_neuralnetworks_hwservice":["hwservice_manager"],
       "hal_omx_hwservice":["hwservice_manager"],
       "hidl_allocator_hwservice":["hwservice_manager"],
@@ -334,21 +335,15 @@ def TestIsolatedAttributeConsistency(test_policy):
       "hwservicemanager":["binder"],
       "hwservicemanager_prop":["file"],
       "hwbinder_device":["chr_file"],
+      "ion_device" : ["chr_file"],
       "mediacodec":["binder", "fd"],
       "mediaswcodec":["binder", "fd"],
       "media_variant_prop":["file"],
       "nnapi_ext_deny_product_prop":["file"],
-      "ion_device" : ["chr_file"],
-      # system services
-      "audioserver_service":["service_manager"],
-      "cameraserver_service":["service_manager"],
-      "content_capture_service":["service_manager"],
-      "device_state_service":["service_manager"],
-      "hal_neuralnetworks_service":["service_manager"],
       "servicemanager":["fd"],
-      "speech_recognition_service":["service_manager"],
-      "mediaserver_service" :["service_manager"],
       "toolbox_exec": ["file"],
+      # extra types being granted to isolated_compute_app
+      "isolated_compute_allowed":["service_manager", "chr_file"],
   }
 
   def resolveHalServerSubtype(target):
@@ -368,9 +363,14 @@ def TestIsolatedAttributeConsistency(test_policy):
     for perm in permissions:
       tctx, tclass, p = perm.split(":")
       tctx = resolveHalServerSubtype(tctx)
+      # check if the permission is in isolated_compute_allowed
+      allowedMemberTypes = test_policy.pol.QueryTypeAttribute(Type="isolated_compute_allowed", IsAttr=True)
+      if tctx in allowedMemberTypes and tclass in permissionAllowList["isolated_compute_allowed"]:
+        continue
+      # check unwanted permissions
       if tctx not in permissionAllowList \
           or tclass not in permissionAllowList[tctx] \
-          or ( p == "write" and not perm.startswith("hwbinder_device:chr_file") ) \
+          or ( p == "write" and not perm.startswith("hwbinder_device:chr_file")) \
           or ( p == "rw_file_perms"):
         violated_permissions += [perm]
     return violated_permissions
