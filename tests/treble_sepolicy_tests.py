@@ -349,6 +349,9 @@ def TestIsolatedAttributeConsistency(test_policy):
       "speech_recognition_service":["service_manager"],
       "mediaserver_service" :["service_manager"],
       "toolbox_exec": ["file"],
+      # Google specific services
+      "edgetpu_app_service": ["service_manager"],
+      "edgetpu_device": ["chr_file"]
   }
 
   def resolveHalServerSubtype(target):
@@ -370,7 +373,8 @@ def TestIsolatedAttributeConsistency(test_policy):
       tctx = resolveHalServerSubtype(tctx)
       if tctx not in permissionAllowList \
           or tclass not in permissionAllowList[tctx] \
-          or ( p == "write" and not perm.startswith("hwbinder_device:chr_file") ) \
+          or ( p == "write" and not perm.startswith("hwbinder_device:chr_file")
+               and not perm.startswith("edgetpu_device:chr_file") ) \
           or ( p == "rw_file_perms"):
         violated_permissions += [perm]
     return violated_permissions
