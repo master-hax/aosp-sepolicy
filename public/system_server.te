@@ -16,3 +16,11 @@ neverallow {
   -system_server
   -shell
 } power_debug_prop:property_service set;
+
+# Do not allow system_server to talk directly to security HAL services other
+# than hal_remotelyprovisionedcomponent_service
+neverallow shell {
+  hal_keymint_service
+  hal_secureclock_service
+  hal_sharedsecret_service
+}:service_manager find;
