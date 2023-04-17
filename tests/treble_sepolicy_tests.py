@@ -349,6 +349,8 @@ def TestIsolatedAttributeConsistency(test_policy):
       "speech_recognition_service":["service_manager"],
       "mediaserver_service" :["service_manager"],
       "toolbox_exec": ["file"],
+      # extra types being granted to isolated_compute_app
+      "isolated_compute_allowed":["service_manager", "chr_file"],
   }
 
   def resolveHalServerSubtype(target):
@@ -368,9 +370,14 @@ def TestIsolatedAttributeConsistency(test_policy):
     for perm in permissions:
       tctx, tclass, p = perm.split(":")
       tctx = resolveHalServerSubtype(tctx)
+      # check if the permission is in isolated_compute_allowed
+      allowedMemberTypes = test_policy.pol.QueryTypeAttribute(Type="isolated_compute_allowed", IsAttr=True)
+      if tctx in allowedMemberTypes and tclass in permissionAllowList["isolated_compute_allowed"]:
+        continue
+      # check unwanted permissions
       if tctx not in permissionAllowList \
           or tclass not in permissionAllowList[tctx] \
-          or ( p == "write" and not perm.startswith("hwbinder_device:chr_file") ) \
+          or ( p == "write" and not perm.startswith("hwbinder_device:chr_file")) \
           or ( p == "rw_file_perms"):
         violated_permissions += [perm]
     return violated_permissions
