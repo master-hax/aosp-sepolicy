@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e35498f7_58d4f9c2",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1597535
+      },
+      "writtenOn": "2023-04-19T18:50:59Z",
+      "side": 1,
+      "message": "Actually, all changes to this file were only needed when sdk_sandbox_34 was modeled off of untrusted_apps domain, I\u0027ve now reverted all changes to this file.",
+      "parentUuid": "573ec75c_1a029e5a",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 79
+      },
+      "revId": "c6da1566779d16ffa7debc2f803ebf6754fdf761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2319f75c_d89a4151",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-17T12:46:12Z",
       "side": 1,
       "message": "Shouldn\u0027t this be appdomain?",
+      "range": {
+        "startLine": 174,
+        "startChar": 2,
+        "endLine": 174,
+        "endChar": 20
+      },
+      "revId": "c6da1566779d16ffa7debc2f803ebf6754fdf761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "691ecf1a_730f62fd",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1597535
+      },
+      "writtenOn": "2023-04-19T18:50:59Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "2319f75c_d89a4151",
       "range": {
         "startLine": 174,
         "startChar": 2,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21e3f793_b4a0193d",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1597535
+      },
+      "writtenOn": "2023-04-19T18:50:59Z",
+      "side": 1,
+      "message": "that property isn\u0027t defined, I\u0027ve seen no_rw_file_perms used for dir as well. example:\nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/+/master:system/sepolicy/private/sdk_sandbox.te;drc\u003d22fb5c7d248d24f68c08356e9ce2f8a5a69e5105;l\u003d272",
+      "parentUuid": "78f8842f_f8dcf423",
+      "range": {
+        "startLine": 176,
+        "startChar": 30,
+        "endLine": 176,
+        "endChar": 46
+      },
+      "revId": "c6da1566779d16ffa7debc2f803ebf6754fdf761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a88d405_593b2077",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-04-17T12:46:12Z",
       "side": 1,
       "message": "likewise appdomain?",
+      "range": {
+        "startLine": 178,
+        "startChar": 2,
+        "endLine": 178,
+        "endChar": 20
+      },
+      "revId": "c6da1566779d16ffa7debc2f803ebf6754fdf761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d888bb76_eea348f3",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1597535
+      },
+      "writtenOn": "2023-04-19T18:50:59Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "6a88d405_593b2077",
       "range": {
         "startLine": 178,
         "startChar": 2,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bb1ae99_dc681acf",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1597535
+      },
+      "writtenOn": "2023-04-19T18:50:59Z",
+      "side": 1,
+      "message": "Removing these create conflicts with the rules:\nhttps://source.corp.google.com/android-internal/system/sepolicy/private/untrusted_app.te;rcl\u003d4aad91d920ad42a7374e7bbd4cb9a50de4e85efb;l\u003d18\n\nhttps://source.corp.google.com/android-internal/system/sepolicy/private/untrusted_app_32.te;rcl\u003dcfdea5f4f3574385d739c1269e6c25783c109857;l\u003d18\n\nBut this isn\u0027t relevant because I\u0027ve now managed to remove all of these, thanks!",
+      "parentUuid": "b44530f6_fe4f5598",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 16
+      },
+      "revId": "c6da1566779d16ffa7debc2f803ebf6754fdf761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c5c3516_dc88443e",
@@ -139,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef7e89c2_b0c78cc7",
+        "filename": "private/sdk_sandbox_34.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1597535
+      },
+      "writtenOn": "2023-04-19T18:50:59Z",
+      "side": 1,
+      "message": "good point, removed.",
+      "parentUuid": "8c5c3516_dc88443e",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 46
+      },
+      "revId": "c6da1566779d16ffa7debc2f803ebf6754fdf761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0512d6ff_89b68fab",
@@ -152,6 +296,30 @@
       "writtenOn": "2023-04-17T12:46:12Z",
       "side": 1,
       "message": "You should add some neverallow rules similar to isolated_app.",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 55
+      },
+      "revId": "c6da1566779d16ffa7debc2f803ebf6754fdf761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3adb3582_63952f44",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1597535
+      },
+      "writtenOn": "2023-04-19T18:50:59Z",
+      "side": 1,
+      "message": "There is one in this file (line 151):\n#sdksandbox must run in the sdksandbox domain\nneverallow name\u003dcom.android.sdksandbox domain\u003d((?!sdk_sandbox).)*\n\nLet me know if we should add more, to enfore the uid range in addition. (I think we\u0027d need to introduce an input selector for that? If so, I\u0027ll tackle that in a follow up CL)",
+      "parentUuid": "0512d6ff_89b68fab",
       "range": {
         "startLine": 130,
         "startChar": 0,
