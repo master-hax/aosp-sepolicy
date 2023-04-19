@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b728f3d_52077085",
+        "filename": "public/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-04-19T20:57:21Z",
+      "side": 1,
+      "message": "This should have been `system_server`, but making that change causes the neverallow rule to trigger since a HAL client is allowed to lookup all hosted services according to the `hal_attribute_service()` macro.\n\nOpinion is heading towards access to keymint being restricted for operation slot management rather than security so I\u0027m going to remove this rule again.",
+      "range": {
+        "startLine": 22,
+        "startChar": 11,
+        "endLine": 22,
+        "endChar": 16
+      },
+      "revId": "92940f2c4a0f0aff5d7421aa337c870a6042f1bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
