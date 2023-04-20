@@ -16,6 +16,23 @@
       "message": "Jeff, mind taking a look or redirecting to a better option? This is upstreaming some changes that should have originally landed in AOSP.",
       "revId": "af6035c64f8f0700e1aa086412be870d7e13ed25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "265b20af_093e7563",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-04-20T07:18:47Z",
+      "side": 1,
+      "message": "This change doesn\u0027t really make sense. Files on the system image either aren\u0027t protected by fs-verify, or (if they are) don\u0027t need to be because they\u0027re protected by dm-verity. The correct solution is probably to have system_server skip the fs-verity check for APKs on the system image.",
+      "revId": "af6035c64f8f0700e1aa086412be870d7e13ed25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
