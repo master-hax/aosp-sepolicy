@@ -16,6 +16,24 @@
       "message": "Is this used in AOSP? Where?",
       "revId": "588d537f0bcddfd31c3598b8bca4fee308c0c416",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2ab507d_b0beea0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1998815
+      },
+      "writtenOn": "2023-04-20T14:35:41Z",
+      "side": 1,
+      "message": "I believe so, yes. This is a follow up similar to aosp/2086314 and aosp/2201059. We were seeing the following denials for `PackageInstaller`:\n\n```\n11-16 21:59:53.444   727   727 W PackageInstalle: type\u003d1400 audit(0.0:27): avc: denied \" {\" ioctl\" } for \" path\u003d\"/data/app/vmdl653102298.tmp/lib/arm/tmp.DOQ7As\" dev\u003d\"dm-6\" ino\u003d9026 ioctlcmd\u003d0x6602 scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:apk_tmp_file:s0 tclass\u003dfile permissive\u003d0\n11-16 21:59:53.448   727   727 W PackageInstalle: type\u003d1400 audit(0.0:28): avc: denied \" {\" ioctl\" } for \" path\u003d\"/data/app/vmdl653102298.tmp/lib/arm/tmp.KK8FYe\" dev\u003d\"dm-6\" ino\u003d9027 ioctlcmd\u003d0x6602 scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:apk_tmp_file:s0 tclass\u003dfile permissive\u003d0\n11-16 21:59:53.452   727   727 W PackageInstalle: type\u003d1400 audit(0.0:29): avc: denied \" {\" ioctl\" } for \" path\u003d\"/data/app/vmdl653102298.tmp/lib/arm/tmp.skaNdT\" dev\u003d\"dm-6\" ino\u003d9028 ioctlcmd\u003d0x6602 scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:apk_tmp_file:s0 tclass\u003dfile permissive\u003d0\n```\n\nb/259756715 has further details.",
+      "parentUuid": "b865330e_48ff2b9e",
+      "revId": "588d537f0bcddfd31c3598b8bca4fee308c0c416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
