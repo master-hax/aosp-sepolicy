@@ -33,6 +33,24 @@
       "message": "This change doesn\u0027t really make sense. Files on the system image either aren\u0027t protected by fs-verify, or (if they are) don\u0027t need to be because they\u0027re protected by dm-verity. The correct solution is probably to have system_server skip the fs-verity check for APKs on the system image.",
       "revId": "af6035c64f8f0700e1aa086412be870d7e13ed25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b15fa35_f6c5d945",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1998815
+      },
+      "writtenOn": "2023-04-20T14:53:27Z",
+      "side": 1,
+      "message": "A similar question was asked in a related fix, aosp/2086314. The answer there was:\n\u003e This ioctl is also used by Digest API to read apk root hash. The API can be called for any package, including system.\n\u003e \n\u003e SELinux denial for partitions that can never have fs-verity is actually OK, but there is a test failure unfortunately.\n\u003e \n\u003e We could implement a complicated detection code to detect system partitions and skip the ioctl, but it\u0027ll be slower and have more bugs than just allow ioctl to fail.",
+      "parentUuid": "265b20af_093e7563",
+      "revId": "af6035c64f8f0700e1aa086412be870d7e13ed25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
