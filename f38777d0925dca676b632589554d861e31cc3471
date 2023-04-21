@@ -22,6 +22,30 @@
       },
       "revId": "f38777d0925dca676b632589554d861e31cc3471",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "228d7787_10870489",
+        "filename": "public/app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1427094
+      },
+      "writtenOn": "2023-04-21T04:18:37Z",
+      "side": 1,
+      "message": "DataStallRecoveryStats should not live in network_stack instead of radio. This is because DataStallRecoveryStats is a part of the Telephony stack, and it is responsible for collecting metrics about data stalls.\nIf DataStallRecoveryStats were to live in network_stack, it would not have access to the data that it needs to collect metrics about data stalls.\nThis data is used to improve the user experience by recovering from data stalls more quickly and efficiently.\nFor more information, please refer to go/dsplus and ag/22530647.",
+      "parentUuid": "d38d98f5_9594cad3",
+      "range": {
+        "startLine": 43,
+        "startChar": 24,
+        "endLine": 43,
+        "endChar": 37
+      },
+      "revId": "f38777d0925dca676b632589554d861e31cc3471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
