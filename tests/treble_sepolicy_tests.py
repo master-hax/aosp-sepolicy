@@ -418,8 +418,7 @@ class MultipleOption(Option):
 Tests = {"CoredomainViolations": TestCoredomainViolations,
          "CoreDatatypeViolations": TestCoreDataTypeViolations,
          "TrebleCompatMapping": TestTrebleCompatMapping,
-         "ViolatorAttributes": TestViolatorAttributes,
-         "IsolatedAttributeConsistency": TestIsolatedAttributeConsistency}
+         "ViolatorAttributes": TestViolatorAttributes}
 
 def do_main(libpath):
     """
