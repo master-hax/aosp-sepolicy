@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c4beb6f_ef2a45bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2023-04-24T23:11:44Z",
+      "side": 1,
+      "message": "The only use case that would trigger this, that I can remember, is the package manager.  It looks like there\u0027s a workaround to skip /product in the API implementation:\n\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/base/services/core/java/com/android/server/pm/ApkChecksums.java;l\u003d649-657;drc\u003dc49d0bfa1a7f8b1c73a71ffa25a26ed554f7b06d\n\nI think the proper way to do this is to replace the workaround with an xattr check (which works without this change) by calling `VerityUtil.hasFsverity(...)`.  CC\u0027ing Alex who owns the PackageManager API.",
+      "parentUuid": "0aebb065_019a66da",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "af6035c64f8f0700e1aa086412be870d7e13ed25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ff13b5b0_d6c5b448",
