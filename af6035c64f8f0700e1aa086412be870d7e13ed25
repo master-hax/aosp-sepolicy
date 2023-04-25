@@ -264,6 +264,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2419b284_111d9d99",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2023-04-25T17:03:54Z",
+      "side": 1,
+      "message": "IIUC, allowxperm doesn\u0027t automatically grant the ioctl privilege.\n\nAlso, it looks like aosp/2086314 may be a wrong fix.  system_server should have never needed to ioctl a system_file in the first place.  With the change to switch to hasFsverity, we should be able to remove system_file (not that we should do it in U...)",
+      "parentUuid": "7852d00b_6c4a573e",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "af6035c64f8f0700e1aa086412be870d7e13ed25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ff13b5b0_d6c5b448",
