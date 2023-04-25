@@ -52,6 +52,9 @@ allow traced  {
   userdebug_or_eng(`system_server_tmpfs')
 }:file { getattr map read write };
 
+# Allow setting persistent debug properties required for enabling the Perfetto
+# SDK in HWUI's copy of Skia, which are often only picked up on next reboot.
+set_prop(traced, persist_debug_prop)
 # Allow traced to notify Traceur when a trace ends by setting the
 # sys.trace.trace_end_signal property.
 set_prop(traced, system_trace_prop)
