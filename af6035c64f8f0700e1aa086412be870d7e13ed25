@@ -144,6 +144,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc65e11e_085ae053",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1166043
+      },
+      "writtenOn": "2023-04-25T04:40:14Z",
+      "side": 1,
+      "message": "I think with the recent changes to how hasFsverity works (ag/I21c70132682c0d4ae6922419b269aa9f5de2fb72) via statx ioctl, we can do that. If we confirm that system_server has access to that ioctl for system_files.\n\nI see two issues with this though:\n1. Are you going to manually backport this change to all places that would require it?\n2. This is not backward compatible pre ag/I21c70132682c0d4ae6922419b269aa9f5de2fb72, so we need to be extra careful where we cherry-pick it to.\n\nAnd all this instead of a 1 line change to SEPolicy allowing system_server access to system_files?",
+      "parentUuid": "f5cad341_85686e5b",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "af6035c64f8f0700e1aa086412be870d7e13ed25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ff13b5b0_d6c5b448",
@@ -210,6 +234,29 @@
       "side": 1,
       "message": "Thanks Eric.",
       "parentUuid": "8b15fa35_f6c5d945",
+      "revId": "af6035c64f8f0700e1aa086412be870d7e13ed25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29d53fba_64caf47c",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1166043
+      },
+      "writtenOn": "2023-04-25T04:40:14Z",
+      "side": 1,
+      "message": "why do we need this btw? on every other platform we are ok with just the changes above?",
+      "range": {
+        "startLine": 1110,
+        "startChar": 1,
+        "endLine": 1110,
+        "endChar": 43
+      },
       "revId": "af6035c64f8f0700e1aa086412be870d7e13ed25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
