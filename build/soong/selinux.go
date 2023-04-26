@@ -28,3 +28,9 @@ type dependencyTag struct {
 var (
 	pctx = android.NewPackageContext("android/soong/selinux")
 )
+
+// pathForModuleOut is same as android.PathForModuleOut, except that it uses DeviceName() as its
+// intermediate directory name to avoid rebuilding upon target change.
+func pathForModuleOut(ctx android.ModuleContext, paths ...string) android.OutputPath {
+	return android.PathForModuleOut(ctx, ctx.Config().DeviceName()).Join(ctx, paths...)
+}
