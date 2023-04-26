@@ -98,7 +98,7 @@ func (n *neverallowTestModule) DepsMutator(ctx android.BottomUpMutatorContext) {
 }
 
 func (n *neverallowTestModule) GenerateAndroidBuildActions(ctx android.ModuleContext) {
-	n.testTimestamp = android.PathForModuleOut(ctx, "timestamp")
+	n.testTimestamp = android.PathForModuleOut(ctx, ctx.Config().DeviceName(), "timestamp")
 	if ctx.Config().SelinuxIgnoreNeverallows() {
 		// just touch
 		android.WriteFileRule(ctx, n.testTimestamp, "")
@@ -146,7 +146,7 @@ func (n *neverallowTestModule) GenerateAndroidBuildActions(ctx android.ModuleCon
 	rule := android.NewRuleBuilder(pctx, ctx)
 
 	// Step 1. Build a binary policy from the conf file including build test
-	binaryPolicy := android.PathForModuleOut(ctx, "policy")
+	binaryPolicy := android.PathForModuleOut(ctx, ctx.Config().DeviceName(), "policy")
 	rule.Command().BuiltTool("checkpolicy").
 		Flag("-M").
 		FlagWithArg("-c ", strconv.Itoa(PolicyVers)).

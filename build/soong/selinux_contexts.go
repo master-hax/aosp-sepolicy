@@ -243,11 +243,11 @@ func (m *selinuxContextsModule) SetImageVariation(ctx android.BaseModuleContext,
 var _ android.ImageInterface = (*selinuxContextsModule)(nil)
 
 func (m *selinuxContextsModule) buildGeneralContexts(ctx android.ModuleContext, inputs android.Paths) android.Path {
-	builtContext := android.PathForModuleGen(ctx, ctx.ModuleName()+"_m4out")
+	builtContext := android.PathForModuleGen(ctx, ctx.Config().DeviceName(), ctx.ModuleName()+"_m4out")
 
 	rule := android.NewRuleBuilder(pctx, ctx)
 
-	newlineFile := android.PathForModuleGen(ctx, "newline")
+	newlineFile := android.PathForModuleGen(ctx, ctx.Config().DeviceName(), "newline")
 
 	rule.Command().Text("echo").FlagWithOutput("> ", newlineFile)
 	rule.Temporary(newlineFile)
@@ -267,7 +267,7 @@ func (m *selinuxContextsModule) buildGeneralContexts(ctx android.ModuleContext, 
 	if proptools.Bool(m.properties.Remove_comment) {
 		rule.Temporary(builtContext)
 
-		remove_comment_output := android.PathForModuleGen(ctx, ctx.ModuleName()+"_remove_comment")
+		remove_comment_output := android.PathForModuleGen(ctx, ctx.Config().DeviceName(), ctx.ModuleName()+"_remove_comment")
 
 		rule.Command().
 			Text("sed -e 's/#.*$//' -e '/^$/d'").
@@ -280,7 +280,7 @@ func (m *selinuxContextsModule) buildGeneralContexts(ctx android.ModuleContext, 
 	if proptools.Bool(m.properties.Fc_sort) {
 		rule.Temporary(builtContext)
 
-		sorted_output := android.PathForModuleGen(ctx, ctx.ModuleName()+"_sorted")
+		sorted_output := android.PathForModuleGen(ctx, ctx.Config().DeviceName(), ctx.ModuleName()+"_sorted")
 
 		rule.Command().
 			Tool(ctx.Config().HostToolPath(ctx, "fc_sort")).
@@ -290,7 +290,7 @@ func (m *selinuxContextsModule) buildGeneralContexts(ctx android.ModuleContext, 
 		builtContext = sorted_output
 	}
 
-	ret := android.PathForModuleGen(ctx, m.stem())
+	ret := android.PathForModuleGen(ctx, ctx.Config().DeviceName(), m.stem())
 	rule.Temporary(builtContext)
 	rule.Command().Text("cp").Input(builtContext).Output(ret)
 
@@ -309,7 +309,7 @@ func (m *selinuxContextsModule) buildFileContexts(ctx android.ModuleContext, inp
 
 	if ctx.Config().FlattenApex() {
 		for _, path := range android.PathsForModuleSrc(ctx, m.fileContextsProperties.Flatten_apex.Srcs) {
-			out := android.PathForModuleGen(ctx, "flattened_apex", path.Rel())
+			out := android.PathForModuleGen(ctx, ctx.Config().DeviceName(), "flattened_apex", path.Rel())
 			apex_path := "/system/apex/" + strings.Replace(
 				strings.TrimSuffix(path.Base(), "-file_contexts"),
 				".", "\\\\.", -1)
@@ -394,7 +394,7 @@ func (m *selinuxContextsModule) checkVendorPropertyNamespace(ctx android.ModuleC
 			cmd.Flag("--strict")
 		}
 
-		out := android.PathForModuleGen(ctx, "namespace_checked").Join(ctx, input.String())
+		out := android.PathForModuleGen(ctx, ctx.Config().DeviceName(), "namespace_checked").Join(ctx, input.String())
 		rule.Command().Text("cp -f").Input(input).Output(out)
 		ret = append(ret, out)
 	}
@@ -426,7 +426,7 @@ func (m *selinuxContextsModule) buildPropertyContexts(ctx android.ModuleContext,
 
 	// check compatibility with sysprop_library
 	if len(apiFiles) > 0 {
-		out := android.PathForModuleGen(ctx, ctx.ModuleName()+"_api_checked")
+		out := android.PathForModuleGen(ctx, ctx.Config().DeviceName(), ctx.ModuleName()+"_api_checked")
 		rule := android.NewRuleBuilder(pctx, ctx)
 
 		msg := `\n******************************\n` +
@@ -452,8 +452,8 @@ func (m *selinuxContextsModule) buildPropertyContexts(ctx android.ModuleContext,
 }
 
 func (m *selinuxContextsModule) buildSeappContexts(ctx android.ModuleContext, inputs android.Paths) android.Path {
-	neverallowFile := android.PathForModuleGen(ctx, "neverallow")
-	ret := android.PathForModuleGen(ctx, m.stem())
+	neverallowFile := android.PathForModuleGen(ctx, ctx.Config().DeviceName(), "neverallow")
+	ret := android.PathForModuleGen(ctx, ctx.Config().DeviceName(), m.stem())
 
 	rule := android.NewRuleBuilder(pctx, ctx)
 	rule.Command().Text("(grep").
@@ -622,7 +622,7 @@ func (m *contextsTestModule) GenerateAndroidBuildActions(ctx android.ModuleConte
 		Input(sepolicy).
 		Inputs(srcs)
 
-	m.testTimestamp = android.PathForModuleOut(ctx, "timestamp")
+	m.testTimestamp = android.PathForModuleOut(ctx, ctx.Config().DeviceName(), "timestamp")
 	rule.Command().Text("touch").Output(m.testTimestamp)
 	rule.Build("contexts_test", "running contexts test: "+ctx.ModuleName())
 }
