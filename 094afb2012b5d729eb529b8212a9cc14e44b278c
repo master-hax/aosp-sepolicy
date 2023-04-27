@@ -33,6 +33,52 @@
       "message": "We should grant access only through open FDs to the downloaded media files, system processes shouldn\u0027t directly be able to read sdk_sandbox_data_file. I\u0027ve filed b/279885689 to add a neverallow rule to ensure this.",
       "revId": "094afb2012b5d729eb529b8212a9cc14e44b278c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "029a4c2d_7cf47ccc",
+        "filename": "private/mediaprovider_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-04-27T11:59:14Z",
+      "side": 1,
+      "message": "{ getattr read }\n\nr_file_perms is much too broad. In particular, you should not be granting \"open\" because mediaprovider and mediaserver should never directly access these files. They should receive already-open FDs over binder. Based on the denials in the bug, that appears to be the case.",
+      "range": {
+        "startLine": 39,
+        "startChar": 51,
+        "endLine": 39,
+        "endChar": 63
+      },
+      "revId": "094afb2012b5d729eb529b8212a9cc14e44b278c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46027444_bd68017f",
+        "filename": "private/mediaserver.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-04-27T11:59:14Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 23,
+        "startChar": 45,
+        "endLine": 23,
+        "endChar": 57
+      },
+      "revId": "094afb2012b5d729eb529b8212a9cc14e44b278c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
