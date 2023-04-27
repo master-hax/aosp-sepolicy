@@ -180,6 +180,12 @@ get_prop(system_app, oem_unlock_prop)
 # Settings app reads ro.usb.uvc.enabled
 get_prop(system_app, usb_uvc_enabled_prop)
 
+# Allow writing and removing trace data in /data/misc/wmtrace.
+userdebug_or_eng(`
+  allow platform_app wm_trace_data_file:dir rw_dir_perms;
+  allow platform_app wm_trace_data_file:file { getattr setattr create unlink w_file_perms };
+')
+
 ###
 ### Neverallow rules
 ###
