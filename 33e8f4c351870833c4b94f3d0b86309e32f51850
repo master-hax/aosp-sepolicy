@@ -16,6 +16,23 @@
       "message": "Thanks! lgtm",
       "revId": "33e8f4c351870833c4b94f3d0b86309e32f51850",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24992c89_23cd1e42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958155
+      },
+      "writtenOn": "2023-04-28T00:35:24Z",
+      "side": 1,
+      "message": "Hi Jeff! Hector suggested asking you for OWNERS. The errors we\u0027re trying to solve here are of the form:\n```\n04-28 00:08:23.760     1     1 W /system/bin/init: type\u003d1107 audit(0.0:8): uid\u003d0 auid\u003d4294967295 ses\u003d4294967295 subj\u003du:r:init:s0 msg\u003d\u0027avc:  denied  { set } for property\u003dpersist.debug.renderengine.skia_use_perfetto_track_events pid\u003d986 uid\u003d9999 gid\u003d9999 scontext\u003du:r:traced:s0 tcontext\u003du:object_r:persist_debug_prop:s0 tclass\u003dproperty_service permissive\u003d0\u0027\n04-28 00:08:23.765   986   986 W libc    : Unable to set property \"persist.debug.renderengine.skia_use_perfetto_track_events\" to \"true\": error code: 0x18\n04-28 00:08:23.800   440   440 E init    : Unable to set property \u0027persist.debug.renderengine.skia_use_perfetto_track_events\u0027 from uid:9999 gid:9999 pid:986: SELinux permission check failed\n```\n\nTIA!",
+      "revId": "33e8f4c351870833c4b94f3d0b86309e32f51850",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
