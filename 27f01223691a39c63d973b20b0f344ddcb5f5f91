@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3610251d_e2e2eb61",
+        "filename": "private/sdk_sandbox.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-05-02T10:05:02Z",
+      "side": 1,
+      "message": "Nit:\nThis whole block might be more readable as\nallow sdk_sandbox {\n  service1\n  service2\n}:service_manager find;",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 56
+      },
+      "revId": "27f01223691a39c63d973b20b0f344ddcb5f5f91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f48f096_348c18ad",
+        "filename": "private/sdk_sandbox.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-05-02T10:05:02Z",
+      "side": 1,
+      "message": "Why are we allowing these extra services?\n\nThey\u0027re not mentioned in the commit message or the bug.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 60
+      },
+      "revId": "27f01223691a39c63d973b20b0f344ddcb5f5f91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
