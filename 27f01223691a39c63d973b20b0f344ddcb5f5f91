@@ -93,6 +93,30 @@
       },
       "revId": "27f01223691a39c63d973b20b0f344ddcb5f5f91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d0cf524_1d9acf87",
+        "filename": "private/sdk_sandbox.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-05-02T16:18:39Z",
+      "side": 1,
+      "message": "That would be a fine thing to put in the commit message.\n\nBut if that\u0027s what you want, wouldn\u0027t it be better to do it in one go:\nallow sdk_sandbox ephemeral_app_api_service:service_manager find;\n\nIn general we aim for least privilege; so we try to only grant access to things that actually are needed. You\u0027re intentionally going against that, for reasons I understand. But at least it should be clearly documented.\n\nAnd it is always harder to take permissions away later on than it is to grant extra ones; existing apps will have started relying on them.",
+      "parentUuid": "77e2a60f_a2a6c4ae",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 60
+      },
+      "revId": "27f01223691a39c63d973b20b0f344ddcb5f5f91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
