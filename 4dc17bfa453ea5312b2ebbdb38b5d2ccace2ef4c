@@ -16,6 +16,70 @@
       "message": "Gentle ping.",
       "revId": "4dc17bfa453ea5312b2ebbdb38b5d2ccace2ef4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39aa71e5_b936f874",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-05-03T11:10:34Z",
+      "side": 1,
+      "message": "Hmm, this never showed up in the attention set for me, for some reason.",
+      "parentUuid": "4c4ff07e_5005dd85",
+      "revId": "4dc17bfa453ea5312b2ebbdb38b5d2ccace2ef4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc6b511a_bb7e7691",
+        "filename": "private/sdk_sandbox.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-05-03T11:10:34Z",
+      "side": 1,
+      "message": "Would this be better as \n\nneverallow system_server ... ?\n\nThat seems to be the intention, and the effect, given the rule above.",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 25
+      },
+      "revId": "4dc17bfa453ea5312b2ebbdb38b5d2ccace2ef4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc2e0bbb_7bd01409",
+        "filename": "private/sdk_sandbox.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-05-03T11:10:34Z",
+      "side": 1,
+      "message": "Maybe add a comment? I think this is saying most domains can\u0027t open etc, but can access if they\u0027re given an open fd.",
+      "range": {
+        "startLine": 310,
+        "startChar": 0,
+        "endLine": 317,
+        "endChar": 67
+      },
+      "revId": "4dc17bfa453ea5312b2ebbdb38b5d2ccace2ef4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
