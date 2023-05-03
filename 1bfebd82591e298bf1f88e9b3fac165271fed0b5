@@ -87,6 +87,24 @@
       "parentUuid": "4d813fd3_80464d5f",
       "revId": "1bfebd82591e298bf1f88e9b3fac165271fed0b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e964d9cb_439974ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1941946
+      },
+      "writtenOn": "2023-05-03T01:21:26Z",
+      "side": 1,
+      "message": "I thought the setting in `gpuservice.te` is granting the write access to gpu service: https://r.android.com/c/platform/system/sepolicy/+/2529329/3/private/gpuservice.te. `system_vendor_config_prop` should still allow write within `\\system`, based on the decision graph: https://screenshot.googleplex.com/8mwLwW932ihsDEm.\n\nIf you have tested `system_vendor_config_prop` does not allow gpu service to write it, I am fine changing to `system_public_prop`.Maybe we can add some `neverallow` rules in the follow-up CLs to guard it from being written by anything outside of gpuservice and vendor_init.",
+      "parentUuid": "2e922240_656faf4e",
+      "revId": "1bfebd82591e298bf1f88e9b3fac165271fed0b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
