@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b57e5838_b4e79152",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958155
+      },
+      "writtenOn": "2023-05-09T14:34:43Z",
+      "side": 1,
+      "message": "Good point! My presumption from reading existing SEPolicy (and looking at how ATrace [handles things](https://cs.android.com/android/platform/superproject/+/master:system/core/libcutils/trace-dev.cpp;l\u003d58;drc\u003d6507f8adc3e082745bdd9253163e32facd4b1c41)) was those weren\u0027t readable by HWUI apps, but I never verified. I\u0027ll double check!",
+      "parentUuid": "00e15e14_0f69dc19",
+      "revId": "20c9aaad07466c557b9f73a7887358c370682650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f487f33_3a805deb",
         "filename": "private/traced.te",
         "patchSetId": 2
@@ -49,6 +67,30 @@
       "writtenOn": "2023-05-09T05:06:35Z",
       "side": 1,
       "message": "when is it? :)",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 55
+      },
+      "revId": "20c9aaad07466c557b9f73a7887358c370682650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d2ff788_823ceb48",
+        "filename": "private/traced.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1958155
+      },
+      "writtenOn": "2023-05-09T14:34:43Z",
+      "side": 1,
+      "message": "Good question! I will add more context to the linked issue very soon. Summary is as soon as we can prove that these sysprop guards (see linked CLs) aren\u0027t necessary, presumably in V.",
+      "parentUuid": "4f487f33_3a805deb",
       "range": {
         "startLine": 58,
         "startChar": 0,
