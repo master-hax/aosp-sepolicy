@@ -136,6 +136,7 @@ allow appdomain apex_art_data_file:file rx_file_perms;
 allow appdomain tombstone_data_file:file { getattr read };
 neverallow appdomain tombstone_data_file:file ~{ getattr read };
 
+
 # Execute the shell or other system executables.
 allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all } shell_exec:file rx_file_perms;
 allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all } toolbox_exec:file rx_file_perms;
@@ -265,7 +266,7 @@ allow { appdomain -isolated_app_all -mlstrustedsubject -sdk_sandbox_all } { app_
 allow { appdomain -isolated_app_all -mlstrustedsubject -sdk_sandbox_all } { app_data_file privapp_data_file }:file create_file_perms;
 
 # Access via already open fds is ok even for mlstrustedsubject.
-allow { appdomain -isolated_app_all -sdk_sandbox_all } { app_data_file privapp_data_file system_app_data_file }:file { getattr map read write };
+allow { appdomain -isolated_app_all -sdk_sandbox_all } { app_data_file privapp_data_file sdk_sandbox_data_file system_app_data_file }:file { getattr map read write };
 
 # Traverse into expanded storage
 allow appdomain mnt_expand_file:dir r_dir_perms;
