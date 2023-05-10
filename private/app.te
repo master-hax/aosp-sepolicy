@@ -136,6 +136,9 @@ allow appdomain apex_art_data_file:file rx_file_perms;
 allow appdomain tombstone_data_file:file { getattr read };
 neverallow appdomain tombstone_data_file:file ~{ getattr read };
 
+# Allow access to open SDK sandbox file descriptors.
+allow appdomain sdk_sandbox_data_file:file { getattr read };
+
 # Execute the shell or other system executables.
 allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all } shell_exec:file rx_file_perms;
 allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all } toolbox_exec:file rx_file_perms;
