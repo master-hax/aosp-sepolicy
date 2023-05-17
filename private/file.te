@@ -156,6 +156,10 @@ type system_aconfig_storage_file, system_file_type, file_type;
 # Type for /vendor/etc/aconfig
 type vendor_aconfig_storage_file, vendor_file_type, file_type;
 
+<<<<<<< PATCH SET (0dca91 Add fw_oxidize demo)
+# /apex/com.android.fw_oxidize.demo/bin/fwoxidize_demo
+type fwoxidize_demo_exec, exec_type, file_type, system_file_type;
+=======
 # /data/misc/connectivityblobdb
 type connectivityblob_data_file, file_type, data_file_type, core_data_file_type;
 
@@ -189,3 +193,4 @@ allow proc_net proc:filesystem associate;
 # Should be:
 #   type apk_data_file, file_type, data_file_type;
 neverallow fs_type file_type:filesystem associate;
+>>>>>>> BASE      (b30e2f Fix treble sepolicy tests and combine_maps script)
