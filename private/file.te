@@ -189,3 +189,6 @@ allow proc_net proc:filesystem associate;
 # Should be:
 #   type apk_data_file, file_type, data_file_type;
 neverallow fs_type file_type:filesystem associate;
+
+# /apex/com.android.fw_oxidize.demo/bin/fwoxidize_demo
+type fwoxidize_demo_exec, exec_type, file_type, system_file_type;
