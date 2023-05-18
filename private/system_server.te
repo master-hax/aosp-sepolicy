@@ -347,6 +347,10 @@ hal_client_domain(system_server, hal_weaver)
 hal_client_domain(system_server, hal_wifi)
 hal_client_domain(system_server, hal_wifi_hostapd)
 hal_client_domain(system_server, hal_wifi_supplicant)
+# make system_server a hal_drm client, but not in process.
+# system_server is not allowed to execmem
+typeattribute system_server halclientdomain;
+typeattribute system_server hal_drm_client;
 # The bootctl is a pass through HAL mode under recovery mode. So we skip the
 # permission for recovery in order not to give system server the access to
 # the low level block devices.
