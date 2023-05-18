@@ -22,6 +22,30 @@
       },
       "revId": "7d89353e5d795623ca4fe41b9b3db53ac2308d95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c6118f2_539e7dc7",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1043093
+      },
+      "writtenOn": "2023-05-18T21:51:40Z",
+      "side": 1,
+      "message": "The macro has rules for passthrough mode:\n```\n# TODO(b/34170079): Make the inclusion of the rules below conditional also on\n# non-Treble devices. For now, on non-Treble device, always grant clients of a\n# HAL sufficient access to run the HAL in passthrough mode (i.e., in-process).\nnot_full_treble(`\ntypeattribute $1 $2;\n# Find passthrough HAL implementations\nallow $2 system_file:dir r_dir_perms;\nallow $2 vendor_file:dir r_dir_perms;\nallow $2 vendor_file:file { read open getattr execute map };\n\u0027)\n```\n\nwhich would trigger execmem related error:\n\u003e (neverallow system_server self (process (execmem))\n\nPlease see b/264629548 comment 13 and 14. Thanks.",
+      "parentUuid": "92e42056_3c4463ac",
+      "range": {
+        "startLine": 350,
+        "startChar": 43,
+        "endLine": 351,
+        "endChar": 41
+      },
+      "revId": "7d89353e5d795623ca4fe41b9b3db53ac2308d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
