@@ -46,6 +46,30 @@
       },
       "revId": "7d89353e5d795623ca4fe41b9b3db53ac2308d95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "229a2194_d74854c3",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2023-05-19T01:14:09Z",
+      "side": 1,
+      "message": "Can you instead make a change to `allow hal_drm self:process execmem;` and keep this as `hal_client_domain(system_server, hal_drm)`?\n\nPerhaps,\n\n`allow { hal_drm -system_server } self:process execmem;`\n\nor\n\n`allow hal_drm_server self:process execmem;`\n\nto be better? (assuming clients don\u0027t need execmem anyway)",
+      "parentUuid": "0c6118f2_539e7dc7",
+      "range": {
+        "startLine": 350,
+        "startChar": 43,
+        "endLine": 351,
+        "endChar": 41
+      },
+      "revId": "7d89353e5d795623ca4fe41b9b3db53ac2308d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
