@@ -22,6 +22,30 @@
       },
       "revId": "3fb7a9090f3285ee3d2b45226ea8ab38a2b16bb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61af4538_e51d178e",
+        "filename": "public/vendor_init.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2023-05-22T22:00:23Z",
+      "side": 1,
+      "message": "There\u0027s only 3 OTA props before this CL.\n\n1. `ro.product.ab_ota_partitions` init will initialize this prop to value specified in build.prop, but since this prop is not on /vendor partition, init does not need special permission to write it.\n2. `ota.warm_reset` not initialized by init because this prop isn\u0027t specified in any build.prop\n3. `ota.other.vbmeta_digest` same as number 2\n\nThe purpose of `set_prop` here is to allow vendor_init to initialize these props with a value specified in build.prop, it is not intended for init to modify these props later in the process. In fact, all `ro.*` props are not writable after being initialized.\n\nSee code here https://cs.android.com/android/platform/superproject/+/refs/heads/master:system/core/init/property_service.cpp;l\u003d783;drc\u003d7346c436e5a11ce08f6a80dcfeb8ef941ca30176;bpv\u003d1;bpt\u003d1",
+      "parentUuid": "3e60abe8_8e79455c",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 31
+      },
+      "revId": "3fb7a9090f3285ee3d2b45226ea8ab38a2b16bb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
