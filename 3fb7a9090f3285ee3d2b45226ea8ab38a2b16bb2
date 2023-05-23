@@ -46,6 +46,53 @@
       },
       "revId": "3fb7a9090f3285ee3d2b45226ea8ab38a2b16bb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bed8c178_3a2537f8",
+        "filename": "public/vendor_init.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-05-23T00:16:55Z",
+      "side": 1,
+      "message": "My question is more like, if a vendor build.prop did specify these values, would they override runtime things from setting them? For instance, if it\u0027s important that a system component can set ro.product.ab_ota_partitions, it could be problematic to give vendor_init the permission to set this. We don\u0027t expect build.prop to have it, but if it does, it could cause this issue. I think the change is probably fine, but I\u0027m not familiar with the properties.",
+      "parentUuid": "61af4538_e51d178e",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 31
+      },
+      "revId": "3fb7a9090f3285ee3d2b45226ea8ab38a2b16bb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75969c00_82a41f57",
+        "filename": "public/vendor_init.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-05-23T00:16:55Z",
+      "side": 1,
+      "message": "nit: we should be able to remove this now",
+      "range": {
+        "startLine": 277,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 31
+      },
+      "revId": "3fb7a9090f3285ee3d2b45226ea8ab38a2b16bb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
