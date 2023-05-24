@@ -300,7 +300,7 @@ var (
 		"lpdump_service":               EXCEPTION_NO_FUZZER,
 		"mdns":                         []string{"mdns_service_fuzzer"},
 		"media.aaudio":                 EXCEPTION_NO_FUZZER,
-		"media.audio_flinger":          EXCEPTION_NO_FUZZER,
+		"media.audio_flinger":          []string{"audioflinger_service_fuzzer"},
 		"media.audio_policy":           EXCEPTION_NO_FUZZER,
 		"media.camera":                 EXCEPTION_NO_FUZZER,
 		"media.camera.proxy":           EXCEPTION_NO_FUZZER,
