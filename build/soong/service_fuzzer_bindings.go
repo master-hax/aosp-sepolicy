@@ -104,6 +104,7 @@ var (
 		"android.hardware.radio.voice.IRadioVoice/slot2":                          EXCEPTION_NO_FUZZER,
 		"android.hardware.radio.voice.IRadioVoice/slot3":                          EXCEPTION_NO_FUZZER,
 		"android.hardware.rebootescrow.IRebootEscrow/default":                     EXCEPTION_NO_FUZZER,
+		"android.hardware.rpmb.IRpmb/default":                                     EXCEPTION_NO_FUZZER,
 		"android.hardware.secure_element.ISecureElement/eSE1":                     EXCEPTION_NO_FUZZER,
 		"android.hardware.secure_element.ISecureElement/eSE2":                     EXCEPTION_NO_FUZZER,
 		"android.hardware.secure_element.ISecureElement/eSE3":                     EXCEPTION_NO_FUZZER,

@@ -266,6 +266,7 @@ type window_service, system_api_service, system_server_service, service_manager_
 type inputflinger_service, system_api_service, system_server_service, service_manager_type;
 type tethering_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 type emergency_affordance_service, system_server_service, service_manager_type;
+type rpmb_service, system_api_service, system_server_service, service_manager_type;
 
 ###
 ### HAL Services
@@ -332,7 +333,7 @@ type hal_wifi_service, protected_service, hal_service_type, service_manager_type
 type hal_wifi_hostapd_service, protected_service, hal_service_type, service_manager_type;
 type hal_wifi_supplicant_service, protected_service, hal_service_type, service_manager_type;
 type hal_gatekeeper_service, protected_service, hal_service_type, service_manager_type;
-
+type hal_rpmb_service, protected_service, hal_service_type, service_manager_type;
 ###
 ### Neverallow rules
 ###
