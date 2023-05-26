@@ -412,7 +412,7 @@ allow appdomain system_data_file:file { getattr read map };
 allow { appdomain -isolated_app_all -sdk_sandbox_all } media_rw_data_file:file { read getattr };
 
 # Read and write /data/data/com.android.providers.telephony files passed over Binder.
-allow { appdomain -isolated_app_all } radio_data_file:file { read write getattr };
+allow { appdomain -isolated_app_all -sdk_sandbox_all } radio_data_file:file { read write getattr };
 
 # For art.
 allow appdomain dalvikcache_data_file:file execute;
