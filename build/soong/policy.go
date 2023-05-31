@@ -144,6 +144,7 @@ func (c *policyConf) withAsan(ctx android.ModuleContext) string {
 	return strconv.FormatBool(proptools.BoolDefault(c.properties.With_asan, isAsanDevice))
 }
 
+// TODO(b/257176017): remove this
 func (c *policyConf) sepolicySplit(ctx android.ModuleContext) string {
 	if c.cts() {
 		return "cts"
@@ -151,7 +152,7 @@ func (c *policyConf) sepolicySplit(ctx android.ModuleContext) string {
 	if c.isTargetRecovery() {
 		return "false"
 	}
-	return strconv.FormatBool(ctx.DeviceConfig().SepolicySplit())
+	return strconv.FormatBool(true)
 }
 
 func (c *policyConf) compatibleProperty(ctx android.ModuleContext) string {
