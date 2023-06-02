@@ -106,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c5edb02_7902b0d3",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-06-02T16:15:07Z",
+      "side": 1,
+      "message": "oh, sure, can remove. I hadn\u0027t looked here in a long time. Not sure why soong wasn\u0027t called \u0027sepolicy\u0027 to start with",
+      "parentUuid": "8c708da5_c0d875ea",
+      "range": {
+        "startLine": 518,
+        "startChar": 0,
+        "endLine": 534,
+        "endChar": 23
+      },
+      "revId": "32c121e8e9ca0174484626b3dbc6902d8fc0afea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbd6bd0c_84707b0c",
@@ -119,6 +143,30 @@
       "writtenOn": "2023-06-01T01:15:45Z",
       "side": 1,
       "message": "Is this right? IIUC recovery sepolicy is still monolithic, regardless of HAL",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 33
+      },
+      "revId": "32c121e8e9ca0174484626b3dbc6902d8fc0afea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd923948_5d293179",
+        "filename": "build/soong/policy.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-06-02T16:15:07Z",
+      "side": 1,
+      "message": "removed the comment. I am thinking about removing non-Treble logic from the CTS test, but if we don\u0027t change it, then removing the comment to avoid stale TODOs.",
+      "parentUuid": "bbd6bd0c_84707b0c",
       "range": {
         "startLine": 147,
         "startChar": 0,
