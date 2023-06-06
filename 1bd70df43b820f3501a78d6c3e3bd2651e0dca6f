@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d1cf22b_12f89547",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-06-06T18:06:30Z",
+      "side": 1,
+      "message": "The permission is not currently given to hal_drm_client, it is given to hal_drm. On non-Treble devices, both hal_drm_server and hal_drm_client inherit hal_drm. However, on Treble devices (which is all devices these days), only hal_drm_server inherits hal_drm.\n\nSo, we have a redundant attribute now, but this change should be a no-op, and the current policy doesn\u0027t give things to clients.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 54
+      },
+      "revId": "1bd70df43b820f3501a78d6c3e3bd2651e0dca6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
