@@ -8,13 +8,18 @@ neverallow {
   mlstrustedsubject
   -artd # compile secondary dex files
   -installd
-} { app_data_file privapp_data_file }:file ~{ read write map getattr ioctl lock append };
+  -vold_prepare_subdirs # deletion of storage areas
+} { app_data_file privapp_data_file storage_area_app_data_file storage_area_app_dir }:file
+  ~{ read write map getattr ioctl lock append };
 
 neverallow {
   mlstrustedsubject
   -artd # compile secondary dex files
   -installd
-} { app_data_file privapp_data_file }:dir ~{ read getattr search };
+  -vold # encryption of storage areas
+  -vold_prepare_subdirs # creation of storage area directories
+} { app_data_file privapp_data_file storage_area_app_data_file storage_area_app_dir }:dir
+  ~{ read getattr search };
 
 neverallow {
   mlstrustedsubject
@@ -23,5 +28,8 @@ neverallow {
   -system_server
   -adbd
   -runas
+  -vold # encryption of storage area directories
+  -vold_prepare_subdirs # creation of storage area directories
   -zygote
-} { app_data_file privapp_data_file }:dir { read getattr search };
+} { app_data_file privapp_data_file storage_area_app_data_file storage_area_app_dir }:dir
+  { read getattr search };
