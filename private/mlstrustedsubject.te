@@ -20,8 +20,28 @@ neverallow {
   mlstrustedsubject
   -artd # compile secondary dex files
   -installd
+  -vold # encryption of storage areas
+  -vold_prepare_subdirs # creation of storage area directories
+} { storage_area_dir storage_area_app_dir }:dir ~{ read getattr search };
+
+neverallow {
+  mlstrustedsubject
+  -artd # compile secondary dex files
+  -installd
   -system_server
   -adbd
   -runas
   -zygote
 } { app_data_file privapp_data_file }:dir { read getattr search };
+
+neverallow {
+  mlstrustedsubject
+  -artd # compile secondary dex files
+  -installd
+  -system_server
+  -adbd
+  -runas
+  -vold # encryption of storage area directories
+  -vold_prepare_subdirs # creation of storage area directories
+  -zygote
+} { storage_area_dir storage_area_app_dir }:dir { read getattr search };

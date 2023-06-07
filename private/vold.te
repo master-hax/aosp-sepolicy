@@ -72,6 +72,18 @@ neverallow {
     -gsid
 } vold_service:service_manager find;
 
+# Allow vold to encrypt storage area directories on behalf of apps.
+allow vold {
+    storage_area_dir
+    storage_area_app_dir
+}:dir {
+    getattr
+    ioctl # for FS_IOC_SET_ENCRYPTION_POLICY
+    open
+    read # for open(O_RDONLY) for ioctl
+    search
+};
+
 # Allow vold to create and delete per-user directories like /data/user/$userId.
 allow vold {
     media_userdir_file
