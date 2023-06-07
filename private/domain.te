@@ -249,6 +249,14 @@ neverallow {
   -installd # creation of sandbox
 } { privapp_data_file app_data_file }:dir_file_class_set { create unlink };
 
+neverallow {
+  domain
+  -appdomain
+  -artd # compile secondary dex files
+  -installd # creation of sandbox
+  -vold_prepare_subdirs # creation of storage area directories
+} { storage_area_app_dir storage_area_dir }:dir { create unlink };
+
 # Only the following processes should be directly accessing private app
 # directories.
 neverallow {
@@ -267,6 +275,24 @@ neverallow {
   -zygote
 } { privapp_data_file app_data_file }:dir *;
 
+neverallow {
+  domain
+  -adbd
+  -appdomain
+  -app_zygote
+  -artd # compile secondary dex files
+  -dexoptanalyzer
+  -installd
+  -profman
+  -rs # spawned by appdomain, so carryover the exception above
+  -runas
+  -system_server
+  -viewcompiler
+  -vold # encryption of storage area directories
+  -vold_prepare_subdirs # creation of storage area directories
+  -zygote
+} { storage_area_dir storage_area_app_dir }:dir *;
+
 # Only apps should be modifying app data. installd is exempted for
 # restorecon and package install/uninstall.
 neverallow {
@@ -276,6 +302,15 @@ neverallow {
   -installd
   -rs # spawned by appdomain, so carryover the exception above
 } { privapp_data_file app_data_file }:dir ~r_dir_perms;
+
+neverallow {
+  domain
+  -appdomain
+  -artd # compile secondary dex files
+  -installd
+  -rs # spawned by appdomain, so carryover the exception above
+  -vold_prepare_subdirs # creation of storage area directories
+} { storage_area_dir storage_area_app_dir }:dir ~r_dir_perms;
 
 neverallow {
   domain
@@ -298,6 +333,13 @@ neverallow {
   -artd # compile secondary dex files
   -installd
 } { privapp_data_file app_data_file }:dir_file_class_set { relabelfrom relabelto };
+
+neverallow {
+  domain
+  -artd # compile secondary dex files
+  -installd
+  -vold_prepare_subdirs
+} { storage_area_dir storage_area_app_dir }:dir { relabelfrom relabelto };
 
 # The staging directory contains APEX and APK files. It is important to ensure
 # that these files cannot be accessed by other domains to ensure that the files
