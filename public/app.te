@@ -134,6 +134,10 @@ neverallow appdomain
 neverallow appdomain
     dhcp_data_file:dir_file_class_set
     { create write setattr relabelfrom relabelto append unlink link rename };
+# don't allow apps to modify their own directories of storage areas
+neverallow appdomain
+    storage_area_app_dir:dir_file_class_set
+    { create write setattr relabelfrom relabelto append unlink link rename };
 
 # access tmp apk files
 neverallow { appdomain -platform_app }
