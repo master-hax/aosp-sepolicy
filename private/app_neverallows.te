@@ -66,7 +66,7 @@ neverallow {
   -untrusted_app_25
   -untrusted_app_27
   -runas_app
-} { app_data_file privapp_data_file }:file execute_no_trans;
+} { app_data_file privapp_data_file storage_area_app_data_file storage_area_app_dir }:file execute_no_trans;
 
 # Do not allow untrusted apps to invoke dex2oat. This was historically required
 # by ART for compiling secondary dex files but has been removed in Q.
@@ -156,6 +156,8 @@ neverallow { all_untrusted_apps -mediaprovider } {
   file_type
   -app_data_file            # The apps sandbox itself
   -privapp_data_file
+  -storage_area_app_data_file
+  -storage_area_app_dir
   -app_exec_data_file       # stored within the app sandbox directory
   -media_rw_data_file       # Internal storage. Known that apps can
                             # leave artfacts here after uninstall.
