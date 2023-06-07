@@ -201,6 +201,9 @@ allow init self:global_capability_class_set { chown fowner fsetid };
 allow init {
   file_type
   -app_data_file
+  -storage_area_dir
+  -storage_area_app_dir
+  -storage_area_content_file
   -bpffs_type
   -exec_type
   -misc_logd_file
@@ -215,6 +218,9 @@ allow init {
 allow init {
   file_type
   -app_data_file
+  -storage_area_dir
+  -storage_area_app_dir
+  -storage_area_content_file
   -bpffs_type
   -credstore_data_file
   -exec_type
@@ -237,6 +243,9 @@ allow init {
   file_type
   -apex_info_file
   -app_data_file
+  -storage_area_dir
+  -storage_area_app_dir
+  -storage_area_content_file
   -bpffs_type
   -exec_type
   -gsi_data_file
@@ -264,6 +273,9 @@ allow init apex_info_file:file r_file_perms;
 allow init {
   file_type
   -app_data_file
+  -storage_area_dir
+  -storage_area_app_dir
+  -storage_area_content_file
   -bpffs_type
   -exec_type
   -gsi_data_file
@@ -284,6 +296,9 @@ allow init {
   file_type
   -apex_mnt_dir
   -app_data_file
+  -storage_area_dir
+  -storage_area_app_dir
+  -storage_area_content_file
   -bpffs_type
   -exec_type
   -gsi_data_file
@@ -310,7 +325,10 @@ allow init {
   -vendor_file_type
   -exec_type
   -app_data_file
+  -storage_area_dir
+  -storage_area_app_dir
   -privapp_data_file
+  -storage_area_content_file
 }:dir_file_class_set relabelto;
 
 allow init { sysfs no_debugfs_restriction(`debugfs') debugfs_tracing debugfs_tracing_debug }:{ dir file lnk_file } { getattr relabelfrom };
@@ -515,6 +533,10 @@ allow init keystore_data_file:file { getattr };
 # the directory as part of a recursive restorecon.
 allow init vold_data_file:dir { open create read getattr setattr search };
 allow init vold_data_file:file { getattr };
+
+# Init walks through the storage_area_keys directory as part of a recursive restorecon.
+allow init storage_area_key_file:dir { open create read getattr setattr search };
+allow init storage_area_key_file:file { getattr };
 
 # Init creates /data/local/tmp at boot
 allow init shell_data_file:dir { open create read getattr setattr search };
