@@ -201,6 +201,8 @@ allow init self:global_capability_class_set { chown fowner fsetid };
 allow init {
   file_type
   -app_data_file
+  -storage_area_app_data_file
+  -storage_area_app_dir
   -bpffs_type
   -exec_type
   -misc_logd_file
@@ -215,6 +217,8 @@ allow init {
 allow init {
   file_type
   -app_data_file
+  -storage_area_app_data_file
+  -storage_area_app_dir
   -bpffs_type
   -credstore_data_file
   -exec_type
@@ -237,6 +241,8 @@ allow init {
   file_type
   -apex_info_file
   -app_data_file
+  -storage_area_app_data_file
+  -storage_area_app_dir
   -bpffs_type
   -exec_type
   -gsi_data_file
@@ -264,6 +270,8 @@ allow init apex_info_file:file r_file_perms;
 allow init {
   file_type
   -app_data_file
+  -storage_area_app_data_file
+  -storage_area_app_dir
   -bpffs_type
   -exec_type
   -gsi_data_file
@@ -284,6 +292,8 @@ allow init {
   file_type
   -apex_mnt_dir
   -app_data_file
+  -storage_area_app_data_file
+  -storage_area_app_dir
   -bpffs_type
   -exec_type
   -gsi_data_file
@@ -310,6 +320,8 @@ allow init {
   -vendor_file_type
   -exec_type
   -app_data_file
+  -storage_area_app_data_file
+  -storage_area_app_dir
   -privapp_data_file
 }:dir_file_class_set relabelto;
 

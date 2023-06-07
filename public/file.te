@@ -479,6 +479,10 @@ type radio_core_data_file, file_type, data_file_type, core_data_file_type;
 
 # /data/data subdirectories - app sandboxes
 type app_data_file, file_type, data_file_type, core_data_file_type, app_data_file_type;
+# app directories of storage areas: /data/storage_area/userId/pkgName -- apps cannot write to it
+type storage_area_app_dir, file_type, data_file_type, core_data_file_type, app_data_file_type;
+# app storage areas and their contents: /data/storage_area/userId/pkgName/*
+type storage_area_app_data_file, file_type, data_file_type, core_data_file_type, app_data_file_type;
 # /data/data subdirectories - priv-app sandboxes
 type privapp_data_file, file_type, data_file_type, core_data_file_type, app_data_file_type;
 # /data/data subdirectory for system UID apps.
