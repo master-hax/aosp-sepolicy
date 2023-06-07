@@ -14,6 +14,7 @@ neverallow {
   mlstrustedsubject
   -artd # compile secondary dex files
   -installd
+  -vold # creation of storage area directories
 } { app_data_file privapp_data_file }:dir ~{ read getattr search };
 
 neverallow {
@@ -23,5 +24,6 @@ neverallow {
   -system_server
   -adbd
   -runas
+  -vold # creation of storage area directories
   -zygote
 } { app_data_file privapp_data_file }:dir { read getattr search };

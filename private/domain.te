@@ -247,6 +247,7 @@ neverallow {
   -appdomain
   -artd # compile secondary dex files
   -installd # creation of sandbox
+  -vold # creation of storage area directories
 } { privapp_data_file app_data_file }:dir_file_class_set { create unlink };
 
 # Only the following processes should be directly accessing private app
@@ -264,6 +265,7 @@ neverallow {
   -runas
   -system_server
   -viewcompiler
+  -vold # creation of storage area directories
   -zygote
 } { privapp_data_file app_data_file }:dir *;
 
@@ -275,6 +277,7 @@ neverallow {
   -artd # compile secondary dex files
   -installd
   -rs # spawned by appdomain, so carryover the exception above
+  -vold # creation of storage area directories
 } { privapp_data_file app_data_file }:dir ~r_dir_perms;
 
 neverallow {
@@ -291,6 +294,7 @@ neverallow {
   -appdomain
   -artd # compile secondary dex files
   -installd # creation of sandbox
+  -vold # creation of storage area directories
 } { privapp_data_file app_data_file }:dir_file_class_set { create unlink };
 
 neverallow {
