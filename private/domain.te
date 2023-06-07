@@ -247,7 +247,9 @@ neverallow {
   -appdomain
   -artd # compile secondary dex files
   -installd # creation of sandbox
-} { privapp_data_file app_data_file }:dir_file_class_set { create unlink };
+  -vold_prepare_subdirs # creation of storage area directories
+} { privapp_data_file app_data_file storage_area_dir storage_area_app_dir }:dir_file_class_set
+  { create unlink };
 
 # Only the following processes should be directly accessing private app
 # directories.
@@ -264,8 +266,10 @@ neverallow {
   -runas
   -system_server
   -viewcompiler
+  -vold # encryption of storage area directories
+  -vold_prepare_subdirs # creation of storage area directories
   -zygote
-} { privapp_data_file app_data_file }:dir *;
+} { privapp_data_file app_data_file storage_area_dir storage_area_app_dir }:dir *;
 
 # Only apps should be modifying app data. installd is exempted for
 # restorecon and package install/uninstall.
@@ -275,7 +279,8 @@ neverallow {
   -artd # compile secondary dex files
   -installd
   -rs # spawned by appdomain, so carryover the exception above
-} { privapp_data_file app_data_file }:dir ~r_dir_perms;
+  -vold_prepare_subdirs # creation of storage area directories
+} { privapp_data_file app_data_file storage_area_dir storage_area_app_dir }:dir ~r_dir_perms;
 
 neverallow {
   domain
@@ -291,13 +296,17 @@ neverallow {
   -appdomain
   -artd # compile secondary dex files
   -installd # creation of sandbox
-} { privapp_data_file app_data_file }:dir_file_class_set { create unlink };
+  -vold_prepare_subdirs # creation of storage area directories
+} { privapp_data_file app_data_file storage_area_dir storage_area_app_dir }:dir_file_class_set
+  { create unlink };
 
 neverallow {
   domain
   -artd # compile secondary dex files
   -installd
-} { privapp_data_file app_data_file }:dir_file_class_set { relabelfrom relabelto };
+  -vold_prepare_subdirs
+} { privapp_data_file app_data_file storage_area_dir storage_area_app_dir }:dir_file_class_set
+  { relabelfrom relabelto };
 
 # The staging directory contains APEX and APK files. It is important to ensure
 # that these files cannot be accessed by other domains to ensure that the files

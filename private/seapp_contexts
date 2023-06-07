@@ -14,6 +14,7 @@
 #       isIsolatedComputeApp (boolean)
 #       isSdkSandboxNext (boolean)
 #       isSdkSandboxAudit (boolean)
+
 #
 # All specified input selectors in an entry must match (i.e. logical AND).
 # An unspecified string or boolean selector with no default will match any
@@ -75,7 +76,7 @@
 # An unspecified isSdkSandboxAudit defaults to false.
 #
 # Precedence: entries are compared using the following rules, in the order shown
-# (see external/selinux/libselinux/src/android/android_platform.c,
+# (see external/selinux/libselinux/src/android/android_seapp.c,
 # seapp_context_cmp()).
 #       (1) isSystemServer=true before isSystemServer=false.
 #       (2) Specified isEphemeralApp= before unspecified isEphemeralApp=
