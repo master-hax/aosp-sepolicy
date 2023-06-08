@@ -189,6 +189,10 @@ allow vold vendor_data_file:dir create_dir_perms;
 # for secdiscard
 allow vold system_data_file:file read;
 
+# Rename per-user encrypted directories such as /data/user/10 from their
+# temporary name ("10.new") to their final name ("10").
+allow vold system_data_file:dir rename;
+
 # Set scheduling policy of kernel processes
 allow vold kernel:process setsched;
 
