@@ -52,6 +52,24 @@
       "parentUuid": "865e6d5c_821fd2dd",
       "revId": "6d019be31f4d78d072f7c6be847d00e68e2661d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6084fa9b_e80d46b9",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-06-09T09:03:22Z",
+      "side": 1,
+      "message": "(The macros are defined in system/sepolicy/public/global_macros, fwiw)\n\nWe often just grant \"read\" or \"read write\". But then we often end up adding getattr (or getopt for sockets), which is harmless so we should probably just start with it. And I added ioctl here because crosvm actually uses it, and ioctl on a console is pretty normal and harmless. (There are other restrictions on which ioctls are allowed.)\n\nIf { r_file_perms -open } was legal syntax it would mean \"getattr read ioctl lock map watch watch_reads\". \"lock map watch watch_reads\" are all probably harmless, but also pretty useless here, so I didn\u0027t include them.",
+      "parentUuid": "18df2eac_3a29f3c6",
+      "revId": "6d019be31f4d78d072f7c6be847d00e68e2661d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
