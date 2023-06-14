@@ -47,8 +47,13 @@ neverallow { domain -bpfloader -gpuservice -lmkd                    -netd -netut
 neverallow { domain -bpfloader } bpffs_type:lnk_file ~read;
 neverallow { domain -bpfdomain } bpffs_type:lnk_file read;
 
+<<<<<<< PATCH SET (908da5 allow non bpfloader creation of bpf maps)
+neverallow { domain -bpfdomain } *:bpf map_create;
+neverallow { domain -bpfloader } *:bpf prog_load;
+=======
 neverallow { domain -bpfloader } *:bpf { map_create prog_load };
 neverallow { domain -bpfdomain } *:bpf { map_read map_write prog_run };
+>>>>>>> BASE      (18eb85 Merge "Use no_full_install: true instead of installable: fal)
 
 # 'fs_bpf_loader' is for internal use of the BpfLoader oneshot boot time process.
 neverallow { domain -bpfloader } fs_bpf_loader:bpf *;
