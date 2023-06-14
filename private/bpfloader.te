@@ -46,7 +46,8 @@ neverallow { domain -bpfloader -gpuservice                          -netd -netut
 neverallow { domain -bpfloader } bpffs_type:lnk_file ~read;
 neverallow { domain -bpfdomain } bpffs_type:lnk_file read;
 
-neverallow { domain -bpfloader } *:bpf { map_create prog_load };
+neverallow { domain -bpfdomain } *:bpf map_create;
+neverallow { domain -bpfloader } *:bpf prog_load;
 
 # 'fs_bpf_loader' is for internal use of the BpfLoader oneshot boot time process.
 neverallow { domain -bpfloader } fs_bpf_loader:bpf *;
