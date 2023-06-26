@@ -158,6 +158,8 @@ allowxperm vold vold_device:blk_file ioctl { BLKDISCARD BLKGETSIZE };
 allow vold dm_device:chr_file rw_file_perms;
 allow vold dm_device:blk_file rw_file_perms;
 allowxperm vold dm_device:blk_file ioctl { BLKDISCARD BLKSECDISCARD BLKREPORTZONE BLKRESETZONE };
+# needed for formatting a block device, vold might format /data partition
+allowxperm vold dm_device:blk_file ioctl { BLKGETSIZE64 BLKPBSZGET BLKDISCARDZEROES BLKROGET BLKROSET};
 # For vold Process::killProcessesWithOpenFiles function.
 allow vold domain:dir r_dir_perms;
 allow vold domain:{ file lnk_file } r_file_perms;
