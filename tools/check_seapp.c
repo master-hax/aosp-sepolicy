@@ -21,6 +21,7 @@
 #define log_info(fmt, ...) if (logging_verbose ) { log_msg(stdout, "Info: ", fmt, ##__VA_ARGS__); }
 
 #define APP_DATA_REQUIRED_ATTRIB "app_data_file_type"
+#define COREDOMAIN "coredomain"
 
 /**
  * Initializes an empty, static list.
@@ -149,6 +150,7 @@ struct policy_info {
 	sepol_policy_file_t *pf;
 	sepol_handle_t *handle;
 	sepol_context_t *con;
+	bool vendor;
 };
 
 struct file_info {
@@ -175,7 +177,8 @@ static policy_info pol = {
 	.db = NULL,
 	.pf = NULL,
 	.handle = NULL,
-	.con = NULL
+	.con = NULL,
+	.vendor = false
 };
 
 /**
@@ -408,9 +411,23 @@ static bool validate_domain(char *value, char **errmsg) {
 		return true;
 	}
 
-	if (!find_type(pol.db, value, TYPE_TYPE)) {
+	type_datum_t *type_dat = find_type(pol.db, value, TYPE_TYPE);
+	if (!type_dat) {
 		*errmsg = "Expecting a valid SELinux type";
 		return false;
+	}
+
+	if (pol.vendor) {
+		type_datum_t *attrib_dat = find_type(pol.db, COREDOMAIN, TYPE_ATTRIB);
+		if (!attrib_dat) {
+			*errmsg = "Missing attribute " COREDOMAIN " in policy";
+			return false;
+		}
+
+		if (!type_has_attribute(pol.db, type_dat, attrib_dat)) {
+			*errmsg = "Forbidden attribute " COREDOMAIN " in vendor contexts";
+			return false;
+		}
 	}
 #endif
 
@@ -996,7 +1013,7 @@ static void handle_options(int argc, char *argv[]) {
 	int c;
 	file_info *input_file;
 
-	while ((c = getopt(argc, argv, "ho:p:v")) != -1) {
+	while ((c = getopt(argc, argv, "ho:p:vc")) != -1) {
 		switch (c) {
 		case 'h':
 			usage();
@@ -1009,6 +1026,9 @@ static void handle_options(int argc, char *argv[]) {
 			break;
 		case 'v':
 			log_set_verbose();
+			break;
+		case 'c':
+			pol.vendor = true;
 			break;
 		case '?':
 			if (optopt == 'o' || optopt == 'p')
