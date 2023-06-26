@@ -1,8 +1,6 @@
-# HwBinder IPC from client to server, and callbacks
 binder_call(hal_threadnetwork_client, hal_threadnetwork_server)
 binder_call(hal_threadnetwork_server, hal_threadnetwork_client)
 
-hal_attribute_hwservice(hal_threadnetwork, hal_threadnetwork_hwservice)
 hal_attribute_service(hal_threadnetwork, hal_threadnetwork_service)
 
 binder_call(hal_threadnetwork_server, servicemanager)
