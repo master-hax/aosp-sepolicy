@@ -154,6 +154,16 @@ full_treble_only(`
     -vold
   } sysfs:file no_rw_file_perms;
 
+  # /sys/devices/uprobe
+  neverallow {
+    coredomain
+    -apexd
+    -init
+    -ueventd
+    -vold
+    -uprobestats
+  } sysfs_uprobe:file no_rw_file_perms;
+
   # /dev
   neverallow {
     coredomain
