@@ -1,0 +1,17 @@
+type uprobed, domain, coredomain;
+
+typeattribute uprobed bpfdomain;
+
+type uprobed_exec, system_file_type, exec_type, file_type;
+domain_auto_trans(shell, uprobed_exec, uprobed)
+
+allow uprobed fs_bpf:file { read write };
+allow uprobed bpfloader:bpf { map_read map_write prog_run };
+allow uprobed self:capability2 perfmon;
+allow uprobed self:perf_event { cpu kernel open write };
+allow uprobed sysfs:file { open read };
+
+allow uprobed adbd:fd use;
+allow uprobed shell:fd use;
+allow uprobed devpts:chr_file { getattr ioctl read write };
+allow uprobed shell_data_file:file read;
