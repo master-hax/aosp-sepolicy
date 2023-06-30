@@ -81,7 +81,6 @@ def match_path(path: str, matcher: Matcher) -> bool:
 
 def check_rule(pol, path: str, tcontext: str, rule: Rule) -> List[str]:
     """Returns error message if scontext can't read the target"""
-    errors = []
     match rule:
         case AllowRead(tclass, scontext):
             # Test every source in scontext(set)
@@ -91,10 +90,9 @@ def check_rule(pol, path: str, tcontext: str, rule: Rule) -> List[str]:
                                                 tclass={tclass},
                                                 perms={'read'}))
                 if len(te_rules) > 0:
-                    continue  # no errors
+                    return []  # no errors
 
-                errors.append(f"Error: {path}: {s} can't read. (tcontext={tcontext})")
-    return errors
+                return [f"Error: {path}: {s} can't read. (tcontext={tcontext})"]
 
 
 rules = [
