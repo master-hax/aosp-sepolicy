@@ -126,7 +126,7 @@ allow vold mnt_expand_file:dir { create_dir_perms mounton };
 allow vold apk_data_file:dir { create getattr setattr };
 allow vold shell_data_file:dir { create getattr setattr };
 allow vold system_userdir_file:dir { create getattr setattr };
-allow vold media_userdir_file:dir { create getattr setattr open read ioctl };
+allow vold media_userdir_file:dir { create getattr setattr open read ioctl rmdir };
 # Needed to set the casefold flag on /mnt/expand/$volume/media
 allowxperm vold media_userdir_file:dir ioctl { FS_IOC_GETFLAGS FS_IOC_SETFLAGS };
 
@@ -138,6 +138,8 @@ allow vold apk_data_file:file { rw_file_perms unlink };
 allow vold apk_tmp_file:dir { mounton r_dir_perms };
 # Allow to read incremental control file and call selinux restorecon on it
 allow vold incremental_control_file:file { r_file_perms relabelto };
+# Required by cp in MoveStorage.cpp
+allow vold media_userdir_file:file { create_file_perms };
 
 allow vold tmpfs:filesystem { mount unmount };
 allow vold tmpfs:dir create_dir_perms;
