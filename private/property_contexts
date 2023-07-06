@@ -1253,6 +1253,9 @@ ro.product.vndk.version u:object_r:vndk_prop:s0 exact string
 ro.vndk.lite    u:object_r:vndk_prop:s0 exact bool
 ro.vndk.version u:object_r:vndk_prop:s0 exact string
 
+#TODO(b/290159430) Remove this property once VNDK deprecation is completed.
+ro.deprecate.vndk    u:object_r:vndk_prop:s0 exact bool
+
 ro.vts.coverage u:object_r:vts_config_prop:s0 exact int
 
 vts.native_server.on u:object_r:vts_status_prop:s0 exact bool
