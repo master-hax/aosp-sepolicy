@@ -1227,6 +1227,9 @@ get_prop(system_server, time_prop)
 # on low memory kills.
 get_prop(system_server, system_lmk_prop)
 
+# system_server reads this property to know if registering for psi monitors has to be delayed.
+get_prop(system_server, lmkd_config_prop)
+
 get_prop(system_server, wifi_config_prop)
 
 # Only system server can access BINDER_FREEZE and BINDER_GET_FROZEN_INFO
