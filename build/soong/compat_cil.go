@@ -71,7 +71,7 @@ func (c *compatCil) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 	srcPaths := c.expandSeSources(ctx)
 	out := android.PathForModuleGen(ctx, c.Name())
 	ctx.Build(pctx, android.BuildParams{
-		Rule:        android.Cat,
+		Rule:        pctx.CatFilesRule(),
 		Inputs:      srcPaths,
 		Output:      out,
 		Description: "Combining compat cil for " + c.Name(),
