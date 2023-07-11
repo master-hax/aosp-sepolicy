@@ -16,6 +16,46 @@
       "message": "+2, but let\u0027s negate the meaning.",
       "revId": "7e6dcfa3a0f2575c3885e9a0df71182ef633afa4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e4cef58_7d226eb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-07-11T07:53:01Z",
+      "side": 1,
+      "message": "Maybe I\u0027m too pedantic, but I\u0027m not sure about touching `system/sepolicy/private/property_contexts` for a temporary property. You said `A new (temporal) vendor property \u0027ro.deprecate.vndk\u0027` and it seems like this property will be set by vendor_init (`PRODUCT_VENDOR_PROPERTIES`). Why do vendors need to set this?\n\nFor example, we could make a system internal property (e.g. `ro.vndk.enabled`) and turn on the property to test VNDK deprecation behavior (it\u0027s totally fine because linkerconfig is highly bundled to system), avoiding crossing Treble boundary.",
+      "revId": "7e6dcfa3a0f2575c3885e9a0df71182ef633afa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1be8a582_c5dd8055",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-07-11T07:53:01Z",
+      "side": 1,
+      "message": "`ro.vndk.deprecated` or `ro.vndk.deprecate` seems better.",
+      "range": {
+        "startLine": 1257,
+        "startChar": 0,
+        "endLine": 1257,
+        "endChar": 18
+      },
+      "revId": "7e6dcfa3a0f2575c3885e9a0df71182ef633afa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
