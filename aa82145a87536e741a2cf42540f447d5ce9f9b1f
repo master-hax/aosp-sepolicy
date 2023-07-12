@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb73dd9c_667819f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-07-12T13:46:59Z",
+      "side": 1,
+      "message": "\u003cgeneral agreement with Jeff\u003e",
+      "revId": "aa82145a87536e741a2cf42540f447d5ce9f9b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cc564eb_29fc88e5",
@@ -72,6 +89,78 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "840b14af_ecd46998",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-07-12T13:46:59Z",
+      "side": 1,
+      "message": "You have to specify something, but you won\u0027t be able to use it.",
+      "parentUuid": "179dcbb7_8560f438",
+      "range": {
+        "startLine": 162,
+        "startChar": 132,
+        "endLine": 162,
+        "endChar": 135
+      },
+      "revId": "aa82145a87536e741a2cf42540f447d5ce9f9b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "078f06d0_09eff8b0",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-07-12T13:46:59Z",
+      "side": 1,
+      "message": "Having mlstrustedsubject blocks any access to app private data anyway, so it probably doesn\u0027t matter.",
+      "parentUuid": "9cc564eb_29fc88e5",
+      "range": {
+        "startLine": 162,
+        "startChar": 101,
+        "endLine": 162,
+        "endChar": 121
+      },
+      "revId": "aa82145a87536e741a2cf42540f447d5ce9f9b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73bdbf46_2bc60729",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-07-12T13:46:59Z",
+      "side": 1,
+      "message": "Agreed. Does this app really need to run as the system user? Ideally we\u0027d be having less code in system, not more.",
+      "parentUuid": "762cd5bb_08db05f8",
+      "range": {
+        "startLine": 162,
+        "startChar": 5,
+        "endLine": 162,
+        "endChar": 11
+      },
+      "revId": "aa82145a87536e741a2cf42540f447d5ce9f9b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c692cb68_203b1835",
         "filename": "private/virtual_camera.te",
         "patchSetId": 1
@@ -83,6 +172,30 @@
       "writtenOn": "2023-07-12T13:39:43Z",
       "side": 1,
       "message": "I think we need a better explanation for this.",
+      "range": {
+        "startLine": 4,
+        "startChar": 45,
+        "endLine": 4,
+        "endChar": 46
+      },
+      "revId": "aa82145a87536e741a2cf42540f447d5ce9f9b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d976cbc1_d902cb65",
+        "filename": "private/virtual_camera.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-07-12T13:46:59Z",
+      "side": 1,
+      "message": "+1.\nIf this does need to act cross-user then the app is responsible for ensuring there is no cross-user leakage. But in general apps should not be acting cross user.",
+      "parentUuid": "c692cb68_203b1835",
       "range": {
         "startLine": 4,
         "startChar": 45,
