@@ -161,6 +161,78 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9732c584_d0213329",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1143408
+      },
+      "writtenOn": "2023-07-13T09:50:30Z",
+      "side": 1,
+      "message": "Not using the data dir (at least not planned) What is the better alternative ?",
+      "parentUuid": "078f06d0_09eff8b0",
+      "range": {
+        "startLine": 162,
+        "startChar": 101,
+        "endLine": 162,
+        "endChar": 121
+      },
+      "revId": "aa82145a87536e741a2cf42540f447d5ce9f9b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebe2719c_4aa6d433",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1143408
+      },
+      "writtenOn": "2023-07-13T09:50:30Z",
+      "side": 1,
+      "message": "The service is called from the system, so I thought it made sense to keep it as is. Would it be better to define a new user ?",
+      "parentUuid": "73bdbf46_2bc60729",
+      "range": {
+        "startLine": 162,
+        "startChar": 5,
+        "endLine": 162,
+        "endChar": 11
+      },
+      "revId": "aa82145a87536e741a2cf42540f447d5ce9f9b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1b2baa5_8eb2f5b5",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1143408
+      },
+      "writtenOn": "2023-07-13T09:50:30Z",
+      "side": 1,
+      "message": "I don\u0027t know what levelFrom and mlstrustedsubject actually are. I know I needed the mlstrustedsubject to get rid of some denial.",
+      "parentUuid": "840b14af_ecd46998",
+      "range": {
+        "startLine": 162,
+        "startChar": 132,
+        "endLine": 162,
+        "endChar": 135
+      },
+      "revId": "aa82145a87536e741a2cf42540f447d5ce9f9b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c692cb68_203b1835",
         "filename": "private/virtual_camera.te",
         "patchSetId": 1
@@ -196,6 +268,30 @@
       "side": 1,
       "message": "+1.\nIf this does need to act cross-user then the app is responsible for ensuring there is no cross-user leakage. But in general apps should not be acting cross user.",
       "parentUuid": "c692cb68_203b1835",
+      "range": {
+        "startLine": 4,
+        "startChar": 45,
+        "endLine": 4,
+        "endChar": 46
+      },
+      "revId": "aa82145a87536e741a2cf42540f447d5ce9f9b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84c9a784_8edfc845",
+        "filename": "private/virtual_camera.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1143408
+      },
+      "writtenOn": "2023-07-13T09:50:30Z",
+      "side": 1,
+      "message": "It\u0027s been a while since I added this so I don\u0027t remember exactly why. \n\nLooking through my notes, it seems that I had the following error and adding mlstrustedsubject solved it.\n\n\n```\nauditd  : type\u003d1400 audit(0.0:57): avc: denied { write } for comm\u003d\".virtual.camera\" name\u003d\"android.companion.virtual.camera-dBo\n4QlblQ566WEIyy-YYZQ\u003d\u003d\" dev\u003d\"dm-44\" ino\u003d24159 scontext\u003du:r:virtual_camera:s0:c232,c259,c512,c768 tcontext\u003du:object_r:apk_data_file:s0 tclass\u003ddir permissive\u003d1 \n```\n\nI will need to double check tomorrow what happens if I remove it.",
+      "parentUuid": "d976cbc1_d902cb65",
       "range": {
         "startLine": 4,
         "startChar": 45,
