@@ -81,6 +81,30 @@
       },
       "revId": "8a07e378af3c7e0a86dbdc125256d4e5bb2c1a01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db76308a_cb3d10e6",
+        "filename": "private/system_server.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2023-07-13T23:53:35Z",
+      "side": 1,
+      "message": "Hmm. The whole point of reading this property was to avoid waking LMKD up unnecessarily. If we have to talk to LMKD then might as well send the request unconditionally and let LMKD wake up and ignore the request if monitors are already up and running. If reading the property has higher overhead that talking to LMKD, we might as well send it unconditionally.",
+      "parentUuid": "3cf5cba4_136d8268",
+      "range": {
+        "startLine": 1229,
+        "startChar": 0,
+        "endLine": 1231,
+        "endChar": 41
+      },
+      "revId": "8a07e378af3c7e0a86dbdc125256d4e5bb2c1a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
