@@ -105,6 +105,30 @@
       },
       "revId": "8a07e378af3c7e0a86dbdc125256d4e5bb2c1a01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de29eaf0_100d57d5",
+        "filename": "private/system_server.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1882967
+      },
+      "writtenOn": "2023-07-14T00:38:31Z",
+      "side": 1,
+      "message": "As per my understanding, Steven\u0027s comment was about if we can avoid giving read access for `lmkd_config_prop` type. Is that right @smoreland@google.com? I think performance wise the current approach may be better where we are most likely reading the property from cache vs an IPC to get the value. Suren, What do you think of system_server accessing this property type?\n\nIf we want to read it only from lmkd and pass it to AM, we should be able to completely ignore the check for property in AM as LMKD also checks for this before processing the command.",
+      "parentUuid": "db76308a_cb3d10e6",
+      "range": {
+        "startLine": 1229,
+        "startChar": 0,
+        "endLine": 1231,
+        "endChar": 41
+      },
+      "revId": "8a07e378af3c7e0a86dbdc125256d4e5bb2c1a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
