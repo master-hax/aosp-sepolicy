@@ -201,6 +201,30 @@
       },
       "revId": "8a07e378af3c7e0a86dbdc125256d4e5bb2c1a01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e887f982_7a332368",
+        "filename": "private/system_server.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2023-07-17T19:44:00Z",
+      "side": 1,
+      "message": "Creating a library function just to read a system property sounds like an overkill. I would suggest keeping things simple and just sending the request to LMKD after boot complete unconditionally. If LMKD already initialized the triggers then it will safely ignore this request.",
+      "parentUuid": "8cf3d1cf_a25548b2",
+      "range": {
+        "startLine": 1229,
+        "startChar": 0,
+        "endLine": 1231,
+        "endChar": 41
+      },
+      "revId": "8a07e378af3c7e0a86dbdc125256d4e5bb2c1a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
