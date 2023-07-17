@@ -177,6 +177,30 @@
       },
       "revId": "8a07e378af3c7e0a86dbdc125256d4e5bb2c1a01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cf3d1cf_a25548b2",
+        "filename": "private/system_server.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-07-17T19:17:01Z",
+      "side": 1,
+      "message": "If it only happens one time per boot, we should keep these properties hidden. We shouldn\u0027t leak lmkd details into the client. It would make it more difficult to update lmkd.\n\nIf lmkd exposed a library, this could work, but ProcessList.java and ActivityManagerService.java shouldn\u0027t have to be changed if we want to make other improvements to the lmkd codebase.",
+      "parentUuid": "921aebcf_f24fa419",
+      "range": {
+        "startLine": 1229,
+        "startChar": 0,
+        "endLine": 1231,
+        "endChar": 41
+      },
+      "revId": "8a07e378af3c7e0a86dbdc125256d4e5bb2c1a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
