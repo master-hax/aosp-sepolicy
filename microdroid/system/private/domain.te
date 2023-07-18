@@ -241,9 +241,6 @@ dontaudit domain cgroup:file create;
 dontaudit domain cgroup_v2:file create;
 
 #-----------------------------------------
-# Allow access to fsverity keyring.
-allow domain kernel:key search;
-
 # Transition to crash_dump when /system/bin/crash_dump* is executed.
 # This occurs when the process crashes.
 domain_auto_trans({domain -no_crash_dump_domain}, crash_dump_exec, crash_dump);
