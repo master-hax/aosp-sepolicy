@@ -22,6 +22,30 @@
       },
       "revId": "12043fc64ebc86650984f5d8614f6def12d62f49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6ad49ee_8185af41",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2023-07-19T16:46:21Z",
+      "side": 1,
+      "message": "- If a file with an fsverity builtin signature does still exist on-disk, removing this rule will cause an SELinux denial and change the error code received when opening the file.  Probably doesn\u0027t matter though.\n- init needs it to set up the session keyring\n- Cuttlefish\u0027s dlkm_loader needs it for trying to check module signatures\n- Maybe something else I missed.\n\nI\u0027ll try to address this before closing b/290064770.",
+      "parentUuid": "d2a7546c_f2eec394",
+      "range": {
+        "startLine": 13,
+        "startChar": 47,
+        "endLine": 15,
+        "endChar": 55
+      },
+      "revId": "12043fc64ebc86650984f5d8614f6def12d62f49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
