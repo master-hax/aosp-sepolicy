@@ -63,6 +63,24 @@
       "message": "The AuthFsHostTest presubmit error is real.\n\u003e stderr: \u0027ERROR: FS_IOC_ENABLE_VERITY failed on \u0027input.apk\u0027: Required key not available\n\nI need to update this test first... probably also the CTS test (if not also the actual implementation).  Does this block your work?  I see the kernel config change has landed.",
       "revId": "12043fc64ebc86650984f5d8614f6def12d62f49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51e34974_aadfc50d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2023-07-19T16:56:47Z",
+      "side": 1,
+      "message": "It blocks the 3 CLs in this topic.\n\nI think it\u0027s fine that I already disabled CONFIG_FS_VERITY_BUILTIN_SIGNATURES on android-mainline.  Even with that option disabled, FS_IOC_ENABLE_VERITY actually still accepts a signature; it just won\u0027t actually be checked.  So that shouldn\u0027t cause the test to fail.\n\nAOSP main needs to run with other kernel versions, though, so we cannot rely on the signature not being checked.  So the test does need to be fixed before submitting the 3 CLs in this topic.  It sounds like you\u0027re planning to update the test?  Thanks!",
+      "parentUuid": "96a63672_5bfa7764",
+      "revId": "12043fc64ebc86650984f5d8614f6def12d62f49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
