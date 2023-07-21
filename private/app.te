@@ -527,3 +527,6 @@ neverallow {
     appdomain
     -device_as_webcam
 } video_device:chr_file { read write };
+
+# Don't allow apps reading /system/etc/font_fallback.xml
+neverallow appdomain system_font_fallback_file:file no_rw_file_perms;
