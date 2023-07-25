@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6e6226e4_bf35167b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-07-25T01:34:01Z",
+      "side": 1,
+      "message": "This policy is good. I think the key point is that this is a framework service re-serving a HAL interface, but it\u0027s not a real HAL interface which is part of the VINTF interface.\n\nBtw - since it is a HAL interface Vadim, you will run into some problems where this HAL should be declared in the VINTF manifest. Since it\u0027s not a part of the system/vendor interface, you should avoid declaring it in the VINTF manifest and also call forceDowngradeToLocalStability in native code or Binder.forceDowngradeToSystemStability in Java to avoid this. Then you would also have to give cameraserver another way to recognize this device is starting/stopping, which I imagine you will want to do anyway. One option is using bound services in the framework, and I think that would jive more nicely with having an app serving this.",
+      "parentUuid": "477d2723_83b9f639",
+      "revId": "0197706b4dd9762549b904045297f48855a6c863",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1fb003b1_0e93f03e",
         "filename": "build/soong/service_fuzzer_bindings.go",
         "patchSetId": 2
@@ -89,6 +107,29 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14d6cf08_e31c188c",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-07-25T01:34:01Z",
+      "side": 1,
+      "message": "Noting that this is required in order for it to serve any AIDL interface from an app.",
+      "range": {
+        "startLine": 162,
+        "startChar": 5,
+        "endLine": 162,
+        "endChar": 11
+      },
+      "revId": "0197706b4dd9762549b904045297f48855a6c863",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f39db2c_f2a01fb4",
@@ -102,6 +143,30 @@
       "writtenOn": "2023-07-20T09:31:26Z",
       "side": 1,
       "message": "Delete rather than commenting out.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 47
+      },
+      "revId": "0197706b4dd9762549b904045297f48855a6c863",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45500208_6f4567ac",
+        "filename": "private/virtual_camera.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-07-25T01:34:01Z",
+      "side": 1,
+      "message": "+1 - this isn\u0027t a HAL server from compatibility perspective. hal_camera won\u0027t get involved at all because virtual_camera_service is not a hal_camera_service - they are only yolked together via `hal_attribute_service(hal_camera, hal_camera_service)`, not via the application name.\n\nFunny enough - for HIDL interfaces, it would have been impossible to specify this policy, because it couldn\u0027t differentiate instance names, and we also just happened to let some apps serve HAL interface. So, while it was thought the AIDL way would make the policy too onerous to maintain, it actually helps us maintain security properties for this case.",
+      "parentUuid": "1f39db2c_f2a01fb4",
       "range": {
         "startLine": 5,
         "startChar": 0,
