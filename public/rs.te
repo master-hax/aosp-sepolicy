@@ -1,2 +1,6 @@
 type rs, domain, coredomain;
 type rs_exec, system_file_type, exec_type, file_type;
+
+# See b/291211299. Since rs is deprecated, this shouldn't be too dangerous, since new 
+# renderscript usages shouldn't be popping up.
+dontaudit rs hal_graphics_allocator_default:fd use;
