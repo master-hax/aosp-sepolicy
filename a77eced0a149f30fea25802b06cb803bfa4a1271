@@ -22,6 +22,30 @@
       },
       "revId": "a77eced0a149f30fea25802b06cb803bfa4a1271",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00e0bc43_3b2d451b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2023-07-25T04:31:17Z",
+      "side": 1,
+      "message": "I tested \"Move content\", which moves the primary \"external\" storage from one \"emulated\" volume to another.  `vold` does this by moving the contents of the `media` directory using commands like:\n\n```\n/system/bin/cp -p -R -P -d /data/media/obb /data/media/0 /mnt/expand/6d66565c-6373-4440-872c-6b028cd76eb9/media\n/system/bin/rm -f -R  /data/media/0/Android /data/media/0/.transforms /data/media/0/Music [and all other immediate subdirectories of /data/media/0]\n```\n\nThe `cp` command copies all directories one level below `media`.  The `rm` command deletes all directories two levels below the old `media`.\n\nI think it\u0027s the `cp` command that is causing the problem here.  I think `cp` makes no effort to copy SELinux contexts or create files with the correct SELinux context.  So it just gets the default inheritance behavior.  The problem is that if a per-user subdirectory such as `/data/media/10` exists on internal storage but not on adoptable storage, then the entire destination directory tree `/mnt/expand/${volume_uuid}/media/10` inherits the `media_userdir_file` type from `media`.\n\nThat is wrong because `media_userdir_file` is *only* for `media` itself.\n\nIf my theory is correct, then this actually has the same root cause as the issue you are trying to fix with https://r.android.com/2661875 and https://r.android.com/2660878: the volumes are not being prepared for all users.  Have you considered just preparing the storage for all users on both the source and destination volumes?  That would solve both of your problems.\n\nIf that doesn\u0027t work out for some reason, then you\u0027ll need to fix the files to be created with the correct SELinux types, for example by adding a `type_transition` rule, or by doing a restorecon after creating them and adding all the rules needed for that to work.  This CL is not enough.  (Note: the `type_transition` solution would be a one-liner, which makes it attractive, but I\u0027ve been told that `type_transition` is an anti-pattern.)",
+      "parentUuid": "296ae474_63ce5a00",
+      "range": {
+        "startLine": 15,
+        "startChar": 24,
+        "endLine": 17,
+        "endChar": 60
+      },
+      "revId": "a77eced0a149f30fea25802b06cb803bfa4a1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
