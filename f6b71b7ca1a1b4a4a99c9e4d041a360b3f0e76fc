@@ -94,6 +94,30 @@
       },
       "revId": "f6b71b7ca1a1b4a4a99c9e4d041a360b3f0e76fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f690417_4cafc316",
+        "filename": "private/rs.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-07-25T16:32:01Z",
+      "side": 1,
+      "message": "Oh, sorry, I wasn\u0027t paying enough attention. This hal stuff always confuses me.\n\nI think you want \"hal_graphics_allocator\" rather than \"hal_graphics_allocator_default\". The former is not vendor-specific, and is an attribute that covers hal_graphics_allocator_default and anything else that implements that hal.\n\nAnd then it can go here, rather than over in vendor/",
+      "parentUuid": "dbf87b0b_d2083f0d",
+      "range": {
+        "startLine": 37,
+        "startChar": 36,
+        "endLine": 37,
+        "endChar": 66
+      },
+      "revId": "f6b71b7ca1a1b4a4a99c9e4d041a360b3f0e76fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
