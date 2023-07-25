@@ -17,4 +17,7 @@ allow ot_daemon threadnetwork_data_file:dir rw_dir_perms;
 allow ot_daemon threadnetwork_data_file:file create_file_perms;
 allow ot_daemon threadnetwork_data_file:sock_file {create unlink};
 
+# Allow the ot_daemon to send and receive ICMPv6 packets
+allow ot_daemon self:capability net_raw;
+
 hal_client_domain(ot_daemon, hal_threadnetwork)
