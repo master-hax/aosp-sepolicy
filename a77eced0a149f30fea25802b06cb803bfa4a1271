@@ -94,6 +94,30 @@
       },
       "revId": "a77eced0a149f30fea25802b06cb803bfa4a1271",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a8c00d4_983be5ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2023-07-25T19:40:03Z",
+      "side": 1,
+      "message": "\u003e We can prepare storage before moving storage, in that case we\u0027ll have to consider the case whether or not to trigger recovery if the operation fails (as we do in UserDataPreparer#prepareUserDataLI).\n\nI think we just shouldn\u0027t proceed with the move if any users fail to prepare.  I don\u0027t think we should reboot into recovery; UserDataPreparer only does that for user 0 anyway.\n\n\u003e Also, https://r.android.com/2660878, helps follow the internal storage behavior of locking the storage on userStop\n\nYes, I think we still want that.",
+      "parentUuid": "a19e209a_15ef4ebb",
+      "range": {
+        "startLine": 15,
+        "startChar": 24,
+        "endLine": 17,
+        "endChar": 60
+      },
+      "revId": "a77eced0a149f30fea25802b06cb803bfa4a1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
