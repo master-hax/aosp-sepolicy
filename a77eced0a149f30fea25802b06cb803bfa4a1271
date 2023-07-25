@@ -46,6 +46,30 @@
       },
       "revId": "a77eced0a149f30fea25802b06cb803bfa4a1271",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c52af7cc_2499338e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 2007917
+      },
+      "writtenOn": "2023-07-25T05:30:40Z",
+      "side": 1,
+      "message": "I think you are right. I am not able to reproduce the issue currently for some reason 😞 to give you the exact files that were causing the issue which prompted this change.\n\nI think https://r.android.com/2660878 (will update the change shortly) is still required as we will have to unlock the store when we are trying to move apps (which resides in `mnt/expand/\u003cUUID\u003e/user/\u003cuser_id\u003e` and `mnt/expand/\u003cUUID\u003e/user_de/\u003cuser_id\u003e`). Preparing user data will still solve the problem but we will have to decide if we are willing to execute the prepare step everytime we trigger an app move.\n\nWe can prepare storage before moving storage, in that case we\u0027ll have to consider the case whether or not to trigger recovery if the operation fails (as we do in UserDataPreparer#prepareUserDataLI).\n\nPlease let me know your thoughts",
+      "parentUuid": "00e0bc43_3b2d451b",
+      "range": {
+        "startLine": 15,
+        "startChar": 24,
+        "endLine": 17,
+        "endChar": 60
+      },
+      "revId": "a77eced0a149f30fea25802b06cb803bfa4a1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
