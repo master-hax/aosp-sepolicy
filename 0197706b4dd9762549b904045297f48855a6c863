@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dfddfa4_ebe4801b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1143408
+      },
+      "writtenOn": "2023-07-26T12:21:01Z",
+      "side": 1,
+      "message": "Following up offline for the VINTF entry.",
+      "parentUuid": "6e6226e4_bf35167b",
+      "revId": "0197706b4dd9762549b904045297f48855a6c863",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fb003b1_0e93f03e",
@@ -167,6 +185,30 @@
       "side": 1,
       "message": "+1 - this isn\u0027t a HAL server from compatibility perspective. hal_camera won\u0027t get involved at all because virtual_camera_service is not a hal_camera_service - they are only yolked together via `hal_attribute_service(hal_camera, hal_camera_service)`, not via the application name.\n\nFunny enough - for HIDL interfaces, it would have been impossible to specify this policy, because it couldn\u0027t differentiate instance names, and we also just happened to let some apps serve HAL interface. So, while it was thought the AIDL way would make the policy too onerous to maintain, it actually helps us maintain security properties for this case.",
       "parentUuid": "1f39db2c_f2a01fb4",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 47
+      },
+      "revId": "0197706b4dd9762549b904045297f48855a6c863",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd870085_3d0fa02d",
+        "filename": "private/virtual_camera.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1143408
+      },
+      "writtenOn": "2023-07-26T12:21:01Z",
+      "side": 1,
+      "message": "Resolved",
+      "parentUuid": "45500208_6f4567ac",
       "range": {
         "startLine": 5,
         "startChar": 0,
