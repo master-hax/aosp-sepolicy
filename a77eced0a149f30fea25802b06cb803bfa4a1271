@@ -118,6 +118,30 @@
       },
       "revId": "a77eced0a149f30fea25802b06cb803bfa4a1271",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74ceabc1_3f5367eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 2007917
+      },
+      "writtenOn": "2023-07-26T15:01:25Z",
+      "side": 1,
+      "message": "Sure, will abandon this change and prepare the storage before move storage. I have two questions:\n1. Do we want to do the prepare storage in StorageManagerService or vold? (My thought is StorageManagerService before calling IVold#moveStorage)\n2. Do we want to still keep the unlock \u0026 lock logic independent of any other operation? (Because we have to think about move apps also, for this also my thought yes for keeping it independent)\n\nPlease let me know your thoughts.\n\n(And sorry for the delay in updating https://r.android.com/2660878)",
+      "parentUuid": "3a8c00d4_983be5ab",
+      "range": {
+        "startLine": 15,
+        "startChar": 24,
+        "endLine": 17,
+        "endChar": 60
+      },
+      "revId": "a77eced0a149f30fea25802b06cb803bfa4a1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
