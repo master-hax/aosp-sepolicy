@@ -54,3 +54,8 @@ allow installd { dex2oat dexoptanalyzer profman }:process sigkill;
 
 # Allow installd manage dirs in /data/misc_ce/0/sdksandbox
 allow installd sdk_sandbox_system_data_file:dir { create_dir_perms relabelfrom };
+
+# Allow installd to enable fs-verity for app file passed as fd.
+allow installd untrusted_app:fd use;
+allow installd app_data_file:file ioctl;
+allowxperm installd app_data_file:file ioctl FS_IOC_ENABLE_VERITY;
