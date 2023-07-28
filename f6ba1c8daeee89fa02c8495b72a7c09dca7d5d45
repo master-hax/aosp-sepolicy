@@ -63,6 +63,30 @@
       },
       "revId": "f6ba1c8daeee89fa02c8495b72a7c09dca7d5d45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "594266bb_36d148f4",
+        "filename": "public/vold.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-07-28T17:57:33Z",
+      "side": 1,
+      "message": "I actually would in general recommend avoiding comments here, because they can become inaccurate. This is what is used for now, but if the vold implementation changes, then the comment is out of date. We don\u0027t want people reading comments and think they understand things, we want them to read the actual policy and think about that and what possible implementations or bugs it could allow.\n\nnnk/jeffv/danielcashmen used to delete a lot of the comments.\n\nStill, you can put the group on multiple lines and still make comments, e.g.:\n\n```\nallowxperm vold dm_device:blk_file ioctl {\n    BLKDISCARD\n    BLKSECDISCARD\n    BLKREPORTZONE\n    BLKRESETZONE \n\n    # needed for formatting a block device, vold might format /data partition\n    BLKGETSIZE64\n    BLKPBSZGET\n    BLKDISCARDZEROES\n    BLKROGET\n    BLKROSET\n};\n```\n\nI\u0027m still waiting on the other reviewers, but I think this should be preferred because it is faster to understand these permissions are related.",
+      "parentUuid": "1c832af4_db43e16f",
+      "range": {
+        "startLine": 160,
+        "startChar": 95,
+        "endLine": 162,
+        "endChar": 42
+      },
+      "revId": "f6ba1c8daeee89fa02c8495b72a7c09dca7d5d45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
