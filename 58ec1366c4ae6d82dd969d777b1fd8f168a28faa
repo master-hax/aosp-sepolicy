@@ -22,6 +22,30 @@
       },
       "revId": "58ec1366c4ae6d82dd969d777b1fd8f168a28faa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ab09126_1ccd3798",
+        "filename": "private/installd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2023-07-29T00:04:41Z",
+      "side": 1,
+      "message": "FS_IOC_MEASURE_VERITY doesn\u0027t necessarily need to be done in installd because it\u0027s rather simple and fuzzed for years.  It can be on system_server.  In fact, I just scheduled a meeting with Alan to discuss whether or not it\u0027s better to just do it in the app domain.",
+      "parentUuid": "fbefe4dc_c1dc7448",
+      "range": {
+        "startLine": 61,
+        "startChar": 45,
+        "endLine": 61,
+        "endChar": 65
+      },
+      "revId": "58ec1366c4ae6d82dd969d777b1fd8f168a28faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
