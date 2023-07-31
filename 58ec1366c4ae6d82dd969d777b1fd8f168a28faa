@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6dfdc929_8afbc83d",
+        "filename": "private/installd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2023-07-31T20:00:44Z",
+      "side": 1,
+      "message": "Interesting... r_file_perms includes ioctl. Removed.\n\nRe moving the new ioctl over there, I see those are in public.  Is there a reason to move the new ioctl there?  I consider it as an implementation detail.",
+      "parentUuid": "575a32fe_32ce8f70",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 40
+      },
+      "revId": "58ec1366c4ae6d82dd969d777b1fd8f168a28faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fbefe4dc_c1dc7448",
         "filename": "private/installd.te",
         "patchSetId": 2
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "fwiw, if all calls are going via system_server anyway, we already have these:\n\nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/sepolicy/private/system_server.te;l\u003d1116-1121?q\u003dFS_IOC_ENABLE_VERITY\u0026ss\u003dh%2Fgoogleplex-android%2Fplatform%2Fsuperproject%2Fmain%2F%2B%2Fmain:system%2Fsepolicy%2F",
       "parentUuid": "7ab09126_1ccd3798",
+      "range": {
+        "startLine": 61,
+        "startChar": 45,
+        "endLine": 61,
+        "endChar": 65
+      },
+      "revId": "58ec1366c4ae6d82dd969d777b1fd8f168a28faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff33b690_c8b88277",
+        "filename": "private/installd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2023-07-31T20:00:44Z",
+      "side": 1,
+      "message": "Actually no, allowing it to the policy doesn\u0027t override the DAC check. system uid can\u0027t enable fs-verity for app files.",
+      "parentUuid": "8335212c_9ab09dc6",
       "range": {
         "startLine": 61,
         "startChar": 45,
