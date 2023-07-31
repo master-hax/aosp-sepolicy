@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b39aca4b_4bfab94f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2023-07-31T20:25:57Z",
+      "side": 1,
+      "message": "There\u0027s too many code links, they would not fit in a commit message. So let me explain here\n\n1. init calls encryptFstab with should_format set to true\n\nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/core/fs_mgr/fs_mgr.cpp;l\u003d1543;drc\u003d9a85b15ae280cc30c729f62926afce2d810967a4;bpv\u003d1;bpt\u003d1?q\u003dfs_mgr.cpp\u0026sq\u003drepo:googleplex-android%2Fplatform%2Fsuperproject%2Fmain%09branch:main\n\n\n2. encryptFstab might call mkfs.ext4 to format a volume, code \n\nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/refs/heads/main:system/vold/fs/Ext4.cpp;drc\u003d9a85b15ae280cc30c729f62926afce2d810967a4;l\u003d159\n\n3. Later, mkfs.ext4  uses BLKDISCARDZEROES to wipe a block device.\n\nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/refs/heads/main:external/e2fsprogs/lib/ext2fs/unix_io.c;l\u003d796;drc\u003d9a85b15ae280cc30c729f62926afce2d810967a4;bpv\u003d1;bpt\u003d1\n\nThis code path is only invoked if the /data partition does not already contain a valid file system. Today\u0027s devices usually boot with a valid /data partition so this code path is not exercised. If we ask cuttlefish to create a new data image(`-data_policy\u003dalways_create` ), this code path will be executed",
+      "parentUuid": "b9560db7_acbe7180",
+      "range": {
+        "startLine": 9,
+        "startChar": 24,
+        "endLine": 9,
+        "endChar": 70
+      },
+      "revId": "f6ba1c8daeee89fa02c8495b72a7c09dca7d5d45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3fabd99a_7756533b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
