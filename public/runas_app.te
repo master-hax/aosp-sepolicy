@@ -1,1 +1,4 @@
 type runas_app, domain;
+
+// Don't audit /data/local/tests.
+dontaudit runas_app shell_test_data_file:dir search;
