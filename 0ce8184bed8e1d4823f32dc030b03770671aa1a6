@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45b020b3_ff38c836",
+        "filename": "private/vold_prepare_subdirs.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-01T11:51:50Z",
+      "side": 1,
+      "message": "Hmm. So, the purpose of vold_prepare_subdirs is to be a small executable doing only the specific job we need it to do (handle fs maniuplation for user creation \u0026 destruction).\nIt has more permissions than vold (and vold is scary enough), but it only does a few relatively simple things.\nAdding binder into the mix seems to be broadening that fairly significantly.\nIs there any way we can do that work in vold instead, somehow?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 61
+      },
+      "revId": "0ce8184bed8e1d4823f32dc030b03770671aa1a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
