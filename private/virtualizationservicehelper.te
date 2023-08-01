@@ -1,0 +1,20 @@
+type vfio_handler, domain, coredomain;
+type vfio_handler_exec, system_file_type, exec_type, file_type;
+
+# When init runs a file labelled with vfio_handler_exec, run it in the
+# virtualizationservice domain.
+init_daemon_domain(vfio_handler)
+
+# Let the vfio_handler domain register the vfio_handler_service with ServiceManager.
+add_service(vfio_handler, vfio_handler_service)
+
+# Let the virtualizationservice domain use Binder.
+binder_use(vfio_handler)
+
+# Allow vfio_handler to check if VFIO is supported
+allow vfio_handler vfio_device:chr_file getattr;
+allow vfio_handler vfio_device:dir r_dir_perms;
+
+# Allow vfio_handler to bind/unbind platform devices
+allow vfio_handler sysfs:dir r_dir_perms;
+allow vfio_handler sysfs:file rw_file_perms;
