@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "903939fe_6a82fb50",
+        "filename": "apex/com.android.virt-file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-08-01T07:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f33875bf_2cb301b9",
+      "range": {
+        "startLine": 6,
+        "startChar": 5,
+        "endLine": 6,
+        "endChar": 32
+      },
+      "revId": "b56bc31daf3e164d0d0349c4153ba5e2996a8fac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "805666b8_c8d3fb32",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "664225a0_2c028ef8",
+        "filename": "build/soong/service_fuzzer_bindings.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-08-01T07:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "805666b8_c8d3fb32",
+      "range": {
+        "startLine": 174,
+        "startChar": 18,
+        "endLine": 174,
+        "endChar": 45
+      },
+      "revId": "b56bc31daf3e164d0d0349c4153ba5e2996a8fac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c80f9a4_aebd0c0d",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-08-01T06:00:41Z",
       "side": 1,
       "message": "Does virtmgr actually read the file by itself?",
+      "range": {
+        "startLine": 95,
+        "startChar": 66,
+        "endLine": 95,
+        "endChar": 79
+      },
+      "revId": "b56bc31daf3e164d0d0349c4153ba5e2996a8fac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3118d6c_4edaa981",
+        "filename": "private/virtualizationmanager.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-08-01T07:53:47Z",
+      "side": 1,
+      "message": "Yes it really reads (idk why), without this the binder call fails.\n\n```\n08-01 16:47:25.364  9501  9501 I virtualizations: type\u003d1400 audit(0.0:68): avc:  denied  { use } for  path\u003d\"pipe:[104294]\" dev\u003d\"pipefs\" ino\u003d104294 scontext\u003du:r:virtualizationmanager:s0 tcontext\u003du:r:vfio_handler:s0 tclass\u003dfd permissive\u003d1\n08-01 16:47:25.364  9501  9501 I virtualizations: type\u003d1400 audit(0.0:69): avc:  denied  { read } for  path\u003d\"pipe:[104294]\" dev\u003d\"pipefs\" ino\u003d104294 scontext\u003du:r:virtualizationmanager:s0 tcontext\u003du:r:vfio_handler:s0 tclass\u003dfifo_file permissive\u003d1\n```",
+      "parentUuid": "1c80f9a4_aebd0c0d",
       "range": {
         "startLine": 95,
         "startChar": 66,
