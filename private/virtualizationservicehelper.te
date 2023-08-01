@@ -1,0 +1,20 @@
+type virtualizationservicehelper, domain, coredomain;
+type virtualizationservicehelper_exec, system_file_type, exec_type, file_type;
+
+# When init runs a file labelled with virtualizationservicehelper_exec, run it in the
+# virtualizationservice domain.
+init_daemon_domain(virtualizationservicehelper)
+
+# Let the virtualizationservicehelper domain register the virtualization_helper_service with ServiceManager.
+add_service(virtualizationservicehelper, virtualization_helper_service)
+
+# Let the virtualizationservice domain use Binder.
+binder_use(virtualizationservicehelper)
+
+# Allow virtualizationservicehelper to check if VFIO is supported
+allow virtualizationservicehelper vfio_device:chr_file getattr;
+allow virtualizationservicehelper vfio_device:dir r_dir_perms;
+
+# Allow virtualizationservicehelper to bind/unbind platform devices
+allow virtualizationservicehelper sysfs:dir r_dir_perms;
+allow virtualizationservicehelper sysfs:file rw_file_perms;
