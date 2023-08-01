@@ -164,6 +164,30 @@
       },
       "revId": "b56bc31daf3e164d0d0349c4153ba5e2996a8fac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7435918c_80332402",
+        "filename": "private/virtualizationmanager.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-01T14:11:21Z",
+      "side": 1,
+      "message": "It\u0027s receiving an fd that has read access, that\u0027s enough.\n(Normally that check occurs at file open time - not at read time - but when an fd is transmitted between processes the check has to occur at that point.)",
+      "parentUuid": "572b71f8_9c857074",
+      "range": {
+        "startLine": 95,
+        "startChar": 66,
+        "endLine": 95,
+        "endChar": 79
+      },
+      "revId": "b56bc31daf3e164d0d0349c4153ba5e2996a8fac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
