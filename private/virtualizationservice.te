@@ -62,9 +62,9 @@ allow virtualizationservice tombstoned:fd use;
 allow virtualizationservice vfio_device:chr_file getattr;
 allow virtualizationservice vfio_device:dir r_dir_perms;
 
-# Allow virtualizationservice to access VM DTBO via a pipe created by vfio handler.
-allow virtualizationservice vfio_handler:fd use;
-allow virtualizationservice vfio_handler:fifo_file r_file_perms;
+# Allow virtualizationservice to access VM DTBO via a file created by virtualizationmanager.
+allow virtualizationservice virtualizationmanager:fd use;
+allow virtualizationservice virtualizationservice_data_file:file write;
 
 neverallow {
   domain
