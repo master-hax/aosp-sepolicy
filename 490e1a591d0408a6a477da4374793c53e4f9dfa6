@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c98449bd_aea23db6",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-03T10:22:54Z",
+      "side": 1,
+      "message": "I suggest {read getattr}\nIt doesn\u0027t hurt, and all sorts of things use getattr behind your back.",
+      "range": {
+        "startLine": 101,
+        "startChar": 50,
+        "endLine": 101,
+        "endChar": 54
+      },
+      "revId": "490e1a591d0408a6a477da4374793c53e4f9dfa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f8012f5_cc989319",
+        "filename": "private/vfio_handler.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-03T10:22:54Z",
+      "side": 1,
+      "message": "Can we also have \"neverallow vfio_handler virtualizationservice_data_file:file { open create }\" ?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 62
+      },
+      "revId": "490e1a591d0408a6a477da4374793c53e4f9dfa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a59a427a_5cecf524",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-03T10:22:54Z",
+      "side": 1,
+      "message": "We don\u0027t already have this? Wow.\nCan we move it up to near line 37?",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 71
+      },
+      "revId": "490e1a591d0408a6a477da4374793c53e4f9dfa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
