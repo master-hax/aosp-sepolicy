@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5540ded8_570146e1",
+        "filename": "build/soong/service_fuzzer_bindings.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 2005565
+      },
+      "writtenOn": "2023-08-04T13:14:19Z",
+      "side": 1,
+      "message": "briefly discussed over chat: fuzzers for java services are not yet supported. per docs at system/sepolicy/tools/fuzzer_bindings_check.py",
+      "parentUuid": "ca0eed6c_8c718ce6",
+      "range": {
+        "startLine": 181,
+        "startChar": 3,
+        "endLine": 181,
+        "endChar": 10
+      },
+      "revId": "6b9b09afa73c660d7aaab163ca6729745d388faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d23dd4c_b94acb63",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-04T12:42:40Z",
       "side": 1,
       "message": "Is it?\nIf it\u0027s only @SystemApi things, then system_api_service might be more appropriate.",
+      "range": {
+        "startLine": 73,
+        "startChar": 22,
+        "endLine": 73,
+        "endChar": 37
+      },
+      "revId": "6b9b09afa73c660d7aaab163ca6729745d388faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "620c5b3e_d06ac349",
+        "filename": "public/service.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 2005565
+      },
+      "writtenOn": "2023-08-04T13:14:19Z",
+      "side": 1,
+      "message": "Yes, it will be a public API. I\u0027ve marked it as SystemApi for now in the other CL until they are fully functional and ready for API review",
+      "parentUuid": "5d23dd4c_b94acb63",
       "range": {
         "startLine": 73,
         "startChar": 22,
