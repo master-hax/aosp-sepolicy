@@ -188,6 +188,30 @@
       },
       "revId": "a6823c0e8251cf432e84145b7aa1f295e56a3487",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20b1a55a_e0f5295f",
+        "filename": "private/installd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1166043
+      },
+      "writtenOn": "2023-08-07T18:26:52Z",
+      "side": 1,
+      "message": "hmm, so all of this is just because we are not sure that someone would not crash the kernel using FS_IOC_ENABLE_VERITY?\nare we aware of any such vulnerability?\nalso, given this is shipped in V+, can we instead require/check kernel version and return error in case the kernel is vulnerable?",
+      "parentUuid": "876021f0_5fcfafee",
+      "range": {
+        "startLine": 60,
+        "startChar": 50,
+        "endLine": 60,
+        "endChar": 70
+      },
+      "revId": "a6823c0e8251cf432e84145b7aa1f295e56a3487",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
