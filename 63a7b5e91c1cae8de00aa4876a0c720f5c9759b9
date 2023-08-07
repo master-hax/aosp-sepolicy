@@ -118,6 +118,30 @@
       },
       "revId": "63a7b5e91c1cae8de00aa4876a0c720f5c9759b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1a47485_c988cd98",
+        "filename": "private/otapreopt_chroot.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-08-07T20:29:45Z",
+      "side": 1,
+      "message": "I think you\u0027re right. When the linker goes through ld.config.txt it [runs realpath](https://cs.android.com/android/platform/superproject/main/+/refs/heads/main:bionic/linker/linker_config.cpp;l\u003d250;drc\u003d49d39af6fc9d52bcde0dbcba6448ffaa3756d487) on each of those paths until it finds one that matches the binary. The list of dirs looks like:\n\n```\ndir.system \u003d /system/bin/\n/.../\ndir.vendor \u003d /vendor/bin/\n/.../\ndir.system \u003d /data/local/tests/system\n/.../\ndir.unrestricted \u003d /data/local/tmp\ndir.postinstall \u003d /postinstall\n/.../\n```\n\nSo /system/bin/otapreopt_chroot is matched right away, but when it\u0027s in /postinstall a whole bunch of paths get passed through `realpath` first.\n\nHence these denials are safe to ignore. However this doesn\u0027t look like a problem just with our binary - it ought to cause denial noise for lots of binaries that aren\u0027t in /system/bin. It seems like a win if we can devise some generic `dontaudit` directives to cut down noise and developer confusion in lots of places. Actually, it looks like it has [popped up](https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/public/domain.te;l\u003d417-420;drc\u003dabbd8aeefd7f1891dc1442d9c51dc481d99d9d16) before, if I read the directive correctly, but only for the /postinstall directory itself. Alan, do you think we can extend that to all or most dirs in the [linkerconfig list](https://cs.android.com/android/platform/superproject/main/+/main:system/linkerconfig/testdata/golden_output/product-enabled/ld.config.txt;l\u003d1-25;drc\u003da02c94f25ecda2afc436582715258bd6a1f54ccc)?\n\nFor linking reasons we\u0027ve decided to keep running the binary from /system/bin after all, so for this CL we only need the change for the pipes.",
+      "parentUuid": "934828fc_02b08e23",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 44
+      },
+      "revId": "63a7b5e91c1cae8de00aa4876a0c720f5c9759b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
