@@ -284,6 +284,30 @@
       },
       "revId": "a6823c0e8251cf432e84145b7aa1f295e56a3487",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45b5e4dd_c3312e53",
+        "filename": "private/installd.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2023-08-07T19:02:45Z",
+      "side": 1,
+      "message": "\u003e Eric has fixed a bunch. You can find a list in this discussion on a Linux mailing list:\n\nJust to clarify, the specific fixes I listed were pretty old, and all kernels that support fsverity have them.  It\u0027s just the general complexity of PKCS#7 and history of vulnerabilities that continues to be concerning.\n\n\u003e We\u0027ve discussed the alternative to require kernel update. To our understanding, there is no enforcement currently for OEMs to update their kernel on upgrading devices. We\u0027ve made the kernel change this year, so in a few more years, we can revert these changes. But for now, it\u0027s the only practical way.\n\nI still plan to apply and backport my patch \"fsverity: skip PKCS#7 parser when keyring is empty\" (https://lore.kernel.org/r/20230802041503.11530-1-ebiggers@kernel.org).  That will remove the PKCS#7 attack surface from all supported kernel branches that have ever had fsverity support, assuming we can re-land https://r.android.com/2662658 which I think is possible.  Even if somehow we are unable to re-land https://r.android.com/2662658, we could instead add a new sysctl that forbids PKCS#7 on new files and make Android set that sysctl.\n\nI personally would lean towards just relying on that.  We can\u0027t continue to cater to OEMs who refuse to upgrade their kernel.  Outdated kernels have many known vulnerabilities anyway.",
+      "parentUuid": "91d17874_d1c86ff3",
+      "range": {
+        "startLine": 60,
+        "startChar": 50,
+        "endLine": 60,
+        "endChar": 70
+      },
+      "revId": "a6823c0e8251cf432e84145b7aa1f295e56a3487",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
