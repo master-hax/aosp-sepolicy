@@ -212,3 +212,6 @@ domain_auto_trans(apexd, derive_classpath_exec, apexd_derive_classpath);
 
 # Allow set apex ready property
 set_prop(apexd, apex_ready_prop)
+
+# Allow apexd read system property for test harness mode
+get_prop(apexd, test_harness_prop)
