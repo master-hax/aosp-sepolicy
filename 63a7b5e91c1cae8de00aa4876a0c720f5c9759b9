@@ -190,6 +190,30 @@
       },
       "revId": "63a7b5e91c1cae8de00aa4876a0c720f5c9759b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2efd6b9a_98dca876",
+        "filename": "private/otapreopt_chroot.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-08-08T19:42:52Z",
+      "side": 1,
+      "message": "\u003e I\u0027m still slightly confused why it needs read access on /vendor/bin, rather than just search (which is granted to everything).\n\nGood point. I took a closer look with the audit rate limit disabled and with verbose linker debug: http://gpaste/6660914328633344?raw My analysis wasn\u0027t quite correct:\n\n- Only the `read` denial on `vendor_file` happens in that path matching code (before [line 272](https://cs.android.com/android/platform/superproject/main/+/refs/heads/main:bionic/linker/linker_config.cpp;l\u003d272;drc\u003dbd70430d403110476b75a9b544fef13792761f3f)). I now notice [calls to `access`](https://cs.android.com/android/platform/superproject/main/+/refs/heads/main:bionic/linker/linker_config.cpp;l\u003d242-249;drc\u003dbd70430d403110476b75a9b544fef13792761f3f) explicitly to avoid the `realpath` denials there. I don\u0027t understand what in that code section causes that `read` access.\n\n- The `search` denials on data dirs happen later while loading library dependencies. I haven\u0027t figured out that either - there are no such paths in the postinstall linkerconfig section.\n\n- I saw a couple more denials when I disabled the rate limit, still in the linker:\n\n  ```\n  08-08 18:21:04.312 17673 17673 W otapreopt_chroo: type\u003d1400 audit(0.0:320): avc:  denied  { dac_read_search } for  capability\u003d2  scontext\u003du:r:otapreopt_chroot:s0 tcontext\u003du:r:otapreopt_chroot:s0 tclass\u003dcapability permissive\u003d0\n  08-08 18:21:04.312 17673 17673 W otapreopt_chroo: type\u003d1400 audit(0.0:320): avc:  denied  { dac_override } for  capability\u003d1  scontext\u003du:r:otapreopt_chroot:s0 tcontext\u003du:r:otapreopt_chroot:s0 tclass\u003dcapability permissive\u003d0\n  08-08 18:21:04.312 17673 17673 W otapreopt_chroo: type\u003d1400 audit(0.0:321): avc:  denied  { read } for  name\u003d\"/\" dev\u003d\"dm-19\" ino\u003d59 scontext\u003du:r:otapreopt_chroot:s0 tcontext\u003du:object_r:rootfs:s0 tclass\u003ddir permissive\u003d0\n  ```\n\nSo more questions than answers, but bottom line is still that all of the above happens in the linker before the binary itself starts, so from our perspective it\u0027s still \"just\" noise.\n\nThe first issue above looks generic for binaries in dirs lower down in the list in ld.config.txt, but the others may be specific to postinstall binaries. I\u0027ve noticed that the linker config section for [postinstall](https://cs.android.com/android/platform/superproject/main/+/main:system/linkerconfig/testdata/golden_output/product-enabled/ld.config.txt;l\u003d1962-1978;drc\u003da02c94f25ecda2afc436582715258bd6a1f54ccc) looks completely bogus (it ought to only list dirs under /postinstall), so we should probably start in that end if we do need to run a binary from there.\n\n\u003e So TBH I\u0027m tempted to wait until it becomes a problem and decide what to do.\n\nNoise that soaks up developer time and desensitises them to denials isn\u0027t unproblematic either. Maybe the right approach is to add more `access` calls in the linker to guard potentially noisy syscalls. But as mentioned above we may have reason to revisit this later.",
+      "parentUuid": "c66abdba_e6c93b76",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 44
+      },
+      "revId": "63a7b5e91c1cae8de00aa4876a0c720f5c9759b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
