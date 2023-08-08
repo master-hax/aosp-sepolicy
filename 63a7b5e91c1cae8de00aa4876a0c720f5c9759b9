@@ -142,6 +142,30 @@
       },
       "revId": "63a7b5e91c1cae8de00aa4876a0c720f5c9759b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86e72bec_22ca6cc8",
+        "filename": "private/otapreopt_chroot.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-08T12:51:46Z",
+      "side": 1,
+      "message": "I\u0027m still slightly confused why it needs `read` access on /vendor/bin, rather than just `search` (which is granted to everything).\nI\u0027d be reluctant to do a wide `dontaudit`, because that would potentially hide genuine problems making diagnosis harder.\nAn awful lot of things are already granted read access to /vendor/bin, and a smattering of things have been granted access to shell_data_file and shell_test_data_file.\nSo TBH I\u0027m tempted to wait until it becomes a problem and decide what to do. \n(It looks like there are other ad hoc fixes, e.g. https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/sepolicy/private/runas_app.te;drc\u003d0876d7a978d55a50070e0eb18a4e2a476d4e12a4;l\u003d35)",
+      "parentUuid": "f1a47485_c988cd98",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 44
+      },
+      "revId": "63a7b5e91c1cae8de00aa4876a0c720f5c9759b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
