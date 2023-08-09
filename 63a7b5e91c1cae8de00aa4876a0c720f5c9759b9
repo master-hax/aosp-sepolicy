@@ -238,6 +238,30 @@
       },
       "revId": "63a7b5e91c1cae8de00aa4876a0c720f5c9759b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72b22153_4e32af1a",
+        "filename": "private/otapreopt_chroot.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-08-09T12:54:02Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure `access` was the source of the `read` denial, because I expected it on more dirs than just vendor/bin then. Also, it doesn\u0027t seem ideal to check `read` when the guarded operation actually is `search`, but `access` is limited in what it can do.\n\n\u003e Which is of course what we have over at https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/sepolicy/public/domain.te;drc\u003dda80fcc173fe12f55121eaa2e8a4070e8fc97542;l\u003d420\n\nI assume you meant line 416. Right, so we\u0027d need that for vendor/bin and potentially other directories.\n\n\u003e The dac_* denials occur are because you are running as root\n\nI see. In that run I had done `adb root` to be able to remove the rate limit, but otherwise the binary was run the usual way through the OTA machinery, so I didn\u0027t expect that to matter.\n\n\u003e FWIW I\u0027d be much less worried about adding a bunch of `dontaudit ... audit_access` rules - they\u0027re less likely to mask real problems.\n\nThanks, good to know.",
+      "parentUuid": "e06202f4_a2d3f84e",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 44
+      },
+      "revId": "63a7b5e91c1cae8de00aa4876a0c720f5c9759b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
