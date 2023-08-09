@@ -214,6 +214,30 @@
       },
       "revId": "63a7b5e91c1cae8de00aa4876a0c720f5c9759b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e06202f4_a2d3f84e",
+        "filename": "private/otapreopt_chroot.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-09T09:13:28Z",
+      "side": 1,
+      "message": "Ah, so the access(, R_OK) call will trigger a read denial if it fails.\nBut there is a trick that can be used to suppress those denials only, while continuing to audit attempts to open for read: `dontaudit something something:file audit_access;`\nWhich is of course what we have over at https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/sepolicy/public/domain.te;drc\u003dda80fcc173fe12f55121eaa2e8a4070e8fc97542;l\u003d420.\n\nThe dac_* denials occur are because you are running as root and being denied access via normal file permissions (DAC rather than MAC); so the kernel checks to see if you have the capabilities which would allow you to bypass that. Not sure what file/directory though.\n\n\u003e Noise that soaks up developer time and desensitises them to denials isn\u0027t unproblematic either.\n\nYeah, agreed. FWIW I\u0027d be much less worried about adding a bunch of `dontaudit ... audit_access``rules - they\u0027re less likely to mask real problems.",
+      "parentUuid": "2efd6b9a_98dca876",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 44
+      },
+      "revId": "63a7b5e91c1cae8de00aa4876a0c720f5c9759b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
