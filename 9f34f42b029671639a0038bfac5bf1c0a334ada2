@@ -16,6 +16,29 @@
       "message": "Thank you for your review!",
       "revId": "9f34f42b029671639a0038bfac5bf1c0a334ada2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de06b921_8d50f833",
+        "filename": "private/app.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-08-10T14:15:14Z",
+      "side": 1,
+      "message": "You actually want two separate rules.\n\nThe neverallow rule prevents anyone (us, OEMS, etc) from adding an allow rule that grants access to this file.\n\nThe dontaudit rule prevents spamming the log with selinux denials if/when apps try to open this file.\n\nYou need both.",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 9
+      },
+      "revId": "9f34f42b029671639a0038bfac5bf1c0a334ada2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
