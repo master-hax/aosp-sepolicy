@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0971ce50_f42071bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-08-10T06:58:47Z",
+      "side": 1,
+      "message": "Does this read happen during boot? i.e. will Zygote have already closed the FD by the time it starts forking apps? FD handling is always a bit flaky due to how Linux automatically passes FDs across fork(). So Zygote will have an open FD, then fork, and selinux will check if all open FDs being passed across fork are allowed. The risk is just causing selinux denial logspam, but we\u0027d like to avoid that if possible.\n\nPerhaps you can locally check that you\u0027re not causing selinux denials. Or you can proactively add a dontaudit statement to avoid the denial?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 64
+      },
+      "revId": "6e2e3449f47d5918e9982cd7183a1a38b8091767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "83d0ac82_81fb6547",
