@@ -1,21 +1,11 @@
 # System and vendor domains for BoringSSL self test binaries.
 #
 # If the self tests fail, then the device should reboot into firmware and for this reason
-# the system boringssl_self_test domain needs to be in coredomain.  As vendor domains
-# are not allowed in coredomain, this means that the vendor self tests cannot trigger a
-# reboot.  However every binary linked against the vendor libcrypto will abort on startup,
-# so in practice the device will crash anyway in this unlikely scenario.
+# the system boringssl_self_test domain needs to be in coredomain.
 
 # System boringssl_self_test domain
 type boringssl_self_test, domain, coredomain;
 type boringssl_self_test_exec, system_file_type, exec_type, file_type;
 
-# Vendor boringssl_self_test domain
-type vendor_boringssl_self_test, domain;
-type vendor_boringssl_self_test_exec, vendor_file_type, exec_type, file_type;
-
 # Switch to boringssl_self_test security domain when running boringssl_self_test_exec
 init_daemon_domain(boringssl_self_test)
-
-# Switch to vendor_boringssl_self_test security domain when running vendor_boringssl_self_test_exec
-init_daemon_domain(vendor_boringssl_self_test)
