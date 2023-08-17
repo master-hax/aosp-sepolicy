@@ -140,7 +140,7 @@ var (
 		"android.frameworks.sensorservice.ISensorManager/default":                 []string{"libsensorserviceaidl_fuzzer"},
 		"android.frameworks.stats.IStats/default":                                 EXCEPTION_NO_FUZZER,
 		"android.se.omapi.ISecureElementService/default":                          EXCEPTION_NO_FUZZER,
-		"android.system.keystore2.IKeystoreService/default":                       EXCEPTION_NO_FUZZER,
+		"android.system.keystore2.IKeystoreService/default":                       []string{"keystore_service_fuzzer"},
 		"android.system.net.netd.INetd/default":                                   []string{"netd_hw_service_fuzzer"},
 		"android.system.suspend.ISystemSuspend/default":                           EXCEPTION_NO_FUZZER,
 		"accessibility":      EXCEPTION_NO_FUZZER,
