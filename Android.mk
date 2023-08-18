@@ -247,6 +247,14 @@ else ifneq ($(call math_lt,30,$(PRODUCT_SHIPPING_API_LEVEL)),)
   endif
 endif
 
+ifeq ($(PRODUCT_SHIPPING_API_LEVEL),)
+  #$(warning no product shipping level defined)
+else ifneq ($(call math_lt,34,$(PRODUCT_SHIPPING_API_LEVEL)),)
+  ifneq ($(BUILD_BROKEN_VENDOR_SEAPP_USES_COREDOMAIN),)
+    $(error BUILD_BROKEN_VENDOR_SEAPP_USES_COREDOMAIN cannot be set on a device shipping with V or later, and this is tested by CTS.)
+  endif
+endif
+
 # Library extension for host-side tests
 ifeq ($(HOST_OS),darwin)
 SHAREDLIB_EXT=dylib
