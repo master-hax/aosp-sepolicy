@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "976032b5_d058f2ba",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2023-08-21T04:26:19Z",
+      "side": 1,
+      "message": "Wouldn\u0027t the below be better for readability?\n\n```\nif PRODUCT_SHIPPING_API_LEVEL \u003d\u003d \"\" {\n    warning\n    PRODUCT_SHIPPING_API_LEVEL \u003d 0 // or a sensible default\n}\n\nif BUILD_BROKEN_VENDOR_SEAPP_USES_COREDOMAIN \u003d\u003d true {\n    if PRODUCT_SHIPPING_API_LEVEL \u003e\u003d 34 {\n        error\n    }\n}\nif BUILD_BROKEN_XXX_YYY \u003d\u003d true {\n    if PRODUCT_SHIPPING_API_LEVEL \u003e\u003d ?? {\n        error\n    }\n}\n...\n   \n```",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 5
+      },
+      "revId": "dfcffc74e879c80b698a85ec8805e39418d71f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
