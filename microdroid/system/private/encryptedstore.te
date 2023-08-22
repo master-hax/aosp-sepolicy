@@ -44,5 +44,9 @@ allow encryptedstore kmsg_device:chr_file w_file_perms;
 # Allow encryptedstore to write kmsg_debug (stdio_to_kmsg).
 allow encryptedstore kmsg_debug_device:chr_file w_file_perms;
 
+# Don't allow kernel module to be loaded. Just silence the log. Kernel will create an
+# implementation of the algorithm from templates.
+dontaudit encryptedstore kernel:system module_request;
+
 # Only microdroid_manager can run encryptedstore
 neverallow { domain -microdroid_manager } encryptedstore:process { transition dyntransition };
