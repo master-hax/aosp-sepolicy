@@ -22,6 +22,30 @@
       },
       "revId": "76fb93871d5c53a2369e5b9f52a8a14eba580a03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fda56e3b_80a6ea35",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-23T15:11:00Z",
+      "side": 1,
+      "message": "That\u0027s an interesting point.\nIt\u0027s generally less clear where a neverallow should live (for allows it\u0027s easy - the .te file for the source domain).\nI think of it as \"domain.te for stuff no process should be allowed\", but \"foo.te for rules protecting things owned by foo\". So quite often the .te file of or related to the target domain. Example prior art: https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/public/statsd.te;drc\u003d7ca04a7e7fc0430cd4df6c8b3a446c4dcd0cc807;l\u003d94.\nIn this case encryptedstore_file is \"owned\" by microdroid_payload so this seemed to be the right place.",
+      "parentUuid": "b39e4794_0293bb5a",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 56
+      },
+      "revId": "76fb93871d5c53a2369e5b9f52a8a14eba580a03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
