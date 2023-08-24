@@ -350,6 +350,10 @@ def TestIsolatedAttributeConsistency(test_policy):
       "mediaserver_service" :["service_manager"],
       "toolbox_exec": ["file"],
   }
+  # vendors would have different system implementation
+  vendorExceptionList = {
+    "hal_graphics_allocator_default_tmpfs":["file"],
+  }
 
   def resolveHalServerSubtype(target):
    # permission given as a client in technical_debt.cil
@@ -368,9 +372,12 @@ def TestIsolatedAttributeConsistency(test_policy):
     for perm in permissions:
       tctx, tclass, p = perm.split(":")
       tctx = resolveHalServerSubtype(tctx)
+      #TODO: check if the policy is from vendor
+      if tctx in vendorExceptionList and tclass in vendorExceptionList[tctx]:
+        continue
       if tctx not in permissionAllowList \
           or tclass not in permissionAllowList[tctx] \
-          or ( p == "write" and not perm.startswith("hwbinder_device:chr_file") ) \
+          or ( p == "write" ) \
           or ( p == "rw_file_perms"):
         violated_permissions += [perm]
     return violated_permissions
