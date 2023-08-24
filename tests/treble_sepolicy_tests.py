@@ -350,6 +350,10 @@ def TestIsolatedAttributeConsistency(test_policy):
       "mediaserver_service" :["service_manager"],
       "toolbox_exec": ["file"],
   }
+  # vendors would have different system implementation
+  vendorExceptionList = {
+    "hal_graphics_allocator_default_tmpfs":["file"],
+  }
 
   def resolveHalServerSubtype(target):
    # permission given as a client in technical_debt.cil
@@ -365,18 +369,27 @@ def TestIsolatedAttributeConsistency(test_policy):
 
   def checkPermissions(permissions):
     violated_permissions = []
+    vendor_exemptions = []
     for perm in permissions:
       tctx, tclass, p = perm.split(":")
       tctx = resolveHalServerSubtype(tctx)
+      #TODO: check if the policy is from vendor
+      if tctx in vendorExceptionList and tclass in vendorExceptionList[tctx]:
+        vendor_exemptions += [perm]
+        continue
       if tctx not in permissionAllowList \
           or tclass not in permissionAllowList[tctx] \
-          or ( p == "write" and not perm.startswith("hwbinder_device:chr_file") ) \
+          or ( p == "write" ) \
           or ( p == "rw_file_perms"):
         violated_permissions += [perm]
+
+    if len(vendor_exemptions) > 0:
+      print("The following permissions is granted as vendor exception. Please explore other implementation to avoid the use case.")
+      for perm in vendor_exemptions:
+        print(perm)
     return violated_permissions
 
   ret = ""
-
   isolatedMemberTypes = test_policy.pol.QueryTypeAttribute(Type="isolated_app_all", IsAttr=True)
   baseRules = test_policy.pol.QueryExpandedTERule(scontext=["isolated_app"])
   basePermissionSet = set([":".join([rule.tctx, rule.tclass, perm])
