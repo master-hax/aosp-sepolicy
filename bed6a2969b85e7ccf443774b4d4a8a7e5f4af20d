@@ -16,6 +16,29 @@
       "message": "Jiakai, let me know if I misunderstood how artd works. Thanks.",
       "revId": "bed6a2969b85e7ccf443774b4d4a8a7e5f4af20d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4b3138c_38755a5c",
+        "filename": "private/artd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-24T09:33:07Z",
+      "side": 1,
+      "message": "This macro has always worried me a bit.\nIt adds binderservicedomain, which seems to be a collection of not entirely related things:\n- dumpstate works for your service\n- system server and a few other core processes (mediaserver, cameraserver) can call your service\n- any appdomain can call your service\n\n(Although to make those calls they need to be passed an IWhatever, or be separately granted the ability to find it from service manager.)\n\nWhat if we only want some of those?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 14
+      },
+      "revId": "bed6a2969b85e7ccf443774b4d4a8a7e5f4af20d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
