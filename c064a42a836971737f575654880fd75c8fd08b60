@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55958cd8_287b6aa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012974
+      },
+      "writtenOn": "2023-08-25T20:59:13Z",
+      "side": 1,
+      "message": "I more or less copied your older CL, but I must be missing something. The good news is, with Icdc0b074de73ce879500b372a47da51354d3ae68 (and some changes to `frameworks/native` to actually write to the new location), I can already write here after running `adb shell setenforce 0`, which we\u0027ve been doing all along. (Though it\u0027s possible that could start failing, the same way `data/user/` stopped working recently!)\n\nThis is all way out of my knowledge base, so I\u0027m wondering if you have any advice or pointers on where to look. (I can also dig through b/64831661 in case I\u0027m missing something there.)",
+      "revId": "c064a42a836971737f575654880fd75c8fd08b60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
