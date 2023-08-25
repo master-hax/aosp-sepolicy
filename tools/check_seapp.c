@@ -1315,7 +1315,8 @@ static void validate() {
 	list_for_each(&coredomain_violation_list, cursor) {
 		c = list_entry(cursor, typeof(*c), listify);
 		fprintf(stderr, "Forbidden attribute " COREDOMAIN " assigned to domain \"%s\" in "
-                        "File \"%s\" on line %d\n", c->domain, c->filename, c->lineno);
+		        "File \"%s\" on line %d\n", c->domain, c->filename, c->lineno);
+		found_issues = true;
 	}
 
 	if (found_issues) {
