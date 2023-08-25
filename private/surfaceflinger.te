@@ -79,6 +79,12 @@ userdebug_or_eng(`
   allow surfaceflinger wm_trace_data_file:file { getattr setattr create w_file_perms };
 ')
 
+# Allow writing MSKP captures from RenderEngine to /data/misc/wmtrace.
+userdebug_or_eng(`
+  allow surfaceflinger mskp_data_file:dir rw_dir_perms;
+  allow surfaceflinger mskp_data_file:file { getattr setattr create w_file_perms };
+')
+
 # Needed to register as a Perfetto producer.
 perfetto_producer(surfaceflinger)
 

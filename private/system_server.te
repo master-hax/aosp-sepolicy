@@ -1087,6 +1087,10 @@ userdebug_or_eng(`
   # Allow writing and removing accessibility traces in /data/misc/a11ytrace.
   allow system_server accessibility_trace_data_file:dir rw_dir_perms;
   allow system_server accessibility_trace_data_file:file { getattr setattr create unlink w_file_perms };
+
+  # Allow writing and removing MSKP captures from RenderEngine in /data/misc/mskps.
+  allow system_server mskp_data_file:dir rw_dir_perms;
+  allow system_server mskp_data_file:file { getattr setattr create unlink w_file_perms };
 ')
 
 # For AppFuse.
