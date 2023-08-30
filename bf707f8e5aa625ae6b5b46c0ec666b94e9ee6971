@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f50dfc28_d74ec68d",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-08-30T18:28:13Z",
+      "side": 1,
+      "message": "this is the default label for bpf fs. Instead of granting uprobed access to the default label, you should instead create a new type (e.g. fs_bpf_uprobe) for files intended to be read by uprobed. That allows you to properly limit access to just the things that should have access. See for example, line 39 where only the network_stack (and bpfloader) are exempted from the restriction to access fs_bpf_net_private.\n\nYou can see how type type is declared here:\nhttps://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/file.te;l\u003d6?q\u003dfs_bpf_net_private\n\nAnd how it\u0027s mapped to a file path here:\nhttps://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/genfs_contexts;l\u003d407?q\u003dgenfs_context",
+      "range": {
+        "startLine": 37,
+        "startChar": 133,
+        "endLine": 37,
+        "endChar": 139
+      },
+      "revId": "bf707f8e5aa625ae6b5b46c0ec666b94e9ee6971",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3a92c38_6f4e785b",
+        "filename": "private/coredomain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-08-30T18:28:13Z",
+      "side": 1,
+      "message": "This is likewise a default. Similar to what you did for fs_bpf, you should provide a new type here and not use the default one.",
+      "range": {
+        "startLine": 155,
+        "startChar": 4,
+        "endLine": 155,
+        "endChar": 9
+      },
+      "revId": "bf707f8e5aa625ae6b5b46c0ec666b94e9ee6971",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "199eb500_df438c90",
+        "filename": "private/uprobed.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-08-30T18:28:13Z",
+      "side": 1,
+      "message": "It\u0027s not clear to me that you actually want this. It sounds like it\u0027s not the long-term plan.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 47
+      },
+      "revId": "bf707f8e5aa625ae6b5b46c0ec666b94e9ee6971",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf78a181_c3d55200",
+        "filename": "private/uprobed.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-08-30T18:28:13Z",
+      "side": 1,
+      "message": "I\u0027m surprised that you need access to this? Why?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 56
+      },
+      "revId": "bf707f8e5aa625ae6b5b46c0ec666b94e9ee6971",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f74714d_ad06982f",
+        "filename": "private/uprobed.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-08-30T18:28:13Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 16,
+        "startChar": 14,
+        "endLine": 16,
+        "endChar": 20
+      },
+      "revId": "bf707f8e5aa625ae6b5b46c0ec666b94e9ee6971",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67b12f69_13546382",
+        "filename": "private/uprobed.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-08-30T18:28:13Z",
+      "side": 1,
+      "message": "is this necessary?",
+      "range": {
+        "startLine": 17,
+        "startChar": 35,
+        "endLine": 17,
+        "endChar": 39
+      },
+      "revId": "bf707f8e5aa625ae6b5b46c0ec666b94e9ee6971",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
