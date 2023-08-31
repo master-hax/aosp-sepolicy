@@ -70,6 +70,30 @@
       },
       "revId": "8c0d90cdad36d4de9a09ec11b51a6f0efe2dd57d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11d486fc_565067ad",
+        "filename": "private/virtualizationmanager.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2023-08-31T14:04:14Z",
+      "side": 1,
+      "message": "\u003e On user/userdebug/root: the status quo is that you can\u0027t set the properties on user build device, because you\u0027d need to set it via adb root, which isn\u0027t available. I think that\u0027s right?\n\nYou\u0027re right. This CL doesn\u0027t change the behavior but only give label.\n\n\u003e I was just thinking that having less policy on user builds is good. But you make valid points.\n\u003e I quite like not allowing read on user because it makes it much harder to accidentally/maliciously enable. We do have a fair amount of userdebug_or_eng, despite the Android policy, but hopefully it\u0027s mostly things that will never or should never happen on a user build anyway.\n\nI\u0027m sorry but I\u0027m bit confused about your wording. Do you prefer to have `userdebug_or_eng` in this CL? I think that no `userdebug_or_eng` is OK, but I just want to get your opinion as well.",
+      "parentUuid": "35e778a0_93416609",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 70
+      },
+      "revId": "8c0d90cdad36d4de9a09ec11b51a6f0efe2dd57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
