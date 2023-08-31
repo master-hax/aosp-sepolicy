@@ -46,6 +46,30 @@
       },
       "revId": "8c0d90cdad36d4de9a09ec11b51a6f0efe2dd57d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35e778a0_93416609",
+        "filename": "private/virtualizationmanager.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-31T13:40:59Z",
+      "side": 1,
+      "message": "On the labeling, I defer to Inseob; whatever he thinks I\u0027m fine with.\n\nOn user/userdebug/root: the status quo is that you can\u0027t set the properties on user build device, because you\u0027d need to set it via `adb root`, which isn\u0027t available. I think that\u0027s right?\n\nI was just thinking that having less policy on user builds is good. But you make valid points. \n\nI quite like not allowing read on user because it makes it much harder to accidentally/maliciously enable. We do have a fair amount of userdebug_or_eng, despite the Android policy, but hopefully it\u0027s mostly things that will never or should never happen on a user build anyway.",
+      "parentUuid": "ed3199dc_0da0139b",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 70
+      },
+      "revId": "8c0d90cdad36d4de9a09ec11b51a6f0efe2dd57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
