@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05be6804_296867fa",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-31T15:00:56Z",
+      "side": 1,
+      "message": "I don\u0027t understand this. virtualizationservice doesn\u0027t run crosvm, and shouldn\u0027t.\nWhen you call VmInstance#start, it sends a request to virtualizationmanager which runs crosvm.",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 35
+      },
+      "revId": "51d1ed101e4d9f7b037e1b0a7e8ef6c52fc25d6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d7650f4_fb628c9a",
+        "filename": "private/virtualizationmanager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-31T15:00:56Z",
+      "side": 1,
+      "message": "Did you get a denial for this? It doesn\u0027t seem related to your change.",
+      "range": {
+        "startLine": 8,
+        "startChar": 54,
+        "endLine": 8,
+        "endChar": 61
+      },
+      "revId": "51d1ed101e4d9f7b037e1b0a7e8ef6c52fc25d6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbc04ff4_302d308b",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-31T15:00:56Z",
+      "side": 1,
+      "message": "Ahh, this is why. Here you\u0027re allowing VS to call VirtMgr without doing a domain transition - so it is running as virtualizationservice.\n\nI think you can replace most of the changes here with\n```\nvirtualizationservice_user(virtualizationservice);\n```\n\nThat macro does everything that should be needed to allow a domain to user VirtMgr: https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/sepolicy/public/te_macros;drc\u003d5e9b88f739580b932fcf2b026a809d7632b0f513;l\u003d182.\n\nAnd it includes the domain_auto_trans rule which makes sure VirtMgr runs in its own domain.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 87
+      },
+      "revId": "51d1ed101e4d9f7b037e1b0a7e8ef6c52fc25d6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9f12ee9_523c261e",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-31T15:00:56Z",
+      "side": 1,
+      "message": "I suggest create_dir_perms. We own this, we should be able to create \u0026 remove sub-directories here.",
+      "range": {
+        "startLine": 58,
+        "startChar": 52,
+        "endLine": 58,
+        "endChar": 64
+      },
+      "revId": "51d1ed101e4d9f7b037e1b0a7e8ef6c52fc25d6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d804ca0_3e961f52",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-31T15:00:56Z",
+      "side": 1,
+      "message": "But these changes are fine.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 71
+      },
+      "revId": "51d1ed101e4d9f7b037e1b0a7e8ef6c52fc25d6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
