@@ -22,6 +22,30 @@
       },
       "revId": "8c0d90cdad36d4de9a09ec11b51a6f0efe2dd57d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed3199dc_0da0139b",
+        "filename": "private/virtualizationmanager.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2023-08-31T13:28:44Z",
+      "side": 1,
+      "message": "\u003e If the policy is the same for both properties, could we just give them the same name? hypervisor_testing_prop?\n\nI proposed that name initially, but inseob recommended to have finer grained name :D. @inseob@google.com, what do you think about the naming?\n\n\u003e And can they, or at least the allow rules, be marked as userdebug_or_eng ?\n\nSo that\u0027s tricky discussion. Here\u0027s bit details about the background:\n\nCustom debug policy tests use sysprop which can only be written with `adb root`. Initially, I proposed not to build such testing features at all in user build, but you and other people said that \u0027user and userdebug are never supposed to differ in behavior\u0027 with the link go/android-userdebug-policy in Rust chat room.\n\nI agreed the guideline because debug policy is allowed in user build if the device is unlocked. Note that CTS enforces no debug policy in production device, but `virtualizationmanager` itself doesn\u0027t enforce it.\n\nSo, for this CL, should we use `userdebug_or_eng` to prevent manufacturers to configure `user` build with the testing sysprops are set? I think that `userdebug_or_eng` is unnecessary, given the nature of the debug policy and go/android-userdebug-policy. I didn\u0027t explicitly allow writing those props, so only `root` and `init` process can override the value, and reading those value seems harmless to me.\n\nWhat do you think?",
+      "parentUuid": "69481352_57a3a18b",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 70
+      },
+      "revId": "8c0d90cdad36d4de9a09ec11b51a6f0efe2dd57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
