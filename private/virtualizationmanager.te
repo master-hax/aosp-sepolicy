@@ -46,6 +46,10 @@ allow virtualizationmanager {
 # shell_data_file is used for automated tests and manual debugging.
 allow virtualizationmanager shell_data_file:file { getattr read write };
 
+# Allow virtualizationmanager to read and write the instance image of the service VM in
+# /data/misc/apexdata/com.android.virt
+allow virtualizationmanager apex_virt_data_file:file { getattr read write };
+
 # Allow virtualizationmanager to read apex-info-list.xml and access the APEX files listed there.
 allow virtualizationmanager apex_info_file:file r_file_perms;
 allow virtualizationmanager apex_data_file:dir search;
