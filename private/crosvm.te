@@ -139,9 +139,10 @@ neverallow crosvm {
   -shell_data_file
 }:file read;
 
-# Only virtualizationmanager can run crosvm
+# Only virtualizationmanager and virtualizationservice can run crosvm
 neverallow {
   domain
   -crosvm
   -virtualizationmanager
+  -virtualizationservice
 } crosvm_exec:file no_x_file_perms;

@@ -35,12 +35,28 @@ allow virtualizationservice self:capability chown;
 # directories, it needs the permission to unlink the files created by virtualizationmanager.
 allow virtualizationservice virtualizationservice_data_file:dir create_dir_perms;
 allow virtualizationservice virtualizationservice_data_file:{ file sock_file } unlink;
-allow virtualizationservice virtualizationservice_data_file:file write;
+allow virtualizationservice virtualizationservice_data_file:file { create read open write getattr };
+allow virtualizationservice virtualizationservice_data_file:sock_file { create };
 
 # Allow to use fd (e.g. /dev/pts/0) inherited from adbd so that we can redirect output from
 # crosvm to the console
 allow virtualizationservice adbd:fd use;
 allow virtualizationservice adbd:unix_stream_socket { read write };
+
+# Allow to connnect to and run VirtMgr to start the service VM for remote attestation.
+allow virtualizationservice virtualizationmanager_exec:file { x_file_perms open read };
+allow virtualizationservice virtualizationservice:binder { call transfer };
+allow virtualizationservice hypervisor_prop:file { read open getattr map };
+allow virtualizationservice hypervisor_restricted_prop:file { read open getattr map };
+
+# Allow to start the service VM with crosvm.
+allow virtualizationservice crosvm_exec:file { x_file_perms open read };
+
+# Allow virtualizationservice to read and write in the apex data directory
+# /data/misc/apexdata/com.android.virt
+allow virtualizationservice apex_module_data_file:dir search;
+allow virtualizationservice apex_virt_data_file:dir rw_dir_perms;
+allow virtualizationservice apex_virt_data_file:file create_file_perms;
 
 # Let virtualizationservice to accept vsock connection from the guest VMs to singleton services
 # such as the guest tombstone server.
