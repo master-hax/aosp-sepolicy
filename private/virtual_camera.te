@@ -8,6 +8,7 @@ allow virtual_camera system_app_data_file:dir create_dir_perms;
 allow virtual_camera system_app_data_file:file create_file_perms;
 
 allow virtual_camera activity_service:service_manager find;
+allow virtual_camera app_api_service:service_manager find;
 
 # hal_server_domain adds this rule to prevent any other domain from adding
 # a virtual_camera_service. We cannot mix app_domain and hal_server_domain
