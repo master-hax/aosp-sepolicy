@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6113073e_8d005684",
+        "filename": "private/virtualizationmanager.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-09-01T05:22:38Z",
+      "side": 1,
+      "message": "(if you want) as a follow-up change, you may want to add neverallow rules\n\nneverallow { domain -init userdebug_or_eng(`-domain\u0027) } hypervisor_virtualizationmanager_prop:file no_rw_file_perms;",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 0
+      },
+      "revId": "4183cbb63c7387f5458876ec23ce674b1d3d2384",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
