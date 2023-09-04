@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da313c75_ea2597b2",
+        "filename": "private/virtual_camera.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-09-04T11:08:10Z",
+      "side": 1,
+      "message": "app_api_service represents tens (or hundreds) of services. That seems overly permissive. The virtual camera service can process untrusted data from a remote camera, so it would be better to keep it as unprivileged as possible.",
+      "range": {
+        "startLine": 11,
+        "startChar": 21,
+        "endLine": 11,
+        "endChar": 36
+      },
+      "revId": "7f859b810fa9b5373cb0020f2b13e94682d68da8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
