@@ -16,6 +16,75 @@
       "message": "Hi Alan, can you take another look?",
       "revId": "b607eef5802d0af1afafba19050e178741cdfa95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "216525e9_a03818f4",
+        "filename": "private/virtualizationmanager.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-09-04T09:55:23Z",
+      "side": 1,
+      "message": "Can you add this to the list below around line 47",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 76
+      },
+      "revId": "b607eef5802d0af1afafba19050e178741cdfa95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adeb56b4_5abf5c91",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-09-04T09:55:23Z",
+      "side": 1,
+      "message": "Why do you need these changes?\nVS shouldn\u0027t be doing anything new in this directory.\n(I\u0027m not even clear why we have write access to :file)",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 81
+      },
+      "revId": "b607eef5802d0af1afafba19050e178741cdfa95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56c50aeb_b6bf5e42",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-09-04T09:55:23Z",
+      "side": 1,
+      "message": "A process shouldn\u0027t be using binder to talk to itself.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 75
+      },
+      "revId": "b607eef5802d0af1afafba19050e178741cdfa95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
