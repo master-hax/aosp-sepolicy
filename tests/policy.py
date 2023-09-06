@@ -102,7 +102,7 @@ class Policy:
     # DoNotMatchPrefix have the attribute Attr.
     # For example assert that all types in /sys, and not in /sys/kernel/debugfs
     # have the sysfs_type attribute.
-    def AssertPathTypesHaveAttr(self, MatchPrefix, DoNotMatchPrefix, Attr):
+    def AssertPathTypesHaveAttr(self, MatchPrefix, DoNotMatchPrefix, Attr, relaxed = False):
         # Query policy for the types associated with Attr
         TypesPol = self.QueryTypeAttribute(Attr, True)
         # Search file_contexts to find paths/types that should be associated with
@@ -111,6 +111,8 @@ class Policy:
         violators = TypesFc.difference(TypesPol)
 
         ret = ""
+        if relaxed and Attr == "vendor_file_type" and "zygote_exec" in violators:
+            violators.remove("zygote_exec")
         if len(violators) > 0:
             ret += "The following types on "
             ret += " ".join(str(x) for x in sorted(MatchPrefix))

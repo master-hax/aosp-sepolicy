@@ -74,14 +74,14 @@ def TestTracefsTypeViolations(pol):
                                             [])
     return ret
 
-def TestVendorTypeViolations(pol):
+def TestVendorTypeViolations(pol, relaxed = False):
     partitions = ["/vendor/", "/odm/"]
     exceptions = [
         "/vendor/etc/selinux/",
         "/vendor/odm/etc/selinux/",
         "/odm/etc/selinux/",
     ]
-    return pol.AssertPathTypesHaveAttr(partitions, exceptions, "vendor_file_type")
+    return pol.AssertPathTypesHaveAttr(partitions, exceptions, "vendor_file_type", relaxed)
 
 def TestCoreDataTypeViolations(pol):
     ret = pol.AssertPathTypesHaveAttr(["/data/"], ["/data/vendor",
@@ -118,12 +118,14 @@ def TestDmaHeapDevTypeViolations(pol):
     return pol.AssertPathTypesHaveAttr(["/dev/dma_heap/"], [],
                                        "dmabuf_heap_device_type")
 
-def TestCoredomainViolations(test_policy):
+def TestCoredomainViolations(test_policy, relaxed = False):
     # verify that all domains launched from /system have the coredomain
     # attribute
     ret = ""
 
     for d in test_policy.alldomains:
+        if relaxed and d == "zygote":
+            continue
         domain = test_policy.alldomains[d]
         if domain.fromSystem and domain.fromVendor:
             ret += "The following domain is system and vendor: " + d + "\n"
@@ -149,6 +151,8 @@ def TestCoredomainViolations(test_policy):
         domain = test_policy.alldomains[d]
         if domain.fromVendor and "coredomain" in domain.attributes:
             violators.append(d)
+    if relaxed and "zygote" in violators:
+        violators.remove("zygote")
     if len(violators) > 0:
         ret += "The following domains must not be associated with the "
         ret += "\"coredomain\" attribute because they are executed off of "
@@ -291,11 +295,13 @@ Tests = [
     "TestDebugfsTypeViolations",
     "TestTracefsTypeViolations",
     "TestVendorTypeViolations",
+    "TestVendorTypeViolationsRelaxed",
     "TestCoreDataTypeViolations",
     "TestPropertyTypeViolations",
     "TestAppDataTypeViolations",
     "TestDmaHeapDevTypeViolations",
     "TestCoredomainViolations",
+    "TestCoredomainViolationsRelaxed",
     "TestViolatorAttributes",
     "TestIsolatedAttributeConsistency",
 ]
@@ -349,8 +355,10 @@ def do_main(libpath):
         results += TestDebugfsTypeViolations(pol)
     if options.test is None or "TestTracefsTypeViolations" in options.test:
         results += TestTracefsTypeViolations(pol)
-    if options.test is None or "TestVendorTypeViolations" in options.test:
+    if options.test is not None and "TestVendorTypeViolations" in options.test:
         results += TestVendorTypeViolations(pol)
+    if options.test is None or "TestVendorTypeViolationsRelaxed" in options.test:
+        results += TestVendorTypeViolations(pol, True)
     if options.test is None or "TestCoreDataTypeViolations" in options.test:
         results += TestCoreDataTypeViolations(pol)
     if options.test is None or "TestPropertyTypeViolations" in options.test:
@@ -359,8 +367,10 @@ def do_main(libpath):
         results += TestAppDataTypeViolations(pol)
     if options.test is None or "TestDmaHeapDevTypeViolations" in options.test:
         results += TestDmaHeapDevTypeViolations(pol)
-    if options.test is None or "TestCoredomainViolations" in options.test:
+    if options.test is not None and "TestCoredomainViolations" in options.test:
         results += TestCoredomainViolations(test_policy)
+    if options.test is None or "TestCoredomainViolationsRelaxed" in options.test:
+        results += TestCoredomainViolations(test_policy, True)
     if options.test is None or "TestViolatorAttributes" in options.test:
         results += TestViolatorAttributes(test_policy)
     if options.test is None or "TestIsolatedAttributeConsistency" in options.test:
