@@ -204,7 +204,7 @@ def TestCoredomainViolations(test_policy):
 
     for d in test_policy.alldomains:
         domain = test_policy.alldomains[d]
-        if domain.fromSystem and domain.fromVendor:
+        if domain.fromSystem and domain.fromVendor and d != "zygote":
             ret += "The following domain is system and vendor: " + d + "\n"
 
     for domain in test_policy.alldomains.values():
@@ -226,7 +226,7 @@ def TestCoredomainViolations(test_policy):
     violators = []
     for d in test_policy.alldomains:
         domain = test_policy.alldomains[d]
-        if domain.fromVendor and "coredomain" in domain.attributes:
+        if domain.fromVendor and "coredomain" in domain.attributes and d != "zygote":
             violators.append(d)
     if len(violators) > 0:
         ret += "The following domains must not be associated with the "

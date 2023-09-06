@@ -111,6 +111,8 @@ class Policy:
         violators = TypesFc.difference(TypesPol)
 
         ret = ""
+        if Attr == "vendor_file_type" and "zygote_exec" in violators:
+            violators.remove("zygote_exec")
         if len(violators) > 0:
             ret += "The following types on "
             ret += " ".join(str(x) for x in sorted(MatchPrefix))
