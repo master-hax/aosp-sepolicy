@@ -1,12 +1,6 @@
 LOCAL_PATH:= $(call my-dir)
 
-include $(LOCAL_PATH)/definitions.mk
-include $(LOCAL_PATH)/policy_version.mk
-
 include $(CLEAR_VARS)
-
-MLS_SENS=1
-MLS_CATS=1024
 
 ifdef BOARD_SEPOLICY_UNION
 $(warning BOARD_SEPOLICY_UNION is no longer required - all files found in BOARD_SEPOLICY_DIRS are implicitly unioned; please remove from your BoardConfig.mk or other .mk file.)
@@ -73,7 +67,6 @@ ifneq (,$(PRODUCT_PUBLIC_POLICY)$(PRODUCT_PRIVATE_POLICY))
 HAS_PRODUCT_SEPOLICY_DIR := true
 endif
 
-NEVERALLOW_ARG :=
 ifeq ($(SELINUX_IGNORE_NEVERALLOWS),true)
 ifeq ($(TARGET_BUILD_VARIANT),user)
 $(error SELINUX_IGNORE_NEVERALLOWS := true cannot be used in user builds)
@@ -81,7 +74,6 @@ endif
 $(warning Be careful when using the SELINUX_IGNORE_NEVERALLOWS flag. \
           It does not work in user builds and using it will \
           not stop you from failing CTS.)
-NEVERALLOW_ARG := -N
 endif
 
 # BOARD_SEPOLICY_DIRS was used for vendor/odm sepolicy customization before.
@@ -170,34 +162,9 @@ ifdef HAS_PRODUCT_SEPOLICY_DIR
   endif
 endif # ifdef HAS_PRODUCT_SEPOLICY_DIR
 
-# CIL files which contain workarounds for current limitation of human-readable
-# module policy language. These files are appended to the CIL files produced
-# from module language files.
-sepolicy_build_cil_workaround_files := technical_debt.cil
-
-my_target_arch := $(TARGET_ARCH)
-ifneq (,$(filter mips mips64,$(TARGET_ARCH)))
-  my_target_arch := mips
-endif
-
-intermediates := $(TARGET_OUT_INTERMEDIATES)/ETC/sepolicy_intermediates
-
 with_asan := false
 ifneq (,$(filter address,$(SANITIZE_TARGET)))
   with_asan := true
-endif
-
-with_native_coverage := false
-ifeq ($(NATIVE_COVERAGE),true)
-  with_native_coverage := true
-endif
-ifeq ($(CLANG_COVERAGE),true)
-  with_native_coverage := true
-endif
-
-treble_sysprop_neverallow := true
-ifeq ($(BUILD_BROKEN_TREBLE_SYSPROP_NEVERALLOW),true)
-  treble_sysprop_neverallow := false
 endif
 
 ifeq ($(PRODUCT_SHIPPING_API_LEVEL),)
@@ -208,29 +175,12 @@ else ifneq ($(call math_lt,29,$(PRODUCT_SHIPPING_API_LEVEL)),)
   endif
 endif
 
-enforce_sysprop_owner := true
-ifeq ($(BUILD_BROKEN_ENFORCE_SYSPROP_OWNER),true)
-  enforce_sysprop_owner := false
-endif
-
-enforce_debugfs_restriction := false
-ifeq ($(PRODUCT_SET_DEBUGFS_RESTRICTIONS),true)
-  enforce_debugfs_restriction := true
-endif
-
 ifeq ($(PRODUCT_SHIPPING_API_LEVEL),)
   #$(warning no product shipping level defined)
 else ifneq ($(call math_lt,30,$(PRODUCT_SHIPPING_API_LEVEL)),)
   ifneq ($(BUILD_BROKEN_ENFORCE_SYSPROP_OWNER),)
     $(error BUILD_BROKEN_ENFORCE_SYSPROP_OWNER cannot be set on a device shipping with S or later, and this is tested by CTS.)
   endif
-endif
-
-# Library extension for host-side tests
-ifeq ($(HOST_OS),darwin)
-SHAREDLIB_EXT=dylib
-else
-SHAREDLIB_EXT=so
 endif
 
 #################################
@@ -570,6 +520,24 @@ $(file_contexts.device.sorted.tmp): $(file_contexts.device.tmp) $(built_sepolicy
 	$(hide) $(HOST_OUT_EXECUTABLES)/checkfc -e $(PRIVATE_SEPOLICY) $<
 	$(hide) $(HOST_OUT_EXECUTABLES)/fc_sort -i $< -o $@
 
+
+###########################################################
+## Collect file_contexts files into a single tmp file with m4
+##
+## $(1): list of file_contexts files
+## $(2): filename into which file_contexts files are merged
+###########################################################
+
+define _merge-fc-files
+$(2): $(1) $(M4)
+	$(hide) mkdir -p $$(dir $$@)
+	$(hide) $(M4) --fatal-warnings -s $(1) > $$@
+endef
+
+define merge-fc-files
+$(eval $(call _merge-fc-files,$(1),$(2)))
+endef
+
 file_contexts.concat.tmp := $(intermediates)/file_contexts.concat.tmp
 $(call merge-fc-files,\
   $(file_contexts.local.tmp) $(file_contexts.modules.tmp) $(file_contexts.device.sorted.tmp),\
@@ -644,14 +612,5 @@ built_system_ext_cil :=
 built_product_cil :=
 built_sepolicy :=
 built_sepolicy_neverallows :=
-built_plat_svc :=
-built_vendor_svc :=
-treble_sysprop_neverallow :=
-enforce_sysprop_owner :=
-enforce_debugfs_restriction :=
-my_target_arch :=
 sepolicy_build_files :=
-sepolicy_build_cil_workaround_files :=
 with_asan :=
-
-include $(call all-makefiles-under,$(LOCAL_PATH))
