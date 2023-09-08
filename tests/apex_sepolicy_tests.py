@@ -65,7 +65,13 @@ class AllowRead:
     scontext: set[str]
 
 
-Rule = AllowRead
+@dataclass
+class ResolveType:
+    """Rule checking if type can be resolved"""
+    pass
+
+
+Rule = AllowRead | ResolveType
 
 
 def match_path(path: str, matcher: Matcher) -> bool:
@@ -94,10 +100,14 @@ def check_rule(pol, path: str, tcontext: str, rule: Rule) -> List[str]:
                     continue  # no errors
 
                 errors.append(f"Error: {path}: {s} can't read. (tcontext={tcontext})")
+        case ResolveType():
+            if tcontext not in pol.GetAllTypes(False):
+                errors.append(f"Error: {path}: tcontext({tcontext}) is unknown")
     return errors
 
 
 rules = [
+    (Glob('*'), ResolveType()),
     # permissions
     (Is('./etc/permissions/'), AllowRead('dir', {'system_server'})),
     (Glob('./etc/permissions/*.xml'), AllowRead('file', {'system_server'})),
