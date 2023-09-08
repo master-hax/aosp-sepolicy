@@ -49,6 +49,7 @@ userdebug_or_eng(`
   # Allow writing coredumps to /cores/*
   allow domain coredump_file:file create_file_perms;
   allow domain coredump_file:dir ra_dir_perms;
+
 ')
 
 with_native_coverage(`
@@ -56,6 +57,9 @@ with_native_coverage(`
   allow domain method_trace_data_file:dir create_dir_perms;
   allow domain method_trace_data_file:file create_file_perms;
 ')
+
+# Allow everyone to read aconfig flags
+get_prop(domain, device_config_aconfig_flags_prop);
 
 # Root fs.
 allow domain tmpfs:dir { getattr search };
