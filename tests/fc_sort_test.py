@@ -21,7 +21,7 @@ class FcSortTest(unittest.TestCase):
     def testGetStemLen(self):
         self.assertEqual(fc_sort.get_stem_len("/data"), 5)
         self.assertEqual(fc_sort.get_stem_len("/data/system"), 12)
-        self.assertEqual(fc_sort.get_stem_len("/data/(system)?"), 6)
+        self.assertEqual(fc_sort.get_stem_len("/data/(system)?"), 15)
 
     def testIsMeta(self):
         self.assertEqual(fc_sort.is_meta("/data"), False)

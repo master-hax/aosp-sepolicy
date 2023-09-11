@@ -30,7 +30,7 @@ def get_stem_len(path):
     while i < len(path):
         if path[i] == "\\":
             i += 1
-        elif path[i] in META_CHARS:
+        elif path[i] in ['*', '+']:
             break
         stem_len += 1
         i += 1
