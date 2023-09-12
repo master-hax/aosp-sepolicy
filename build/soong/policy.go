@@ -27,6 +27,7 @@ import (
 )
 
 const (
+	// TODO: sync with Android.mk
 	MlsSens    = 1
 	MlsCats    = 1024
 	PolicyVers = 30
