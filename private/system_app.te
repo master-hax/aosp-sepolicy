@@ -82,6 +82,9 @@ binder_call(system_app, statsd)
 # Allow system apps to interact with incidentd
 binder_call(system_app, incidentd)
 
+# Allow system apps (like Settings) to interact with update_engine
+binder_call(system_app, update_engine)
+
 # Allow system app to interact with Dumpstate HAL
 hal_client_domain(system_app, hal_dumpstate)
 
