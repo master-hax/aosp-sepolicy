@@ -82,6 +82,10 @@ binder_call(system_app, statsd)
 # Allow system apps to interact with incidentd
 binder_call(system_app, incidentd)
 
+# Allow system apps (Settings) to call into update_engine
+# in order to apply update to switch from 4k kernel to 16K and vice-versa
+binder_call(system_app, update_engine)
+
 # Allow system app to interact with Dumpstate HAL
 hal_client_domain(system_app, hal_dumpstate)
 
