@@ -22,6 +22,30 @@
       },
       "revId": "7e009860e99137196924fbcd5e60f6be890265c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "541b2214_f1d037b6",
+        "filename": "private/coredomain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1952023
+      },
+      "writtenOn": "2023-09-21T21:52:20Z",
+      "side": 1,
+      "message": "Applying the restriction to domain causes a bunch of violations, e.g. hal_bluetooth, hal_telephony_server, and hal_wifi which all have access to sysfs_type.\n\nI changed the neverallow rule to restrict self:capability2 perfmon instead.",
+      "parentUuid": "2b07d59c_e1c31847",
+      "range": {
+        "startLine": 159,
+        "startChar": 4,
+        "endLine": 159,
+        "endChar": 14
+      },
+      "revId": "7e009860e99137196924fbcd5e60f6be890265c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
