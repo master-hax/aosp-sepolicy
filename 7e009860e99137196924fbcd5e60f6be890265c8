@@ -46,6 +46,30 @@
       },
       "revId": "7e009860e99137196924fbcd5e60f6be890265c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cdd15e9_6d0bb283",
+        "filename": "private/coredomain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-09-22T07:29:24Z",
+      "side": 1,
+      "message": "That\u0027s really unfortunate. What do we actually need to care about here? What does read access actually provide?\n\nPerhaps for now you can go through the violations and exempt sysfs_uprobe from the allow:\n\nE.g. r_dir_file(hal_bluetooth, { sysfs_type -sysfs_uprobe })...\n\nBut I feel like we need to have a more general conversation about what we\u0027re trying to enforce here (and why). I don\u0027t feel like I have a good understanding.",
+      "parentUuid": "541b2214_f1d037b6",
+      "range": {
+        "startLine": 159,
+        "startChar": 4,
+        "endLine": 159,
+        "endChar": 14
+      },
+      "revId": "7e009860e99137196924fbcd5e60f6be890265c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
