@@ -159,6 +159,30 @@
       },
       "revId": "8612e80d184357d4e5a560770f88504b75f9e464",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7031493e_301cb78e",
+        "filename": "private/ot_daemon.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 2016993
+      },
+      "writtenOn": "2023-09-22T08:57:52Z",
+      "side": 1,
+      "message": "It seems that the socket option `ICMP6_FILTER` (which we\u0027re using) needs a raw socket. If we use `SOCK_DGRAM` and try to set the filter, it will complain `Protocol not available`.",
+      "parentUuid": "4c6880c8_b3d204fe",
+      "range": {
+        "startLine": 24,
+        "startChar": 30,
+        "endLine": 24,
+        "endChar": 42
+      },
+      "revId": "8612e80d184357d4e5a560770f88504b75f9e464",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
