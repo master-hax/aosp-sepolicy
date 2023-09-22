@@ -39,6 +39,30 @@
       },
       "revId": "8612e80d184357d4e5a560770f88504b75f9e464",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2845f68a_ce5c4686",
+        "filename": "private/ot_daemon.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 2016993
+      },
+      "writtenOn": "2023-09-22T07:50:12Z",
+      "side": 1,
+      "message": "We need a SOCK_RAW socket to send and receive ICMPv6 messages. \n\n\nThe socket creation code looks like:\n```\nint sock \u003d socket(AF_INET6, SOCK_RAW, IPPROTO_ICMPV6);\n```",
+      "parentUuid": "4f7a9f25_a8286dfd",
+      "range": {
+        "startLine": 24,
+        "startChar": 30,
+        "endLine": 24,
+        "endChar": 42
+      },
+      "revId": "8612e80d184357d4e5a560770f88504b75f9e464",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
