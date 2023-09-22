@@ -16,6 +16,24 @@
       "message": "To trigger update from settings app, calling update engine : https://android-review.git.corp.google.com/c/platform/packages/apps/Settings/+/2756951/1/src/com/android/settings/development/Enable16kPagesPreferenceController.java#196 \n\nThese permissions will be needed to make the binder call",
       "revId": "89aca3ff43193288d0aaa518c4d44274f0188bd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2b0460f_d67d613e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-09-22T00:25:37Z",
+      "side": 1,
+      "message": "Hey, a few things:\n- can you help me understand how the settings app normally applies OTAs? If it doesn\u0027t talk directly to OTA engine, then how?\n- adding update_engine OWNER as FYI. Yifan, WDYT of this?\n- It\u0027s really unfortunate that settings app is marked as system_app, and it\u0027s not in its own domain. I\u0027m sure security people have thought about splitting this up before, but I\u0027m not sure how hard it would be.\n- noting, some devices set this permission in device-specific sepolicy",
+      "parentUuid": "b18ca710_de7d18ab",
+      "revId": "89aca3ff43193288d0aaa518c4d44274f0188bd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
