@@ -34,6 +34,24 @@
       "parentUuid": "b18ca710_de7d18ab",
       "revId": "89aca3ff43193288d0aaa518c4d44274f0188bd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b5f0143_266273a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2023-09-22T02:19:44Z",
+      "side": 1,
+      "message": "update_engine owner here. Settings app normally applies OTA by talking to update_engine directly, same way we are doing it for 16K boot options. But that permission is managed here https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/gmscore_app.te;l\u003d18?q\u003dsystem%2Fsepolicy%2Fprivate%2Fgmscore_app.te\n\n\n\u003e noting, some devices set this permission in device-specific sepolicy\n\n\nSince we are offering this functionality from platform side I think it make sense to set this permission on platform side. We should provide OEMs a \"batteries included\" solution.",
+      "parentUuid": "a2b0460f_d67d613e",
+      "revId": "89aca3ff43193288d0aaa518c4d44274f0188bd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
