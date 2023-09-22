@@ -111,6 +111,30 @@
       },
       "revId": "8612e80d184357d4e5a560770f88504b75f9e464",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "359bc843_5ba39957",
+        "filename": "private/ot_daemon.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-09-22T07:55:23Z",
+      "side": 1,
+      "message": "It\u0027s not.\n\nhttps://elixir.bootlin.com/linux/v6.5.4/source/security/selinux/hooks.c#L1156\n\nI\u0027m guessing that your socket creation is incorrect. It should be a SOCK_DGRAM, not SOCK_RAW.",
+      "parentUuid": "26e54309_b034bf20",
+      "range": {
+        "startLine": 24,
+        "startChar": 30,
+        "endLine": 24,
+        "endChar": 42
+      },
+      "revId": "8612e80d184357d4e5a560770f88504b75f9e464",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
