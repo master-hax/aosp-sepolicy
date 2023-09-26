@@ -105,6 +105,42 @@
       "parentUuid": "1b4a5602_7f2ae8e0",
       "revId": "89aca3ff43193288d0aaa518c4d44274f0188bd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfdb777d_21a0254e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-09-26T21:27:36Z",
+      "side": 1,
+      "message": "ack - moving to other thread, will file bug based on result.",
+      "parentUuid": "a78d48f3_5a8e870f",
+      "revId": "89aca3ff43193288d0aaa518c4d44274f0188bd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da0017bf_5a071aeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-09-26T21:27:36Z",
+      "side": 1,
+      "message": "Hmmm, this seems not to be the case. gmscore_app was introduced at API level 30, but it is not applied to settings app. Here is the result from a production Pixel 6:\n\n```\noriole:/ $ ps -AZ | grep -i setting\nu:r:system_app:s0              u10_system    6562  1146   14797644  95368 0                   0 S com.android.settings\n```\n\nThis is because gmscore_app (split off as part of b/142672293) is applied to `com.google.android.gms*` but we have com.google.android.SettingsGoogle. SettingsGoogle is still marked as system_app.\n\nSee here and auditallows in existing policy about system_app and update engine:\nhttps://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/public/update_engine.te;l\u003d38;drc\u003d448bd57181cf80ccf069b5e66816da61c5778215\n\nWhat must be happening is GoogleSettings delegates to GMSCore code to do the update. I\u0027ll move this chat to an email.",
+      "parentUuid": "4c3bf8cc_239747db",
+      "revId": "89aca3ff43193288d0aaa518c4d44274f0188bd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
