@@ -69,6 +69,42 @@
       "message": "Jeff - I\u0027m curious if you know history of effort to split settings app from system_app. I see that Google settings app is gmscore_app (which shares this codebase). That may be why it\u0027s not split out before, but policy allowing gmscore_app to talk to update_engine seems just as general as this (system_app talking to update_engine).\n\nWDYT about splitting settings app from gmscore_app and system_app and having a specific domain for it or similar?a",
       "revId": "89aca3ff43193288d0aaa518c4d44274f0188bd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c3bf8cc_239747db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-09-26T19:38:20Z",
+      "side": 1,
+      "message": "\u003e update_engine owner here. Settings app normally applies OTA by talking to update_engine directly, same way we are doing it for 16K boot options. But that permission is managed here https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/gmscore_app.te;l\u003d18?q\u003dsystem%2Fsepolicy%2Fprivate%2Fgmscore_app.te\n\n\nI don\u0027t understand this part. How does Settings app \"normally\" do this if it doesn\u0027t currently have the right permissions?",
+      "parentUuid": "0b5f0143_266273a6",
+      "revId": "89aca3ff43193288d0aaa518c4d44274f0188bd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a78d48f3_5a8e870f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-09-26T19:38:20Z",
+      "side": 1,
+      "message": "Seems generally OK. Update_engine should be independently verifying the signature of the update, and the verified boot will also check that the update chains back to the root of trust.\n\nOne minor sadness is that a number of OEMs run a lot of stuff in system_app, and it would be nice keep the attack surface to update_engine more limited, but I\u0027m not sure that that should be your problem since Settings should be in system_app, and I agree that this seems like a good thing to put in developer settings.",
+      "parentUuid": "1b4a5602_7f2ae8e0",
+      "revId": "89aca3ff43193288d0aaa518c4d44274f0188bd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
