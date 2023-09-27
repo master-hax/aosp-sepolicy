@@ -109,17 +109,24 @@ class Policy:
         # Query policy for the types associated with Attr
         TypesPol = self.QueryTypeAttribute(Attr, True) - set(ExcludedTypes)
         # Search file_contexts to find types associated with input paths.
-        TypesFc, Files = self.__GetTypesAndFilesByFilePathPrefix(MatchPrefix, DoNotMatchPrefix)
-        violators = TypesFc.intersection(TypesPol)
+        PathTypes = self.__GetTypesAndFilesByFilePathPrefix(MatchPrefix, DoNotMatchPrefix)
+        violatorTypes = set()
+        violatorFiles = set()
+        for PathType in PathTypes:
+            filepath, filetype = PathType
+            if filetype in TypesPol:
+                violatorTypes.add(str(filetype))
+                violatorFiles.add(str(filepath))
+
         ret = ""
-        if len(violators) > 0:
+        if len(violatorTypes) > 0:
             ret += "The following types on "
             ret += " ".join(str(x) for x in sorted(MatchPrefix))
             ret += " must not be associated with the "
             ret += "\"" + Attr + "\" attribute: "
-            ret += " ".join(str(x) for x in sorted(violators)) + "\n"
+            ret += " ".join(sorted(violatorTypes)) + "\n"
             ret += " corresponding to files: "
-            ret += " ".join(str(x) for x in sorted(Files)) + "\n"
+            ret += " ".join(sorted(violatorFiles)) + "\n"
         return ret
 
     # Check that all types for "filesystem" have "attribute" associated with them
@@ -146,18 +153,24 @@ class Policy:
         TypesPol = self.QueryTypeAttribute(Attr, True)
         # Search file_contexts to find paths/types that should be associated with
         # Attr.
-        TypesFc, Files = self.__GetTypesAndFilesByFilePathPrefix(MatchPrefix, DoNotMatchPrefix)
-        violators = TypesFc.difference(TypesPol)
+        PathTypes = self.__GetTypesAndFilesByFilePathPrefix(MatchPrefix, DoNotMatchPrefix)
+        violatorTypes = set()
+        violatorFiles = set()
+        for PathType in PathTypes:
+            filepath, filetype = PathType
+            if filetype not in TypesPol:
+                violatorTypes.add(str(filetype))
+                violatorFiles.add(str(filepath))
 
         ret = ""
-        if len(violators) > 0:
+        if len(violatorTypes) > 0:
             ret += "The following types on "
             ret += " ".join(str(x) for x in sorted(MatchPrefix))
             ret += " must be associated with the "
             ret += "\"" + Attr + "\" attribute: "
-            ret += " ".join(str(x) for x in sorted(violators)) + "\n"
+            ret += " ".join(sorted(violatorTypes)) + "\n"
             ret += " corresponding to files: "
-            ret += " ".join(str(x) for x in sorted(Files)) + "\n"
+            ret += " ".join(sorted(violatorFiles)) + "\n"
         return ret
 
     def AssertPropertyOwnersAreExclusive(self):
@@ -334,8 +347,7 @@ class Policy:
     # Return types that match MatchPrefixes but do not match
     # DoNotMatchPrefixes
     def __GetTypesAndFilesByFilePathPrefix(self, MatchPrefixes, DoNotMatchPrefixes):
-        Types = set()
-        Files = set()
+        ret = []
 
         MatchPrefixesWithIndex = []
         for MatchPrefix in MatchPrefixes:
@@ -346,9 +358,8 @@ class Policy:
             for PathType in PathTypes:
                 if MatchPathPrefixes(PathType[0], DoNotMatchPrefixes):
                     continue
-                Types.add(PathType[1])
-                Files.add(PathType[0])
-        return Types, Files
+                ret.append(PathType)
+        return ret
 
     def __GetTERules(self, policydbP, avtabIterP, Rules):
         if Rules is None:
