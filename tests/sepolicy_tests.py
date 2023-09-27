@@ -265,6 +265,19 @@ def TestIsolatedAttributeConsistency(test_policy):
             "\"-isolated_app_all\". Violations are shown as the following: \n")  + ret
     return ret
 
+def TestDevTypeViolations(pol):
+    exceptions = [
+        "/dev/boringssl/selftest",
+        "/dev/cgroup_info",
+        "/dev/cpu_variant",
+        "/dev/event-log-tags",
+        "/dev/fscklogs",
+        "/dev/socket",
+        "/dev/__properties__/property_info",
+    ]
+    return pol.AssertPathTypesHaveAttr(["/dev"], exceptions,
+                                       "dev_type")
+
 ###
 # extend OptionParser to allow the same option flag to be used multiple times.
 # This is used to allow multiple file_contexts files and tests to be
@@ -298,6 +311,7 @@ Tests = [
     "TestCoredomainViolations",
     "TestViolatorAttributes",
     "TestIsolatedAttributeConsistency",
+    "TestDevTypeViolations",
 ]
 
 def do_main(libpath):
@@ -365,6 +379,8 @@ def do_main(libpath):
         results += TestViolatorAttributes(test_policy)
     if options.test is None or "TestIsolatedAttributeConsistency" in options.test:
         results += TestIsolatedAttributeConsistency(test_policy)
+    if options.test is None or "TestDevTypeViolations" in options.test:
+        results += TestDevTypeViolations(pol)
 
     if len(results) > 0:
         sys.exit(results)
