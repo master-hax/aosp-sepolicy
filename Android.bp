@@ -806,3 +806,35 @@ genrule {
         "-p $(location :precompiled_sepolicy) && " +
         "touch $(out)",
 }
+
+//////////////////////////////////
+// sepolicy.zip allows OEM to get a copy of precompiled sepolicy. Useful when
+// some Android partitions need to be bind-mounted across VM boundaries.
+/////////////////////////////////
+genrule {
+    name: "sepolicy.zip",
+    tools: [
+        "soong_zip",
+    ],
+    srcs: [
+        ":plat_sepolicy.cil",
+        ":plat_mapping_file",
+        ":plat_pub_versioned.cil",
+        ":vendor_sepolicy.cil",
+        ":plat_sepolicy_vers.txt",
+    ],
+    out: ["sepolicy.zip"],
+    dist: {
+        targets: ["dist_files"],
+    },
+    cmd: "rm -rf $(genDir)/cil && mkdir -p $(genDir)/cil && " +
+
+        // Flatten dir structure of files.
+        "cp $(in) $(genDir)/cil && " +
+
+        // Correct the basename of :plat_mapping_file, and zip each input.
+        "mv $(genDir)/cil/$$(basename $(location :plat_mapping_file))" +
+        "    $(genDir)/cil/mapping.cil && " +
+
+        "$(location soong_zip) -o $(out) -C $(genDir)/cil -D $(genDir)/cil",
+}
