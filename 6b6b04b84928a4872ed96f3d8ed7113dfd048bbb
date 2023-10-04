@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7df82621_568d7b6c",
+        "filename": "private/compat/33.0/33.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131915
+      },
+      "writtenOn": "2023-10-04T07:51:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7cdd9d3_c86f8bad",
+      "revId": "6b6b04b84928a4872ed96f3d8ed7113dfd048bbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd018fcc_d571cdd7",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-10-04T04:31:43Z",
       "side": 1,
       "message": "Can we reuse this label (or another below) instead?",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 38
+      },
+      "revId": "6b6b04b84928a4872ed96f3d8ed7113dfd048bbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b8c2736_3fbb0305",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1131915
+      },
+      "writtenOn": "2023-10-04T07:51:01Z",
+      "side": 1,
+      "message": "I saw that and considered it but it would mean opening up write permission for init to other things in /sys/power, including /sys/power/state which gives the ability to put the device into suspend. I believe the additional granularity is warranted in this case.",
+      "parentUuid": "cd018fcc_d571cdd7",
       "range": {
         "startLine": 115,
         "startChar": 0,
