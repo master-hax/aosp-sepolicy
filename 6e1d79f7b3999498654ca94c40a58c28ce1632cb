@@ -102,6 +102,24 @@
       "parentUuid": "c2bd9596_501a7eb2",
       "revId": "6e1d79f7b3999498654ca94c40a58c28ce1632cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "394d6d37_eb7c317e",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-10-04T01:09:02Z",
+      "side": 1,
+      "message": "When you don\u0027t have those partitions, `system_ext_sepolicy.cil` and `system_ext_mapping_file` will be empty and adding them to here will have no effect.\n\nI suggest that we have the exact same set of `srcs` with `precompiled_sepolicy`. Or at least leave a big comment describing \"this is only for devices like arc which doesn\u0027t have partitions other than system and vendor\" and then change the module name.",
+      "parentUuid": "13219e6f_1bcec4b0",
+      "revId": "6e1d79f7b3999498654ca94c40a58c28ce1632cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
