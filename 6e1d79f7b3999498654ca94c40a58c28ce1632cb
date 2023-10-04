@@ -138,6 +138,29 @@
       "parentUuid": "394d6d37_eb7c317e",
       "revId": "6e1d79f7b3999498654ca94c40a58c28ce1632cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22cadf31_aaf0ecaf",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1109308
+      },
+      "writtenOn": "2023-10-04T18:02:13Z",
+      "side": 1,
+      "message": "This particular command is fairly ARC++ specific. I am going to remove it and add a special genrule in ARC++ specific project to fix it.\n\n`unzip` command has been used pretty widely[1] in the current Android code base, so using it shouldn\u0027t be a big problem, but ARC++ probably has to change the script that consumes the zip file.\n\n[1]: https://cs.android.com/search?q\u003dunzip%20f:android.bp",
+      "range": {
+        "startLine": 836,
+        "startChar": 8,
+        "endLine": 837,
+        "endChar": 43
+      },
+      "revId": "6e1d79f7b3999498654ca94c40a58c28ce1632cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
