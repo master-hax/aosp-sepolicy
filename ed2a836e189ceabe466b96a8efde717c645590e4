@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c6ef1e1_a9ddb0ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2023-10-05T10:01:04Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "ed2a836e189ceabe466b96a8efde717c645590e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9704b023_e418dafa",
@@ -14,6 +31,30 @@
       "writtenOn": "2023-10-02T22:51:50Z",
       "side": 1,
       "message": "do we still need to add debugfs entries, since it\u0027s deprecated? Or, did these new commands already exist?",
+      "range": {
+        "startLine": 356,
+        "startChar": 9,
+        "endLine": 356,
+        "endChar": 16
+      },
+      "revId": "ed2a836e189ceabe466b96a8efde717c645590e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37abbcff_e5acf18d",
+        "filename": "private/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2023-10-05T10:01:04Z",
+      "side": 1,
+      "message": "\u003e Or, did these new commands already exist?\n\nCorrect, I\u0027m adding these events just now but they have been added to the kernel at the same time as the other events in 975a1ac9a9fe(\"Staging: android: binder: Add some tracepoints\").\n\n\u003e do we still need to add debugfs entries, since it\u0027s deprecated?\n\nRight, I guess at some point we should remove those, but for now I\u0027d like to keep the lists consistent. I\u0027ve opened https://b.corp.google.com/issues/303590268 to investigate the feasibility of this cleanup.",
+      "parentUuid": "9704b023_e418dafa",
       "range": {
         "startLine": 356,
         "startChar": 9,
