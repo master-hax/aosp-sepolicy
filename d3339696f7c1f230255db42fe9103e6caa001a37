@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2f0ec80_023f2051",
+        "filename": "private/priv_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-05T11:00:39Z",
+      "side": 1,
+      "message": "You don\u0027t need to repeat what the lines below say - but what would be really helpful is to briefly mention why this is needed, and by which app - as in the example above.\n\nNeither this CL nor the linked bug seems to include that information anywwhere.\n\nNote that you are allowing any privileged app to access this - could that cause any problems?",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 54
+      },
+      "revId": "d3339696f7c1f230255db42fe9103e6caa001a37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d692828_876eae9e",
+        "filename": "private/priv_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-05T11:00:39Z",
+      "side": 1,
+      "message": "Nit: This (and other examples here) can be more succinct as `r_dir_file(priv_app, update_engine_log_data_file)`.",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 61
+      },
+      "revId": "d3339696f7c1f230255db42fe9103e6caa001a37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
