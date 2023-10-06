@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d92dbcca_944282f7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1971115
+      },
+      "writtenOn": "2023-10-06T13:01:40Z",
+      "side": 1,
+      "message": "I mean that apps are not supposed to directly interact with this service. But the native SensorManager, which runs in the app process, needs access to the new service.",
+      "parentUuid": "ef9b9593_50d6b119",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "0f6624677dc08d678a3f6e6472b09aa0012c15ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8913b22c_811b26dc",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6840bfb6_26f81b08",
+        "filename": "build/soong/service_fuzzer_bindings.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1971115
+      },
+      "writtenOn": "2023-10-06T13:01:40Z",
+      "side": 1,
+      "message": "The implementation is actually in Java... We need a new service because of 1) the extensive use of unstructured parcelables in the existing service and 2) the unfortunate package \"virtual\", which is a keyword in C++ so it can\u0027t be used as a namespace qualifier\n\nReusing the bug we have for adding a fuzzer for the virtualdevice service for this one as well: b/269744398 for tracking.",
+      "parentUuid": "8913b22c_811b26dc",
+      "range": {
+        "startLine": 462,
+        "startChar": 34,
+        "endLine": 462,
+        "endChar": 53
+      },
+      "revId": "0f6624677dc08d678a3f6e6472b09aa0012c15ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b705783_2214120f",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-10-06T10:36:15Z",
       "side": 1,
       "message": "Why do you want this to be directly accessible by apps and ephemeral apps?\nIf I understand your commit message correctly they should retrieve it via another service, not service manager.",
+      "range": {
+        "startLine": 259,
+        "startChar": 36,
+        "endLine": 259,
+        "endChar": 80
+      },
+      "revId": "0f6624677dc08d678a3f6e6472b09aa0012c15ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2275304_fe7b01ff",
+        "filename": "public/service.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1971115
+      },
+      "writtenOn": "2023-10-06T13:01:40Z",
+      "side": 1,
+      "message": "Without this the calls to the new service from the native SensorManager are denied because it runs in the app process.\n\nThis is an example of how this is meant to be called: https://googleplex-android-review.git.corp.google.com/c/platform/frameworks/native/+/24955733/3/libs/sensor/SensorManager.cpp\n\nI\u0027m not familiar with selinux, so open for suggestions about the best way to go about this.\n\nFWIW the actual interface is @hidden, if this amounts to anything: https://googleplex-android-review.git.corp.google.com/c/platform/frameworks/base/+/24955732/2/core/java/android/companion/virtualnative/IVirtualDeviceManagerNative.aidl",
+      "parentUuid": "5b705783_2214120f",
       "range": {
         "startLine": 259,
         "startChar": 36,
