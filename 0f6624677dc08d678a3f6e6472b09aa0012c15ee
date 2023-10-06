@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81dd6d8c_48e21ee8",
+        "filename": "build/soong/service_fuzzer_bindings.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-06T13:18:55Z",
+      "side": 1,
+      "message": "I see. I was misled by the name .",
+      "parentUuid": "6840bfb6_26f81b08",
+      "range": {
+        "startLine": 462,
+        "startChar": 34,
+        "endLine": 462,
+        "endChar": 53
+      },
+      "revId": "0f6624677dc08d678a3f6e6472b09aa0012c15ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b705783_2214120f",
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Without this the calls to the new service from the native SensorManager are denied because it runs in the app process.\n\nThis is an example of how this is meant to be called: https://googleplex-android-review.git.corp.google.com/c/platform/frameworks/native/+/24955733/3/libs/sensor/SensorManager.cpp\n\nI\u0027m not familiar with selinux, so open for suggestions about the best way to go about this.\n\nFWIW the actual interface is @hidden, if this amounts to anything: https://googleplex-android-review.git.corp.google.com/c/platform/frameworks/base/+/24955732/2/core/java/android/companion/virtualnative/IVirtualDeviceManagerNative.aidl",
       "parentUuid": "5b705783_2214120f",
+      "range": {
+        "startLine": 259,
+        "startChar": 36,
+        "endLine": 259,
+        "endChar": 80
+      },
+      "revId": "0f6624677dc08d678a3f6e6472b09aa0012c15ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb15e928_918ba695",
+        "filename": "public/service.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-06T13:18:55Z",
+      "side": 1,
+      "message": "\u003e This is an example of how this is meant to be called\n\nAh, I see. So you are fetching it from Service Manager.\n\n\u003e FWIW the actual interface is @hidden\n\nThat doesn\u0027t actually stop anyone using it, from a security point of view.",
+      "parentUuid": "f2275304_fe7b01ff",
       "range": {
         "startLine": 259,
         "startChar": 36,
