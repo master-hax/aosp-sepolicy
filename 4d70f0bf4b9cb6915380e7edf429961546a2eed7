@@ -142,6 +142,30 @@
       },
       "revId": "4d70f0bf4b9cb6915380e7edf429961546a2eed7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7418e451_b05d591e",
+        "filename": "private/artd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-16T14:23:44Z",
+      "side": 1,
+      "message": "AIUI, memfd_create is equivalent to mounting a tmpfs and creating a file on it.\nAnd we have this rule that says any file on a tmpfs filesystem gets labeled tmpfs: https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/fs_use;l\u003d23. See also https://selinuxproject.org/page/FileStatements#fs_use_trans.\nSo I think that\u0027s how it works.",
+      "parentUuid": "cda949a4_9df16f6b",
+      "range": {
+        "startLine": 144,
+        "startChar": 16,
+        "endLine": 144,
+        "endChar": 21
+      },
+      "revId": "4d70f0bf4b9cb6915380e7edf429961546a2eed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
