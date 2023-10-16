@@ -94,6 +94,30 @@
       },
       "revId": "4d70f0bf4b9cb6915380e7edf429961546a2eed7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0744172_1f322a55",
+        "filename": "private/artd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-16T13:50:38Z",
+      "side": 1,
+      "message": "That\u0027s what a transition does - `type_transition artd tmpfs:file artd_tmpfs;` says that if artd creates a file that would be labeled tmpfs, it instead gets the label artd_tmpfs.\nAnd despite the similar names they are otherwise unrelated from the point of view of selinux.\nartf_tmpfs is actually defined (fairly minimally) over here: https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/artd.te;drc\u003d8a250b9099b68ee4f312f7d2d712044c058992e9;l\u003d5",
+      "parentUuid": "12eb4b2c_ad7a4697",
+      "range": {
+        "startLine": 144,
+        "startChar": 16,
+        "endLine": 144,
+        "endChar": 21
+      },
+      "revId": "4d70f0bf4b9cb6915380e7edf429961546a2eed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
