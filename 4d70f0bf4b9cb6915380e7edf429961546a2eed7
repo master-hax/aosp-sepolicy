@@ -70,6 +70,30 @@
       },
       "revId": "4d70f0bf4b9cb6915380e7edf429961546a2eed7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12eb4b2c_ad7a4697",
+        "filename": "private/artd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-16T13:36:38Z",
+      "side": 1,
+      "message": "I noticed that, but looking at the `tmpfs_domain` macro I figured `artd_tmpfs` is still based on the `tmpfs` definition since it\u0027s a transition from the latter - it doesn\u0027t appear to be defined from scratch there.\n\nSo I still fail to connect the dots how memfd\u0027s end up being covered by the `artd_tmpfs` label and not something else. Where\u0027s that specified?",
+      "parentUuid": "1a843991_14534774",
+      "range": {
+        "startLine": 144,
+        "startChar": 16,
+        "endLine": 144,
+        "endChar": 21
+      },
+      "revId": "4d70f0bf4b9cb6915380e7edf429961546a2eed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
