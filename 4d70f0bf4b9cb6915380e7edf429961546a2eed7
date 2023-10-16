@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4856a0a_3239f294",
+        "filename": "private/artd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-16T12:39:15Z",
+      "side": 1,
+      "message": "I must be missing something, but afaics tmpfs covers /mnt and a couple other locations, but not /proc (https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/file_contexts;l\u003d29-32;drc\u003d57056e5249c397d0c1dd5f5acc721dd198751bb5). Isn\u0027t it /proc we need access to to open /proc/self/\u003cfd\u003e, i.e. the rootfs label?",
+      "range": {
+        "startLine": 144,
+        "startChar": 16,
+        "endLine": 144,
+        "endChar": 21
+      },
+      "revId": "4d70f0bf4b9cb6915380e7edf429961546a2eed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
