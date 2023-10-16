@@ -22,6 +22,30 @@
       },
       "revId": "4d70f0bf4b9cb6915380e7edf429961546a2eed7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af06e6dd_f107fa5f",
+        "filename": "private/artd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-16T12:51:37Z",
+      "side": 1,
+      "message": "artd_tmpfs is different from tmpfs. (`tmpfs_domain(artd)` above defines it and provides for it to be applied when artd creates tmpfs via memfd.)\n\nAnd there\u0027s some magic that means the files under /proc/self/fd end up with the same labels as the actual files the fds refer to.",
+      "parentUuid": "e4856a0a_3239f294",
+      "range": {
+        "startLine": 144,
+        "startChar": 16,
+        "endLine": 144,
+        "endChar": 21
+      },
+      "revId": "4d70f0bf4b9cb6915380e7edf429961546a2eed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
