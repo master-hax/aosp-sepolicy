@@ -192,6 +192,8 @@ var (
 		"appops":                                                          EXCEPTION_NO_FUZZER,
 		"appwidget":                                                       EXCEPTION_NO_FUZZER,
 		"artd":                                                            EXCEPTION_NO_FUZZER,
+		"artd_chroot":                                                     EXCEPTION_NO_FUZZER,
+		"artd_pre_reboot":                                                 EXCEPTION_NO_FUZZER,
 		"assetatlas":                                                      EXCEPTION_NO_FUZZER,
 		"attention":                                                       EXCEPTION_NO_FUZZER,
 		"audio":                                                           EXCEPTION_NO_FUZZER,
