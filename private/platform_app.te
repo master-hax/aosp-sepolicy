@@ -128,6 +128,10 @@ dontaudit platform_app debugfs_tracing:file rw_file_perms;
 # Allow platform apps to create VMs
 virtualizationservice_use(platform_app)
 
+# Allow platform app to read files under /data/system/shutdown-checkpoints/
+allow platform_app shutdown_checkpoints_system_data_file:dir r_dir_perms;
+allow platform_app shutdown_checkpoints_system_data_file:file r_file_perms;
+
 ###
 ### Neverallow rules
 ###
