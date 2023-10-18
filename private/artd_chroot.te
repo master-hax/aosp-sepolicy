@@ -1,0 +1,23 @@
+type artd_chroot, domain, coredomain;
+type artd_chroot_exec, system_file_type, exec_type, file_type;
+type artd_chroot_tmpfs, file_type;
+
+# Allow artd_chroot to publish a binder service and make binder calls.
+binder_use(artd_chroot)
+add_service(artd_chroot, artd_chroot_service)
+allow artd_chroot dumpstate:fifo_file { getattr write };
+allow artd_chroot dumpstate:fd use;
+
+init_daemon_domain(artd_chroot)
+
+# Use tmpfs_domain() which will give tmpfs files created by artd_chroot their
+# own label, which differs from other labels created by other processes.
+# This allows to distinguish in policy files created by artd_chroot vs other
+# processes.
+tmpfs_domain(artd_chroot)
+
+# libart (mark_compact.cc) has some intialization code that touches the cache
+# info file and userfaultfd.
+allow artd_chroot apex_module_data_file:dir { getattr search };
+r_dir_file(artd_chroot, apex_art_data_file)
+userfaultfd_use(artd_chroot)
