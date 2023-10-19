@@ -229,6 +229,7 @@ key_map rules[] = {
                 { .name = "fromRunAs",       .dir = dir_in, .fn_validate = validate_bool },
                 { .name = "isIsolatedComputeApp", .dir = dir_in, .fn_validate = validate_bool },
                 { .name = "isSdkSandboxNext", .dir = dir_in, .fn_validate = validate_bool },
+                { .name = "isSdkSandboxAuditNext", .dir = dir_in, .fn_validate = validate_bool },
                 /*Outputs*/
                 { .name = "domain",         .dir = dir_out, .fn_validate = validate_domain  },
                 { .name = "type",           .dir = dir_out, .fn_validate = validate_type  },
