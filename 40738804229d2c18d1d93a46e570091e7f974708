@@ -16,6 +16,69 @@
       "message": "please have a look",
       "revId": "40738804229d2c18d1d93a46e570091e7f974708",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c0a75d2_2e4cbc33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-19T13:09:54Z",
+      "side": 1,
+      "message": "Shouldn\u0027t there be some API here, rather than just opening up access to the raw files?",
+      "revId": "40738804229d2c18d1d93a46e570091e7f974708",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c62df7d5_5cd93954",
+        "filename": "prebuilts/api/34.0/private/platform_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-19T13:09:54Z",
+      "side": 1,
+      "message": "You shouldn\u0027t be changing the API 34 files.\n(If this is supposed to be targeting API 34, it needs to be submitted internally on the relevant branch first.)\n\n\u003e Please fix this WARNING reported by SELinuxLint: Prebuilt policies must not be changed outside the release cycle.\n\nAnalyzer Description: Linter for SELinux policies\nOwner: android-security-selinux@google.com\n\nPrebuilt policies must not be changed outside the release cycle.",
+      "range": {
+        "startLine": 0,
+        "startChar": 0,
+        "endLine": 0,
+        "endChar": 0
+      },
+      "revId": "40738804229d2c18d1d93a46e570091e7f974708",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81c3bf22_7ccb6c39",
+        "filename": "prebuilts/api/34.0/private/platform_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-19T13:09:54Z",
+      "side": 1,
+      "message": "Nit: Prefer r_dir_file(platform_app, shutdown_checkpoints_system_data_file)",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 75
+      },
+      "revId": "40738804229d2c18d1d93a46e570091e7f974708",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
