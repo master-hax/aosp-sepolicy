@@ -515,6 +515,9 @@ type contextsTestProperties struct {
 
 	// Precompiled sepolicy binary to be tesed together.
 	Sepolicy *string `android:"path"`
+
+	// Test data.
+	Test_data *string `android:"path"`
 }
 
 type contextsTestModule struct {
@@ -595,9 +598,18 @@ func (m *contextsTestModule) GenerateAndroidBuildActions(ctx android.ModuleConte
 		return
 	}
 
+	validateWithPolicy := true
 	if proptools.String(m.properties.Sepolicy) == "" {
-		ctx.PropertyErrorf("sepolicy", "can't be empty")
-		return
+		if m.cType == FileContext {
+			if proptools.String(m.properties.Test_data) == "" {
+				ctx.PropertyErrorf("test_data", "Either test_data or sepolicy should be provided")
+				return
+			}
+			validateWithPolicy = false
+		} else {
+			ctx.PropertyErrorf("sepolicy", "can't be empty")
+			return
+		}
 	}
 
 	flags := []string(nil)
@@ -611,13 +623,21 @@ func (m *contextsTestModule) GenerateAndroidBuildActions(ctx android.ModuleConte
 	}
 
 	srcs := android.PathsForModuleSrc(ctx, m.properties.Srcs)
-	sepolicy := android.PathForModuleSrc(ctx, proptools.String(m.properties.Sepolicy))
-
 	rule := android.NewRuleBuilder(pctx, ctx)
-	rule.Command().BuiltTool(tool).
-		Flags(flags).
-		Input(sepolicy).
-		Inputs(srcs)
+
+	if validateWithPolicy {
+		sepolicy := android.PathForModuleSrc(ctx, proptools.String(m.properties.Sepolicy))
+		rule.Command().BuiltTool(tool).
+			Flags(flags).
+			Input(sepolicy).
+			Inputs(srcs)
+	} else {
+		test_data := android.PathForModuleSrc(ctx, proptools.String(m.properties.Test_data))
+		rule.Command().BuiltTool(tool).
+			Flags(flags).
+			Inputs(srcs).
+			Input(test_data)
+	}
 
 	m.testTimestamp = pathForModuleOut(ctx, "timestamp")
 	rule.Command().Text("touch").Output(m.testTimestamp)
