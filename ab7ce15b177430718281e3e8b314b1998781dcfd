@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f05971f_b75855f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2023-10-23T00:48:26Z",
+      "side": 1,
+      "message": "Correct. It will fail with this change only, there is a change right after to fix the couple of problematic entries.",
+      "parentUuid": "3276e289_656c3b8e",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 72
+      },
+      "revId": "ab7ce15b177430718281e3e8b314b1998781dcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd7d5422_3270b896",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-20T11:30:37Z",
       "side": 1,
       "message": "Do we need to undo this at the end of the test?",
+      "range": {
+        "startLine": 347,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 45
+      },
+      "revId": "ab7ce15b177430718281e3e8b314b1998781dcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3929c341_dd79e1aa",
+        "filename": "tools/checkfc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2023-10-23T00:48:26Z",
+      "side": 1,
+      "message": "This is the last call before exit(). Even if libselinux has some messages triggered at exit, the implementation still outputs them on stderr, so we won\u0027t miss anything.",
+      "parentUuid": "bd7d5422_3270b896",
       "range": {
         "startLine": 347,
         "startChar": 0,
