@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "532cd02a_759a9617",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T16:11:10Z",
+      "side": 1,
+      "message": "Bikeshed (and feel free to ignore): wouldn\u0027t sdk_sandbox_next_audit  be more in tune with the suffix notation?",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "805ae730cc240911fd13b83b1ab5ad3151917524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cd18ed8_741522bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T16:11:10Z",
+      "side": 1,
+      "message": "Where are we on system health with this?",
+      "revId": "805ae730cc240911fd13b83b1ab5ad3151917524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c70d2119_bb9ac52e",
+        "filename": "private/sdk_sandbox_audit_next.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T16:11:10Z",
+      "side": 1,
+      "message": "I think it\u0027s worth saying something like:\n\"This domain has the same rules as sdk_sandbox_next, but with auditing of some allowed accesses\". \n\nOr at least I think that\u0027s the intention?\nI do wonder if we could use attributes to help with that, or even merge this file with the existing sdk_sandbox_next, so that the massive rule below could be:\n\nallow {sdk_sandbox_next sdk_sandbox_audit_next} ...;",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 60
+      },
+      "revId": "805ae730cc240911fd13b83b1ab5ad3151917524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3dac955_ec501000",
+        "filename": "private/sdk_sandbox_audit_next.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T16:11:10Z",
+      "side": 1,
+      "message": "If we don\u0027t go for my suggestion above, the comment here should be \"This is identical to the list allowed for sdk_sandbox_next\".",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 91
+      },
+      "revId": "805ae730cc240911fd13b83b1ab5ad3151917524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c9a55ab_3e920fa1",
+        "filename": "private/sdk_sandbox_audit_next.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T16:11:10Z",
+      "side": 1,
+      "message": "These ones seem likely to generate a ton of denials. Are you actually contemplating removing access to everything that isn\u0027t system_property_type?",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 19
+      },
+      "revId": "805ae730cc240911fd13b83b1ab5ad3151917524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1561f0fe_1262f1a0",
+        "filename": "private/sdk_sandbox_audit_next.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T16:11:10Z",
+      "side": 1,
+      "message": "A comment before all the auditallow rules might be helpful? \"Audit access which might be removed in the future\", that sort of thing.",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 19
+      },
+      "revId": "805ae730cc240911fd13b83b1ab5ad3151917524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f070a54_407e4715",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T16:11:10Z",
+      "side": 1,
+      "message": "Could we maybe explain the purpose of those domains?",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 57
+      },
+      "revId": "805ae730cc240911fd13b83b1ab5ad3151917524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
