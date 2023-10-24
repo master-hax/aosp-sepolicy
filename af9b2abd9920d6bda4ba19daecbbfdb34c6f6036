@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d1606023_06207b7e",
+        "filename": "private/sdk_sandbox_audit_next.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2023-10-24T10:42:48Z",
+      "side": 1,
+      "message": "Yes, this is the list from sdk_sandbox_next. I would be in favor of auditing access to all services as well.\n\nHowever, before fine-tuning what is being audited I would first wait until we have a system working end-to-end. We should have enough time to modify the audit policy in the future.",
+      "parentUuid": "1502f4c6_5fd35b02",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 28
+      },
+      "revId": "af9b2abd9920d6bda4ba19daecbbfdb34c6f6036",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c348551_51e68b30",
         "filename": "private/sdk_sandbox_audit_next.te",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-23T12:22:18Z",
       "side": 1,
       "message": "Is this allowing access to all properties but system_property_type?",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 21
+      },
+      "revId": "af9b2abd9920d6bda4ba19daecbbfdb34c6f6036",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5b20d48_07549d9e",
+        "filename": "private/sdk_sandbox_audit_next.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2023-10-24T10:42:48Z",
+      "side": 1,
+      "message": "Yes. At this stage I prefer not to spam too many messages to the audit log, since they would just be truncated. I don\u0027t think we will be looking into system_property_types for V anyway.",
+      "parentUuid": "9c348551_51e68b30",
       "range": {
         "startLine": 99,
         "startChar": 0,
