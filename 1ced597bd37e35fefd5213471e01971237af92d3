@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9c2042c_ddfb1467",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T14:40:16Z",
+      "side": 1,
+      "message": "I\u0027m not at all sure whether this is the right approach.\n1. Do you need a new domain at all? Could the new instance use the existing hal_remotelyprovisionedcomponent_service domain, the same as the existing instances? (Except that would mean the sepolicy would allow vs to register the keymint instances, and vice versa.)\n2. Should your new domain be set up as a hal domain, e.g. using hal_attribute_service macro?\n\nYou\u0027re definitely implementing a hal interface, but it\u0027s a fairly weird case since both the caller and implementation are in system.",
+      "revId": "1ced597bd37e35fefd5213471e01971237af92d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42d720f0_46e7a456",
+        "filename": "build/soong/service_fuzzer_bindings.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T14:40:16Z",
+      "side": 1,
+      "message": "Can you mention the new interface in the bug?\nIs there an existing fuzzer for this interface?",
+      "range": {
+        "startLine": 176,
+        "startChar": 10,
+        "endLine": 176,
+        "endChar": 21
+      },
+      "revId": "1ced597bd37e35fefd5213471e01971237af92d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0a10485_5a848499",
+        "filename": "private/service_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T14:40:16Z",
+      "side": 1,
+      "message": "Would it make sense to move this up to just after line 93?",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 122
+      },
+      "revId": "1ced597bd37e35fefd5213471e01971237af92d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e945aa16_c9dfdb4e",
+        "filename": "private/system_server.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T14:40:16Z",
+      "side": 1,
+      "message": "Do you need this?\nWhen does system_server interact with the service?",
+      "range": {
+        "startLine": 932,
+        "startChar": 0,
+        "endLine": 932,
+        "endChar": 82
+      },
+      "revId": "1ced597bd37e35fefd5213471e01971237af92d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d15d9cd_22393cb4",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T14:40:16Z",
+      "side": 1,
+      "message": "I\u0027m gradually trying to get these comments to be more about why than about what (the line below says what is being allowed).\nWe definitely don\u0027t need to keep repeating the name of the source domain, since that is the same for all the rules in this file.\nHow about something like\n\u003e Allow registering as a remotely provisioned component for VM attestation.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "1ced597bd37e35fefd5213471e01971237af92d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e43b7467_03518067",
+        "filename": "public/service.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T14:40:16Z",
+      "side": 1,
+      "message": "Should this be down with HAL services below, and marked as hal_service_type?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 68
+      },
+      "revId": "1ced597bd37e35fefd5213471e01971237af92d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
