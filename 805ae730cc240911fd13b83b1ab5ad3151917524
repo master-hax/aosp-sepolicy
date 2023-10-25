@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "48460f8f_626f695d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2023-10-25T12:41:38Z",
+      "side": 1,
+      "message": "I fear the names sdk_sandbox_next_audit or sdk_sandbox_audit_next might be misleading. The idea is that sdk_sandbox_{audit_next,next_audit} has the same permissions as the sdk_sandbox_34 domain and audit rules to diff the upcoming sdk_sandbox_next domain.\n\nLet me do it over, I\u0027ll try again. I renamed the new domain to sdk_sandbox_audit and introduced the sdk_sandbox_current attribute. Both sdk_sandbox_34 and sdk_sandbox_audit match the sdk_sandbox_current attribute, so that we need to define allow rules only once. The sdk_sandbox_audit.te file now only contains the auditing part, to the extent that\u0027s possible.",
+      "parentUuid": "532cd02a_759a9617",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "805ae730cc240911fd13b83b1ab5ad3151917524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1cd18ed8_741522bc",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f08fffa5_4aebedb9",
+        "filename": "private/sdk_sandbox_audit_next.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2023-10-25T12:41:38Z",
+      "side": 1,
+      "message": "I defined the sdk_sandbox_current attribute, now the allow rules are defined only once for that attribute.",
+      "parentUuid": "c70d2119_bb9ac52e",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 60
+      },
+      "revId": "805ae730cc240911fd13b83b1ab5ad3151917524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3dac955_ec501000",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-10-24T16:11:10Z",
       "side": 1,
       "message": "If we don\u0027t go for my suggestion above, the comment here should be \"This is identical to the list allowed for sdk_sandbox_next\".",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 91
+      },
+      "revId": "805ae730cc240911fd13b83b1ab5ad3151917524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3832646_8db065a2",
+        "filename": "private/sdk_sandbox_audit_next.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2023-10-25T12:41:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3dac955_ec501000",
       "range": {
         "startLine": 11,
         "startChar": 0,
@@ -135,6 +207,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4fad3712_7fb3ef9e",
+        "filename": "private/sdk_sandbox_audit_next.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2023-10-25T12:41:38Z",
+      "side": 1,
+      "message": "At least on internal/aosp builds, it seems the \"-system_property_type\" already reduces the number of denials by a lot. Not a very representative experiment, but I ran a test with these audits enabled and got only these denials gpaste/5354624637730816.\n\nIf possible, I think it would be cool to remove access to everything that is not system_property_type. If I understand correctly, that would help reduce the ability to fingerprint the device model, at least to some extent.",
+      "parentUuid": "4c9a55ab_3e920fa1",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 19
+      },
+      "revId": "805ae730cc240911fd13b83b1ab5ad3151917524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73504411_9a250727",
+        "filename": "private/sdk_sandbox_audit_next.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2023-10-25T12:41:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1561f0fe_1262f1a0",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 19
+      },
+      "revId": "805ae730cc240911fd13b83b1ab5ad3151917524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0f070a54_407e4715",
         "filename": "private/seapp_contexts",
         "patchSetId": 3
@@ -146,6 +266,30 @@
       "writtenOn": "2023-10-24T16:11:10Z",
       "side": 1,
       "message": "Could we maybe explain the purpose of those domains?",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 57
+      },
+      "revId": "805ae730cc240911fd13b83b1ab5ad3151917524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dd23f11_2d8ad409",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2023-10-25T12:41:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f070a54_407e4715",
       "range": {
         "startLine": 53,
         "startChar": 0,
