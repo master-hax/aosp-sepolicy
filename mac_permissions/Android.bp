@@ -40,7 +40,7 @@ mac_permissions {
         ":keys.conf{.system_ext_private}",
         ":keys.conf{.product_private}",
     ],
-    srcs: [":mac_permissions.xml{.plat_private}"],
+    srcs: flagging_macros + [":mac_permissions.xml{.plat_private}"],
 }
 
 mac_permissions {
@@ -49,7 +49,7 @@ mac_permissions {
         ":keys.conf{.system_ext_private}",
         ":keys.conf{.reqd_mask}",
     ],
-    srcs: [
+    srcs: flagging_macros + [
         ":mac_permissions.xml{.system_ext_private}",
         ":mac_permissions.xml{.reqd_mask}",
     ],
@@ -62,7 +62,7 @@ mac_permissions {
         ":keys.conf{.product_private}",
         ":keys.conf{.reqd_mask}",
     ],
-    srcs: [
+    srcs: flagging_macros + [
         ":mac_permissions.xml{.product_private}",
         ":mac_permissions.xml{.reqd_mask}",
     ],
@@ -76,7 +76,7 @@ mac_permissions {
         ":keys.conf{.vendor}",
         ":keys.conf{.reqd_mask}",
     ],
-    srcs: [
+    srcs: flagging_macros + [
         ":mac_permissions.xml{.plat_vendor}",
         ":mac_permissions.xml{.vendor}",
         ":mac_permissions.xml{.reqd_mask}",
@@ -90,7 +90,7 @@ mac_permissions {
         ":keys.conf{.odm}",
         ":keys.conf{.reqd_mask}",
     ],
-    srcs: [
+    srcs: flagging_macros + [
         ":mac_permissions.xml{.odm}",
         ":mac_permissions.xml{.reqd_mask}",
     ],
