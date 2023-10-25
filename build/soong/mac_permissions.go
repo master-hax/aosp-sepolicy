@@ -99,6 +99,7 @@ func (m *macPermissionsModule) GenerateAndroidBuildActions(ctx android.ModuleCon
 		Tool(ctx.Config().PrebuiltBuildTool(ctx, "m4")).
 		Text("--fatal-warnings -s").
 		FlagForEachArg("-D", ctx.DeviceConfig().SepolicyM4Defs()).
+		Flags(m4FlagDefinitions(ctx)).
 		Inputs(keys).
 		FlagWithOutput("> ", m4Keys).
 		Implicits(platformKeys)
