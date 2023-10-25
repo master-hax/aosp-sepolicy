@@ -106,6 +106,8 @@ func (m *selinuxContextsModule) onlyInRecovery() bool {
 }
 
 func (m *selinuxContextsModule) DepsMutator(ctx android.BottomUpMutatorContext) {
+	addFlagsDependency(ctx)
+
 	if m.deps != nil {
 		m.deps(ctx)
 	}
@@ -249,6 +251,7 @@ func (m *selinuxContextsModule) buildGeneralContexts(ctx android.ModuleContext, 
 		Tool(ctx.Config().PrebuiltBuildTool(ctx, "m4")).
 		Text("--fatal-warnings -s").
 		FlagForEachArg("-D", ctx.DeviceConfig().SepolicyM4Defs()).
+		Flags(m4FlagMacroDefinitions(ctx)).
 		Inputs(inputsWithNewline).
 		FlagWithOutput("> ", builtContext)
 
