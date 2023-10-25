@@ -40,3 +40,13 @@ func pathForModuleOut(ctx android.ModuleContext, paths ...string) android.Output
 
 	return android.PathForModuleOut(ctx, ctx.Config().DeviceName()).Join(ctx, paths...)
 }
+
+// m4FlagDefinitions returns a list of M4's -D parameters to guard te files and contexts files.
+func m4FlagDefinitions(ctx android.ModuleContext) []string {
+	buildFlags := ctx.Config().BuildFlags()
+	ret := make([]string, 0, len(buildFlags))
+	for _, flag := range android.SortedKeys(buildFlags) {
+		ret = append(ret, "-D target_flag_"+flag+"="+buildFlags[flag])
+	}
+	return ret
+}
