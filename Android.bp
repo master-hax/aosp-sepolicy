@@ -92,6 +92,7 @@ system_ext_public_policy  = [":se_build_files{.system_ext_public}"]
 system_ext_private_policy = [":se_build_files{.system_ext_private}"]
 product_public_policy     = [":se_build_files{.product_public}"]
 product_private_policy    = [":se_build_files{.product_private}"]
+flagging_macros           = [":sepolicy_flagging_macros"]
 
 // reqd_policy_mask - a policy.conf file which contains only the bare minimum
 // policy necessary to use checkpolicy.
@@ -103,7 +104,7 @@ product_private_policy    = [":se_build_files{.product_private}"]
 // policy and subsequent removal of CIL policy that should not be exported.
 se_policy_conf {
     name: "reqd_policy_mask.conf",
-    srcs: reqd_mask_policy,
+    srcs: flagging_macros + reqd_mask_policy,
     installable: false,
 }
 
@@ -138,7 +139,8 @@ se_policy_cil {
 //
 se_policy_conf {
     name: "pub_policy.conf",
-    srcs: plat_public_policy +
+    srcs: flagging_macros +
+        plat_public_policy +
         system_ext_public_policy +
         product_public_policy +
         reqd_mask_policy,
@@ -157,7 +159,8 @@ se_policy_cil {
 
 se_policy_conf {
     name: "system_ext_pub_policy.conf",
-    srcs: plat_public_policy +
+    srcs: flagging_macros +
+        plat_public_policy +
         system_ext_public_policy +
         reqd_mask_policy,
     system_ext_specific: true,
@@ -175,7 +178,8 @@ se_policy_cil {
 
 se_policy_conf {
     name: "plat_pub_policy.conf",
-    srcs: plat_public_policy +
+    srcs: flagging_macros +
+        plat_public_policy +
         reqd_mask_policy,
     installable: false,
 }
@@ -195,7 +199,8 @@ se_policy_cil {
 // currently being attributized.
 se_policy_conf {
     name: "plat_sepolicy.conf",
-    srcs: plat_public_policy +
+    srcs: flagging_macros +
+        plat_public_policy +
         plat_private_policy,
     installable: false,
 }
@@ -210,7 +215,8 @@ se_policy_cil {
 // userdebug_plat_policy.conf - the userdebug version plat_sepolicy.cil
 se_policy_conf {
     name: "userdebug_plat_sepolicy.conf",
-    srcs: plat_public_policy +
+    srcs: flagging_macros +
+        plat_public_policy +
         plat_private_policy,
     build_variant: "userdebug",
     installable: false,
@@ -260,7 +266,8 @@ gsi_se_policy_cil {
 // policy which will ship with the device. System_ext policy is not attributized
 se_policy_conf {
     name: "system_ext_sepolicy.conf",
-    srcs: plat_public_policy +
+    srcs: flagging_macros +
+        plat_public_policy +
         plat_private_policy +
         system_ext_public_policy +
         system_ext_private_policy,
@@ -280,7 +287,8 @@ se_policy_cil {
 // which will ship with the device. Product policy is not attributized
 se_policy_conf {
     name: "product_sepolicy.conf",
-    srcs: plat_public_policy +
+    srcs: flagging_macros +
+        plat_public_policy +
         plat_private_policy +
         system_ext_public_policy +
         system_ext_private_policy +
@@ -348,7 +356,8 @@ se_versioned_policy {
 // policy and the platform public policy files in order to use checkpolicy.
 se_policy_conf {
     name: "vendor_sepolicy.conf",
-    srcs: plat_public_policy +
+    srcs: flagging_macros +
+        plat_public_policy +
         system_ext_public_policy +
         product_public_policy +
         reqd_mask_policy + [
@@ -389,7 +398,8 @@ se_versioned_policy {
 // policy and the platform public policy files in order to use checkpolicy.
 se_policy_conf {
     name: "odm_sepolicy.conf",
-    srcs: plat_public_policy +
+    srcs: flagging_macros +
+        plat_public_policy +
         system_ext_public_policy +
         product_public_policy +
         reqd_mask_policy + [
@@ -598,7 +608,8 @@ precompiled_se_policy_binary {
 // policy for recovery
 se_policy_conf {
     name: "recovery_sepolicy.conf",
-    srcs: plat_public_policy +
+    srcs: flagging_macros +
+        plat_public_policy +
         plat_private_policy +
         system_ext_public_policy +
         system_ext_private_policy +
@@ -634,7 +645,8 @@ se_policy_binary {
 //////////////////////////////////
 se_policy_conf {
     name: "general_sepolicy.conf",
-    srcs: plat_public_policy +
+    srcs: flagging_macros +
+        plat_public_policy +
         plat_private_policy,
     build_variant: "user",
     cts: true,
@@ -650,7 +662,8 @@ se_policy_conf {
 //////////////////////////////////
 se_policy_conf {
     name: "base_plat_sepolicy.conf",
-    srcs: plat_public_policy +
+    srcs: flagging_macros +
+        plat_public_policy +
         plat_private_policy,
     build_variant: "user",
     installable: false,
@@ -675,7 +688,8 @@ se_policy_binary {
 
 se_policy_conf {
     name: "base_product_sepolicy.conf",
-    srcs: plat_public_policy +
+    srcs: flagging_macros +
+        plat_public_policy +
         plat_private_policy +
         system_ext_public_policy +
         system_ext_private_policy +
@@ -704,7 +718,8 @@ se_policy_binary {
 
 se_policy_conf {
     name: "base_plat_pub_policy.conf",
-    srcs: plat_public_policy +
+    srcs: flagging_macros +
+        plat_public_policy +
         reqd_mask_policy,
     build_variant: "user",
     installable: false,
@@ -723,7 +738,8 @@ se_policy_cil {
 
 se_policy_conf {
     name: "base_product_pub_policy.conf",
-    srcs: plat_public_policy +
+    srcs: flagging_macros +
+        plat_public_policy +
         system_ext_public_policy +
         product_public_policy +
         reqd_mask_policy,
@@ -770,7 +786,8 @@ se_bug_map {
 
 se_neverallow_test {
     name: "sepolicy_neverallows",
-    srcs: plat_public_policy +
+    srcs: flagging_macros +
+        plat_public_policy +
         plat_private_policy +
         system_ext_public_policy +
         system_ext_private_policy +
