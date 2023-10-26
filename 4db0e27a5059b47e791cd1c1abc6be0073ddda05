@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "274f9f28_746fddf3",
+        "filename": "private/sdk_sandbox_audit.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1597535
+      },
+      "writtenOn": "2023-10-26T10:57:16Z",
+      "side": 1,
+      "message": "by virtue of also being of type sdk_sandbox_current, this domain will get tho rules for this service, an allow rule and an auditallow rule? Is there well defined precedence between them? (we want the audit allow rule to be triggered).\n\nIf system health permits, we\u0027ll want to auditallow all accesses in the current policy (and a few more). Do we want to duplicate allow and auditallow rules this way? What\u0027s the benefit of doing so? Is it possible to instead define the list of services somewhere (an sdk_sandbox_service_allowlist, similar to ephemeral_app_api_service for e.g.) and have rules that\nauditallow sdk_sandbox_service_allowlist in sdk_sandbox_audit\nallow sdk_sandbox_service_allowlist in sdk_sandbox_current ?",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "4db0e27a5059b47e791cd1c1abc6be0073ddda05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
