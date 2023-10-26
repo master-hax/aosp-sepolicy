@@ -70,6 +70,30 @@
       },
       "revId": "4db0e27a5059b47e791cd1c1abc6be0073ddda05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd85d357_3b7a199b",
+        "filename": "private/sdk_sandbox_audit.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1929300
+      },
+      "writtenOn": "2023-10-26T12:07:17Z",
+      "side": 1,
+      "message": "The name `auditallow` is misleading, it does not actually grant any permissions. It only marks that the access should be audited. You still need to add allow rules for the sdk_sandbox_audit domain as well.\nhttps://selinuxproject.org/page/AVCRules\n\nMy intention with the sdk_sandbox_current is to have a single attribute to which we grant all the permissions, and add auditing only to the sdk_sandbox_audit.",
+      "parentUuid": "274f9f28_746fddf3",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "4db0e27a5059b47e791cd1c1abc6be0073ddda05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
