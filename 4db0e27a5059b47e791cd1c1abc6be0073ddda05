@@ -22,6 +22,30 @@
       },
       "revId": "4db0e27a5059b47e791cd1c1abc6be0073ddda05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8f31a9b_e3635c1b",
+        "filename": "private/sdk_sandbox_audit.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-26T11:59:56Z",
+      "side": 1,
+      "message": "`auditallow` is a little confusing - it means \"audit if allowed\", not \"allow and audit\". Only an allow rule can allow something.\n\nSo if you have only auditallow it does nothing. You need both allow and auditallow if you want to allow an access but also have it audited.",
+      "parentUuid": "274f9f28_746fddf3",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "4db0e27a5059b47e791cd1c1abc6be0073ddda05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
