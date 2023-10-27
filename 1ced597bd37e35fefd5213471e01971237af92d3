@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10ed3be4_befdddb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-10-27T12:22:51Z",
+      "side": 1,
+      "message": "The main reason for defining a new domain for the service is to enable `virtualizationservice` to add it.\n\n1. Reusing `hal_remotelyprovisionedcomponent_service` doesn\u0027t look feasible since it represents a different service and has already been added by keymint. The `add_service` macro also only allows a service to be added by one domain.\n2. I cannot set it with `hal_attribute_service` as it interacts with two actors, *_server and *_client, which doesn\u0027t align well with our specific use case here.",
+      "parentUuid": "d9c2042c_ddfb1467",
+      "revId": "1ced597bd37e35fefd5213471e01971237af92d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42d720f0_46e7a456",
         "filename": "build/soong/service_fuzzer_bindings.go",
         "patchSetId": 4
@@ -31,6 +49,30 @@
       "writtenOn": "2023-10-24T14:40:16Z",
       "side": 1,
       "message": "Can you mention the new interface in the bug?\nIs there an existing fuzzer for this interface?",
+      "range": {
+        "startLine": 176,
+        "startChar": 10,
+        "endLine": 176,
+        "endChar": 21
+      },
+      "revId": "1ced597bd37e35fefd5213471e01971237af92d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48535fef_f6c9e283",
+        "filename": "build/soong/service_fuzzer_bindings.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-10-27T12:22:51Z",
+      "side": 1,
+      "message": "I have added the Hal to the bug. @sethmo@google.com, is there an existing fuzzer for IRPC? It seems unlikely, considering that `android.hardware.security.keymint.IRemotelyProvisionedComponent/default` is also in this list. If we will add a fuzzer, it would probably be more efficient to add a fuzzer for all the IRPC HALs.",
+      "parentUuid": "42d720f0_46e7a456",
       "range": {
         "startLine": 176,
         "startChar": 10,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f3c530f_d66df14c",
+        "filename": "private/service_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-10-27T12:22:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0a10485_5a848499",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 122
+      },
+      "revId": "1ced597bd37e35fefd5213471e01971237af92d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e945aa16_c9dfdb4e",
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed38df51_6fb28b48",
+        "filename": "private/system_server.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-10-27T12:22:51Z",
+      "side": 1,
+      "message": "I removed this.",
+      "parentUuid": "e945aa16_c9dfdb4e",
+      "range": {
+        "startLine": 932,
+        "startChar": 0,
+        "endLine": 932,
+        "endChar": 82
+      },
+      "revId": "1ced597bd37e35fefd5213471e01971237af92d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d15d9cd_22393cb4",
@@ -100,6 +190,30 @@
       "writtenOn": "2023-10-24T14:40:16Z",
       "side": 1,
       "message": "I\u0027m gradually trying to get these comments to be more about why than about what (the line below says what is being allowed).\nWe definitely don\u0027t need to keep repeating the name of the source domain, since that is the same for all the rules in this file.\nHow about something like\n\u003e Allow registering as a remotely provisioned component for VM attestation.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "1ced597bd37e35fefd5213471e01971237af92d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f868dd4_0c1b6820",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-10-27T12:22:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d15d9cd_22393cb4",
       "range": {
         "startLine": 18,
         "startChar": 0,
@@ -147,6 +261,30 @@
       "side": 1,
       "message": "yes, but I\u0027m confused, because this service is served by virtualizationservice, it\u0027s not technically a HAL interface. It wouldn\u0027t even need to be @VintfStability there. Though, if it\u0027s served from the VM and then proxied, it would need to be @VintfStability",
       "parentUuid": "e43b7467_03518067",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 68
+      },
+      "revId": "1ced597bd37e35fefd5213471e01971237af92d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07a9e79d_2a953ae2",
+        "filename": "public/service.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-10-27T12:22:51Z",
+      "side": 1,
+      "message": "I moved this with the hal services below.\nThe service is served by the virtualizationservice, not directly from the VM. The VM is only called upon in the implementation, so the annotation shouldn\u0027t be necessary in this context.",
+      "parentUuid": "35ea8fb5_7968ef2a",
       "range": {
         "startLine": 7,
         "startChar": 0,
