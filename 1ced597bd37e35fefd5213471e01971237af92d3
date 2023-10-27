@@ -85,6 +85,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6333446d_72af7fce",
+        "filename": "build/soong/service_fuzzer_bindings.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-10-27T22:40:41Z",
+      "side": 1,
+      "message": "There\u0027s no fuzzer I\u0027m aware of",
+      "parentUuid": "48535fef_f6c9e283",
+      "range": {
+        "startLine": 176,
+        "startChar": 10,
+        "endLine": 176,
+        "endChar": 21
+      },
+      "revId": "1ced597bd37e35fefd5213471e01971237af92d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d0a10485_5a848499",
         "filename": "private/service_contexts",
         "patchSetId": 4
@@ -285,6 +309,30 @@
       "side": 1,
       "message": "I moved this with the hal services below.\nThe service is served by the virtualizationservice, not directly from the VM. The VM is only called upon in the implementation, so the annotation shouldn\u0027t be necessary in this context.",
       "parentUuid": "35ea8fb5_7968ef2a",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 68
+      },
+      "revId": "1ced597bd37e35fefd5213471e01971237af92d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c6ec373_70c6a23f",
+        "filename": "public/service.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-10-27T22:40:41Z",
+      "side": 1,
+      "message": "The requirement are that rkpd needs the interface to be in the \"declared instances\", per a call to `ServiceManager`. The interface itself is indeed VINTF stable since it\u0027s implemented by other HALs. AVF needs to play along by the same rules as HALs with respect to obeying stability and keeping up with future required minimum versions (we hope to keep those to a minimum).\n\n@smoreland@google.com: AFAIK, this patch is the correct way to expose the interface so rkpd can find and call it. If we\u0027re doing things in a goofy way, then pointers are appreciated.",
+      "parentUuid": "07a9e79d_2a953ae2",
       "range": {
         "startLine": 7,
         "startChar": 0,
