@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "207c3b60_748aee4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1902075
+      },
+      "writtenOn": "2023-10-30T18:31:27Z",
+      "side": 1,
+      "message": "```\n130|cheetah:/ # logcat | grep drm_forcel3_prop\n10-30 18:28:36.476  4149  4149 W ndroid.settings: type\u003d1400 audit(0.0:25): avc:  denied  { read } for  name\u003d\"u:object_r:drm_forcel3_prop:s0\" dev\u003d\"tmpfs\" ino\u003d204 scontext\u003du:r:system_app:s0 tcontext\u003du:object_r:drm_forcel3_prop:s0 tclass\u003dfile permissive\u003d0\n10-30 18:29:06.536     1     1 W /system/bin/init: type\u003d1107 audit(0.0:27): uid\u003d0 auid\u003d4294967295 ses\u003d4294967295 subj\u003du:r:init:s0 msg\u003d\u0027avc:  denied  { set } for property\u003dpersist.drm.forcel3.enabled pid\u003d4149 uid\u003d1000 gid\u003d1000 scontext\u003du:r:system_app:s0 tcontext\u003du:object_r:drm_forcel3_prop:s0 tclass\u003dproperty_service permissive\u003d0\u0027\n```\nThis is the log without adding the `set_prop(system_app, drm_forcel3_prop)` line.",
+      "parentUuid": "1628bd55_21867d72",
+      "revId": "12c42b5f5097517ee05096afa29a03f9c62341ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "253c77e3_55ca8882",
         "filename": "private/system_app.te",
         "patchSetId": 1
@@ -31,6 +49,30 @@
       "writtenOn": "2023-10-27T03:10:25Z",
       "side": 1,
       "message": "What app is accessing this property?\nMaybe you should label your app to start with. go/selinux-app-access",
+      "range": {
+        "startLine": 50,
+        "startChar": 9,
+        "endLine": 50,
+        "endChar": 19
+      },
+      "revId": "12c42b5f5097517ee05096afa29a03f9c62341ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c65c99c_72b8dd2c",
+        "filename": "private/system_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1902075
+      },
+      "writtenOn": "2023-10-30T18:31:27Z",
+      "side": 1,
+      "message": "Should be `com.android.settings`. I\u0027m adding a developer option in the settings app which accesses this added property. Internal link is ag/24934289.",
+      "parentUuid": "253c77e3_55ca8882",
       "range": {
         "startLine": 50,
         "startChar": 9,
