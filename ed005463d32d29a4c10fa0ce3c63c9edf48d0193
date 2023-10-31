@@ -22,6 +22,30 @@
       },
       "revId": "ed005463d32d29a4c10fa0ce3c63c9edf48d0193",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4be8e0b_545aea2a",
+        "filename": "private/service_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-31T10:28:31Z",
+      "side": 1,
+      "message": "Yes, the `/nonsecure` is to make it clear that the implementation is running inside the HAL service process in Android, rather than being in a separate secure environment as would be expected/required for a real implementation.\n\nIn actual use, the AuthGraph HAL is intended to be a re-usable building block that forms part of other secure components accessed via their own HALs -- so (for example) the ISecretkeeper HAL would have a `getAuthGraph()` method that returns its `IAuthGraphKeyExchange` instance, allowing the client to know that it\u0027s performing key exchange with the correct component.  (There\u0027s also DICE chain identity checks as well, btw).\n\nSo I went for `/nonsecure` because a) it\u0027s not secure and b) there\u0027s not really a sensible \"default\" AuthGraph implementation, it should always be tied to some other component. \n\n(However, we do want some kind of Cuttlefish implementation to allow testing and to tick the relevant boxes for new HAL definitions.)\n\nDoes that make sense?  And if so, do we think `/nonsecure` or `/default` is better?",
+      "parentUuid": "0d031e4b_0a64d12d",
+      "range": {
+        "startLine": 92,
+        "startChar": 58,
+        "endLine": 92,
+        "endChar": 67
+      },
+      "revId": "ed005463d32d29a4c10fa0ce3c63c9edf48d0193",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
