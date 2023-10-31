@@ -258,6 +258,7 @@ var (
 		"emergency_affordance":                                            EXCEPTION_NO_FUZZER,
 		"euicc_card_controller":                                           EXCEPTION_NO_FUZZER,
 		"external_vibrator_service":                                       EXCEPTION_NO_FUZZER,
+        	"vibrator_controller_service":                                     EXCEPTION_NO_FUZZER,
 		"ethernet":                                                        EXCEPTION_NO_FUZZER,
 		"face":                                                            EXCEPTION_NO_FUZZER,
 		"file_integrity":                                                  EXCEPTION_NO_FUZZER,
