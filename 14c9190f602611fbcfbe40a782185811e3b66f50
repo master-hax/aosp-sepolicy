@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1cb99c9_7bd091bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-10-31T20:28:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a091f26_5aaa60f7",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "14c9190f602611fbcfbe40a782185811e3b66f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "623c3f28_e60aca19",
@@ -54,6 +78,24 @@
       "writtenOn": "2023-10-31T17:06:29Z",
       "side": 1,
       "message": "I\u0027m LGTMing under the assumption this has been tested to ensure there are no other denials.",
+      "parentUuid": "623c3f28_e60aca19",
+      "revId": "14c9190f602611fbcfbe40a782185811e3b66f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "898abd9d_be80f0f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-10-31T20:28:28Z",
+      "side": 1,
+      "message": "I triggered the failing test alone on these cls, the test passes without any SELinux denial about the AVF IRPC Hal, but, there\u0027s an error with RKPD due to the the UNSUPPORTED_OPERATION [1] raised on x86_64:\n\n```\n10-31 19:51:20.889  3523  3523 E VirtualizationService: avflog: Status(-7, EX_UNSUPPORTED_OPERATION): \u0027Protected VM support is missing for this operation\u0027\n...\n10-31 19:51:20.902  3454  3512 E WM-WorkerWrapper: \tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)\n10-31 19:51:20.902  3454  3512 E WM-WorkerWrapper: \tat java.lang.Thread.run(Thread.java:1012)\n10-31 19:51:20.902  3454  3512 E WM-WorkerWrapper: Caused by: java.lang.UnsupportedOperationException: Protected VM support is missing for this operation\n10-31 19:51:20.902  3454  3512 E WM-WorkerWrapper: \tat android.os.Parcel.createExceptionOrNull(Parcel.java:3158)\n10-31 19:51:20.902  3454  3512 E WM-WorkerWrapper: \tat android.os.Parcel.createException(Parcel.java:3130)\n10-31 19:51:20.902  3454  3512 E WM-WorkerWrapper: \tat android.os.Parcel.readException(Parcel.java:3113)\n10-31 19:51:20.902  3454  3512 E WM-WorkerWrapper: \tat android.os.Parcel.readException(Parcel.java:3055)\n10-31 19:51:20.902  3454  3512 E WM-WorkerWrapper: \tat android.hardware.security.keymint.IRemotelyProvisionedComponent$Stub$Proxy.getHardwareInfo(IRemotelyProvisionedComponent.java:188)\n10-31 19:51:20.902  3454  3512 E WM-WorkerWrapper: \tat com.android.rkpdapp.interfaces.SystemInterface.\u003cinit\u003e(SystemInterface.java:58)\n10-31 19:51:20.902  3454  3512 E WM-WorkerWrapper: \tat com.android.rkpdapp.interfaces.ServiceManagerInterface.createSystemInterface(ServiceManagerInterface.java:41)\n10-31 19:51:20.902  3454  3512 E WM-WorkerWrapper: \tat com.android.rkpdapp.interfaces.ServiceManagerInterface.lambda$getAllInstances$0(ServiceManagerInterface.java:57)\n```\n\n[1] https://android-build.corp.google.com/builds/I36700010212626540/git_udc-dev-plus-aosp/P64816141/BootHealthCheck/inv_16381170919341104049/logcat_8132198311622942083.txt\n\nShould we submit these changes together with an update of RKPD? @sethmo@google.com",
       "parentUuid": "623c3f28_e60aca19",
       "revId": "14c9190f602611fbcfbe40a782185811e3b66f50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
