@@ -22,6 +22,30 @@
       },
       "revId": "0407c993d85a6ced7861626c36c79b47cd0116c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34f1e5f7_e65135e9",
+        "filename": "public/service.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-11-01T09:59:33Z",
+      "side": 1,
+      "message": "We discussed that on the original CL (aosp/2738393) - I had much the same thought.\nBut it doesn\u0027t work, since there\u0027s an automatic neverallow (inside the add_service macro) preventing any other domain from registering a hal_remotelyprovisionedcomponent_service.\nAnd it feels wrong to have one domain for both, since it would allow keymint to pretend to be virtualizationservice and vice versa.",
+      "parentUuid": "8f486f1b_ebe538f7",
+      "range": {
+        "startLine": 319,
+        "startChar": 5,
+        "endLine": 319,
+        "endChar": 45
+      },
+      "revId": "0407c993d85a6ced7861626c36c79b47cd0116c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
