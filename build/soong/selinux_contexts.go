@@ -42,9 +42,6 @@ type selinuxContextsProperties struct {
 	// Whether the comments in generated contexts file will be removed or not.
 	Remove_comment *bool
 
-	// Whether the result context file is sorted with fc_sort or not.
-	Fc_sort *bool
-
 	// Make this module available when building for recovery
 	Recovery_available *bool
 }
@@ -265,19 +262,6 @@ func (m *selinuxContextsModule) buildGeneralContexts(ctx android.ModuleContext, 
 		builtContext = remove_comment_output
 	}
 
-	if proptools.Bool(m.properties.Fc_sort) {
-		rule.Temporary(builtContext)
-
-		sorted_output := pathForModuleOut(ctx, ctx.ModuleName()+"_sorted")
-
-		rule.Command().
-			Tool(ctx.Config().HostToolPath(ctx, "fc_sort")).
-			FlagWithInput("-i ", builtContext).
-			FlagWithOutput("-o ", sorted_output)
-
-		builtContext = sorted_output
-	}
-
 	ret := pathForModuleOut(ctx, m.stem())
 	rule.Temporary(builtContext)
 	rule.Command().Text("cp").Input(builtContext).Output(ret)
@@ -288,16 +272,9 @@ func (m *selinuxContextsModule) buildGeneralContexts(ctx android.ModuleContext, 
 	return ret
 }
 
-func (m *selinuxContextsModule) buildFileContexts(ctx android.ModuleContext, inputs android.Paths) android.Path {
-	if m.properties.Fc_sort == nil {
-		m.properties.Fc_sort = proptools.BoolPtr(true)
-	}
-	return m.buildGeneralContexts(ctx, inputs)
-}
-
 func fileFactory() android.Module {
 	m := newModule()
-	m.build = m.buildFileContexts
+	m.build = m.buildGeneralContexts
 	return m
 }
 
