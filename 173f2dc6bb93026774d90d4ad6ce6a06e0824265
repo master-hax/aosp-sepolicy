@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d621e145_f383619e",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-11-01T10:37:52Z",
+      "side": 1,
+      "message": "A small quibble: do we always want payloads to have direct access to devices?\nThat\u0027s equivalent to in-process HALs. When possible we prefer out of process HALs, so that untrusted code can\u0027t directly access, and hence attack, the device drivers.\n\nAlso, do we want any allowxperm (or neverallowxperm) to limit what ioctls can be used?\n\nDo we need this very generic label? If vendor policy is needed for vendor devices - if only to set file_contexts, can\u0027t the vendor policy grant access to microdroid_payload if it\u0027s appropriate?",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 64
+      },
+      "revId": "173f2dc6bb93026774d90d4ad6ce6a06e0824265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
