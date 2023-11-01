@@ -288,16 +288,9 @@ func (m *selinuxContextsModule) buildGeneralContexts(ctx android.ModuleContext, 
 	return ret
 }
 
-func (m *selinuxContextsModule) buildFileContexts(ctx android.ModuleContext, inputs android.Paths) android.Path {
-	if m.properties.Fc_sort == nil {
-		m.properties.Fc_sort = proptools.BoolPtr(true)
-	}
-	return m.buildGeneralContexts(ctx, inputs)
-}
-
 func fileFactory() android.Module {
 	m := newModule()
-	m.build = m.buildFileContexts
+	m.build = m.buildGeneralContexts
 	return m
 }
 
