@@ -16,6 +16,64 @@
       "message": "I don\u0027t know how you plan to make AVF and/or crosvm available in the /vendor partition, but this CL allows me to run a /vendor/crosvm binary directly.",
       "revId": "c686244665afabedaaf5323d0bc0eeae1f689ce9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3e0df58_febe9959",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-11-06T09:24:19Z",
+      "side": 1,
+      "message": "Could you explain what you\u0027re trying to do?\nThe bug (and its parents) don\u0027t provide any context.",
+      "revId": "c686244665afabedaaf5323d0bc0eeae1f689ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5be956a_8f8b504d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-11-06T09:24:19Z",
+      "side": 1,
+      "message": "The internal AVF AIDL APIs aren\u0027t stable, so they can\u0027t be used across the system/vendor interface.\nThe Java @SystemApi can be used from vendor, I think, but may be too limiting.",
+      "parentUuid": "5568ea08_d677c3d6",
+      "revId": "c686244665afabedaaf5323d0bc0eeae1f689ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "893cb8dc_241eb7c1",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-11-06T09:24:19Z",
+      "side": 1,
+      "message": "I don\u0027t think you need any of this - you\u0027re creating a vendor_crosvm domain, but AFAICT it\u0027s identical to the crosvm domain, so it doesn\u0027t seem to be needed.\nIf it is, it should be in a separate vendor_crosvm.te.\n\nBut I think all you need to do is label your copy of the crosvm binary as crosvm_exec and then you can re-use the existing domain.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 33
+      },
+      "revId": "c686244665afabedaaf5323d0bc0eeae1f689ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
