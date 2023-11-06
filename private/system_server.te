@@ -131,6 +131,10 @@ bluetooth_domain(system_server)
 # public/domain.te.
 allow system_server appdomain:tcp_socket ioctl;
 
+# Allow system_server to read multicast routing packet counts
+allow system_server self:rawip_socket ioctl;
+allowxperm system_server self:rawip_socket ioctl { OSIOCGNETADDR };
+
 # These are the capabilities assigned by the zygote to the
 # system server.
 allow system_server self:global_capability_class_set {
