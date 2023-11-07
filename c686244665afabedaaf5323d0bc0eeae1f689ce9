@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f46edd0d_a817de8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2023-11-07T01:39:24Z",
+      "side": 1,
+      "message": "We want to run a trusty vendor vm on cuttlefish to test the hwcrypto and secure storage hals. We also want to test gatekeeper and keymint TAs running in a vendor vm.",
+      "parentUuid": "d3e0df58_febe9959",
+      "revId": "c686244665afabedaaf5323d0bc0eeae1f689ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "893cb8dc_241eb7c1",
@@ -66,6 +84,30 @@
       "writtenOn": "2023-11-06T09:24:19Z",
       "side": 1,
       "message": "I don\u0027t think you need any of this - you\u0027re creating a vendor_crosvm domain, but AFAICT it\u0027s identical to the crosvm domain, so it doesn\u0027t seem to be needed.\nIf it is, it should be in a separate vendor_crosvm.te.\n\nBut I think all you need to do is label your copy of the crosvm binary as crosvm_exec and then you can re-use the existing domain.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 33
+      },
+      "revId": "c686244665afabedaaf5323d0bc0eeae1f689ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c47fb228_94a3a8db",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2023-11-07T01:39:24Z",
+      "side": 1,
+      "message": "I tried using the crosvm_exec label, but it failed. I don\u0027t remember the exact error, but crosvm is marked as coredomain, which I think prevents me from using it for a vendor binary, and vendor_crosvm that I add here is not.",
+      "parentUuid": "893cb8dc_241eb7c1",
       "range": {
         "startLine": 4,
         "startChar": 0,
