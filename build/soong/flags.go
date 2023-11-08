@@ -19,7 +19,8 @@ import (
 )
 
 var (
-	flagDepTag = dependencyTag{name: "flags"}
+	flagDepTag     = dependencyTag{name: "flag"}
+	flagSrcsDepTag = dependencyTag{name: "flagSrcs"}
 )
 
 func init() {
@@ -57,9 +58,16 @@ func (f *flagsModule) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 
 func addFlagsDependency(ctx android.BottomUpMutatorContext) {
 	ctx.AddDependency(ctx.Module(), flagDepTag, "se_flags")
+	ctx.AddDependency(ctx.Module(), flagSrcsDepTag, "sepolicy_flagging_macros")
 }
 
 // m4FlagMacroDefinitions returns a list of M4's -D parameters to guard te files and contexts files.
 func m4FlagMacroDefinitions(ctx android.ModuleContext) []string {
 	return ctx.GetDirectDepWithTag("se_flags", flagDepTag).(*flagsModule).flagMacros
+}
+
+// m4FlagMacroSrcs returns source files for flagging.
+func m4FlagMacroSrcs(ctx android.ModuleContext) android.Paths {
+	flagSrcsModule := ctx.GetDirectDepWithTag("sepolicy_flagging_macros", flagSrcsDepTag).(android.SourceFileProducer)
+	return flagSrcsModule.Srcs()
 }

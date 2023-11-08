@@ -211,7 +211,7 @@ func (c *policyConf) transformPolicyToConf(ctx android.ModuleContext) android.Ou
 	conf := pathForModuleOut(ctx, c.stem())
 	rule := android.NewRuleBuilder(pctx, ctx)
 
-	srcs := android.PathsForModuleSrc(ctx, c.properties.Srcs)
+	srcs := append(m4FlagMacroSrcs(ctx), android.PathsForModuleSrc(ctx, c.properties.Srcs)...)
 	sort.SliceStable(srcs, func(x, y int) bool {
 		return findPolicyConfOrder(srcs[x].Base()) < findPolicyConfOrder(srcs[y].Base())
 	})
