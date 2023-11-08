@@ -69,5 +69,8 @@ neverallow { domain -init -vendor_init -gpuservice } graphics_config_writable_pr
 # Needed for querying permission
 allow gpuservice permission_service:service_manager find;
 
+# Needed for accessing EGL/GLES/Vulkan drivers in Vendor APEX
+allow gpuservice vendor_apex_metadata_file:dir r_dir_perms;
+
 # Only uncomment below line when in development
 # userdebug_or_eng(`permissive gpuservice;')
