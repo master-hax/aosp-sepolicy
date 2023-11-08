@@ -16,9 +16,11 @@ binder_use(vfio_handler)
 allow vfio_handler vfio_device:chr_file getattr;
 allow vfio_handler vfio_device:dir r_dir_perms;
 
-# Allow vfio_handler to bind/unbind platform devices
-allow vfio_handler sysfs:dir r_dir_perms;
-allow vfio_handler sysfs:file rw_file_perms;
+is_flag_enabled(RELEASE_AVF_ENABLE_DEVICE_ASSIGNMENT, `
+    # Allow vfio_handler to bind/unbind platform devices
+    allow vfio_handler sysfs:dir r_dir_perms;
+    allow vfio_handler sysfs:file rw_file_perms;
+')
 
 # Allow vfio_handler to write to VM DTBO via a file created by virtualizationservice.
 allow vfio_handler virtualizationservice:fd use;
