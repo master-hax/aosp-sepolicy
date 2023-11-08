@@ -22,6 +22,30 @@
       },
       "revId": "173f2dc6bb93026774d90d4ad6ce6a06e0824265",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71447ab6_d4b060d9",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-11-08T11:38:45Z",
+      "side": 1,
+      "message": "\u003e A small quibble: do we always want payloads to have direct access to devices?\n\nI\u0027m worried that implementing out out of process HALs at this moment might be too complex.\n\n\u003e Also, do we want any allowxperm (or neverallowxperm) to limit what ioctls can be used?\n\n\u003e Do we need this very generic label? If vendor policy is needed for vendor devices - if only to set file_contexts, can\u0027t the vendor policy grant access to microdroid_payload if it\u0027s appropriate?\n\nMy intention was that we start from our prototype (minimal access), amending it whenever needed. And I think vendors can still extend their sepolicy.",
+      "parentUuid": "d621e145_f383619e",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 64
+      },
+      "revId": "173f2dc6bb93026774d90d4ad6ce6a06e0824265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
