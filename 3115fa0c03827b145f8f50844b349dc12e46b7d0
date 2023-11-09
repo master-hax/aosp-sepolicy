@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36eb5bbe_960d2268",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-11-09T01:12:13Z",
+      "side": 1,
+      "message": "I\u0027ll try working on explicit default modules, like\n\n```\nse_policy_conf_defaults {\n    name: \"se_policy_conf_flags_defaults\",\n    flags: [...],\n    srcs: [\"flagging/te_macros\"],\n}\n\nse_policy_conf {\n    name: \"plat_sepolicy.conf\",\n    defaults: [\":se_policy_conf_flags_defaults\"],\n    ...\n}\n```",
+      "revId": "3115fa0c03827b145f8f50844b349dc12e46b7d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "178fb744_c391d1f4",
