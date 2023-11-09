@@ -39,6 +39,30 @@
       },
       "revId": "af85d04d012ac0f88b6bb7968860f1f5c5f0f305",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c66eb3b_892d423e",
+        "filename": "flagging/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-11-09T01:11:02Z",
+      "side": 1,
+      "message": "Probably we can write\n\n```\nse_policy_conf_defaults {\n    name: \"se_policy_conf_flags_defaults\",\n    flags: [...],\n    srcs: [\"flagging/te_macros\"],\n}\n```\n\nAnd then we apply that default to modules like\n\n```\nse_policy_conf {\n    name: \"plat_sepolicy.conf\",\n    defaults: [\":se_policy_conf_flags_defaults\"],\n    ...\n}\n```\n\nWDYT?",
+      "parentUuid": "07c740e4_78c3a66c",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 17,
+        "endChar": 21
+      },
+      "revId": "af85d04d012ac0f88b6bb7968860f1f5c5f0f305",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
