@@ -66,12 +66,18 @@ class AllowRead:
 
 
 @dataclass
+class HasAttrs:
+    """Rule checking if the entity's label has attrs"""
+    attrs: set[str]
+
+
+@dataclass
 class ResolveType:
     """Rule checking if type can be resolved"""
     pass
 
 
-Rule = AllowRead | ResolveType
+Rule = AllowRead | HasAttrs | ResolveType
 
 
 def match_path(path: str, matcher: Matcher) -> bool:
@@ -100,6 +106,11 @@ def check_rule(pol, path: str, tcontext: str, rule: Rule) -> List[str]:
                     continue  # no errors
 
                 errors.append(f"Error: {path}: {s} can't read. (tcontext={tcontext})")
+        case HasAttrs(attrs):
+            # Skip if the tcontext is not known. It's checked with --all anyway.
+            if tcontext in pol.GetAllTypes(False):
+                if attrs != (attrs & pol.QueryTypeAttribute(tcontext, False)):
+                    errors.append(f"Error: {path}({tcontext}): missing ({'.'.join(attrs)})")
         case ResolveType():
             if tcontext not in pol.GetAllTypes(False):
                 errors.append(f"Error: {path}: tcontext({tcontext}) is unknown")
@@ -112,6 +123,9 @@ target_specific_rules = [
 
 
 generic_rules = [
+    # binaries should be executable
+    # Known exceptions: ./bin/linker*
+    (Regex(r'\./bin/(?!linker).*[^/]$'), HasAttrs({'exec_type'})),
     # permissions
     (Is('./etc/permissions/'), AllowRead('dir', {'system_server'})),
     (Glob('./etc/permissions/*.xml'), AllowRead('file', {'system_server'})),
