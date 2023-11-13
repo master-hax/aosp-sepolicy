@@ -111,6 +111,30 @@
       },
       "revId": "fe1f06be9f9bfc85317b1d0fe3541842c34e12ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "627d8c24_c0e1fe92",
+        "filename": "tests/sepolicy_tests.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2023-11-13T13:32:46Z",
+      "side": 1,
+      "message": "I see things like `/dev/memcg`, `/dev/cpuctl`, `/dev/usb-ffs`, `/dev/cpuset`, and `/dev/thermal` from a search [1]. They are not for accessing any real hardware device. It won\u0027t be surprising to see other `/dev/something` in partner devices (regardless of whether they use GKI or not) which are not for real hardware.\n\nI think we may not want to rely on sepolicy to enforce this. For example, we can run a test app which tries to open all `/dev/*` files there excluding the known exceptions.\n\n[1] https://cs.android.com/search?q\u003dmkdir.*%2Fdev%20f:%5C.rc\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain\u0026start\u003d21",
+      "parentUuid": "72cd92e8_8a6152c0",
+      "range": {
+        "startLine": 270,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 44
+      },
+      "revId": "fe1f06be9f9bfc85317b1d0fe3541842c34e12ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
