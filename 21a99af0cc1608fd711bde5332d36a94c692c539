@@ -22,6 +22,30 @@
       },
       "revId": "21a99af0cc1608fd711bde5332d36a94c692c539",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aab4e34a_2dd7c3dc",
+        "filename": "public/service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-11-14T14:02:59Z",
+      "side": 1,
+      "message": "In fact, as both the services `...IRPC/avf` and `...IRPC/default` implement the AIDL IRPC, both of them are of type `hal_remotelyprovisionedcomponent_service`. The distinction lies in the fact that `IRPC/avf` is served by `vs` (virtualizationservice), while `IRPC/default` is served by keymint. \n\nIf we want `vs` to serve another service of `hal_remotelyprovisionedcomponent_service`, we need to declare `vs` as a server of `hal_keymint`, because `hal_remotelyprovisionedcomponent_service` is [associated](https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/public/hal_keymint.te;l\u003d4;drc\u003d970cfa5674b1d6c68c7245aabb7ff811537d427d) with the `hal_keymint` attribute. However, this poses a conflict for tee_device file access because `vs` [is](https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/virtualizationservice.te;l\u003d1;drc\u003dc6227550f734997455053be237d7509b701151aa) a coredomain that is [not allowed](https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/coredomain.te;l\u003d258;drc\u003dc6227550f734997455053be237d7509b701151aa) to change files on tee_device, whereas `hal_keymint_server` is [allowed](https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/public/hal_keymint.te;l\u003d7;drc\u003d970cfa5674b1d6c68c7245aabb7ff811537d427d) to do so.\nFurthermore, hal_keymint also has [other](https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/public/hal_keymint.te;l\u003d3;drc\u003d970cfa5674b1d6c68c7245aabb7ff811537d427d) services associated with it that are not needed by avf.\n\nAll things considered, it would be more straightforward to define a distinct service type specifically for the IRPC/avf service.",
+      "parentUuid": "33982130_ec9d64c4",
+      "range": {
+        "startLine": 319,
+        "startChar": 3,
+        "endLine": 319,
+        "endChar": 10
+      },
+      "revId": "21a99af0cc1608fd711bde5332d36a94c692c539",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
