@@ -28,6 +28,9 @@ allow virtualizationservice permission_service:service_manager find;
 allow virtualizationservice self:capability sys_resource;
 allow virtualizationservice virtualizationmanager:process setrlimit;
 
+# RKPD needs to be able to call the remote provisioning HAL exposed by virtualizationservice
+hal_client_domain(virtualizationservice, hal_keymint)
+
 # Let virtualizationservice set the owner of a VM's temporary directory.
 allow virtualizationservice self:capability chown;
 
