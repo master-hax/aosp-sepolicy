@@ -1,3 +1,4 @@
+<<<<<<< HEAD   (e5004a [automerger skipped] Add permission for VFIO device binding )
 # vfio_handler is a helper service for VFIO tasks, like binding platform devices to VFIO driver.
 # vfio_handler is separate from virtualizationservice as VFIO tasks require root.
 type vfio_handler, domain, coredomain;
@@ -33,3 +34,5 @@ allow vfio_handler dtbo_block_device:blk_file r_file_perms;
 
 # Only vfio_handler can add vfio_handler_service
 neverallow { domain -vfio_handler } vfio_handler_service:service_manager add;
+=======
+>>>>>>> BRANCH (c62275 Revert "Add permission for VFIO device binding")

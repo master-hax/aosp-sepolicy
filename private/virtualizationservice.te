@@ -15,10 +15,6 @@ binder_use(virtualizationservice)
 # Let the virtualizationservice domain register the virtualization_service with ServiceManager.
 add_service(virtualizationservice, virtualization_service)
 
-# Let virtualizationservice find and communicate with vfio_handler.
-allow virtualizationservice vfio_handler_service:service_manager find;
-binder_call(virtualizationservice, vfio_handler)
-
 # Allow calling into the system server to find "permission_service".
 binder_call(virtualizationservice, system_server)
 allow virtualizationservice permission_service:service_manager find;
@@ -68,6 +64,7 @@ unix_socket_connect(virtualizationservice, tombstoned_crash, tombstoned)
 allow virtualizationservice tombstone_data_file:file { append getattr };
 allow virtualizationservice tombstoned:fd use;
 
+<<<<<<< HEAD   (e5004a [automerger skipped] Add permission for VFIO device binding )
 # Allow virtualizationservice to check if VFIO is supported
 allow virtualizationservice vfio_device:chr_file getattr;
 allow virtualizationservice vfio_device:dir r_dir_perms;
@@ -78,6 +75,8 @@ allow virtualizationservice virtualizationmanager:fd use;
 # Allow virtualizationservice to access vendor_configs_file to get the list of assignable devices.
 r_dir_file(virtualizationservice, vendor_configs_file)
 
+=======
+>>>>>>> BRANCH (c62275 Revert "Add permission for VFIO device binding")
 neverallow {
   domain
   -init
@@ -96,6 +95,3 @@ neverallow virtualizationservice {
   -virtualizationmanager
   -virtualizationservice
 }:process setrlimit;
-
-# Only virtualizationservice can communicate to vfio_handler
-neverallow { domain -virtualizationservice -servicemanager } vfio_handler:binder call;
