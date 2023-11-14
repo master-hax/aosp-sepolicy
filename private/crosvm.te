@@ -99,9 +99,15 @@ allow crosvm node:tcp_socket node_bind;
 allow crosvm vfio_device:chr_file rw_file_perms;
 allow crosvm vfio_device:dir r_dir_perms;
 
+<<<<<<< HEAD   (3f92c1 Merge "Revert "Revert^2 "[avf][rkp] Allow virtualizationserv)
 # Allow crosvm to access VM DTBO via a file created by virtualizationmanager.
 allow crosvm virtualizationmanager:fd use;
 allow crosvm virtualizationservice_data_file:file read;
+=======
+# Allow crosvm to access VM DTBO via a pipe created by vfio handler.
+allow crosvm vfio_handler:fd use;
+allow crosvm vfio_handler:fifo_file r_file_perms;
+>>>>>>> BRANCH (901385 Add permission for VFIO device binding)
 
 # Don't allow crosvm to open files that it doesn't own.
 # This is important because a malicious application could try to start a VM with a composite disk
