@@ -1,0 +1,20 @@
+# virtual_camera - virtual camera daemon
+
+type virtual_camera, domain, coredomain;
+type virtual_camera_exec, system_file_type, exec_type, file_type;
+
+init_daemon_domain(virtual_camera)
+
+# Since virtual_camera is not a real HAL we don't set the
+# hal_server_domain(virtual_camera, hal_camera) macro but only the rules that
+# we actually need from halserverdomain and hal_camera_server:
+binder_use(virtual_camera)
+
+# Allow virtual_camera to use fd from apps
+allow virtual_camera { appdomain -isolated_app }:fd use;
+
+# Only allow virtual_camera to add a virtual_camera_service and no one else.
+add_service(virtual_camera, virtual_camera_service);
+
+# Allow virtual_camera to map graphic buffers
+hal_client_domain(virtual_camera, hal_graphics_allocator)

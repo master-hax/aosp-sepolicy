@@ -47,6 +47,7 @@ get_prop(appdomain, adbd_config_prop)
 get_prop(appdomain, dck_prop)
 get_prop(appdomain, persist_wm_debug_prop)
 get_prop(appdomain, persist_sysui_builder_extras_prop)
+get_prop(appdomain, persist_sysui_ranking_update_prop)
 
 # Allow the heap dump ART plugin to the count of sessions waiting for OOME
 get_prop(appdomain, traced_oome_heap_session_count_prop)
@@ -100,6 +101,10 @@ neverallow { appdomain -shell userdebug_or_eng(`-su') }
 
 # Don't allow regular apps access to storage configuration properties.
 neverallow { appdomain -mediaprovider_app } storage_config_prop:file no_rw_file_perms;
+
+# Don't allow apps reading /system/etc/font_fallback.xml
+dontaudit appdomain system_font_fallback_file:file no_rw_file_perms;
+neverallow appdomain system_font_fallback_file:file no_rw_file_perms;
 
 # Allow to read sendbug.preferred.domain
 get_prop(appdomain, sendbug_config_prop)
@@ -171,11 +176,9 @@ allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all } usbaccesso
 control_logd({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all })
 
 # application inherit logd write socket (urge is to deprecate this long term)
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all } keystore:keystore_key { get_state get insert delete exist list sign verify };
 allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all } keystore:keystore2_key { delete use get_info rebind update };
 
 allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all } keystore_maintenance_service:service_manager find;
-allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all } keystore:keystore2 get_state;
 
 use_keystore({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all })
 
@@ -258,6 +261,7 @@ allow appdomain surfaceflinger:unix_stream_socket { read write setopt getattr ge
 # App sandbox file accesses.
 allow { appdomain -isolated_app_all -mlstrustedsubject -sdk_sandbox_all } { app_data_file privapp_data_file }:dir create_dir_perms;
 allow { appdomain -isolated_app_all -mlstrustedsubject -sdk_sandbox_all } { app_data_file privapp_data_file }:file create_file_perms;
+allowxperm { appdomain -isolated_app_all -mlstrustedsubject -sdk_sandbox_all } { app_data_file privapp_data_file }:file ioctl FS_IOC_MEASURE_VERITY;
 
 # Access via already open fds is ok even for mlstrustedsubject.
 allow { appdomain -isolated_app_all -sdk_sandbox_all } { app_data_file privapp_data_file system_app_data_file }:file { getattr map read write };
