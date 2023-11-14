@@ -15,6 +15,10 @@ binder_use(virtualizationservice)
 # Let the virtualizationservice domain register the virtualization_service with ServiceManager.
 add_service(virtualizationservice, virtualization_service)
 
+# Allow the virtualizationservice domain to serve a remotely provisioned component for
+# pVM remote attestation.
+hal_server_domain(virtualizationservice, hal_remotelyprovisionedcomponent_avf)
+
 # Let virtualizationservice find and communicate with vfio_handler.
 allow virtualizationservice vfio_handler_service:service_manager find;
 binder_call(virtualizationservice, vfio_handler)
@@ -36,6 +40,9 @@ allow virtualizationservice self:capability chown;
 allow virtualizationservice virtualizationservice_data_file:dir create_dir_perms;
 allow virtualizationservice virtualizationservice_data_file:sock_file unlink;
 allow virtualizationservice virtualizationservice_data_file:file create_file_perms;
+
+# Allow shell to access virtualizationservice files.
+allow shell virtualizationservice_data_file:dir r_dir_perms;
 
 # Allow to use fd (e.g. /dev/pts/0) inherited from adbd so that we can redirect output from
 # crosvm to the console
