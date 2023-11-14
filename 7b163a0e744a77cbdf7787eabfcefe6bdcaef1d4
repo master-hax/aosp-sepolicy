@@ -95,6 +95,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e7d93be8_c7e4be94",
+        "filename": "private/shell.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-14T17:44:11Z",
+      "side": 1,
+      "message": "I\u0027m unable to run atest manually without it.\nI keep getting \n```\navc:  denied  { call } for  scontext\u003du:r:shell:s0 tcontext\u003du:r:hal_secretkeeper_default:s0 tclass\u003dbinder permissive\u003d0\n````\n\nwithout even after `adb root` (su is in hal_secretkeeper_client)",
+      "parentUuid": "3c6b9175_edd12ed0",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 41
+      },
+      "revId": "7b163a0e744a77cbdf7787eabfcefe6bdcaef1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f9a5a4dd_2594aa7a",
         "filename": "public/hal_secretkeeper.te",
         "patchSetId": 3
@@ -106,6 +130,30 @@
       "writtenOn": "2023-10-25T14:34:33Z",
       "side": 1,
       "message": "Can we have a one-sentence description of what the hal_secretkeeper domain is?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 42
+      },
+      "revId": "7b163a0e744a77cbdf7787eabfcefe6bdcaef1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f25da054_0242b5da",
+        "filename": "public/hal_secretkeeper.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-14T17:44:11Z",
+      "side": 1,
+      "message": "Its tricky to define what hal_secretkeeper domain, concretely domains are hal_secretkeeper_clien, hal_secretkeeper_service, hal_secretkeeper_server. The prefix (hal_secretkeeper) is used as input in macros. \n\nOther files in this directory also donot concretely specify what h_xxx is. Recommendation?",
+      "parentUuid": "f9a5a4dd_2594aa7a",
       "range": {
         "startLine": 1,
         "startChar": 0,
@@ -139,6 +187,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a807ab3d_04de9cb4",
+        "filename": "public/hal_secretkeeper.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-14T17:44:11Z",
+      "side": 1,
+      "message": "Removed. Thanks!",
+      "parentUuid": "99de4cae_166db603",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 76
+      },
+      "revId": "7b163a0e744a77cbdf7787eabfcefe6bdcaef1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "746a617c_2d5c3171",
@@ -152,6 +224,30 @@
       "writtenOn": "2023-10-25T14:34:33Z",
       "side": 1,
       "message": "You don\u0027t need this here, it\u0027s in public/hal_secretkeeper.te",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 65
+      },
+      "revId": "7b163a0e744a77cbdf7787eabfcefe6bdcaef1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa46f347_730f9e91",
+        "filename": "vendor/hal_secretkeeper_default.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-14T17:44:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "746a617c_2d5c3171",
       "range": {
         "startLine": 6,
         "startChar": 0,
