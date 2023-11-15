@@ -173,6 +173,10 @@ allow domain vndk_sp_file:file { execute read open getattr map };
 allow domain vendor_configs_file:dir r_dir_perms;
 allow domain vendor_configs_file:file { read open getattr map };
 
+# All domains get access to /vendor/etc/microdroid
+allow domain vendor_microdroid_file:dir r_dir_perms;
+allow domain vendor_microdroid_file:file { read open getattr map };
+
 full_treble_only(`
     # Allow all domains to be able to follow /system/vendor and/or
     # /vendor/odm symlinks.
