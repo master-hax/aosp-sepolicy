@@ -3,6 +3,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ec1abcf2_729985db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-11-15T07:58:56Z",
+      "side": 1,
+      "message": "Can you list the changes (and rationale) since the previous attempt in the commit message?",
+      "revId": "05fd2ccae4c473891f4e4e197a420e301afeaf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02f6e9a2_756d40c6",
+        "filename": "private/rkpd_app.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-11-15T07:58:56Z",
+      "side": 1,
+      "message": "Why system_server not rkpdapp ?\n\nIf nothing else the comment doesn\u0027t match, and should explain why we need this.",
+      "range": {
+        "startLine": 12,
+        "startChar": 18,
+        "endLine": 12,
+        "endChar": 31
+      },
+      "revId": "05fd2ccae4c473891f4e4e197a420e301afeaf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cadf456e_44672c38",
         "filename": "private/virtualizationservice.te",
         "patchSetId": 5
@@ -14,6 +54,30 @@
       "writtenOn": "2023-11-15T07:47:10Z",
       "side": 1,
       "message": "hey - I\u0027m assuming this was reviewed before, but do we really need this? we should be able to remove this, and root can access them, if you\u0027re debugging?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 60
+      },
+      "revId": "05fd2ccae4c473891f4e4e197a420e301afeaf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6960add_b6c868d7",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-11-15T07:58:56Z",
+      "side": 1,
+      "message": "This wasn\u0027t in the last attempt (aosp/2812455) - and I agree it doesn\u0027t look right.",
+      "parentUuid": "cadf456e_44672c38",
       "range": {
         "startLine": 44,
         "startChar": 0,
