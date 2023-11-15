@@ -35,6 +35,42 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb8fb4f5_c7a51bb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-11-15T12:22:49Z",
+      "side": 1,
+      "message": "I ran it twice against PS5:\n\nhttps://android-build.corp.google.com/builds/abtd/run/L74000030000274079\nhttps://android-build.corp.google.com/builds/abtd/run/L37900030000271848\n\nThe SELinux denial tests are green. There\u0027s another failure not related to this change.\n\nI\u0027ll run it again against the latest PS.",
+      "parentUuid": "97d6b8b5_f509e430",
+      "revId": "05fd2ccae4c473891f4e4e197a420e301afeaf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e09391fb_62fbb22b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-11-15T12:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec1abcf2_729985db",
+      "revId": "05fd2ccae4c473891f4e4e197a420e301afeaf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02f6e9a2_756d40c6",
@@ -48,6 +84,30 @@
       "writtenOn": "2023-11-15T07:58:56Z",
       "side": 1,
       "message": "Why system_server not rkpdapp ?\n\nIf nothing else the comment doesn\u0027t match, and should explain why we need this.",
+      "range": {
+        "startLine": 12,
+        "startChar": 18,
+        "endLine": 12,
+        "endChar": 31
+      },
+      "revId": "05fd2ccae4c473891f4e4e197a420e301afeaf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1cbc04c_a4dc6c58",
+        "filename": "private/rkpd_app.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-11-15T12:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02f6e9a2_756d40c6",
       "range": {
         "startLine": 12,
         "startChar": 18,
@@ -95,6 +155,30 @@
       "side": 1,
       "message": "This wasn\u0027t in the last attempt (aosp/2812455) - and I agree it doesn\u0027t look right.",
       "parentUuid": "cadf456e_44672c38",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 60
+      },
+      "revId": "05fd2ccae4c473891f4e4e197a420e301afeaf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9b4bd6d_5832b48f",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-11-15T12:22:49Z",
+      "side": 1,
+      "message": "This fixes the following denial during the boot:\n\n```\navc:  denied  { search } for  name\u003d\"virtualizationservice\" dev\u003d\"dm-95\" ino\u003d97 scontext\u003du:r:shell:s0 tcontext\u003du:object_r:virtualizationservice_data_file:s0 tclass\u003ddir permissive\u003d0\n```\n\nI cannot put this line in `shell.te` because `virtualizationservice_data_file` is not recognized there.",
+      "parentUuid": "b6960add_b6c868d7",
       "range": {
         "startLine": 44,
         "startChar": 0,
