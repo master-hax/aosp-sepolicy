@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1af5dea1_3a1dcc74",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1950816
+      },
+      "writtenOn": "2023-11-16T07:21:25Z",
+      "side": 1,
+      "message": "Added detailed description for the purpose of introducing.",
+      "parentUuid": "609bb5d7_c91c132e",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "592a664b9a1eb5b93ae9b8993b1075fe005a5d90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f67ed54_564a612c",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-11-16T06:51:33Z",
       "side": 1,
       "message": "Can we add the file_contexts entry back? At first I was negative about providing a default entry, as we may want to consider updatability. But thinking again, I think it\u0027s not bad to have one\n\n```\n/vendor/etc/avf/microdroid(/.*) u:object_r:vendor_microdroid_file:s0\n```\n\nbecause we anyway need a known path for microdroid configs (e.g. a config file specifying the path of microdroid_vendor.img). Even if we have this entry, vendors still can add more `vendor_microdroid_file` entries to vendor_file_contexts if they find the default path `/vendor/etc/avf/microdroid` doesn\u0027t work for them.",
+      "revId": "592a664b9a1eb5b93ae9b8993b1075fe005a5d90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "271e6756_59d28d08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1950816
+      },
+      "writtenOn": "2023-11-16T07:21:25Z",
+      "side": 1,
+      "message": "Done, now system/sepolicy holds file_contexts for `/vendor/etc/avf/microdroid/*`",
+      "parentUuid": "3f67ed54_564a612c",
       "revId": "592a664b9a1eb5b93ae9b8993b1075fe005a5d90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -100,6 +142,30 @@
       "writtenOn": "2023-11-16T06:51:33Z",
       "side": 1,
       "message": "what about crosvm?",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 57
+      },
+      "revId": "592a664b9a1eb5b93ae9b8993b1075fe005a5d90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "444f9cad_cae009cd",
+        "filename": "private/virtualizationmanager.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1950816
+      },
+      "writtenOn": "2023-11-16T07:21:25Z",
+      "side": 1,
+      "message": "Isn\u0027t crosvm holding fd made by virtmgr, not the file itself?",
+      "parentUuid": "3aabeb30_f8370ebe",
       "range": {
         "startLine": 98,
         "startChar": 0,
