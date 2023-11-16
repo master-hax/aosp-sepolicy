@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "609bb5d7_c91c132e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-11-16T06:51:33Z",
+      "side": 1,
+      "message": "description about the purpose?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "592a664b9a1eb5b93ae9b8993b1075fe005a5d90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f67ed54_564a612c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-11-16T06:51:33Z",
+      "side": 1,
+      "message": "Can we add the file_contexts entry back? At first I was negative about providing a default entry, as we may want to consider updatability. But thinking again, I think it\u0027s not bad to have one\n\n```\n/vendor/etc/avf/microdroid(/.*) u:object_r:vendor_microdroid_file:s0\n```\n\nbecause we anyway need a known path for microdroid configs (e.g. a config file specifying the path of microdroid_vendor.img). Even if we have this entry, vendors still can add more `vendor_microdroid_file` entries to vendor_file_contexts if they find the default path `/vendor/etc/avf/microdroid` doesn\u0027t work for them.",
+      "revId": "592a664b9a1eb5b93ae9b8993b1075fe005a5d90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee8ca415_0c769295",
+        "filename": "private/shell.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-11-16T06:51:33Z",
+      "side": 1,
+      "message": "r_dir_file?",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 53
+      },
+      "revId": "592a664b9a1eb5b93ae9b8993b1075fe005a5d90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44573d91_5635be53",
+        "filename": "private/shell.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-11-16T06:51:33Z",
+      "side": 1,
+      "message": "nit; I agree that this may be convenient for test purpose, but this doesn\u0027t seem to be a must.",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 0
+      },
+      "revId": "592a664b9a1eb5b93ae9b8993b1075fe005a5d90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3aabeb30_f8370ebe",
+        "filename": "private/virtualizationmanager.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-11-16T06:51:33Z",
+      "side": 1,
+      "message": "what about crosvm?",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 57
+      },
+      "revId": "592a664b9a1eb5b93ae9b8993b1075fe005a5d90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
