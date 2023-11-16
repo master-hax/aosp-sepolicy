@@ -618,6 +618,7 @@ bluetooth.core.le.inquiry_scan_window                u:object_r:bluetooth_config
 
 bluetooth.core.le.vendor_capabilities.enabled        u:object_r:bluetooth_config_prop:s0 exact bool
 bluetooth.sco.disable_enhanced_connection            u:object_r:bluetooth_config_prop:s0 exact bool
+bluetooth.core.le.dsa_transport_preference           u:object_r:bluetooth_config_prop:s0 exact string
 
 persist.nfc.debug_enabled                      u:object_r:nfc_prop:s0 exact bool
 persist.nfc.vendor_debug_enabled               u:object_r:nfc_prop:s0 exact bool
@@ -1132,10 +1133,9 @@ ro.product.name_for_attestation  u:object_r:build_attestation_prop:s0 exact stri
 ro.product.device_for_attestation  u:object_r:build_attestation_prop:s0 exact string
 ro.product.manufacturer_for_attestation  u:object_r:build_attestation_prop:s0 exact string
 
-# Vendor API level properties for the vFRC and GRF
+# GRF property for the first api level of the vendor partition
 ro.board.first_api_level u:object_r:build_vendor_prop:s0 exact int
 ro.board.api_level       u:object_r:build_vendor_prop:s0 exact int
-ro.board.api_frozen      u:object_r:build_vendor_prop:s0 exact bool
 ro.vendor.api_level      u:object_r:build_vendor_prop:s0 exact int
 
 # Boot image build props set by /{second_stage_resources/,}boot/etc/build.prop
