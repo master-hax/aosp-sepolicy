@@ -1,3 +1,5 @@
+is_flag_enabled(RELEASE_AVF_ENABLE_DEVICE_ASSIGNMENT, `
+
 # vfio_handler is a helper service for VFIO tasks, like binding platform devices to VFIO driver.
 # vfio_handler is separate from virtualizationservice as VFIO tasks require root.
 type vfio_handler, domain, coredomain;
@@ -24,7 +26,7 @@ allow vfio_handler sysfs:file rw_file_perms;
 allow vfio_handler virtualizationservice:fd use;
 allow vfio_handler virtualizationservice_data_file:file write;
 
-# vfio_handler can only use fd from virtualizationservice, and can't open files itself
+# vfio_handler can only use fd from virtualizationservice, and cannot open files itself
 neverallow vfio_handler virtualizationservice_data_file:file { open create };
 
 # Allow vfio_handler to search /dev/block for accessing dtbo.img
@@ -33,3 +35,5 @@ allow vfio_handler dtbo_block_device:blk_file r_file_perms;
 
 # Only vfio_handler can add vfio_handler_service
 neverallow { domain -vfio_handler } vfio_handler_service:service_manager add;
+
+') # is_flag_enabled(RELEASE_AVF_ENABLE_DEVICE_ASSIGNMENT)
