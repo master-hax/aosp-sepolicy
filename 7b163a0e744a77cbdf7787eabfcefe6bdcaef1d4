@@ -119,6 +119,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a497edc0_3e567267",
+        "filename": "private/shell.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-11-20T12:04:51Z",
+      "side": 1,
+      "message": "Where is that call coming from? I don\u0027t understand why atest would generate a call from shell.",
+      "parentUuid": "e7d93be8_c7e4be94",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 41
+      },
+      "revId": "7b163a0e744a77cbdf7787eabfcefe6bdcaef1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f9a5a4dd_2594aa7a",
         "filename": "public/hal_secretkeeper.te",
         "patchSetId": 3
@@ -154,6 +178,30 @@
       "side": 1,
       "message": "Its tricky to define what hal_secretkeeper domain, concretely domains are hal_secretkeeper_clien, hal_secretkeeper_service, hal_secretkeeper_server. The prefix (hal_secretkeeper) is used as input in macros. \n\nOther files in this directory also donot concretely specify what h_xxx is. Recommendation?",
       "parentUuid": "f9a5a4dd_2594aa7a",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 42
+      },
+      "revId": "7b163a0e744a77cbdf7787eabfcefe6bdcaef1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7a99c63_e3ac4e7c",
+        "filename": "public/hal_secretkeeper.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-11-20T12:04:51Z",
+      "side": 1,
+      "message": "\u003e Other files in this directory also donot concretely specify what h_xxx is.\n\nSELinux documentation is historically bad, but we\u0027re trying to make it better.\n\nHow about something like:\n```\n# Domains for the Secretkeeper HAL, which provides secure (tamper evident, rollback protected) storage of secrets guarded by DICE policies.\n```",
+      "parentUuid": "f25da054_0242b5da",
       "range": {
         "startLine": 1,
         "startChar": 0,
