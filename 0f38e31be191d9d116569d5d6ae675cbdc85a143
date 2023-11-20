@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "325d51c9_012f4c76",
+        "filename": "private/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-11-20T18:50:13Z",
+      "side": 1,
+      "message": "what are the contents of this? Should it be in (per-user) credential encrypted storage?",
+      "range": {
+        "startLine": 31,
+        "startChar": 13,
+        "endLine": 31,
+        "endChar": 32
+      },
+      "revId": "0f38e31be191d9d116569d5d6ae675cbdc85a143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ef6efc0_3382f5be",
+        "filename": "private/statsd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-11-20T18:50:13Z",
+      "side": 1,
+      "message": "this is already included in \"create_file_perms\"",
+      "range": {
+        "startLine": 34,
+        "startChar": 50,
+        "endLine": 34,
+        "endChar": 63
+      },
+      "revId": "0f38e31be191d9d116569d5d6ae675cbdc85a143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49942728_89cbad21",
+        "filename": "private/uprobestats.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-11-20T18:50:13Z",
+      "side": 1,
+      "message": "Is outdump a .sh file? Can we give this its own selinux label and only allow executing that instead of allowing uprobestats to execute everything on /system?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 51
+      },
+      "revId": "0f38e31be191d9d116569d5d6ae675cbdc85a143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a836310c_81dff15e",
+        "filename": "private/uprobestats.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-11-20T18:50:13Z",
+      "side": 1,
+      "message": "IIRC, this is not a trustworthy source of information - it can be modified by the process.\n\nIs there not a better way to get this information?",
+      "range": {
+        "startLine": 33,
+        "startChar": 28,
+        "endLine": 33,
+        "endChar": 47
+      },
+      "revId": "0f38e31be191d9d116569d5d6ae675cbdc85a143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47f3f43c_16f06127",
+        "filename": "private/uprobestats.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-11-20T18:50:13Z",
+      "side": 1,
+      "message": "why are you granting rw_dir_perms and create_file_perms if only read is needed?",
+      "range": {
+        "startLine": 36,
+        "startChar": 23,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "0f38e31be191d9d116569d5d6ae675cbdc85a143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16cd82e8_24b86ff7",
+        "filename": "private/uprobestats.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-11-20T18:50:13Z",
+      "side": 1,
+      "message": "already included in create_file_perms",
+      "range": {
+        "startLine": 38,
+        "startChar": 55,
+        "endLine": 38,
+        "endChar": 68
+      },
+      "revId": "0f38e31be191d9d116569d5d6ae675cbdc85a143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
