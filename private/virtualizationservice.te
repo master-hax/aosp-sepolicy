@@ -72,11 +72,17 @@ allow virtualizationservice tombstoned:fd use;
 allow virtualizationservice vfio_device:chr_file getattr;
 allow virtualizationservice vfio_device:dir r_dir_perms;
 
+<<<<<<< HEAD   (0d6550 Merge "Add SE policy for tv_ad_service" into main)
 # Allow virtualizationservice to access VM DTBO via a file created by virtualizationmanager.
 allow virtualizationservice virtualizationmanager:fd use;
 
 # Allow virtualizationservice to access vendor_configs_file to get the list of assignable devices.
 r_dir_file(virtualizationservice, vendor_configs_file)
+=======
+# Allow virtualizationservice to access VM DTBO via a pipe created by vfio handler.
+allow virtualizationservice vfio_handler:fd use;
+allow virtualizationservice vfio_handler:fifo_file r_file_perms;
+>>>>>>> BRANCH (fa2999 Revert^2 "Add permission for VFIO device binding")
 
 neverallow {
   domain

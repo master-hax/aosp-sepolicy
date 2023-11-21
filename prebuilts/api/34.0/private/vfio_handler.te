@@ -20,19 +20,5 @@ allow vfio_handler vfio_device:dir r_dir_perms;
 allow vfio_handler sysfs:dir r_dir_perms;
 allow vfio_handler sysfs:file rw_file_perms;
 
-<<<<<<< HEAD   (0d6550 Merge "Add SE policy for tv_ad_service" into main)
-# Allow vfio_handler to write to VM DTBO via a file created by virtualizationservice.
-allow vfio_handler virtualizationservice:fd use;
-allow vfio_handler virtualizationservice_data_file:file write;
-
-# vfio_handler can only use fd from virtualizationservice, and can't open files itself
-neverallow vfio_handler virtualizationservice_data_file:file { open create };
-
-# Allow vfio_handler to search /dev/block for accessing dtbo.img
-allow vfio_handler block_device:dir search;
-allow vfio_handler dtbo_block_device:blk_file r_file_perms;
-
-=======
->>>>>>> BRANCH (fa2999 Revert^2 "Add permission for VFIO device binding")
 # Only vfio_handler can add vfio_handler_service
 neverallow { domain -vfio_handler } vfio_handler_service:service_manager add;
