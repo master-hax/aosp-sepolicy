@@ -16,6 +16,29 @@
       "message": "The boot test is green with the latest PS:\n\nhttps://android-build.corp.google.com/builds/abtd/run/L94600030000344855",
       "revId": "11aa41f42875de0be917800d5e4419f96fa667ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b670ad8c_b7a61897",
+        "filename": "private/keystore.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-21T20:13:04Z",
+      "side": 1,
+      "message": "note - unless this is breaking boot, I\u0027d recommend avoiding dontaudit. If you dontaudit, and this causes a test failure, and someone you don\u0027t know is triaging it, they\u0027ll want that log to be able to debug the issue.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 89
+      },
+      "revId": "11aa41f42875de0be917800d5e4419f96fa667ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
