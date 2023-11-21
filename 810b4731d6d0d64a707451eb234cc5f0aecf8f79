@@ -16,6 +16,23 @@
       "message": "I do not know if this is the correct selinux rule, but it addresses\n```\nW VtsAidlAuthGrap: type\u003d1400 audit(0.0:273): avc:  denied  { call } for  scontext\u003du:r:shell:s0 tcontext\u003du:r:hal_authgraph_default:s0 tclass\u003dbinder permissive\u003d0\n```",
       "revId": "810b4731d6d0d64a707451eb234cc5f0aecf8f79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8ce7095_9c8de3b7",
+        "filename": "vendor/hal_authgraph_default.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-21T10:00:56Z",
+      "side": 1,
+      "message": "Seems plausible, but probably worth being consistent with aosp/2719356 about the location of this (the other CL uses `private/shell.te`)",
+      "revId": "810b4731d6d0d64a707451eb234cc5f0aecf8f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
