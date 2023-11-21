@@ -1,5 +1,7 @@
 type hal_authgraph_default, domain;
 hal_server_domain(hal_authgraph_default, hal_authgraph)
+# Allow the VTS test to call the nonsecure instance
+binder_call(shell, hal_authgraph_default)
 
 type hal_authgraph_default_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(hal_authgraph_default)
