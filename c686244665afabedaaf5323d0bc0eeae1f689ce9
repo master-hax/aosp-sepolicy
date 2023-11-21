@@ -140,6 +140,30 @@
       },
       "revId": "c686244665afabedaaf5323d0bc0eeae1f689ce9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4245006_c2d04939",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-11-21T01:16:53Z",
+      "side": 1,
+      "message": "The bug doesn\u0027t explain the detailed design; why do we need this?\n\nVendor binaries communicating directly to system internal binaries (e.g. `virtualizationmanager`, `adbd`) are violating Treble. And I don\u0027t think we need all of these. Instead, we\u0027ll need to add a separate domain `vendor_crosvm` (or, even better, a generic name which can refer to any VMMs) and then move some types to `system/sepolicy/public`.",
+      "parentUuid": "37808cef_856af638",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 33
+      },
+      "revId": "c686244665afabedaaf5323d0bc0eeae1f689ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
