@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adb7e6bb_40adf8ed",
+        "filename": "private/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1952023
+      },
+      "writtenOn": "2023-11-21T19:04:55Z",
+      "side": 1,
+      "message": "The config tells uprobestats what to probe and how. E.g. binary file path, offset, target package, output data format etc. Doesn\u0027t seem very sensitive to me?",
+      "parentUuid": "325d51c9_012f4c76",
+      "range": {
+        "startLine": 31,
+        "startChar": 13,
+        "endLine": 31,
+        "endChar": 32
+      },
+      "revId": "0f38e31be191d9d116569d5d6ae675cbdc85a143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ef6efc0_3382f5be",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-20T18:50:13Z",
       "side": 1,
       "message": "this is already included in \"create_file_perms\"",
+      "range": {
+        "startLine": 34,
+        "startChar": 50,
+        "endLine": 34,
+        "endChar": 63
+      },
+      "revId": "0f38e31be191d9d116569d5d6ae675cbdc85a143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f27ba54_00e50721",
+        "filename": "private/statsd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1952023
+      },
+      "writtenOn": "2023-11-21T19:04:55Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "0ef6efc0_3382f5be",
       "range": {
         "startLine": 34,
         "startChar": 50,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f62b7a51_e0e782f0",
+        "filename": "private/uprobestats.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1952023
+      },
+      "writtenOn": "2023-11-21T19:04:55Z",
+      "side": 1,
+      "message": "Done. Gave oatdump its own label and gave uprobestats rx_file_perms.\n\nAlso removed the shell_exec rule. oatdump is not a .sh file. This was for popen but I now changed that to fork / pipe / execl.",
+      "parentUuid": "49942728_89cbad21",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 51
+      },
+      "revId": "0f38e31be191d9d116569d5d6ae675cbdc85a143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a836310c_81dff15e",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-11-20T18:50:13Z",
       "side": 1,
       "message": "IIRC, this is not a trustworthy source of information - it can be modified by the process.\n\nIs there not a better way to get this information?",
+      "range": {
+        "startLine": 33,
+        "startChar": 28,
+        "endLine": 33,
+        "endChar": 47
+      },
+      "revId": "0f38e31be191d9d116569d5d6ae675cbdc85a143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8154ca9_c06c8df6",
+        "filename": "private/uprobestats.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1952023
+      },
+      "writtenOn": "2023-11-21T19:04:55Z",
+      "side": 1,
+      "message": "This is only used for system processes which IIUC is generally trusted?\n\nFor app processes uprobestats will get the information from system server.",
+      "parentUuid": "a836310c_81dff15e",
       "range": {
         "startLine": 33,
         "startChar": 28,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeeb5fd1_4c8236d5",
+        "filename": "private/uprobestats.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1952023
+      },
+      "writtenOn": "2023-11-21T19:04:55Z",
+      "side": 1,
+      "message": "Updated the comment. uprobestats needs to be able to remove config files.",
+      "parentUuid": "47f3f43c_16f06127",
+      "range": {
+        "startLine": 36,
+        "startChar": 23,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "0f38e31be191d9d116569d5d6ae675cbdc85a143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16cd82e8_24b86ff7",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-11-20T18:50:13Z",
       "side": 1,
       "message": "already included in create_file_perms",
+      "range": {
+        "startLine": 38,
+        "startChar": 55,
+        "endLine": 38,
+        "endChar": 68
+      },
+      "revId": "0f38e31be191d9d116569d5d6ae675cbdc85a143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1315c2c1_eaa458d3",
+        "filename": "private/uprobestats.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1952023
+      },
+      "writtenOn": "2023-11-21T19:04:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16cd82e8_24b86ff7",
       "range": {
         "startLine": 38,
         "startChar": 55,
