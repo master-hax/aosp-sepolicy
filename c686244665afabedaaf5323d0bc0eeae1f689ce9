@@ -164,6 +164,30 @@
       },
       "revId": "c686244665afabedaaf5323d0bc0eeae1f689ce9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6dd8ddf_b28df65a",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2023-11-21T01:40:10Z",
+      "side": 1,
+      "message": "The usecase for this is to start a vendor vm from an init script on the vendor partition. This is prevented, as you say, and this cl creates a separate vendor_crosvm domain to at least allow a vendor copy of the crosvm binary to exist. I did it here, instead of a separate file, to simplify managing the permissions crosvm needs (this file defines neverallow rules that need to name the new allowed domain).\n\nb/309149829, which I should probably link to here instead, has some discussion about this and alternative solutions.",
+      "parentUuid": "f4245006_c2d04939",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 33
+      },
+      "revId": "c686244665afabedaaf5323d0bc0eeae1f689ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
