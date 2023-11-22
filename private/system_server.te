@@ -465,7 +465,6 @@ allow system_server sysfs_usb:file w_file_perms;
 
 # Access devices.
 allow system_server device:dir r_dir_perms;
-allow system_server mdns_socket:sock_file rw_file_perms;
 allow system_server gpu_device:chr_file rw_file_perms;
 allow system_server gpu_device:dir r_dir_perms;
 allow system_server sysfs_gpu:file r_file_perms;
@@ -954,7 +953,6 @@ allow system_server installd_service:service_manager find;
 allow system_server keystore_maintenance_service:service_manager find;
 allow system_server keystore_metrics_service:service_manager find;
 allow system_server keystore_service:service_manager find;
-allow system_server mdns_service:service_manager find;
 allow system_server mediaserver_service:service_manager find;
 allow system_server mediametrics_service:service_manager find;
 allow system_server mediaextractor_service:service_manager find;
