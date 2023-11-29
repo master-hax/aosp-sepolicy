@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af49058e_7a52c5c1",
+        "filename": "private/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1060289
+      },
+      "writtenOn": "2023-11-29T22:27:01Z",
+      "side": 1,
+      "message": "I think you\u0027re right (I was cribbing off of the other SF debug output, wm_trace).\n\nWorks fine without it!",
+      "parentUuid": "1386f8a4_115e331e",
+      "range": {
+        "startLine": 20,
+        "startChar": 75,
+        "endLine": 20,
+        "endChar": 91
+      },
+      "revId": "1c062cab3b8fe509c79976b0189d7208a89bfa1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "414b6531_9abf89c1",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-29T20:15:20Z",
       "side": 1,
       "message": "even on usedebug/eng, this makes me a bit nervous. What user-specific data might be included in these buffers?\n\nIs it possible to just run `setenforce 0` on your local build to do this?",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 18
+      },
+      "revId": "1c062cab3b8fe509c79976b0189d7208a89bfa1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a3f46df_f4259363",
+        "filename": "private/surfaceflinger.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1060289
+      },
+      "writtenOn": "2023-11-29T22:27:01Z",
+      "side": 1,
+      "message": "Good question!\n\nThere are more requirements than just userdebug/eng to get a dump. The only way to trigger a dump is through a manual `adb shell service call` as root. This isn\u0027t triggered automatically or included in crash reports, of course. For enforcement mechanisms, see:\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:frameworks/native/services/surfaceflinger/SurfaceFlinger.cpp;l\u003d6298-6303;drc\u003dd696a4fa7fbc6e94476a0f8e5c65b36c046d5ca8\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:frameworks/native/services/surfaceflinger/SurfaceFlinger.cpp;l\u003d6316-6326;drc\u003d81c7d30ccbf7766089299543fb62b3ac57ce1c93\n\nIn terms of user data: these are the graphics buffers that have been sent to SurfaceFlinger for display on the screen. The content should be similar to what would appear in a screenshot. I believe the only content that wouldn\u0027t be what would appear in a screenshot would be:\n\n  - offscreen buffers (what I was using this to debug)\n  - regions of buffers outside of a region that\u0027s been cropped for display\n\n`setenforce 0` could be possible, but cumbersome. Since you\u0027d need root in either case, I don\u0027t think we\u0027d gain anything from requiring it.",
+      "parentUuid": "414b6531_9abf89c1",
       "range": {
         "startLine": 83,
         "startChar": 0,
