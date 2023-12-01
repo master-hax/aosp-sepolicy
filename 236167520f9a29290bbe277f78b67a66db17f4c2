@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e46b83b5_ec749db2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-12-01T11:25:55Z",
+      "side": 1,
+      "message": "CAP_DAC_OVERRIDE is a pretty big hammer to use here. It\u0027s in a neverallow rule because it\u0027s a dangerous that we don\u0027t want to grant. Are you certain that (1) the unix permission cannot be made correct? (2) that it\u0027s actually failing due to incorrect unix permissions?\n\nThe reason I ask is because I believe that SetCgroup::ExecuteForTask is racy, and you\u0027ll get a permission denied error if the thread has disappeared. Please verify (and provide evidence here) that it\u0027s actually a unix permissions error that is causing the issue.",
+      "range": {
+        "startLine": 16,
+        "startChar": 103,
+        "endLine": 16,
+        "endChar": 121
+      },
+      "revId": "236167520f9a29290bbe277f78b67a66db17f4c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cda46372_534a628f",
@@ -14,6 +37,29 @@
       "writtenOn": "2023-11-30T18:07:59Z",
       "side": 1,
       "message": "Hi Jeff,\n\nJust to add some additional context here - Since the daemon is started early in the first stage init, we need to set this after cgroups are setup. Also, this is only in the OTA path primarily after OTA reboot.",
+      "revId": "236167520f9a29290bbe277f78b67a66db17f4c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2c2f525_cc5acaa2",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-12-01T11:25:55Z",
+      "side": 1,
+      "message": "absolute nittiest of nits, but this list is alphabetical. Please put this in the right order.",
+      "range": {
+        "startLine": 468,
+        "startChar": 2,
+        "endLine": 468,
+        "endChar": 11
+      },
       "revId": "236167520f9a29290bbe277f78b67a66db17f4c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
