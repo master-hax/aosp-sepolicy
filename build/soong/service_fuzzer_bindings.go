@@ -48,6 +48,7 @@ var (
 		"android.hardware.biometrics.fingerprint.IFingerprint/default":            EXCEPTION_NO_FUZZER,
 		"android.hardware.biometrics.fingerprint.IFingerprint/virtual":            EXCEPTION_NO_FUZZER,
 		"android.hardware.bluetooth.audio.IBluetoothAudioProviderFactory/default": EXCEPTION_NO_FUZZER,
+		"android.hardware.bluetooth.ranging.IBluetoothChannelSounding/default":    EXCEPTION_NO_FUZZER,
 		"android.hardware.broadcastradio.IBroadcastRadio/amfm":                    EXCEPTION_NO_FUZZER,
 		"android.hardware.broadcastradio.IBroadcastRadio/dab":                     EXCEPTION_NO_FUZZER,
 		"android.hardware.bluetooth.IBluetoothHci/default":                        EXCEPTION_NO_FUZZER,
