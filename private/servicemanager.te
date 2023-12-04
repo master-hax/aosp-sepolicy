@@ -12,3 +12,8 @@ use_bootstrap_libs(servicemanager)
 
 # servicemanager is using apex_info via libvintf
 use_apex_info(servicemanager)
+
+# Send an SELinux userspace denial to the kernel audit subsystem,
+# so it can be picked up and processed by logd.
+allow servicemanager self:netlink_audit_socket { create_socket_perms_no_ioctl nlmsg_relay };
+allow servicemanager self:global_capability_class_set audit_write;
