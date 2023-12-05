@@ -16,6 +16,29 @@
       "message": "The bug says this feature is only for userdebug devices, so can these rules be wrapped in a `userdebug_or_eng` clause?",
       "revId": "5d8c9854bbbe65f0a8c1f65aacf2c2114d22c682",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c14e204_08fe9ca4",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2023-12-05T13:35:11Z",
+      "side": 1,
+      "message": "Hi Radu,\n\nThanks for adding the rules.\n\nWe should rename this a bit to follow the group.subgroup ... convention.\n\nAnd also use a bool type with the .enabled convention.\n\nMaybe something like:\n\n```\nsuspend.wakelock.logs.enabled ... :system_debug_prop ... bool\n```",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 32
+      },
+      "revId": "5d8c9854bbbe65f0a8c1f65aacf2c2114d22c682",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
