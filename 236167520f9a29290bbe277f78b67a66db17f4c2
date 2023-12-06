@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "abc869bc_083c02d2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1724998
+      },
+      "writtenOn": "2023-12-06T01:17:29Z",
+      "side": 1,
+      "message": "Thanks for the review.\n\nI did re-verify and its indeed related to permission\n\n```\n-rw-rw-r-- 1 system system 0 2023-12-05 20:15 /dev/cpuset/background/tasks\n```\n\nThe open() from  SetCgroup::ExecuteForTask is returning ENOPERM as the current process doesn\u0027t belong to \"system\".\n\n\u003e and you\u0027ll get a permission denied error if the thread has disappeared.\n\nThread doesn\u0027t go away. This call is set just at the beginning of the execution.\n\nI have now moved the process to \"system\" group, thus requiring setgid() sepolicy which should be ok compared to CAP_DAC_OVERRIDE ?\n\nHere is denial for setgid which is addressed in this commit:\n\n```\n[   83.432949] type\u003d1400 audit(1701824602.052:13): avc:  denied  { setgid } for  comm\u003d\"MergeWorker\" capability\u003d6  scontext\u003du:r:snapuserd:s0 tcontext\u003du:r:snapuserd:s0 tclass\u003dcapability permissive\u003d0\n```",
+      "parentUuid": "e46b83b5_ec749db2",
+      "range": {
+        "startLine": 16,
+        "startChar": 103,
+        "endLine": 16,
+        "endChar": 121
+      },
+      "revId": "236167520f9a29290bbe277f78b67a66db17f4c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cda46372_534a628f",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-12-01T11:25:55Z",
       "side": 1,
       "message": "absolute nittiest of nits, but this list is alphabetical. Please put this in the right order.",
+      "range": {
+        "startLine": 468,
+        "startChar": 2,
+        "endLine": 468,
+        "endChar": 11
+      },
+      "revId": "236167520f9a29290bbe277f78b67a66db17f4c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "872e0ba1_f0b2b527",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1724998
+      },
+      "writtenOn": "2023-12-06T01:17:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2c2f525_cc5acaa2",
       "range": {
         "startLine": 468,
         "startChar": 2,
