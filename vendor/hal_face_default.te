@@ -7,4 +7,6 @@ init_daemon_domain(hal_face_default)
 # android.frameworks.sensorservice through libsensorndkbridge
 allow hal_face_default fwk_sensor_service:service_manager find;
 
-set_prop(hal_face_default, virtual_face_hal_prop)
+userdebug_or_eng(`
+  set_prop(hal_face_default, virtual_face_hal_prop)
+')
