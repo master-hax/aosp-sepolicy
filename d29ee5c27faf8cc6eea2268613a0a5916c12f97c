@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c83dd80_511470f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1949510
+      },
+      "writtenOn": "2023-12-09T01:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9163b6bd_ee1b54f5",
+      "range": {
+        "startLine": 10,
+        "startChar": 21,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "d29ee5c27faf8cc6eea2268613a0a5916c12f97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8835b715_11b3ebbe",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-06T01:55:32Z",
       "side": 1,
       "message": "All properties can be set by `init`, which includes `system/build.prop`, `system_ext/etc/build.prop`, and `product/etc/build.prop`. That means that simply guarding the definition of `suspend_debug_prop` might not be what you really want, as it still can be turned on potentially on user builds too.\n\nWhat we really want is\n\n* this property must not affect user builds\n* shell should be able to set this property\n\nSo I suggest you to do\n\n* guard only `set_prop(shell, suspend_debug_prop)` with `userdebug_or_eng`\n* check `\"ro.debuggable\" !\u003d \"user\"` before reading the property",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 0
+      },
+      "revId": "d29ee5c27faf8cc6eea2268613a0a5916c12f97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cac4c330_de499442",
+        "filename": "private/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1949510
+      },
+      "writtenOn": "2023-12-09T01:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8835b715_11b3ebbe",
       "range": {
         "startLine": 64,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9103e57_0728cfa2",
+        "filename": "private/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1949510
+      },
+      "writtenOn": "2023-12-09T01:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ab0e0d3_71b8635d",
+      "range": {
+        "startLine": 354,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 18
+      },
+      "revId": "d29ee5c27faf8cc6eea2268613a0a5916c12f97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc533121_5ae04ef8",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-12-06T01:55:32Z",
       "side": 1,
       "message": "This entry will still be even on user builds, and this is very likely to cause boot failure as the definition of `suspend_debug_prop` is guarded with `userdebug_or_eng`. Did you test this change on user builds?",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 79
+      },
+      "revId": "d29ee5c27faf8cc6eea2268613a0a5916c12f97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f60e667_7f3aabbe",
+        "filename": "private/property_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1949510
+      },
+      "writtenOn": "2023-12-09T01:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc533121_5ae04ef8",
       "range": {
         "startLine": 121,
         "startChar": 0,
