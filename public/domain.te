@@ -1292,3 +1292,10 @@ neverallow { domain -traced_probes -init -vendor_init } debugfs_tracing_printk_f
 
 # Linux lockdown "integrity" level is enforced for user builds.
 neverallow { domain userdebug_or_eng(`-domain') } self:lockdown integrity;
+
+# Never allow racoon
+neverallow { -network_stack -netd -system_server -dumpstate } *:key_socket create_socket_perms;
+neverallow { netd network_stack system_server } *:key_socket rw_socket_perms;
+
+# Never allow ppp
+neverallow { -dumpstate } *:pppox_socket create_socket_perms;
