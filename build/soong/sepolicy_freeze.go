@@ -46,10 +46,8 @@ type freezeTestModule struct {
 }
 
 func (f *freezeTestModule) shouldSkip(ctx android.EarlyModuleContext) bool {
-	platformVersion := ctx.DeviceConfig().PlatformSepolicyVersion()
-	totVersion := ctx.DeviceConfig().TotSepolicyVersion()
-
-	return platformVersion == totVersion
+	val, _ := ctx.Config().GetBuildFlag("RELEASE_BOARD_API_LEVEL_FROZEN")
+	return val != "true"
 }
 
 func (f *freezeTestModule) loadHook(ctx android.LoadHookContext) {
