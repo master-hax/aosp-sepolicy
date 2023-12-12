@@ -39,6 +39,30 @@
       },
       "revId": "8cd82a2ca217625948ad40b288ed662e0feb2e93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb8118c3_c038e7b1",
+        "filename": "build/soong/sepolicy_freeze.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-12-12T02:11:08Z",
+      "side": 1,
+      "message": "\u003e prefer val \u003d\u003d \"false\" or val \u003d\u003d \"\".\n\nBoth `\"false\"` and `\"\"` are possible. Instead of using one, I updated the function so we can use `val \u003d\u003d \"true\"`.\n\nThis test is meant to run only on release branches. Normally we don\u0027t run freeze test.",
+      "parentUuid": "3c3a6581_c3b88fe4",
+      "range": {
+        "startLine": 50,
+        "startChar": 9,
+        "endLine": 50,
+        "endChar": 21
+      },
+      "revId": "8cd82a2ca217625948ad40b288ed662e0feb2e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
