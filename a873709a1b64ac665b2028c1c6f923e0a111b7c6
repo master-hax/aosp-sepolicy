@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc64e915_cf9deca4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1951990
+      },
+      "writtenOn": "2023-12-12T21:43:55Z",
+      "side": 1,
+      "message": "Related change is here: ag/25590500",
+      "parentUuid": "14bf2721_3829b926",
+      "revId": "a873709a1b64ac665b2028c1c6f923e0a111b7c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5d0e3f5_1ed95708",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-12-12T08:20:26Z",
       "side": 1,
       "message": "Can we flag-guard this? (go/ts-sepolicy-flagging-guide)",
+      "range": {
+        "startLine": 1548,
+        "startChar": 0,
+        "endLine": 1553,
+        "endChar": 89
+      },
+      "revId": "a873709a1b64ac665b2028c1c6f923e0a111b7c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78d73b24_ef1e1fce",
+        "filename": "private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1553,
+      "author": {
+        "id": 1951990
+      },
+      "writtenOn": "2023-12-12T21:43:55Z",
+      "side": 1,
+      "message": "Thanks for pointing out the flag-guard feature. The instruction is very clear for how to create boot flag and use it to guard sepolicy rules. However, it is not clear to me that how to tie this to the [existing feature flag](https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:frameworks/base/services/core/java/com/android/server/biometrics/biometrics.aconfig?q\u003dbiometrics.aconfig#:~:text\u003dname%3A-,%22face_vhal_feature,-%22) associated with those new attributes. Do I have to define a new boot flag independent of the exising aconfig flag? Since the feature is needed by our tests that run on all trunk stable releases (next, trunk, ...), we can default this new boot flag to true. In that case, would that be equivalent to \"no flag guard\" ?",
+      "parentUuid": "f5d0e3f5_1ed95708",
       "range": {
         "startLine": 1548,
         "startChar": 0,
