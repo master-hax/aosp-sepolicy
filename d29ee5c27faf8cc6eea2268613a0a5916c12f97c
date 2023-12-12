@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6b0737d_083df21a",
+        "filename": "private/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-12-12T02:03:39Z",
+      "side": 1,
+      "message": "\u003e Can you do this on aosp/2775668?\n\nor alternatively, add\n\n```\nneverallow { domain -init -dumpstate userdebug_or_eng(`-system_suspend\u0027) } suspend_debug_prop:file no_rw_file_perms;\n\ndontaudit system_suspend suspend_debug_prop:file r_file_perms;\n```",
+      "parentUuid": "68f049e1_152b822b",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 0
+      },
+      "revId": "d29ee5c27faf8cc6eea2268613a0a5916c12f97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ab0e0d3_71b8635d",
         "filename": "private/property.te",
         "patchSetId": 3
