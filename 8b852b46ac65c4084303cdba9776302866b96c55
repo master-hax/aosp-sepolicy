@@ -39,6 +39,30 @@
       },
       "revId": "8b852b46ac65c4084303cdba9776302866b96c55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9921598c_2739f8f1",
+        "filename": "private/snapuserd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1724998
+      },
+      "writtenOn": "2023-12-13T13:13:22Z",
+      "side": 1,
+      "message": "No.. We don\u0027t start the daemon as a service. This is the process which is started during first stage init even before partitions are mounted and hence the daemon has to set this by invoking setgid() by itself. \n\nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/core/init/snapuserd_transition.cpp;l\u003d80\n\nThe one which you are pointing to is the proxy daemon which starts just after early-init and that is not the process here which we are talking about:\n\nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/core/init/init.cpp;l\u003d1076\n\nThis is the process which is started very early in the init stage. I did mention this explicitly (https://android-review.git.corp.google.com/c/platform/system/sepolicy/+/2846733/comments/cda46372_534a628f) as I can understand the confusion.\n\nAgain, here is the evidence\n```\n[   83.432949] type\u003d1400 audit(1701824602.052:13): avc:  denied  { setgid } for  comm\u003d\"MergeWorker\" capability\u003d6  scontext\u003du:r:snapuserd:s0 tcontext\u003du:r:snapuserd:s0 tclass\u003dcapability permissive\u003d0\n```",
+      "parentUuid": "4c3713ef_32c70942",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 60
+      },
+      "revId": "8b852b46ac65c4084303cdba9776302866b96c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
