@@ -86,6 +86,24 @@
       "parentUuid": "45c61def_41ae6c02",
       "revId": "cbef2fc98de5c37a3364c89244bf3b594d4baadc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "352ec6a8_f39a0dac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1286922
+      },
+      "writtenOn": "2023-12-13T03:32:56Z",
+      "side": 1,
+      "message": "Statsd is a mainline module that is updated independently of the rest of the platform. Because of this, all interaction to statsd must occur over proper APIs, The stats-service binder interface is not an API and should not be used directly since it is not stable. Most of the things in this allowlist were added several years ago and are likely not needed anymore.\n\nWe currently do not have native APIs to add \u0026 remove configs, so adding configs \u0026 getting data from a native daemon is not something that is supported today. I recommend using the java apis if possible. If native support is something you would like to be implemented, please file a feature request and explain your use case, and we can evaluate the feasibility.",
+      "parentUuid": "6eb68520_01f887ba",
+      "revId": "cbef2fc98de5c37a3364c89244bf3b594d4baadc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
