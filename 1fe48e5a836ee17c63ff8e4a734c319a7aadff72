@@ -22,6 +22,30 @@
       },
       "revId": "1fe48e5a836ee17c63ff8e4a734c319a7aadff72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81cdfef1_896fd165",
+        "filename": "microdroid/system/private/microdroid_manager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-14T10:00:57Z",
+      "side": 1,
+      "message": "The r_file_perms on line 21 includes open and read and a bunch more (https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/sepolicy/public/global_macros;drc\u003dc4ab8edf7476ac8f247e5f1b2efbe282a693be06;l\u003d25), so it should be fine.\nBut I\u0027ll run the tests ...",
+      "parentUuid": "0b1714ed_8b038c20",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "1fe48e5a836ee17c63ff8e4a734c319a7aadff72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
