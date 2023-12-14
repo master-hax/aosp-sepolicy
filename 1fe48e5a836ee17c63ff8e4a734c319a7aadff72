@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b1714ed_8b038c20",
+        "filename": "microdroid/system/private/microdroid_manager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2023-12-14T06:58:32Z",
+      "side": 1,
+      "message": "Question: Is it sufficient for `microdroid_manager` to read the `sysfs_dt_avf`\n\n`init_debug_policy` read the file for getting debug policy configuration, so `open, read` seem required.\n\nJust FYI, `CustomPvmfwHostTestCases` is written to test the behavior. You may run the test manually because currently presubmit isn\u0027t running well.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "1fe48e5a836ee17c63ff8e4a734c319a7aadff72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
