@@ -164,6 +164,10 @@ get_prop(system_app, oem_unlock_prop)
 # Settings app reads ro.usb.uvc.enabled
 get_prop(system_app, usb_uvc_enabled_prop)
 
+# Settings app manage connectivity blob store
+allow system_app connectivityblob_data_file:dir create_dir_perms;
+allow system_app connectivityblob_data_file:file create_file_perms;
+
 ###
 ### Neverallow rules
 ###
