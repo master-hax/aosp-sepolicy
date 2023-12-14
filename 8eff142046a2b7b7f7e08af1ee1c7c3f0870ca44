@@ -142,6 +142,30 @@
       },
       "revId": "8eff142046a2b7b7f7e08af1ee1c7c3f0870ca44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be93b27e_b777d068",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2023-12-14T04:05:59Z",
+      "side": 1,
+      "message": "If I understand correctly, these properties are only used on floss, not on Android. Then I think reusing `bluetooth_config_prop` is wrong at the first place.\n\nCan you these?\n\n* add a new label without any permissions (e.g. `bluetooth_floss_prop`)\n* forbid any access to the property\n\n```\nneverallow { domain -init } bluetooth_floss_prop:property_service set;\nneverallow { domain -init -dumpstate} bluetooth_floss_prop:file no_rw_file_perms;\ndontaudit domain bluetooth_floss_prop:\n```",
+      "parentUuid": "601bd81e_5cef66f8",
+      "range": {
+        "startLine": 615,
+        "startChar": 0,
+        "endLine": 615,
+        "endChar": 99
+      },
+      "revId": "8eff142046a2b7b7f7e08af1ee1c7c3f0870ca44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
