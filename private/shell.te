@@ -248,3 +248,5 @@ set_prop(shell, gwp_asan_prop)
 # Allow shell to set persist.sysui.notification.builder_extras_override property
 userdebug_or_eng(`set_prop(shell, persist_sysui_builder_extras_prop)')
 
+# Allow shell to execute oatdump.
+allow shell oatdump_exec:file rx_file_perms;
