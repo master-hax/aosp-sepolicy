@@ -16,6 +16,24 @@
       "message": "no more \"if ANDROID, /data/local/tmp, else /tmp\" 😊 ??? 😊\n\nOne qq - are these two locations managed separately or are they aliases for each other? I think there would be value in making them aliases for each other.",
       "revId": "4912d266e10dafaedc48a43ace0db1df4e8469ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c65442f7_33c0d9c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2023-12-18T21:39:21Z",
+      "side": 1,
+      "message": "They are separate. This is because the pre-existing /data/local/tmp is preserved between reboots, and it\u0027s possible that scripts depend on that. Besides, there is some value in a persistent temporary directory for the shell user. We might decide to make them aliases anyway, but I think that should be a separate change.",
+      "parentUuid": "dcf7fdc0_7e20c6c4",
+      "revId": "4912d266e10dafaedc48a43ace0db1df4e8469ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
