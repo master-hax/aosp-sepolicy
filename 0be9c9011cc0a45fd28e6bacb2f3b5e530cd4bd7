@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbafb221_9bd047db",
+        "filename": "private/system_app.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-20T10:55:55Z",
+      "side": 1,
+      "message": "This doesn\u0027t look right.\n\ncreate_file_perms allows you to create \u0026 delete files, but that would require write access to the directory.\n\nWould rw_file_perms work here?",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 67
+      },
+      "revId": "0be9c9011cc0a45fd28e6bacb2f3b5e530cd4bd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4c53641_ee90b129",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-20T10:55:55Z",
+      "side": 1,
+      "message": "You have 2 entities managing these files - that\u0027s generally a bad idea; what if they are trying to do different things at the same time?\n\nCould you improve the comments to clarify what they are each doing? \"Manage\" is fairly non-specific.",
+      "range": {
+        "startLine": 601,
+        "startChar": 0,
+        "endLine": 603,
+        "endChar": 70
+      },
+      "revId": "0be9c9011cc0a45fd28e6bacb2f3b5e530cd4bd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
