@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c58d8a0_97590248",
+        "filename": "private/property.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-12-21T08:55:31Z",
+      "side": 1,
+      "message": "You\u0027ve excluded shell from the neverallow rule here, but then didn\u0027t grant it `set_prop()`? Is that intentional? If so, please remove the exclusion here. It\u0027s perfectly fine to require `adb root` to set this value, in which case you don\u0027t need to allow shell, or exclude it from this neverallow rule.",
+      "range": {
+        "startLine": 350,
+        "startChar": 23,
+        "endLine": 350,
+        "endChar": 28
+      },
+      "revId": "52333f3cd34beffb42e80bd6ed758dadb7a2415c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1394bda8_b8387792",
+        "filename": "private/property.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2023-12-21T08:55:31Z",
+      "side": 1,
+      "message": "ditto.",
+      "range": {
+        "startLine": 360,
+        "startChar": 23,
+        "endLine": 360,
+        "endChar": 28
+      },
+      "revId": "52333f3cd34beffb42e80bd6ed758dadb7a2415c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
