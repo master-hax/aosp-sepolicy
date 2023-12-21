@@ -318,6 +318,7 @@ hal_client_domain(system_server, hal_face)
 hal_client_domain(system_server, hal_fingerprint)
 hal_client_domain(system_server, hal_gnss)
 hal_client_domain(system_server, hal_graphics_allocator)
+allow system_server hal_graphics_mapper_service:service_manager find;
 hal_client_domain(system_server, hal_health)
 hal_client_domain(system_server, hal_input_classifier)
 hal_client_domain(system_server, hal_input_processor)

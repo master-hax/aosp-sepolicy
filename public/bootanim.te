@@ -5,6 +5,7 @@ type bootanim_exec, system_file_type, exec_type, file_type;
 hal_client_domain(bootanim, hal_configstore)
 hal_client_domain(bootanim, hal_graphics_allocator)
 hal_client_domain(bootanim, hal_graphics_composer)
+allow bootanim hal_graphics_mapper_service:service_manager find;
 
 binder_use(bootanim)
 binder_call(bootanim, surfaceflinger)

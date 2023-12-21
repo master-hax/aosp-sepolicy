@@ -10,6 +10,7 @@ hal_client_domain(mediaswcodec, hal_omx)
 
 hal_client_domain(mediaswcodec, hal_allocator)
 hal_client_domain(mediaswcodec, hal_graphics_allocator)
+allow mediaswcodec hal_graphics_mapper_service:service_manager find;
 
 crash_dump_fallback(mediaswcodec)
 
