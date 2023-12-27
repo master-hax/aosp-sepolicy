@@ -1590,6 +1590,10 @@ allow system_server binderfs_logs_stats:file r_file_perms;
 # Allow GameManagerService to read and write persist.graphics.game_default_frame_rate.enabled
 set_prop(system_server, game_manager_config_prop)
 
+<<<<<<< PATCH SET (cd1111 Don't audit system server write zygote_tmpfs)
+# dontaudit system_server to write zygote_tmpfs
+dontaudit system_server zygote_tmpfs:file write;
+=======
 # ThreadNetworkService reads Thread Network properties
 get_prop(system_server, threadnetwork_config_prop)
 
@@ -1609,3 +1613,4 @@ get_prop(system_server, pm_archiving_enabled_prop)
 # Do not allow any domain other than init or system server to get or set the property
 neverallow { domain -init -system_server } crashrecovery_prop:property_service set;
 neverallow { domain -init -dumpstate -system_server } crashrecovery_prop:file no_rw_file_perms;
+>>>>>>> BASE      (edfb82 Merge "Add perfetto persistent tracing configuration file" i)
