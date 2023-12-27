@@ -1609,3 +1609,6 @@ get_prop(system_server, pm_archiving_enabled_prop)
 # Do not allow any domain other than init or system server to get or set the property
 neverallow { domain -init -system_server } crashrecovery_prop:property_service set;
 neverallow { domain -init -dumpstate -system_server } crashrecovery_prop:file no_rw_file_perms;
+
+# dontaudit system_server to write zygote_tmpfs
+dontaudit system_server zygote_tmpfs:file write;
