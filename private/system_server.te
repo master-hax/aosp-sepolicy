@@ -1631,6 +1631,9 @@ userdebug_or_eng(`
 # Allow GameManagerService to read and write persist.graphics.game_default_frame_rate.enabled
 set_prop(system_server, game_manager_config_prop)
 
+# dontaudit system_server to write zygote_tmpfs
+dontaudit system_server zygote_tmpfs:file write;
+
 # ThreadNetworkService reads Thread Network properties
 get_prop(system_server, threadnetwork_config_prop)
 
