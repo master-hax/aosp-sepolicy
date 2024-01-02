@@ -12,10 +12,21 @@ init_daemon_domain(ot_daemon)
 # Allow the ot_daemon to use the net domain.
 net_domain(ot_daemon)
 
-# Allow the ot_daemon to access the folder "/data/misc/threadnetwork".
-allow ot_daemon threadnetwork_data_file:dir rw_dir_perms;
-allow ot_daemon threadnetwork_data_file:file create_file_perms;
-allow ot_daemon threadnetwork_data_file:sock_file {create unlink};
+# Allow the ot_daemon to access the folder "/data/misc/apexdata/com\.android\.tethering/threadnetwork".
+allow ot_daemon apex_threadnetwork_data_file:dir rw_dir_perms;
+allow ot_daemon apex_threadnetwork_data_file:file create_file_perms;
+allow ot_daemon apex_threadnetwork_data_file:sock_file {create unlink};
+
+# Allow ot_daemon to find files and directories under
+# /data/misc/apexdata/com.android.tethering
+allow ot_daemon apex_module_data_file:dir search;
+allow ot_daemon apex_system_server_data_file:dir search;
+
+# Allow ot_daemon to create directory /data/misc/apexdata/com.android.tethering/threadnetwork
+# if it doesn't exist
+allow ot_daemon apex_system_server_data_file:dir {create rw_dir_perms};
+allow ot_daemon apex_system_server_data_file:file create_file_perms;
+allow ot_daemon apex_system_server_data_file:sock_file {create unlink};
 
 # Allow OT daemon to read/write the Thread tunnel interface
 allow ot_daemon tun_device:chr_file {read write};
