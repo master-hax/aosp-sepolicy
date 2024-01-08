@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eadc056c_b9f74402",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1951990
+      },
+      "writtenOn": "2024-01-08T14:05:57Z",
+      "side": 1,
+      "message": "This is part of ag/25812906, in which the latency can be an int, or range of ints (for randomization), similar to Fingerprint Virtual Hal.",
+      "parentUuid": "2859a957_345e4202",
+      "revId": "16ea68ff9094b6834a9cae25abe13600ea027019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a60dac6_32cd9df9",
@@ -48,6 +66,30 @@
       "writtenOn": "2024-01-08T01:03:00Z",
       "side": 1,
       "message": "Changing usage (especially type) of existing properties is not recommended.",
+      "range": {
+        "startLine": 1569,
+        "startChar": 0,
+        "endLine": 1569,
+        "endChar": 93
+      },
+      "revId": "16ea68ff9094b6834a9cae25abe13600ea027019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "480ca777_aa1a64ea",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1569,
+      "author": {
+        "id": 1951990
+      },
+      "writtenOn": "2024-01-08T14:05:57Z",
+      "side": 1,
+      "message": "Face Virtual Hal development has not been complete (a feature of V). Those three latency sysprops have not been used anywhere other than Virtual Hal itself so far, so the type changes do not post the risk of backward compatibility.",
+      "parentUuid": "2a60dac6_32cd9df9",
       "range": {
         "startLine": 1569,
         "startChar": 0,
