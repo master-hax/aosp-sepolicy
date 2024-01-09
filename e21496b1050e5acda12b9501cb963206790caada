@@ -1,5 +1,69 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c180fbfc_63ec9e7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-01-09T13:44:30Z",
+      "side": 1,
+      "message": "You don\u0027t need to make any changes based on this review, but some nits/comments that you can look at if you have time.",
+      "revId": "e21496b1050e5acda12b9501cb963206790caada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcfda068_cc9110ee",
+        "filename": "private/ot_daemon.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-01-09T13:44:30Z",
+      "side": 1,
+      "message": "create_dir_perms",
+      "range": {
+        "startLine": 20,
+        "startChar": 45,
+        "endLine": 20,
+        "endChar": 66
+      },
+      "revId": "e21496b1050e5acda12b9501cb963206790caada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfede9b5_d3990f38",
+        "filename": "private/ot_daemon.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-01-09T13:44:30Z",
+      "side": 1,
+      "message": "I realize that you\u0027re just moving the location of this socket file, but it\u0027s really unclear to me what these permissions are used for. I would assume that you need more than just create and unlink to do anything useful. Is this actually used?",
+      "range": {
+        "startLine": 22,
+        "startChar": 51,
+        "endLine": 22,
+        "endChar": 66
+      },
+      "revId": "e21496b1050e5acda12b9501cb963206790caada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
