@@ -134,6 +134,30 @@
       },
       "revId": "e21496b1050e5acda12b9501cb963206790caada",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4328377e_cfed151d",
+        "filename": "private/ot_daemon.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1693933
+      },
+      "writtenOn": "2024-01-10T07:28:34Z",
+      "side": 1,
+      "message": "ot-daemon currently puts add data it creates in the same directory and don\u0027t support customization like you mentioned.\n\nI can understand that the socket file doesn\u0027t need to be in the apex data dir, but changing the exiting ot-daemon code is going to add platform-specific dependencies to. the tethering apex and we need to cherry pick those dependencies or U TV.",
+      "parentUuid": "7ce72b2e_166ddbe8",
+      "range": {
+        "startLine": 22,
+        "startChar": 51,
+        "endLine": 22,
+        "endChar": 66
+      },
+      "revId": "e21496b1050e5acda12b9501cb963206790caada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
