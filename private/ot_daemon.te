@@ -15,10 +15,16 @@ net_domain(ot_daemon)
 # Allow ot_daemon to find /data/misc/apexdata/com.android.tethering
 allow ot_daemon apex_module_data_file:dir search;
 
-# Allow the ot_daemon to access files and subdirectories under
-# /data/misc/apexdata/com\.android\.tethering
-allow ot_daemon apex_tethering_data_file:dir {create rw_dir_perms};
+# Allow ot_daemon to create and read/write Tethering subdir:
+# /data/misc/apexdata/com\.android\.tethering/ot-daemon
+allow ot_daemon apex_tethering_data_file:dir create_dir_perms;
+
+# Allow ot_daemon to create and read/write OpenThread settings file
+# under the ot-daemon/ subdir
 allow ot_daemon apex_tethering_data_file:file create_file_perms;
+
+# Allow ot_daemon to create linux socket file (.sock) under the
+# ot-daemon/ subdir for interaction with ot-ctl
 allow ot_daemon apex_tethering_data_file:sock_file {create unlink};
 
 # Allow OT daemon to read/write the Thread tunnel interface
