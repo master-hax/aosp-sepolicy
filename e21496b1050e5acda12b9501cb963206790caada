@@ -62,6 +62,30 @@
       },
       "revId": "e21496b1050e5acda12b9501cb963206790caada",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2305df1_32974ace",
+        "filename": "private/ot_daemon.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2024-01-10T03:10:37Z",
+      "side": 1,
+      "message": "+1. Could this be done so that the system server creates the socket instead?\n\nAlso, is it reasonable to say that ot_daemon should be able to create (and delete?) arbitrary files inside /data/misc/apexdata/com.android.tethering ? There\u0027s a lot of data there that is not thread specific, and probably we don\u0027t want ot_daemon to acceess it.",
+      "parentUuid": "bfede9b5_d3990f38",
+      "range": {
+        "startLine": 22,
+        "startChar": 51,
+        "endLine": 22,
+        "endChar": 66
+      },
+      "revId": "e21496b1050e5acda12b9501cb963206790caada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
