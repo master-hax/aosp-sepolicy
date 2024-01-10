@@ -158,6 +158,30 @@
       },
       "revId": "e21496b1050e5acda12b9501cb963206790caada",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c08b4524_df7a931a",
+        "filename": "private/ot_daemon.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-01-10T13:34:37Z",
+      "side": 1,
+      "message": "To Lorenzo\u0027s point, this could be in a subdirectory e.g. /data/misc/apexdata/com.android.tethering/ot/ with its own selinux label. That then ensures that ot_daemon and other tethering module components are unable to accidentally modify each other\u0027s files.\n\n\u003e ot-daemon currently puts add data it creates in the same directory and don\u0027t support customization like you mentioned.\n\nI don\u0027t understand this point. The code seems Android specific since it knows the directory is /data/misc/.... Presumably you could point that same code to use as socket in/dev/socket/ just as easily? That\u0027s the standard way of handling sockets in Android, there should be a good reason to so something different.",
+      "parentUuid": "4328377e_cfed151d",
+      "range": {
+        "startLine": 22,
+        "startChar": 51,
+        "endLine": 22,
+        "endChar": 66
+      },
+      "revId": "e21496b1050e5acda12b9501cb963206790caada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
