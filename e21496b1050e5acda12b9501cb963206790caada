@@ -182,6 +182,30 @@
       },
       "revId": "e21496b1050e5acda12b9501cb963206790caada",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ca4a258_09bb3dcb",
+        "filename": "private/ot_daemon.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1693933
+      },
+      "writtenOn": "2024-01-10T13:48:44Z",
+      "side": 1,
+      "message": "\u003e To Lorenzo\u0027s point, this could be in a subdirectory e.g. /data/misc/apexdata/com.android.tethering/ot/ with its own selinux label. \n\nDo you mean something like:\n```\n/data/misc/apexdata/com\\.android\\.tethering/ot(/.*)?  u:object_r:apex_threadnetwork_data_file:s0\n```\n? I tried this in patch 1 but it always matches to `apex_system_server_data_file` (which is the label of `/data/misc/apexdata/com\\.android\\.tethering`) for the subdir. I guess it\u0027s because the subdir is created after the system server boots and the sepolicy system won\u0027t re-evaluate the rules for this kind of runtime directories.\n\n\u003e That\u0027s the standard way of handling sockets in Android, there should be a good reason to so something different.\n\nOkay, I mean it makes the data files for an apex module separated in different places as well as more sepolicy changes. But I will make the change to follow the convention.",
+      "parentUuid": "c08b4524_df7a931a",
+      "range": {
+        "startLine": 22,
+        "startChar": 51,
+        "endLine": 22,
+        "endChar": 66
+      },
+      "revId": "e21496b1050e5acda12b9501cb963206790caada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
