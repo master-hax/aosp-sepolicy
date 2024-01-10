@@ -86,6 +86,30 @@
       },
       "revId": "e21496b1050e5acda12b9501cb963206790caada",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "906e2c2b_a0aa34e1",
+        "filename": "private/ot_daemon.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1693933
+      },
+      "writtenOn": "2024-01-10T06:49:46Z",
+      "side": 1,
+      "message": "## For the sock_file\n\n\nThe sock_file permission is for ot_daemon to create a `openthread-thread-wpan.sock` under `/data/misc/apexdata/com.android.tethering/threadnetwork/` to interact with the `ot-ctl` utility program. `ot-ctl` is a tool sends CLI commands to ot_daemon to control the Thread stack state and retrieve specific states. It\u0027s typically used for testing and debugging.\n\n\u003e I would assume that you need more than just create and unlink to do anything useful.\n\not_daemon does read / write from / to the .sock file, I think the read/write permission is inherited from: `allow ot_daemon apex_tethering_data_file:file create_file_perms;` (Not a selinux expert here)\n\n\u003e Could this be done so that the system server creates the socket instead?\n\n`sock_file` is for linux socket file, but not a network socket. So I don\u0027t think it can cause any damage to system health.\n\n\n## for ot_daemon ACL\n\n\u003e Also, is it reasonable to say that ot_daemon should be able to create (and delete?) arbitrary files inside /data/misc/apexdata/com.android.tethering ? There\u0027s a lot of data there that is not thread specific, and probably we don\u0027t want ot_daemon to acceess it.\n\nThe ot_daemon process is associated with a specific user and group named \"thread_network\". Other files under the tethering apex data dir is created by the system_server and by default have the \"system\" user and group and the ACL allows only \"system\" to read write the dir. For example, the `netstats/` subdir is:\n```\ndrwx------  2 system         system         3452 2024-01-10 06:20:29.235193262 +0000 netstats\n```\n\nIt means ot_daemon won\u0027t be able to modify any files not owned by itself, so I think the current config is safe.",
+      "parentUuid": "f2305df1_32974ace",
+      "range": {
+        "startLine": 22,
+        "startChar": 51,
+        "endLine": 22,
+        "endChar": 66
+      },
+      "revId": "e21496b1050e5acda12b9501cb963206790caada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
