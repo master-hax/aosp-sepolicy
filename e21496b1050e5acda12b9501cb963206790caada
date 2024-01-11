@@ -206,6 +206,30 @@
       },
       "revId": "e21496b1050e5acda12b9501cb963206790caada",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7b0268a_1fb7fdfd",
+        "filename": "private/ot_daemon.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-01-11T10:31:55Z",
+      "side": 1,
+      "message": "\u003e Do you mean something like:\n\nExactly.\n\n\u003e ? I tried this in patch 1 but it always matches to apex_system_server_data_file (which is the label of /data/misc/apexdata/com\\.android\\.tethering) for the subdir. I guess it\u0027s because the subdir is created after the system server boots and the sepolicy system won\u0027t re-evaluate the rules for this kind of runtime directories.\n\nYou should create the dir in an init.rc script. Init will apply the label from the file_contexts file.",
+      "parentUuid": "1ca4a258_09bb3dcb",
+      "range": {
+        "startLine": 22,
+        "startChar": 51,
+        "endLine": 22,
+        "endChar": 66
+      },
+      "revId": "e21496b1050e5acda12b9501cb963206790caada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
