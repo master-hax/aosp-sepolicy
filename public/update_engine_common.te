@@ -69,6 +69,9 @@ allow update_engine_common dm_device:chr_file rw_file_perms;
 # apply / verify updates on devices mapped via device mapper
 allow update_engine_common dm_device:blk_file rw_file_perms;
 
+# Initialize COW devices mapped via /dev/block/loop*
+allow update_engine_common loop_device:blk_file rw_file_perms;
+
 # read /dev/dm-user, so that we can inotify wait for control devices to be
 # asynchronously created by ueventd.
 allow update_engine dm_user_device:dir r_dir_perms;
