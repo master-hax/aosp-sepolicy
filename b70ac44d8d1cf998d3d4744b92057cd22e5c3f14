@@ -16,6 +16,24 @@
       "message": "This path should never activate due to the device-mapper layering created by dm-default-key (which is required since Android R). Does this device have metadata encryption enabled?",
       "revId": "b70ac44d8d1cf998d3d4744b92057cd22e5c3f14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dadf0e22_4c721e08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2005646
+      },
+      "writtenOn": "2024-01-12T05:30:43Z",
+      "side": 1,
+      "message": "@dvander@google.com: good point! This was seen on an Android R device _without_ metadata encryption enabled (i.e. the userdata mount doesn\u0027t use dm).\n\n\u003e which is required since Android R\n\nWhile the device in question is probably misconfigured, I\u0027m curious how this is enforced -- is it only via tests (VTS)?\n\nVTS compliance aside, given that fs_mgr technically still seems to support this mode (judging by the `!can_use_devicemapper` fallback), I wonder if it\u0027s worth merging this? Perhaps with a clarification in the commit message that it only applies to devices with no FBE or no metadata encryption.\n\nAlternatively, we could just add a note to fs_mgr that the code path is deprecated and isn\u0027t guaranteed to work.",
+      "parentUuid": "1887c3ca_3c466b30",
+      "revId": "b70ac44d8d1cf998d3d4744b92057cd22e5c3f14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
