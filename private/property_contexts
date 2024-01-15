@@ -632,6 +632,13 @@ bluetooth.core.le.vendor_capabilities.enabled        u:object_r:bluetooth_config
 bluetooth.sco.disable_enhanced_connection            u:object_r:bluetooth_config_prop:s0 exact bool
 bluetooth.core.le.dsa_transport_preference           u:object_r:bluetooth_config_prop:s0 exact string
 
+neverallow { domain -init } bluetooth_floss_prop:property_service set;
+neverallow { domain -init -dumpstate} bluetooth_floss_prop:file no_rw_file_perms;
+//These properties are Floss only
+dontaudit domain bluetooth_floss_prop:
+
+bluetooth.core.classic.inq_length                    u:object_r:bluetooth_floss_prop:s0 exact uint
+
 persist.nfc.debug_enabled                      u:object_r:nfc_prop:s0 exact bool
 persist.nfc.vendor_debug_enabled               u:object_r:nfc_prop:s0 exact bool
 persist.nfc.snoop_log_mode                     u:object_r:nfc_prop:s0 exact enum full filtered
