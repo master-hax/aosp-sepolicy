@@ -96,3 +96,8 @@ read_runtime_log_tags(bluetooth)
 # Bluetooth requires net_{admin,raw,bind_service} and wake_alarm and block_suspend and sys_nice.
 neverallow bluetooth self:global_capability_class_set ~{ net_admin net_raw net_bind_service sys_nice};
 neverallow bluetooth self:global_capability2_class_set ~{ wake_alarm block_suspend };
+
+neverallow { domain -init } bluetooth_floss_prop:property_service set;
+neverallow { domain -init -dumpstate} bluetooth_floss_prop:file no_rw_file_perms;
+//These properties are Floss only
+dontaudit domain bluetooth_floss_prop:
