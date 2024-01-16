@@ -254,6 +254,13 @@ typeattribute $1 bluetoothdomain;
 ')
 
 #####################################
+# bluetooth_file_domain(domain)
+# Allow a base set of files required for bluetooth access.
+define(`bluetooth_file_domain', `
+typeattribute $1 bluetoothfiledomain;
+')
+
+#####################################
 # hal_attribute(hal_name)
 # Add an attribute for hal implementations along with necessary
 # restrictions.
