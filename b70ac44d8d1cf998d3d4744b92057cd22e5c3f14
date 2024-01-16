@@ -52,6 +52,24 @@
       "parentUuid": "dadf0e22_4c721e08",
       "revId": "b70ac44d8d1cf998d3d4744b92057cd22e5c3f14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd64c0bc_19eb7301",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2005646
+      },
+      "writtenOn": "2024-01-16T17:48:50Z",
+      "side": 1,
+      "message": "My main concern is that `update_engine` currently seems to have an implicit dependency on either using compressed snapshots (the problematic code path doesn\u0027t activate if using snapuserd AFAICT) or metadata encryption, and the failure mode is not obvious -- especially since update_engine will work fine in the presumably more common case where there\u0027s enough space on `super` for COW partitions (no COW images are mapped from userdata).\n\nGiven that, as I understand it (please correct me if I\u0027m wrong!), it\u0027s technically still possible to ship a device without metadata encryption (VTS compliance isn\u0027t mandatory), I wonder if there a good way to make the dependency explicit? Perhaps something that update_engine could assert on (fail early)?",
+      "parentUuid": "1f0e6244_11ed197f",
+      "revId": "b70ac44d8d1cf998d3d4744b92057cd22e5c3f14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
