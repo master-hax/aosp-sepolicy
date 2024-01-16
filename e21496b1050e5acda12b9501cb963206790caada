@@ -278,6 +278,30 @@
       },
       "revId": "e21496b1050e5acda12b9501cb963206790caada",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7f80426_47db1ab8",
+        "filename": "private/ot_daemon.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1693933
+      },
+      "writtenOn": "2024-01-16T15:11:53Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t understand this point. The code seems Android specific since it knows the directory is /data/misc/.... Presumably you could point that same code to use as socket in/dev/socket/ just as easily? That\u0027s the standard way of handling sockets in Android, there should be a good reason to so something different.\n\nThe differences are that the sockets under /dev/socket/ are managed by `init` while the code in ot-daemon assume the sockets are created and managed by itself, so we need to write new C++ code in ot-daemon to support what has already been supported (See the OT change https://github.com/openthread/openthread/pull/9776 as well as sepolicy change aosp/2911823).",
+      "parentUuid": "3e77991d_20e49b60",
+      "range": {
+        "startLine": 22,
+        "startChar": 51,
+        "endLine": 22,
+        "endChar": 66
+      },
+      "revId": "e21496b1050e5acda12b9501cb963206790caada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
