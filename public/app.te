@@ -118,7 +118,7 @@ neverallow { appdomain -platform_app }
 neverallow { appdomain -shell }
     shell_data_file:dir_file_class_set
     { create setattr relabelfrom relabelto append unlink link rename };
-neverallow { appdomain -bluetooth }
+neverallow { appdomain -bluetooth -bluetoothfiledomain }
     bluetooth_data_file:dir_file_class_set
     { create write setattr relabelfrom relabelto append unlink link rename };
 neverallow { domain -credstore -init } credstore_data_file:dir_file_class_set *;
