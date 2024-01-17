@@ -302,6 +302,30 @@
       },
       "revId": "e21496b1050e5acda12b9501cb963206790caada",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5bee801_a303d7ee",
+        "filename": "private/ot_daemon.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1501262
+      },
+      "writtenOn": "2024-01-17T04:36:44Z",
+      "side": 1,
+      "message": "OpenThread is designed to work with multiple network interfaces on the same host. And I think that\u0027s also our initial goal on Android as well. Currently the APIs(both framework Android API and HAL interface) are designed with multiple Thread network interfaces support. Switching to a fixed unix socket created by init seems inconsistent with the original design goal. Should keep allowing Thread service the ability to create the unix sockets?",
+      "parentUuid": "d7f80426_47db1ab8",
+      "range": {
+        "startLine": 22,
+        "startChar": 51,
+        "endLine": 22,
+        "endChar": 66
+      },
+      "revId": "e21496b1050e5acda12b9501cb963206790caada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
