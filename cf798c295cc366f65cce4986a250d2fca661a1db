@@ -16,6 +16,29 @@
       "message": "Hi Alan, PTAL",
       "revId": "cf798c295cc366f65cce4986a250d2fca661a1db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef987ea1_dde54e8c",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-01-19T13:59:40Z",
+      "side": 1,
+      "message": "Can you move this up, to below line 30? It\u0027s good to keep the binder-related stuff together.\n\nDo you also need binder_call? Keystore has that:https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/sepolicy/public/keystore.te;drc\u003d4bb2d30701f227ca1fb6de2b0c69a61d6d8e5714;l\u003d8",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 77
+      },
+      "revId": "cf798c295cc366f65cce4986a250d2fca661a1db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
