@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccfe4a07_029d432b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-01-21T00:03:06Z",
+      "side": 1,
+      "message": "I\u0027m not 100% sure of this one...\n\nRight now AFAICT there\u0027s no way for *vendor* to use xt_bpf iptables programs.\n(it can be done via platform which is \u0027fs_bpf\u0027, but that\u0027s less than ideal)\n\nObviously such vendor programs *should* be of type fs_bpf_vendor.\n(I don\u0027t think we want to add another \u0027fs_bpf_xt_vendor\u0027 type?)\n\nIt\u0027s not entirely obvious how they should be attached to netfilter/iptables.\nThe obvious answer is the netutils wrapper around the iptables command...\nBut I think it probably makes sense to allow platform netd as well...\n\n(additionally iptables has some issue where even unrelated iptables operations can require temporary access to things they\u0027re *not* changing... so it seems safer to allow netd too)\n\nThoughts?",
+      "revId": "37ca69e5c834f09b5ff788baf3f08a35889f914f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
