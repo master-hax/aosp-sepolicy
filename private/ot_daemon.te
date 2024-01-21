@@ -40,3 +40,6 @@ unix_socket_send(ot_daemon, statsdw, statsd)
 # For collecting bugreports.
 allow ot_daemon dumpstate:fd use;
 allow ot_daemon dumpstate:fifo_file write;
+
+# Allow OT daemon to call execvp() on itself to achieve factoryreset
+allow ot_daemon ot_daemon_exec:file execute_no_trans;
