@@ -8,6 +8,7 @@ neverallow {
   mlstrustedsubject
   -artd # compile secondary dex files
   -installd
+  -vold
 } { app_data_file privapp_data_file }:file ~{ read write map getattr ioctl lock append };
 
 neverallow {
