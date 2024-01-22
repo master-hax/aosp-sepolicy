@@ -1565,6 +1565,11 @@ allow system_server binderfs_logs_stats:file r_file_perms;
 # Allow GameManagerService to read and write persist.graphics.game_default_frame_rate.enabled
 set_prop(system_server, game_manager_config_prop)
 
+<<<<<<< PATCH SET (3ab559 Enable system server to read pm.archiving.enabled system pro)
+# Allow system server to read pm.archiving.enabled prop
+get_prop(system_server, pm_archiving_enabled_prop)
+
+=======
 # ThreadNetworkService reads Thread Network properties
 get_prop(system_server, threadnetwork_config_prop)
 
@@ -1576,3 +1581,4 @@ neverallow {
   -dumpstate
   -system_server
 } threadnetwork_config_prop:file no_rw_file_perms;
+>>>>>>> BASE      (943f86 Merge "Add sepolicy for the Thread Network property" into ma)
