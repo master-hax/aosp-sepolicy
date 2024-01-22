@@ -46,6 +46,30 @@
       },
       "revId": "ab34fb2a724646d149240aeed599a5d38f66c67d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7caaa1cf_922b957d",
+        "filename": "private/ot_daemon.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1693933
+      },
+      "writtenOn": "2024-01-22T07:16:14Z",
+      "side": 1,
+      "message": "Besides the socket file, ot-daemon also saves data in files to persist over reboots.\n\n\u003e I thought the goal of this CL was to prevent ot-daemon from creating files in the tethering directory.\n\nThat is already achieved in aosp/2891476 because the linux user of ot-daemon is \"thread_network\" which can\u0027t access data or dir created by other tethering components (those dir will have the \"system\" user).",
+      "parentUuid": "669d2e6a_dd4c58d2",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 64
+      },
+      "revId": "ab34fb2a724646d149240aeed599a5d38f66c67d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
