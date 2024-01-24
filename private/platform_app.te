@@ -52,6 +52,18 @@ userdebug_or_eng(`
   set_prop(platform_app, persist_sysui_ranking_update_prop)
 ')
 
+allow platform_app trace_data_file:file create_file_perms;
+allow platform_app trace_data_file:dir rw_dir_perms;
+allow platform_app wm_trace_data_file:dir rw_dir_perms;
+allow platform_app wm_trace_data_file:file { getattr r_file_perms unlink };
+
+# To exec the perfetto cmdline client and pass it the trace config on
+# stdint through a pipe.
+allow platform_app perfetto_exec:file rx_file_perms;
+
+# Allow to access traced's privileged consumer socket.
+unix_socket_connect(platform_app, traced_consumer, traced)
+
 # com.android.captiveportallogin reads /proc/vmstat
 allow platform_app {
   proc_vmstat
