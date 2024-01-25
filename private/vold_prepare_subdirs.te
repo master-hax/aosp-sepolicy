@@ -53,6 +53,35 @@ allow vold_prepare_subdirs mnt_expand_file:dir search;
 allow vold_prepare_subdirs user_profile_data_file:dir { search getattr relabelfrom };
 allow vold_prepare_subdirs user_profile_root_file:dir { search getattr relabelfrom relabelto };
 
+# Allow vold_prepare_subdirs to create storage area directories on behalf of apps.
+allow vold_prepare_subdirs {
+    app_data_file
+    privapp_data_file
+}:dir {
+    add_name
+    create
+    getattr
+    ioctl # for FS_IOC_SET_ENCRYPTION_POLICY
+    open
+    read # for open(O_RDONLY) for ioctl
+    search
+    setattr # for chown() and chmod()
+    write
+    rmdir
+    remove_name
+    unlink
+};
+
+# Allow vold_prepare_subdirs to delete the contents of storage areas on behalf of apps.
+allow vold_prepare_subdirs {
+    app_data_file
+    privapp_data_file
+}:file {
+    getattr
+    unlink
+    ioctl
+};
+
 # Migrate legacy labels to apex_system_server_data_file (b/217581286)
 allow vold_prepare_subdirs {
   apex_appsearch_data_file
