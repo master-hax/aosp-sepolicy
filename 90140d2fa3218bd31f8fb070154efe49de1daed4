@@ -16,6 +16,92 @@
       "message": "@jeffv@google.com, this works great for me on the device, but I am guessing your team probably wants the newly allowed permissions to be localized to the com.android.systemui app? If so, could you or someone else on your team be able to assist me with this?\n\nOtherwise, I am happy pushing this CL as is! It gives com.android.systemui the permissions it needs to start, stop, and share Perfetto/Winscope traces.",
       "revId": "90140d2fa3218bd31f8fb070154efe49de1daed4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b473981c_c4dd55df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-01-25T07:14:34Z",
+      "side": 1,
+      "message": "Tracing is a really powerful debugging tool, but it\u0027s also a potential privacy risk.\n\nBecause of this, there\u0027s a lot of safeguards around tracing. I\u0027m concerned that this change may not be upholding those safeguards. A number of folks (e.g. primiano@, carmenjackson@) have done a lot of work in this space ensure that we can use tracing to diagnose issues, while also ensuring that users have the controls that they need to make privacy decisions about that data. I\u0027d like to have both Primiano and Carmen provide feedback on this change.",
+      "revId": "90140d2fa3218bd31f8fb070154efe49de1daed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70dcb354_81889328",
+        "filename": "private/platform_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-01-25T07:14:34Z",
+      "side": 1,
+      "message": "SysUI runs per-user, yet this doesn\u0027t appear to properly segregate per-user data - e.g. if I were running a work-profile, this could save both the work-profile and the personal-profile data together.\n\nThis may be fine under the previous assumptions around user-interaction needed for collecting these traces, but it\u0027s not clear that it\u0027s appropriate if we remove those assumptions.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 52
+      },
+      "revId": "90140d2fa3218bd31f8fb070154efe49de1daed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8aecf800_7e1cf62b",
+        "filename": "private/platform_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-01-25T07:14:34Z",
+      "side": 1,
+      "message": "This moves lines 81-82 from a userdebug-only feature to production devices.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 75
+      },
+      "revId": "90140d2fa3218bd31f8fb070154efe49de1daed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3da89e4a_d61055f1",
+        "filename": "private/platform_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-01-25T07:14:34Z",
+      "side": 1,
+      "message": "is this the right way to do this? This runs perfetto directly in SysUI sandbox. Generally perfetto runs within its own sandbox.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 52
+      },
+      "revId": "90140d2fa3218bd31f8fb070154efe49de1daed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
