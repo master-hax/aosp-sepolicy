@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bc29588_785250ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-26T22:44:15Z",
+      "side": 1,
+      "message": "overall lgtm, adding Jeff to let him know since it\u0027s somewhat of a big change: allowing sphal \"services\" to be tracked in the same way as system services.\n\nOne thing about this - it\u0027s easy to bypass this service check, so the important thing from a security angle is still the file contexts that a client can choose to shared link.",
+      "revId": "9b8ad7bfadbc424a476dcd23b4e33dbd07ead953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22e7a8ba_4dba0071",
+        "filename": "private/adbd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-26T22:44:15Z",
+      "side": 1,
+      "message": "should we have something like hal_graphics_mapper_client instead? or add this permission to hal_graphics_allocator_client instead to avoid all the other custom permissions?\n\nAlso, this will require many device-specific changes as well. I think that would help reduce these as well.",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 60
+      },
+      "revId": "9b8ad7bfadbc424a476dcd23b4e33dbd07ead953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
