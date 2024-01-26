@@ -35,6 +35,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "241b6925_2efd32d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2024-01-26T18:26:12Z",
+      "side": 1,
+      "message": "Hey folks, I think this is the way this should work:\n\n1) I have a general question on the scope: what is platform_app? This is far \u003e\u003e than sysui? What else are we granting access here? \n\n2) I\u0027m fine with the idea of allowing sysui to exec perfetto. However, I think this should go via a domain transition, so you don\u0027t have to replicate the permission of perfetto.te Something like\n\n```\nallow platform_app perfetto_exec:file rx_file_perms;\ndomain_auto_trans(platform_app, perfetto_exec, perfetto)\nallow platform_app perfetto:process signal;\n```\n\n3) You don\u0027t need any data readback permission. Perfetto will automatically attach the trace to the bugreport if you set `bugreport_score: ANY_NON_ZERO_NUMBER`, as there\u0027s already dumpstate\u003c\u003eperfetto integration. This is important as reduces significantly the attack surface",
+      "revId": "90140d2fa3218bd31f8fb070154efe49de1daed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70dcb354_81889328",
