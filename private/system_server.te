@@ -736,6 +736,7 @@ set_prop(system_server, dmesgd_start_prop)
 set_prop(system_server, locale_prop)
 set_prop(system_server, timezone_metadata_prop)
 set_prop(system_server, timezone_prop)
+set_prop(system_server, crashrecovery_config_prop)
 userdebug_or_eng(`set_prop(system_server, wifi_log_prop)')
 userdebug_or_eng(`set_prop(system_server, system_user_mode_emulation_prop)')
 
@@ -1579,3 +1580,9 @@ neverallow {
 # Allow system server to read pm.archiving.enabled prop
 # TODO(azilio): Remove system property after archiving testing is completed.
 get_prop(system_server, pm_archiving_enabled_prop)
+
+# Allow system server to read crashrecovery prop
+get_prop(system_server, crashrecovery_config_prop)
+
+# Do not allow any domain other than init or system server to set the property
+neverallow { domain -init -system_server } crashrecovery_config_prop:file no_w_file_perms;
