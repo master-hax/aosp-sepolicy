@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06434fb8_baf921c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-29T18:33:53Z",
+      "side": 1,
+      "message": "The real code (not the AOSP stub example) is provided by SoC vendors. I think, it\u0027s safer to keep it in its own process. An alternative approach is to load a vendor-provided .so into the audioserver, but this can affect the stability of audio on the device because a crash in vendor code will kill audioserver and briefly interrupt audio.\n\nIf there are other vendor-provided services on the system_ext partition, we can consider combining with them, but I\u0027m not aware of any service that all SoC vendors are obliged to provide.",
+      "parentUuid": "3805db2c_a49f8519",
+      "revId": "00c2fedc5accf6b255f7cb3f066288ea10e50787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04bddf53_b6fe6dc8",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-01-27T02:04:11Z",
       "side": 1,
       "message": "if this is supposed to be a HAL, can we put the implementation on the vendor partition? or is it not coupled with the hardware?",
+      "range": {
+        "startLine": 755,
+        "startChar": 48,
+        "endLine": 756,
+        "endChar": 51
+      },
+      "revId": "00c2fedc5accf6b255f7cb3f066288ea10e50787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "683f188f_7734229b",
+        "filename": "contexts/plat_file_contexts_test",
+        "patchSetId": 2
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-29T18:33:53Z",
+      "side": 1,
+      "message": "It is not coupled with hardware. The service translates back and forth between arbitrary strings and vendor-provided parcelables wrapped into a parcelable holder: https://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/aidl/android/media/audio/IHalAdapterVendorExtension.aidl. I suppose, you wouldn\u0027t want to have a service like that to have a vintf-stable interface.",
+      "parentUuid": "04bddf53_b6fe6dc8",
       "range": {
         "startLine": 755,
         "startChar": 48,
