@@ -105,6 +105,30 @@
       },
       "revId": "00c2fedc5accf6b255f7cb3f066288ea10e50787",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03958712_b5fb729e",
+        "filename": "contexts/plat_file_contexts_test",
+        "patchSetId": 2
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-29T21:09:44Z",
+      "side": 1,
+      "message": "\u003e if the vendor-defined parcelables are defined by the vendor partition, you wouldn\u0027t be able to read them from a system partition\n\nI suppose, these vendor parcelables will be defined by vendors as vintf-stable. In that case, I expect that vendor code in the system_ext partition should be able to read and/or create them. Am I missing something here?\n\n\u003e Is there a design doc or more information here somewhere?\n\nSorry, not yet, I plan to have some docs for the BootCamp. So far, we were considering this mechanism as a rather trivial thing not requiring internal write-ups. It\u0027s just part of a transport channel between vendor-provided code in the framework and the HAL. The framework gets an arbitrary parameter KV from a vendor app, uses this vendor-provided service to convert it into a `VendorParameter` (https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/android/hardware/audio/core/VendorParameter.aidl), and sends it to the HAL. Same in the reverse direction. AOSP code never looks inside these KV pairs or `VendorParameter` instances.",
+      "parentUuid": "e84a12e9_aaf0f4eb",
+      "range": {
+        "startLine": 755,
+        "startChar": 48,
+        "endLine": 756,
+        "endChar": 51
+      },
+      "revId": "00c2fedc5accf6b255f7cb3f066288ea10e50787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
