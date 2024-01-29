@@ -1579,3 +1579,9 @@ neverallow {
 # Allow system server to read pm.archiving.enabled prop
 # TODO(azilio): Remove system property after archiving testing is completed.
 get_prop(system_server, pm_archiving_enabled_prop)
+
+# Allow system server to read crashrecovery prop
+get_prop(system_server, crashrecovery_config_prop)
+
+# Only system server can write the crashrecovery properties.
+set_prop(system_server, crashrecovery_config_prop)
