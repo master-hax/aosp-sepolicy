@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76fd881d_926dc616",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1947766
+      },
+      "writtenOn": "2024-01-30T11:47:12Z",
+      "side": 1,
+      "message": "Thanks, I was not sure about it. \nUpdated, also it might help to add this clarity in the docs: https://preview.source.android.com/docs/core/architecture/configuration/add-system-properties",
+      "parentUuid": "d6965402_7572e50b",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 13
+      },
+      "revId": "10c450f53fc2080c352a43be99ebcfb1f278d36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "83663fb0_96971e5a",
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "30d3eced_e7ad9ada",
+        "filename": "private/property_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1635,
+      "author": {
+        "id": 1947766
+      },
+      "writtenOn": "2024-01-30T11:47:12Z",
+      "side": 1,
+      "message": "Done, \nIt\u0027s weird that I can define `long` type while defining properties but not in SEpolicy, `Type \u0027long\u0027 is not valid`.\nI\u0027m skipping declaring the types for them, would that be fine?",
+      "parentUuid": "83663fb0_96971e5a",
+      "range": {
+        "startLine": 1635,
+        "startChar": 55,
+        "endLine": 1635,
+        "endChar": 61
+      },
+      "revId": "10c450f53fc2080c352a43be99ebcfb1f278d36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4db8a969_542c19bf",
         "filename": "public/property.te",
         "patchSetId": 4
@@ -60,6 +108,30 @@
       "writtenOn": "2024-01-30T01:33:56Z",
       "side": 1,
       "message": "use system_internal_prop and private/property.te. After that you won\u0027t need prebuilts/api/34.0 change too, so also revert it.",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 18
+      },
+      "revId": "10c450f53fc2080c352a43be99ebcfb1f278d36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f975bf5_1d9b1a04",
+        "filename": "public/property.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1947766
+      },
+      "writtenOn": "2024-01-30T11:47:12Z",
+      "side": 1,
+      "message": "okay thanks.\n\nWould I also need to add `set_prop` in `init.te` if I need to set the property from init?",
+      "parentUuid": "4db8a969_542c19bf",
       "range": {
         "startLine": 212,
         "startChar": 0,
