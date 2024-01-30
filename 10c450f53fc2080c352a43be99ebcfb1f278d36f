@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6965402_7572e50b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-01-30T01:33:56Z",
+      "side": 1,
+      "message": "FYI, the location of binaries doesn\u0027t matter. What matters is the selinux label, in this case \"init\" and \"system_server\". You should use system_internal_prop.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 13
+      },
+      "revId": "10c450f53fc2080c352a43be99ebcfb1f278d36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "83663fb0_96971e5a",
         "filename": "private/property_contexts",
         "patchSetId": 4
@@ -19,6 +42,29 @@
         "startChar": 55,
         "endLine": 1635,
         "endChar": 61
+      },
+      "revId": "10c450f53fc2080c352a43be99ebcfb1f278d36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4db8a969_542c19bf",
+        "filename": "public/property.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-01-30T01:33:56Z",
+      "side": 1,
+      "message": "use system_internal_prop and private/property.te. After that you won\u0027t need prebuilts/api/34.0 change too, so also revert it.",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 18
       },
       "revId": "10c450f53fc2080c352a43be99ebcfb1f278d36f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
