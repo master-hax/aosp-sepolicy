@@ -18,7 +18,8 @@ allow microdroid_manager vd_device:blk_file rw_file_perms;
 allow microdroid_manager dm_device:blk_file r_file_perms;
 
 # microdroid_manager can query AVF flags in the device tree
-allow microdroid_manager sysfs_dt_avf:file r_file_perms;
+r_dir_file(microdroid_manager, proc_dt_avf)
+r_dir_file(microdroid_manager, sysfs_dt_avf)
 
 # Allow microdroid_manager to read AVF debug policy
 allow microdroid_manager sysfs_dt_avf:dir search;
