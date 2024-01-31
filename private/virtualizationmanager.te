@@ -83,9 +83,9 @@ unix_socket_connect(virtualizationmanager, tombstoned_crash, tombstoned)
 allow virtualizationmanager tombstone_data_file:file { append getattr };
 allow virtualizationmanager tombstoned:fd use;
 
-# Allow virtualizationmanager to read AVF debug policy
-allow virtualizationmanager sysfs_dt_avf:dir search;
+# Allow virtualizationmanager to read file system DT for VM reference DT and AVF debug policy
 allow virtualizationmanager sysfs_dt_avf:file r_file_perms;
+allow virtualizationmanager sysfs_dt_avf:dir r_dir_perms;
 
 # virtualizationmanager to be client of secretkeeper HAL. It ferries SecretManagement messages
 # from pVM to HAL.
