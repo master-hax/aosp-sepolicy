@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1812f8cc_edd0008b",
+        "filename": "private/property_contexts",
+        "patchSetId": 8
+      },
+      "lineNbr": 1635,
+      "author": {
+        "id": 1947766
+      },
+      "writtenOn": "2024-01-31T12:51:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5137c74_7dbf980c",
+      "range": {
+        "startLine": 1635,
+        "startChar": 50,
+        "endLine": 1635,
+        "endChar": 75
+      },
+      "revId": "250583668bef294c4dc3a62f82054e5a762d9a6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7f8d5d6_648fb39d",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35feb592_524ac02f",
+        "filename": "private/system_server.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 1585,
+      "author": {
+        "id": 1947766
+      },
+      "writtenOn": "2024-01-31T12:51:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7f8d5d6_648fb39d",
+      "range": {
+        "startLine": 1584,
+        "startChar": 0,
+        "endLine": 1585,
+        "endChar": 50
+      },
+      "revId": "250583668bef294c4dc3a62f82054e5a762d9a6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb237284_8f82af6b",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-01-31T10:35:56Z",
       "side": 1,
       "message": "Probably\n```\nneverallow { domain -init -system_server } crashrecovery_config_prop:property_service set;\n```\n\nis what you\u0027re trying to do.\n\nAnd if system_server is the only process reading the prop, write the following to prevent other processes from reading it.\n\n```\nneverallow { domain -init -dumpstate -system_server } crashrecovery_config_prop:file no_rw_file_perms;\n```",
+      "range": {
+        "startLine": 1587,
+        "startChar": 0,
+        "endLine": 1587,
+        "endChar": 78
+      },
+      "revId": "250583668bef294c4dc3a62f82054e5a762d9a6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35f12807_7e0949f3",
+        "filename": "private/system_server.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 1587,
+      "author": {
+        "id": 1947766
+      },
+      "writtenOn": "2024-01-31T12:51:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb237284_8f82af6b",
       "range": {
         "startLine": 1587,
         "startChar": 0,
