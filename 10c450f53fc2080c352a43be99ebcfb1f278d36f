@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9b08cb6_077cff24",
+        "filename": "private/property_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1635,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-01-31T01:32:43Z",
+      "side": 1,
+      "message": "You can use either `int` or `uint` (both are 64-bit)",
+      "parentUuid": "30d3eced_e7ad9ada",
+      "range": {
+        "startLine": 1635,
+        "startChar": 55,
+        "endLine": 1635,
+        "endChar": 61
+      },
+      "revId": "10c450f53fc2080c352a43be99ebcfb1f278d36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4db8a969_542c19bf",
         "filename": "public/property.te",
         "patchSetId": 4
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "okay thanks.\n\nWould I also need to add `set_prop` in `init.te` if I need to set the property from init?",
       "parentUuid": "4db8a969_542c19bf",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 18
+      },
+      "revId": "10c450f53fc2080c352a43be99ebcfb1f278d36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25e121f2_5d9676ed",
+        "filename": "public/property.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-01-31T01:32:43Z",
+      "side": 1,
+      "message": "You could add to explicitly state it, but `init` can write all properties by default and it won\u0027t have any effects. You don\u0027t need to add it.",
+      "parentUuid": "4f975bf5_1d9b1a04",
       "range": {
         "startLine": 212,
         "startChar": 0,
