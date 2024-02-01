@@ -45,6 +45,9 @@ allow crosvm {
 # Allow searching the directory where the composite disk images are.
 allow crosvm virtualizationservice_data_file:dir search;
 
+# Allow crosvm to tune for performance.
+allow crosvm self:global_capability_class_set sys_nice;
+
 # Allow crosvm to mlock guest memory.
 allow crosvm self:capability ipc_lock;
 
