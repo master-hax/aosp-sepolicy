@@ -56,6 +56,30 @@
       },
       "revId": "195d6e256e0b91931c6cb8e2ca023d3e3ebc8d5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d0cf94d_f9dd4856",
+        "filename": "public/service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2024-02-02T13:44:08Z",
+      "side": 1,
+      "message": "Oh, I didn\u0027t know about app_api_service. I\u0027m fine with using it instead of adding a new attribute(sphal_service). Btw, I think using app_api_service would make hal_graphics_mapper_service available more than necessary by accident? (I see many `allow xxx app_api_service:service_manager find;` instances.) Would it be okay?\n\nSteven, what do you think?",
+      "parentUuid": "8b8646bf_9307cee4",
+      "range": {
+        "startLine": 306,
+        "startChar": 34,
+        "endLine": 306,
+        "endChar": 47
+      },
+      "revId": "195d6e256e0b91931c6cb8e2ca023d3e3ebc8d5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
