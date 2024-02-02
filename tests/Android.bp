@@ -1,4 +1,5 @@
 package {
+    default_team: "trendy_team_foundation_security_rust_pkvm_",
     // http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
     // the below license kinds from "system_sepolicy_license":
@@ -9,7 +10,10 @@ package {
 cc_library_host_shared {
     name: "libsepolwrap",
     srcs: ["sepol_wrap.cpp"],
-    cflags: ["-Wall", "-Werror",],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
     export_include_dirs: ["include"],
     stl: "c++_static",
 
@@ -137,7 +141,7 @@ python_test_host {
     ],
     test_options: {
         unit_test: true,
-    }
+    },
 }
 
 python_binary_host {
