@@ -46,6 +46,30 @@
       },
       "revId": "f24804dec7352adc39b3eda835b30c7150fcaab2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59c58c45_3da0350c",
+        "filename": "public/hal_graphics_allocator.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-05T08:22:48Z",
+      "side": 1,
+      "message": "Oh interesting. You\u0027re hitting all sorts of weird corner cases here.\n\nCheck out how apps are currently granted access to hal_graphics_allocator_client:\nhttps://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/technical_debt.cil;l\u003d35\n\n(gotta love the name of that file).\n\nMy strong suspicion here is that you should just be removing the restriction that prevents isolated_compute_app from accessing this service. It needs to use the graphics allocator, so it should be able to find the service.\n\nAnd I guess you can remove the app_api_service addition, since this will be granted elsewhere (in technical_debt.cil). Sorry for misguiding you here.",
+      "parentUuid": "89b35719_4e932765",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "f24804dec7352adc39b3eda835b30c7150fcaab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
