@@ -22,6 +22,30 @@
       },
       "revId": "f24804dec7352adc39b3eda835b30c7150fcaab2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89b35719_4e932765",
+        "filename": "public/hal_graphics_allocator.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2024-02-05T08:06:50Z",
+      "side": 1,
+      "message": "Well, I got the following denials with Cuttlefish without this.\n```\n02-05 17:04:54.824     0     0 E SELinux : avc:  denied  { find } for pid\u003d598 uid\u003d1000 name\u003dmapper/minigbm scontext\u003du:r:surfaceflinger:s0 tcontext\u003du:object_r:hal_graphics_mapper_service:s0 tclass\u003dservice_manager permissive\u003d0\n02-05 17:04:55.523     0     0 E SELinux : avc:  denied  { find } for pid\u003d673 uid\u003d1003 name\u003dmapper/minigbm scontext\u003du:r:bootanim:s0 tcontext\u003du:object_r:hal_graphics_mapper_service:s0 tclass\u003dservice_manager permissive\u003d0\n02-05 17:05:03.683     0     0 E SELinux : avc:  denied  { find } for pid\u003d671 uid\u003d1046 name\u003dmapper/minigbm scontext\u003du:r:mediaswcodec:s0 tcontext\u003du:object_r:hal_graphics_mapper_service:s0 tclass\u003dservice_manager permissive\u003d0\n02-05 17:05:06.816     0     0 E SELinux : avc:  denied  { find } for pid\u003d744 uid\u003d1000 name\u003dmapper/minigbm scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:hal_graphics_mapper_service:s0 tclass\u003dservice_manager permissive\u003d0\n```",
+      "parentUuid": "7cf2d7b9_18df23cd",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "f24804dec7352adc39b3eda835b30c7150fcaab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
