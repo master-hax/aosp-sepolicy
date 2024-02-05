@@ -118,6 +118,30 @@
       },
       "revId": "f24804dec7352adc39b3eda835b30c7150fcaab2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be17f246_b5a2d26c",
+        "filename": "public/hal_graphics_allocator.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2024-02-05T08:55:27Z",
+      "side": 1,
+      "message": "Then, I get the check failure (, which caused me to add `-isolated_compute_app` before):\n```\nFAILED: out/soong/.intermediates/system/sepolicy/sepolicy_test/36845eb59e792b51b85fe94e076b9056/gen/sepolicy_test\nout/host/linux-x86/bin/sbox --sandbox-path out/soong/.temp --output-dir out/soong/.intermediates/system/sepolicy/sepolicy_test/36845eb59e792b51b85fe94e076b9056/gen --manifest out/soong/.intermediates/system/sepolicy/sepolicy_test/36845eb59e792b51b85fe94e076b9056/genrule.sbox.textproto\nThe failing command was run inside an sbox sandbox in temporary directory\nout/soong/.temp/sbox/b2da273e2ad1aa401673de1e0aeab16436ada70b\nThe failing command line can be found in\nout/soong/.temp/sbox/b2da273e2ad1aa401673de1e0aeab16436ada70b/sbox_command.0.bash\nFound prohibited permission granted for isolated like types. Please replace your allow statements that involve \"-isolated_app\" with \"-isolated_app_all\". Violations are shown as the following:\nallow isolated_compute_app hal_graphics_mapper_service:service_manager find\n\n```",
+      "parentUuid": "37b72c25_4d639941",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "f24804dec7352adc39b3eda835b30c7150fcaab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
