@@ -80,6 +80,30 @@
       },
       "revId": "195d6e256e0b91931c6cb8e2ca023d3e3ebc8d5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e115a606_f7f98613",
+        "filename": "public/service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-05T07:50:37Z",
+      "side": 1,
+      "message": "Yes, it\u0027s fine to use app_api_service. It\u0027s WAI that APIs available to apps are generally available because the access control is expected to be provided by the provider of the API, not selinux. While we use selinux to provide access control to APIs in some situations, it can be fragile - e.g. an application might be updated in the field to use more/different APIs, in which case we\u0027re in bad shape if we\u0027ve used selinux to restrict access because a complete OTA is now necessary to grant access. Thus while it\u0027d be nice to use selinux more in this area, we also need to balance other needs.",
+      "parentUuid": "0d0cf94d_f9dd4856",
+      "range": {
+        "startLine": 306,
+        "startChar": 34,
+        "endLine": 306,
+        "endChar": 47
+      },
+      "revId": "195d6e256e0b91931c6cb8e2ca023d3e3ebc8d5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
