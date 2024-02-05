@@ -70,6 +70,30 @@
       },
       "revId": "f24804dec7352adc39b3eda835b30c7150fcaab2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ac7d917_93ef787f",
+        "filename": "public/hal_graphics_allocator.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2024-02-05T08:44:49Z",
+      "side": 1,
+      "message": "No worries. I really appreciate your help ;-)\n\nI\u0027m not sure I understand your guide correctly, but when I changed this to\n```\nallow hal_graphics_allocator_client hal_graphics_mapper_service:service_manager find;\n```\n.. and hal_graphics_mapper_service to\n```\ntype hal_graphics_mapper_service, service_manager_type;\n```\n\nit hits neverallow: https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/public/domain.te;l\u003d631\n\n```\nneverallow check failed at out/soong/.intermediates/system/sepolicy/userdebug_plat_sepolicy.cil/android_common/userdebug_plat_sepolicy.cil:8782 from system/sepolicy/public/domain.te:626\n  (neverallow base_typeattr_278 base_typeattr_279 (service_manager (find)))\n    \u003croot\u003e\n    allow at out/soong/.intermediates/system/sepolicy/userdebug_plat_sepolicy.cil/android_common/userdebug_plat_sepolicy.cil:11226\n      (allow hal_graphics_allocator_client hal_graphics_mapper_service (service_manager (find)))\n```",
+      "parentUuid": "59c58c45_3da0350c",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "f24804dec7352adc39b3eda835b30c7150fcaab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
