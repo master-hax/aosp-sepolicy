@@ -31,3 +31,6 @@ allow e2fs sysfs_fs_ext4_features:file r_file_perms;
 
 # access SELinux context files
 allow e2fs file_contexts_file:file r_file_perms;
+
+# vold lunaches mke2fs with redirected stdout, so allow pipe writes
+allow e2fs vold:fifo_file write;
