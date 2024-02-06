@@ -123,3 +123,21 @@ allow init {
   -vm_manager_device_type
   -port_device
 }:chr_file setattr;
+
+
+# init needs to move prefetch tmp file to stable storage
+allow init system_data_root_file:file { create open rename write };
+allow init system_data_root_file:dir { add_name remove_name write };
+
+# allow stat and read access to files across various filesystems including
+# access to data and metadata partitions and system/bin directory.
+allow init apex_data_file:file { r_file_perms };
+allow init hwservice_contexts_file:file r_file_perms;
+allow init init_exec:lnk_file { getattr };
+allow init keystore2_key_contexts_file:file r_file_perms;
+allow init mac_perms_file:file r_file_perms;
+allow init rs_exec:file { r_file_perms };
+allow init seapp_contexts_file:file { r_file_perms };
+allow init service_contexts_file:file r_file_perms;
+allow init system_file:file { r_file_perms };
+allow init vendor_apex_file:file { r_file_perms };
