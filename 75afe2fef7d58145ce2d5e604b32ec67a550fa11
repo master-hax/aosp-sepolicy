@@ -79,6 +79,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4cdcc813_7d5a8c70",
+        "filename": "private/compat/34.0/34.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-02-08T18:37:37Z",
+      "side": 1,
+      "message": "That file on-device is not new, only this use of the file in AOSP is new.\n\nI looks like I don\u0027t understand how to \"map binderfs_logs_state to binderfs_logs by amending 34.0/34.0.cil.\". From some previous CLs (aosp/781036, aosp/2682786) it looks like I only need to add the new `binderfs_logs_state` to the `typeattributeset binderfs_logs_34_0`  entry in `34.0/34.0.cil` (updated in patchset 2), but it does build. Do you see the problem?\n\n```\nFAILED: out/target/product/vsoc_x86_64/obj/FAKE/treble_sepolicy_tests_29.0_intermediates/treble_sepolicy_tests_29.0\n/bin/bash -c \"(out/host/linux-x86/bin/treble_sepolicy_tests                 -b out/target/product/vsoc_x86_64/obj/ETC/base_plat_pub_policy.cil_intermediates/base_plat_pub_policy.cil -m out/target/product/vsoc_x86_64/obj/ETC/treble_sepolicy_tests_29.0_intermediates/29.0_mapping.combined.cil                 -o out/target/product/vsoc_x86_64/obj/ETC/29.0_plat_policy.cil_intermediates/29.0_plat_policy.cil ) \u0026\u0026 (touch out/target/product/vsoc_x86_64/obj/FAKE/treble_sepolicy_tests_29.0_intermediates/treble_sepolicy_tests_29.0 )\"\nSELinux: The following public types were found added to the policy without an entry into the compatibility mapping file(s) found in private/compat/V.v/V.v[.ignore].cil, where V.v is the latest API level.\nbinderfs_logs_state\n\nSee examples of how to fix this:\nhttps://android-review.googlesource.com/c/platform/system/sepolicy/+/781036\nhttps://android-review.googlesource.com/c/platform/system/sepolicy/+/852612\n```",
+      "parentUuid": "3a79176e_47320f16",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 23
+      },
+      "revId": "75afe2fef7d58145ce2d5e604b32ec67a550fa11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "373baa2e_be9cd6dd",
         "filename": "private/system_server.te",
         "patchSetId": 1
