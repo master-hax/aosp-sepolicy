@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6d7e7fb_cdbc36ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-09T10:35:26Z",
+      "side": 1,
+      "message": "How did you confirm that?\n\nNothing here grants any process access to the service, so I don\u0027t think you\u0027d be able to get an instance of it from service manager.\n\nIf this is intended for 3P app usage, I suggest you add the app_api_service attribute in your type declaration; we already have e.g.  `allow untrusted_app_all app_api_service:service_manager find;` in the policy.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "2d5f0b8f3008557544dccaef2a86a0d61dc0b4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "00477c03_33700b8f",
@@ -14,6 +37,52 @@
       "writtenOn": "2024-02-09T03:43:30Z",
       "side": 1,
       "message": "Hmm, I\u0027m definitely confused by the selinux issues raised by presubmit:\n- two new untracked selinux denials at boot, which seem unrelated to these changes\n- a neverallow check that failed at system/sepolicy/public/domain.te:350, which is: \n```\n# All ioctls on file-like objects (except chr_file and blk_file) and\n# sockets must be restricted to an allowlist.\nneverallowxperm * *:{ dir notdevfile_class_set socket_class_set blk_file } ioctl { 0 };\n```\n\nNeither seem to be related to this change, but I\u0027m not sure what I\u0027m missing. Alan, do you know why these would come up from this change?",
+      "revId": "2d5f0b8f3008557544dccaef2a86a0d61dc0b4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "765af083_82bf3bfa",
+        "filename": "build/soong/service_fuzzer_bindings.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-09T10:35:26Z",
+      "side": 1,
+      "message": "The service is implemented in Java?",
+      "range": {
+        "startLine": 384,
+        "startChar": 34,
+        "endLine": 384,
+        "endChar": 53
+      },
+      "revId": "2d5f0b8f3008557544dccaef2a86a0d61dc0b4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "682f4dd8_cd096b05",
+        "filename": "private/profiling_service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-09T10:35:26Z",
+      "side": 1,
+      "message": "Rather than doing this explicitly, you should add the \"system_server_service\" attribute in your type declaration.\n\nAnd then you don\u0027t need this file at all.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 46
+      },
       "revId": "2d5f0b8f3008557544dccaef2a86a0d61dc0b4d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
