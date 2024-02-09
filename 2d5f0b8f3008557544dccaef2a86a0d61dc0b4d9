@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00477c03_33700b8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2024-02-09T03:43:30Z",
+      "side": 1,
+      "message": "Hmm, I\u0027m definitely confused by the selinux issues raised by presubmit:\n- two new untracked selinux denials at boot, which seem unrelated to these changes\n- a neverallow check that failed at system/sepolicy/public/domain.te:350, which is: \n```\n# All ioctls on file-like objects (except chr_file and blk_file) and\n# sockets must be restricted to an allowlist.\nneverallowxperm * *:{ dir notdevfile_class_set socket_class_set blk_file } ioctl { 0 };\n```\n\nNeither seem to be related to this change, but I\u0027m not sure what I\u0027m missing. Alan, do you know why these would come up from this change?",
+      "revId": "2d5f0b8f3008557544dccaef2a86a0d61dc0b4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
