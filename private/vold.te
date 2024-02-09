@@ -74,8 +74,8 @@ neverallow {
 
 # Allow vold to encrypt storage area directories on behalf of apps.
 allow vold {
-    app_data_file
-    privapp_data_file
+    storage_area_app_data_file
+    storage_area_app_dir
 }:dir {
     getattr
     ioctl # for FS_IOC_SET_ENCRYPTION_POLICY
