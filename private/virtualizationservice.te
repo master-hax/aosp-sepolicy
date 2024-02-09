@@ -88,6 +88,10 @@ allow virtualizationservice virtualizationmanager:fd use;
 # Allow virtualizationservice to access vendor_configs_file to get the list of assignable devices.
 r_dir_file(virtualizationservice, vendor_configs_file)
 
+# Allow calling into the system server to find the packages corresponding to client uid
+binder_call(virtualizationmanager, system_server)
+allow virtualizationmanager package_native_service:service_manager find;
+
 neverallow {
   domain
   -init
