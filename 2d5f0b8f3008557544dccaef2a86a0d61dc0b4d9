@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "114a8f69_fb4d8cf2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2024-02-09T17:12:14Z",
+      "side": 1,
+      "message": "Thanks so much for the feedback! So I was working with Yisroel on this, and basically he was getting a `SELinux denied` SecurityException when attempting to connect to the service until this change. This was the denial:\n\n```\nSELinux: avc:  denied  { add } for pid\u003d1711 uid\u003d1000 name\u003dprofiling_service scontext\u003du:r:system_server:s0 tcontext\u003du:object_r:default_android_service:s0 tclass\u003dservice_manager permissive\u003d0\n```\n\nwhich is why we thought that the `add_service` line would fix it.",
+      "parentUuid": "c6d7e7fb_cdbc36ee",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "2d5f0b8f3008557544dccaef2a86a0d61dc0b4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "00477c03_33700b8f",
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2a4cd299_fba4867a",
+        "filename": "build/soong/service_fuzzer_bindings.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2024-02-09T17:12:14Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "765af083_82bf3bfa",
+      "range": {
+        "startLine": 384,
+        "startChar": 34,
+        "endLine": 384,
+        "endChar": 53
+      },
+      "revId": "2d5f0b8f3008557544dccaef2a86a0d61dc0b4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "682f4dd8_cd096b05",
         "filename": "private/profiling_service.te",
         "patchSetId": 3
@@ -77,6 +125,30 @@
       "writtenOn": "2024-02-09T10:35:26Z",
       "side": 1,
       "message": "Rather than doing this explicitly, you should add the \"system_server_service\" attribute in your type declaration.\n\nAnd then you don\u0027t need this file at all.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 46
+      },
+      "revId": "2d5f0b8f3008557544dccaef2a86a0d61dc0b4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8e7fa56_ed25ed27",
+        "filename": "private/profiling_service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2024-02-09T17:12:14Z",
+      "side": 1,
+      "message": "Oooh, thanks! Though I think the above question applies - maybe we will need it again if we have a separate domain?",
+      "parentUuid": "682f4dd8_cd096b05",
       "range": {
         "startLine": 2,
         "startChar": 0,

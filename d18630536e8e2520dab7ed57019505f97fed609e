@@ -110,6 +110,30 @@
       },
       "revId": "d18630536e8e2520dab7ed57019505f97fed609e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b11dcde_31c88180",
+        "filename": "private/profiling_service.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2024-02-09T17:12:14Z",
+      "side": 1,
+      "message": "I suspected! However, separately from the service connection problem we were trying to solve in this CL, we do want to give the profiling_service a few additional SElinux permissions (like those in traceur_app.te - this service needs to interact with Perfetto). Can we set up a domain for the service?",
+      "parentUuid": "58c2c4b8_7862cab8",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 43
+      },
+      "revId": "d18630536e8e2520dab7ed57019505f97fed609e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
