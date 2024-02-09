@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a22d0dbd_b604e8c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1246512
+      },
+      "writtenOn": "2024-02-09T11:57:08Z",
+      "side": 1,
+      "message": "Yes, this is a corner case.\nHaving this in place allows local testing to work a bit smoother on userdebug/eng builds.\n\nUsing r_dir_file macro makes sure that all regular read operations are allowed, so it is preferable to use it instead of specific rules based on logged violations. (you never know when next read related violation shows up when underlying libraries are changed)",
+      "revId": "74b1d07f7410b7d95c9d7a208390f3caf53a34b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
