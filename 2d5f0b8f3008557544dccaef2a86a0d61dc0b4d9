@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce03ede9_71a88450",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-09T17:20:31Z",
+      "side": 1,
+      "message": "(Yisroel \u0026 I have been chatting offline about this too.)\n\nThat denial is because the service wasn\u0027t getting the right label (default_android_service is the default, and nothing is allowed to touch that, to force people to pick a specific label).\n\nThe add should be working fine with the CL in its current form, now it\u0027s in service_contexts.\n\nIt was more the fact that nothing (other than system server itself) has access to find the service that struck me as odd. Adding app_api_service would fix that, depending on exactly how this is intended to be used.",
+      "parentUuid": "114a8f69_fb4d8cf2",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "2d5f0b8f3008557544dccaef2a86a0d61dc0b4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "00477c03_33700b8f",
@@ -112,6 +136,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c690326_00fe40af",
+        "filename": "build/soong/service_fuzzer_bindings.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-09T17:20:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2a4cd299_fba4867a",
+      "range": {
+        "startLine": 384,
+        "startChar": 34,
+        "endLine": 384,
+        "endChar": 53
+      },
+      "revId": "2d5f0b8f3008557544dccaef2a86a0d61dc0b4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "682f4dd8_cd096b05",
@@ -149,6 +197,30 @@
       "side": 1,
       "message": "Oooh, thanks! Though I think the above question applies - maybe we will need it again if we have a separate domain?",
       "parentUuid": "682f4dd8_cd096b05",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 46
+      },
+      "revId": "2d5f0b8f3008557544dccaef2a86a0d61dc0b4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a75621f7_a3180d07",
+        "filename": "private/profiling_service.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-09T17:20:31Z",
+      "side": 1,
+      "message": "If it isn\u0027t hosted in system server, then yes - you should then remove the system_server_service attribute, and add `add_service(foo, profiling_service)`.",
+      "parentUuid": "c8e7fa56_ed25ed27",
       "range": {
         "startLine": 2,
         "startChar": 0,
