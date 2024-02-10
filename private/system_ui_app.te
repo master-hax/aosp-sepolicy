@@ -1,0 +1,18 @@
+typeattribute system_ui_app coredomain;
+
+app_domain(system_ui_app);
+
+allow system_ui_app trace_data_file:file create_file_perms;
+allow system_ui_app trace_data_file:dir rw_dir_perms;
+allow system_ui_app wm_trace_data_file:dir rw_dir_perms;
+allow system_ui_app wm_trace_data_file:file { getattr r_file_perms unlink };
+
+# To exec the perfetto cmdline client and pass it the trace config on
+# stdint through a pipe.
+allow system_ui_app perfetto_exec:file rx_file_perms;
+
+# Allow to access traced's privileged consumer socket.
+unix_socket_connect(system_ui_app, traced_consumer, traced)
+
+set_prop(system_ui_app, debug_prop)
+

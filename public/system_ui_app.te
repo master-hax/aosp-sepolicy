@@ -1,0 +1,21 @@
+type system_ui_app, domain;
+
+allow system_ui_app servicemanager:service_manager list;
+
+allow system_ui_app {
+  service_manager_type
+  -apex_service
+  -dnsresolver_service
+  -gatekeeper_service
+  -incident_service
+  -installd_service
+  -lpdump_service
+  -mdns_service
+  -netd_service
+  -virtual_touchpad_service
+  -vold_service
+  -default_android_service
+}:service_manager find;
+
+dontaudit system_ui_app service_manager_type:service_manager find;
+dontaudit system_ui_app domain:binder call;

@@ -179,6 +179,7 @@ isSystemServer=true domain=system_server_startup
 # sdksandbox must run in an sdksandbox domain
 neverallow user=_sdksandbox domain=((?!sdk_sandbox).)*
 
+user=_app seinfo=platform name=com.android.systemui domain=system_ui_app type=app_data_file levelFrom=all
 user=_app seinfo=platform name=com.android.traceur domain=traceur_app type=app_data_file levelFrom=all
 user=system seinfo=platform domain=system_app type=system_app_data_file
 user=system seinfo=platform isPrivApp=true name=com.android.DeviceAsWebcam domain=device_as_webcam type=system_app_data_file levelFrom=all
