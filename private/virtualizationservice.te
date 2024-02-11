@@ -38,6 +38,10 @@ allow virtualizationservice remote_provisioning_service:service_manager find;
 allow virtualizationservice self:capability sys_resource;
 allow virtualizationservice virtualizationmanager:process setrlimit;
 
+# Let virtualizationservice setsched for crosvm to allow for performance tuning.
+allow virtualizationservice self:global_capability_class_set sys_nice;
+allow virtualizationservice crosvm:process setsched;
+
 # Let virtualizationservice set the owner of a VM's temporary directory.
 allow virtualizationservice self:capability chown;
 
