@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4fa31e9f_35a179fa",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-12T18:23:40Z",
+      "side": 1,
+      "message": "delete this.",
+      "range": {
+        "startLine": 582,
+        "startChar": 0,
+        "endLine": 582,
+        "endChar": 53
+      },
+      "revId": "82435feb31b0b2d82aad96d800e4a6694be7ab0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "940caed0_5003be06",
         "filename": "private/system_server.te",
         "patchSetId": 1
@@ -78,6 +101,30 @@
       "side": 1,
       "message": "I think this is for execute_no_trans? I definitely added this reactionarily, this is the neverallow I see when I remove it (just double checked!)\n\n```\nneverallow check failed at out/soong/.intermediates/system/sepolicy/userdebug_plat_sepolicy.cil/android_common/userdebug_plat_sepolicy.cil:29923 from system/sepolicy/private/system_server.te:1293\n  (neverallow system_server base_typeattr_981 (file (execute_no_trans)))\n    \u003croot\u003e\n    allow at out/soong/.intermediates/system/sepolicy/userdebug_plat_sepolicy.cil/android_common/userdebug_plat_sepolicy.cil:29259\n      (allow system_server perfetto_exec (file (ioctl read getattr lock map execute open watch watch_reads execute_no_trans)))\n```",
       "parentUuid": "a3938097_2a220e8d",
+      "range": {
+        "startLine": 1295,
+        "startChar": 0,
+        "endLine": 1295,
+        "endChar": 16
+      },
+      "revId": "82435feb31b0b2d82aad96d800e4a6694be7ab0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e51f04db_7e04dec5",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1295,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-12T18:23:40Z",
+      "side": 1,
+      "message": "I think you missed my comment on the other change to remove line 582.",
+      "parentUuid": "8568ac50_8230006f",
       "range": {
         "startLine": 1295,
         "startChar": 0,
