@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12d665d2_53834066",
+        "filename": "private/system_ui_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2024-02-12T11:49:53Z",
+      "side": 1,
+      "message": "Out of curiosity, how do you know which of the permissions that system_app used to have you need as well? You might regress some sysui use cases here.\n\nFor instance I see that system_app used to have `allow system_app icon_file:file r_file_perms`. Don\u0027t you risk that in case of features that hit these permissions rarely, you\u0027ll break the feature?\n\nFor instance I see in system_app.te\n\n```\n# android.ui and system.ui\nallow system_app rootfs:dir getattr;\n```\n\nwhich somehow suggests that sysui might need this as well?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 10
+      },
+      "revId": "59a0dd5660f854dbb43954a1d59bef67ed643af7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83335e2f_bd0b5c9f",
+        "filename": "private/system_ui_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2024-02-12T11:49:53Z",
+      "side": 1,
+      "message": "you don\u0027t need most of these permissions if you  switch-on-exec to the domain that has the right privileges (perfetto.te)\n\nI think you should need only\n\n```\ndomain_auto_trans(system_ui_app, perfetto_exec, perfetto)\nallow system_ui_app perfetto_exec:file rx_file_perms;\nallow system_ui_app perfetto:process signal;\nallow system_ui_app trace_data_file:dir rw_dir_perms;\n```\n\nyou can avoid the tracing_debug and unix socket persmissions then",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 0
+      },
+      "revId": "59a0dd5660f854dbb43954a1d59bef67ed643af7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
