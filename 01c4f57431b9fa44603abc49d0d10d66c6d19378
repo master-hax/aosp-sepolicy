@@ -142,6 +142,30 @@
       },
       "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa7d070b_bc183d1f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1882526
+      },
+      "writtenOn": "2024-02-13T14:04:48Z",
+      "side": 1,
+      "message": "AFAICT, the more urgent change is to provide a way to inject a fake VM reference into the host. Ideally, that \"test interface\" would pass a path to a file structure similar to `/proc/device-tree` (pushed to `/data`) so that most of the code executed by the test remains unchanged (including the input parsers).\n\nOn top of that, we\u0027d implement vendor image tests (by `adb push`-ing the hashtree to that pseudo-DT FS) and other similar tests, enabling almost-E2E testing of vendor guest images in PS. Given how close to ABL that \"test interface\" will be, a subset of these tests (those which expect everything to go well) could even become part of CTS, where they\u0027d run with the actual `/proc/device-tree`.\n\nAt first, only non-protected VMs (and protected-without-firmware?) will be covered by these tests but testing will then be extended to protected-with-firmware once we\u0027ve ported the DP infrastructure to this new use-case, expanding the PS test coverage to our pvmfw code. For the CTS subset mentioned above, regular pVMs will be used (validating the device\u0027s pvmfw).\n\nDo we all agree on this?",
+      "parentUuid": "f4287749_ae707af0",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
