@@ -214,6 +214,30 @@
       },
       "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e299772_5bb0e8ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2024-02-13T17:59:56Z",
+      "side": 1,
+      "message": "What I am saying is, that there is no need on host side to simply copy the /proc/device-tree/avf/reference. Instead, virtmngr can read it, get the rootdiget of the microdroid-vendor.img that was passed in VirtualMachineAppConfig (https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/Virtualization/virtualizationservice/aidl/android/system/virtualizationservice/VirtualMachineAppConfig.aidl;l\u003d110;drc\u003d6ef80977be32b8280118264c554e1a3fad30d384), and inject the value into the DT. Basically what @seungjaeyoo@google.com implemented before VM reference DT.\n\nThis won\u0027t affect the security of the pVMs, since pvmfw will only allow the rootdigest that was passed to it from ABL, and reject any other. However, this will make it easier to test non-protected VMs, and interact on the content of microdroid-vendor.img during development.\n\nAdditionally, from my chat with @alanstokes@google.com it sounds like this approach will also help with testing how microdroid vendor partition interacts with DICE chain. Alan, please correct me if I misunderstood you",
+      "parentUuid": "1c096a6e_3651f94a",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
