@@ -190,6 +190,30 @@
       },
       "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c096a6e_3651f94a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2024-02-13T16:37:42Z",
+      "side": 1,
+      "message": "\u003e This won\u0027t be a test-only feature though. I am suggesting we use this code path for both protected \u0026 non-protected VMs. We anyway need host to create a DT for the VmId feature Shikha is working on\n\nI\u0027m little confused here. For normal use cases, virtmgr will create overlay DT from hardcoded path `/proc/device-tree/avf/reference` (which we believe to be safe because only ABL will write here) and randomly generated insecure VM ID (from shikha\u0027s recent change). This CL tests whether the normal case works as expected (i.e. can load built-in vendor image).\n\nIf we would like to load arbitrary vendor image nor test invalid vendor image hashkey, the overlay DT should be come from somewhere else. I call it as test feature because it shouldn\u0027t be used on production device.\n\nNikita, could you confirm whether we\u0027re on the same page for this?\n\nAgain, I\u0027m not opposing to add such features for rich test cases, but this CL is already written for simpler purpose.",
+      "parentUuid": "87078dea_76056478",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
