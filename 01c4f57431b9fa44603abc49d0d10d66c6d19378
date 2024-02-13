@@ -70,6 +70,30 @@
       },
       "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baefd460_e8cc7483",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2024-02-13T13:10:02Z",
+      "side": 1,
+      "message": "\u003e \u003e However, it requires to inject arbitrary VM reference DT so can only run on production device.\n\n\u003e You meant non-production devices, right? I am not sure I agree, if the DT is constructed by the host, and pvmfw verifies it before booting a pVM, then approach should be safe on production devices as well. \n\nI\u0027m terribly sorry here. Such test __CAN\u0027T__ run on the production device. (otherwise DT can contain malicious data.\n\nFor test purpose, we can run protected VM with arbitrary data. Custom `pvmfw` can be used for booting VM, and there\u0027s already a test for it. (e.g. DebugPolicyHostTests). It\u0027s done by passing `--protected-vm-with-firmware` to crosvm.\n\nHowever, launching custom pvmfw is only allowed in userdebug or eng build, so those test isn\u0027t a part of CTS.\n\n\n\u003e I am not sure that enabling presubmit \u0026 postsubmit coverage of the vendor modules feature has a lesser priority\n\nI\u0027m sorry but I don\u0027t understand this. Could you explain your idea about vendor module tests?",
+      "parentUuid": "0e07b635_859140c8",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
