@@ -3,6 +3,92 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8c85b886_20e47aaf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-13T17:59:09Z",
+      "side": 1,
+      "message": "This doesn\u0027t mention storage_area_app_data_file/storage_area_app_dir, which seems like an important part of the change?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 0
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1679605e_5ad1544a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-13T17:59:09Z",
+      "side": 1,
+      "message": "That bug is in a very odd state. I think you might want a new one.\n\nWhat release is this targeting? How are you going to feature flag it?\n(We support flags in sepolicy now.)",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1aa3e8dc_e9635956",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-13T17:59:09Z",
+      "side": 1,
+      "message": "Having multiple Change-Ids is going to cause confusion.\nOnly the last one matters.\nSo I think you should delete lines 26 to 45 inclusive.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 52
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d14c567_1268c86d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-13T17:59:09Z",
+      "side": 1,
+      "message": "A few more questions:\n- What categories will be applied at each level? Ideally /data/storage_area/0 would have `s0:c512,c768`.\n- How do we prevent one app for probing for the existence of another app\u0027s directory here?",
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6d12878_0759c6c4",
         "filename": "private/app.te",
         "patchSetId": 1
@@ -14,6 +100,30 @@
       "writtenOn": "2024-02-13T17:09:12Z",
       "side": 1,
       "message": "here and in the next rule, I don\u0027t understand why you\u0027re granting permissions on \"file\". Do you expect files here? Based on the design doc, it seems like not?",
+      "range": {
+        "startLine": 269,
+        "startChar": 76,
+        "endLine": 269,
+        "endChar": 96
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fea6afe4_7d20c89a",
+        "filename": "private/app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-13T17:59:09Z",
+      "side": 1,
+      "message": "Yeah, I agree.\n\nGenerally we use the same label for files \u0026 directories, distinguishing which one we are referring to via :file or :dir. And that allows you to use the r_dir_files macro.\n\nIf you want separate labels, then storage_area_app_dir:file and storage_area_app_data_file:dir should never appear in the rules (except perhaps in a neverallow preventing any access to them, to ensure we never make a mistake with the labeling).",
+      "parentUuid": "a6d12878_0759c6c4",
       "range": {
         "startLine": 269,
         "startChar": 76,
@@ -49,6 +159,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "835e10db_b35b2b2b",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-13T17:59:09Z",
+      "side": 1,
+      "message": "This is disallowing it, I think?\nBut this particular neverallow is fairly feeble (b/237289679).\n\nCould we have the much stronger\n`neverallow appdomain storage_area_app_data_file:file execute;`?\n\n\nSee aosp/848615 (which was reverted), b/112357170. It\u0027s unfortunately impractical to prevent execution from app_data_file, but we can do it for these new directories without any backward compatibility issues.",
+      "parentUuid": "1cbe07a9_d7d81bc5",
+      "range": {
+        "startLine": 69,
+        "startChar": 36,
+        "endLine": 69,
+        "endChar": 83
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "66b1c638_74270694",
         "filename": "private/compat/29.0/29.0.ignore.cil",
         "patchSetId": 1
@@ -72,6 +206,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9baae2d6_e5609366",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-13T17:59:09Z",
+      "side": 1,
+      "message": "Should we have a macro for this set of labels? They seem to come up a lot.\n\nAlthough that might decrease readability as much as it increases it.",
+      "range": {
+        "startLine": 251,
+        "startChar": 4,
+        "endLine": 251,
+        "endChar": 83
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd359191_08dbc243",
         "filename": "private/seapp_contexts",
         "patchSetId": 1
@@ -88,6 +245,53 @@
         "startChar": 0,
         "endLine": 236,
         "endChar": 77
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d40e05c1_10305246",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-13T17:59:09Z",
+      "side": 1,
+      "message": "Mmm. The semantics are documented, on line 115, but I don\u0027t recall ever seeing it.\n\nseapp_contexts is getting increasingly complicated. A lot of the custom things (most of the is* selectors) might be better expressed in code, somewhere.\n\n@tweek@google.com was looking at trying to change this a while back.",
+      "parentUuid": "bd359191_08dbc243",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 77
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d81484a_e6e63dc9",
+        "filename": "private/vold_prepare_subdirs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-13T17:59:09Z",
+      "side": 1,
+      "message": "This seems like broader access than is desirable.\n\nWe don\u0027t allow that level of access to app_data_file:dir.\n\nCould the directories that vold_prepare_subdirs directly manipulates have a different label?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 10
       },
       "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
