@@ -94,6 +94,30 @@
       },
       "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c031c7e_845f5aee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2024-02-13T13:19:06Z",
+      "side": 1,
+      "message": "Running microdroid with microdroid-vendor.img relies on a bunch of changes in the userspace that ideally we would want to have end-to-end coverage on. These changes are not specific to pVMs, so we can run tests on non-protected Microdroid VMs.\n\nRight now, we don\u0027t have any end-to-end coverage for userspace changes, and this patch won\u0027t address this problem (since none of the devices we use in presubmit have microdroid-vendor.img, and the  -pvkm_experimental variants are not stable enough to run in presubmit).\n\nAgain, I am not against this change. What I am saying is that running microdroid-vendor-partition tests in presubmit on non-protected VMs shouldn\u0027t have a lesser priority.\n\nI don\u0027t think that we need to do anything fancy to enable such testing. Making host responsible for constructing the DT instead of simply copying the reference DT from the ABL should be enough (in case of pVMs the pvmfw will still be responsible for validating the DT). Although I might be missing something here",
+      "parentUuid": "baefd460_e8cc7483",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
