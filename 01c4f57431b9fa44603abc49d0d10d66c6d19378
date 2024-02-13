@@ -118,6 +118,30 @@
       },
       "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4287749_ae707af0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2024-02-13T13:48:48Z",
+      "side": 1,
+      "message": "Seems like that we\u0027re on the same page -- we all like more tests 😊.\n\nBut let me answer your questions here.\n\n\n\u003e I don\u0027t think that we need to do anything fancy to enable such testing. Making host responsible for constructing the DT instead of simply copying the reference DT from the ABL should be enough (in case of pVMs the pvmfw will still be responsible for validating the DT). Although I might be missing something here\n\nI only meant that \u0027Making host responsible for constructing the DT instead of simply copying the reference DT from the ABL\u0027 would be a test only feature. I think that test relies on real code path should be prioritized more than with fake data, especially when the former can be in CTS and the latter cannot be in the CTS.\n\nTo clarify, I\u0027m not saying that we\u0027ll stop here. I would add more tests with test vendor image with more coverage. However, vendor/OEM/.. are less motivated to run our tests if it\u0027s a xTS. I would prefer writing CTS to make all Androids more secure.",
+      "parentUuid": "2c031c7e_845f5aee",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
