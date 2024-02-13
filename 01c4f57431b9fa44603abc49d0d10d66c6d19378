@@ -22,6 +22,30 @@
       },
       "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "892d0cf2_a75e5ae6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2024-02-13T10:48:29Z",
+      "side": 1,
+      "message": "\u003e Didn\u0027t we agree in the last meeting that host should inject the value of the hashtree in the DT it passes to crossvm, and pvmfw will use the value passed from bootloader to verify the DT.\n\nThis was my idea to test loading vendor image. At that time, I proposed that approach to test vendor image features with test image and arbitrary VM reference DT (e.g. test invalid vendor image hashkey). However, it requires to inject arbitrary VM reference DT so can only run on production device.\nSee: b/323768068.\n\n\nBut Jiyong proposed an idea to test whether real vendor image can be loaded. It\u0027s simpler and can be a CTS test. This CL is written based on the Jiyong\u0027s idea, and more complex test scenario would be handled in another issue. (but with less priority).\n\nHope this answers your question.",
+      "parentUuid": "7e99cdba_71e99694",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
