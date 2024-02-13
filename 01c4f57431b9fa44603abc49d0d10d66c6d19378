@@ -238,6 +238,30 @@
       },
       "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75faf8d5_ed990e91",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2024-02-13T23:55:08Z",
+      "side": 1,
+      "message": "Implementation detail (copy `/proc/device-tree/avf/reference` vs get rootdigest directly) doesn\u0027t matter in this discussion.\n\nI kept talked about loading custom vendor image created for test purpose. Again, virtmgr should always load the vendor hashkey image for vendor image in vendor partition. However, if we want to load arbitrary vendor-image-alike-image-included-in-the-test, we need to provide a test-only-features for telling virtmgr to read something else for VM reference DT (overlay DT or whatever). I\u0027m only saying that test-only-features shouldn\u0027t be enabled on the production device, so can\u0027t be a CTS.\n\nLet\u0027s not discuss any further here, because we\u0027re not talking about this CL. Feel free to ping me when you\u0027re available. Let\u0027s have chat/VC instead.",
+      "parentUuid": "7e299772_5bb0e8ca",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
