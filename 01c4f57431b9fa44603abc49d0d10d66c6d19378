@@ -166,6 +166,30 @@
       },
       "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87078dea_76056478",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2024-02-13T14:26:27Z",
+      "side": 1,
+      "message": "\u003e I only meant that \u0027Making host responsible for constructing the DT instead of simply copying the reference DT from the ABL\u0027 would be a test only feature\n\nThis won\u0027t be a test-only feature though. I am suggesting we use this code path for both protected \u0026 non-protected VMs. We anyway need host to create a DT for the VmId feature Shikha is working on\n\nIn fact, this approach aligns with your idea on writing more CTS test, since these tests won\u0027t rely on file on /vendor partition. We will have more vendor-agnostic tests. Additionally, it will allow vendors to prototype their microdroid-vendor.img without doing changes in ABL.\n\n\u003e AFAICT, the more urgent change is to provide a way to inject a fake VM reference into the host\n\nI am proposing the opposite change though :)",
+      "parentUuid": "fa7d070b_bc183d1f",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
