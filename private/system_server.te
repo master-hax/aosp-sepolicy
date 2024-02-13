@@ -1456,6 +1456,12 @@ allow system_server staged_install_file:file create_file_perms;
 allow system_server watchdog_metadata_file:dir rw_dir_perms;
 allow system_server watchdog_metadata_file:file create_file_perms;
 
+# Grant system server rw access to storage files, also forbid other process write access
+# TODO: add storage daemon to neverallow exception when it is introduced
+neverallow { domain -system_server } aconfig_storage_file:file no_w_file_perms;
+allow system_server aconfig_storage_file:dir rw_dir_perms;
+allow system_server aconfig_storage_file:file create_file_perms;
+
 allow system_server repair_mode_metadata_file:dir rw_dir_perms;
 allow system_server repair_mode_metadata_file:file create_file_perms;
 
