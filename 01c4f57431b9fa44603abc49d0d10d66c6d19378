@@ -46,6 +46,30 @@
       },
       "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e07b635_859140c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2024-02-13T13:02:22Z",
+      "side": 1,
+      "message": "\u003e However, it requires to inject arbitrary VM reference DT so can only run on production device.\n\nYou meant non-production devices, right? I am not sure I agree, if the DT is constructed by the host, and pvmfw verifies it before booting a pVM, then approach should be safe on production devices as well. @ptosi@google.com wdyt?\n\n\u003e But Jiyong proposed an idea to test whether real vendor image can \u003ebe loaded. It\u0027s simpler and can be a CTS test. This CL is written \u003ebased on the Jiyong\u0027s idea, and more complex test scenario would \u003ebe handled in another issue. (but with less priority).\n\nWell, the caveat of this approach is that we don\u0027t really get any coverage in presubmit \u0026 postsubmit. I\u0027m not against having a test that verifies that microdroid can boot with the /vendor/etc/microdroid/microdroid-vendor.img - this sounds like a useful test. I am not sure that enabling presubmit \u0026 postsubmit coverage of the vendor modules feature has a lesser priority",
+      "parentUuid": "892d0cf2_a75e5ae6",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
