@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6d12878_0759c6c4",
+        "filename": "private/app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-13T17:09:12Z",
+      "side": 1,
+      "message": "here and in the next rule, I don\u0027t understand why you\u0027re granting permissions on \"file\". Do you expect files here? Based on the design doc, it seems like not?",
+      "range": {
+        "startLine": 269,
+        "startChar": 76,
+        "endLine": 269,
+        "endChar": 96
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cbe07a9_d7d81bc5",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-13T17:09:12Z",
+      "side": 1,
+      "message": "Do we want this exemption? Why should apps be executing files from here? Seems very fragile.",
+      "range": {
+        "startLine": 69,
+        "startChar": 36,
+        "endLine": 69,
+        "endChar": 83
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66b1c638_74270694",
+        "filename": "private/compat/29.0/29.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-13T17:09:12Z",
+      "side": 1,
+      "message": "You only need to update the latest version of this file \"34.0.ignore.cil\". You can delete all these others.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 24
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd359191_08dbc243",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-13T17:09:12Z",
+      "side": 1,
+      "message": "This is a really odd use of seapp_contexts. 100% of the other entries here use \"domain\u003d\". I need to think about it more, but I\u0027m not convinced that we should be using it for this.",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 77
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d75248de_a3d1cd81",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-13T17:09:12Z",
+      "side": 1,
+      "message": "why would an app store a socket here?",
+      "range": {
+        "startLine": 735,
+        "startChar": 0,
+        "endLine": 736,
+        "endChar": 25
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "850c7ada_ad5a3543",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-13T17:09:12Z",
+      "side": 1,
+      "message": "I wonder if we want to handle this differently? The problem with adding this here is that it\u0027s creating the need to (unnecessarily) grant vold and vold_prepare_subdirs access to other private app data types, when they only need access to storage_area_app_data_{file,dir}.",
+      "range": {
+        "startLine": 485,
+        "startChar": 81,
+        "endLine": 485,
+        "endChar": 99
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
