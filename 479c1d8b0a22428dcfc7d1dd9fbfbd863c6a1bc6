@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c37b58a7_74a9c4d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1882770
+      },
+      "writtenOn": "2024-02-14T16:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "150062f6_82d78752",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 244
+      },
+      "revId": "479c1d8b0a22428dcfc7d1dd9fbfbd863c6a1bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2cd33855_0229124c",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-14T15:18:01Z",
       "side": 1,
       "message": "What about /metadata/aconfig/flags ?",
+      "range": {
+        "startLine": 1218,
+        "startChar": 1,
+        "endLine": 1221,
+        "endChar": 91
+      },
+      "revId": "479c1d8b0a22428dcfc7d1dd9fbfbd863c6a1bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c099eae_1564999f",
+        "filename": "contexts/plat_file_contexts_test",
+        "patchSetId": 11
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1882770
+      },
+      "writtenOn": "2024-02-14T16:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cd33855_0229124c",
       "range": {
         "startLine": 1218,
         "startChar": 1,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df9154b1_0bb20c23",
+        "filename": "private/file_contexts",
+        "patchSetId": 11
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1882770
+      },
+      "writtenOn": "2024-02-14T16:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f32f818e_2ebcf0bf",
+      "range": {
+        "startLine": 858,
+        "startChar": 0,
+        "endLine": 859,
+        "endChar": 71
+      },
+      "revId": "479c1d8b0a22428dcfc7d1dd9fbfbd863c6a1bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3089703e_5b20bb2d",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-02-14T15:18:01Z",
       "side": 1,
       "message": "Can you explain why this is needed?\n(Unfortunately a lot of sepolicy comments just replicate what the rule says, but understanding why the rule exists is more useful.)",
+      "range": {
+        "startLine": 344,
+        "startChar": 0,
+        "endLine": 344,
+        "endChar": 61
+      },
+      "revId": "479c1d8b0a22428dcfc7d1dd9fbfbd863c6a1bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52e49f9a_208a5dfe",
+        "filename": "public/domain.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1882770
+      },
+      "writtenOn": "2024-02-14T16:39:07Z",
+      "side": 1,
+      "message": "This is the flag value file boot copy. These files will serve flag read queries. So all platform/mainline code would need to access it to find flag values. Thus mark it read access for every one.",
+      "parentUuid": "3089703e_5b20bb2d",
       "range": {
         "startLine": 344,
         "startChar": 0,
@@ -177,6 +273,30 @@
       "writtenOn": "2024-02-14T15:18:01Z",
       "side": 1,
       "message": "Could these lines, and the ones in public/domain.te and public/vendor_init.te, be moved to the corresponding private/ files?\n\nWill there ever be a need for vendor policy to reference these?",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 42
+      },
+      "revId": "479c1d8b0a22428dcfc7d1dd9fbfbd863c6a1bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10bf2546_8159cc3d",
+        "filename": "public/file.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1882770
+      },
+      "writtenOn": "2024-02-14T16:39:07Z",
+      "side": 1,
+      "message": "Actually we may want a vendor policy down the road for vendor to access.",
+      "parentUuid": "9487bfea_b18b812f",
       "range": {
         "startLine": 298,
         "startChar": 0,
