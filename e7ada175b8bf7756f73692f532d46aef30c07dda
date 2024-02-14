@@ -95,6 +95,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "93fe8f49_d8b27f4f",
+        "filename": "private/system_ui_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2024-02-14T16:22:39Z",
+      "side": 1,
+      "message": "Yep, see my other comment, I\u0027m advocating for domain_auto_trans here as well (Which is how syssrv does it).\nHowever, compared to syssrv, I don\u0027t think sysui needs any permission to readback the data, as that will automatically be attached by traced to the bugreport.\n\nSee again the comment+question I wrote on Jan 26 about the fact that I don\u0027t think you need trace readback permission (or if you do, I\u0027d like to understand why)\n\nhttps://android-review.git.corp.google.com/c/platform/system/sepolicy/+/2924820/comments/241b6925_2efd32d8",
+      "parentUuid": "913080b8_5ac16033",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 53
+      },
+      "revId": "e7ada175b8bf7756f73692f532d46aef30c07dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92d6474b_c829de69",
         "filename": "private/traced.te",
         "patchSetId": 3
