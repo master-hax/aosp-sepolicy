@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b285f35_4ab8e19c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-14T00:00:28Z",
+      "side": 1,
+      "message": "You\u0027re right -- I\u0027ve updated the commit message.",
+      "parentUuid": "8c85b886_20e47aaf",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 0
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1679605e_5ad1544a",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-13T17:59:09Z",
       "side": 1,
       "message": "That bug is in a very odd state. I think you might want a new one.\n\nWhat release is this targeting? How are you going to feature flag it?\n(We support flags in sepolicy now.)",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1607581_dd56ca82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-14T00:00:28Z",
+      "side": 1,
+      "message": "Ah, true! I refiled a bug: b/325121608 .\nWe are targeting Android W. \nAnd, we have a feature flag for the API already; I didn\u0027t realize you could also do feature flags in sepolicy -- I\u0027ll look into that. Do you have any pointers to look at?",
+      "parentUuid": "1679605e_5ad1544a",
       "range": {
         "startLine": 23,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91312a6f_7c1daf06",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-14T00:00:28Z",
+      "side": 1,
+      "message": "Good catch -- sorry about that.",
+      "parentUuid": "1aa3e8dc_e9635956",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 52
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d14c567_1268c86d",
@@ -83,6 +155,41 @@
       "writtenOn": "2024-02-13T17:59:09Z",
       "side": 1,
       "message": "A few more questions:\n- What categories will be applied at each level? Ideally /data/storage_area/0 would have `s0:c512,c768`.\n- How do we prevent one app for probing for the existence of another app\u0027s directory here?",
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31b7c608_a0e9178a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-14T00:00:28Z",
+      "side": 1,
+      "message": "- Yes, `/data/storage_area/0` does have the categories s0:c512,c768. `/data/storage_area/0/android.os.cts` and all of its storage areas have the categories s0:c118,c256,c512,c768. \n- We still need to apply data isolation to the app directories of storage areas: there\u0027s a section in the design doc labelled \"App data isolation\" that talks about this. Currently we are discussing a few potential approaches (based on what is currently done for other app data).",
+      "parentUuid": "7d14c567_1268c86d",
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3f62ec0_410544d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-14T00:00:28Z",
+      "side": 1,
+      "message": "Thanks for all your feedback/comments! I\u0027ve responded to all of them, either code update or a question.",
       "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -124,6 +231,30 @@
       "side": 1,
       "message": "Yeah, I agree.\n\nGenerally we use the same label for files \u0026 directories, distinguishing which one we are referring to via :file or :dir. And that allows you to use the r_dir_files macro.\n\nIf you want separate labels, then storage_area_app_dir:file and storage_area_app_data_file:dir should never appear in the rules (except perhaps in a neverallow preventing any access to them, to ensure we never make a mistake with the labeling).",
       "parentUuid": "a6d12878_0759c6c4",
+      "range": {
+        "startLine": 269,
+        "startChar": 76,
+        "endLine": 269,
+        "endChar": 96
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4e18a6d_06f3afc6",
+        "filename": "private/app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-14T00:00:28Z",
+      "side": 1,
+      "message": "Good catch -- you\u0027re right, we don\u0027t need these rules for storage_area_app_dir: file; this was my mistake.",
+      "parentUuid": "fea6afe4_7d20c89a",
       "range": {
         "startLine": 269,
         "startChar": 76,
@@ -181,6 +312,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e58fca7_db50de41",
+        "filename": "private/app_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-14T00:00:28Z",
+      "side": 1,
+      "message": "Good idea! Yes, we can fully block apps from executing files in their storage areas. Added the stronger neverallow.",
+      "parentUuid": "835e10db_b35b2b2b",
+      "range": {
+        "startLine": 69,
+        "startChar": 36,
+        "endLine": 69,
+        "endChar": 83
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66b1c638_74270694",
@@ -204,6 +359,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "032d5d03_567d437b",
+        "filename": "private/compat/29.0/29.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-14T00:00:28Z",
+      "side": 1,
+      "message": "Ah, thanks!",
+      "parentUuid": "66b1c638_74270694",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 24
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9baae2d6_e5609366",
@@ -217,6 +396,30 @@
       "writtenOn": "2024-02-13T17:59:09Z",
       "side": 1,
       "message": "Should we have a macro for this set of labels? They seem to come up a lot.\n\nAlthough that might decrease readability as much as it increases it.",
+      "range": {
+        "startLine": 251,
+        "startChar": 4,
+        "endLine": 251,
+        "endChar": 83
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98ec0966_1484b37f",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-14T00:00:28Z",
+      "side": 1,
+      "message": "Yeah I had thought about this a bit too -- maybe something like `all_app_data`? Pro: It could be a nice easy way to allow for more app data types to be added in the future too. Con: But as you say, I\u0027m not convinced it would be easier to read/understand what\u0027s going on.",
+      "parentUuid": "9baae2d6_e5609366",
       "range": {
         "startLine": 251,
         "startChar": 4,
@@ -276,6 +479,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4722c79d_167e75b0",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-14T00:00:28Z",
+      "side": 1,
+      "message": "Hmm -- I didn\u0027t include a domain\u003d because I didn\u0027t want to constrain this rule to only work on apps with a particular process label; e.g. I thought it should work on domain\u003duntrusted_app and domain\u003dsystem_app and domain\u003dpriv_app. But this could be a misunderstanding of how domain works, on my part.\n\nThe selectors do correspond to some code in android_seapp.c in libselinux; this code tokenizes the seinfo string based on the selectors, to parse out their values, and determine what (if any) context to apply. Or did you mean we should move more of this functionality to code?",
+      "parentUuid": "d40e05c1_10305246",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 77
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d81484a_e6e63dc9",
         "filename": "private/vold_prepare_subdirs.te",
         "patchSetId": 1
@@ -287,6 +514,30 @@
       "writtenOn": "2024-02-13T17:59:09Z",
       "side": 1,
       "message": "This seems like broader access than is desirable.\n\nWe don\u0027t allow that level of access to app_data_file:dir.\n\nCould the directories that vold_prepare_subdirs directly manipulates have a different label?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 10
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "544bc227_aabcd513",
+        "filename": "private/vold_prepare_subdirs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-14T00:00:28Z",
+      "side": 1,
+      "message": "Hmm, is this not already just constrained to storage_area_app_dir and storage_area_app_data_file? Or should we add another label?\nWith the current setup, vold_prepare_subdirs creates a storage area when an app calls openStorageArea and deletes a storage area when an app calls deleteStorageArea (resp. API functions), so it would need permission to create/delete.",
+      "parentUuid": "7d81484a_e6e63dc9",
       "range": {
         "startLine": 64,
         "startChar": 0,
@@ -322,6 +573,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6af5944e_c9ea1250",
+        "filename": "public/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-14T00:00:28Z",
+      "side": 1,
+      "message": "We thought it would make sense to allow apps to store any kind of file in their storage areas that they could store in CE/DE storage currently -- do you think we should block sockets?",
+      "parentUuid": "d75248de_a3d1cd81",
+      "range": {
+        "startLine": 735,
+        "startChar": 0,
+        "endLine": 736,
+        "endChar": 25
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "850c7ada_ad5a3543",
         "filename": "public/file.te",
         "patchSetId": 1
@@ -333,6 +608,30 @@
       "writtenOn": "2024-02-13T17:09:12Z",
       "side": 1,
       "message": "I wonder if we want to handle this differently? The problem with adding this here is that it\u0027s creating the need to (unnecessarily) grant vold and vold_prepare_subdirs access to other private app data types, when they only need access to storage_area_app_data_{file,dir}.",
+      "range": {
+        "startLine": 485,
+        "startChar": 81,
+        "endLine": 485,
+        "endChar": 99
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87405309_7b482c9e",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-14T00:00:28Z",
+      "side": 1,
+      "message": "Oh, my understanding is that this just says that our new types are associated with the app_data_file_type attribute. I don\u0027t think this affects any of the other types that are associated with this attribute -- at least, I didn\u0027t add any more access permissions for other app data types. \nI think we need these to have the app_data_file_type in order to satisfy some of the mls constraints about app data.",
+      "parentUuid": "850c7ada_ad5a3543",
       "range": {
         "startLine": 485,
         "startChar": 81,
