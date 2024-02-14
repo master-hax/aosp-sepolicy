@@ -117,6 +117,30 @@
       },
       "revId": "59a0dd5660f854dbb43954a1d59bef67ed643af7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4648cd5e_307fe822",
+        "filename": "private/system_ui_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2024-02-14T11:05:20Z",
+      "side": 1,
+      "message": "It\u0027s not a matter of many lines of selinux you have. It\u0027s a matter of mainteinaibility.\n\nIf you transition to the perfetto.te domain, they you\u0027ll inherit wahtever right privileges we have.\n\nIf you don\u0027t you have to constanttly keep up, and this will be a recipe for guaranteed future breakages.\n\nImagine that 6 months from now, we add something else to perfetto_cmd that requires a new selinux permission to talk to traced. What\u0027s going to happen is that:\n- My team will make that change to perfetto.te\n- Everybody will have forgotten about the fact that system_ui_app.te needs the same change\n- sysui tracing will be broken\n\nessentially auto_trans is not a matter of \"saving selinux lines\", it gives you encapsulation.",
+      "parentUuid": "017ac76a_0e8f4c51",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 0
+      },
+      "revId": "59a0dd5660f854dbb43954a1d59bef67ed643af7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
