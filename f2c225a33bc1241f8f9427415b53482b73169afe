@@ -22,6 +22,30 @@
       },
       "revId": "f2c225a33bc1241f8f9427415b53482b73169afe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a317637a_e226389d",
+        "filename": "private/compat/34.0/34.0.ignore.cil",
+        "patchSetId": 14
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1882770
+      },
+      "writtenOn": "2024-02-14T17:37:35Z",
+      "side": 1,
+      "message": "A good question. The aconfig_storage_boot_metadata_file maps to /metadata/aconfig/boot, where we place non persistent boot copy of storage files. aconfig_storage_metadata_file maps to /metadata/aconfig directory where we generally place aconfig storage protobuf files (track where storage files are, flag value local override) and etc. In the future, we might allow write access to these pb files for some other processes, for instance a local flag value override from adbd.",
+      "parentUuid": "daf35d88_246563bf",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 38
+      },
+      "revId": "f2c225a33bc1241f8f9427415b53482b73169afe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
