@@ -262,6 +262,30 @@
       },
       "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "768ad446_d0e302e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2024-02-14T01:51:40Z",
+      "side": 1,
+      "message": "But this is not only an implementation detail, and not a test only feature... As I mentioned above, if we make virtmngr responsible for injecting the root digest of the microdroid vendor partition it was passed in the VirtualMachineAppConfig, we will make the following use cases easier without impacting the security of the device:\n\n* testing (including CTS) of the userspace code that handles microdroid vendor partition, including the negative cases when partition is unsigned / singed incorrectly / corrupted\n* testing of how other features (llpvm \u0026 remote attestation) handle the DICE chain with microdroid vendor partition include\n* iterating over the content of microdroid vendor partition during development - vendors won\u0027t need to update their ABL to test the changes, they can just run a non-protected VM (or a protected VM without pvmfw) to check if their changes work",
+      "parentUuid": "75faf8d5_ed990e91",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
