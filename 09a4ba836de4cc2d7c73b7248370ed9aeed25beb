@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ad5196e_24fc21b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-02-14T08:18:47Z",
+      "side": 1,
+      "message": "Why is this bad? Has there been complaints from partners?",
+      "range": {
+        "startLine": 9,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 65
+      },
+      "revId": "09a4ba836de4cc2d7c73b7248370ed9aeed25beb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "10142c64_00360ab6",
@@ -14,6 +37,29 @@
       "writtenOn": "2024-02-14T05:05:51Z",
       "side": 1,
       "message": "@tweek@google.com @jiyong@google.com for sepolicy review\n\n@joeo@google.com for flagging / build system review",
+      "revId": "09a4ba836de4cc2d7c73b7248370ed9aeed25beb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b94733a_5f3c1576",
+        "filename": "flagging/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-02-14T08:18:47Z",
+      "side": 1,
+      "message": "I would call this aosp_selinux_flags to highlight that this is for aosp-defined flags.",
+      "range": {
+        "startLine": 18,
+        "startChar": 11,
+        "endLine": 18,
+        "endChar": 19
+      },
       "revId": "09a4ba836de4cc2d7c73b7248370ed9aeed25beb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -49,6 +95,29 @@
       "side": 1,
       "message": "\u003e Do you think we would need at some point to only have a subgroup of these?\n\nI think we shouldn\u0027t need subgroups, as unused flags or undefined flags have no effect.\n\n\u003e If not, maybe we could simplify the interface by keeping the se_flags definition, remove se_flags_collector and replace se_policy_conf_defaults with something like:\n\nThere will be only one `se_flags_collector` module (which is guaranteed by Soong), and I think `include_se_flags: true` seems more implicit. Probably @joeo@google.com can take a look and teach us which is preferrable?\n\n\u003e I don\u0027t know if this is possible from Soong\u0027s point of view (Can the Singleton be implicitly declared?).\n\nOne downside of this is: it introduces a new global state to Soong (to store a list of all `se_flags` modules).",
       "parentUuid": "67a8d6f7_8f0004f7",
+      "revId": "09a4ba836de4cc2d7c73b7248370ed9aeed25beb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad9f36a4_ae54ee5d",
+        "filename": "flagging/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-02-14T08:18:47Z",
+      "side": 1,
+      "message": "and call this `all_selinux_flags` or similar.",
+      "range": {
+        "startLine": 27,
+        "startChar": 11,
+        "endLine": 27,
+        "endChar": 29
+      },
       "revId": "09a4ba836de4cc2d7c73b7248370ed9aeed25beb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
