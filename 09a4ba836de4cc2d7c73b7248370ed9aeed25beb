@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c113ab5_bd32e953",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-02-14T08:26:11Z",
+      "side": 1,
+      "message": "It\u0027s not bad (actually this is good if AOSP flags are all of them), but as long as we\u0027ve decided to support partners I think it\u0027s more reasonable to allow flags outside system/sepolicy. Partners can flag-guard their own code without upstreaming to system/sepolicy (thus avoiding possible leaks).\n\nIMO allowing it makes more sense because we\u0027re already supporting `.scl` files for partners. Some internal targets are already using their own `.scl` files outside AOSP projects.",
+      "parentUuid": "9ad5196e_24fc21b0",
+      "range": {
+        "startLine": 9,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 65
+      },
+      "revId": "09a4ba836de4cc2d7c73b7248370ed9aeed25beb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "10142c64_00360ab6",
