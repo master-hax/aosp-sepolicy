@@ -551,6 +551,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8c4377b5_57729a8c",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-14T19:33:58Z",
+      "side": 1,
+      "message": "Oh, I misunderstood how that worked. Thanks for clarifying! I see `untrusted_app` is the default domain for apps that are not in platform or system, so I just made that the domain. I also added the same rule with the `seinfo\u003dplatform domain\u003dplatform_app` so that platform apps can also use this feature.",
+      "parentUuid": "2f1e75c4_b6187f88",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 77
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d81484a_e6e63dc9",
         "filename": "private/vold_prepare_subdirs.te",
         "patchSetId": 1
@@ -610,6 +634,30 @@
       "side": 1,
       "message": "But once it\u0027s created a storage area (which would be /data/storage_area/$userId/$pkgName, I think? Or /data/storage_area/$userId/$pkgName/$areaId?), only the app should be adding/removing/reading things within it.\n\nI\u0027m thinking of separate labels for storage area container / storage area contents (where the former would just be directories, I think, and the latter would be files + dirs).\n\nBut maybe there\u0027s reasons to not do that.\n\nAnd you\u0027re not giving access to the app\u0027s files, which would definitely be bad, only directories.",
       "parentUuid": "544bc227_aabcd513",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 10
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b10756b_e4ce0227",
+        "filename": "private/vold_prepare_subdirs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-14T19:33:58Z",
+      "side": 1,
+      "message": "Ah, I see what you mean! In the current code, we have the following types: \n* `storage_area_app_dir`: `/data/storage_area/userId/pkgName` -- this is the app\u0027s directory of storage areas. Apps can read but not write to this.\n* `storage_area_app_data_file`: `/data/storage_area/userId/pkgName/areaId` (and all of it\u0027s contents) -- this is an app\u0027s storage area, and apps can read and write to this. Also, vold_prepare_subdirs can read and write to it, because it creates the storage area, and if an app calls `deleteStorageArea` then it deletes the area and the contents\n\nWith your idea, we would have the following types:\n* `storage_area_app_dir`: same as before\n* `storage_area_app_data_dir`: `/data/storage_area/userId/pkgName/areaId` -- apps get read/write, vold_prepare_subdirs gets read/write\n* `storage_area_app_data_file`: `/data/storage_area/userId/pkgName/areaId/*` -- apps get read/write, and that\u0027s it\n\nI like this idea! The only caveat is that this would then only make it possible for apps to call the `deleteStorageArea` API function on empty storage areas. I think this is fine, as a user I would not be mad about this. What do you think? @ebiggers@google.com @paulcrowley@google.com",
+      "parentUuid": "2861e291_f4f1ec40",
       "range": {
         "startLine": 64,
         "startChar": 0,
