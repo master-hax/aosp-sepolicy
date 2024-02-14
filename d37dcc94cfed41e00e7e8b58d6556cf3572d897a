@@ -430,6 +430,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c318fb7_410507cc",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-14T13:25:49Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "98ec0966_1484b37f",
+      "range": {
+        "startLine": 251,
+        "startChar": 4,
+        "endLine": 251,
+        "endChar": 83
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd359191_08dbc243",
@@ -503,6 +527,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2f1e75c4_b6187f88",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-14T13:25:49Z",
+      "side": 1,
+      "message": "Domain is an output not an input here.\n\nThis file normally does two things - once we match an app, we know what label to give its process, and its data directory (domain and type respectively).\n\nHere you\u0027re not doing the former, and you\u0027re just feeding the matching code flags to say \"look up the storage area entry for me\". But we already know what it\u0027s going to return, so maybe we should hardcode the answer. There is no specific app that these rules match.\n\n(But I haven\u0027t looked at the calling code for this, so maybe that would be much harder / messier.)",
+      "parentUuid": "4722c79d_167e75b0",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 77
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d81484a_e6e63dc9",
         "filename": "private/vold_prepare_subdirs.te",
         "patchSetId": 1
@@ -538,6 +586,30 @@
       "side": 1,
       "message": "Hmm, is this not already just constrained to storage_area_app_dir and storage_area_app_data_file? Or should we add another label?\nWith the current setup, vold_prepare_subdirs creates a storage area when an app calls openStorageArea and deletes a storage area when an app calls deleteStorageArea (resp. API functions), so it would need permission to create/delete.",
       "parentUuid": "7d81484a_e6e63dc9",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 10
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2861e291_f4f1ec40",
+        "filename": "private/vold_prepare_subdirs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-14T13:25:49Z",
+      "side": 1,
+      "message": "But once it\u0027s created a storage area (which would be /data/storage_area/$userId/$pkgName, I think? Or /data/storage_area/$userId/$pkgName/$areaId?), only the app should be adding/removing/reading things within it.\n\nI\u0027m thinking of separate labels for storage area container / storage area contents (where the former would just be directories, I think, and the latter would be files + dirs).\n\nBut maybe there\u0027s reasons to not do that.\n\nAnd you\u0027re not giving access to the app\u0027s files, which would definitely be bad, only directories.",
+      "parentUuid": "544bc227_aabcd513",
       "range": {
         "startLine": 64,
         "startChar": 0,
@@ -632,6 +704,30 @@
       "side": 1,
       "message": "Oh, my understanding is that this just says that our new types are associated with the app_data_file_type attribute. I don\u0027t think this affects any of the other types that are associated with this attribute -- at least, I didn\u0027t add any more access permissions for other app data types. \nI think we need these to have the app_data_file_type in order to satisfy some of the mls constraints about app data.",
       "parentUuid": "850c7ada_ad5a3543",
+      "range": {
+        "startLine": 485,
+        "startChar": 81,
+        "endLine": 485,
+        "endChar": 99
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43f918d7_eb4cc736",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-14T13:25:49Z",
+      "side": 1,
+      "message": "Yeah I think this is fine, and desirable for the MLS properties.",
+      "parentUuid": "87405309_7b482c9e",
       "range": {
         "startLine": 485,
         "startChar": 81,
