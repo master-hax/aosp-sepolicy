@@ -334,6 +334,30 @@
       },
       "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca9522d2_5fbd7569",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-14T09:45:21Z",
+      "side": 1,
+      "message": "\u003e Since I don\u0027t have deep background on DICE, do we test DICE related stuff on non-pVMs as well? Like pvmfw, DICE is about pVM stuff, no?\n\nOnly a pVM gets a DICE chain that can be properly trusted. A non-pVM is given an untrusted DICE chain. But the processing within the VM kernel + payload is the same for both - e.g. Microdroid adds a node describing the payload. That\u0027s partly because Microdroid doesn\u0027t really know or care if the VM is protected, and also I suspect just to avoid too much conditional logic in implementation + tests.\n\nWhen we add a DICE node in first stage init, I\u0027d expect that to happen in both pVM and non-pVM.",
+      "parentUuid": "b25e8b04_d1845430",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
