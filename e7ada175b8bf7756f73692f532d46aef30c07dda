@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aeca4a0f_3d80009b",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-14T13:05:22Z",
+      "side": 1,
+      "message": "do we also need an entry for com.google.android.systemui ?",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 105
+      },
+      "revId": "e7ada175b8bf7756f73692f532d46aef30c07dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8091ff79_35fc1f05",
+        "filename": "private/system_suspend.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-14T13:05:22Z",
+      "side": 1,
+      "message": "why is this needed when it wasn\u0027t previously for platform_app?",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "e7ada175b8bf7756f73692f532d46aef30c07dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1525fd7c_b0daa5d2",
+        "filename": "private/system_ui_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-14T13:05:22Z",
+      "side": 1,
+      "message": "Can these permissions be removed from platform_app?",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 76
+      },
+      "revId": "e7ada175b8bf7756f73692f532d46aef30c07dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "913080b8_5ac16033",
+        "filename": "private/system_ui_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-14T13:05:22Z",
+      "side": 1,
+      "message": "This aligns with how traceur_app does this, but not with how system_server does it (aosp/2958867). Perhaps Primiano can chime in on how he\u0027d prefer this to work.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 53
+      },
+      "revId": "e7ada175b8bf7756f73692f532d46aef30c07dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92d6474b_c829de69",
+        "filename": "private/traced.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-14T13:05:22Z",
+      "side": 1,
+      "message": "Do you actually need access to this? I don\u0027t think so. I think this is the result of your overly permissive allow rule in system_ui_app.te.",
+      "range": {
+        "startLine": 123,
+        "startChar": 3,
+        "endLine": 123,
+        "endChar": 16
+      },
+      "revId": "e7ada175b8bf7756f73692f532d46aef30c07dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "649a29ae_f7c95314",
+        "filename": "public/system_ui_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-14T13:05:22Z",
+      "side": 1,
+      "message": "Why is this necessary?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 56
+      },
+      "revId": "e7ada175b8bf7756f73692f532d46aef30c07dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8deebe25_17d05010",
+        "filename": "public/system_ui_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-14T13:05:22Z",
+      "side": 1,
+      "message": "This isn\u0027t the right approach. Instead, list the services that you need access to.",
+      "range": {
+        "startLine": 6,
+        "startChar": 2,
+        "endLine": 6,
+        "endChar": 22
+      },
+      "revId": "e7ada175b8bf7756f73692f532d46aef30c07dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
