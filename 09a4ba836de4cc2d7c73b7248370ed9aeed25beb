@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f7fdfd3_2e7caef9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2024-02-14T19:09:23Z",
+      "side": 1,
+      "message": "Have you thought about how Sepolicies will work with partitions in soong? We will likely need to have product-specific sepolicy modules like the product-specific partitions. If we had those, we wouldn\u0027t need to do this reverse dependency stuff, individual products could add flags to their own sepolicy modules.\n\nReverse dependencies are undesirable because if you only download a portion of the source tree, you get different results. And you need to download the full source tree in order to figure out the minimal set of files in order to build your desired module.",
+      "revId": "09a4ba836de4cc2d7c73b7248370ed9aeed25beb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ad5196e_24fc21b0",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -91,6 +108,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "117409c0_6b904455",
+        "filename": "build/soong/flags.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2024-02-14T19:09:23Z",
+      "side": 1,
+      "message": "Should this be `se_flags_collector`? Same in the comment in `flaggableModuleProperties`",
+      "range": {
+        "startLine": 79,
+        "startChar": 8,
+        "endLine": 79,
+        "endChar": 31
+      },
+      "revId": "09a4ba836de4cc2d7c73b7248370ed9aeed25beb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caf22244_b920032e",
+        "filename": "build/soong/flags.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2024-02-14T19:09:23Z",
+      "side": 1,
+      "message": "Please use a provider instead of casting to a specific module type or interface. Same in `getBuildFlags`.",
+      "revId": "09a4ba836de4cc2d7c73b7248370ed9aeed25beb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7b94733a_5f3c1576",
         "filename": "flagging/Android.bp",
         "patchSetId": 1
@@ -143,6 +200,24 @@
       "side": 1,
       "message": "\u003e Do you think we would need at some point to only have a subgroup of these?\n\nI think we shouldn\u0027t need subgroups, as unused flags or undefined flags have no effect.\n\n\u003e If not, maybe we could simplify the interface by keeping the se_flags definition, remove se_flags_collector and replace se_policy_conf_defaults with something like:\n\nThere will be only one `se_flags_collector` module (which is guaranteed by Soong), and I think `include_se_flags: true` seems more implicit. Probably @joeo@google.com can take a look and teach us which is preferrable?\n\n\u003e I don\u0027t know if this is possible from Soong\u0027s point of view (Can the Singleton be implicitly declared?).\n\nOne downside of this is: it introduces a new global state to Soong (to store a list of all `se_flags` modules).",
       "parentUuid": "67a8d6f7_8f0004f7",
+      "revId": "09a4ba836de4cc2d7c73b7248370ed9aeed25beb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "210aa3ac_b0a38d64",
+        "filename": "flagging/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2024-02-14T19:09:23Z",
+      "side": 1,
+      "message": "In the bug, you had a design involving `export_to`, I think that\u0027s better. Even if we only have 1 global seflags set today, we should design for extensibility.",
+      "parentUuid": "d7ced3b9_fa5d7a74",
       "revId": "09a4ba836de4cc2d7c73b7248370ed9aeed25beb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
