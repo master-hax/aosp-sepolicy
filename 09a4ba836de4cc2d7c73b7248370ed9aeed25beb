@@ -16,6 +16,23 @@
       "message": "@tweek@google.com @jiyong@google.com for sepolicy review\n\n@joeo@google.com for flagging / build system review",
       "revId": "09a4ba836de4cc2d7c73b7248370ed9aeed25beb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67a8d6f7_8f0004f7",
+        "filename": "flagging/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2024-02-14T05:40:33Z",
+      "side": 1,
+      "message": "IIUC, this se_flags_collector will implicitly include all the se_flags found? Do you think we would need at some point to only have a subgroup of these? If not, maybe we could simplify the interface by keeping the se_flags definition, remove se_flags_collector and replace se_policy_conf_defaults with something like:\n\n```\nse_policy_conf_defaults {\n    name: \"se_policy_conf_flags_defaults\",\n    srcs: [\":sepolicy_flagging_macros\"],\n    include_se_flags: true,\n}\n```\n\nI don\u0027t know if this is possible from Soong\u0027s point of view (Can the Singleton be implicitly declared?).\n\nIf we want subgroups, we could add a \"tag\" to group these se_flags with something like:\n```\nse_flags {\n    name: \"default_aosp_se_flags\",\n    tag: \"default\",\n    flags: [\n        \"RELEASE_AVF_ENABLE_DEVICE_ASSIGNMENT\",\n        \"RELEASE_HARDWARE_BLUETOOTH_RANGING_SERVICE\",\n    ],\n}\nse_flags_collector {\n    name: \"default_aosp_flags\",\n    tag: \"default\",\n}   \n```\n\nThis would clarify the link between se_flags and the collector (with maybe a \"default\" tag for all se_flags).",
+      "revId": "09a4ba836de4cc2d7c73b7248370ed9aeed25beb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
