@@ -310,6 +310,30 @@
       },
       "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b25e8b04_d1845430",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1950816
+      },
+      "writtenOn": "2024-02-14T02:26:23Z",
+      "side": 1,
+      "message": "When I skimmed this comment, I thought no opposite opinion exists to merge this patch, but it seems there\u0027s still discussion regardless this patch.\n\nAnd looks like the agenda is to make possible to AMEND `vendor hashtree digest` of VM reference DT lives in the host, by virtmgr. Please correct me if I\u0027m wrong in this phase!\n\n\u003e testing (including CTS) of the userspace code that handles microdroid vendor partition, including the negative cases when partition is unsigned / signed incorrectly / corrupted\n\nI think this shouldn\u0027t be the consideration of this discussion, since we can test that with both way. We can still make and test distinguished microdroid vendor image for unsigned one, and incorrectly signed one. Not sure about corrupted one, I think I\u0027ve heard from you months ago, sorry for forgetting.. :(\n\n\u003e testing of how other features (llpvm \u0026 remote attestation) handle the DICE chain with microdroid vendor partition include\n\nSince I don\u0027t have deep background on DICE, do we test DICE related stuff on non-pVMs as well? Like pvmfw, DICE is about pVM stuff, no?\n\n\u003e iterating over the content of microdroid vendor partition during development - vendors won\u0027t need to update their ABL to test the changes, they can just run a non-protected VM (or a protected VM without pvmfw) to check if their changes work\n\nUmm.. It could be a definite cons not to have ability to amend vendor hashtree digest by virtmgr. With the view of vendors, they may need to do more complex work to boot inital vendor image including bootloader changes. But not sure if vendors want to implement on non-pVM first. After constructing initial vendor image w/ verification, would they need to care?\n\nBTW, I think better approach on this agenda is to have discussion via meeting. Shall we? @ioffe@google.com @jaewan@google.com",
+      "parentUuid": "768ad446_d0e302e7",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "01c4f57431b9fa44603abc49d0d10d66c6d19378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
