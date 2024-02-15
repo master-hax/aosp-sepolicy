@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "72e6eec9_42fa2572",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2024-02-15T19:07:18Z",
+      "side": 1,
+      "message": "In the nextgen/build system syncs we\u0027ve been discussing migrating the partitions to be built with soong. Jiyong has the full context as well. I think the plan is to have one partition module per product, like \"vendor_cheetah\". Then I assume we\u0027ll also need a \"vendor_sepolicy_cheetah\" module to go along with that, and if we had that, we could list all the cheetah-specific customizations as direct deps on that module instead of reverse deps.\n\n\u003e I\u0027m also not a big fan of reverse dependency, but seems like you\u0027re fine with \"export_to\" concept?\n\nI still don\u0027t like it, but it\u0027s better than modules being implicitly dependent on each other.",
+      "parentUuid": "07c3ee13_b2ea5d95",
+      "revId": "09a4ba836de4cc2d7c73b7248370ed9aeed25beb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ad5196e_24fc21b0",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
