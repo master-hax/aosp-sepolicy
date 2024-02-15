@@ -575,6 +575,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f086f0df_547669fe",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-15T13:15:28Z",
+      "side": 1,
+      "message": "Sorry, I think that\u0027s strictly worse. You shouldn\u0027t be able to have 2 rules with the same inputs but different outputs - if this builds, that\u0027s a bug.\n\nThe way it works is we match an app (or an app\u0027s directory) against the input selectors, and then if we find a match we apply the output selectors (domain, type).\n\nYou definitely don\u0027t want these rules to change the domain - that\u0027s what all the existing rules do.\n\nThat\u0027s why I don\u0027t think this logic should be here at all - your rules are only used for figuring out what the label should be for a storage area directory, and we know what the answer to that is. So we can just express it in the code rather than in this config file.",
+      "parentUuid": "8c4377b5_57729a8c",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 77
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d81484a_e6e63dc9",
         "filename": "private/vold_prepare_subdirs.te",
         "patchSetId": 1
