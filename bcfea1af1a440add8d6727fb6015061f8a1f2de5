@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7997192_fa9f7e18",
+        "filename": "private/app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1246512
+      },
+      "writtenOn": "2024-02-15T11:10:22Z",
+      "side": 1,
+      "message": "This is the violation that I have seen in logs:\navc:  denied  { getattr } for  pid\u003d8396 comm\u003d4173796E635461736B202331 path\u003d\"/oem/media/bootanimation.zip\" dev\u003d\"dm-15\" ino\u003d154 scontext\u003du:r:mediaprovider_app:s0:c161,c257,c512,c768 tcontext\u003du:object_r:bootanim_oem_file:s0 tclass\u003dfile permissive\u003d0\n\nmediaprovider_app is domain for the MediaProvider mainline module, maybe it is enough to only add rule for this domain.",
+      "parentUuid": "6fff12fa_adbfd865",
+      "range": {
+        "startLine": 294,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 52
+      },
+      "revId": "bcfea1af1a440add8d6727fb6015061f8a1f2de5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac0656b1_78a2c0fa",
         "filename": "private/compat/34.0/34.0.ignore.cil",
         "patchSetId": 1
