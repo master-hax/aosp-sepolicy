@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "07c3ee13_b2ea5d95",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-02-15T01:42:08Z",
+      "side": 1,
+      "message": "\u003e Have you thought about how Sepolicies will work with partitions in soong? We will likely need to have product-specific sepolicy modules like the product-specific partitions. If we had those, we wouldn\u0027t need to do this reverse dependency stuff, individual products could add flags to their own sepolicy modules.\n\nSorry, I can\u0027t get this; could you elaborate? What\u0027s \"partitions in soong\", \"product-specific sepolicy modules like the product-sepcific partitions\"?  Is it different from nowadays? Do you mean that we\u0027ll eventually move system_ext_specific / product_specific / vendor modules out of system/sepolicy/Android.bp ?\n\n\u003e Reverse dependencies are undesirable because if you only download a portion of the source tree, you get different results. And you need to download the full source tree in order to figure out the minimal set of files in order to build your desired module.\n\nI\u0027m also not a big fan of reverse dependency, but seems like you\u0027re fine with \"export_to\" concept?",
+      "parentUuid": "7f7fdfd3_2e7caef9",
+      "revId": "09a4ba836de4cc2d7c73b7248370ed9aeed25beb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ad5196e_24fc21b0",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
