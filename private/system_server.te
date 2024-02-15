@@ -1590,3 +1590,8 @@ get_prop(system_server, pm_archiving_enabled_prop)
 # Do not allow any domain other than init or system server to get or set the property
 neverallow { domain -init -system_server } crashrecovery_prop:property_service set;
 neverallow { domain -init -dumpstate -system_server } crashrecovery_prop:file no_rw_file_perms;
+
+# Allow system server to manage perfetto traces for ProfilingService.
+allow system_server perfetto_traces_profiling_data_file:dir { rw_dir_perms search };
+allow system_server perfetto_traces_profiling_data_file:file { rw_file_perms unlink create };
+allow system_server perfetto_traces_data_file:dir { search };
