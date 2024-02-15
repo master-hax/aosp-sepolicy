@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fa38f58_96a05229",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1938075
+      },
+      "writtenOn": "2024-02-15T05:53:36Z",
+      "side": 1,
+      "message": "After talking extensively with @sunnygoyal@google.com and @jeffv@google.com, it was decided that creating an SELinux context just for com.android.systemui was more risky than previously believed, and will require extensive testing across all available devices when we create it. Therefore, we are switching to a different approach.\n\nWe are giving platform_apps access to this directory in userdebug/eng builds only. That is going to be the short-term solution, and the long-term solution is going to be something more robust. That solution will be better though, if we have more time to dig into it and talk about it. The short-term solution will unblock this effort, and allow dogfooders to access this feature on their user-debug devices as the first exposed audience who can use this feature.",
+      "revId": "0312017ad7b9980df6d7b5293e5767c0dd80a007",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

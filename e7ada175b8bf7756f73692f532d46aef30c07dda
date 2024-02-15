@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e617589e_4ba794eb",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1938075
+      },
+      "writtenOn": "2024-02-15T05:53:36Z",
+      "side": 1,
+      "message": "I don\u0027t think so. The reason for this, is that I have been using a pixel (which I believe relies upon this package, not just com.android.systemui) to test my changes, and it has not been breaking.",
+      "parentUuid": "aeca4a0f_3d80009b",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 105
+      },
+      "revId": "e7ada175b8bf7756f73692f532d46aef30c07dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8091ff79_35fc1f05",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "edfa55d2_faa7267d",
+        "filename": "private/system_suspend.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1938075
+      },
+      "writtenOn": "2024-02-15T05:53:36Z",
+      "side": 1,
+      "message": "It is actually not needed in the newest revision.",
+      "parentUuid": "8091ff79_35fc1f05",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "e7ada175b8bf7756f73692f532d46aef30c07dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1525fd7c_b0daa5d2",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-02-14T13:05:22Z",
       "side": 1,
       "message": "Can these permissions be removed from platform_app?",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 76
+      },
+      "revId": "e7ada175b8bf7756f73692f532d46aef30c07dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da97f442_ab21135d",
+        "filename": "private/system_ui_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1938075
+      },
+      "writtenOn": "2024-02-15T05:53:36Z",
+      "side": 1,
+      "message": "Per our conversation today, this is no longer applicable for the short term future.",
+      "parentUuid": "1525fd7c_b0daa5d2",
       "range": {
         "startLine": 5,
         "startChar": 0,
@@ -119,6 +191,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "43563e3f_6c357cf1",
+        "filename": "private/system_ui_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1938075
+      },
+      "writtenOn": "2024-02-15T05:53:36Z",
+      "side": 1,
+      "message": "Please see the newest revision. Does domain_auto_trans still apply since we are just giving platform_app permissions in userdebug/eng builds?",
+      "parentUuid": "93fe8f49_d8b27f4f",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 53
+      },
+      "revId": "e7ada175b8bf7756f73692f532d46aef30c07dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92d6474b_c829de69",
         "filename": "private/traced.te",
         "patchSetId": 3
@@ -130,6 +226,30 @@
       "writtenOn": "2024-02-14T13:05:22Z",
       "side": 1,
       "message": "Do you actually need access to this? I don\u0027t think so. I think this is the result of your overly permissive allow rule in system_ui_app.te.",
+      "range": {
+        "startLine": 123,
+        "startChar": 3,
+        "endLine": 123,
+        "endChar": 16
+      },
+      "revId": "e7ada175b8bf7756f73692f532d46aef30c07dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4888142_516db300",
+        "filename": "private/traced.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1938075
+      },
+      "writtenOn": "2024-02-15T05:53:36Z",
+      "side": 1,
+      "message": "I do need actual access to this. The process crashes otherwise.",
+      "parentUuid": "92d6474b_c829de69",
       "range": {
         "startLine": 123,
         "startChar": 3,
@@ -163,6 +283,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f5b31f4_066ed895",
+        "filename": "public/system_ui_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1938075
+      },
+      "writtenOn": "2024-02-15T05:53:36Z",
+      "side": 1,
+      "message": "Per our conversation earlier, this will be necessary, in a modified version, once we separate com.android.systemui into it\u0027s own SELinux context, but it won\u0027t be applicable to the short-term fix of just giving platform_app permissions in userdebug/eng builds.",
+      "parentUuid": "649a29ae_f7c95314",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 56
+      },
+      "revId": "e7ada175b8bf7756f73692f532d46aef30c07dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8deebe25_17d05010",
@@ -176,6 +320,30 @@
       "writtenOn": "2024-02-14T13:05:22Z",
       "side": 1,
       "message": "This isn\u0027t the right approach. Instead, list the services that you need access to.",
+      "range": {
+        "startLine": 6,
+        "startChar": 2,
+        "endLine": 6,
+        "endChar": 22
+      },
+      "revId": "e7ada175b8bf7756f73692f532d46aef30c07dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "209a47ed_dec98bb7",
+        "filename": "public/system_ui_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1938075
+      },
+      "writtenOn": "2024-02-15T05:53:36Z",
+      "side": 1,
+      "message": "When we create an SELinux context for SystemUI, we will replace this with something more specific.",
+      "parentUuid": "8deebe25_17d05010",
       "range": {
         "startLine": 6,
         "startChar": 2,
