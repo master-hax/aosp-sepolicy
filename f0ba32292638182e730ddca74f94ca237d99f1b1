@@ -46,6 +46,30 @@
       },
       "revId": "f0ba32292638182e730ddca74f94ca237d99f1b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dabba52_cb6167f0",
+        "filename": "public/hal_neverallows.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-02-15T08:08:18Z",
+      "side": 1,
+      "message": "Those rules (and this as well) are giving exemption to these file types. What I think is needed is something like\n\n`neverallow { domain -coredomain -some_more } shell:process transition`",
+      "parentUuid": "f7cbbcc9_142a6cdd",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 17
+      },
+      "revId": "f0ba32292638182e730ddca74f94ca237d99f1b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
