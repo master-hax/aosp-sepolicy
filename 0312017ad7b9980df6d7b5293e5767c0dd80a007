@@ -37,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7ad6ced_780abe70",
+        "filename": "private/platform_app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2024-02-15T12:41:16Z",
+      "side": 1,
+      "message": "I\u0027m going to ask the same question for the 3rd time:\ngiven that perfetto will attach the trace for you in the bugreport once you invoke dumpstate, why do you need  access yourself to trace_data_file?\n\nAlso the rule is inconsistent with the comment.\n\nThe comment says /data/misc/wmtrace, but that would require wm_trace_data_file NOT \ntrace_data_file (which instead is /data/local/traces).\nSee https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/file_contexts;l\u003d588?q\u003dtrace_data_file%20f:sepolicy%20f:context%20-f:test%20-f:prebuilt",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 0
+      },
+      "revId": "0312017ad7b9980df6d7b5293e5767c0dd80a007",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a76916b_dde909ed",
         "filename": "private/platform_app.te",
         "patchSetId": 4
@@ -48,6 +71,30 @@
       "writtenOn": "2024-02-15T06:59:41Z",
       "side": 1,
       "message": "Based on primiano\u0027s feedback (which I agree with), you should be using \"domain_auto_trans()\" here instead of this (that tells the system that perfetto should be run in the perfetto context instead of in the platform_app context). I think that may also remove the need for the below permission, but please do verify.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 54
+      },
+      "revId": "0312017ad7b9980df6d7b5293e5767c0dd80a007",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c9621f8_32517965",
+        "filename": "private/platform_app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2024-02-15T12:41:16Z",
+      "side": 1,
+      "message": "+1 as I mention is a matter of composability and maintainability, not just selinux rules aesthetics.",
+      "parentUuid": "6a76916b_dde909ed",
       "range": {
         "startLine": 83,
         "startChar": 0,
