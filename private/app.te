@@ -290,6 +290,9 @@ r_dir_file({ appdomain -isolated_app_all }, textclassifier_data_file)
 allow appdomain oemfs:dir r_dir_perms;
 allow appdomain oemfs:file rx_file_perms;
 
+# boot animations on oem are stored with specific label
+allow appdomain bootanim_oem_file:file r_file_perms;
+
 allow appdomain system_file:file x_file_perms;
 
 # Renderscript needs the ability to read directories on /system
