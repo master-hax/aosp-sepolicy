@@ -16,6 +16,46 @@
       "message": "After talking extensively with @sunnygoyal@google.com and @jeffv@google.com, it was decided that creating an SELinux context just for com.android.systemui was more risky than previously believed, and will require extensive testing across all available devices when we create it. Therefore, we are switching to a different approach.\n\nWe are giving platform_apps access to this directory in userdebug/eng builds only. That is going to be the short-term solution, and the long-term solution is going to be something more robust. That solution will be better though, if we have more time to dig into it and talk about it. The short-term solution will unblock this effort, and allow dogfooders to access this feature on their user-debug devices as the first exposed audience who can use this feature.",
       "revId": "0312017ad7b9980df6d7b5293e5767c0dd80a007",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62e9c0df_6ccbc216",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-15T06:59:41Z",
+      "side": 1,
+      "message": "I\u0027m fine with this approach temporarily. Let\u0027s follow up on what the permanent solution should be.",
+      "revId": "0312017ad7b9980df6d7b5293e5767c0dd80a007",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a76916b_dde909ed",
+        "filename": "private/platform_app.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-15T06:59:41Z",
+      "side": 1,
+      "message": "Based on primiano\u0027s feedback (which I agree with), you should be using \"domain_auto_trans()\" here instead of this (that tells the system that perfetto should be run in the perfetto context instead of in the platform_app context). I think that may also remove the need for the below permission, but please do verify.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 54
+      },
+      "revId": "0312017ad7b9980df6d7b5293e5767c0dd80a007",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
