@@ -718,6 +718,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "88c6dfd1_3d72f93e",
+        "filename": "private/vold_prepare_subdirs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-15T22:29:55Z",
+      "side": 1,
+      "message": "Update: Eric found a solution where the API can remain the same but we can remove permissions from vold_prepare_subdirs, by moving the deletion of storage area contents from vold_prepare_subdirs to StorageManager (which runs in app space), when apps call `deleteStorageArea`. So I\u0027ll work on that.",
+      "parentUuid": "8b10756b_e4ce0227",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 10
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d75248de_a3d1cd81",
         "filename": "public/domain.te",
         "patchSetId": 1
