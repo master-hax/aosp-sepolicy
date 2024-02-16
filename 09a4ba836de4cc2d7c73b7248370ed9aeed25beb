@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4de0026_4362efb4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-02-16T05:43:50Z",
+      "side": 1,
+      "message": "\u003e I think the plan is to have one partition module per product, like \"vendor_cheetah\". Then I assume we\u0027ll also need a \"vendor_sepolicy_cheetah\" module to go along with that, and if we had that, we could list all the cheetah-specific customizations as direct deps on that module instead of reverse deps.\n\nProbably sepolicy related modules will still be under system/sepolicy (especially due to 1) vendor sepolicy needs to depend on system/system_ext/product public sepolicy, 2) precompiled sepolicy needs to depend on all sepolicy source code), so I\u0027m not sure if that will be possible.",
+      "parentUuid": "72e6eec9_42fa2572",
+      "revId": "09a4ba836de4cc2d7c73b7248370ed9aeed25beb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ad5196e_24fc21b0",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
