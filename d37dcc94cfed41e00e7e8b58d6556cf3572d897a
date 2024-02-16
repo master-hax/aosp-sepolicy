@@ -623,6 +623,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ffab85ae_bb3ce71b",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-16T10:18:39Z",
+      "side": 1,
+      "message": "Ah, I missed that. Yes, that would work. But I still think it\u0027s a bad idea to have domain here, or these rules at all.",
+      "parentUuid": "80c7e94e_8145ea55",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 77
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d81484a_e6e63dc9",
         "filename": "private/vold_prepare_subdirs.te",
         "patchSetId": 1
@@ -730,6 +754,30 @@
       "side": 1,
       "message": "Update: Eric found a solution where the API can remain the same but we can remove permissions from vold_prepare_subdirs, by moving the deletion of storage area contents from vold_prepare_subdirs to StorageManager (which runs in app space), when apps call `deleteStorageArea`. So I\u0027ll work on that.",
       "parentUuid": "8b10756b_e4ce0227",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 10
+      },
+      "revId": "d37dcc94cfed41e00e7e8b58d6556cf3572d897a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "680ebc52_4a562f6a",
+        "filename": "private/vold_prepare_subdirs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-16T10:18:39Z",
+      "side": 1,
+      "message": "Oh, that\u0027s great.",
+      "parentUuid": "88c6dfd1_3d72f93e",
       "range": {
         "startLine": 64,
         "startChar": 0,
