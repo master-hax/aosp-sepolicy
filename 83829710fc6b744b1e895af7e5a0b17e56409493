@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "976392d7_decbf188",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-19T11:58:38Z",
+      "side": 1,
+      "message": "Having 2 different processes able to write can cause problems - generally it\u0027s better to have one owner.\nAre you confident you can manage any possible conflicts?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 83
+      },
+      "revId": "83829710fc6b744b1e895af7e5a0b17e56409493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ee486065_b63cdcf7",
@@ -54,6 +77,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "319655bd_e9fa3264",
+        "filename": "contexts/plat_file_contexts_test",
+        "patchSetId": 3
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-19T11:58:38Z",
+      "side": 1,
+      "message": "Can you fix the indents here?",
+      "range": {
+        "startLine": 995,
+        "startChar": 65,
+        "endLine": 995,
+        "endChar": 100
+      },
+      "revId": "83829710fc6b744b1e895af7e5a0b17e56409493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "482759f5_192dc21c",
+        "filename": "private/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-19T11:58:38Z",
+      "side": 1,
+      "message": "Is this `(.*)` rather than `(/.*)` intentionally?",
+      "range": {
+        "startLine": 661,
+        "startChar": 36,
+        "endLine": 661,
+        "endChar": 40
+      },
+      "revId": "83829710fc6b744b1e895af7e5a0b17e56409493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1ae36e5a_7cf7443e",
         "filename": "private/perfetto.te",
         "patchSetId": 3
@@ -77,6 +146,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ecb9261f_6a7f5cb3",
+        "filename": "private/perfetto.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-19T11:58:38Z",
+      "side": 1,
+      "message": "If you\u0027re removing this, can you add\n```\nneverallow system_server perfetto_traces_data_file:dir ~search;\n```\n\nso that we continue to block any other access?\n\nThat should probably go in system_server.te",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 57
+      },
+      "revId": "83829710fc6b744b1e895af7e5a0b17e56409493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "179aa34d_f08a8350",
+        "filename": "private/perfetto.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-19T11:58:38Z",
+      "side": 1,
+      "message": "I don\u0027t think you need this - you\u0027re not granting any new access to `perfetto_traces_data_file:file`.",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 65
+      },
+      "revId": "83829710fc6b744b1e895af7e5a0b17e56409493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7d7b63b_793eb590",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-19T11:58:38Z",
+      "side": 1,
+      "message": "This can just be `rw_dir_perms`; search is included.",
+      "range": {
+        "startLine": 586,
+        "startChar": 60,
+        "endLine": 586,
+        "endChar": 83
+      },
+      "revId": "83829710fc6b744b1e895af7e5a0b17e56409493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "db2d31e0_60cb2c2d",
         "filename": "private/system_server.te",
         "patchSetId": 3
@@ -93,6 +231,29 @@
         "startChar": 20,
         "endLine": 588,
         "endChar": 45
+      },
+      "revId": "83829710fc6b744b1e895af7e5a0b17e56409493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "657091ad_d283bd9f",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-19T11:58:38Z",
+      "side": 1,
+      "message": "Nit: Omit braces when there\u0027s only one thing.",
+      "range": {
+        "startLine": 588,
+        "startChar": 50,
+        "endLine": 588,
+        "endChar": 60
       },
       "revId": "83829710fc6b744b1e895af7e5a0b17e56409493",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
