@@ -33,6 +33,69 @@
       "message": "Note aosp/2967646 also relates to the new directory referenced here!",
       "revId": "83829710fc6b744b1e895af7e5a0b17e56409493",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b26ba7f_70e32fba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2024-02-19T11:55:24Z",
+      "side": 1,
+      "message": "makes sense to me given the prior conversations",
+      "revId": "83829710fc6b744b1e895af7e5a0b17e56409493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ae36e5a_7cf7443e",
+        "filename": "private/perfetto.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2024-02-19T11:55:24Z",
+      "side": 1,
+      "message": "why do we need these? these are about perfetto_traces_data_file (which you are NOT using) not the new perfetto_traces_profiling_data_file.\nIs this a leftover?",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 57
+      },
+      "revId": "83829710fc6b744b1e895af7e5a0b17e56409493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db2d31e0_60cb2c2d",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2024-02-19T11:55:24Z",
+      "side": 1,
+      "message": "what do you need this for if you are using profiling? Or is this required only for traversing? (Fine in that case)",
+      "range": {
+        "startLine": 588,
+        "startChar": 20,
+        "endLine": 588,
+        "endChar": 45
+      },
+      "revId": "83829710fc6b744b1e895af7e5a0b17e56409493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
