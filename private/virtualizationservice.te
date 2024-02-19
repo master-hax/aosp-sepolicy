@@ -63,6 +63,8 @@ virtualizationservice_use(virtualizationservice)
 allow virtualizationservice apex_module_data_file:dir search;
 allow virtualizationservice apex_virt_data_file:dir create_dir_perms;
 allow virtualizationservice apex_virt_data_file:file create_file_perms;
+# Also allow getattr on the parent directory.
+allow virtualizationservice apex_module_data_file:dir getattr;
 
 # Let virtualizationservice to accept vsock connection from the guest VMs to singleton services
 # such as the guest tombstone server.
