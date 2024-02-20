@@ -34,7 +34,7 @@ binder_call(hal_omx_server, hal_omx_client)
 
 # hal_omx_server should never execute any executable without a
 # domain transition
-neverallow hal_omx_server { file_type fs_type }:file execute_no_trans;
+neverallow hal_omx_server { file_type fs_type -shell_exec -toolbox_exec }:file execute_no_trans;
 
 # The goal of the mediaserver split is to place media processing code into
 # restrictive sandboxes with limited responsibilities and thus limited

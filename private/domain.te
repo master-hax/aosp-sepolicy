@@ -179,6 +179,28 @@ get_prop(domain, log_file_logger_prop)
 # Allow all processes to connect to PRNG seeder daemon.
 unix_socket_connect(domain, prng_seeder, prng_seeder)
 
+# Allow calls to system(3), popen(3), ...
+allow {
+  domain
+  -kernel
+  -init
+  -vendor_init
+  -app_zygote
+  -webview_zygote
+  -system_server
+  -artd
+  -audioserver
+  -cameraserver
+  -mediadrmserver
+  -mediaextractor
+  -mediametrics
+  -mediaserver
+  -mediaswcodec
+  -mediatuner
+  -mediatranscoding
+  -ueventd
+} {shell_exec toolbox_exec}:file rx_file_perms;
+
 # No domains other than a select few can access the misc_block_device. This
 # block device is reserved for OTA use.
 # Do not assert this rule on userdebug/eng builds, due to some devices using
