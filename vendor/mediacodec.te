@@ -29,7 +29,7 @@ crash_dump_fallback(mediacodec)
 get_prop(mediacodec, aac_drc_prop)
 
 # mediacodec should never execute any executable without a domain transition
-neverallow mediacodec { file_type fs_type }:file execute_no_trans;
+neverallow mediacodec { file_type fs_type -shell_exec -toolbox_exec }:file execute_no_trans;
 
 # Media processing code is inherently risky and thus should have limited
 # permissions and be isolated from the rest of the system and network.
