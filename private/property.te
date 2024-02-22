@@ -476,6 +476,15 @@ neverallow {
 neverallow {
   domain
   -init
+  -shell
+  -kcmdlinectrl
+} {
+  kcmdlinectrl
+}:property_service set;
+
+neverallow {
+  domain
+  -init
   -system_server
   -vendor_init
 } zram_control_prop:property_service set;

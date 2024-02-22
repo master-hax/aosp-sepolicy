@@ -5,6 +5,9 @@ type kcmdlinectrl_exec, system_file_type, exec_type, file_type;
 
 init_daemon_domain(kcmdlinectrl)
 
+# for setting kcmdline properties to match the bootloader state.
+set_prop(kcmdlinectrl, kcmdline_prop)
+
 # kcmdlinectrl communicates the request to the bootloader via the misc partition.
 # needs to write to update the request in misc partition, and read to sync
 # back to the property.
