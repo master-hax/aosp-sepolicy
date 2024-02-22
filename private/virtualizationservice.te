@@ -44,6 +44,9 @@ allow virtualizationservice virtualizationmanager:process setrlimit;
 # Let virtualizationservice set the owner of a VM's temporary directory.
 allow virtualizationservice self:capability chown;
 
+# Let virtualizationservice set task profiles on behalf of crosvm.
+allow virtualizationservice self:global_capability_class_set sys_nice;
+
 # Let virtualizationservice create and delete temporary directories of VMs. To remove old
 # directories, it needs the permission to unlink the files created by virtualizationmanager.
 allow virtualizationservice virtualizationservice_data_file:dir create_dir_perms;
