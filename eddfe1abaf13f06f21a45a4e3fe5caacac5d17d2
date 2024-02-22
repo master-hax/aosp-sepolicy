@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0b94c721_e4390e45",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-22T22:23:15Z",
+      "side": 1,
+      "message": "Good idea; I\u0027ve reworded it a bit too",
+      "parentUuid": "8a4a9dca_e65a1d15",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 13
+      },
+      "revId": "eddfe1abaf13f06f21a45a4e3fe5caacac5d17d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "316bec98_f3fd5fa1",
         "filename": "/COMMIT_MSG",
         "patchSetId": 6
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-22T12:44:03Z",
       "side": 1,
       "message": "Third?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 6
+      },
+      "revId": "eddfe1abaf13f06f21a45a4e3fe5caacac5d17d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "740656c2_d8d6987d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-22T22:23:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "316bec98_f3fd5fa1",
       "range": {
         "startLine": 27,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fbdb793_e3c69da6",
+        "filename": "private/app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-22T22:23:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "35d1149d_12db332d",
+      "range": {
+        "startLine": 268,
+        "startChar": 74,
+        "endLine": 268,
+        "endChar": 98
+      },
+      "revId": "eddfe1abaf13f06f21a45a4e3fe5caacac5d17d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cddb47c4_970da8d4",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-02-22T12:44:03Z",
       "side": 1,
       "message": "There\u0027s more app types than that. Should that be { appdomain -the_usual_suspects } ?\n\nAlso, can you use the file_type_auto_trans macro here? Or at least steal from it - e.g. `{file dir}` -\u003e `notdevfile_class_set`. \nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/sepolicy/public/te_macros;drc\u003d157848354e9b996d308c729568ee31ad4952a3d6;l\u003d52",
+      "range": {
+        "startLine": 563,
+        "startChar": 0,
+        "endLine": 564,
+        "endChar": 71
+      },
+      "revId": "eddfe1abaf13f06f21a45a4e3fe5caacac5d17d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fe4ada1_23f89112",
+        "filename": "private/app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-22T22:23:15Z",
+      "side": 1,
+      "message": "Nice! Yes -- I don\u0027t think we can use the macro, because it also calls `file_type_trans` which adds some extra permissions, but I\u0027ve taken the notdevfile_class_set.",
+      "parentUuid": "cddb47c4_970da8d4",
       "range": {
         "startLine": 563,
         "startChar": 0,
@@ -135,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "336a19db_80aa5fbb",
+        "filename": "private/domain.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-22T22:23:15Z",
+      "side": 1,
+      "message": "Ah, good point -- I\u0027ve split the permissions for storage_area_dir and storage_area_app_dir out from the other app_data_file_type types, and constrained them to only be on dirs.",
+      "parentUuid": "64fcbc92_c35695a5",
+      "range": {
+        "startLine": 251,
+        "startChar": 76,
+        "endLine": 251,
+        "endChar": 94
+      },
+      "revId": "eddfe1abaf13f06f21a45a4e3fe5caacac5d17d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5b7996df_ede82480",
         "filename": "private/seapp_contexts",
         "patchSetId": 6
@@ -146,6 +266,24 @@
       "writtenOn": "2024-02-22T12:44:03Z",
       "side": 1,
       "message": "Revert",
+      "revId": "eddfe1abaf13f06f21a45a4e3fe5caacac5d17d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f65de61_9f67666b",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-22T22:23:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5b7996df_ede82480",
       "revId": "eddfe1abaf13f06f21a45a4e3fe5caacac5d17d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -163,6 +301,30 @@
       "writtenOn": "2024-02-22T12:44:03Z",
       "side": 1,
       "message": "Can we have the newline back?",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 56
+      },
+      "revId": "eddfe1abaf13f06f21a45a4e3fe5caacac5d17d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08da512b_c5fde9ad",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 6
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-22T22:23:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c8cec72a_6916bb3a",
       "range": {
         "startLine": 225,
         "startChar": 0,
@@ -196,6 +358,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8972416e_b78aac9d",
+        "filename": "private/vold_prepare_subdirs.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-22T22:23:15Z",
+      "side": 1,
+      "message": "Nice!",
+      "parentUuid": "e41f1253_ff8c6c7d",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 26
+      },
+      "revId": "eddfe1abaf13f06f21a45a4e3fe5caacac5d17d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0ea78a0_5a11c866",
@@ -209,6 +395,30 @@
       "writtenOn": "2024-02-22T12:44:03Z",
       "side": 1,
       "message": "This feels unrelated",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 33
+      },
+      "revId": "eddfe1abaf13f06f21a45a4e3fe5caacac5d17d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6c3bc48_af6fb948",
+        "filename": "public/vold.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-22T22:23:15Z",
+      "side": 1,
+      "message": "Hmm, it is being used right now in vold\u0027s FsCrypt, to get the existing encryption policy of a storage area. @ebiggers@google.com -- tagging you in to check",
+      "parentUuid": "e0ea78a0_5a11c866",
       "range": {
         "startLine": 51,
         "startChar": 2,
