@@ -1,0 +1,21 @@
+typeattribute aconfigd coredomain;
+
+init_daemon_domain(aconfigd)
+
+# only init is allowed to enter the aconfigd domain
+neverallow { domain -init } aconfigd:process transition;
+neverallow * aconfigd:process dyntransition;
+
+allow aconfigd metadata_file:dir search;
+
+allow aconfigd {
+    aconfig_storage_metadata_file
+    aconfig_storage_flags_metadata_file
+}:dir { create open read write rmdir search getattr setattr ioctl };
+
+allow aconfigd {
+    aconfig_storage_metadata_file
+    aconfig_storage_flags_metadata_file
+}:file { create getattr open read write setattr relabelfrom unlink map };
+
+allow aconfigd aconfigd_socket:sock_file rw_file_perms;
