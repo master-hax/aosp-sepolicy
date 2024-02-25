@@ -1,0 +1,8 @@
+
+# aconfigd -- manager for aconfig flags
+type aconfigd, domain;
+type aconfigd_exec, exec_type, file_type, system_file_type;
+
+# Only init is allowed to enter the aconfigd domain
+neverallow { domain -init } aconfigd:process transition;
+neverallow * aconfigd:process dyntransition;

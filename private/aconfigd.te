@@ -1,0 +1,13 @@
+typeattribute aconfigd coredomain;
+
+init_daemon_domain(aconfigd)
+
+allow aconfigd {
+    aconfig_storage_metadata_file
+    aconfig_storage_flags_metadata_file
+}:dir { create open read write rmdir search getattr setattr ioctl };
+
+allow aconfigd {
+    aconfig_storage_metadata_file
+    aconfig_storage_flags_metadata_file
+}:file { create getattr open read write setattr relabelfrom unlink map };
