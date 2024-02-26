@@ -45,6 +45,99 @@
       },
       "revId": "a83515e3fbac94784364e994778e88fd89eb77a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa566c9e_a3e1018b",
+        "filename": "private/aconfigd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-26T10:24:13Z",
+      "side": 1,
+      "message": "create_file_perms",
+      "parentUuid": "5cef96ab_afe56ce0",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 73
+      },
+      "revId": "a83515e3fbac94784364e994778e88fd89eb77a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0ed8f87_e475d2bf",
+        "filename": "public/aconfigd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-26T10:24:13Z",
+      "side": 1,
+      "message": "can these go in private/aconfigd.te?\n\nYou\u0027ll need to move the neverallow in the next file from public/domain.te to private/domain.te. But keeping everything in private policy is better for long-term maintenance, prevents vendors from customizing it, and allows us to cleanly remove it in the future if we decide to.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 59
+      },
+      "revId": "a83515e3fbac94784364e994778e88fd89eb77a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26982f22_8e54a489",
+        "filename": "public/domain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-26T10:24:13Z",
+      "side": 1,
+      "message": "Move these to private/domain.te",
+      "range": {
+        "startLine": 632,
+        "startChar": 0,
+        "endLine": 634,
+        "endChar": 89
+      },
+      "revId": "a83515e3fbac94784364e994778e88fd89eb77a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ac328f2_674c137c",
+        "filename": "public/file.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-26T10:24:13Z",
+      "side": 1,
+      "message": "declare this in private/file.te",
+      "range": {
+        "startLine": 535,
+        "startChar": 0,
+        "endLine": 535,
+        "endChar": 51
+      },
+      "revId": "a83515e3fbac94784364e994778e88fd89eb77a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
