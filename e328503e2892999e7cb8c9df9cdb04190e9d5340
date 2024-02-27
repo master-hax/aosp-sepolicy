@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37b0cae6_bb564b39",
+        "filename": "vendor/hal_power_default.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-02-27T23:57:41Z",
+      "side": 1,
+      "message": "This should be in system/sepolicy/private/app.te (since it\u0027s a permission granted to apps), and it should be like this:\n\n    allow { appdomain -isolated_app_all } hal_power_server:fd use;\n\nThat way:\n- it works for all app types, including 3p, system apps, etc...\n- it will work for any hal power server domain, not just the default one\n\nNotice there are other similar rules there.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 45
+      },
+      "revId": "e328503e2892999e7cb8c9df9cdb04190e9d5340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
