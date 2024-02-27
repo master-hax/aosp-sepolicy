@@ -471,6 +471,9 @@ allow appdomain proc_meminfo:file r_file_perms;
 # For app fuse.
 allow appdomain app_fuse_file:file { getattr read append write map };
 
+# Allow app to access shared memory created by PowerHAL for FMQ use
+allow { appdomain -isolated_app_all } hal_power_server:fd use;
+
 ###
 ### CTS-specific rules
 ###
