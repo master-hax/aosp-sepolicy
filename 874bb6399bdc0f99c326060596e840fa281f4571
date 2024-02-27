@@ -69,6 +69,24 @@
       "parentUuid": "537fa64f_cc1b1f12",
       "revId": "874bb6399bdc0f99c326060596e840fa281f4571",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fea80a1f_2bab974c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2024-02-27T18:38:35Z",
+      "side": 1,
+      "message": "I\u0027d assume that `prebuilts/api/33.0` is what the CTS 13 test uses.  Have you tested this change?\n\nHere\u0027s a recent change where someone removed a neverallow rule from `android13-tests-dev`, similar to what you\u0027re doing here: https://r.android.com/2929772.  They updated `prebuilts/api/33.0`, so I assumed that was needed.\n\nThere is no automerger from `android13-tests-dev` to `android14-tests-dev`, so yes this change will need to be cherry-picked to `android14-tests-dev` if any partner needs it in CTS 14.",
+      "parentUuid": "facc80ea_43532ce5",
+      "revId": "874bb6399bdc0f99c326060596e840fa281f4571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
