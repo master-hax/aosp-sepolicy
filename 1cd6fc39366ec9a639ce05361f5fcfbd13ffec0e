@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "16ed470b_67046cd6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-27T22:49:41Z",
+      "side": 1,
+      "message": "I\u0027ve added a new type for the storage area contents, instead of using `app_data_file`: we now have `storage_area_content_file`.\n\nI also added a new type to represent the storage area encryption keys: `storage_area_key_file`: these are created by vold, but are deleted by installd on app uninstall.",
+      "revId": "1cd6fc39366ec9a639ce05361f5fcfbd13ffec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0ab77651_780f98c3",
         "filename": "private/app.te",
         "patchSetId": 11
@@ -14,6 +31,30 @@
       "writtenOn": "2024-02-23T11:11:00Z",
       "side": 1,
       "message": "Hmm. It\u0027s a bit odd that we separate out privapp_data_file, but nothing else.\nThere\u0027s all sorts of weird app domains that have their own data file type, and may not have access to app_data_file. That\u0027s part of what seapp_contexts is about.",
+      "range": {
+        "startLine": 568,
+        "startChar": 48,
+        "endLine": 568,
+        "endChar": 61
+      },
+      "revId": "1cd6fc39366ec9a639ce05361f5fcfbd13ffec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "138430d9_f8d9f3c9",
+        "filename": "private/app.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-02-27T22:49:41Z",
+      "side": 1,
+      "message": "Ah, good point! That makes sense -- I have added a new type for the storage area contents",
+      "parentUuid": "0ab77651_780f98c3",
       "range": {
         "startLine": 568,
         "startChar": 48,
