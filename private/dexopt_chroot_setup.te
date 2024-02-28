@@ -1,4 +1,4 @@
-type dexopt_chroot_setup, domain, coredomain;
+typeattribute dexopt_chroot_setup coredomain;
 type dexopt_chroot_setup_exec, system_file_type, exec_type, file_type;
 type dexopt_chroot_setup_tmpfs, file_type;
 
@@ -21,3 +21,87 @@ tmpfs_domain(dexopt_chroot_setup)
 allow dexopt_chroot_setup apex_module_data_file:dir { getattr search };
 r_dir_file(dexopt_chroot_setup, apex_art_data_file)
 userfaultfd_use(dexopt_chroot_setup)
+
+# Allow getting root capabilities to bypass permission checks.
+# - "dac_override" and "dac_read_search" are for
+#   - creating a directory in /mnt
+#   - mounting system partitions, data partitions, other file systems and apexes
+# - "sys_admin" is for performing mount and umount.
+# - "sys_chroot" is for performing chroot.
+allow dexopt_chroot_setup self:global_capability_class_set { dac_override dac_read_search sys_admin sys_chroot };
+
+# Allow managing its own tmpfs.
+allow dexopt_chroot_setup dexopt_chroot_setup_tmpfs:dir { create_dir_perms relabelfrom relabelto };
+allow dexopt_chroot_setup dexopt_chroot_setup_tmpfs:file { create_file_perms relabelfrom relabelto };
+
+# Allow creating a directory in /mnt.
+allow dexopt_chroot_setup tmpfs:dir create_dir_perms;
+
+# Allow mounting file systems.
+allow dexopt_chroot_setup {
+  tmpfs
+  rootfs
+  system_file
+  vendor_file
+  apex_mnt_dir
+  linkerconfig_file
+  system_data_root_file
+  system_data_file
+  mnt_expand_file
+  device
+  devpts
+  cgroup
+  binderfs
+  proc
+  sysfs
+  selinuxfs
+  cgroup_v2
+  debugfs_tracing_debug
+  fusectlfs
+  fs_bpf
+  pstorefs
+  metadata_file
+}:dir mounton;
+
+allow dexopt_chroot_setup {
+  tmpfs
+}:filesystem mount;
+
+allow dexopt_chroot_setup {
+  labeledfs
+  tmpfs
+  devpts
+  cgroup
+  binderfs
+  proc
+  sysfs
+  selinuxfs
+  cgroup_v2
+  debugfs_tracing_debug
+  fusectlfs
+  fs_bpf
+  pstorefs
+}:filesystem unmount;
+
+# Allow reading /apex in chroot.
+r_dir_file(dexopt_chroot_setup, apex_mnt_dir)
+allow dexopt_chroot_setup apex_info_file:file r_file_perms;
+
+# Allow writing an empty linker config in chroot to suppress warnings.
+allow dexopt_chroot_setup linkerconfig_file:dir create_dir_perms;
+allow dexopt_chroot_setup linkerconfig_file:file create_file_perms;
+
+# Allow relabeling for /apex, /linkerconfig, /mnt/expand in chroot.
+allow dexopt_chroot_setup tmpfs:dir relabelfrom;
+allow dexopt_chroot_setup { apex_mnt_dir linkerconfig_file mnt_expand_file }:dir relabelto;
+
+# Never allow running other binaries without a domain transition.
+# The only exception is art_exec. It is allowed to use the dexopt_chroot_setup
+# domain because it is a thin wrapper that executes other binaries on behalf of
+# dexopt_chroot_setup.
+neverallow dexopt_chroot_setup ~{art_exec_exec}:file execute_no_trans;
+allow dexopt_chroot_setup art_exec_exec:file rx_file_perms;
+
+# Allow running other binaries in their own domains.
+domain_auto_trans(dexopt_chroot_setup, apexd_exec, apexd)
+domain_auto_trans(dexopt_chroot_setup, linkerconfig_exec, linkerconfig)
