@@ -583,11 +583,14 @@ allow system_server perfetto:fd use;
 domain_auto_trans(system_server, perfetto_exec, perfetto);
 allow system_server perfetto:fifo_file { read write };
 
+<<<<<<< HEAD   (9d7d3c Merge "Allow shell and adb to read tombstones" into main)
 # Allow system server to manage perfetto traces for ProfilingService.
 allow system_server perfetto_traces_profiling_data_file:dir rw_dir_perms;
 allow system_server perfetto_traces_profiling_data_file:file { rw_file_perms unlink };
 allow system_server perfetto_traces_data_file:dir search;
 
+=======
+>>>>>>> BRANCH (77b2e5 Add rules for Perfetto to be used from system_server)
 # Manage /data/backup.
 allow system_server backup_data_file:dir create_dir_perms;
 allow system_server backup_data_file:file create_file_perms;
