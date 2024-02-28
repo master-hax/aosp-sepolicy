@@ -206,6 +206,7 @@ allow {
   -hal_configstore_server
   -hal_drm_server
   -hal_omx_server
+  -dexopt_chroot_setup
 } {shell_exec toolbox_exec}:file rx_file_perms;
 
 # No domains other than a select few can access the misc_block_device. This
@@ -476,6 +477,7 @@ neverallow {
 define(`dac_override_allowed', `{
   apexd
   artd
+  dexopt_chroot_setup
   dnsmasq
   dumpstate
   init
@@ -514,6 +516,7 @@ neverallow ~{
 neverallow {
     domain
     -apexd
+    -dexopt_chroot_setup
     recovery_only(`-fastbootd')
     -init
     -kernel
@@ -663,7 +666,7 @@ neverallow domain mlsvendorcompat:process fork;
 
 # Only init and otapreopt_chroot should be mounting filesystems on locations
 # labeled system or vendor (/product and /vendor respectively).
-neverallow { domain -init -otapreopt_chroot } { system_file_type vendor_file_type }:dir_file_class_set mounton;
+neverallow { domain -dexopt_chroot_setup -init -otapreopt_chroot } { system_file_type vendor_file_type }:dir_file_class_set mounton;
 
 # Only allow init and vendor_init to read/write mm_events properties
 # NOTE: dumpstate is allowed to read any system property
