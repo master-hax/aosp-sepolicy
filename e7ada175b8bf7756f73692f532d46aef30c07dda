@@ -237,6 +237,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2a96bc7_e8c3896a",
+        "filename": "private/system_ui_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1938075
+      },
+      "writtenOn": "2024-02-28T22:34:27Z",
+      "side": 1,
+      "message": "I am resolving this comment because the following is copy/pasted from my other reply,and is the same answer:\n\n\"\nI think we should keep this here, and not use domain_auto_trans. My reasoning is:\n1. This is a temporary solution, so we don\u0027t need to worry about upkeeping N sources that execute perfetto for very long. This line will be removed as soon as we get a long-term solution.\n2. If we use a domain_auto_trans, perfetto needs to be given permissions to trace_data_file, in addition to giving platform_app permissions to trace_data_file. The perfetto command line is writing its output to a file in /data/local/traces, and the system_ui process is sharing it, so both need permissions.\n\n    One idea to get around this issue has been given here: https://docs.google.com/document/d/1_Vb2zZsXRMkJEaMfgOEcg4VzpdoF0HydvLjfRO9Q5jg/edit?tab\u003dt.0.\n\n    That doesn\u0027t make things better security wise for platform_apps though, because SystemUI still needs to share other files within the /data/local/trace directory, so it still needs the same new permissions to trace_data_file and wm_trace_data_file that are already listed in this CL. If anything, it would need more permissions to that new file type, and we would have to make significant code changes to packages/apps/Traceur to implement conditional logic for SystemUI vs for Traceur. For a temporary solution, I think it is simpler and less risky to use the currently proposed solution.\n\n    Also, if we do go with the long-term solution of using a Traceur-Perfetto/Winscope service to start/stop traces, then this idea would make that code change more complicated.\n\n3. Also, if y\u0027all really want to use domain_auto_trans, I put together a CL (aosp/2982893) with the minimal number of permissions that would need to be given to perfetto to allow that to happen without breaking the new feature. It requires that BOTH perfetto and platform_app have permissions to trace_data_file and wm_trace_data_file. I would be happy going forward with that solution, but I personally like the solution here better.\n\"",
+      "parentUuid": "b740dd63_de79de60",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 53
+      },
+      "revId": "e7ada175b8bf7756f73692f532d46aef30c07dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92d6474b_c829de69",
