@@ -225,6 +225,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34e30742_92e3d754",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-29T22:14:01Z",
+      "side": 1,
+      "message": "I solved the issue by adding transition for dir. Now the mounted tmpfs filesystem gets `pre_reboot_dexopt_file`.\n\nRemoved other rules about `tmpfs`.",
+      "parentUuid": "5436a744_efadf8e1",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 0
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6425c389_ce8d9d06",
