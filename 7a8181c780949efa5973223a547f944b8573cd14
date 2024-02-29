@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96166019_9701e563",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-29T13:25:35Z",
+      "side": 1,
+      "message": "Is there an FR for this?\nWho\u0027s your security reviewer?",
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f23f451_0de23703",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-29T13:25:35Z",
+      "side": 1,
+      "message": "Why can\u0027t you set the permissions appropriately?\nDon\u0027t you run as root?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 80
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fac65bb_f72945b4",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-29T13:25:35Z",
+      "side": 1,
+      "message": "Why do you need all those permissions? Why are you relabeling? (The type_transition in tmpfs_domain should handle that for you.)",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 0
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6425c389_ce8d9d06",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-29T13:25:35Z",
+      "side": 1,
+      "message": "Could we narrow that down?",
+      "range": {
+        "startLine": 38,
+        "startChar": 36,
+        "endLine": 38,
+        "endChar": 52
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40aa595f_d5078bca",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-29T13:25:35Z",
+      "side": 1,
+      "message": "Nit: No braces for a single item",
+      "range": {
+        "startLine": 66,
+        "startChar": 26,
+        "endLine": 68,
+        "endChar": 1
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1efaea5_17894ddf",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-29T13:25:35Z",
+      "side": 1,
+      "message": "Again seems over broad",
+      "range": {
+        "startLine": 91,
+        "startChar": 48,
+        "endLine": 91,
+        "endChar": 64
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "621ec09b_be946fee",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-29T13:25:35Z",
+      "side": 1,
+      "message": "Do you need access to vendor_file_type?",
+      "range": {
+        "startLine": 669,
+        "startChar": 86,
+        "endLine": 669,
+        "endChar": 102
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d796385f_291c8e3d",
+        "filename": "private/linkerconfig.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-29T13:25:35Z",
+      "side": 1,
+      "message": "Nit: Reformat into one domain per line",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 120
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75b3c5d1_0c85473d",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-02-29T13:25:35Z",
+      "side": 1,
+      "message": "Is this the reason for moving dexopt_chroot_setup into public?\n\nBecause a better alternative might be to move these neverallow rules to private.",
+      "range": {
+        "startLine": 1082,
+        "startChar": 0,
+        "endLine": 1084,
+        "endChar": 88
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
