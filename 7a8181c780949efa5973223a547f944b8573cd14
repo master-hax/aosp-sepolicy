@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23c6da63_e75634e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-29T17:36:40Z",
+      "side": 1,
+      "message": "The design doc is at go/art-service-pre-reboot-dexopt. We regard this as an incremental change to the existing ART Service feature.",
+      "parentUuid": "96166019_9701e563",
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f23f451_0de23703",
@@ -65,6 +83,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69504bac_5b31ea60",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-29T17:36:40Z",
+      "side": 1,
+      "message": "We don\u0027t use as root, but as a user `artd`.\n\nI created a change (aosp/2983612) to use init to create the directory in `/mnt`.\n\nHowever, we need to access all kinds of directories (`/data`, `/mnt/expand`, `/proc`, `/sys`, `/dev`, `/sys/fs/cgroup`, etc.) in order to bind-mount them. The purpose of this program is to create a chroot environment to perform dexopt.\n\nSee [Mounting data partitions and other filesystems](https://docs.google.com/document/d/1Ir2KCrbKSvdGBQWjnTcVeAgm8eCfltsio2TWXCzSjLQ/edit?resourcekey\u003d0-tut2WYUHqvQbo9idOAGdsQ\u0026tab\u003dt.0#heading\u003dh.vuk3offilezn) in the design doc.",
+      "parentUuid": "2f23f451_0de23703",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 80
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36796745_6ace3aec",
@@ -78,6 +120,30 @@
       "writtenOn": "2024-02-29T13:46:46Z",
       "side": 1,
       "message": "this is creating a rather concerningly privileged process.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 113
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2663001f_fd189609",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-29T17:36:40Z",
+      "side": 1,
+      "message": "It is a privileged process. So we keep it simple to minimize the risk.\n\nMentioned in the design doc: go/art-service-pre-reboot-dexopt\n\n\u003e dexopt_chroot_setup is a native service introduced for this project. The service will be defined in build/apex/art.rc and started by init so that it can get the root capabilities to perform step 1-3. Because of that, it should be kept simple and do nothing more, to minimize the risk that it will be utilized by attackers for privilege elevation.",
+      "parentUuid": "36796745_6ace3aec",
       "range": {
         "startLine": 31,
         "startChar": 0,
@@ -135,6 +201,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5436a744_efadf8e1",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-29T17:36:40Z",
+      "side": 1,
+      "message": "Weird. I added these because I saw SELinux denials about dexopt_chroot_setup_tmpfs even though I had `tmpfs_domain(dexopt_chroot_setup)`, but I cannot reproduce it now.\n\nRemoved rules about dexopt_chroot_setup_tmpfs.\n\nHowever, it looks like I still need to keep other rules about `tmpfs` because, when dexopt_chroot_setup mounts a tmpfs on a directory, the mounted filesystem gets `tmpfs` as the label by default. Is this expected?",
+      "parentUuid": "3affd9c7_b396c6bc",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 0
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6425c389_ce8d9d06",
@@ -148,6 +238,30 @@
       "writtenOn": "2024-02-29T13:25:35Z",
       "side": 1,
       "message": "Could we narrow that down?",
+      "range": {
+        "startLine": 38,
+        "startChar": 36,
+        "endLine": 38,
+        "endChar": 52
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80cf9be7_90f771cc",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-29T17:36:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6425c389_ce8d9d06",
       "range": {
         "startLine": 38,
         "startChar": 36,
@@ -181,6 +295,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10b7aec9_21a8e79d",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-29T17:36:40Z",
+      "side": 1,
+      "message": "We need to recursively bind-mount all kinds of directories (`/data`, `/mnt/expand`, `/proc`, `/sys`, `/dev`, `/sys/fs/cgroup`, etc.) to create a chroot environment where dexopt can work properly.\n\nSee [Mounting data partitions and other filesystems](https://docs.google.com/document/d/1Ir2KCrbKSvdGBQWjnTcVeAgm8eCfltsio2TWXCzSjLQ/edit?resourcekey\u003d0-tut2WYUHqvQbo9idOAGdsQ\u0026tab\u003dt.0#heading\u003dh.vuk3offilezn) in the design doc.",
+      "parentUuid": "2d3198d3_89a974bc",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40aa595f_d5078bca",
@@ -194,6 +332,30 @@
       "writtenOn": "2024-02-29T13:25:35Z",
       "side": 1,
       "message": "Nit: No braces for a single item",
+      "range": {
+        "startLine": 66,
+        "startChar": 26,
+        "endLine": 68,
+        "endChar": 1
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0f01cad_ecd5bc5c",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-29T17:36:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40aa595f_d5078bca",
       "range": {
         "startLine": 66,
         "startChar": 26,
@@ -251,6 +413,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7723a8f_782355ba",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-29T17:36:40Z",
+      "side": 1,
+      "message": "I\u0027m suppressing linker warnings. In order to do that, I need to actually write the file. The same approach is used in Microdroid. https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/Virtualization/microdroid/init.rc;l\u003d26;drc\u003da5b90b6f64e7e39cb3f308120578434dfcb78ad0\n\nNarrowed down the permissions.",
+      "parentUuid": "f73c493d_c0c33ad0",
+      "range": {
+        "startLine": 91,
+        "startChar": 48,
+        "endLine": 91,
+        "endChar": 64
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5e7434d_acd3952d",
@@ -264,6 +450,30 @@
       "writtenOn": "2024-02-29T13:46:46Z",
       "side": 1,
       "message": "I don\u0027t see where this permission is used. It\u0027s u",
+      "range": {
+        "startLine": 209,
+        "startChar": 3,
+        "endLine": 209,
+        "endChar": 22
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc7022b2_a8e27279",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-29T17:36:40Z",
+      "side": 1,
+      "message": "This line is an exclusion from this `allow` rule.",
+      "parentUuid": "f5e7434d_acd3952d",
       "range": {
         "startLine": 209,
         "startChar": 3,
@@ -297,6 +507,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea353a75_2b3aa6d1",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-29T17:36:40Z",
+      "side": 1,
+      "message": "Yes, I need to bind-mount `/vendor` in order to create a chroot environment where dexopt works.",
+      "parentUuid": "621ec09b_be946fee",
+      "range": {
+        "startLine": 669,
+        "startChar": 86,
+        "endLine": 669,
+        "endChar": 102
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d796385f_291c8e3d",
@@ -310,6 +544,30 @@
       "writtenOn": "2024-02-29T13:25:35Z",
       "side": 1,
       "message": "Nit: Reformat into one domain per line",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 120
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd74aa66_fe4e4991",
+        "filename": "private/linkerconfig.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-29T17:36:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d796385f_291c8e3d",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -357,6 +615,30 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "75b3c5d1_0c85473d",
+      "range": {
+        "startLine": 1082,
+        "startChar": 0,
+        "endLine": 1084,
+        "endChar": 88
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0240117d_c55c9476",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-29T17:36:40Z",
+      "side": 1,
+      "message": "Good to know that this can be moved to private!",
+      "parentUuid": "24864b3e_467b5d20",
       "range": {
         "startLine": 1082,
         "startChar": 0,
