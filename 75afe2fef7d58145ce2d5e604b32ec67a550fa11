@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cfdb58f_b28959db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-02-29T17:56:25Z",
+      "side": 1,
+      "message": "being discussed in the other comment thread",
+      "parentUuid": "249ccfd3_570a0442",
+      "revId": "75afe2fef7d58145ce2d5e604b32ec67a550fa11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a79176e_47320f16",
@@ -103,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de7f85d6_25e9f8f7",
+        "filename": "private/compat/34.0/34.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-02-29T17:56:25Z",
+      "side": 1,
+      "message": "I switched this to another similar file, so the name has changed. The same problem I described above exists. And I see another similar file that is also added to the `private/compat/34.0/34.0.ignore.cil` file, `binderfs_logs_stats` here https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/sepolicy/private/compat/34.0/34.0.ignore.cil;drc\u003d067f7db593eec04398515257bfd2f94c75e80406;l\u003d41\n\nSo it looks like either that was also wrong, or adding it to the ignore file is the right thing to do?",
+      "parentUuid": "4cdcc813_7d5a8c70",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 23
+      },
+      "revId": "75afe2fef7d58145ce2d5e604b32ec67a550fa11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "373baa2e_be9cd6dd",
         "filename": "private/system_server.te",
         "patchSetId": 1
@@ -114,6 +156,30 @@
       "writtenOn": "2024-02-06T20:51:41Z",
       "side": 1,
       "message": "Everything which has this, we should also add binderfs_logs_state, so you should check everything which has binderfs_logs.",
+      "range": {
+        "startLine": 1561,
+        "startChar": 20,
+        "endLine": 1561,
+        "endChar": 33
+      },
+      "revId": "75afe2fef7d58145ce2d5e604b32ec67a550fa11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cae42ed_08663b3d",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-02-29T17:56:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "373baa2e_be9cd6dd",
       "range": {
         "startLine": 1561,
         "startChar": 20,
@@ -137,6 +203,30 @@
       "writtenOn": "2024-02-06T20:51:41Z",
       "side": 1,
       "message": "or if it is possible to change this to be an attribute, we could have \u0027type binderfs_logs_state, binderfs_type, fs_type\u0027, but that is probably way more involved",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 28
+      },
+      "revId": "75afe2fef7d58145ce2d5e604b32ec67a550fa11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c8ca8c9_8064f35a",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-02-29T17:56:25Z",
+      "side": 1,
+      "message": "What are the benefits of that? I can look into it if it makes things simpler or easier to do in the future.",
+      "parentUuid": "1c59242c_c6d09b56",
       "range": {
         "startLine": 8,
         "startChar": 0,
