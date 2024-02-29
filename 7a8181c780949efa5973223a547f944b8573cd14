@@ -43,6 +43,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fc33eb24_e67a11ad",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-29T13:46:46Z",
+      "side": 1,
+      "message": "Can we have init do this on your behalf in an init.rc file?",
+      "parentUuid": "2f23f451_0de23703",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 80
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36796745_6ace3aec",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-29T13:46:46Z",
+      "side": 1,
+      "message": "this is creating a rather concerningly privileged process.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 113
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0fac65bb_f72945b4",
         "filename": "private/dexopt_chroot_setup.te",
         "patchSetId": 2
@@ -54,6 +101,30 @@
       "writtenOn": "2024-02-29T13:25:35Z",
       "side": 1,
       "message": "Why do you need all those permissions? Why are you relabeling? (The type_transition in tmpfs_domain should handle that for you.)",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 0
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3affd9c7_b396c6bc",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-29T13:46:46Z",
+      "side": 1,
+      "message": "+1, I think tmpfs_domain will handle all your tmpfs needs i.e. add\n\ntmpfs_domain(dexopt_chroot_setup)\n\nAnd delete all the other policy additions related to tmpfs.",
+      "parentUuid": "0fac65bb_f72945b4",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -82,6 +153,29 @@
         "startChar": 36,
         "endLine": 38,
         "endChar": 52
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d3198d3_89a974bc",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-29T13:46:46Z",
+      "side": 1,
+      "message": "It\u0027s really not clear why dexopt_chroot_setup is doing all of these actions.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 27
       },
       "revId": "7a8181c780949efa5973223a547f944b8573cd14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -128,6 +222,53 @@
         "startChar": 48,
         "endLine": 91,
         "endChar": 64
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f73c493d_c0c33ad0",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-29T13:46:46Z",
+      "side": 1,
+      "message": "Are you just trying to suppress selinux denials?\n\nInstead of adding the permission, you can replace the `allow` with a `dontaudit` in this line.",
+      "parentUuid": "d1efaea5_17894ddf",
+      "range": {
+        "startLine": 91,
+        "startChar": 48,
+        "endLine": 91,
+        "endChar": 64
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5e7434d_acd3952d",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-29T13:46:46Z",
+      "side": 1,
+      "message": "I don\u0027t see where this permission is used. It\u0027s u",
+      "range": {
+        "startLine": 209,
+        "startChar": 3,
+        "endLine": 209,
+        "endChar": 22
       },
       "revId": "7a8181c780949efa5973223a547f944b8573cd14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -192,6 +333,30 @@
       "writtenOn": "2024-02-29T13:25:35Z",
       "side": 1,
       "message": "Is this the reason for moving dexopt_chroot_setup into public?\n\nBecause a better alternative might be to move these neverallow rules to private.",
+      "range": {
+        "startLine": 1082,
+        "startChar": 0,
+        "endLine": 1084,
+        "endChar": 88
+      },
+      "revId": "7a8181c780949efa5973223a547f944b8573cd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24864b3e_467b5d20",
+        "filename": "public/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-02-29T13:46:46Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "75b3c5d1_0c85473d",
       "range": {
         "startLine": 1082,
         "startChar": 0,
