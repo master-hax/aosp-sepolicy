@@ -145,6 +145,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b5512e20_c61b4d0b",
+        "filename": "private/compat/34.0/34.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-03-03T21:35:02Z",
+      "side": 1,
+      "message": "\u003e From some previous CLs (aosp/781036, aosp/2682786) it looks like I only need to add the new binderfs_logs_state to the typeattributeset binderfs_logs_34_0 entry in 34.0/34.0.cil (updated in patchset 2), but it does build. Do you see the problem?\n\nNot sure why patchset 2 doesn\u0027t work. There is one more example showing that it should work: aosp/2964524\n\n\u003e So it looks like either that was also wrong\n\nIMO this. But there may be no issues at all, if no old vendor blobs depend on them. Probably that\u0027s why we missed it?",
+      "parentUuid": "de7f85d6_25e9f8f7",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 23
+      },
+      "revId": "75afe2fef7d58145ce2d5e604b32ec67a550fa11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "373baa2e_be9cd6dd",
         "filename": "private/system_server.te",
         "patchSetId": 1
