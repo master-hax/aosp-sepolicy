@@ -914,6 +914,9 @@ persist.sys.timezone     u:object_r:timezone_prop:s0 exact string
 # timezone_prop props, these do not need to be read by other processes.
 persist.sys.timezone_confidence u:object_r:timezone_metadata_prop:s0 exact uint
 
+# Time offset system properties are set when device time zone is changed.
+persist.sys.time.offset     u:object_r:timeoffset_prop:s0 exact string
+
 persist.sys.mte.permissive u:object_r:permissive_mte_prop:s0 exact string
 persist.sys.test_harness u:object_r:test_harness_prop:s0 exact bool
 
