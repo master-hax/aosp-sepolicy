@@ -12,6 +12,7 @@ else
 LOCAL_ADDITIONAL_M4DEFS :=
 endif
 
+# test
 # sepolicy is now divided into multiple portions:
 # public - policy exported on which non-platform policy developers may write
 #   additional policy.  types and attributes are versioned and included in
