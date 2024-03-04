@@ -16,6 +16,23 @@
       "message": "Hi, CL needs code review vote from test owner. Thanks",
       "revId": "18ffc546bd9577bdec9d90a8a30ea4f6bcf11515",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71d1f7ba_a6b97465",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-03-04T11:40:37Z",
+      "side": 1,
+      "message": "A couple of questions:\n\nthe \"tests-dev\" branch isn\u0027t a functional branch for building a device. It\u0027s only for tests. What is the value in backporting this change to this branch? You can always backport it to your own Android-12 branch.\n\nFor David, I don\u0027t understand why the selinux label for /dev/socket/ is \"tmpfs\". Shouldn\u0027t this have a more specific selinux label?",
+      "revId": "18ffc546bd9577bdec9d90a8a30ea4f6bcf11515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
