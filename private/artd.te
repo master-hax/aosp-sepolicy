@@ -122,9 +122,10 @@ allow artd system_userdir_file:dir r_dir_perms;
 allow artd system_data_file:dir r_dir_perms;
 
 # Never allow running other binaries without a domain transition.
-# The only exception is art_exec. It is allowed to use the artd domain because
-# it is a thin wrapper that executes other binaries on behalf of artd.
-neverallow artd ~{art_exec_exec}:file execute_no_trans;
+# One exception is art_exec. It is allowed to use the artd domain because it is
+# a thin wrapper that executes other binaries on behalf of artd.
+# Another exception is artd_exec. Explained below.
+neverallow artd ~{ art_exec_exec artd_exec }:file execute_no_trans;
 allow artd art_exec_exec:file rx_file_perms;
 
 # Allow running other binaries in their own domains.
@@ -143,3 +144,24 @@ r_dir_file(artd, dex2oat);
 # artd needs to reopen a memfd with readonly in order to pass it to subprocesses
 # that don't have write permissions on memfds.
 allow artd artd_tmpfs:file open;
+
+# Pre-reboot Dexopt.
+
+# Allow init to execute artd through art_exec.
+domain_trans(init, art_exec_exec, artd)
+allow artd artd_exec:file rx_file_perms;
+
+allow artd self:global_capability_class_set { sys_chroot sys_admin };
+
+domain_auto_trans(artd, derive_classpath_exec, derive_classpath)
+domain_auto_trans(artd, odrefresh_exec, odrefresh)
+
+# /init.environ.rc.
+allow artd rootfs:file { read open getattr };
+
+allow artd pre_reboot_dexopt_file:dir { create_dir_perms relabelfrom relabelto };
+allow artd pre_reboot_dexopt_file:file { create_file_perms relabelfrom relabelto };
+
+allow artd apex_art_data_file:dir relabelto;
+
+allow artd { apex_art_data_file pre_reboot_dexopt_file }:dir mounton;

@@ -58,3 +58,7 @@ neverallow { domain -init -odrefresh -compos_fd_server } apex_art_staging_data_f
 # odrefresh_data_files.
 neverallow { domain -init -odrefresh -system_server } odrefresh_data_file:dir *;
 neverallow { domain -init -odrefresh -system_server } odrefresh_data_file:file *;
+
+dontaudit odrefresh property_type:file r_file_perms;
+
+allow odrefresh artd:fd use;
