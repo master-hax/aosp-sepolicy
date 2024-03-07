@@ -29,8 +29,10 @@ allow hal_drm cgroup_v2:dir { search write };
 allow hal_drm cgroup_v2:file w_file_perms;
 
 # Allow dumpsys Widevine without root
-allow hal_drm_server shell:fd use;
-allow hal_drm_server shell:fifo_file write;
+userdebug_or_eng(`
+  allow hal_drm_server shell:fd use;
+  allow hal_drm_server shell:fifo_file write;
+')
 
 # Allow access to ion memory allocation device
 allow hal_drm ion_device:chr_file rw_file_perms;
@@ -51,6 +53,9 @@ allow hal_drm_server { appdomain -isolated_app }:fd use;
 # only allow unprivileged socket ioctl commands
 allowxperm hal_drm self:{ rawip_socket tcp_socket udp_socket }
   ioctl { unpriv_sock_ioctls unpriv_tty_ioctls };
+
+# Allow logging to statsd
+unix_socket_send(hal_drm_server, statsdw, statsd)
 
 ###
 ### neverallow rules
