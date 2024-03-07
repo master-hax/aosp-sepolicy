@@ -26,6 +26,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0f29aa8_bb12d158",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-03-07T19:40:38Z",
+      "side": 1,
+      "message": "I read go/sdk-sandbox-audit-next but it\u0027s still not clear why we need to do this. We need system/sepolicy/public when we want vendors (`/vendor`, `/odm`) to customize permissions regarding platform resources, and apps have nothing to do with vendors.",
+      "revId": "4f908201be71af35b26976385a0a920a98371e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6704d194_3c0c4966",
         "filename": "public/attributes",
         "patchSetId": 4
@@ -37,6 +54,30 @@
       "writtenOn": "2024-03-07T17:22:43Z",
       "side": 1,
       "message": "Technically we\u0027re past API Freeze so we shouldn\u0027t be changing public policy.\n\nI\u0027m slightly surprised this didn\u0027t hit a presubmit error because of that.\n\nI think it\u0027s actually ok - this won\u0027t break anything, and is useful - but you may need to update prebuilts.",
+      "range": {
+        "startLine": 454,
+        "startChar": 0,
+        "endLine": 454,
+        "endChar": 26
+      },
+      "revId": "4f908201be71af35b26976385a0a920a98371e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37fee548_c107c925",
+        "filename": "public/attributes",
+        "patchSetId": 4
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-03-07T19:40:38Z",
+      "side": 1,
+      "message": "Adding types and attributes is ok. Removing types and attributes is not OK.",
+      "parentUuid": "6704d194_3c0c4966",
       "range": {
         "startLine": 454,
         "startChar": 0,
