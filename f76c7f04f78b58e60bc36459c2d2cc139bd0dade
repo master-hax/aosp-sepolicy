@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40d738a5_72ef78b8",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-07T14:50:46Z",
+      "side": 1,
+      "message": "In a similar vein to the `dexopt_chroot_setup` name discussed in https://r.android.com/2939061, what about calling this `dexopt_chroot_file`, and using `/mnt/dexopt_chroot` as mount point? In particular I think there\u0027s value in having \"chroot\" in the directory name to make it clear that that\u0027s what it is.",
+      "range": {
+        "startLine": 20,
+        "startChar": 46,
+        "endLine": 20,
+        "endChar": 68
+      },
+      "revId": "f76c7f04f78b58e60bc36459c2d2cc139bd0dade",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a7aed94_ed3fffe9",
+        "filename": "private/domain.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-07T14:50:46Z",
+      "side": 1,
+      "message": "Nit: Not sure if there\u0027s any guidance on ordering these lists, but since it apparently isn\u0027t sorted alphabetically then maybe clump this together with artd above so that all ART stuff is in one place?",
+      "range": {
+        "startLine": 209,
+        "startChar": 1,
+        "endLine": 209,
+        "endChar": 22
+      },
+      "revId": "f76c7f04f78b58e60bc36459c2d2cc139bd0dade",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
