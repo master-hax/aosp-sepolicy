@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe448f6d_7da9f11d",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-07T15:31:18Z",
+      "side": 1,
+      "message": "Oh, I didn\u0027t realise there are pre-reboot files outside the chroot itself. Then the name may make more sense, but what files are those?\n\nAnd on that note, do we have some overview docs of this directory structure somewhere? (I looked in art/dexopt_chroot_setup/README.md but nothing there.) It\u0027d be helpful when reviewing changes like this, and then I think for visibility there should be a pointer to that file from the sepolicy rules. Specifically pointing to it from the file_contexts entry would be appropriate.",
+      "parentUuid": "fc1ea3ef_6780f235",
+      "range": {
+        "startLine": 20,
+        "startChar": 46,
+        "endLine": 20,
+        "endChar": 68
+      },
+      "revId": "f76c7f04f78b58e60bc36459c2d2cc139bd0dade",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a7aed94_ed3fffe9",
         "filename": "private/domain.te",
         "patchSetId": 9
