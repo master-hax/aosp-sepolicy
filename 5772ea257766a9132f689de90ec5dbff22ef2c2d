@@ -46,6 +46,30 @@
       },
       "revId": "5772ea257766a9132f689de90ec5dbff22ef2c2d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "172e4d6a_990c3e1e",
+        "filename": "private/service.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-08T15:28:12Z",
+      "side": 1,
+      "message": "\u003e This is a system-service is also guarded guarded by a \"signature|privileged\" permission which effectively guards for system_api_service.\n\nI\u0027m not sure system_api_service does what you think. It\u0027s unrelated to the permissions.\n\nIt effectively means that a whole lot of things automatically get access to this service (https://source.corp.google.com/search?q\u003dsystem_api_service\u0026sq\u003drepo:googleplex-android%2Fplatform%2Fsuperproject%2Fmain%20b:main%20file:sepolicy%20-file:prebuilt). But do you want that? Would it be better to specifically allow the things that need this?\n\n\n\u003e  has recently moved from system_api_service to app_api_service to allow CTS tests\n\nYeah, we do see that, although it always makes me sad having to weaken protection solely for tests.\n\n\u003e if i had to skip SELinux policy in CTS tests, I can just use set enforce 0 -\n\nThat won\u0027t work on a user build, and CTS has to pass on a user build. It\u0027s fine for non-CTS tests, as long as you make sure the test runs as root.",
+      "parentUuid": "7cd1d44f_2d45c688",
+      "range": {
+        "startLine": 14,
+        "startChar": 101,
+        "endLine": 14,
+        "endChar": 133
+      },
+      "revId": "5772ea257766a9132f689de90ec5dbff22ef2c2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
