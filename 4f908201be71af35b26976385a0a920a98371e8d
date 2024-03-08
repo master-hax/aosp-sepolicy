@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3294995f_14b961e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-08T10:37:40Z",
+      "side": 1,
+      "message": "aosp/2969275 adds \n```\nneverallow sdk_sandbox_all { domain -exceptions}:unix_stream_socket connect;\n```\n\nwhich may contradict existing vendor policy along the lines of `allow domain vendor_foo:unix_stream_socket connect;`. And the proposed solution is for the vendor policy to exempt sdk_sandbox_all, so it needs visibility of the name.",
+      "parentUuid": "d0f29aa8_bb12d158",
+      "revId": "4f908201be71af35b26976385a0a920a98371e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6704d194_3c0c4966",
         "filename": "public/attributes",
         "patchSetId": 4
@@ -141,6 +159,30 @@
         "id": 1929300
       },
       "writtenOn": "2024-03-08T10:29:45Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "37fee548_c107c925",
+      "range": {
+        "startLine": 454,
+        "startChar": 0,
+        "endLine": 454,
+        "endChar": 26
+      },
+      "revId": "4f908201be71af35b26976385a0a920a98371e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d916ab9_7b9497d5",
+        "filename": "public/attributes",
+        "patchSetId": 4
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-08T10:37:40Z",
       "side": 1,
       "message": "Acknowledged",
       "parentUuid": "37fee548_c107c925",
