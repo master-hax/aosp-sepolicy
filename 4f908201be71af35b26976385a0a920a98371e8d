@@ -103,6 +103,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5c0208c_e539e2c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-03-11T02:34:05Z",
+      "side": 1,
+      "message": "\u003e To get there, we need to expose the sdk_sandbox_all domain in public to allow vendor policies to carve out the attribute from allow rules affecting unix_stream_socket.\n\nDoes this mean that you want to allow vendors to write rules like `allow { appdomain -sdk_sandbox_all } ...:unix_stream_socket connect;`? If so, why do vendors need to grant access to generic domains, not to their specific types? e.g. they could just write `allow vendor_some_domain ...:unix_stream_socket connect;` for each type they want to grant\n\nIf not, could you elaborate on this? what are the expected use cases?",
+      "parentUuid": "3294995f_14b961e0",
+      "revId": "4f908201be71af35b26976385a0a920a98371e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6704d194_3c0c4966",
         "filename": "public/attributes",
         "patchSetId": 4
