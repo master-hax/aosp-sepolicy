@@ -1293,7 +1293,10 @@ neverallow {
 } ashmem_device:chr_file open;
 
 neverallow { domain -traced_probes -init -vendor_init } debugfs_tracing_printk_formats:file *;
+<<<<<<< HEAD   (a1260c Merge "Relax neverallows for vendor to use /system/bin/sh" i)
 
 # Allow everyone to read media server-configurable flags, so that libstagefright can be
 # configured using server-configurable flags
 get_prop(domain, device_config_media_native_prop)
+=======
+>>>>>>> BRANCH (30404a Grant lockdown integrity to all processes)
