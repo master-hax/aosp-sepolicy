@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04710b61_366f48ed",
+        "filename": "private/snapshotctl.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-03-11T07:02:32Z",
+      "side": 1,
+      "message": "You should include a neverallow rule that disallows other domains setting this propoerty:\n\nneverallow { domain -snapshotctl } ctl_snapuserd_prop:property_service set;\n\n(you may also need to add -init to the exclusion list in addition to -snapshotcts))",
+      "range": {
+        "startLine": 51,
+        "startChar": 22,
+        "endLine": 51,
+        "endChar": 40
+      },
+      "revId": "5c32fd620fa6f5079e28f389f9853e2e9085e888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
