@@ -1,0 +1,16 @@
+type modem_test_server, domain;
+
+userdebug_or_eng(`
+  typeattribute modem_test_server coredomain;
+
+  app_domain(modem_test_server)
+  net_domain(modem_test_server)
+  bluetooth_domain(modem_test_server)
+
+  allow modem_test_server activity_service:service_manager find;
+  dontaudit modem_test_server content_capture_service:service_manager find;
+  dontaudit modem_test_server game_service:service_manager find;
+  allow modem_test_server netstats_service:service_manager find;
+
+  allow modem_test_server self:vsock_socket create_socket_perms_no_ioctl;
+')
