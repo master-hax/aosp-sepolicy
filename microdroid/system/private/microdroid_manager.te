@@ -124,6 +124,11 @@ allow microdroid_manager extra_apk_file:dir create_dir_perms;
 # Allow microdroid_manager to write kmsg_debug (stdio_to_kmsg).
 allow microdroid_manager kmsg_debug_device:chr_file w_file_perms;
 
+# In case Microdroid VM is started with microdroid vendor partition, the first_stage_init
+# will derive a microdroid vendor dice node, and write a resulting dice chain into file
+# with dice_chain_file type, microdroid_manager will need to read it to derive the next chain.
+allow microdroid_manager dice_chain_file:file { read unlink };
+
 # Domains other than microdroid can't write extra_apks
 neverallow { domain -microdroid_manager -init -vendor_init } extra_apk_file:file no_w_file_perms;
 neverallow { domain -microdroid_manager -init -vendor_init } extra_apk_file:dir no_w_dir_perms;
