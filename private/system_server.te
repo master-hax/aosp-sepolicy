@@ -861,8 +861,9 @@ get_prop(system_server, net_464xlat_fromvendor_prop)
 # Read hypervisor capabilities ro.boot.hypervisor.*
 get_prop(system_server, hypervisor_prop)
 
-# Read persist.wm.debug. properties
+# Read and write persist.wm.debug. properties
 get_prop(system_server, persist_wm_debug_prop)
+userdebug_or_eng(`set_prop(system_server, persist_wm_debug_prop)')
 
 # Read persist.sysui.notification.builder_extras_override property
 get_prop(system_server, persist_sysui_builder_extras_prop)
