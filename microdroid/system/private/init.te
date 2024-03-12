@@ -45,7 +45,7 @@ allow init { device socket_device dm_user_device }:dir relabelto;
 # and /dev/urandom
 allow init { console_device null_device ptmx_device random_device } : chr_file relabelto;
 # /dev/device-mapper, /dev/block(/.*)?
-allow init tmpfs:{ chr_file blk_file } relabelfrom;
+allow init tmpfs:{ chr_file blk_file file } relabelfrom;
 allow init tmpfs:blk_file getattr;
 allow init block_device:{ dir blk_file lnk_file } relabelto;
 allow init dm_device:{ chr_file blk_file } relabelto;
@@ -440,3 +440,6 @@ allow init prng_seeder:unix_stream_socket { create bind listen };
 r_dir_file(init, vendor_kernel_modules)
 allow init self:capability sys_module;
 allow init vendor_kernel_modules:system module_load;
+
+allow init microdroid_resources_tmpfs:dir relabelto;
+# allow init microdroid_resources_tmpfs:filesystem relabelto;

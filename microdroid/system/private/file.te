@@ -8,17 +8,22 @@ allow extra_apk_file zipfusefs:filesystem associate;
 allow file_type labeledfs:filesystem associate;
 allow file_type tmpfs:filesystem associate;
 allow file_type rootfs:filesystem associate;
+allow microdroid_resources_tmpfs tmpfs:filesystem associate;
 allow proc_net proc:filesystem associate;
 allow sysfs_type sysfs:filesystem associate;
 allow system_data_file tmpfs:filesystem associate;
 
 type authfs_fuse, fs_type, contextmount_type;
 
+type dice_chain_file, file_type;
+
 # /system/bin/mke2fs - used to format encryptedstore block device
 type e2fs_exec, system_file_type, exec_type, file_type;
 
 type encryptedstore_file, file_type;
 type encryptedstore_fs, fs_type, contextmount_type;
+
+type microdroid_resources_tmpfs, fs_type;
 
 # Filesystem entry for for PRNG seeder socket.
 type prng_seeder_socket, file_type, coredomain_socket;
