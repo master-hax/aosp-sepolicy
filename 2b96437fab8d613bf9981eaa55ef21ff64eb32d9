@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "123cb169_35a61a35",
+        "filename": "private/bpfdomain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-03-13T10:47:31Z",
+      "side": 1,
+      "message": "(a) \"there was a kernel bug\" is generally not a good justification for over-privileging things. This isn\u0027t just a security issue, it\u0027s far less fragile to restrict access. If (for example) random vendor code can modify maps that the network_stack believes that it has sole ownership of, that\u0027s a problem. And if we don\u0027t put restrictions in place, it\u0027s going to happen. We stopped allowing CAP_NET_* for vendor processes for this very reason. We couldn\u0027t trust the state of the system because it kept being modified underneath us.\n\n(b) bad precedent exists, but is that a good reason to keep doing it?",
+      "parentUuid": "4c1967ed_0cc024ab",
+      "range": {
+        "startLine": 20,
+        "startChar": 16,
+        "endLine": 20,
+        "endChar": 22
+      },
+      "revId": "2b96437fab8d613bf9981eaa55ef21ff64eb32d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "403f138f_09771f38",
         "filename": "private/bpfdomain.te",
         "patchSetId": 3
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "so map_read/map_write/prog_run aren\u0027t all that useful if you can\u0027t get your hands on the appropriate bpf fd in the first place.\n\nbasically there\u0027s 3 checks:\n(a) do you have uid/gid permission to open /sys/fs/bpf/.../{map,prog}\n(b) do you have selinux privs to open ...\n(c) do you have map_read/write (for maps) or prog_run (for programs)\n\nIdeally you\u0027d use a \u0027specific\u0027 fs_bpf_... and (b) would protect you.\n\nBut even if you use the \u0027generic\u0027 fs_bpf, then you are usually\nstill protected by uid/gid r/w checks.\n\nAnd if you do actually want to lock stuff down tighter...\nthen add a new fs_bpf_foo...",
       "parentUuid": "403f138f_09771f38",
+      "range": {
+        "startLine": 26,
+        "startChar": 32,
+        "endLine": 26,
+        "endChar": 59
+      },
+      "revId": "2b96437fab8d613bf9981eaa55ef21ff64eb32d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcdef426_49fa4c59",
+        "filename": "private/bpfdomain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-03-13T10:47:31Z",
+      "side": 1,
+      "message": "\u003e so map_read/map_write/prog_run aren\u0027t all that useful if you can\u0027t get your hands on the appropriate bpf fd in the first place.\n\nThis would be more palatable/believable without the permission granted above, which grants any bpf user access to all programs/maps.\n\nuid/gid checks are problematic because we cannot assert that they are actually what we set them as. OEMs can modify them. And they will.",
+      "parentUuid": "4d3c8fb7_05eb158e",
       "range": {
         "startLine": 26,
         "startChar": 32,
