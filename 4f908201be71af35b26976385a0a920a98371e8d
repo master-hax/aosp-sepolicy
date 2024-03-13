@@ -296,6 +296,30 @@
       },
       "revId": "4f908201be71af35b26976385a0a920a98371e8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39f311d1_2303a1e3",
+        "filename": "public/attributes",
+        "patchSetId": 4
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-03-13T01:20:13Z",
+      "side": 1,
+      "message": "\u003e I thought the recent API/sepolicy finalization was for 24Q3?\n\nSince vFRC we finalize vintf on Q2, including sepolicy. In fact, sepolicy finalization doesn\u0027t need to be along with API finalization.\n\n\u003e Why not?\n\nI admit that this argument hasn\u0027t been before... But I want frozen prebuilts to be really \"frozen\" like API finalization. Compatibility tests and freeze tests rely on prebuilts, so we need to make sure that prebuilts are really compatible with vendors. By allowing additional types/attributes, vendors might use those types which aren\u0027t covered by tests.",
+      "parentUuid": "254f243e_f593dac9",
+      "range": {
+        "startLine": 454,
+        "startChar": 0,
+        "endLine": 454,
+        "endChar": 26
+      },
+      "revId": "4f908201be71af35b26976385a0a920a98371e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
