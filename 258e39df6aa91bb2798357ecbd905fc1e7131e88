@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93fa59e6_d3c4c4b4",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-03-13T07:34:13Z",
+      "side": 1,
+      "message": "Suggestion:\n\n- persist_wm_debug_prop seems to be a rather large bucket of properties.\n- the userdebug_or_eng() macro needs to be used carefully. At a later date, someone might try to set another wm property from system_server and find that it just works because they\u0027re testing on a userdebug build. Then they get surprised when it doesn\u0027t work on a user build, perhaps causing breakage.\n\nOne way to significantly reduce the risk would be to map the specific property that you\u0027re wanting system_server to set to its own selinux label. That allows you to carefully control what you\u0027re allowing, and helps avoid creating foot-guns for your teammates.",
+      "range": {
+        "startLine": 866,
+        "startChar": 42,
+        "endLine": 866,
+        "endChar": 63
+      },
+      "revId": "258e39df6aa91bb2798357ecbd905fc1e7131e88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
