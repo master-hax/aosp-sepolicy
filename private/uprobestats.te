@@ -9,7 +9,6 @@ init_daemon_domain(uprobestats)
 
 allow uprobestats fs_bpf_uprobestats:file { read write };
 allow uprobestats fs_bpf_uprobestats:dir search;
-allow uprobestats bpfloader:bpf { map_read map_write prog_run };
 allow uprobestats self:capability2 perfmon;
 allow uprobestats self:perf_event { cpu open write };
 allow uprobestats sysfs_uprobe:file { open read };

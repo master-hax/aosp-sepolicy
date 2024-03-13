@@ -34,15 +34,14 @@ neverallow { domain -bpfloader } bpffs_type:dir { add_name create remove_name wr
 
 neverallow { domain            } bpffs_type:file ~{ create getattr map open read rename setattr write };
 neverallow { domain -bpfloader } bpffs_type:file { create map open rename setattr };
-neverallow { domain -bpfloader -gpuservice -lmkd -mediaprovider_app -netd -netutils_wrapper                -system_server } fs_bpf:file               { getattr read };
-neverallow { domain -bpfloader                                                                                            } fs_bpf_loader:file        { getattr read };
-neverallow { domain -bpfloader                                                              -network_stack                } fs_bpf_net_private:file   { getattr read };
-neverallow { domain -bpfloader                                                              -network_stack -system_server } fs_bpf_net_shared:file    { getattr read };
-neverallow { domain -bpfloader                                      -netd                   -network_stack -system_server } fs_bpf_netd_readonly:file { getattr read };
-neverallow { domain -bpfloader                                      -netd -netutils_wrapper -network_stack -system_server } fs_bpf_netd_shared:file   { getattr read };
-neverallow { domain -bpfloader                                                              -network_stack                } fs_bpf_tethering:file     { getattr read };
-neverallow { domain -bpfloader                                                                                            -uprobestats } fs_bpf_uprobestats:file   { getattr read };
-neverallow { domain -bpfloader -gpuservice                          -netd -netutils_wrapper -network_stack -system_server -uprobestats } { bpffs_type -fs_bpf_vendor }:file write;
+neverallow { domain -bpfdomain } bpffs_type:file { getattr read write };
+neverallow { domain -bpfloader                                                                    } fs_bpf_loader:file        { getattr read write };
+neverallow { domain -bpfloader                         -network_stack                             } fs_bpf_net_private:file   { getattr read write };
+neverallow { domain -bpfloader                         -network_stack -system_server              } fs_bpf_net_shared:file    { getattr read write };
+neverallow { domain -bpfloader -netd                   -network_stack -system_server              } fs_bpf_netd_readonly:file { getattr read write };
+neverallow { domain -bpfloader -netd -netutils_wrapper -network_stack -system_server              } fs_bpf_netd_shared:file   { getattr read write };
+neverallow { domain -bpfloader                         -network_stack                             } fs_bpf_tethering:file     { getattr read write };
+neverallow { domain -bpfloader                                                       -uprobestats } fs_bpf_uprobestats:file   { getattr read write };
 
 neverallow { domain -bpfloader } bpffs_type:lnk_file ~read;
 neverallow { domain -bpfdomain } bpffs_type:lnk_file read;

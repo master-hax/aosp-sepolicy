@@ -6,13 +6,9 @@ init_daemon_domain(netd)
 # Allow netd to spawn dnsmasq in it's own domain
 domain_auto_trans(netd, dnsmasq_exec, dnsmasq)
 
-allow netd { fs_bpf fs_bpf_netd_readonly fs_bpf_netd_shared fs_bpf_vendor }:dir search;
-allow netd { fs_bpf fs_bpf_netd_readonly fs_bpf_netd_shared fs_bpf_vendor }:file { getattr read };
-allow netd { fs_bpf                      fs_bpf_netd_shared               }:file write;
-
-# give netd permission to setup iptables rule with xt_bpf, attach program to cgroup, and read/write
-# the map created by bpfloader
-allow netd bpfloader:bpf { prog_run map_read map_write };
+allow netd { fs_bpf_netd_readonly fs_bpf_netd_shared fs_bpf_vendor }:dir search;
+allow netd { fs_bpf_netd_readonly fs_bpf_netd_shared fs_bpf_vendor }:file { getattr read };
+allow netd {                      fs_bpf_netd_shared               }:file write;
 
 # in order to invoke side effect of close() on such a socket calling synchronize_rcu()
 # TODO: Remove this permission when 4.9 kernel is deprecated.
