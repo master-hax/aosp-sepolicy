@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5af57c5_c405e664",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-03-13T09:52:14Z",
+      "side": 1,
+      "message": "Thanks for uploading a PoC for discussion.",
+      "revId": "2b96437fab8d613bf9981eaa55ef21ff64eb32d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbe918d5_e0289ffa",
+        "filename": "private/bpfdomain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-03-13T09:52:14Z",
+      "side": 1,
+      "message": "IMO we should specifically not allow this as it by default grants too-broad permissions which will require reviewers to catch/prevent. My preference would be to neverallow this access with a comment on the neverallow of how to properly resolve",
+      "range": {
+        "startLine": 20,
+        "startChar": 16,
+        "endLine": 20,
+        "endChar": 22
+      },
+      "revId": "2b96437fab8d613bf9981eaa55ef21ff64eb32d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "403f138f_09771f38",
+        "filename": "private/bpfdomain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-03-13T09:52:14Z",
+      "side": 1,
+      "message": "don\u0027t we have usecases where we specifically want to disallow one or more of these? e.g. we want to allow map_read to one domain, but not map_write or prog_run?",
+      "range": {
+        "startLine": 26,
+        "startChar": 32,
+        "endLine": 26,
+        "endChar": 59
+      },
+      "revId": "2b96437fab8d613bf9981eaa55ef21ff64eb32d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
