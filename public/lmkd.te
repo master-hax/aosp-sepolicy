@@ -37,6 +37,11 @@ allow lmkd self:global_capability_class_set sys_nice;
 
 allow lmkd proc_zoneinfo:file r_file_perms;
 allow lmkd proc_vmstat:file r_file_perms;
+allow lmkd proc_pagetypeinfo:file r_file_perms;
+allow lmkd sysfs_dma_heap:dir search;
+allow lmkd sysfs_dma_heap:file r_file_perms;
+allow lmkd debugfs:dir search;
+allow lmkd debugfs:file r_file_perms;
 
 # live lock watchdog process allowed to look through /proc/
 allow lmkd domain:dir { search open read };

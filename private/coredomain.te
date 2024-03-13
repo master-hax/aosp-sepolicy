@@ -142,6 +142,7 @@ full_treble_only(`
   neverallow {
     coredomain
     -init
+    -lmkd
     -vold
   } proc:file no_rw_file_perms;
 
@@ -167,6 +168,7 @@ full_treble_only(`
   # debugfs
   neverallow {
     coredomain
+    -lmkd
     no_debugfs_restriction(`
       -dumpstate
       -init
