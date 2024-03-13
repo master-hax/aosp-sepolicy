@@ -1,0 +1,181 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "110851ca_ff76adb6",
+        "filename": "private/gpuservice.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-03-13T10:24:39Z",
+      "side": 0,
+      "message": "already had everything...",
+      "revId": "c3274647b9060df27b1c981ad9de3293bf3144fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e76f8d21_6afbb2c4",
+        "filename": "private/lmkd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-03-13T10:24:39Z",
+      "side": 0,
+      "message": "after aosp/3000742 would have everything anyway",
+      "revId": "c3274647b9060df27b1c981ad9de3293bf3144fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b94ff71f_ad462fe9",
+        "filename": "private/mediaprovider_app.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-03-13T10:24:39Z",
+      "side": 0,
+      "message": "didn\u0027t have write... weird... does it not matter?\ndid it have map_write spuriously?\n\neither way doubt it matters if it has access",
+      "revId": "c3274647b9060df27b1c981ad9de3293bf3144fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04366dd4_886ae39e",
+        "filename": "private/netd.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-03-13T10:24:39Z",
+      "side": 0,
+      "message": "already had everything",
+      "revId": "c3274647b9060df27b1c981ad9de3293bf3144fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c87896d7_e97023fa",
+        "filename": "private/netutils_wrapper.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-03-13T10:24:39Z",
+      "side": 0,
+      "message": "didn\u0027t have map_read/map_write, while this isn\u0027t needed atm, it\u0027s probably long term beneficial for it to have it",
+      "revId": "c3274647b9060df27b1c981ad9de3293bf3144fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86385e5b_1cf83b45",
+        "filename": "private/network_stack.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-03-13T10:24:39Z",
+      "side": 0,
+      "message": "didn\u0027t have fs_bpf read/write - and this was a bug we hit in Feb mainline",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 66
+      },
+      "revId": "c3274647b9060df27b1c981ad9de3293bf3144fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7e21f94_a4a7ef78",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1205,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-03-13T10:24:39Z",
+      "side": 0,
+      "message": "had everything",
+      "range": {
+        "startLine": 1205,
+        "startChar": 0,
+        "endLine": 1205,
+        "endChar": 5
+      },
+      "revId": "c3274647b9060df27b1c981ad9de3293bf3144fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "327963a0_fedd5f97",
+        "filename": "private/uprobestats.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-03-13T10:24:39Z",
+      "side": 0,
+      "message": "didn\u0027t have fs_bpf read/write, doubt it really matters though.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 5
+      },
+      "revId": "c3274647b9060df27b1c981ad9de3293bf3144fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f710ed3b_328356e3",
+        "filename": "public/hal_health.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-03-13T10:24:39Z",
+      "side": 0,
+      "message": "this one gains the most...\nI\u0027m not even sure if this one is in use... afaik the bpf program wasn\u0027t ever actually merged (not sure)",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 5
+      },
+      "revId": "c3274647b9060df27b1c981ad9de3293bf3144fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
