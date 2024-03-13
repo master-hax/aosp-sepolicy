@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44767e69_0fcc48b9",
+        "filename": "private/bpfdomain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-03-13T12:16:25Z",
+      "side": 1,
+      "message": "note that network_stack doesn\u0027t use fs_bpf for any of its maps.\n\nthe only case we\u0027d want to use fs_bpf is if we for some reason wanted to allow access",
+      "parentUuid": "123cb169_35a61a35",
+      "range": {
+        "startLine": 20,
+        "startChar": 16,
+        "endLine": 20,
+        "endChar": 22
+      },
+      "revId": "2b96437fab8d613bf9981eaa55ef21ff64eb32d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "403f138f_09771f38",
         "filename": "private/bpfdomain.te",
         "patchSetId": 3
@@ -150,6 +174,30 @@
       "side": 1,
       "message": "\u003e so map_read/map_write/prog_run aren\u0027t all that useful if you can\u0027t get your hands on the appropriate bpf fd in the first place.\n\nThis would be more palatable/believable without the permission granted above, which grants any bpf user access to all programs/maps.\n\nuid/gid checks are problematic because we cannot assert that they are actually what we set them as. OEMs can modify them. And they will.",
       "parentUuid": "4d3c8fb7_05eb158e",
+      "range": {
+        "startLine": 26,
+        "startChar": 32,
+        "endLine": 26,
+        "endChar": 59
+      },
+      "revId": "2b96437fab8d613bf9981eaa55ef21ff64eb32d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d21724a_b8477139",
+        "filename": "private/bpfdomain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-03-13T12:16:25Z",
+      "side": 1,
+      "message": "again, it only grants access to the \u0027generic\u0027 fs_bpf, not the more specialized fs_bpf_foo",
+      "parentUuid": "dcdef426_49fa4c59",
       "range": {
         "startLine": 26,
         "startChar": 32,
