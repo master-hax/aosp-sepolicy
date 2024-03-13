@@ -11,7 +11,19 @@ neverallow {
 # any domain which uses bpf is a bpfdomain
 neverallow { domain -bpfdomain } *:bpf *;
 
+# needed to be able to enter /sys/fs/bpf
 allow bpfdomain fs_bpf:dir search;
+
+# fs_bpf is the generic 'not more tightly' controlled context,
+# protection should happen either by using a more specific
+# fs_bpf_foo context, or by using standard uid/gid permissions 
+allow bpfdomain fs_bpf:file { read write }
+
+# it's rare that bpf user will not need these,
+# yes technically you could only need map read, or only map write,
+# or only attach programs and not use maps at all, but it
+# seems easier to just grant here.
+allow bpfdomain bpfloader:bpf { map_read map_write prog_run }
 
 # genfscon doesn't seem to trigger during symlink creation,
 # and thus any created symlinks end up as 'fs_bpf:lnk_type',
