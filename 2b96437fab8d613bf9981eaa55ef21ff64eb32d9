@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c1967ed_0cc024ab",
+        "filename": "private/bpfdomain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-03-13T10:13:59Z",
+      "side": 1,
+      "message": "(a)\nwe just hit a mainline module rollout bug with M-2024-02 caused by network stack erroneously not having fs_bpf access (unlike system server)\n\nit only triggers on some old buggy kernels (that lack 1-line bpffs genfscon patch) running Android T-... (U+ forces the kernel to not be buggy)\n\n(b)\nif you look at the remaining clean up changes in this (now building CL), you\u0027ll note that most things already had this access...\n\n(and lkmd which didn\u0027t have it has the oustanding CL to add it)\n\nso this doesn\u0027t grant all that much more than we already have, but does simplify things.",
+      "parentUuid": "bbe918d5_e0289ffa",
+      "range": {
+        "startLine": 20,
+        "startChar": 16,
+        "endLine": 20,
+        "endChar": 22
+      },
+      "revId": "2b96437fab8d613bf9981eaa55ef21ff64eb32d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "403f138f_09771f38",
         "filename": "private/bpfdomain.te",
         "patchSetId": 3
@@ -54,6 +78,30 @@
       "writtenOn": "2024-03-13T09:52:14Z",
       "side": 1,
       "message": "don\u0027t we have usecases where we specifically want to disallow one or more of these? e.g. we want to allow map_read to one domain, but not map_write or prog_run?",
+      "range": {
+        "startLine": 26,
+        "startChar": 32,
+        "endLine": 26,
+        "endChar": 59
+      },
+      "revId": "2b96437fab8d613bf9981eaa55ef21ff64eb32d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d3c8fb7_05eb158e",
+        "filename": "private/bpfdomain.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-03-13T10:13:59Z",
+      "side": 1,
+      "message": "so map_read/map_write/prog_run aren\u0027t all that useful if you can\u0027t get your hands on the appropriate bpf fd in the first place.\n\nbasically there\u0027s 3 checks:\n(a) do you have uid/gid permission to open /sys/fs/bpf/.../{map,prog}\n(b) do you have selinux privs to open ...\n(c) do you have map_read/write (for maps) or prog_run (for programs)\n\nIdeally you\u0027d use a \u0027specific\u0027 fs_bpf_... and (b) would protect you.\n\nBut even if you use the \u0027generic\u0027 fs_bpf, then you are usually\nstill protected by uid/gid r/w checks.\n\nAnd if you do actually want to lock stuff down tighter...\nthen add a new fs_bpf_foo...",
+      "parentUuid": "403f138f_09771f38",
       "range": {
         "startLine": 26,
         "startChar": 32,
