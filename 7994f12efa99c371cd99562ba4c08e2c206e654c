@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecf3ba9e_dc66a9e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1968385
+      },
+      "writtenOn": "2024-03-13T11:50:59Z",
+      "side": 1,
+      "message": "Yes, this app lives in AOSP. While it currently only implements methods for Cuttlefish, it is able to be extended for use with other physical devices.",
+      "parentUuid": "87661b82_f7c859ae",
+      "revId": "7994f12efa99c371cd99562ba4c08e2c206e654c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70c19454_38a1cc45",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-03-13T09:57:57Z",
       "side": 1,
       "message": "This is an odd set of services to request. Is there an explanation of why modem_test_server needs access to the game_service and content_capture_service?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 60
+      },
+      "revId": "7994f12efa99c371cd99562ba4c08e2c206e654c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d46255c3_c283b234",
+        "filename": "private/modem_server_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1968385
+      },
+      "writtenOn": "2024-03-13T11:50:59Z",
+      "side": 1,
+      "message": "umm, I\u0027m not familiar with service_manager but I guess getApplicationContext might call them. \n\nI found this from the logs while testing it locally so I just add it to the list.\n\n```\n03-13 11:00:47.643  1000   205   205 I auditd  : avc:  denied  { find } for pid\u003d4662 uid\u003d10113 name\u003dgame scontext\u003du:r:modem_test_server:s0:c113,c256,c512,c768 tcontext\u003du:object_r:game_service:s0 tclass\u003dservice_manager permissive\u003d1\n```\n\nAny suggestions?",
+      "parentUuid": "70c19454_38a1cc45",
       "range": {
         "startLine": 11,
         "startChar": 0,
