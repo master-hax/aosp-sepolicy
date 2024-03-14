@@ -143,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee29a8a1_4d638bf8",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-03-14T09:07:51Z",
+      "side": 1,
+      "message": "```\nint utcOffsetMillis \u003d newZone.getOffset(System.currentTimeMillis());\nSystemProperties.set(SYS_PROPERTY_TIMEOFFSET, String.valueOf(utcOffsetMillis));\n```\n\nAbove says it\u0027s int. A string \"123\" should be accepted, but a string \"abc\" shouldn\u0027t, and that\u0027s what `int` in the property_context ensures.",
+      "parentUuid": "cbe7d916_88bf5d12",
+      "range": {
+        "startLine": 918,
+        "startChar": 64,
+        "endLine": 918,
+        "endChar": 70
+      },
+      "revId": "6cb3df7af19129e880830c689192053059c2adbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a28bb782_b194c36f",
