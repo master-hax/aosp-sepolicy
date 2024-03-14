@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1dcb1f58_f49b5185",
+        "filename": "private/compat/34.0/34.0.ignore.cil",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-03-14T04:53:06Z",
+      "side": 1,
+      "message": "move this to 202404.ignore.cil",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "629d44e1702b36d25c274c78d7a4f707ac3b3e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2872f148_84a28430",
+        "filename": "private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-03-14T04:53:06Z",
+      "side": 1,
+      "message": "@jorgetm@google.com Can we add an API for the timezone offset, so vendors can access the timezone offset data? Or are you okay with exposing this property? Once exported to vendors, it will be hard to change/remove this property.",
+      "range": {
+        "startLine": 918,
+        "startChar": 0,
+        "endLine": 918,
+        "endChar": 70
+      },
+      "revId": "629d44e1702b36d25c274c78d7a4f707ac3b3e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b3dfa82_116efdc2",
         "filename": "public/property.te",
         "patchSetId": 2
@@ -103,6 +149,24 @@
       "writtenOn": "2024-03-14T04:43:19Z",
       "side": 1,
       "message": "We couldn\u0027t see any API to get this offset, so we are relay on this",
+      "parentUuid": "dc7c89a2_eaad0711",
+      "revId": "629d44e1702b36d25c274c78d7a4f707ac3b3e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "129935ed_e07d908f",
+        "filename": "public/property.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-03-14T04:53:06Z",
+      "side": 1,
+      "message": "Ah sorry. I apologize that I thought you\u0027re a Googler. Ignore my comments regarding API and our internal link.\n\nIn such case, probably you want `system_restricted_prop`. But before that I\u0027d like to get reviewed by the author.",
       "parentUuid": "dc7c89a2_eaad0711",
       "revId": "629d44e1702b36d25c274c78d7a4f707ac3b3e77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
