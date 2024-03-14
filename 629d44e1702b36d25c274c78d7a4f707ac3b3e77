@@ -73,6 +73,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "43e4b88f_97af1a0b",
+        "filename": "private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1899675
+      },
+      "writtenOn": "2024-03-14T19:15:01Z",
+      "side": 1,
+      "message": "What\u0027s the intention to get the timezone offset? I honestly don\u0027t know where you plan to use this, but a few thoughts:\n - If running low level, you should be able to use already existing libraries, like the time library, see tm_gmtoff \n in https://man7.org/linux/man-pages/man3/tm.3type.html\n - If running high level, https://developer.android.com/reference/java/time/ZoneOffset\n\nThere should be many ways to read the timezone offset already. Just want to understand what your current situation is and why\u0027s this property the only option.",
+      "parentUuid": "217ad434_11e5b649",
+      "range": {
+        "startLine": 918,
+        "startChar": 0,
+        "endLine": 918,
+        "endChar": 70
+      },
+      "revId": "629d44e1702b36d25c274c78d7a4f707ac3b3e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0884cb67_0a08918a",
+        "filename": "private/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1899675
+      },
+      "writtenOn": "2024-03-14T19:15:01Z",
+      "side": 1,
+      "message": "please change to \"get_prop\". To be able to read the property, as per the bug you\u0027re only interested in reading the value, not writing.",
+      "range": {
+        "startLine": 749,
+        "startChar": 0,
+        "endLine": 749,
+        "endChar": 8
+      },
+      "revId": "629d44e1702b36d25c274c78d7a4f707ac3b3e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b3dfa82_116efdc2",
         "filename": "public/property.te",
         "patchSetId": 2
