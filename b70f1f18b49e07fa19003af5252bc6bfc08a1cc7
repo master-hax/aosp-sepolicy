@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b52a559_9f462ae7",
+        "filename": "microdroid/system/private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-14T17:31:43Z",
+      "side": 1,
+      "message": "Nit: Can you reformat these as one label per line (e.g. like line 365 above)\n\nBut - wait: microdroid_resources_tmpfs isn\u0027t a contextmount_type, so why do you need these exemptions?",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 388,
+        "endChar": 138
+      },
+      "revId": "b70f1f18b49e07fa19003af5252bc6bfc08a1cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be3e7d79_d4e9c06f",
+        "filename": "microdroid/system/private/init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-14T17:31:43Z",
+      "side": 1,
+      "message": "Hmm. Why do you need this? I don\u0027t think `tmpfs:file` should be a thing.",
+      "range": {
+        "startLine": 48,
+        "startChar": 37,
+        "endLine": 48,
+        "endChar": 41
+      },
+      "revId": "b70f1f18b49e07fa19003af5252bc6bfc08a1cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
