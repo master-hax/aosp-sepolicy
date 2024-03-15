@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e56ca1c5_efc679f7",
+        "filename": "private/artd.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-15T17:29:41Z",
+      "side": 1,
+      "message": "Nit: Move neverallow to the end of the file\n\n(That\u0027s officially our style, and it can help to make them more obvious, although we\u0027re not terribly consistent)",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 67
+      },
+      "revId": "f04cfd8875cfd87b19d9beed85b9ed3ba169c858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebdb9a3f_0275ae87",
+        "filename": "private/artd.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-15T17:29:41Z",
+      "side": 1,
+      "message": "Combine this with the art_exec_exec one?\n\nI\u0027m slightly confused by all this:\n- init can run artd_exec in the artd domain (that\u0027s the init_daemon_domain macro)\n- init can run art_exec_exec also in the artd domain\n- artd can run art_exec_exec in its own domain.\n\nWhy do we have both of the last 2?",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 40
+      },
+      "revId": "f04cfd8875cfd87b19d9beed85b9ed3ba169c858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2698870b_b3d12ded",
+        "filename": "private/artd.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-15T17:29:41Z",
+      "side": 1,
+      "message": "Why do you need both relabelfrom and to?",
+      "range": {
+        "startLine": 169,
+        "startChar": 57,
+        "endLine": 169,
+        "endChar": 78
+      },
+      "revId": "f04cfd8875cfd87b19d9beed85b9ed3ba169c858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
