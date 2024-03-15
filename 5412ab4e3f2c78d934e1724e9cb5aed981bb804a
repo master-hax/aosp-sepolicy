@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "840da074_24035128",
+        "filename": "private/apexd.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-15T20:13:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f52c375b_91339bc5",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 93
+      },
+      "revId": "5412ab4e3f2c78d934e1724e9cb5aed981bb804a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "523b902b_106b6e02",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-03-15T17:41:33Z",
       "side": 1,
       "message": "I\u0027m still unhappy about these.\n\nIf they\u0027re needed by apexd, shouldn\u0027t it be apexd that has these capabilities (which it does); aren\u0027t you running apexd in its own domain?",
+      "range": {
+        "startLine": 33,
+        "startChar": 61,
+        "endLine": 33,
+        "endChar": 89
+      },
+      "revId": "5412ab4e3f2c78d934e1724e9cb5aed981bb804a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cb6eb5a_be7546ea",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-15T20:13:55Z",
+      "side": 1,
+      "message": "Oh, looks like we don\u0027t need these! I thought these are required for passing the capabilities down to apexd, but actually the capabilities can be passed even without these. Interesting.",
+      "parentUuid": "523b902b_106b6e02",
       "range": {
         "startLine": 33,
         "startChar": 61,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "333af711_1fe3a8b0",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-15T20:13:55Z",
+      "side": 1,
+      "message": "The root of the temp dir that dexopt_chroot_setup uses is labeled `pre_reboot_dexopt_file`. Inside the temp dir, we create files and dirs and relabel them after creation, so we need relabelfrom.\n\nRemoved relabelto.",
+      "parentUuid": "4ef4822a_4855560a",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 97
+      },
+      "revId": "5412ab4e3f2c78d934e1724e9cb5aed981bb804a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c359fc64_9e6fae77",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-03-15T17:41:33Z",
       "side": 1,
       "message": "Do you really need all of these?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 15
+      },
+      "revId": "5412ab4e3f2c78d934e1724e9cb5aed981bb804a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32e569b6_90812729",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-15T20:13:55Z",
+      "side": 1,
+      "message": "Yes, we need all of these because we recursively bind-mount `/proc`, `/sys`, `/dev`, etc. to create a workable chroot environment, as explained in the design doc. I created this list by looking at the avc denials that are printed during the recursive bind-mount.",
+      "parentUuid": "c359fc64_9e6fae77",
       "range": {
         "startLine": 47,
         "startChar": 0,
