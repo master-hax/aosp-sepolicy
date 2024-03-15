@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a6dc6577_aa087a26",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-03-15T09:12:29Z",
+      "side": 1,
+      "message": "Hmm:\n\ndefine(`r_dir_perms\u0027, `{ open getattr read search ioctl lock watch watch_reads }\u0027)\ndefine(`w_dir_perms\u0027, `{ open search write add_name remove_name lock }\u0027)\ndefine(`ra_dir_perms\u0027, `{ r_dir_perms add_name write }\u0027)\ndefine(`rw_dir_perms\u0027, `{ r_dir_perms w_dir_perms }\u0027)\ndefine(`create_dir_perms\u0027, `{ create reparent rename rmdir setattr rw_dir_perms }\u0027)\n\nso that would allow rmdir and I don\u0027t really want anybody ever changing things once they\u0027re created/pinned... bad enough we have to allow file rename to work around selinux genfscon.\n\nIf I could I\u0027d prefer all of these things to be create-with-right-privs-only but I just haven\u0027t found a way to do it (yet?).\n\nFurthermore bpffs is *very* virtual and weird, so they don\u0027t quite behave like normal files.\n\nWhat would be really great is if we could ship sepolicy snippets via mainline...",
+      "parentUuid": "5190926a_e5cd2e99",
+      "range": {
+        "startLine": 9,
+        "startChar": 31,
+        "endLine": 9,
+        "endChar": 84
+      },
+      "revId": "93a3d62f6b52d62cef6e17e0ed01c05400555280",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f35a2f41_3a0687a4",
         "filename": "private/bpfloader.te",
         "patchSetId": 2
