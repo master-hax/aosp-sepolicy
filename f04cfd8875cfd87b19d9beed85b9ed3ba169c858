@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9644272_16698843",
+        "filename": "private/artd.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-15T18:08:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e56ca1c5_efc679f7",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 67
+      },
+      "revId": "f04cfd8875cfd87b19d9beed85b9ed3ba169c858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebdb9a3f_0275ae87",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13fe39d1_52f98705",
+        "filename": "private/artd.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-15T18:08:43Z",
+      "side": 1,
+      "message": "\u003e Combine this with the art_exec_exec one?\n\nI would like to separate rules for Pre-reboot Dexopt from others.\n\n\u003e Why do we have both of the last 2?\n\nLet me explain this. `art_exec_exec` is a thin wrapper that executes other binaries. It can do things like dropping root capabilities, closing FDs, calling chroot, etc. before executing other binaries.\n\n\u003e - init can run artd_exec in the artd domain (that\u0027s the init_daemon_domain macro)\n\nThis is for init to run artd in the normal mode (not for Pre-reboot Dexopt).\n\n\u003e - init can run art_exec_exec also in the artd domain\n\nThis is for init to run artd for Pre-reboot Dexopt, which requires using `art_exec_exec` to call chroot. I want to avoid running `art_exec_exec` in init\u0027s own domain because it\u0027s too powerful.\n\n\u003e - artd can run art_exec_exec in its own domain.\n\nThis is for artd to run other binaries such as dex2oat, which requires using `art_exec_exec` to dropping root capabilities, etc.",
+      "parentUuid": "ebdb9a3f_0275ae87",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 40
+      },
+      "revId": "f04cfd8875cfd87b19d9beed85b9ed3ba169c858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2698870b_b3d12ded",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-03-15T17:29:41Z",
       "side": 1,
       "message": "Why do you need both relabelfrom and to?",
+      "range": {
+        "startLine": 169,
+        "startChar": 57,
+        "endLine": 169,
+        "endChar": 78
+      },
+      "revId": "f04cfd8875cfd87b19d9beed85b9ed3ba169c858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "313567aa_b5442be8",
+        "filename": "private/artd.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-15T18:08:43Z",
+      "side": 1,
+      "message": "We need relabelfrom because:\n\n- We need to bind-mount a temp dir (whose label is `pre_reboot_dexopt_file`) at another location and restorecon it there.\n- We need to move temp files (whose label is `pre_reboot_dexopt_file`) to other locations and restorecon them there.\n\nRemoved relabelto.",
+      "parentUuid": "2698870b_b3d12ded",
       "range": {
         "startLine": 169,
         "startChar": 57,
