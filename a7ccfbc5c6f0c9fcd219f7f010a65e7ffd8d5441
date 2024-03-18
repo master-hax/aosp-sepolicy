@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ae6b246_78cc1911",
+        "filename": "private/bpfloader.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1956645
+      },
+      "writtenOn": "2024-03-18T07:55:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "661fccfd_141e86ce",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 7
+      },
+      "revId": "a7ccfbc5c6f0c9fcd219f7f010a65e7ffd8d5441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dfc3393a_c1726ca8",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-13T07:11:12Z",
       "side": 1,
       "message": "We usually move neverallow rules to after all allow rules.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 59
+      },
+      "revId": "a7ccfbc5c6f0c9fcd219f7f010a65e7ffd8d5441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "899e256b_8654113b",
+        "filename": "private/lmkd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1956645
+      },
+      "writtenOn": "2024-03-18T07:55:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfc3393a_c1726ca8",
       "range": {
         "startLine": 18,
         "startChar": 0,
@@ -93,6 +141,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1766ee68_178feac2",
+        "filename": "private/lmkd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1956645
+      },
+      "writtenOn": "2024-03-18T07:55:21Z",
+      "side": 1,
+      "message": "Done. Created a label for the specific lmkd bpf ring buffer, and 2 bpf programs.",
+      "parentUuid": "4cafcf4b_18850012",
+      "range": {
+        "startLine": 20,
+        "startChar": 11,
+        "endLine": 20,
+        "endChar": 17
+      },
+      "revId": "a7ccfbc5c6f0c9fcd219f7f010a65e7ffd8d5441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99de8a0b_44e9c473",
+        "filename": "private/lmkd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1956645
+      },
+      "writtenOn": "2024-03-18T07:55:21Z",
+      "side": 1,
+      "message": "We need read/write, and `map_write`, access because [libmemevents bpf class](https://cs.android.com/android/platform/superproject/main/+/main:system/memory/libmeminfo/libmemevents/memevents.cpp;l\u003d46-77?q\u003dclass%20MemBpfRingbuf%20:%20public%20BpfRingbufBase%20%7B%20) inherits from the [BpfRingbufBase](https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/Connectivity/staticlibs/native/bpf_headers/include/bpf/BpfRingbuf.h;l\u003d154?q\u003d%22mRingFd.reset(mapRetrieveRW(path));%22), which returns the file descriptor in read/write mode.",
+      "parentUuid": "a891d4f0_5ee2ac3f",
+      "range": {
+        "startLine": 20,
+        "startChar": 30,
+        "endLine": 20,
+        "endChar": 35
+      },
+      "revId": "a7ccfbc5c6f0c9fcd219f7f010a65e7ffd8d5441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0a15eac_0b2b06bd",
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89012ed5_70fce14d",
+        "filename": "private/lmkd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1956645
+      },
+      "writtenOn": "2024-03-18T07:55:21Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a0a15eac_0b2b06bd",
+      "range": {
+        "startLine": 21,
+        "startChar": 36,
+        "endLine": 21,
+        "endChar": 45
+      },
+      "revId": "a7ccfbc5c6f0c9fcd219f7f010a65e7ffd8d5441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09f1413b_a96f3a26",
@@ -129,6 +249,24 @@
       "writtenOn": "2024-03-13T09:34:46Z",
       "side": 1,
       "message": "I wonder if we should just do something like aosp/3001888",
+      "revId": "a7ccfbc5c6f0c9fcd219f7f010a65e7ffd8d5441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49259bf6_429ae57d",
+        "filename": "private/lmkd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1956645
+      },
+      "writtenOn": "2024-03-18T07:55:21Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "09f1413b_a96f3a26",
       "revId": "a7ccfbc5c6f0c9fcd219f7f010a65e7ffd8d5441",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
