@@ -136,6 +136,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b65d9e99_f39c6355",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 14
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-18T11:41:07Z",
+      "side": 1,
+      "message": "\u003e but actually the capabilities can be passed even without these. Interesting.\n\nYeah. sepolicy controls whether you can use the capabilities, not whether you can have them. The permitted/inheritable/effective/bounding/ambient sets work completely independently. (Not that I\u0027ve ever managed to get my head round them.)",
+      "parentUuid": "16ca9c00_f26781cd",
+      "range": {
+        "startLine": 33,
+        "startChar": 61,
+        "endLine": 33,
+        "endChar": 89
+      },
+      "revId": "5412ab4e3f2c78d934e1724e9cb5aed981bb804a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ef4822a_4855560a",
