@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b010468a_4e105017",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-19T17:53:55Z",
+      "side": 1,
+      "message": "Some more thoughts, but I need to do some more digging",
+      "revId": "11684d6f10547756a91243edcc56f15842016ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c528a30_dabb2746",
+        "filename": "private/apexd.te",
+        "patchSetId": 17
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-19T17:53:55Z",
+      "side": 1,
+      "message": "Nit: while you\u0027re here, can you remove the redundant braces?",
+      "range": {
+        "startLine": 195,
+        "startChar": 91,
+        "endLine": 195,
+        "endChar": 103
+      },
+      "revId": "11684d6f10547756a91243edcc56f15842016ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a96cfe20_c4cd6cb9",
+        "filename": "private/artd.te",
+        "patchSetId": 17
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-19T17:53:55Z",
+      "side": 1,
+      "message": "Wait - why? \n(The comment should say why, not what.)",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 38
+      },
+      "revId": "11684d6f10547756a91243edcc56f15842016ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66f1c00c_544816bc",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 17
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-19T17:53:55Z",
+      "side": 1,
+      "message": "Given how powerful this domain is, it would be good to make sure it isn\u0027t used for other purposes.\n\n```\nneverallow { domain -init } dexopt_chroot_setup:process transition;\nneverallow * dexopt_chroot_setup:process dyntransition;\n```",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 19
+      },
+      "revId": "11684d6f10547756a91243edcc56f15842016ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7eba2fe_71577002",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 17
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-19T17:53:55Z",
+      "side": 1,
+      "message": "Can we also have a neverallow for `pre_reboot_dexopt_file:dir *` that ensures nothing else gets access?",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 70
+      },
+      "revId": "11684d6f10547756a91243edcc56f15842016ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41589ac9_8a0c2f21",
+        "filename": "private/domain.te",
+        "patchSetId": 17
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-19T17:53:55Z",
+      "side": 1,
+      "message": "You don\u0027t need this now",
+      "range": {
+        "startLine": 481,
+        "startChar": 2,
+        "endLine": 481,
+        "endChar": 21
+      },
+      "revId": "11684d6f10547756a91243edcc56f15842016ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c0cd5d9_afcbc453",
+        "filename": "private/odrefresh.te",
+        "patchSetId": 17
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-19T17:53:55Z",
+      "side": 1,
+      "message": "Nit: move above the neverallows.\n\nWhy are we adding the dontaudit here? It doesn\u0027t seem obviously related.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "11684d6f10547756a91243edcc56f15842016ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
