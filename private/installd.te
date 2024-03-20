@@ -58,3 +58,9 @@ allow installd sdk_sandbox_system_data_file:dir { create_dir_perms relabelfrom }
 # Allow installd to enable fs-verity for app file passed as FD;
 allow installd { untrusted_app_all priv_app gmscore_app }:fd use;
 allowxperm installd app_data_file_type:file ioctl FS_IOC_ENABLE_VERITY;
+
+# on app uninstall, installd deletes the storage area keys for the app
+is_flag_enabled(RELEASE_UNLOCKED_STORAGE_API, `
+  allow installd storage_area_key_file:dir { create_dir_perms };
+  allow installd storage_area_key_file:file { unlink };
+')
