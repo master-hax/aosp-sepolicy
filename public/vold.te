@@ -69,18 +69,6 @@ neverallowxperm {
   -vold
 } data_file_type:dir ioctl { FS_IOC_ADD_ENCRYPTION_KEY FS_IOC_REMOVE_ENCRYPTION_KEY FS_IOC_GET_ENCRYPTION_KEY_STATUS };
 
-# Allow securely erasing crypto key files. F2FS_IOC_SEC_TRIM_FILE is
-# tried first. Otherwise, FS_IOC_FIEMAP is needed to get the
-# location of the file's blocks on the raw block device to erase.
-allowxperm vold {
-  vold_data_file
-  vold_metadata_file
-  is_flag_enabled(RELEASE_UNLOCKED_STORAGE_API, `storage_area_key_file')
-}:file ioctl {
-  F2FS_IOC_SEC_TRIM_FILE
-  FS_IOC_FIEMAP
-};
-
 typeattribute vold mlstrustedsubject;
 allow vold self:process setfscreate;
 allow vold system_file:file x_file_perms;
@@ -285,13 +273,6 @@ allow vold misc_block_device:blk_file w_file_perms;
 
 # vold might need to search or mount /mnt/vendor/*
 allow vold mnt_vendor_file:dir search;
-
-# when a storage area is created (with `openStorageArea`), vold creates the key
-# and when a storage area is deleted (with `deleteStorageArea`), vold deletes the key
-is_flag_enabled(RELEASE_UNLOCKED_STORAGE_API, `
-  allow vold storage_area_key_file:file { create_file_perms };
-  allow vold storage_area_key_file:dir { create_dir_perms search };
-')
 
 dontaudit vold self:global_capability_class_set sys_resource;
 

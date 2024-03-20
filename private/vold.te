@@ -86,6 +86,25 @@ is_flag_enabled(RELEASE_UNLOCKED_STORAGE_API, `
     };
 ')
 
+# when a storage area is created (with `openStorageArea`), vold creates the key
+# and when a storage area is deleted (with `deleteStorageArea`), vold deletes the key
+is_flag_enabled(RELEASE_UNLOCKED_STORAGE_API, `
+  allow vold storage_area_key_file:file { create_file_perms };
+  allow vold storage_area_key_file:dir { create_dir_perms search };
+')
+
+# Allow securely erasing crypto key files. F2FS_IOC_SEC_TRIM_FILE is
+# tried first. Otherwise, FS_IOC_FIEMAP is needed to get the
+# location of the file's blocks on the raw block device to erase.
+allowxperm vold {
+  vold_data_file
+  vold_metadata_file
+  is_flag_enabled(RELEASE_UNLOCKED_STORAGE_API, `storage_area_key_file')
+}:file ioctl {
+  F2FS_IOC_SEC_TRIM_FILE
+  FS_IOC_FIEMAP
+};
+
 # Allow vold to create and delete per-user directories like /data/user/$userId.
 allow vold {
     media_userdir_file
