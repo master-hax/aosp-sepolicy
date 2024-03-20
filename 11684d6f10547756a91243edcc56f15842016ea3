@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d264c2a_4181b817",
+        "filename": "private/apexd.te",
+        "patchSetId": 17
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-20T11:25:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c528a30_dabb2746",
+      "range": {
+        "startLine": 195,
+        "startChar": 91,
+        "endLine": 195,
+        "endChar": 103
+      },
+      "revId": "11684d6f10547756a91243edcc56f15842016ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a96cfe20_c4cd6cb9",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-03-19T17:53:55Z",
       "side": 1,
       "message": "Wait - why? \n(The comment should say why, not what.)",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 38
+      },
+      "revId": "11684d6f10547756a91243edcc56f15842016ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bbe5c8b_2e2361a8",
+        "filename": "private/artd.te",
+        "patchSetId": 17
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-20T11:25:57Z",
+      "side": 1,
+      "message": "OK, looks like we don\u0027t need it.\n\nInitially, I used `SELINUX_ANDROID_RESTORECON_RECURSE` when I restorecon `/data/misc/odrefresh`, and that triggered an avc denial, but actually, I don\u0027t need `SELINUX_ANDROID_RESTORECON_RECURSE` because `/data/misc/odrefresh` is empty when I restorecon it.",
+      "parentUuid": "a96cfe20_c4cd6cb9",
       "range": {
         "startLine": 170,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5425a38c_2a321804",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 17
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-20T11:25:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66f1c00c_544816bc",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 19
+      },
+      "revId": "11684d6f10547756a91243edcc56f15842016ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7eba2fe_71577002",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-03-19T17:53:55Z",
       "side": 1,
       "message": "Can we also have a neverallow for `pre_reboot_dexopt_file:dir *` that ensures nothing else gets access?",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 70
+      },
+      "revId": "11684d6f10547756a91243edcc56f15842016ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d7a4bd4_45b7c062",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 17
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-20T11:25:57Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "b7eba2fe_71577002",
       "range": {
         "startLine": 114,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c217d75f_7aab972e",
+        "filename": "private/domain.te",
+        "patchSetId": 17
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-20T11:25:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41589ac9_8a0c2f21",
+      "range": {
+        "startLine": 481,
+        "startChar": 2,
+        "endLine": 481,
+        "endChar": 21
+      },
+      "revId": "11684d6f10547756a91243edcc56f15842016ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c0cd5d9_afcbc453",
@@ -146,6 +266,30 @@
       "writtenOn": "2024-03-19T17:53:55Z",
       "side": 1,
       "message": "Nit: move above the neverallows.\n\nWhy are we adding the dontaudit here? It doesn\u0027t seem obviously related.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "11684d6f10547756a91243edcc56f15842016ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a45016d_c9826440",
+        "filename": "private/odrefresh.te",
+        "patchSetId": 17
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-20T11:25:57Z",
+      "side": 1,
+      "message": "Done.\n\nThe dontaudit fixes an existing issue, not a new one introduced by Pre-reboot Dexopt, but the issue causes tons of avc denials to be printed during Pre-reboot Dexopt, so I decided to fix it in this CL.",
+      "parentUuid": "3c0cd5d9_afcbc453",
       "range": {
         "startLine": 62,
         "startChar": 0,
