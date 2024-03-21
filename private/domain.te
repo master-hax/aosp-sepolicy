@@ -215,9 +215,50 @@ allow {
 allow domain aconfig_storage_metadata_file:file r_file_perms;
 allow domain aconfig_storage_metadata_file:dir r_dir_perms;
 
+# Allow everyone to read system/system_ext/product partition storage files
+allow domain system_aconfig_storage_file:file r_file_perms;
+allow domain system_aconfig_storage_file:dir r_dir_perms;
+
 # processes needs to access storage file stored at /metadata/aconfig/boot, require search
 # permission on /metadata dir
 allow domain metadata_file:dir search;
+
+full_treble_only(`
+  # Do not allow vendor components access to /system files except for the
+  # ones allowed here.
+  neverallow {
+    domain
+    -appdomain
+    -coredomain
+    -vendor_executes_system_violators
+    # vendor_init needs access to init_exec for domain transition. vendor_init
+    # neverallows are covered in public/vendor_init.te
+    -vendor_init
+  } {
+    system_file_type
+    -crash_dump_exec
+    -file_contexts_file
+    -netutils_wrapper_exec
+    -property_contexts_file
+    -system_aconfig_storage_file
+    -system_event_log_tags_file
+    -system_group_file
+    -system_lib_file
+    with_asan(`-system_asan_options_file')
+    -system_linker_exec
+    -system_linker_config_file
+    -system_passwd_file
+    -system_seccomp_policy_file
+    -system_security_cacerts_file
+    -system_zoneinfo_file
+    -task_profiles_api_file
+    -task_profiles_file
+    userdebug_or_eng(`-tcpdump_exec')
+    # Vendor components still can invoke shell commands via /system/bin/sh
+    -shell_exec
+    -toolbox_exec
+  }:file *;
+')
 
 # No domains other than a select few can access the misc_block_device. This
 # block device is reserved for OTA use.
