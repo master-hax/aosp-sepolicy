@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a84a152_0bcad068",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-03-21T00:13:01Z",
+      "side": 1,
+      "message": "also please move below two from public/domain.te to private/domain.te\n\n```\nallow domain aconfig_storage_metadata_file:file r_file_perms;\nallow domain aconfig_storage_metadata_file:dir r_dir_perms;\n```",
+      "revId": "d8937ed6ff20a829ab3f0be017cbade9fe3a700f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ab63c16_60c25b03",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-03-21T00:13:01Z",
+      "side": 1,
+      "message": "Please move any allow rule above neverallow rules.",
+      "revId": "d8937ed6ff20a829ab3f0be017cbade9fe3a700f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
