@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e0bd086_c7bba4f5",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-22T14:17:57Z",
+      "side": 1,
+      "message": "So both dexopt_chroot_setup and art_exec do a chroot?",
+      "range": {
+        "startLine": 32,
+        "startChar": 71,
+        "endLine": 32,
+        "endChar": 81
+      },
+      "revId": "ce8e035a4b67440562c63dcf5631e0dd7e8f7cea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c29341d_aad1202f",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-22T14:17:57Z",
+      "side": 1,
+      "message": "Both artd and dexopt_chroot_setup have these fairly expansive permissions.\nGenerally there can be problems when files have more than one owner - what if they disagree?\nHow do you avoid that? Can we reduce the permissions of one of them?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 54
+      },
+      "revId": "ce8e035a4b67440562c63dcf5631e0dd7e8f7cea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70bd0ab0_f7aa0bfa",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-22T14:17:57Z",
+      "side": 1,
+      "message": "Could we alphabetize these?",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 21
+      },
+      "revId": "ce8e035a4b67440562c63dcf5631e0dd7e8f7cea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25cd90cd_8cb7620d",
+        "filename": "private/odrefresh.te",
+        "patchSetId": 19
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-22T14:17:57Z",
+      "side": 1,
+      "message": "Delete this, since you no longer allow it.\n(And maybe explain why artd has only limited access in the comment.)",
+      "range": {
+        "startLine": 76,
+        "startChar": 51,
+        "endLine": 76,
+        "endChar": 57
+      },
+      "revId": "ce8e035a4b67440562c63dcf5631e0dd7e8f7cea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
