@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74930bc6_2387f7f5",
+        "filename": "private/domain.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-22T16:49:48Z",
+      "side": 1,
+      "message": "Prefer\n```\nr_dir_file(domain, \u003cfile type\u003e);\n```\n\nThe macro does file + dir for you.\n\nAlternatively, as we discussed, perhaps you only need `{getattr search}` for the directories?",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 220,
+        "endChar": 57
+      },
+      "revId": "9657a9ee3dccf76af36af5eb2678b706e8e8d117",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
