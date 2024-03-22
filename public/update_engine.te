@@ -77,3 +77,9 @@ allow update_engine snapshotctl_log_data_file:file create_file_perms;
 # Allow determining filesystems available on system.
 # Needed for checking if overlayfs is enabled
 allow update_engine proc_filesystems:file r_file_perms;
+
+
+# Allow creating tmp files on /data/local/tmp
+# As puffdiff will need to write cache data to tmp folder
+allow update_engine shell_data_file:dir create_dir_perms;
+allow update_engine shell_data_file:file create_file_perms;
