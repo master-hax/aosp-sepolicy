@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b689072c_a81cbb13",
+        "filename": "private/artd.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-25T17:11:20Z",
+      "side": 1,
+      "message": "It means to run odrefresh in a way that doesn\u0027t affect the real boot images, metrics, etc.\n\nTo achieve that, `artd` will bind-mount temp dirs at `/data/misc/apexdata/com.android.art` and `/data/misc/odrefresh` so that odrefresh will write to temp dirs instead of overwriting any existing files.",
+      "parentUuid": "db1a5378_ce50eead",
+      "range": {
+        "startLine": 153,
+        "startChar": 43,
+        "endLine": 153,
+        "endChar": 54
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6797d148_8ed6cff4",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-03-25T15:55:05Z",
       "side": 1,
       "message": "Can you please fill me in on what environment variables these are?",
+      "range": {
+        "startLine": 163,
+        "startChar": 55,
+        "endLine": 163,
+        "endChar": 63
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a2ae4cc_f1a6676f",
+        "filename": "private/artd.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-25T17:11:20Z",
+      "side": 1,
+      "message": "https://cs.android.com/android/platform/superproject/main/+/main:system/core/rootdir/init.environ.rc.in",
+      "parentUuid": "6797d148_8ed6cff4",
       "range": {
         "startLine": 163,
         "startChar": 55,
@@ -89,6 +137,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f83d541d_79d89990",
+        "filename": "private/artd.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-25T17:11:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18abade8_da883f74",
+      "range": {
+        "startLine": 181,
+        "startChar": 15,
+        "endLine": 181,
+        "endChar": 16
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "85223da4_567e73ab",
         "filename": "private/dexopt_chroot_setup.te",
         "patchSetId": 20
@@ -100,6 +172,30 @@
       "writtenOn": "2024-03-25T15:55:05Z",
       "side": 1,
       "message": "Not that I think it matters to these rules, but are you certain we can make do with an empty linker config inside the chroot?",
+      "range": {
+        "startLine": 96,
+        "startChar": 19,
+        "endLine": 96,
+        "endChar": 24
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1a386d9_dba34b3d",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-25T17:11:20Z",
+      "side": 1,
+      "message": "Yes, it works. In fact, I learned this trick from CompOS.\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:packages/modules/Virtualization/microdroid/init.rc;l\u003d25;drc\u003da5b90b6f64e7e39cb3f308120578434dfcb78ad0",
+      "parentUuid": "85223da4_567e73ab",
       "range": {
         "startLine": 96,
         "startChar": 19,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfdb1de6_2a632758",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-25T17:11:20Z",
+      "side": 1,
+      "message": "SELinux rules apply to labels, not paths. The path patterns in [`system/sepolicy/private/file_contexts`](https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/file_contexts) are just for conveniently assigning labels through `restorecon`, which `init` does during boot and other programs can also do. During Pre-reboot Dexopt, because the path patterns don\u0027t match the paths in chroot, we will call `setfilecon` to manually assign appropriate labels.",
+      "parentUuid": "68f8dda5_6ee13a57",
+      "range": {
+        "startLine": 97,
+        "startChar": 26,
+        "endLine": 97,
+        "endChar": 43
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fcdcbf1_33ce265b",
@@ -146,6 +266,30 @@
       "writtenOn": "2024-03-25T15:55:05Z",
       "side": 1,
       "message": "It\u0027s not obvious to an sepolicy noob like me that the rule does this. I suggest phrasing it something like \"Allow dexopt_chroot_setup to execute art_exec_exec without a domain transition\".",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 59
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdd68434_0e5b5419",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-25T17:11:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fcdcbf1_33ce265b",
       "range": {
         "startLine": 109,
         "startChar": 2,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc9750df_875d8790",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-25T17:11:20Z",
+      "side": 1,
+      "message": "Because vendor_init can basically access everything. https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/public/vendor_init.te;l\u003d49;drc\u003d948ae1506054cfd14920d0aeb0011813a79c53b4",
+      "parentUuid": "8f188c3a_96aef49f",
+      "range": {
+        "startLine": 139,
+        "startChar": 3,
+        "endLine": 139,
+        "endChar": 14
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff7b81f5_d8a399e5",
@@ -202,6 +370,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50da7e11_108e0a6c",
+        "filename": "private/file_contexts",
+        "patchSetId": 20
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-25T17:11:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff7b81f5_d8a399e5",
+      "range": {
+        "startLine": 907,
+        "startChar": 25,
+        "endLine": 907,
+        "endChar": 28
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16eb325b_5b22a21b",
@@ -215,6 +407,30 @@
       "writtenOn": "2024-03-25T15:55:05Z",
       "side": 1,
       "message": "Since the README doesn\u0027t mention it, can you please briefly tell me what this is for?",
+      "range": {
+        "startLine": 916,
+        "startChar": 0,
+        "endLine": 916,
+        "endChar": 19
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f631cdc_83e70451",
+        "filename": "private/file_contexts",
+        "patchSetId": 20
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-25T17:11:20Z",
+      "side": 1,
+      "message": "This is for holding the temp file written by `derive_classpath` and the temp dirs mounted at `/data/misc/apexdata/com.android.art` and `/data/misc/odrefresh`.",
+      "parentUuid": "16eb325b_5b22a21b",
       "range": {
         "startLine": 916,
         "startChar": 0,
