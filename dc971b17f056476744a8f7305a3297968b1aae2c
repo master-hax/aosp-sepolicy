@@ -16,6 +16,24 @@
       "message": "does r_dir_file include map permission for the file? I cannot find where this macro is defined. If it does not include map, we may need additional entries to allow map for the file.",
       "revId": "dc971b17f056476744a8f7305a3297968b1aae2c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "342a9f9d_9392f125",
+        "filename": "private/domain.te",
+        "patchSetId": 15
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1981530
+      },
+      "writtenOn": "2024-03-25T19:44:24Z",
+      "side": 1,
+      "message": "Since it\u0027s just read permissions, per https://android.googlesource.com/platform/system/sepolicy/+/refs/heads/master/public/te_macros#65, added entries to permit map.",
+      "parentUuid": "a7818eba_924cc870",
+      "revId": "dc971b17f056476744a8f7305a3297968b1aae2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
