@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10e46bc0_ca82263a",
+        "filename": "private/artd.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T21:31:40Z",
+      "side": 1,
+      "message": "\u003e It means to run odrefresh in a way that doesn\u0027t affect the real boot images, metrics, etc.\n\nGood, please clarify that then.\n\n\u003e will bind-mount temp dirs at /data/misc/apexdata/com.android.art and /data/misc/odrefresh\n\nAha, that\u0027s something to describe in the README later, but I think it wouldn\u0027t hurt to mention it in the clarification as well.",
+      "parentUuid": "b689072c_a81cbb13",
+      "range": {
+        "startLine": 153,
+        "startChar": 43,
+        "endLine": 153,
+        "endChar": 54
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6797d148_8ed6cff4",
         "filename": "private/artd.te",
         "patchSetId": 20
@@ -114,6 +138,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "662aa9cc_91c24837",
+        "filename": "private/artd.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T21:31:40Z",
+      "side": 1,
+      "message": "I meant the ones that we need here.",
+      "parentUuid": "3a2ae4cc_f1a6676f",
+      "range": {
+        "startLine": 163,
+        "startChar": 55,
+        "endLine": 163,
+        "endChar": 63
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "18abade8_da883f74",
         "filename": "private/artd.te",
         "patchSetId": 20
@@ -149,6 +197,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "18abade8_da883f74",
+      "range": {
+        "startLine": 181,
+        "startChar": 15,
+        "endLine": 181,
+        "endChar": 16
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bd9259c_c0983e9a",
+        "filename": "private/artd.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T21:31:40Z",
+      "side": 1,
+      "message": "I see it in a different file, but here too please.",
+      "parentUuid": "f83d541d_79d89990",
       "range": {
         "startLine": 181,
         "startChar": 15,
@@ -208,6 +280,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "95d1bbaf_19d50d85",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T21:31:40Z",
+      "side": 1,
+      "message": "Which binaries will execute with that empty linker config? It\u0027ll get replaced with a proper one soon enough, right?",
+      "parentUuid": "a1a386d9_dba34b3d",
+      "range": {
+        "startLine": 96,
+        "startChar": 19,
+        "endLine": 96,
+        "endChar": 24
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "68f8dda5_6ee13a57",
         "filename": "private/dexopt_chroot_setup.te",
         "patchSetId": 20
@@ -243,6 +339,30 @@
       "side": 1,
       "message": "SELinux rules apply to labels, not paths. The path patterns in [`system/sepolicy/private/file_contexts`](https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/file_contexts) are just for conveniently assigning labels through `restorecon`, which `init` does during boot and other programs can also do. During Pre-reboot Dexopt, because the path patterns don\u0027t match the paths in chroot, we will call `setfilecon` to manually assign appropriate labels.",
       "parentUuid": "68f8dda5_6ee13a57",
+      "range": {
+        "startLine": 97,
+        "startChar": 26,
+        "endLine": 97,
+        "endChar": 43
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fba9f18_6b26c9db",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T21:31:40Z",
+      "side": 1,
+      "message": "\u003e During Pre-reboot Dexopt, because the path patterns don\u0027t match the paths in chroot, we will call setfilecon to manually assign appropriate labels.\n\nI see. I\u0027d like to understand better how that `setfilecon` process will work. How will these rules get used? Doesn\u0027t this one make init\u0027s `restorecon` call give dexopt_chroot_setup write access on `/linkerconfig(/.*)?` in the real root at boot, which dexopt_chroot_setup has no reason to write?",
+      "parentUuid": "dfdb1de6_2a632758",
       "range": {
         "startLine": 97,
         "startChar": 26,
@@ -349,6 +469,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d78887a4_261ea9ec",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T21:31:40Z",
+      "side": 1,
+      "message": "Perhaps, but why does it need to access `pre_reboot_dexopt_file` specifically? Do some rules fail without this exclusion?",
+      "parentUuid": "dc9750df_875d8790",
+      "range": {
+        "startLine": 139,
+        "startChar": 3,
+        "endLine": 139,
+        "endChar": 14
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ff7b81f5_d8a399e5",
         "filename": "private/file_contexts",
         "patchSetId": 20
@@ -431,6 +575,30 @@
       "side": 1,
       "message": "This is for holding the temp file written by `derive_classpath` and the temp dirs mounted at `/data/misc/apexdata/com.android.art` and `/data/misc/odrefresh`.",
       "parentUuid": "16eb325b_5b22a21b",
+      "range": {
+        "startLine": 916,
+        "startChar": 0,
+        "endLine": 916,
+        "endChar": 19
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c119cc9d_776de8cc",
+        "filename": "private/file_contexts",
+        "patchSetId": 20
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T21:31:40Z",
+      "side": 1,
+      "message": "Aha, this path should be read relative to the chroot root? (Here too I wonder about specifying paths inside the chroot this way, but there\u0027s another thread about that.)",
+      "parentUuid": "0f631cdc_83e70451",
       "range": {
         "startLine": 916,
         "startChar": 0,
