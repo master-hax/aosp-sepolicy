@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c1f3f6f_61152ca3",
+        "filename": "private/artd.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-25T22:20:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10e46bc0_ca82263a",
+      "range": {
+        "startLine": 153,
+        "startChar": 43,
+        "endLine": 153,
+        "endChar": 54
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6797d148_8ed6cff4",
@@ -150,6 +174,30 @@
       "side": 1,
       "message": "I meant the ones that we need here.",
       "parentUuid": "3a2ae4cc_f1a6676f",
+      "range": {
+        "startLine": 163,
+        "startChar": 55,
+        "endLine": 163,
+        "endChar": 63
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "788a404b_dcf500c7",
+        "filename": "private/artd.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-25T22:20:11Z",
+      "side": 1,
+      "message": "`artd` calls many other programs such as `dex2oat`, which then depends on some libraries. We don\u0027t know which env vars those programs/libraries need. We just initialize all the env vars like `init` does during boot so that they are available when needed.",
+      "parentUuid": "662aa9cc_91c24837",
       "range": {
         "startLine": 163,
         "startChar": 55,
@@ -233,6 +281,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b0dbe35a_b40777ad",
+        "filename": "private/artd.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-25T22:20:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bd9259c_c0983e9a",
+      "range": {
+        "startLine": 181,
+        "startChar": 15,
+        "endLine": 181,
+        "endChar": 16
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "85223da4_567e73ab",
         "filename": "private/dexopt_chroot_setup.te",
         "patchSetId": 20
@@ -292,6 +364,30 @@
       "side": 1,
       "message": "Which binaries will execute with that empty linker config? It\u0027ll get replaced with a proper one soon enough, right?",
       "parentUuid": "a1a386d9_dba34b3d",
+      "range": {
+        "startLine": 96,
+        "startChar": 19,
+        "endLine": 96,
+        "endChar": 24
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e160500_349163b2",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-25T22:20:11Z",
+      "side": 1,
+      "message": "\u003e Which binaries will execute with that empty linker config?\n\n`apexd` and `linkerconfig`.\n\n\u003e It\u0027ll get replaced with a proper one soon enough, right?\n\nYes, by `linkerconfig`.",
+      "parentUuid": "95d1bbaf_19d50d85",
       "range": {
         "startLine": 96,
         "startChar": 19,
@@ -363,6 +459,30 @@
       "side": 1,
       "message": "\u003e During Pre-reboot Dexopt, because the path patterns don\u0027t match the paths in chroot, we will call setfilecon to manually assign appropriate labels.\n\nI see. I\u0027d like to understand better how that `setfilecon` process will work. How will these rules get used? Doesn\u0027t this one make init\u0027s `restorecon` call give dexopt_chroot_setup write access on `/linkerconfig(/.*)?` in the real root at boot, which dexopt_chroot_setup has no reason to write?",
       "parentUuid": "dfdb1de6_2a632758",
+      "range": {
+        "startLine": 97,
+        "startChar": 26,
+        "endLine": 97,
+        "endChar": 43
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cbee95c_bb5120b8",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-25T22:20:11Z",
+      "side": 1,
+      "message": "\u003e I\u0027d like to understand better how that `setfilecon` process will work.\n\n`setfilecon` is a function that assigns the given file/dir the given label. A process can call it on a file/dir as long as it has the `relabelfrom` permission for the old label and the `relabelto` permission for the new label. There is not path pattern matching involved.\n\nFor example, during Pre-reboot Dexopt, `dexopt_chroot_setup` mounts a tmpfs at `/linkerconfig` in chroot. The `/linkerconfig` dir initial gets the `pre_reboot_dexopt_file` label because of line 21. `dexopt_chroot_setup` then makes a call like `setfilecon(\"/path/to/chroot/linkerconfig\", \"linkerconfig_file\")` to relabel the dir to `linkerconfig_file`. It\u0027s allowed to do so because it has `relabelfrom` for `pre_reboot_dexopt_file` and `relabelto` for `linkerconfig_file`.\n\n\u003e How will these rules get used?\n\nThe rules specify the label(s) that they apply to (in this case, `linkerconfig_file`). They are used as long as a file/dir has this label.\n\n\u003e Doesn\u0027t this one make init\u0027s `restorecon` call give dexopt_chroot_setup write access on `/linkerconfig(/.*)?` in the real root at boot, which dexopt_chroot_setup has no reason to write?\n\nThat\u0027s true, but dexopt_chroot_setup never writes to the real `/linkerconfig`.",
+      "parentUuid": "0fba9f18_6b26c9db",
       "range": {
         "startLine": 97,
         "startChar": 26,
@@ -491,6 +611,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02593c46_23a0f580",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-25T22:20:11Z",
+      "side": 1,
+      "message": "It doesn\u0027t need to access `pre_reboot_dexopt_file` in practice, but it has access to almost everything because of the rule that I pointed out above, and that rule conflicts with this neverallow rule if we don\u0027t exclude `vendor_init`.",
+      "parentUuid": "d78887a4_261ea9ec",
+      "range": {
+        "startLine": 139,
+        "startChar": 3,
+        "endLine": 139,
+        "endChar": 14
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff7b81f5_d8a399e5",
@@ -599,6 +743,30 @@
       "side": 1,
       "message": "Aha, this path should be read relative to the chroot root? (Here too I wonder about specifying paths inside the chroot this way, but there\u0027s another thread about that.)",
       "parentUuid": "0f631cdc_83e70451",
+      "range": {
+        "startLine": 916,
+        "startChar": 0,
+        "endLine": 916,
+        "endChar": 19
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aec7e0e_a40ae117",
+        "filename": "private/file_contexts",
+        "patchSetId": 20
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-25T22:20:11Z",
+      "side": 1,
+      "message": "Yes, that\u0027s what the comment means by \"inside chroot\".",
+      "parentUuid": "c119cc9d_776de8cc",
       "range": {
         "startLine": 916,
         "startChar": 0,
