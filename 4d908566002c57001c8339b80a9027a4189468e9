@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76ad1765_6db35887",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T15:55:05Z",
+      "side": 1,
+      "message": "I don\u0027t have the knowledge to review the objects and permissions in full detail. I trust that Alan has taken a good hard look at them.",
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db1a5378_ce50eead",
+        "filename": "private/artd.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T15:55:05Z",
+      "side": 1,
+      "message": "What does this mean more technically? That it runs in a way that doesn\u0027t affect the real boot images?\n\nHowever odrefresh inside the chroot will (over)write e.g. odrefresh-metrics.xml in the bind mounted /data/misc/odrefresh, won\u0027t it?",
+      "range": {
+        "startLine": 153,
+        "startChar": 43,
+        "endLine": 153,
+        "endChar": 54
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6797d148_8ed6cff4",
+        "filename": "private/artd.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T15:55:05Z",
+      "side": 1,
+      "message": "Can you please fill me in on what environment variables these are?",
+      "range": {
+        "startLine": 163,
+        "startChar": 55,
+        "endLine": 163,
+        "endChar": 63
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18abade8_da883f74",
+        "filename": "private/artd.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T15:55:05Z",
+      "side": 1,
+      "message": "Nit: \"for art_exec_exec\", just to spell out what to look for (and also in case more exceptions get added later).",
+      "range": {
+        "startLine": 181,
+        "startChar": 15,
+        "endLine": 181,
+        "endChar": 16
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85223da4_567e73ab",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T15:55:05Z",
+      "side": 1,
+      "message": "Not that I think it matters to these rules, but are you certain we can make do with an empty linker config inside the chroot?",
+      "range": {
+        "startLine": 96,
+        "startChar": 19,
+        "endLine": 96,
+        "endChar": 24
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68f8dda5_6ee13a57",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T15:55:05Z",
+      "side": 1,
+      "message": "Does SELinux apply paths relative to the chroot?",
+      "range": {
+        "startLine": 97,
+        "startChar": 26,
+        "endLine": 97,
+        "endChar": 43
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fcdcbf1_33ce265b",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T15:55:05Z",
+      "side": 1,
+      "message": "It\u0027s not obvious to an sepolicy noob like me that the rule does this. I suggest phrasing it something like \"Allow dexopt_chroot_setup to execute art_exec_exec without a domain transition\".",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 59
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f188c3a_96aef49f",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T15:55:05Z",
+      "side": 1,
+      "message": "Why does this domain need to be excluded?",
+      "range": {
+        "startLine": 139,
+        "startChar": 3,
+        "endLine": 139,
+        "endChar": 14
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff7b81f5_d8a399e5",
+        "filename": "private/file_contexts",
+        "patchSetId": 20
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T15:55:05Z",
+      "side": 1,
+      "message": "Nit: Lowercase",
+      "range": {
+        "startLine": 907,
+        "startChar": 25,
+        "endLine": 907,
+        "endChar": 28
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16eb325b_5b22a21b",
+        "filename": "private/file_contexts",
+        "patchSetId": 20
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T15:55:05Z",
+      "side": 1,
+      "message": "Since the README doesn\u0027t mention it, can you please briefly tell me what this is for?",
+      "range": {
+        "startLine": 916,
+        "startChar": 0,
+        "endLine": 916,
+        "endChar": 19
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
