@@ -400,6 +400,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "331b82eb_72fbbae3",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-26T21:30:45Z",
+      "side": 1,
+      "message": "Check. Please add \"... until linkerconfig has run\" to clarify that.",
+      "parentUuid": "4e160500_349163b2",
+      "range": {
+        "startLine": 96,
+        "startChar": 19,
+        "endLine": 96,
+        "endChar": 24
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "68f8dda5_6ee13a57",
         "filename": "private/dexopt_chroot_setup.te",
         "patchSetId": 20
@@ -483,6 +507,30 @@
       "side": 1,
       "message": "\u003e I\u0027d like to understand better how that `setfilecon` process will work.\n\n`setfilecon` is a function that assigns the given file/dir the given label. A process can call it on a file/dir as long as it has the `relabelfrom` permission for the old label and the `relabelto` permission for the new label. There is not path pattern matching involved.\n\nFor example, during Pre-reboot Dexopt, `dexopt_chroot_setup` mounts a tmpfs at `/linkerconfig` in chroot. The `/linkerconfig` dir initial gets the `pre_reboot_dexopt_file` label because of line 21. `dexopt_chroot_setup` then makes a call like `setfilecon(\"/path/to/chroot/linkerconfig\", \"linkerconfig_file\")` to relabel the dir to `linkerconfig_file`. It\u0027s allowed to do so because it has `relabelfrom` for `pre_reboot_dexopt_file` and `relabelto` for `linkerconfig_file`.\n\n\u003e How will these rules get used?\n\nThe rules specify the label(s) that they apply to (in this case, `linkerconfig_file`). They are used as long as a file/dir has this label.\n\n\u003e Doesn\u0027t this one make init\u0027s `restorecon` call give dexopt_chroot_setup write access on `/linkerconfig(/.*)?` in the real root at boot, which dexopt_chroot_setup has no reason to write?\n\nThat\u0027s true, but dexopt_chroot_setup never writes to the real `/linkerconfig`.",
       "parentUuid": "0fba9f18_6b26c9db",
+      "range": {
+        "startLine": 97,
+        "startChar": 26,
+        "endLine": 97,
+        "endChar": 43
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7d19ff8_d3caea51",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-26T21:30:45Z",
+      "side": 1,
+      "message": "Discussed offline. I think a few more comments can help make this more clear.",
+      "parentUuid": "4cbee95c_bb5120b8",
       "range": {
         "startLine": 97,
         "startChar": 26,
@@ -637,6 +685,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cbf8db44_c6a561e2",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 20
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-26T21:30:45Z",
+      "side": 1,
+      "message": "Why not exclude `pre_reboot_dexopt_file` in that `allow` rule instead? (No need to address in this CL though.)",
+      "parentUuid": "02593c46_23a0f580",
+      "range": {
+        "startLine": 139,
+        "startChar": 3,
+        "endLine": 139,
+        "endChar": 14
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ff7b81f5_d8a399e5",
         "filename": "private/file_contexts",
         "patchSetId": 20
@@ -767,6 +839,30 @@
       "side": 1,
       "message": "Yes, that\u0027s what the comment means by \"inside chroot\".",
       "parentUuid": "c119cc9d_776de8cc",
+      "range": {
+        "startLine": 916,
+        "startChar": 0,
+        "endLine": 916,
+        "endChar": 19
+      },
+      "revId": "4d908566002c57001c8339b80a9027a4189468e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8350938_4fbd6afd",
+        "filename": "private/file_contexts",
+        "patchSetId": 20
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-26T21:30:45Z",
+      "side": 1,
+      "message": "Following offline discussion, I think this is more confusing than helpful since it\u0027s not the real path and we can\u0027t use restorecon on it. It\u0027s better to delete it.",
+      "parentUuid": "2aec7e0e_a40ae117",
       "range": {
         "startLine": 916,
         "startChar": 0,

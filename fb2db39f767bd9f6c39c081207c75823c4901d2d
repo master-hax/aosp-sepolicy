@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "460ce4c9_15b931b4",
+        "filename": "contexts/plat_file_contexts_test",
+        "patchSetId": 22
+      },
+      "lineNbr": 1301,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-26T21:30:45Z",
+      "side": 1,
+      "message": "Please delete - cf. other comment.",
+      "range": {
+        "startLine": 1301,
+        "startChar": 0,
+        "endLine": 1301,
+        "endChar": 93
+      },
+      "revId": "fb2db39f767bd9f6c39c081207c75823c4901d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1793191c_f09bc777",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 22
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-26T21:30:45Z",
+      "side": 1,
+      "message": "I think it\u0027s worth pointing out more clearly that we\u0027re reusing the type outside the chroot for the sake of the linkerconfig binary, even though we\u0027re not changing the real linkerconfig there.\n\nHowever, I also wonder if this is really necessary. Doesn\u0027t it work to create the tmpfs and the empty file first, with the type `pre_reboot_dexopt_file` inherited from the chroot root, and then relabel them to `linkerconfig_file` just before `linkerconfig` is run? (Ok to address in a follow-up.)",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 66
+      },
+      "revId": "fb2db39f767bd9f6c39c081207c75823c4901d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b6e68f3_67d3ec0a",
+        "filename": "private/file.te",
+        "patchSetId": 22
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-26T21:30:45Z",
+      "side": 1,
+      "message": "\"in the Pre-reboot Dexopt chroot\", because that context isn\u0027t quite clear here.",
+      "range": {
+        "startLine": 165,
+        "startChar": 25,
+        "endLine": 165,
+        "endChar": 34
+      },
+      "revId": "fb2db39f767bd9f6c39c081207c75823c4901d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3b7cdaf_dbfe6771",
+        "filename": "private/file.te",
+        "patchSetId": 22
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-26T21:30:45Z",
+      "side": 1,
+      "message": "Suggest adding to the comment that this type is set on the directory through `setfilecon` in dexopt_chroot_setup.",
+      "revId": "fb2db39f767bd9f6c39c081207c75823c4901d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
