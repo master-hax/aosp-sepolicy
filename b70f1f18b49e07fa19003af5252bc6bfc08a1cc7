@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6aa13a0_7ff5963f",
+        "filename": "microdroid/system/private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2024-03-26T17:35:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b52a559_9f462ae7",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 388,
+        "endChar": 138
+      },
+      "revId": "b70f1f18b49e07fa19003af5252bc6bfc08a1cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be3e7d79_d4e9c06f",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-14T17:31:43Z",
       "side": 1,
       "message": "Hmm. Why do you need this? I don\u0027t think `tmpfs:file` should be a thing.",
+      "range": {
+        "startLine": 48,
+        "startChar": 37,
+        "endLine": 48,
+        "endChar": 41
+      },
+      "revId": "b70f1f18b49e07fa19003af5252bc6bfc08a1cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57f12e8c_6b84492c",
+        "filename": "microdroid/system/private/init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2024-03-26T17:35:28Z",
+      "side": 1,
+      "message": "Without this I\u0027m getting the following denial:\n\n```\n[    0.942912][   T19] audit: type\u003d1400 audit(1710442337.272:4): avc:  denied  { relabelfrom } for  pid\u003d1 comm\u003d\"init\" name\u003d\"dice_chain.raw\" dev\u003d\"tmpfs\" ino\u003d2 scontext\u003du:r:init:s0 tcontext\u003du:object_r:tmpfs:s0 tclass\u003dfile permissive\u003d0\n```",
+      "parentUuid": "be3e7d79_d4e9c06f",
       "range": {
         "startLine": 48,
         "startChar": 37,
