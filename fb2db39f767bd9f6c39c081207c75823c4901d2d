@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43565f42_8a57f1be",
+        "filename": "contexts/plat_file_contexts_test",
+        "patchSetId": 22
+      },
+      "lineNbr": 1301,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-26T22:35:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "460ce4c9_15b931b4",
+      "range": {
+        "startLine": 1301,
+        "startChar": 0,
+        "endLine": 1301,
+        "endChar": 93
+      },
+      "revId": "fb2db39f767bd9f6c39c081207c75823c4901d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1793191c_f09bc777",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-26T21:30:45Z",
       "side": 1,
       "message": "I think it\u0027s worth pointing out more clearly that we\u0027re reusing the type outside the chroot for the sake of the linkerconfig binary, even though we\u0027re not changing the real linkerconfig there.\n\nHowever, I also wonder if this is really necessary. Doesn\u0027t it work to create the tmpfs and the empty file first, with the type `pre_reboot_dexopt_file` inherited from the chroot root, and then relabel them to `linkerconfig_file` just before `linkerconfig` is run? (Ok to address in a follow-up.)",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 66
+      },
+      "revId": "fb2db39f767bd9f6c39c081207c75823c4901d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b40bfbdf_374ff4b9",
+        "filename": "private/dexopt_chroot_setup.te",
+        "patchSetId": 22
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-26T22:35:29Z",
+      "side": 1,
+      "message": "Added comment. Note that this is not just for the linkerconfig program, but also for other programs who need to read the linker config.\n\nI guess what you suggested could work, but it\u0027s not necessarily beneficial. First, we will have to use `setfilecon` instead of using `rootcontext\u003d` at mount time, meaning we will have to add back those `relabelfrom` and `relebelto` permissions that I have removed in the new patchset, and we even need a new rule to allow `relebelto` on `linkerconfig_file:file` in addition to `linkerconfig_file:dir`. Second, `dexopt_chroot_setup` has the `mounton` permission on `linkerconfig_file`, in order to mount tmpfs on `/linkerconfig` **in chroot**, but this also allows `dexopt_chroot_setup` to potentially mount tmpfs on `/linkerconfig` outside chroot, meaning it can mess up the real linker config anyway.",
+      "parentUuid": "1793191c_f09bc777",
       "range": {
         "startLine": 96,
         "startChar": 0,
@@ -83,6 +131,48 @@
       "writtenOn": "2024-03-26T21:30:45Z",
       "side": 1,
       "message": "Suggest adding to the comment that this type is set on the directory through `setfilecon` in dexopt_chroot_setup.",
+      "revId": "fb2db39f767bd9f6c39c081207c75823c4901d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64106c3b_82587322",
+        "filename": "private/file.te",
+        "patchSetId": 22
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-26T22:35:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b6e68f3_67d3ec0a",
+      "range": {
+        "startLine": 165,
+        "startChar": 25,
+        "endLine": 165,
+        "endChar": 34
+      },
+      "revId": "fb2db39f767bd9f6c39c081207c75823c4901d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "582f8972_8bd75028",
+        "filename": "private/file.te",
+        "patchSetId": 22
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-26T22:35:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3b7cdaf_dbfe6771",
       "revId": "fb2db39f767bd9f6c39c081207c75823c4901d2d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
