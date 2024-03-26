@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "40af3210_f2bbed39",
+        "filename": "private/domain.te",
+        "patchSetId": 16
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1882770
+      },
+      "writtenOn": "2024-03-26T12:21:43Z",
+      "side": 1,
+      "message": "This corresponds to the storage file copies under /metadata/aconfig. This include system.val, system_ext.val, product.val and vendor.val. We should treat vendor.val differently given the concern. Let\u0027s confine it to coredomain + appdomain for now. I will create a separate file type for vendor.val and have its own policy.",
+      "parentUuid": "b0f6775b_514779c8",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 50
+      },
+      "revId": "dfff144bb57b5b44f46e8593d0fbbd4b7f026f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "14eabb93_140f74ab",
         "filename": "private/domain.te",
         "patchSetId": 16
