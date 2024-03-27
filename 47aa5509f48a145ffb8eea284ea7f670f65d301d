@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b91492f2_fe9c30ad",
+        "filename": "microdroid/system/private/file.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-03-27T17:37:29Z",
+      "side": 1,
+      "message": "I\u0027m not convinced it is an fs_type; I think it\u0027s a file_type.\nIt\u0027s not the label of the tmpfs filesystem, it\u0027s the label of the root directory within it. (Hence the rule referring to  microdroid_resources_tmpfs:dir )\n\nAnd if you change it to file_type, you probably don\u0027t need a separate dice_chain_file type. And you can remove the associate above, since we already have that for all of file_type.\n\nNot that that makes a huge difference.",
+      "range": {
+        "startLine": 26,
+        "startChar": 33,
+        "endLine": 26,
+        "endChar": 40
+      },
+      "revId": "47aa5509f48a145ffb8eea284ea7f670f65d301d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "37fb2cdc_23788823",
         "filename": "microdroid/system/private/init.te",
         "patchSetId": 3
