@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aba21f8_877a8069",
+        "filename": "microdroid/system/private/file.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2024-03-28T00:40:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b91492f2_fe9c30ad",
+      "range": {
+        "startLine": 26,
+        "startChar": 33,
+        "endLine": 26,
+        "endChar": 40
+      },
+      "revId": "47aa5509f48a145ffb8eea284ea7f670f65d301d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37fb2cdc_23788823",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-27T17:28:18Z",
       "side": 1,
       "message": "This worries me a little - init has never needed it before. \n\nI guess it\u0027s needed now to restorecon the DICE file inside the new tmpfs?",
+      "range": {
+        "startLine": 48,
+        "startChar": 37,
+        "endLine": 48,
+        "endChar": 41
+      },
+      "revId": "47aa5509f48a145ffb8eea284ea7f670f65d301d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4e330da_8d517939",
+        "filename": "microdroid/system/private/init.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2024-03-28T00:40:58Z",
+      "side": 1,
+      "message": "Per offline discussion moved the restorecon to setup_selinix stage which runs in kernel domain. PTAL",
+      "parentUuid": "37fb2cdc_23788823",
       "range": {
         "startLine": 48,
         "startChar": 37,
@@ -84,6 +132,30 @@
       "side": 1,
       "message": "And if so, please delete instead.",
       "parentUuid": "04b63e36_8aa73a0c",
+      "range": {
+        "startLine": 445,
+        "startChar": 0,
+        "endLine": 445,
+        "endChar": 61
+      },
+      "revId": "47aa5509f48a145ffb8eea284ea7f670f65d301d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ec7cbca_4eb1cd8a",
+        "filename": "microdroid/system/private/init.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2024-03-28T00:40:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5137b345_efecc958",
       "range": {
         "startLine": 445,
         "startChar": 0,
