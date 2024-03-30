@@ -21,6 +21,10 @@ allow system_app system_app_data_file:{ file lnk_file } create_file_perms;
 allow system_app misc_user_data_file:dir create_dir_perms;
 allow system_app misc_user_data_file:file create_file_perms;
 
+# Read and write to /data/misc/cacerts_managed.
+allow system_app managed_cacerts_data_file:dir create_dir_perms;
+allow system_app managed_cacerts_data_file:file create_file_perms;
+
 # Access to apex files stored on /data (b/136063500)
 # Needed so that Settings can access NOTICE files inside apex
 # files located in the assets/ directory.

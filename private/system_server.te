@@ -511,6 +511,10 @@ allow system_server keychain_data_file:lnk_file create_file_perms;
 # as vold is responsible for creating and deleting the subdirectories.
 allow system_server system_userdir_file:dir r_dir_perms;
 
+# Manage /data/misc/cacerts_managed.
+allow system_server managed_cacerts_data_file:dir create_dir_perms;
+allow system_server managed_cacerts_data_file:file create_file_perms;
+
 # Manage /data/app.
 allow system_server apk_data_file:dir create_dir_perms;
 allow system_server apk_data_file:{ file lnk_file } { create_file_perms link };
