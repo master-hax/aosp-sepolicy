@@ -168,6 +168,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3c3f9530_81cf9b74",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1328,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2024-04-02T17:22:12Z",
+      "side": 1,
+      "message": "Ah, apologies for the lack of context! So this is part of the go/devtelemetryapis feature, where we\u0027re allowing apps access to collect profiling data via Perfetto (via system server).\n\nThe profiling data can be a few different types (trace/stack sampling/etc). If a trace is collected, we need to filter the trace through this redaction process so that information about other processes isn\u0027t included in the output data. Other types, like stack sampling, only collect data about the process in question so the redaction doesn\u0027t apply.\n\nThe setup that we\u0027re trying to support here is for the system server module to:\n1 - Collect the trace via calling Perfetto (you may remember our past selinux reviews for this!)\n2 - Pass the trace to the new redactor process, where we filter out the info about other processes and output a new, redacted trace file.\n\nSo we\u0027re wanting to give system server the permission to manage the trace redactor because it\u0027s managing this whole process.\n\nOur goal would not specifically be to give trace redactor all of the privileges held by system server (we don\u0027t need that) - just the ones needed to interact with it via command line and to input and output traces, which will be in the profiling data directory.",
+      "parentUuid": "5ca27569_1da3000a",
+      "range": {
+        "startLine": 1326,
+        "startChar": 0,
+        "endLine": 1328,
+        "endChar": 100
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1206a44c_e6ccb15c",
         "filename": "private/trace_redactor.te",
         "patchSetId": 5
