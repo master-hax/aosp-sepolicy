@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "72815f04_d79c9a54",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-02T16:18:26Z",
+      "side": 1,
+      "message": "\u003e signal is required for aborting the process if takes too long (think of ctrl-c)\n\nYeah, but it would be good to include that in the comment (since it can be used for other purposes).\n\n\u003e FD is required both way for stdin+stdout communication.\n\nIt isn\u0027t; the child inherits fds from the parent, so needs parent:fd use, but the parent doesn\u0027t get an fd from the child, at least not as part of the exec.\n\nAnd the fifo used would be owned by system_server, not by trace_redactor.",
+      "parentUuid": "31ee99de_45a66426",
+      "range": {
+        "startLine": 596,
+        "startChar": 0,
+        "endLine": 596,
+        "endChar": 42
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d07d1f4_15ea93cd",
         "filename": "private/system_server.te",
         "patchSetId": 5
@@ -120,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5ca27569_1da3000a",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1328,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-02T16:18:26Z",
+      "side": 1,
+      "message": "Why is it being run by system server though? (There is very little context here or on the bug.)\n\nRunning it in its own domain is definitely a good thing. But spawning it from system server is unusual, as you can see from the limited number of exemptions here.",
+      "parentUuid": "c9fa5f42_35fa438e",
+      "range": {
+        "startLine": 1326,
+        "startChar": 0,
+        "endLine": 1328,
+        "endChar": 100
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1206a44c_e6ccb15c",
         "filename": "private/trace_redactor.te",
         "patchSetId": 5
@@ -155,6 +203,30 @@
       "side": 1,
       "message": "I assume because it takes a trace as input and creates a new (filtered) trace as  output",
       "parentUuid": "1206a44c_e6ccb15c",
+      "range": {
+        "startLine": 13,
+        "startChar": 61,
+        "endLine": 13,
+        "endChar": 80
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2650e8db_d5220c46",
+        "filename": "private/trace_redactor.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-02T16:18:26Z",
+      "side": 1,
+      "message": "In the same directory? If you\u0027re ok with that, it\u0027s fine by me. Having multiple writers can make life more complicated.",
+      "parentUuid": "d2ece514_abf9f420",
       "range": {
         "startLine": 13,
         "startChar": 61,
