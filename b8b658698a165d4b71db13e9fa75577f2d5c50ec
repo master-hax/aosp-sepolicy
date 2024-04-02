@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad49f61a_41af46fc",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-04-02T07:16:08Z",
+      "side": 1,
+      "message": "It\u0027s hard to know why crosvm needs these permissions. Can you add contexts?\n\nFor example, probably these can be grouped, and then a comment per one group can be added.\n\n* permission related to service manager \n* permission to communicate with virtmgr / virtualization service\n* permission to access graphics devices",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 50
+      },
+      "revId": "b8b658698a165d4b71db13e9fa75577f2d5c50ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "845e5f78_bc3e75d9",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-04-02T07:16:08Z",
+      "side": 1,
+      "message": "it\u0027s better to find accessed properties explicitly, than ignoring all vendor properties.",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 47
+      },
+      "revId": "b8b658698a165d4b71db13e9fa75577f2d5c50ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93b8a391_b72c892b",
+        "filename": "private/priv_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-04-02T07:16:08Z",
+      "side": 1,
+      "message": "Do all priv_app need this?",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 47
+      },
+      "revId": "b8b658698a165d4b71db13e9fa75577f2d5c50ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f84a7e8_7114973e",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-04-02T07:16:08Z",
+      "side": 1,
+      "message": "can you add contexts?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 0
+      },
+      "revId": "b8b658698a165d4b71db13e9fa75577f2d5c50ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
