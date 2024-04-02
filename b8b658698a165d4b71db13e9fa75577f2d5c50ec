@@ -3,6 +3,121 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e50825c4_1eb2601e",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-04-02T11:38:00Z",
+      "side": 1,
+      "message": "I don\u0027t understand why this is needed.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 54
+      },
+      "revId": "b8b658698a165d4b71db13e9fa75577f2d5c50ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "775c9ab1_35618134",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-04-02T11:38:00Z",
+      "side": 1,
+      "message": "We may be able to remove this later when we switch to binder RPC. Please add a TODO  for it.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 53
+      },
+      "revId": "b8b658698a165d4b71db13e9fa75577f2d5c50ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98f32bf1_0caf5dcf",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-04-02T11:38:00Z",
+      "side": 1,
+      "message": "This is unexpected. Can you explain where is this needed?",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 96
+      },
+      "revId": "b8b658698a165d4b71db13e9fa75577f2d5c50ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e93d991_3931dbd9",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-04-02T11:38:00Z",
+      "side": 1,
+      "message": "This too. binder RPC can remove these.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 60
+      },
+      "revId": "b8b658698a165d4b71db13e9fa75577f2d5c50ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ea39887_9a07ff0d",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-04-02T11:38:00Z",
+      "side": 1,
+      "message": "Not harmful, but why?",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 60
+      },
+      "revId": "b8b658698a165d4b71db13e9fa75577f2d5c50ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ad49f61a_41af46fc",
         "filename": "private/crosvm.te",
         "patchSetId": 1
@@ -16,6 +131,53 @@
       "message": "It\u0027s hard to know why crosvm needs these permissions. Can you add contexts?\n\nFor example, probably these can be grouped, and then a comment per one group can be added.\n\n* permission related to service manager \n* permission to communicate with virtmgr / virtualization service\n* permission to access graphics devices",
       "range": {
         "startLine": 83,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 50
+      },
+      "revId": "b8b658698a165d4b71db13e9fa75577f2d5c50ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55a2a041_d1dc7213",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-04-02T11:38:00Z",
+      "side": 1,
+      "message": "+1\n\nAnd consider splitting these additions into multiple CLs.",
+      "parentUuid": "ad49f61a_41af46fc",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 50
+      },
+      "revId": "b8b658698a165d4b71db13e9fa75577f2d5c50ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a52d32ac_6151df2f",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-04-02T11:38:00Z",
+      "side": 1,
+      "message": "I don\u0027t understand this either.",
+      "range": {
+        "startLine": 97,
         "startChar": 0,
         "endLine": 97,
         "endChar": 50
@@ -49,6 +211,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5403bd28_adf637c0",
+        "filename": "private/priv_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-04-02T11:38:00Z",
+      "side": 1,
+      "message": "binder RPC",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 49
+      },
+      "revId": "b8b658698a165d4b71db13e9fa75577f2d5c50ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "93b8a391_b72c892b",
         "filename": "private/priv_app.te",
         "patchSetId": 1
@@ -65,6 +250,29 @@
         "startChar": 0,
         "endLine": 129,
         "endChar": 47
+      },
+      "revId": "b8b658698a165d4b71db13e9fa75577f2d5c50ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd1c7174_aca0cef5",
+        "filename": "private/virtualizationmanager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-04-02T11:38:00Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 77
       },
       "revId": "b8b658698a165d4b71db13e9fa75577f2d5c50ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
