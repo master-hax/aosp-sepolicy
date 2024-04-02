@@ -80,6 +80,23 @@ allow crosvm {
 allow crosvm adbd:fd use;
 allow crosvm adbd:unix_stream_socket { read write };
 allow crosvm devpts:chr_file { read write getattr ioctl };
+allow crosvm device:dir { read open };
+allow crosvm same_process_hal_file:file { read open getattr map execute };
+allow crosvm gpu_device:chr_file { read write open ioctl map open getattr };
+allow crosvm hal_graphics_allocator:fd use;
+allow crosvm hal_graphics_allocator_server:binder call;
+allow crosvm hwservicemanager_prop:file { read open };
+allow crosvm priv_app:binder { transfer call };
+allow crosvm servicemanager:binder { call transfer };
+allow crosvm surfaceflinger:fd use;
+allow crosvm virtualizationmanager_exec:file { execute open read execute_no_trans map getattr };
+allow crosvm surfaceflinger:unix_stream_socket { read write };
+allow crosvm virtualization_service:service_manager find;
+allow crosvm virtualizationservice:binder { call transfer };
+allow crosvm hypervisor_prop:file { read open getattr map };
+allow crosvm app_api_service:service_manager find;
+hal_client_domain(crosvm, hal_graphics_allocator)
+dontaudit crosvm vendor_default_prop:file read;
 
 # crosvm tries to use netlink sockets as part its APCI implementation, but we don't need it for AVF (b/228077254)
 dontaudit crosvm self:netlink_generic_socket create_socket_perms_no_ioctl;
@@ -136,6 +153,7 @@ full_treble_only(`
     -vendor_microdroid_file
     -vndk_sp_file
     -vendor_task_profiles_file
+    -same_process_hal_file
   }:file *;
 ')
 
