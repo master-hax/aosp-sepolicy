@@ -72,6 +72,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9fa5f42_35fa438e",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1328,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2024-04-02T16:09:23Z",
+      "side": 1,
+      "message": "doesn\u0027t this suggest it\u0027s running trhough a domain transition (Which would effectively drop the ss privileges?)\n\ntrace_redactor is a platform binary that takes a system trace and filters out everything but the app-specific data that we want to give back to the app.",
+      "parentUuid": "4d07d1f4_15ea93cd",
+      "range": {
+        "startLine": 1326,
+        "startChar": 0,
+        "endLine": 1328,
+        "endChar": 100
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1206a44c_e6ccb15c",
         "filename": "private/trace_redactor.te",
         "patchSetId": 5
@@ -83,6 +107,30 @@
       "writtenOn": "2024-04-02T15:58:58Z",
       "side": 1,
       "message": "Why do you need write access? That feels wrong.",
+      "range": {
+        "startLine": 13,
+        "startChar": 61,
+        "endLine": 13,
+        "endChar": 80
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2ece514_abf9f420",
+        "filename": "private/trace_redactor.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2024-04-02T16:09:23Z",
+      "side": 1,
+      "message": "I assume because it takes a trace as input and creates a new (filtered) trace as  output",
+      "parentUuid": "1206a44c_e6ccb15c",
       "range": {
         "startLine": 13,
         "startChar": 61,
