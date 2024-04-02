@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1646c5db_d015e047",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-02T15:58:58Z",
+      "side": 1,
+      "message": "Can you add why you need signal permission?\nI don\u0027t think anything here relates to command line arguments (selinux doesn\u0027t restrict that).",
+      "range": {
+        "startLine": 592,
+        "startChar": 0,
+        "endLine": 592,
+        "endChar": 94
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab343b98_5c0644c3",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-02T15:58:58Z",
+      "side": 1,
+      "message": "Why do you need this? How does system_server receive a trace_redactor fd? Or access a trace_redactor owned fifo_file?\n\n(I can understand the rules the other way round.)",
+      "range": {
+        "startLine": 596,
+        "startChar": 0,
+        "endLine": 596,
+        "endChar": 42
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d07d1f4_15ea93cd",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1328,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-02T15:58:58Z",
+      "side": 1,
+      "message": "This makes me nervous.\n\nWhy is this being run directly by system_server? When is it?\nWhat access to system server data does it need?",
+      "range": {
+        "startLine": 1326,
+        "startChar": 0,
+        "endLine": 1328,
+        "endChar": 100
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1206a44c_e6ccb15c",
+        "filename": "private/trace_redactor.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-02T15:58:58Z",
+      "side": 1,
+      "message": "Why do you need write access? That feels wrong.",
+      "range": {
+        "startLine": 13,
+        "startChar": 61,
+        "endLine": 13,
+        "endChar": 80
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
