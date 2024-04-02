@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c58f5184_63ea837b",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1935010
+      },
+      "writtenOn": "2024-04-02T21:29:35Z",
+      "side": 1,
+      "message": "moved signal out of this grouping and added the reason for needing it in a comment.",
+      "parentUuid": "1646c5db_d015e047",
+      "range": {
+        "startLine": 592,
+        "startChar": 0,
+        "endLine": 592,
+        "endChar": 94
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab343b98_5c0644c3",
         "filename": "private/system_server.te",
         "patchSetId": 5
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "\u003e signal is required for aborting the process if takes too long (think of ctrl-c)\n\nYeah, but it would be good to include that in the comment (since it can be used for other purposes).\n\n\u003e FD is required both way for stdin+stdout communication.\n\nIt isn\u0027t; the child inherits fds from the parent, so needs parent:fd use, but the parent doesn\u0027t get an fd from the child, at least not as part of the exec.\n\nAnd the fifo used would be owned by system_server, not by trace_redactor.",
       "parentUuid": "31ee99de_45a66426",
+      "range": {
+        "startLine": 596,
+        "startChar": 0,
+        "endLine": 596,
+        "endChar": 42
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6408863_5de63603",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1935010
+      },
+      "writtenOn": "2024-04-02T21:29:35Z",
+      "side": 1,
+      "message": "removed the FD allow line and reran the CUJ and it worked fine. I assumed I need to add FD access both ways.  This is good to know, thank you!",
+      "parentUuid": "72815f04_d79c9a54",
       "range": {
         "startLine": 596,
         "startChar": 0,
@@ -251,6 +299,30 @@
       "side": 1,
       "message": "In the same directory? If you\u0027re ok with that, it\u0027s fine by me. Having multiple writers can make life more complicated.",
       "parentUuid": "d2ece514_abf9f420",
+      "range": {
+        "startLine": 13,
+        "startChar": 61,
+        "endLine": 13,
+        "endChar": 80
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0a35fb3_17128661",
+        "filename": "private/trace_redactor.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1935010
+      },
+      "writtenOn": "2024-04-02T21:29:35Z",
+      "side": 1,
+      "message": "Yes the reads and writes happen in the same directory.  Primiano\u0027s comment is correct, the trace_redactor will take in a trace and output a filtered trace.",
+      "parentUuid": "2650e8db_d5220c46",
       "range": {
         "startLine": 13,
         "startChar": 61,
