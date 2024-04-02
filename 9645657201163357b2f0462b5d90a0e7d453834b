@@ -22,6 +22,30 @@
       },
       "revId": "9645657201163357b2f0462b5d90a0e7d453834b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5eada41_3a65da4a",
+        "filename": "private/domain.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-04-02T22:04:23Z",
+      "side": 1,
+      "message": "They previously had access to it and also have access to the other binder logs.\n\nIf I try to remove `vendor_init` from here the build fails with:\n```\nallow at out/soong/.intermediates/system/sepolicy/plat_sepolicy.cil/android_common/plat_sepolicy.cil:30871                                                                                                     \n      (allow vendor_init base_typeattr_1023 (file (read setattr map open))) \n```\nplat_sepolicy/userdebug_plat_sepolicy/recovery_sepolicy each have different failures like this.\n\nSimilar failures for init and vendor_init with different `base_typeattr`s.",
+      "parentUuid": "fcc95759_a15c956f",
+      "range": {
+        "startLine": 160,
+        "startChar": 38,
+        "endLine": 160,
+        "endChar": 49
+      },
+      "revId": "9645657201163357b2f0462b5d90a0e7d453834b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
