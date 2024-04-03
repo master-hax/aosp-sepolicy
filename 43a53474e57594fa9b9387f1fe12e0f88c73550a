@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5ad28ce6_93a60ca6",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-03T10:52:04Z",
+      "side": 1,
+      "message": "TBH I preferred it in one group, with an overall comment.",
+      "parentUuid": "c58f5184_63ea837b",
+      "range": {
+        "startLine": 592,
+        "startChar": 0,
+        "endLine": 592,
+        "endChar": 94
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab343b98_5c0644c3",
         "filename": "private/system_server.te",
         "patchSetId": 5
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "removed the FD allow line and reran the CUJ and it worked fine. I assumed I need to add FD access both ways.  This is good to know, thank you!",
       "parentUuid": "72815f04_d79c9a54",
+      "range": {
+        "startLine": 596,
+        "startChar": 0,
+        "endLine": 596,
+        "endChar": 42
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b91593e_884640e4",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-03T10:52:04Z",
+      "side": 1,
+      "message": "I also think you can delete `allow system_server trace_redactor:fifo_file {read write};` - the fifo is owned by system_server and we need to allow trace_redactor to access it (which you do below), but again it\u0027s not symmetric.",
+      "parentUuid": "e6408863_5de63603",
       "range": {
         "startLine": 596,
         "startChar": 0,
@@ -240,6 +288,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9cec8cbf_55f686b5",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1328,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-03T10:52:04Z",
+      "side": 1,
+      "message": "Normally we use services started by init for native processes, but I can see this is a bit different.\n\nIt would be good to expand the comment above, to explain why perfetto \u0026 trace_redactor are run directly.",
+      "parentUuid": "3c3f9530_81cf9b74",
+      "range": {
+        "startLine": 1326,
+        "startChar": 0,
+        "endLine": 1328,
+        "endChar": 100
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1206a44c_e6ccb15c",
         "filename": "private/trace_redactor.te",
         "patchSetId": 5
@@ -323,6 +395,30 @@
       "side": 1,
       "message": "Yes the reads and writes happen in the same directory.  Primiano\u0027s comment is correct, the trace_redactor will take in a trace and output a filtered trace.",
       "parentUuid": "2650e8db_d5220c46",
+      "range": {
+        "startLine": 13,
+        "startChar": 61,
+        "endLine": 13,
+        "endChar": 80
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81bf7e8e_a3086aa9",
+        "filename": "private/trace_redactor.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-03T10:52:04Z",
+      "side": 1,
+      "message": "You don\u0027t have permission to modify the directory though - so you\u0027re limited to overwriting existing files (I think).\n\nOr is system server opening/creating the files for you and passing the fds? If that\u0027s the case, you should only need `allow trace_redactor perfetto_traces_profiling_data_file:file { read write };` and `allow trace_redactor perfetto_traces_data_file:file read;`, with no open/create or directory permission needed. (Feel free to add getattr and ioctl as well.)\n\nThat\u0027s a good and fairly common sepolicy idiom.",
+      "parentUuid": "a0a35fb3_17128661",
       "range": {
         "startLine": 13,
         "startChar": 61,

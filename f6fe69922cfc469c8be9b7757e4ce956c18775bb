@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8835bf38_bf524ed7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-03T10:52:04Z",
+      "side": 1,
+      "message": "I have a bunch of comments, but no fundamental objections to any of this.\n\nMy main open question is how trace_redactor accesses the trace files (for input \u0026 output) - does it open them itself, or does it inherit fds from system_server? You seem to have elements of both.",
+      "revId": "f6fe69922cfc469c8be9b7757e4ce956c18775bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff7d87de_0e114ab1",
+        "filename": "private/system_server.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-03T10:52:04Z",
+      "side": 1,
+      "message": "Why this change?\n\nIf you need it, then it can be simplified to just `allow system_server perfetto_traces_profiling_data_file:file create_file_perms;`\n\ncreate_file_perms already contains everything the others do: https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/public/global_macros;drc\u003dc4ab8edf7476ac8f247e5f1b2efbe282a693be06;l\u003d31.",
+      "range": {
+        "startLine": 589,
+        "startChar": 61,
+        "endLine": 589,
+        "endChar": 104
+      },
+      "revId": "f6fe69922cfc469c8be9b7757e4ce956c18775bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2af64f2_e6da0532",
+        "filename": "private/trace_redactor.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-03T10:52:04Z",
+      "side": 1,
+      "message": "I\u0027d be tempted to add getattr here - granting it is fine, and it often shows up in harmless but spurious denials, e.g. when bionic wants to find out if stdin/out are a TTY.",
+      "range": {
+        "startLine": 7,
+        "startChar": 46,
+        "endLine": 7,
+        "endChar": 64
+      },
+      "revId": "f6fe69922cfc469c8be9b7757e4ce956c18775bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "766db18f_ac25d80b",
+        "filename": "private/trace_redactor.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-03T10:52:04Z",
+      "side": 1,
+      "message": "Nit: no braces for single items.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 80
+      },
+      "revId": "f6fe69922cfc469c8be9b7757e4ce956c18775bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
