@@ -70,6 +70,30 @@
       },
       "revId": "6cdf97fd6784200f56b7dd023a8d098b3e7efc57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17a940e5_cb6a401b",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1981530
+      },
+      "writtenOn": "2024-04-04T20:12:40Z",
+      "side": 1,
+      "message": "`aconfig_storage_metadata_file` and the other are used for all files in these directories: https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/file_contexts;l\u003d874?q\u003daconfig_storage_metadata_file\n\naconfigd reads/writes other files in this directory, system_server needs to write a different file in this same directory. The names for the policy are a bit confusing.\n\nThe marker file will only be used temporarily while we perform a migration, so we plan to remove system_server\u0027s access here once it\u0027s done",
+      "parentUuid": "52624f34_35426b8c",
+      "range": {
+        "startLine": 1488,
+        "startChar": 63,
+        "endLine": 1488,
+        "endChar": 69
+      },
+      "revId": "6cdf97fd6784200f56b7dd023a8d098b3e7efc57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
