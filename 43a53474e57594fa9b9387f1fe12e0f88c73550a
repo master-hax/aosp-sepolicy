@@ -384,6 +384,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a7688191_91b3fa56",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1328,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2024-04-04T09:25:32Z",
+      "side": 1,
+      "message": "The problem of spawning the service from init is that it becomes a persistent memory cost , which is undesirable. trace_redactor is short-lived and self-contained.\nThe alternative would be turning this into a .so and making system_server invoke that code in its own process, but that is IMHO strictly worse both security and system-health-wise.\n\n(if you ask me, I would honestly move more code from system_server in dedicated one-off processes like this. I think in practice doesn\u0027t happen because most ss code is java, and that\u0027s harder to turn into its own binary)",
+      "parentUuid": "8e0bef98_eb24956a",
+      "range": {
+        "startLine": 1326,
+        "startChar": 0,
+        "endLine": 1328,
+        "endChar": 100
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1206a44c_e6ccb15c",
         "filename": "private/trace_redactor.te",
         "patchSetId": 5
@@ -515,6 +539,30 @@
       "side": 1,
       "message": "system server is creating one of the files required for trace_redactor the other is being created by the perfetto process. system server is then passing the file locations to trace_redactor.  I tried having just read/write for `perfetto_traces_profiling_data_file:file` but got a `denied {open}` error so left that one as is.  I was able to update `perfetto_traces_data_file:file` to just read and added the getattr and ioctl as suggested.",
       "parentUuid": "81bf7e8e_a3086aa9",
+      "range": {
+        "startLine": 13,
+        "startChar": 61,
+        "endLine": 13,
+        "endChar": 80
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48736f16_156e8487",
+        "filename": "private/trace_redactor.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2024-04-04T09:25:32Z",
+      "side": 1,
+      "message": "drive-by: general I think is okay for trace_redactor to manipulate in any way files in perfetto_traces_profiling_data_file, delete, create and whatnot.\n\ntrace_redactor is platform code that is spawned by system_server to filter traces. perfetto_traces_profiling_data_file contains only traces that are requested by system_server itself for this purpose, and does not expose other forms of traces to trace_redactor (e.g. does NOT expose the traces we capture from the field or traces captured via adb shell)",
+      "parentUuid": "a48927ae_8cecfaca",
       "range": {
         "startLine": 13,
         "startChar": 61,
