@@ -46,6 +46,30 @@
       },
       "revId": "6cdf97fd6784200f56b7dd023a8d098b3e7efc57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52624f34_35426b8c",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-04-04T20:09:27Z",
+      "side": 1,
+      "message": "Here are where the aconfigd permissions to read/write that file are:\nhttps://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/aconfigd.te;l\u003d21;drc\u003da2b17ab856cb922b0e2e25ad54772502b7eb3997\n\nIf they are not needed there, can we remove them?",
+      "parentUuid": "81173cf9_62984905",
+      "range": {
+        "startLine": 1488,
+        "startChar": 63,
+        "endLine": 1488,
+        "endChar": 69
+      },
+      "revId": "6cdf97fd6784200f56b7dd023a8d098b3e7efc57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
