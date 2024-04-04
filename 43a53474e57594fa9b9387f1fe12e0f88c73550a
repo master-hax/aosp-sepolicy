@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8e66213_9e814cef",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-04T10:58:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "049c8854_203c6de1",
+      "range": {
+        "startLine": 592,
+        "startChar": 0,
+        "endLine": 592,
+        "endChar": 94
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab343b98_5c0644c3",
@@ -229,6 +253,30 @@
       "side": 1,
       "message": "removed fifo_file access and re-ran CUJ, worked fine. This is also good to know,  Thank you!",
       "parentUuid": "6b91593e_884640e4",
+      "range": {
+        "startLine": 596,
+        "startChar": 0,
+        "endLine": 596,
+        "endChar": 42
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5aedf266_226f551f",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-04T10:58:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "fc866e23_bb6009c0",
       "range": {
         "startLine": 596,
         "startChar": 0,
@@ -406,6 +454,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "415c7916_c8031517",
+        "filename": "private/system_server.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 1328,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-04T10:58:50Z",
+      "side": 1,
+      "message": "\u003e The problem of spawning the service from init is that it becomes a persistent memory cost , which is undesirable\n\nJust as an aside, on-demand services solve that problem - they get started when you need them, and stop when they are no longer in use. I have a couple of those.\n\nOn the broader points, I agree.",
+      "parentUuid": "a7688191_91b3fa56",
+      "range": {
+        "startLine": 1326,
+        "startChar": 0,
+        "endLine": 1328,
+        "endChar": 100
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1206a44c_e6ccb15c",
@@ -563,6 +635,30 @@
       "side": 1,
       "message": "drive-by: general I think is okay for trace_redactor to manipulate in any way files in perfetto_traces_profiling_data_file, delete, create and whatnot.\n\ntrace_redactor is platform code that is spawned by system_server to filter traces. perfetto_traces_profiling_data_file contains only traces that are requested by system_server itself for this purpose, and does not expose other forms of traces to trace_redactor (e.g. does NOT expose the traces we capture from the field or traces captured via adb shell)",
       "parentUuid": "a48927ae_8cecfaca",
+      "range": {
+        "startLine": 13,
+        "startChar": 61,
+        "endLine": 13,
+        "endChar": 80
+      },
+      "revId": "43a53474e57594fa9b9387f1fe12e0f88c73550a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae58f162_0e499211",
+        "filename": "private/trace_redactor.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-04T10:58:50Z",
+      "side": 1,
+      "message": "\u003e system server is creating one of the files required for trace_redactor the other is being created by the perfetto process. system server is then passing the file locations to trace_redactor\n\nOh, I see. Ok, this all makes sense then.\n\n\u003e trace_redactor is platform code that is spawned by system_server to filter traces. perfetto_traces_profiling_data_file contains only traces that are requested by system_server itself for this purpose, and does not expose other forms of traces to trace_redactor (e.g. does NOT expose the traces we capture from the field or traces captured via adb shell)\n\nSounds good.",
+      "parentUuid": "48736f16_156e8487",
       "range": {
         "startLine": 13,
         "startChar": 61,
