@@ -22,6 +22,30 @@
       },
       "revId": "6cdf97fd6784200f56b7dd023a8d098b3e7efc57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81173cf9_62984905",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1981530
+      },
+      "writtenOn": "2024-04-04T20:06:29Z",
+      "side": 1,
+      "message": "This is a marker file that\u0027s only created and deleted by system_server, anything else only ever checks if the file exists. It gets created by SettingsProvider when a flag is enabled. The flag is stored in SettingsProvider, so SettingsProvider can do the flag lookup -\u003e file creation. aconfigd can\u0027t easily read the flag in SettingsProvider, as SP starts up later in the boot process.\n\naconfigd will never care about that particular file, system_server is the only one that interacts with it. aconfig_storage_metadata_file is the policy associated with the directory this marker file lives in. All of the other files in that directory are managed by aconfigd",
+      "parentUuid": "5e29d458_bf0b5bcc",
+      "range": {
+        "startLine": 1488,
+        "startChar": 63,
+        "endLine": 1488,
+        "endChar": 69
+      },
+      "revId": "6cdf97fd6784200f56b7dd023a8d098b3e7efc57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
