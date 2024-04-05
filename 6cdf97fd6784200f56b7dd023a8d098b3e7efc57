@@ -94,6 +94,30 @@
       },
       "revId": "6cdf97fd6784200f56b7dd023a8d098b3e7efc57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "318927ed_01dd807f",
+        "filename": "private/system_server.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-04-05T05:58:32Z",
+      "side": 1,
+      "message": "IIUC, Steven\u0027s concern is that this particular directory/selinux-context is intended to be fully owned/managed by aconfigd. It\u0027s generally better to not share ownership of directories/selinux-contexts this way because it makes it challenging to understand who owns what files, and makes it easy to cause mistakes where one process modifies/deletes/etc the files owned by another process. It\u0027s better to fully separate ownership and have that separation enforced by selinux. What you could do instead:\n\nHave init create a new directory for your use-case. This is what\u0027s done for other directories here:\nhttps://cs.android.com/search?q\u003d%2Fmetadata%2Faconfig%20init.rc\n\nAssign your new directory with a new selinux label and grant permissions to access it. See aosp/2960462 as an example",
+      "parentUuid": "17a940e5_cb6a401b",
+      "range": {
+        "startLine": 1488,
+        "startChar": 63,
+        "endLine": 1488,
+        "endChar": 69
+      },
+      "revId": "6cdf97fd6784200f56b7dd023a8d098b3e7efc57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
