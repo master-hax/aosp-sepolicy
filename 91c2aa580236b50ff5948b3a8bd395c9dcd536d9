@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7805c2b1_22a19092",
+        "filename": "private/domain.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1882770
+      },
+      "writtenOn": "2024-04-05T14:14:57Z",
+      "side": 1,
+      "message": "The marker file is used in aconfig flag read codegen. In the generated code, it will check if the marker file exists, if so, it would read from both old and new storage. So whoever uses aconfig flag codegen would need to check if this file exists. We can probably start with coredomain.",
+      "parentUuid": "826c1562_7351f366",
+      "range": {
+        "startLine": 565,
+        "startChar": 0,
+        "endLine": 565,
+        "endChar": 66
+      },
+      "revId": "91c2aa580236b50ff5948b3a8bd395c9dcd536d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "013952ae_cc253426",
         "filename": "private/system_server.te",
         "patchSetId": 4
