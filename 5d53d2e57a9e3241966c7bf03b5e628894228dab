@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49d3fae1_d301d05a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 28
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-05T10:22:20Z",
+      "side": 1,
+      "message": "With my mls hat on: I\u0027d expect /data/storage_area/userId to have the categories for the user (to prevent other users probing it), and /data/storage_area/userId/pkgName (and everything below it) to have the categories for user + package ID. (Possibly overridden by seapp_contexts.)\n\nIs that what we end up with?\n\nAnd how do we prevent probing of /data/storage_area/userId to determine if a package is present?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 33
+      },
+      "revId": "5d53d2e57a9e3241966c7bf03b5e628894228dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0f740b9_c0693d49",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 28
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-05T10:22:20Z",
+      "side": 1,
+      "message": "Can we add a neverallow to enforce that?",
+      "range": {
+        "startLine": 45,
+        "startChar": 68,
+        "endLine": 46,
+        "endChar": 15
+      },
+      "revId": "5d53d2e57a9e3241966c7bf03b5e628894228dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d28a7eea_8cdc2e1c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 28
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-05T10:22:20Z",
+      "side": 1,
+      "message": "Nit: no blank line here. (The `Foo:` stanzas are supposed to be contiguous)",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 52
+      },
+      "revId": "5d53d2e57a9e3241966c7bf03b5e628894228dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d541a24e_b7350aba",
+        "filename": "private/file.te",
+        "patchSetId": 28
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-05T10:22:20Z",
+      "side": 1,
+      "message": "I\u0027m not convinced these ones should be app_data_file_type.",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 94
+      },
+      "revId": "5d53d2e57a9e3241966c7bf03b5e628894228dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0eb114f5_3a0fa123",
+        "filename": "private/init.te",
+        "patchSetId": 28
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-05T10:22:20Z",
+      "side": 1,
+      "message": "Nit: no braces for a single item (throughout)",
+      "range": {
+        "startLine": 855,
+        "startChar": 40,
+        "endLine": 855,
+        "endChar": 52
+      },
+      "revId": "5d53d2e57a9e3241966c7bf03b5e628894228dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3488bb1_5a4314d2",
+        "filename": "private/installd.te",
+        "patchSetId": 28
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-05T10:22:20Z",
+      "side": 1,
+      "message": "Perhaps we could tighten this a bit?\n\nw_dir_perms I think is enough. Or even restrict it further to `open search write remove_name lock` (no `add_name`).",
+      "range": {
+        "startLine": 246,
+        "startChar": 45,
+        "endLine": 246,
+        "endChar": 61
+      },
+      "revId": "5d53d2e57a9e3241966c7bf03b5e628894228dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2b37ddb_52251b27",
+        "filename": "private/seapp_contexts",
+        "patchSetId": 28
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-05T10:22:20Z",
+      "side": 1,
+      "message": "Do as a separate quick CL?",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 63
+      },
+      "revId": "5d53d2e57a9e3241966c7bf03b5e628894228dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddf8b5c7_804c46c7",
+        "filename": "private/vold.te",
+        "patchSetId": 28
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-05T10:22:20Z",
+      "side": 1,
+      "message": "Oh, this is good.\n\n(And could also be separate?)",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 0
+      },
+      "revId": "5d53d2e57a9e3241966c7bf03b5e628894228dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af277181_e51492d1",
+        "filename": "private/vold.te",
+        "patchSetId": 28
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-04-05T10:22:20Z",
+      "side": 1,
+      "message": "Search is included already, no need to mention it explicitly.\n\nCould this be w_dir_perms, or rw_dir_perms?",
+      "range": {
+        "startLine": 93,
+        "startChar": 41,
+        "endLine": 93,
+        "endChar": 57
+      },
+      "revId": "5d53d2e57a9e3241966c7bf03b5e628894228dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
