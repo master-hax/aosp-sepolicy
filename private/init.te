@@ -485,6 +485,9 @@ userdebug_or_eng(`
   allow init system_block_device:blk_file { write };
 ')
 
+allow init vendor_configs_file:dir mounton;
+allow init vendor_app_file:dir mounton;
+
 allow init {
   proc # b/67049235 processes /proc/<pid>/* files are mislabeled.
   proc_bootconfig
