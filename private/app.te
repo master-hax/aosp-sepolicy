@@ -656,6 +656,7 @@ neverallow appdomain {
 neverallow {
   appdomain
   -shell # bugreport
+  is_flag_enabled(RELEASE_AVF_SUPPORT_CUSTOM_VM_WITH_PARAVIRTUALIZED_DEVICES, `-vmlauncher_app')
 } input_device:chr_file ~getattr;
 
 # Do not allow access to Bluetooth-related system properties except for a few allowed domains.
