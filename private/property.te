@@ -798,9 +798,12 @@ neverallow {
   -system_app
   -device_as_webcam
 } usb_uvc_enabled_prop:file no_rw_file_perms;
+<<<<<<< PATCH SET (7c0a4d Revert "Add pm.archiving.enabled system property")
+=======
 
 neverallow {
   domain
   -init
   -vendor_init
 } pm_archiving_enabled_prop:property_service set;
+>>>>>>> BASE      (d51e54 Merge "Add remote_provisioning.connect_timeout_millis as sys)
