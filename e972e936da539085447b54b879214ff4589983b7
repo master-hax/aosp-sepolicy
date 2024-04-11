@@ -16,6 +16,24 @@
       "message": "Does it mean we can\u0027t delete the unused system property?",
       "revId": "e972e936da539085447b54b879214ff4589983b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69b8b510_eee1c9a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-04-11T01:02:36Z",
+      "side": 1,
+      "message": "Actually it\u0027s the type `pm_archiving_prop` which was public on 202404. We can\u0027t remove a public type once frozen, just like we can\u0027t remove a Java API once added.\n\nInstead of reverting this entire change, I suggest removing 1) the entry in `property_contexts` and 2) access to `pm_archiving_enabled_prop` (leaving 202404 prebuilts as-is)",
+      "parentUuid": "6732e087_daea74c3",
+      "revId": "e972e936da539085447b54b879214ff4589983b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
