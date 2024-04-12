@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "664dce82_d07bc0de",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-04-12T09:44:37Z",
+      "side": 1,
+      "message": "I thought `input_device:chr_file { read write }` and `input_device:fd use` would be enough.. because you pass the FD, not the file path.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 51
+      },
+      "revId": "a75dbc5a614c72b2f26e28a80bb8e97c4181663f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bddc6cc_41d36a84",
+        "filename": "private/virtualizationmanager.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-04-12T09:44:37Z",
+      "side": 1,
+      "message": "Here too. Why does virtmgr have to read/write the files? It\u0027s job is to pass FDs from app to crosvm, right?",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 66
+      },
+      "revId": "a75dbc5a614c72b2f26e28a80bb8e97c4181663f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6313511_f94c33d0",
         "filename": "public/device.te",
         "patchSetId": 1
@@ -14,6 +60,30 @@
       "writtenOn": "2024-04-12T09:05:39Z",
       "side": 1,
       "message": "I am not sure if it is proper.",
+      "range": {
+        "startLine": 31,
+        "startChar": 29,
+        "endLine": 31,
+        "endChar": 45
+      },
+      "revId": "a75dbc5a614c72b2f26e28a80bb8e97c4181663f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55a843ca_f1a4da25",
+        "filename": "public/device.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-04-12T09:44:37Z",
+      "side": 1,
+      "message": "no this is inappropriate. this effectively makes this type to be trusted across different levels.\n\nI am guessing you won\u0027t need this if you drop `levelFrom\u003d*` in seapp_context for the launcher app.",
+      "parentUuid": "f6313511_f94c33d0",
       "range": {
         "startLine": 31,
         "startChar": 29,
