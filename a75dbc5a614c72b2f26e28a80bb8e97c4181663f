@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77c80e7a_ee69c61d",
+        "filename": "private/crosvm.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1386891
+      },
+      "writtenOn": "2024-04-12T16:26:05Z",
+      "side": 1,
+      "message": "It looks like it still needs \u0027open\u0027 permission because it opens /proc/self/fd/\u003cn\u003e",
+      "parentUuid": "664dce82_d07bc0de",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 51
+      },
+      "revId": "a75dbc5a614c72b2f26e28a80bb8e97c4181663f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6bddc6cc_41d36a84",
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "no this is inappropriate. this effectively makes this type to be trusted across different levels.\n\nI am guessing you won\u0027t need this if you drop `levelFrom\u003d*` in seapp_context for the launcher app.",
       "parentUuid": "f6313511_f94c33d0",
+      "range": {
+        "startLine": 31,
+        "startChar": 29,
+        "endLine": 31,
+        "endChar": 45
+      },
+      "revId": "a75dbc5a614c72b2f26e28a80bb8e97c4181663f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed884b73_b7825dfb",
+        "filename": "public/device.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1386891
+      },
+      "writtenOn": "2024-04-12T16:26:05Z",
+      "side": 1,
+      "message": "oh, it works! thanks!",
+      "parentUuid": "55a843ca_f1a4da25",
       "range": {
         "startLine": 31,
         "startChar": 29,
