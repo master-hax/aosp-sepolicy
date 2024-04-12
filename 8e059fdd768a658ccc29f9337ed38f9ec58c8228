@@ -108,6 +108,30 @@
       },
       "revId": "8e059fdd768a658ccc29f9337ed38f9ec58c8228",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e67880d_3a76501c",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2024-04-12T03:58:54Z",
+      "side": 1,
+      "message": "From what I can tell, this property is defined in WallpaperManager (frameworks/base/core/java/android/app/WallpaperManager.java) since 2014. Aurélien mentioned to me that there are multiple mechanisms usable with a similar purpose (e.g., getCmfWallpaperPath, which uses a different path).\n\nSince the property is not defined in the policy, I would assume that the API in WallpaperManager is currently failing. It is a good reason to properly define/rename the property to match the current expectations (https://source.android.com/docs/core/architecture/configuration/add-system-properties). Either way, this should be covered in the commit description.",
+      "parentUuid": "4e8a91c4_74d3437a",
+      "range": {
+        "startLine": 1259,
+        "startChar": 0,
+        "endLine": 1259,
+        "endChar": 10
+      },
+      "revId": "8e059fdd768a658ccc29f9337ed38f9ec58c8228",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
