@@ -178,7 +178,7 @@ get_prop(system_app, usb_uvc_enabled_prop)
 get_prop(system_app, pm_archiving_enabled_prop)
 
 # Settings app reads and writes the wifi blob database
-allow system_app connectivityblob_data_file:dir rw_dir_perms;
+allow system_app connectivityblob_data_file:dir create_dir_perms;
 allow system_app connectivityblob_data_file:file create_file_perms;
 
 ###
