@@ -16,6 +16,24 @@
       "message": "You should only have to make the change in one file, shouldn\u0027t you?\n\nWhat does PRODUCT_SET_DEBUGFS_RESTRICTIONS do?",
       "revId": "af03c9f83e3b0211b8ac1473cf4f76d959ea0679",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc968172_1df0ee42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-04-15T08:34:12Z",
+      "side": 1,
+      "message": "\u003e You should only have to make the change in one file, shouldn\u0027t you?\n\nWe make in one file if it\u0027s {ver}.cil or {ver}.ignore.cil. For {ver}.compat.cil I think we need to update both files.\n\n\u003e What does PRODUCT_SET_DEBUGFS_RESTRICTIONS do?\n\n`PRODUCT_SET_DEBUGFS_RESTRICTIONS` (default: `true`) affects `enforce_debugfs_restriction` and `no_debugfs_restriction` macros. If it\u0027s `true`, some permissions for `debugfs` won\u0027t be granted and neverallow rules will be more restrictive.\n\nSince Android S we\u0027ve been setting it to `true`, but GSI still uses `false` to support older devices than S. This change grants debugfs permission only to 29.0 and 30.0 devices, rather than blindly turning off debugfs restrictions.",
+      "parentUuid": "7eb4a946_0dd9726c",
+      "revId": "af03c9f83e3b0211b8ac1473cf4f76d959ea0679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
