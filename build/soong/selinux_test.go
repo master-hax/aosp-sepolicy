@@ -28,12 +28,12 @@ func TestMain(m *testing.M) {
 
 var prepareForTest = android.GroupFixturePreparers(
 	android.FixtureModifyProductVariables(func(variables android.FixtureProductVariables) {
-		buildFlags := make(map[string]string)
-		buildFlags["RELEASE_FLAGS_BAR"] = "true"
-		buildFlags["RELEASE_FLAGS_FOO1"] = "false"
-		// "RELEASE_FLAGS_FOO2" is missing
-		buildFlags["RELEASE_AVF_ENABLE_DEVICE_ASSIGNMENT"] = "true"
-		variables.BuildFlags = buildFlags
+		variables.BuildFlags = android.GenerateBuildFlagsMapForTest(map[string]string{
+			"RELEASE_FLAGS_BAR":  "true",
+			"RELEASE_FLAGS_FOO1": "false",
+			// "RELEASE_FLAGS_FOO2" is missing
+			"RELEASE_AVF_ENABLE_DEVICE_ASSIGNMENT": "true",
+		})
 	}),
 	android.FixtureRegisterWithContext(func(ctx android.RegistrationContext) {
 		ctx.RegisterModuleType("se_flags", flagsFactory)

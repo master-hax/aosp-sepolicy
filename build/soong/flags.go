@@ -127,7 +127,7 @@ func (f *flagsCollectorModule) GenerateAndroidBuildActions(ctx android.ModuleCon
 	})
 	buildFlags := make(map[string]string)
 	for _, flag := range android.SortedUniqueStrings(flags) {
-		if val, ok := ctx.Config().GetBuildFlag(flag); ok {
+		if val, ok := ctx.Config().GetBuildFlagValue(flag); ok {
 			buildFlags[flag] = val
 		}
 	}

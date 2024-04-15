@@ -46,7 +46,7 @@ type freezeTestModule struct {
 }
 
 func (f *freezeTestModule) shouldRunTest(ctx android.EarlyModuleContext) bool {
-	val, _ := ctx.Config().GetBuildFlag("RELEASE_BOARD_API_LEVEL_FROZEN")
+	val, _ := ctx.Config().GetBuildFlagValue("RELEASE_BOARD_API_LEVEL_FROZEN")
 	return val == "true"
 }
 
