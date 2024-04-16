@@ -236,6 +236,9 @@ allow domain vendor_data_file:dir { getattr search };
 # required by the dynamic linker
 allow domain proc:lnk_file { getattr read };
 
+# /proc/cgroups
+allow domain proc_cgroups:file r_file_perms;
+
 # /proc/cpuinfo
 allow domain proc_cpuinfo:file r_file_perms;
 
