@@ -207,6 +207,9 @@ r_dir_file(domain, sysfs_usb);
 allow domain sysfs_transparent_hugepage:dir search;
 allow domain sysfs_transparent_hugepage:file r_file_perms;
 
+# Allow reads (but not writes) of the MGLRU state
+allow { domain -isolated_app_all } sysfs_lru_gen_enabled:file r_file_perms;
+
 # Allow search access, and sometimes getattr access, to various directories
 # under /data.  We are fairly lenient in allowing search access to top-level
 # dirs that commonly need to be traversed to get access to the "real" files, as
