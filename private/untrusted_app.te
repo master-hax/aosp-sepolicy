@@ -20,4 +20,6 @@ bluetooth_domain(untrusted_app)
 allow untrusted_app sdk_sandbox_data_file:fd use;
 allow untrusted_app sdk_sandbox_data_file:file write;
 
+use_apex_info(untrusted_app)
+
 neverallow untrusted_app sdk_sandbox_data_file:file { open create };
