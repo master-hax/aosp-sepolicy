@@ -112,3 +112,8 @@ neverallow audioserver { file_type fs_type }:file execute_no_trans;
 # https://android-developers.googleblog.com/2016/05/hardening-media-stack.html
 neverallow audioserver domain:{ udp_socket rawip_socket } *;
 neverallow audioserver { domain userdebug_or_eng(`-su') }:tcp_socket *;
+
+# Allow crosvm to play sound.
+is_flag_enabled(RELEASE_AVF_SUPPORT_CUSTOM_VM_WITH_PARAVIRTUALIZED_DEVICES, `
+  allow audioserver crosvm:binder { call transfer };
+')
