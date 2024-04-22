@@ -382,21 +382,26 @@ static int check_neverallows(policydb_t *policydb, char *text, char *end)
     char *p, *start;
     int result;
 
+    int non_comment_len = 0, cur_non_comment_len = 0, old_len = 0;
+    char *cur_non_comment_text = calloc(1, (end - text) + 1);
+    if (!cur_non_comment_text)
+        return -1;
+    char *non_comment_text = cur_non_comment_text;
     p = text;
+    start = p;
+    bool in_comment = false;
     while (p < end) {
-        while (p < end && isspace(*p))
-            p++;
-
-        if (*p == '#') {
-            while (p < end && *p != '\n')
-                p++;
-            continue;
-        }
-
+        if (*p == '#') in_comment = true;
+        if (!in_comment || *p == '\n') *cur_non_comment_text++ = *p;
+        if (*p == '\n') in_comment = false;
+        ++p;
+    }
+    p = non_comment_text;
+    end = cur_non_comment_text;
+    while (p < end) {
+        while (p < end && isspace(*p)) p++;
         start = p;
-        while (p < end && !isspace(*p))
-            p++;
-
+        while (p < end && !isspace(*p)) p++;
         len = p - start;
         if (len != keyword_size || strncmp(start, keyword, keyword_size))
             continue;
@@ -415,7 +420,6 @@ static int check_neverallows(policydb_t *policydb, char *text, char *end)
 
         if (read_typeset(policydb, &p, end, &avrule->ttypes, &avrule->flags))
             goto err;
-
         if (read_classperms(policydb, &p, end, &avrule->perms))
             goto err;
 
@@ -437,8 +441,10 @@ static int check_neverallows(policydb_t *policydb, char *text, char *end)
 
     result = check_assertions(NULL, policydb, neverallows);
     avrule_list_destroy(neverallows);
+    free(non_comment_text);
     return result;
 err:
+    free(non_comment_text);
     if (errno == ENOMEM) {
         fprintf(stderr, "Out of memory while parsing neverallow rules\n");
     } else
