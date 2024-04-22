@@ -8,7 +8,11 @@ type binderfs, fs_type;
 type binderfs_logs, fs_type;
 type binderfs_logs_proc, fs_type;
 type binderfs_logs_stats, fs_type;
-type binderfs_logs_transactions, fs_type;
+
+starting_at_board_api(202504, `
+    type binderfs_logs_transactions, fs_type;
+')
+
 type binderfs_features, fs_type;
 # Security-sensitive proc nodes that should not be writable to most.
 type proc_security, fs_type, proc_type;
@@ -139,8 +143,13 @@ type fs_bpf, fs_type, bpffs_type;
 # TODO: S+ fs_bpf_tethering (used by mainline) should be private
 type fs_bpf_tethering, fs_type, bpffs_type;
 type fs_bpf_vendor, fs_type, bpffs_type;
-type fs_bpf_lmkd_memevents_rb, fs_type, bpffs_type;
-type fs_bpf_lmkd_memevents_prog, fs_type, bpffs_type;
+
+starting_at_board_api(202504, `
+    type fs_bpf_lmkd_memevents_rb, fs_type, bpffs_type;
+    type fs_bpf_lmkd_memevents_prog, fs_type, bpffs_type;
+')
+
+
 type configfs, fs_type;
 # /sys/devices/cs_etm
 type sysfs_devices_cs_etm, fs_type, sysfs_type;
