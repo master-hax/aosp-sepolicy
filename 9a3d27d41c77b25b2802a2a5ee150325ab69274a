@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7a53bd2_859d9ba4",
+        "filename": "tools/sepolicy-analyze/neverallow.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-04-23T06:35:39Z",
+      "side": 1,
+      "message": "we should check if `cur_non_comment_text` is `NULL` or not.",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 386,
+        "endChar": 61
+      },
+      "revId": "9a3d27d41c77b25b2802a2a5ee150325ab69274a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19d3c5e3_7a163520",
+        "filename": "tools/sepolicy-analyze/neverallow.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-04-23T06:35:39Z",
+      "side": 1,
+      "message": "can you fix indents?",
+      "range": {
+        "startLine": 391,
+        "startChar": 0,
+        "endLine": 391,
+        "endChar": 21
+      },
+      "revId": "9a3d27d41c77b25b2802a2a5ee150325ab69274a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c61685e2_d49d2b3a",
+        "filename": "tools/sepolicy-analyze/neverallow.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-04-23T06:35:39Z",
+      "side": 1,
+      "message": "How about this?\n\n    while (p \u003c end) {\n        if (*p \u003d\u003d \u0027#\u0027) in_comment \u003d true;\n        if (!in_comment || *p \u003d\u003d \u0027\\n\u0027) *cur_non_comment_text++ \u003d *p;\n        if (*p \u003d\u003d \u0027\\n\u0027) in_comment \u003d false;\n        ++p;\n    }\n    p \u003d non_comment_text;\n    end \u003d cur_non_comment_text;",
+      "range": {
+        "startLine": 391,
+        "startChar": 0,
+        "endLine": 415,
+        "endChar": 5
+      },
+      "revId": "9a3d27d41c77b25b2802a2a5ee150325ab69274a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ca96ae5_a7333cb9",
+        "filename": "tools/sepolicy-analyze/neverallow.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-04-23T06:35:39Z",
+      "side": 1,
+      "message": "why do we check # again here?",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 7
+      },
+      "revId": "9a3d27d41c77b25b2802a2a5ee150325ab69274a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "beeafe22_fbac3b18",
+        "filename": "tools/sepolicy-analyze/neverallow.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-04-23T06:35:39Z",
+      "side": 1,
+      "message": "indent",
+      "range": {
+        "startLine": 443,
+        "startChar": 0,
+        "endLine": 443,
+        "endChar": 19
+      },
+      "revId": "9a3d27d41c77b25b2802a2a5ee150325ab69274a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2110d21e_4dc2fe1a",
+        "filename": "tools/sepolicy-analyze/neverallow.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-04-23T06:35:39Z",
+      "side": 1,
+      "message": "indent",
+      "range": {
+        "startLine": 468,
+        "startChar": 0,
+        "endLine": 470,
+        "endChar": 70
+      },
+      "revId": "9a3d27d41c77b25b2802a2a5ee150325ab69274a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
