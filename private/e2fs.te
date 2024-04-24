@@ -6,6 +6,7 @@ allow e2fs userdata_block_device:blk_file rw_file_perms;
 allow e2fs metadata_block_device:blk_file rw_file_perms;
 allow e2fs dm_device:blk_file rw_file_perms;
 allow e2fs zoned_block_device:blk_file rw_file_perms;
+allow e2fs userdata_exp_block_device:blk_file rw_file_perms;
 # Vold needs to capture mkfs.ext4's output
 allow e2fs vold:fd use;
 # Need to be able to format a partition
