@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2f21faa_0d33559f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-04-25T01:03:33Z",
+      "side": 1,
+      "message": "Also fix the following presubmit error.\n\n```\nFAILED: out/soong/.intermediates/system/sepolicy/contexts/plat_file_contexts_data_test/android_common/timestamp\nout/host/linux-x86/bin/checkfc -t system/sepolicy/private/file_contexts system/sepolicy/contexts/plat_file_contexts_test \u0026\u0026 touch out/soong/.intermediates/system/sepolicy/contexts/plat_file_contexts_data_test/android_common/timestamp # hash of input list: 9e1276e45596700138f716c253587e59e3ca594ed54045d8b9082bcf7afceeb6\nIncorrect type for /system/bin/viewcompiler: resolved to system_file, expected viewcompiler_exec\nIncorrect type for /system_ext/etc/aconfig: resolved to system_file, expected system_aconfig_storage_file\nIncorrect type for /product/etc/aconfig: resolved to system_file, expected system_aconfig_storage_file\nWarning!  No matches for (/data/app-metadata(/.*)?, u:object_r:apk_metadata_file:s0)\nNo test entries were found for the contexts above. You may need to update system/sepolicy/contexts/plat_file_contexts_test.\n```",
+      "revId": "fe4123f77a064fcc7898d97f9b24a8892e1cf326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a757b2a4_62fcf17b",
         "filename": "private/system_server.te",
         "patchSetId": 1
