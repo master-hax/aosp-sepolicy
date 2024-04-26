@@ -230,6 +230,7 @@ var (
 		"communal":                                                        EXCEPTION_NO_FUZZER,
 		"platform_compat":                                                 EXCEPTION_NO_FUZZER,
 		"platform_compat_native":                                          EXCEPTION_NO_FUZZER,
+		"certificate_transparency":                                        EXCEPTION_NO_FUZZER,
 		"connectivity":                                                    EXCEPTION_NO_FUZZER,
 		"connectivity_native":                                             EXCEPTION_NO_FUZZER,
 		"connmetrics":                                                     EXCEPTION_NO_FUZZER,
