@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d7b31cd_710a4332",
+        "filename": "public/device.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-04-26T00:50:34Z",
+      "side": 1,
+      "message": "Either move this type to private (and revert 202404.ignore.cil change), or guard this type with `starting_at_board_api(202504, ...)` macro. You don\u0027t need system/sepolicy/public if you don\u0027t use this type on vendor sepolicy.",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 41
+      },
+      "revId": "7fd6bb349f0f04c2f16adbc5cc055682601b5e8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
