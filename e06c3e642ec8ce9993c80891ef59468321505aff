@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3ecea983_72750fd3",
+        "filename": "private/compat/202404/202404.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-04-30T01:05:43Z",
+      "side": 1,
+      "message": "Add `vendor_boot_ota_file` to `202404.cil` to map `vendor_boot_ota_file` to 202404 types (probably `vendor_file` is appropriate). We can\u0027t add here because `/vendor/boot_otas` isn\u0027t a brand-new file.",
+      "range": {
+        "startLine": 13,
+        "startChar": 4,
+        "endLine": 13,
+        "endChar": 24
+      },
+      "revId": "e06c3e642ec8ce9993c80891ef59468321505aff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f77ab18_8047a308",
         "filename": "private/system_app.te",
         "patchSetId": 1
@@ -48,6 +71,29 @@
       "writtenOn": "2024-04-30T00:16:06Z",
       "side": 1,
       "message": "r_dir_perms?",
+      "revId": "e06c3e642ec8ce9993c80891ef59468321505aff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47a95d40_721b5041",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-04-30T01:05:43Z",
+      "side": 1,
+      "message": "guard this with `starting_at_board_api(202504, ...)` macro.",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 55
+      },
       "revId": "e06c3e642ec8ce9993c80891ef59468321505aff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
