@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9450d667_0fd5156d",
+        "filename": "private/compat/202404/202404.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1956258
+      },
+      "writtenOn": "2024-04-30T16:41:17Z",
+      "side": 1,
+      "message": "Issue here is if I add \n```\n(expandtypeattribute (vendor_boot_ota_file_202404) true)\n(typeattributeset vendor_boot_ota_file_202404 (vendor_boot_ota_file))\n``` \n\nto 2404.cil I am hitting 2404_compat_test failures\n```\nFailed to resolve typeattributeset statement at out/soong/.intermediates/system/sepolicy/compat/plat_202404.cil/android_common/gen/bottom_half:2681\nFailed to resolve AST\nFailed to compile cildb: -2\n16:37:17 ninja failed with: exit status 1\n```",
+      "parentUuid": "3ecea983_72750fd3",
+      "range": {
+        "startLine": 13,
+        "startChar": 4,
+        "endLine": 13,
+        "endChar": 24
+      },
+      "revId": "e06c3e642ec8ce9993c80891ef59468321505aff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f77ab18_8047a308",
         "filename": "private/system_app.te",
         "patchSetId": 1
@@ -54,6 +78,24 @@
       "writtenOn": "2024-04-30T00:16:06Z",
       "side": 1,
       "message": "r_dir_perms ?",
+      "revId": "e06c3e642ec8ce9993c80891ef59468321505aff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7da10f0_f5b364ff",
+        "filename": "private/system_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1956258
+      },
+      "writtenOn": "2024-04-30T16:41:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f77ab18_8047a308",
       "revId": "e06c3e642ec8ce9993c80891ef59468321505aff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -75,6 +117,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1686ab3_4cb2f2b9",
+        "filename": "private/update_engine.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1956258
+      },
+      "writtenOn": "2024-04-30T16:41:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9285024_cc6bb106",
+      "revId": "e06c3e642ec8ce9993c80891ef59468321505aff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47a95d40_721b5041",
@@ -88,6 +148,30 @@
       "writtenOn": "2024-04-30T01:05:43Z",
       "side": 1,
       "message": "guard this with `starting_at_board_api(202504, ...)` macro.",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 55
+      },
+      "revId": "e06c3e642ec8ce9993c80891ef59468321505aff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52e18695_5d213cc2",
+        "filename": "public/file.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1956258
+      },
+      "writtenOn": "2024-04-30T16:41:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47a95d40_721b5041",
       "range": {
         "startLine": 267,
         "startChar": 0,
