@@ -377,6 +377,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21d9e7d2_04d3b525",
+        "filename": "private/domain.te",
+        "patchSetId": 39
+      },
+      "lineNbr": 1606,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2024-04-30T01:40:40Z",
+      "side": 1,
+      "message": "Okay, that makes sense.  I just wanted to make sure we weren\u0027t going out of our way to allow it unnecessarily.",
+      "parentUuid": "52488206_29e1c37d",
+      "range": {
+        "startLine": 1606,
+        "startChar": 4,
+        "endLine": 1606,
+        "endChar": 9
+      },
+      "revId": "1ef4cea430564cf7a505103ae7b2c1b9cbeb0c94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b46aea28_597eacba",
@@ -414,6 +438,30 @@
       "side": 1,
       "message": "You\u0027re right; I\u0027ve removed some of them (I think the rest are required, but not resolving yet, in case we want to remove more e.g., artd, based on our discussion about artd in another comment).",
       "parentUuid": "b46aea28_597eacba",
+      "range": {
+        "startLine": 1636,
+        "startChar": 0,
+        "endLine": 1648,
+        "endChar": 11
+      },
+      "revId": "1ef4cea430564cf7a505103ae7b2c1b9cbeb0c94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b322ef9_611efcc6",
+        "filename": "private/domain.te",
+        "patchSetId": 39
+      },
+      "lineNbr": 1648,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2024-04-30T01:40:40Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4feb59ec_d29ded67",
       "range": {
         "startLine": 1636,
         "startChar": 0,
@@ -555,6 +603,30 @@
       "side": 1,
       "message": "That\u0027s true; currently, the storage area types are in the list of file types that are explicitly denied. I did this to match how `app_data_file` is handled; there is no existing `allow` rule that gives `init` the specific set of permissions required without any extra ones granted. If we are ok with giving `init` some extra permissions over storage area files, then we can remove these `allow`s and remove the explicit denials from the earlier `file_type` allows.",
       "parentUuid": "a0885334_7fcd1071",
+      "range": {
+        "startLine": 852,
+        "startChar": 0,
+        "endLine": 856,
+        "endChar": 2
+      },
+      "revId": "1ef4cea430564cf7a505103ae7b2c1b9cbeb0c94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a34e899_79e69ab2",
+        "filename": "private/init.te",
+        "patchSetId": 39
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2024-04-30T01:40:40Z",
+      "side": 1,
+      "message": "Which rule denies it?  `storage_area_key_file` differs from the other storage area types in that it isn\u0027t included in `app_data_file_type`.  So it\u0027s basically treated as system data, which probably makes sense since apps don\u0027t get direct access to it.",
+      "parentUuid": "80e9fd0a_8165848d",
       "range": {
         "startLine": 852,
         "startChar": 0,
