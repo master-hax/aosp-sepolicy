@@ -16,6 +16,24 @@
       "message": "Thank you. Will you do that for Android as well? If not, could you let us know how we can do this? Where\u0027s the source of truth for the access vectors?",
       "revId": "86a85c4e77850548997337bc270f467ef394e49d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a89e117_eb00d8ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-05-03T09:09:23Z",
+      "side": 1,
+      "message": "All of these ones already exist in the host policy.\n\nThere are others that are missing in both copies; I\u0027ve started a discussion on whether we should do anything about it.\n\nNote that having missing classes / access vectors is mostly harmless, unless you want to allow use of them to anything.\n\n\u003e Where\u0027s the source of truth for the access vectors?\n\nFor the userspace ones, that\u0027s down to what userspace components we run that defined their own selinux classes.\n\nFor the others, it\u0027s whatever the kernel defines.",
+      "parentUuid": "846d047c_a2ab6488",
+      "revId": "86a85c4e77850548997337bc270f467ef394e49d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
