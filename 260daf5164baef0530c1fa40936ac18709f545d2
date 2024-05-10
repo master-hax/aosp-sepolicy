@@ -16,6 +16,24 @@
       "message": "This binder_call rule makes no sense. The _service types are for services, not processes, so the granting should only be on the \"service_manager\" class (as below). The service itself is hosted in system_server, so the binder_call above (`binder_call(virtualizationservice, system_server)`) is sufficient. Could you please send a change to remove this line? Thanks.",
       "revId": "260daf5164baef0530c1fa40936ac18709f545d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7121323d_fd0f9240",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2024-05-10T01:06:38Z",
+      "side": 1,
+      "message": "I noticed that system_server has the remote_provisioning_service_server attribute, which is more precise. Another option is to keep the rule but add _server:\n\n`binder_call(virtualizationservice, remote_provisioning_service_server)`\n\nThis will ensure compatibility should the service become hosted somewhere else. Thanks.",
+      "parentUuid": "961c22d6_459f7bfd",
+      "revId": "260daf5164baef0530c1fa40936ac18709f545d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
