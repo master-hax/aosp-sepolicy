@@ -16,3 +16,8 @@ is_flag_enabled(RELEASE_AVF_SUPPORT_CUSTOM_VM_WITH_PARAVIRTUALIZED_DEVICES, `
   allow vmlauncher_app virtualizationservice:binder call;
   allow vmlauncher_app crosvm:binder { call transfer };
 ')
+
+create_pty(vmlauncher_app)
+allow vmlauncher_app vmlauncher_app_devpts:chr_file setattr;
+allow shell vmlauncher_app_devpts:chr_file rw_file_perms;
+allowxperm shell vmlauncher_app_devpts:chr_file ioctl unpriv_tty_ioctls;
