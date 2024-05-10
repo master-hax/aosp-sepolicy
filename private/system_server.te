@@ -493,7 +493,7 @@ allow system_server audio_device:chr_file rw_file_perms;
 
 # tun device used for 3rd party vpn apps and test network manager
 allow system_server tun_device:chr_file rw_file_perms;
-allowxperm system_server tun_device:chr_file ioctl { TUNGETIFF TUNSETIFF TUNSETLINK TUNSETCARRIER };
+allowxperm system_server tun_device:chr_file ioctl { TUNGETIFF TUNSETIFF TUNSETLINK TUNSETCARRIER SIOCSIFHWADDR };
 
 # Manage data/ota_package
 allow system_server ota_package_file:dir rw_dir_perms;
