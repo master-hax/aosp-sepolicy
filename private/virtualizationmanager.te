@@ -101,10 +101,6 @@ userdebug_or_eng(`
 # Allow virtualizationmanager to read microdroid related files in vendor partition
 r_dir_file(virtualizationmanager, vendor_microdroid_file)
 
-# Do not allow writing vendor_microdroid_file from any process.
-neverallow { domain recovery_only(`userdebug_or_eng(`-fastbootd')') } vendor_microdroid_file:dir no_w_dir_perms;
-neverallow { domain recovery_only(`userdebug_or_eng(`-fastbootd')') } vendor_microdroid_file:file no_w_file_perms;
-
 # Allow reading files under /proc/[crosvm pid]/, for collecting CPU & memory usage inside VM.
 r_dir_file(virtualizationmanager, crosvm);
 
@@ -112,7 +108,16 @@ r_dir_file(virtualizationmanager, crosvm);
 # a harmless denial for CompOS log files, so ignore that.
 dontaudit virtualizationmanager apex_module_data_file:dir search;
 
+# odsign runs virtualizationmanager, via compos_verify, with its console as stdin/stdout.
+# We never use them (logging goes to logcat); suppress the useless denials.
+dontaudit virtualizationmanager odsign:fd use;
+dontaudit virtualizationmanager odsign_devpts:chr_file { read write getattr };
+
 is_flag_enabled(RELEASE_AVF_ENABLE_DEVICE_ASSIGNMENT, `
     # virtualizationmanager holds references to bound devices, returned from vfio_handler
     binder_call(virtualizationmanager, vfio_handler)
 ')
+
+# Do not allow writing vendor_microdroid_file from any process.
+neverallow { domain recovery_only(`userdebug_or_eng(`-fastbootd')') } vendor_microdroid_file:dir no_w_dir_perms;
+neverallow { domain recovery_only(`userdebug_or_eng(`-fastbootd')') } vendor_microdroid_file:file no_w_file_perms;
