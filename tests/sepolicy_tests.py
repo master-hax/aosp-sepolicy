@@ -299,24 +299,7 @@ class MultipleOption(Option):
         else:
             Option.take_action(self, action, dest, opt, value, values, parser)
 
-Tests = [
-    "TestBpffsTypeViolations",
-    "TestDataTypeViolators",
-    "TestProcTypeViolations",
-    "TestSysfsTypeViolations",
-    "TestSystemTypeViolators",
-    "TestDebugfsTypeViolations",
-    "TestTracefsTypeViolations",
-    "TestVendorTypeViolations",
-    "TestCoreDataTypeViolations",
-    "TestPropertyTypeViolations",
-    "TestAppDataTypeViolations",
-    "TestDmaHeapDevTypeViolations",
-    "TestCoredomainViolations",
-    "TestViolatorAttributes",
-    "TestIsolatedAttributeConsistency",
-    "TestDevTypeViolations",
-]
+TEST_NAMES = [ name for name in dir() if name.startswith('Test') ]
 
 def do_main(libpath):
     """
@@ -325,12 +308,13 @@ def do_main(libpath):
     """
     usage = "sepolicy_tests -f vendor_file_contexts -f "
     usage +="plat_file_contexts -p policy [--test test] [--help]"
+
     parser = OptionParser(option_class=MultipleOption, usage=usage)
     parser.add_option("-f", "--file_contexts", dest="file_contexts",
             metavar="FILE", action="extend", type="string")
     parser.add_option("-p", "--policy", dest="policy", metavar="FILE")
     parser.add_option("-t", "--test", dest="test", action="extend",
-            help="Test options include "+str(Tests))
+            help="Test options include "+str(TEST_NAMES))
 
     (options, args) = parser.parse_args()
 
