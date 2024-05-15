@@ -70,6 +70,53 @@
       },
       "revId": "76f7261d1411d0e0a5e243b9c6f8d9d8e612b739",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb21837d_c34b6979",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-05-15T17:28:45Z",
+      "side": 1,
+      "message": "Yeah I think this is fine -- `storage_area_content_file` corresponds to the data the app puts in its own storage areas, so I could see a developer deciding to dump logs there.",
+      "parentUuid": "a6dd10b3_fb5adaa0",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 33
+      },
+      "revId": "76f7261d1411d0e0a5e243b9c6f8d9d8e612b739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28b406c5_5b20f20b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-05-15T17:28:45Z",
+      "side": 1,
+      "message": "Do apps need to be able to modify their dump files? If so, I think you might actually want to exclude the `storage_area_app_dir` -- this corresponds to the directories in which an app\u0027s storage areas are created, and apps don\u0027t have write access to them (only `r_dir_perms`). This type should also never be assigned to files.\n\nApps also only have `rw_dir_perms` on `storage_area_dir`, no file permissions, since only directories should have this type (this corresponds to a storage area directory).",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 8
+      },
+      "revId": "76f7261d1411d0e0a5e243b9c6f8d9d8e612b739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
