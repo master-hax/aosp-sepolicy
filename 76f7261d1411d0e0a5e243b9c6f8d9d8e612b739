@@ -117,6 +117,30 @@
       },
       "revId": "76f7261d1411d0e0a5e243b9c6f8d9d8e612b739",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1623c61_f1ca4fb3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2024-05-16T03:59:27Z",
+      "side": 1,
+      "message": "So this specific rule is about dumpstate being able to append to a file already opened and shared by the app. If the app is not able to open a file already, then they won\u0027t be able to do anything else with this new rule.\n\nIf we think the access is too broad: either we can explicitly name each type (I don\u0027t think this is right); or maybe some types should not have the attribute (i.e., does it make sense that `storage_area_app_dir` has the attribute `app_data_file_type`?)",
+      "parentUuid": "28b406c5_5b20f20b",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 8
+      },
+      "revId": "76f7261d1411d0e0a5e243b9c6f8d9d8e612b739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
