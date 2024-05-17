@@ -1621,6 +1621,9 @@ allow system_server binderfs_logs_stats:file r_file_perms;
 # For ANRs
 allow system_server binderfs_logs_transactions:file r_file_perms;
 
+# Allow system server to get misctrl_prop
+get_prop(system_server, misctrl_prop)
+
 # Allow GameManagerService to read and write persist.graphics.game_default_frame_rate.enabled
 set_prop(system_server, game_manager_config_prop)
 
