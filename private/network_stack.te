@@ -62,8 +62,8 @@ hal_client_domain(network_stack, hal_tetheroffload)
 allow network_stack self:netlink_netfilter_socket create_socket_perms_no_ioctl;
 allow network_stack network_stack_service:service_manager find;
 # allow Tethering(network_stack process) to run/update/read the eBPF maps to offload tethering traffic by eBPF.
-allow network_stack { fs_bpf_net_private fs_bpf_net_shared fs_bpf_netd_readonly fs_bpf_netd_shared fs_bpf_tethering }:dir search;
-allow network_stack { fs_bpf_net_private fs_bpf_net_shared fs_bpf_netd_readonly fs_bpf_netd_shared fs_bpf_tethering }:file { getattr read write };
+allow network_stack { fs_bpf fs_bpf_net_private fs_bpf_net_shared fs_bpf_netd_readonly fs_bpf_netd_shared fs_bpf_tethering }:dir search;
+allow network_stack { fs_bpf fs_bpf_net_private fs_bpf_net_shared fs_bpf_netd_readonly fs_bpf_netd_shared fs_bpf_tethering }:file { getattr read write };
 allow network_stack bpfloader:bpf prog_run;
 allow network_stack self:bpf map_create;
 allow network_stack { bpfloader netd network_stack system_server }:bpf { map_read map_write };
