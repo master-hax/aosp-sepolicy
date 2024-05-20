@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4c22239_b63d362b",
+        "filename": "private/dumpstate.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-05-20T05:20:55Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "71ad189e_6813ec14",
+      "range": {
+        "startLine": 369,
+        "startChar": 0,
+        "endLine": 370,
+        "endChar": 56
+      },
+      "revId": "cafde72b129f31b8950714b2d3f48007925e5cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b23aff27_ea49c670",
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "I\u0027m not sure how I should add neverallow for here. Could you suggest?",
       "parentUuid": "b23aff27_ea49c670",
+      "range": {
+        "startLine": 371,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 0
+      },
+      "revId": "cafde72b129f31b8950714b2d3f48007925e5cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fc4cfad_6ededef4",
+        "filename": "private/dumpstate.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-05-20T05:20:55Z",
+      "side": 1,
+      "message": "for example, you can add\n\n```\nneverallow { domain -dumpstate -system_server } apex_uwb_data_file:dir no_rw_file_perms;\nneverallow { domain -dumpstate -system_server } apex_uwb_data_file:file no_rw_file_perms;\n```\n\nto prevent domains other than `dumpstate` and `system_server` from accessing `apex_uwb_data_file`.",
+      "parentUuid": "84941663_7d9e812c",
       "range": {
         "startLine": 371,
         "startChar": 0,
