@@ -192,6 +192,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bcddae65_7f214b2c",
+        "filename": "private/dumpstate.te",
+        "patchSetId": 12
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1941275
+      },
+      "writtenOn": "2024-05-20T07:25:36Z",
+      "side": 1,
+      "message": "I just realized that I should add `apex_data_file_type` on the `apex_uwb_data_file` type too.\n\nSo then apparently we need to add neverallow as\n```\nneverallow { domain -dumpstate -system_server -apexd -init -vold_prepare_subdirs } apex_uwb_data_file:dir no_rw_file_perms;\nneverallow { domain -dumpstate -system_server -apexd -init -vold_prepare_subdirs } apex_uwb_data_file:file no_rw_file_perms;\n```\nto build successfully.\n\nIs this still a good case of neverallow or has it gotten too complicated now?",
+      "parentUuid": "5fc4cfad_6ededef4",
+      "range": {
+        "startLine": 371,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 0
+      },
+      "revId": "cafde72b129f31b8950714b2d3f48007925e5cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "595af515_054a586e",
         "filename": "public/file.te",
         "patchSetId": 12
