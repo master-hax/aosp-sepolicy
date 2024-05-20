@@ -75,6 +75,12 @@ is_flag_enabled(RELEASE_UNLOCKED_STORAGE_API, `
   type_transition vold_prepare_subdirs storage_area_app_dir:dir storage_area_dir;
 
   selinux_check_context(vold_prepare_subdirs)
+
+  allowxperm vold_prepare_subdirs storage_area_dir:dir ioctl {
+    FS_IOC_GET_ENCRYPTION_POLICY
+    FS_IOC_GET_ENCRYPTION_POLICY_EX
+    FS_IOC_SET_ENCRYPTION_POLICY
+  };
 ')
 
 # Migrate legacy labels to apex_system_server_data_file (b/217581286)
