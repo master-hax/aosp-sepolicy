@@ -15,4 +15,10 @@ is_flag_enabled(RELEASE_AVF_ENABLE_NETWORK, `
 
     # Only virtualizationservice can communicate to vmnic
     neverallow { domain -virtualizationservice -servicemanager } vmnic:binder call;
+
+    # Allow for creating TAP network interfaces.
+    allow vmnic self:global_capability_class_set net_admin;
+    allow vmnic tun_device:chr_file rw_file_perms;
+    allowxperm vmnic tun_device:chr_file ioctl { TUNGETIFF TUNSETIFF };
+    allow vmnic self:tun_socket create;
 ') # is_flag_enabled(RELEASE_AVF_ENABLE_NETWORK)
