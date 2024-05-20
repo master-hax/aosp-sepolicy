@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "298857b4_fc6682af",
+        "filename": "private/vold.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2024-05-20T20:51:58Z",
+      "side": 0,
+      "message": "Maybe vold should still get permission to do FS_IOC_GET_ENCRYPTION_POLICY_EX, so that when opening an existing storage area it can verify the encryption policy directly without having to fork a subprocess?  I am concerned about the performance of opening storage areas.",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 13
+      },
+      "revId": "23c543c0ed876831dba21c1d6857fb271736ea93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
