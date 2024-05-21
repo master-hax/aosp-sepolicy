@@ -22,6 +22,30 @@
       },
       "revId": "5328e36be3d8bb47f8cd8326e450a95b0d72faa7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e77c2e3d_4e914c94",
+        "filename": "private/vold_prepare_subdirs.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-05-21T21:22:51Z",
+      "side": 1,
+      "message": "Ah you\u0027re right, good catch! I assumed these permissions were needed by vold_prepare_subdirs because of the call to EnsurePolicy, but you\u0027re right, they\u0027re actually not needed.",
+      "parentUuid": "21190465_511cc54c",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 35
+      },
+      "revId": "5328e36be3d8bb47f8cd8326e450a95b0d72faa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
