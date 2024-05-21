@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21190465_511cc54c",
+        "filename": "private/vold_prepare_subdirs.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2024-05-21T19:32:12Z",
+      "side": 1,
+      "message": "Is FS_IOC_GET_ENCRYPTION_POLICY_EX needed by vold_prepare_subdirs, or just by vold?  I would think that vold would need it, but vold_prepare_subdirs would not.\n\nThere should also be no need for FS_IOC_GET_ENCRYPTION_POLICY (without the _EX), since kernels without support for FS_IOC_GET_ENCRYPTION_POLICY_EX are no longer supported by Android.",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 35
+      },
+      "revId": "5328e36be3d8bb47f8cd8326e450a95b0d72faa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
