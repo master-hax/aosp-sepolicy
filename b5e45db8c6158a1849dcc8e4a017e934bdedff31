@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11635ba3_ebdf4410",
+        "filename": "private/installd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2024-05-21T10:57:27Z",
+      "side": 1,
+      "message": "I don\u0027t think `unlink` makes sense for a directory. If removing an entry in the directory, `remove_name` is checked; if removing the directory itself, `rmdir` is checked. (You can see that, while defined, DIR__UNLINK is not used at all in security/selinux/hooks.c).\n\nSince there are many permissions here, could you expand the permission list on multiple lines? Thanks.",
+      "range": {
+        "startLine": 230,
+        "startChar": 99,
+        "endLine": 230,
+        "endChar": 105
+      },
+      "revId": "b5e45db8c6158a1849dcc8e4a017e934bdedff31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
