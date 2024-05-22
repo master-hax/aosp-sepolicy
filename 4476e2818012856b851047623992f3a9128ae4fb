@@ -16,6 +16,24 @@
       "message": "Note - Inseob, we will need the workaround to expose this flag.\n\nKelvin, can you try with:\n\n    get_prop(vendor_init, \u003cprop\u003e)\n\nyou may also need the board exception with that.",
       "revId": "4476e2818012856b851047623992f3a9128ae4fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39604b15_87bf8663",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-05-22T19:31:14Z",
+      "side": 1,
+      "message": "Not quite sure why but I didn\u0027t ran into any permission issues w/o the get prop line. Is it because `system_vendor_config_prop` macro already grants set_prop which includes read access?",
+      "parentUuid": "8b707a43_13012483",
+      "revId": "4476e2818012856b851047623992f3a9128ae4fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
