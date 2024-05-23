@@ -40,6 +40,11 @@ unix_socket_send(ot_daemon, statsdw, statsd)
 allow ot_daemon dumpstate:fd use;
 allow ot_daemon dumpstate:fifo_file write;
 
+allow ot_daemon ot_daemon_socket:dir { add_name search write remove_name };
+allow ot_daemon ot_daemon_socket:file { create open read lock unlink };
+allow ot_daemon ot_daemon_socket:sock_file { create unlink };
+
+
 # ot-daemon socket is for only ot-daemon and ot-ctl
 neverallow {
   domain
