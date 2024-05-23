@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7ad4d44_c99a1154",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-05-23T00:33:33Z",
+      "side": 1,
+      "message": "It\u0027s adding a flag so that we can turn our feature off where it\u0027s currently on (see regression bug). Thank you!",
+      "parentUuid": "293ed44d_51322088",
+      "revId": "63714502cf9b328aff32c562db4fdaa7cb1de948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ce859dd_92cef735",
@@ -77,6 +95,30 @@
       "writtenOn": "2024-05-23T00:25:43Z",
       "side": 1,
       "message": "do we really need `ro.`? we are discouraging it and instead recommending controlling access by sepolicy rules.",
+      "range": {
+        "startLine": 976,
+        "startChar": 0,
+        "endLine": 976,
+        "endChar": 3
+      },
+      "revId": "63714502cf9b328aff32c562db4fdaa7cb1de948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4501a68a_d24fde56",
+        "filename": "private/property_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-05-23T00:33:33Z",
+      "side": 1,
+      "message": "This property should probably not be ro, since we could make it change at runtime.\n\nThough, I\u0027m a fan of ro. ;p please share if you have a doc on this discussion. Curious.",
+      "parentUuid": "d2b1c35e_ebea555b",
       "range": {
         "startLine": 976,
         "startChar": 0,
