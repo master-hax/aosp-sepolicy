@@ -522,17 +522,18 @@ dalvik.vm.usejit                              u:object_r:dalvik_config_prop:s0 e
 dalvik.vm.zygote.max-boot-retry               u:object_r:dalvik_config_prop:s0 exact int
 
 # A list of ART properties that can be set dynamically.
-dalvik.vm.background-dex2oat-cpu-set          u:object_r:dalvik_dynamic_config_prop:s0 exact string
-dalvik.vm.background-dex2oat-threads          u:object_r:dalvik_dynamic_config_prop:s0 exact int
-dalvik.vm.boot-dex2oat-cpu-set                u:object_r:dalvik_dynamic_config_prop:s0 exact string
-dalvik.vm.boot-dex2oat-threads                u:object_r:dalvik_dynamic_config_prop:s0 exact int
-dalvik.vm.dex2oat-cpu-set                     u:object_r:dalvik_dynamic_config_prop:s0 exact string
-dalvik.vm.dex2oat-threads                     u:object_r:dalvik_dynamic_config_prop:s0 exact int
-dalvik.vm.image-dex2oat-cpu-set               u:object_r:dalvik_dynamic_config_prop:s0 exact string
-dalvik.vm.image-dex2oat-threads               u:object_r:dalvik_dynamic_config_prop:s0 exact int
-dalvik.vm.restore-dex2oat-cpu-set             u:object_r:dalvik_dynamic_config_prop:s0 exact string
-dalvik.vm.restore-dex2oat-threads             u:object_r:dalvik_dynamic_config_prop:s0 exact int
-dalvik.vm.pre-reboot.                         u:object_r:dalvik_dynamic_config_prop:s0 prefix
+dalvik.vm.background-dex2oat-cpu-set u:object_r:dalvik_dynamic_config_prop:s0 exact string
+dalvik.vm.background-dex2oat-threads u:object_r:dalvik_dynamic_config_prop:s0 exact int
+dalvik.vm.boot-dex2oat-cpu-set       u:object_r:dalvik_dynamic_config_prop:s0 exact string
+dalvik.vm.boot-dex2oat-threads       u:object_r:dalvik_dynamic_config_prop:s0 exact int
+dalvik.vm.image-dex2oat-threads      u:object_r:dalvik_dynamic_config_prop:s0 exact int
+dalvik.vm.image-dex2oat-cpu-set      u:object_r:dalvik_dynamic_config_prop:s0 exact string
+dalvik.vm.pre-reboot.                u:object_r:dalvik_dynamic_config_prop:s0 prefix
+
+dalvik.vm.dex2oat-cpu-set         u:object_r:dalvik_dex2oat_runtime_prop:s0 exact string
+dalvik.vm.dex2oat-threads         u:object_r:dalvik_dex2oat_runtime_prop:s0 exact int
+dalvik.vm.restore-dex2oat-cpu-set u:object_r:dalvik_dex2oat_runtime_prop:s0 exact string
+dalvik.vm.restore-dex2oat-threads u:object_r:dalvik_dex2oat_runtime_prop:s0 exact int
 
 persist.sys.dalvik.vm.lib.2 u:object_r:dalvik_runtime_prop:s0 exact string
 
