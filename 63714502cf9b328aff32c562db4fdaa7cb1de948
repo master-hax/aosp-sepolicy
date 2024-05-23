@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "293ed44d_51322088",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-05-23T00:08:59Z",
+      "side": 1,
+      "message": "Honestly I\u0027m still uncomfortable for these kinds of changes, because these don\u0027t follow trunk stable\u0027s flagging policy.\n\nBut I\u0027m going to approve this if we can move the property to private/. Technically the property **is** an API for vendors, but at least these won\u0027t break sepolicy compatibility at least.",
+      "revId": "63714502cf9b328aff32c562db4fdaa7cb1de948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ce859dd_92cef735",
+        "filename": "private/compat/202404/202404.ignore.cil",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-05-23T00:08:59Z",
+      "side": 1,
+      "message": "remove this (if you are moving it to private)",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 11,
+        "endChar": 15
+      },
+      "revId": "63714502cf9b328aff32c562db4fdaa7cb1de948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63130ee0_0cca3032",
+        "filename": "private/property_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-05-23T00:08:59Z",
+      "side": 1,
+      "message": "The name `ro.fstype.data` seems a little misleading because it looks like some \"data\" about \"fstype\". Actually this is a type of data partition.\n\nBut probably it\u0027s fine because we have other similar properties like \"ro.boottime.init.mount.data\".",
+      "range": {
+        "startLine": 976,
+        "startChar": 0,
+        "endLine": 976,
+        "endChar": 14
+      },
+      "revId": "63714502cf9b328aff32c562db4fdaa7cb1de948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06f3b381_48fd4857",
+        "filename": "public/property.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-05-23T00:08:59Z",
+      "side": 1,
+      "message": "you can\u0027t add public properties without api guard. you can workaround it by moving this to private/property.te.",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 35
+      },
+      "revId": "63714502cf9b328aff32c562db4fdaa7cb1de948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
