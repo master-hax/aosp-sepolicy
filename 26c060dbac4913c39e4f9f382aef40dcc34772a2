@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83ca5cf2_94b6fecc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-24T09:46:25Z",
+      "side": 1,
+      "message": "Side note: while I agree we should grant power HAL write access to all dex2oat properties, I recommend to set `dalvik.vm.background-dex2oat-*` instead of `dalvik.vm.dex2oat-*` in practice, to avoid hurting app install time. See discussion in b/339899660.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "26c060dbac4913c39e4f9f382aef40dcc34772a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28be21aa_71a7e1e5",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-24T09:46:25Z",
+      "side": 1,
+      "message": "Please keep these properties in the `dalvik_dynamic_config_prop` category. As suggested in the comment on line 524, properties in `dalvik_dynamic_config_prop` are all supposed to be set dynamically. You can directly grant power HAL write access to `dalvik_dynamic_config_prop`.",
+      "range": {
+        "startLine": 533,
+        "startChar": 0,
+        "endLine": 536,
+        "endChar": 85
+      },
+      "revId": "26c060dbac4913c39e4f9f382aef40dcc34772a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
