@@ -16,6 +16,24 @@
       "message": "In aosp/3071644, some platform access vectors were removed because not required by microdroid. \n\nI don\u0027t mind either way (consistency or reduced scope for microdroid), but I wanted to flag that these already intentionally differ.\n\n@alanstokes@google.com",
       "revId": "ee4267a7cb6053bcf25bd96c50be375e5c091ce2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c908311_02ca12a0",
+        "filename": "microdroid/system/private/access_vectors",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-05-24T09:39:18Z",
+      "side": 1,
+      "message": "Yeah. Not sure how important it is really. It is harmless, but useless, to include the keystore AVs in Microdroid.\n\nI wonder if we should split classes/access_vectors into kernel ones + userspace ones, and then have the kernel files common between Android + Microdroid, but diverge on userspace?\n\nBut perhaps that could be a future step. I have no objection to this CL, and consistency is probably more important than minimalism.",
+      "parentUuid": "857b0f86_9a0fc82d",
+      "revId": "ee4267a7cb6053bcf25bd96c50be375e5c091ce2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
