@@ -192,6 +192,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5d2c2a94_f39a8a57",
+        "filename": "private/vmnic.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1950816
+      },
+      "writtenOn": "2024-05-24T06:43:48Z",
+      "side": 1,
+      "message": "I\u0027ve tried to change into `create_socket_perms_no_ioctl` for `udp_socket` as well, but I caught selinux error instead, due to lack of allowing `SIOCSIFFLAGS` ioctl. Currently investigating if there\u0027s a bug around selinux.\n\nFor previous examples living in AOSP, they all allowed whole ioctl when trying to use `SIOCSIFFLAGS` ioctl.",
+      "parentUuid": "ac772130_81eea13f",
+      "range": {
+        "startLine": 21,
+        "startChar": 32,
+        "endLine": 21,
+        "endChar": 60
+      },
+      "revId": "73895da519ec57ababb09bdf1d8fbf39ee9f5fd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f55cda6f_d585f811",
         "filename": "private/vmnic.te",
         "patchSetId": 3
