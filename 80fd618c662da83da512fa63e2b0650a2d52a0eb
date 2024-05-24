@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d02c4252_fe521ad6",
+        "filename": "private/virtualizationmanager.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1950816
+      },
+      "writtenOn": "2024-05-24T08:14:26Z",
+      "side": 1,
+      "message": "ditto.",
+      "parentUuid": "7f540785_33d898f5",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 66
+      },
+      "revId": "80fd618c662da83da512fa63e2b0650a2d52a0eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d0237606_cd77d4f6",
         "filename": "private/virtualizationservice.te",
         "patchSetId": 4
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-24T02:34:31Z",
       "side": 1,
       "message": "can you confirm that this is required?",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 66
+      },
+      "revId": "80fd618c662da83da512fa63e2b0650a2d52a0eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3e805f4_5007b2ea",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1950816
+      },
+      "writtenOn": "2024-05-24T08:14:26Z",
+      "side": 1,
+      "message": "I\u0027ve tried with replacing it into `tun_device:fd use`, but got a sepolicy error like below. OTOH in `packages/modules/Virtualization` code side, it did passing `ParcelFileDescriptor` via AIDL interfaces only.\n\n```\n05-24 17:10:00.092  4547  4547 W vmnic   : type\u003d1400 audit(0.0:17): avc:  denied  { read write } for  path\u003d\"/dev/tun\" dev\u003d\"tmpfs\" ino\u003d1197 scontext\u003du:r:virtualizationservice:s0 tcontext\u003du:object_r:tun_device:s0 tclass\u003dchr_file permissive\u003d0\n```",
+      "parentUuid": "d0237606_cd77d4f6",
       "range": {
         "startLine": 133,
         "startChar": 0,
