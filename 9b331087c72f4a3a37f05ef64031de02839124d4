@@ -16,6 +16,24 @@
       "message": "Don\u0027t we want to do the opposite - stop granting access to the default labels and enforce that files are labeled correctly? This seems like we\u0027re fixing the issue in the wrong way, by giving everyone access to everything.",
       "revId": "9b331087c72f4a3a37f05ef64031de02839124d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02b117ca_de85babe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-05-24T12:34:32Z",
+      "side": 1,
+      "message": "That is indeed what we usually want, which is why we initially didn\u0027t have this.\n\nIndeed we (most likely) will never want to expose a program or map from mainline *directly* as API.  However, we may want to expose a shared library (from mainline) that can read (and possibly even write) the maps directly (or if it has no access go via a much slower binder/aidl/etc. api) - something like libnetdclient.\n\nIn particular there\u0027s some network statistics that I\u0027d like to be able to collect, and expose to oem code.  We don\u0027t want vendor to ever have access to the locked down maps, so \u0027fs_bpf\u0027 becomes the lowest common denominator that everything has access to (note that access is *also* restricted via unix uid/gid, so it\u0027s easy to keep things safe[r] by making them read-only).\n\nAs a specific example an OEM would like to have more detailed network statistics (they can already collect this information, but it involves duplication of per-packet processing overhead), and it\u0027s trivial for us to collect this, but exposing it in a high performance way turns out to be hard - even though much of the information is a just single bpf() system call away (or in certain cases, potentially even none with mmap-able bpf maps).\n\nThe natural answer would be to use a \u0027fs_bpf\u0027 world-readable map + mainline exposed shared lib (somewhat similar to how we expose bpf from the mainline tethering apex into the mainline dnsresolver [note: different module]), but then we ourselves lose access to it from the network_stack process...",
+      "parentUuid": "ed6077fd_3dd52c86",
+      "revId": "9b331087c72f4a3a37f05ef64031de02839124d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
