@@ -128,6 +128,30 @@
       },
       "revId": "97727d6b7ebc8b67631d0e14ec9d74920395b544",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5031405_3a04a499",
+        "filename": "microdroid/system/private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-05-27T00:53:38Z",
+      "side": 1,
+      "message": "vendor_init has read/write access to sysfs_type (see microdroid/system/private/vendor_init.te:118), so we do need `-vendor_init` here.\n\n(Probably we want to remove vendor_init\u0027s access because microdroid doesn\u0027t need vendor_init for now, but that\u0027s a different topic and out of scope.)",
+      "parentUuid": "a1fc452c_f4b26a73",
+      "range": {
+        "startLine": 555,
+        "startChar": 27,
+        "endLine": 555,
+        "endChar": 38
+      },
+      "revId": "97727d6b7ebc8b67631d0e14ec9d74920395b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
