@@ -72,6 +72,9 @@ allow snapuserd proc_stat:file r_file_perms;
 allow snapuserd self:capability ipc_lock;
 io_uring_use(snapuserd)
 
+# This capability allows snapuserd set IO priority.
+allow snapuserd self:capability sys_admin;
+
 # Disallow other domains controlling snapuserd.
 neverallow {
   domain
