@@ -16,6 +16,24 @@
       "message": "Just to check my understanding here: This pipe has been forwarded from a `/system/bin/cmd` process, via binder, to system_server, and from an sepolicy perspective it\u0027s only system_server that needs access, not anything on the way?",
       "revId": "92768f7a41539936dd452531d8d2c5dfe5eb8293",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72ca6f3b_078a3d08",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-31T13:50:47Z",
+      "side": 1,
+      "message": "That\u0027s right. `/system/bin/cmd` is `system_file`. and the postinstall script [executes it without domain transition](https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/postinstall.te;l\u003d23;drc\u003d75806ef3c529c019ab002072cca7951b91f245aa) (i.e., in  the `postinstall` domain)",
+      "parentUuid": "08efb0bd_1dc1e134",
+      "revId": "92768f7a41539936dd452531d8d2c5dfe5eb8293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
