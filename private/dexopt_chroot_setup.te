@@ -46,6 +46,7 @@ allow dexopt_chroot_setup {
   binderfs
   cgroup
   cgroup_v2
+  debugfs
   debugfs_tracing_debug
   device
   devpts
@@ -74,6 +75,7 @@ allow dexopt_chroot_setup {
   binderfs
   cgroup
   cgroup_v2
+  debugfs
   debugfs_tracing_debug
   devpts
   fs_bpf
@@ -86,6 +88,10 @@ allow dexopt_chroot_setup {
   sysfs
   tmpfs
 }:filesystem unmount;
+
+userdebug_or_eng(`
+  allow dexopt_chroot_setup debugfs:dir {mounton unmount};
+')
 
 # Allow reading /apex in chroot.
 r_dir_file(dexopt_chroot_setup, apex_mnt_dir)
