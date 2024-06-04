@@ -41,6 +41,13 @@ allow dexopt_chroot_setup proc_filesystems:file r_file_perms;
 allow dexopt_chroot_setup block_device:dir { getattr search };
 
 # Allow mounting file systems, to create a chroot environment.
+# We recursively bind-mount directories under /data, /mnt/expand, /proc, /sys,
+# and /dev. We need some of them (e.g., incremental-fs directories for
+# incremental apps in /data; /dev/cpuctl and /dev/blkio for task profiles), but
+# not necessarily all of them. However, to avoid random crashes and silent
+# fallbacks, we bind-mount all of them. Therefore, we need access to many of the
+# fstypes.
+
 allow dexopt_chroot_setup {
   apex_mnt_dir
   binderfs
@@ -86,6 +93,11 @@ allow dexopt_chroot_setup {
   sysfs
   tmpfs
 }:filesystem unmount;
+
+userdebug_or_eng(`
+  allow dexopt_chroot_setup debugfs:dir mounton;
+  allow dexopt_chroot_setup debugfs:filesystem unmount;
+')
 
 # Allow reading /apex in chroot.
 r_dir_file(dexopt_chroot_setup, apex_mnt_dir)
