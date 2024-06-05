@@ -39,6 +39,30 @@
       },
       "revId": "4c92582b69076b0ca0961b7375397823d0cb6225",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d47a5ad6_f573c968",
+        "filename": "private/compat/33.0/33.0.ignore.cil",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-06-05T13:39:08Z",
+      "side": 1,
+      "message": "Because if I don\u0027t, the build complains. \n```\nSELinux: The following public types were found added to the policy without an entry into the compatibility mapping file(s) found in pri\nvate/compat/V.v/V.v[.ignore].cil, where V.v is the latest API level.\nhidraw_device\n```\n\nI think that\u0027s because I removed it from the 34.0.ignore.cil (since it\u0027s now in 34.0.cil), and added it to the prebuilt.",
+      "parentUuid": "9903f4a8_122b202e",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 89,
+        "endChar": 17
+      },
+      "revId": "4c92582b69076b0ca0961b7375397823d0cb6225",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
