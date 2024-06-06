@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea96c6ce_52c3d7c1",
+        "filename": "private/statsd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-06-06T08:58:03Z",
+      "side": 1,
+      "message": "why is write needed? That shouldn\u0027t be necessary for sending data. Perhaps you\u0027re trying to do too much in this line?\n\nI wonder if this should be two separate allow rules:\nallow statsd priv_app:fifo_file write;\nallow statsd appdomain:fifo_file { read getattr };\n\nWith a note that says that statsd can send data to a priv_app, but other apps can only send data to statsd?\n\nPlease also include a comment within policy to clarify that access control for sending data to statsd is actually done elsewhere e.g. by gating access to the service, Android permissions, or however it\u0027s done. I don\u0027t know, but hopefully you do :).",
+      "range": {
+        "startLine": 23,
+        "startChar": 40,
+        "endLine": 23,
+        "endChar": 45
+      },
+      "revId": "f603d9d5ce9fd200d635b4a9fe910d3e2f370b05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
