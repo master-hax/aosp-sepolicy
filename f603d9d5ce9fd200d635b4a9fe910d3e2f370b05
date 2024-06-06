@@ -22,6 +22,30 @@
       },
       "revId": "f603d9d5ce9fd200d635b4a9fe910d3e2f370b05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "410d0bee_88fe3601",
+        "filename": "private/statsd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1242539
+      },
+      "writtenOn": "2024-06-06T18:13:06Z",
+      "side": 1,
+      "message": "In T, we discovered that gmscore_app is not a priv app, so we weren\u0027t able to use the file descriptors as we expected. Our current workaround is to have system_server do a copy and recreate the file descriptor as a workaround. It would be preferable if write permissions were available as well so it is possible to potentially remove this workaround for V+\n\nAdded the comment on what gates access to the service",
+      "parentUuid": "ea96c6ce_52c3d7c1",
+      "range": {
+        "startLine": 23,
+        "startChar": 40,
+        "endLine": 23,
+        "endChar": 45
+      },
+      "revId": "f603d9d5ce9fd200d635b4a9fe910d3e2f370b05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
