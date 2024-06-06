@@ -92,6 +92,12 @@ func (c *compatCil) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 	c.installPath = android.PathForModuleInstall(ctx, "etc", "selinux", "mapping")
 	c.installSource = android.OptionalPathForPath(out)
 	ctx.InstallFile(c.installPath, c.stem(), out)
+
+	var outputFiles android.Paths
+	if c.installSource.Valid() {
+		outputFiles = android.Paths{c.installSource.Path()}
+	}
+	ctx.SetOutputFiles(outputFiles, "")
 }
 
 func (c *compatCil) AndroidMkEntries() []android.AndroidMkEntries {
@@ -239,15 +245,7 @@ func (f *compatTestModule) GenerateSingletonBuildActions(ctx android.SingletonCo
 func (f *compatTestModule) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 	var inputs android.Paths
 	ctx.VisitDirectDepsWithTag(compatTestDepTag, func(child android.Module) {
-		o, ok := child.(android.OutputFileProducer)
-		if !ok {
-			panic(fmt.Errorf("Module %q should be an OutputFileProducer but it isn't", ctx.OtherModuleName(child)))
-		}
-
-		outputs, err := o.OutputFiles("")
-		if err != nil {
-			panic(fmt.Errorf("Module %q error while producing output: %v", ctx.OtherModuleName(child), err))
-		}
+		outputs := android.OutputFilesForModule(ctx, child, "")
 		if len(outputs) != 1 {
 			panic(fmt.Errorf("Module %q should produce exactly one output, but did %q", ctx.OtherModuleName(child), outputs.Strings()))
 		}
