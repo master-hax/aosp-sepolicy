@@ -746,6 +746,7 @@ hypervisor.virtualizationmanager.debug_policy.path u:object_r:hypervisor_virtual
 # hypervisor.*: configured by the vendor to advertise capabilities of their
 # hypervisor to virtualizationservice.
 hypervisor.memory_reclaim.supported u:object_r:hypervisor_restricted_prop:s0 exact bool
+hypervisor.vm.remote_attestation.supported u:object_r:hypervisor_restricted_prop:s0 exact bool
 
 ro.config.per_app_memcg         u:object_r:lmkd_config_prop:s0 exact bool
 ro.lmk.critical                 u:object_r:lmkd_config_prop:s0 exact int
