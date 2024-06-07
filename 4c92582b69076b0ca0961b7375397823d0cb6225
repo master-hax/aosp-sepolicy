@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fed56cd8_25ce17ad",
+        "filename": "prebuilts/api/34.0/public/device.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-06-07T10:29:43Z",
+      "side": 1,
+      "message": "ack, but still I\u0027m not sure if we need to touch 34.0 prebuilt. the current state is\n\n1) A 34.0 device defines hidraw_device\n2) 202404 AOSP introduces vendor_hidraw_device\n3) we want the 34.0 device to access vendor_hidraw_device as before\n\nProbably we shouldn\u0027t touch system/sepolicy at all. It\u0027s because `(typeattributeset hidraw_device_34_0 (hidraw_device vendor_hidraw_device))` probably won\u0027t do anything meaningful, if they defined hidraw_device to private sepolicy.\n\nInstead, I think partners should add these statements to their own `34.0.compat.cil` (either to system_ext or product)\n\n```\n;; give permission to vendor_hidraw_device so 34.0 devices can access /dev/hidraw as before.\n(allow vendor_hidraw_device ...)\n```\n\nWDYT?",
+      "parentUuid": "df4baa2a_42c07682",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 29
+      },
+      "revId": "4c92582b69076b0ca0961b7375397823d0cb6225",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9903f4a8_122b202e",
         "filename": "private/compat/33.0/33.0.ignore.cil",
         "patchSetId": 1
