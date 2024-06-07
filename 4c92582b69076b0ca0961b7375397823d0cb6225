@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9b0c63b_2e0a29c3",
+        "filename": "prebuilts/api/34.0/public/device.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-06-07T10:46:28Z",
+      "side": 1,
+      "message": "\u003e 1) A 34.0 device defines hidraw_device\n\u003e 2) 202404 AOSP introduces vendor_hidraw_device\n\u003e 3) we want the 34.0 device to access vendor_hidraw_device as before\n\nI don\u0027t think that\u0027s right. AIUI:\n\nhidraw_device was introduced by us in 2024Q1, which is roughly a U QPR, and thus modified the 34_0 policy. That\u0027s ag/25095657.\n\nSome vendors added vendor_hidraw_device for these devices in older versions (b/340923653#comment1). That label\u0027s never been part of system policy.\n\nWe don\u0027t want to add that to the system policy, just ensure that anything labeled with it on older vendor gets the same treatment as the new hidraw_device in newer system policy.",
+      "parentUuid": "fed56cd8_25ce17ad",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 29
+      },
+      "revId": "4c92582b69076b0ca0961b7375397823d0cb6225",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9903f4a8_122b202e",
         "filename": "private/compat/33.0/33.0.ignore.cil",
         "patchSetId": 1
