@@ -163,6 +163,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "727c6cf7_34542aa9",
+        "filename": "prebuilts/api/34.0/public/device.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-06-10T08:24:37Z",
+      "side": 1,
+      "message": "\u003e I can\u0027t find hidraw_device in prebuilts/api/34.0.\n\nThat\u0027s arguably a mistake at the time.\n\n\u003e It seems like hidraw_device didn\u0027t modify 34_0 policy, but only 202404 policy, as ag/25095657 has never been cherry picked to release branches.\n\nIt\u0027s on the git_24Q1-release branch, from ab/11098562 AP1A.231115.001. Does that count as 202404? In any case, current devices getting 24Q3 pre-releases believe that they are using version 34.0 of system, which I think is why my aosp/3108097 didn\u0027t work.\n\nSee also ag/27661090, which updates the documentation and references Android 15.\n\n\u003e Or we could add this to 34.0.compat.cil, rather than 34.0.cil?\n\nI\u0027m willing to give that a try, and see what happens.",
+      "parentUuid": "9e1d26f4_26e6181b",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 29
+      },
+      "revId": "4c92582b69076b0ca0961b7375397823d0cb6225",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9903f4a8_122b202e",
         "filename": "private/compat/33.0/33.0.ignore.cil",
         "patchSetId": 1
