@@ -115,6 +115,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27b48c70_730948bc",
+        "filename": "prebuilts/api/34.0/public/device.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-06-10T01:51:54Z",
+      "side": 1,
+      "message": "\u003e hidraw_device was introduced by us in 2024Q1, which is roughly a U QPR, and thus modified the 34_0 policy. That\u0027s ag/25095657.\n\nI can\u0027t find `hidraw_device` in `prebuilts/api/34.0`. It seems like `hidraw_device` didn\u0027t modify 34_0 policy, but only 202404 policy, as ag/25095657 has never been cherry picked to release branches.\n\nAs we don\u0027t know which permissions are needed for vendors, I don\u0027t think we can do here. I think vendors should add these statements to their own 34.0.compat.cil (either to system_ext or product).",
+      "parentUuid": "e9b0c63b_2e0a29c3",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 29
+      },
+      "revId": "4c92582b69076b0ca0961b7375397823d0cb6225",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9903f4a8_122b202e",
         "filename": "private/compat/33.0/33.0.ignore.cil",
         "patchSetId": 1
