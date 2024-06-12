@@ -16,6 +16,24 @@
       "message": "Not a selinux expert, but isn\u0027t there a way to label traced_relay with its own traced_relay_exec and traced_relay.te and then say \"traced_Relay is a traced\" inherits from traced in terms of permissions? Or that\u0027s not something that can be done in selinux?",
       "revId": "f7d0df4e2b6979c65b030775347660f3765f1370",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9b81db7_10643369",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-06-12T10:33:27Z",
+      "side": 1,
+      "message": "There\u0027s no inheritance in selinux.\n\nWe could have an attribute that applied to both, expressing the common subset.\n\nDoes traced_relay need all of the same permissions as traced? Or could it be a smaller subset? If the latter, it would be preferable to have a separate label. If the former, this is fine.",
+      "parentUuid": "0ac03601_78fbc810",
+      "revId": "f7d0df4e2b6979c65b030775347660f3765f1370",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
