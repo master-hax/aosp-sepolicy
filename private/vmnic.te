@@ -15,7 +15,7 @@ is_flag_enabled(RELEASE_AVF_ENABLE_NETWORK, `
 
     # Allow for creating and deleting TAP network interfaces.
     allow vmnic self:global_capability_class_set net_admin;
-    allow vmnic self:tun_socket create_socket_perms_no_ioctl;
+    allow vmnic self:tun_socket { create_socket_perms_no_ioctl relabelfrom relabelto };
     allow vmnic tun_device:chr_file rw_file_perms;
     allowxperm vmnic tun_device:chr_file ioctl { TUNGETIFF TUNSETIFF TUNSETPERSIST };
     allow vmnic self:udp_socket create_socket_perms;
