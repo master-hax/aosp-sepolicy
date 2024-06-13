@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "879d5115_05f4580b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-06-13T16:23:46Z",
+      "side": 1,
+      "message": "I see in `domain.te` that there is a rule `allow domain self:process {... relevant signals ... }`, which I assume is where we get the `allow appdomain su:process`. This comment just means, we additionally need to grant the permission to `su:process` in the `dumpstate` domain, right?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 66
+      },
+      "revId": "4164a5a5147c37e9939fd3d099959c4fedc95900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
