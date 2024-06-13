@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b87aa17a_599d97d7",
+        "filename": "build/soong/service_fuzzer_bindings.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1950816
+      },
+      "writtenOn": "2024-06-13T04:30:09Z",
+      "side": 1,
+      "message": "I haven\u0027t deeply thought about that, it should be a subtask of b/294158658 I think. By the way, do we have a document to follow how to make fuzzers? Since there seems hundreds of services that requires fuzzer, so I guess somewhere it exists..?\n\nI want to know the reason we need this, and how to implement, though keep this as TODO comment in current time.",
+      "parentUuid": "09296de3_8cf56529",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 93
+      },
+      "revId": "98a276bbb5240bb631e37abc279c0c1114ea95ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1bba0d58_7c781163",
         "filename": "private/virtualizationservice.te",
         "patchSetId": 4
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "If you want vm_tethering_service to have an exclusive client, yes. In general it might be good. Maybe same for vmnic_service.",
       "parentUuid": "1bba0d58_7c781163",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 74
+      },
+      "revId": "98a276bbb5240bb631e37abc279c0c1114ea95ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3534cbaf_f1c1459b",
+        "filename": "private/virtualizationservice.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1950816
+      },
+      "writtenOn": "2024-06-13T04:30:09Z",
+      "side": 1,
+      "message": "I think neverallow rule for `vmnic_service` is sufficient. https://source.corp.google.com/h/android/platform/superproject/main/+/main:system/sepolicy/private/vmnic.te;l\u003d24-25\n\nAbout neverallow rule for `vm_tethering_service`, I don\u0027t have any idea to do this since it\u0027s used by system_server only.\n\nPlease let me know if I\u0027m wrong so I need to do something..!",
+      "parentUuid": "ee7a25fe_faeb6e7a",
       "range": {
         "startLine": 31,
         "startChar": 0,
