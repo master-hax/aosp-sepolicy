@@ -258,6 +258,10 @@ allow dumpstate {
   system_suspend_server
 }:process signal;
 
+userdebug_or_eng(`
+  dontaudit dumpstate su:process signal;
+')
+
 # Connect to tombstoned to intercept dumps.
 unix_socket_connect(dumpstate, tombstoned_intercept, tombstoned)
 
