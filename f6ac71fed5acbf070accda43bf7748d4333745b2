@@ -46,6 +46,30 @@
       },
       "revId": "f6ac71fed5acbf070accda43bf7748d4333745b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94cfd540_52a1427a",
+        "filename": "private/vmnic.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1950816
+      },
+      "writtenOn": "2024-06-14T05:40:53Z",
+      "side": 1,
+      "message": "Fortunately, seems not using TUNSETPERSIST resolves this issue. But, I\u0027ll check one more time to ensure it.\n\nOn the other hand, we should know the reason why VmLauncherApp doesn\u0027t call executes all flows in `monitor_vm_exit`, for cleaning it up. I should file a bug regarding it.",
+      "parentUuid": "a9579f1b_91e0b6e8",
+      "range": {
+        "startLine": 18,
+        "startChar": 63,
+        "endLine": 18,
+        "endChar": 84
+      },
+      "revId": "f6ac71fed5acbf070accda43bf7748d4333745b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
