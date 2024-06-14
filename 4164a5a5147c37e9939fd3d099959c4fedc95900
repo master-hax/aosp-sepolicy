@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3eef826_3ea2036e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-06-14T17:12:15Z",
+      "side": 1,
+      "message": "Ah, makes sense!",
+      "parentUuid": "1152e31a_f1d24ff6",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 66
+      },
+      "revId": "4164a5a5147c37e9939fd3d099959c4fedc95900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a32e66b_e1a90187",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "That\u0027s right, yes and yes. We could just grant `sigkill`. \n\nThe reason why `dumpstate` is already able to use `signal` on `su` is because `su` has the `appdomain` attribute (that is, we are saying `su` is behaving like a regular Java app).\n\nBy explicitly granting the `signal` permission here, we are saying \"dumpstate will execute su for its own business logic, and that\u0027s not necessarily related to the fact that su is considered an app\".",
       "parentUuid": "7a32e66b_e1a90187",
+      "range": {
+        "startLine": 264,
+        "startChar": 31,
+        "endLine": 264,
+        "endChar": 37
+      },
+      "revId": "4164a5a5147c37e9939fd3d099959c4fedc95900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "281ae314_b8c7bf3a",
+        "filename": "private/dumpstate.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1954616
+      },
+      "writtenOn": "2024-06-14T17:12:15Z",
+      "side": 1,
+      "message": "That makes sense! Thank you for explaining :-)",
+      "parentUuid": "8a4ef52f_89a134de",
       "range": {
         "startLine": 264,
         "startChar": 31,
