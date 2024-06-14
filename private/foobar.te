@@ -1,0 +1,16 @@
+type foo_rs, domain, coredomain;
+type foo_rs_exec, system_file_type, exec_type, file_type;
+
+domain_auto_trans(shell, foo_rs_exec, foo_rs);
+
+type bar_rs, domain, coredomain;
+type bar_rs_exec, system_file_type, exec_type, file_type;
+
+domain_auto_trans(shell, bar_rs_exec, bar_rs);
+allow shell {foo_rs_exec bar_rs_exec}:file rx_file_perms;
+
+allow {foo_rs bar_rs} self:vsock_socket  { create_socket_perms_no_ioctl listen accept };
+
+allow {foo_rs bar_rs} {shell adbd}:fd use;
+
+allow {foo_rs bar_rs} adbd:unix_stream_socket { read write };
