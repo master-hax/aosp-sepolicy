@@ -22,6 +22,30 @@
       },
       "revId": "f6ac71fed5acbf070accda43bf7748d4333745b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9579f1b_91e0b6e8",
+        "filename": "private/vmnic.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-06-14T05:34:07Z",
+      "side": 1,
+      "message": "As we discussed offline, this doesn\u0027t seem good. Actually we need to ensure that TAP device is closed correctly upon VM exit.\n\nLike we did on aosp/2831930, let\u0027s create a handle from vmnic service and then let the object\u0027s drop() clean up TAP device, rather than depending on virtmgr\u0027s calling such methods.",
+      "parentUuid": "44046604_c5feeb2c",
+      "range": {
+        "startLine": 18,
+        "startChar": 63,
+        "endLine": 18,
+        "endChar": 84
+      },
+      "revId": "f6ac71fed5acbf070accda43bf7748d4333745b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
