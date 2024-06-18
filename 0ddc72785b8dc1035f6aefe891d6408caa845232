@@ -118,6 +118,30 @@
       },
       "revId": "0ddc72785b8dc1035f6aefe891d6408caa845232",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d92ec59c_e6c4401b",
+        "filename": "private/shell.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-06-18T00:55:15Z",
+      "side": 1,
+      "message": "\u003e we don\u0027t need to suppress denials. the access is made only during testing.\n\nEven though it\u0027s true, I\u0027m worried about 1) flakes of SELinux denials tests, and 2) concerns due to unnecessary denials. We already have similar code: aosp/1352984",
+      "parentUuid": "a3bd6df4_990ddaa8",
+      "range": {
+        "startLine": 440,
+        "startChar": 0,
+        "endLine": 441,
+        "endChar": 41
+      },
+      "revId": "0ddc72785b8dc1035f6aefe891d6408caa845232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
