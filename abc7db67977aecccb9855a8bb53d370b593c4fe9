@@ -51,6 +51,24 @@
       "parentUuid": "35dc973f_2a44c31f",
       "revId": "abc7db67977aecccb9855a8bb53d370b593c4fe9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9011a74_425f2206",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2024-06-18T11:43:19Z",
+      "side": 1,
+      "message": "Just tried on AP2A.240605.024 + GSI system.img with ferrochrome and I see the same denials.\nHere my steps on device (no display output): VMLauncher app -\u003e Browse as Guest -\u003e Open any youtube video.\n\nI see the following failures\n```06-18 13:41:47.136  3154  3247 D crosvm  : PlayerBase::PlayerBase()\n06-18 13:41:47.137  3154  3247 E crosvm  : PlayerBase(): binding to audio service failed, service up?\n06-18 13:41:47.170   469   469 E SELinux : avc:  denied  { find } for pid\u003d3154 uid\u003d10105 name\u003daudio scontext\u003du:r:crosvm:s0:c105,c256,c512,c768 tcontext\u003du:object_r:audio_service:s0 tclass\u003dservice_manager permissive\u003d0\n06-18 13:41:47.177   469   469 E SELinux : avc:  denied  { find } for pid\u003d3154 uid\u003d10105 name\u003dmedia.metrics scontext\u003du:r:crosvm:s0:c105,c256,c512,c768 tcontext\u003du:object_r:mediametrics_service:s0 tclass\u003dservice_manager permissive\u003d0\n```",
+      "parentUuid": "62b47e7e_444c4016",
+      "revId": "abc7db67977aecccb9855a8bb53d370b593c4fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
