@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "492b85cb_9282c5b8",
+        "filename": "Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-06-18T08:15:41Z",
+      "side": 1,
+      "message": "or we can just write\n\n```\n[\"29.0\", \"30.0\", \"31.0\", \"32.0\", \"33.0\", \"34.0\"] + select(soong_config_variable(\"ANDROID\", \"PLATFORM_SEPOLICY_VERSION\"), {\n        \"202404\": [],\n        default: [\n            \"plat_202404.cil\",\n            \"202404.compat.cil\",\n        ],\n    }),\n```\n\nas PLATFORM_SEPOLICY_VERSION will always be 202404 or later.",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 7
+      },
+      "revId": "00b1d32c95705d7c38935d06d577666d6376e108",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
