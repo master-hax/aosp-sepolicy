@@ -101,6 +101,8 @@ is_flag_enabled(RELEASE_AVF_SUPPORT_CUSTOM_VM_WITH_PARAVIRTUALIZED_DEVICES, `
   # Allow crosvm to play sound.
   binder_call(crosvm, audioserver)
   allow crosvm audioserver_service:service_manager find;
+  allow crosvm audio_service:service_manager find;
+  allow crosvm mediametrics_service:service_manager find;
 ')
 
 # crosvm tries to use netlink sockets as part its APCI implementation, but we don't need it for AVF (b/228077254)
