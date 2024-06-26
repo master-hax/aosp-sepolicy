@@ -580,6 +580,12 @@ define(`not_compatible_property', ifelse(target_compatible_property, `true', , $
 define(`userdebug_or_eng', ifelse(target_build_variant, `eng', $1, ifelse(target_build_variant, `userdebug', $1)))
 
 #####################################
+# Trunk or trunk staging builds
+# SELinux rules which apply only to trunk or trunk staging builds
+#
+define(`trunk_or_trunk_staging', ifelse(target_release, `trunk', $1, ifelse(target_release, `trunk_staging', $1)))
+
+#####################################
 # asan builds
 # SELinux rules which apply only to asan builds
 #
