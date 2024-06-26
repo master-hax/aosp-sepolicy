@@ -34,6 +34,24 @@
       "parentUuid": "ca8f7409_4159f3c9",
       "revId": "8ad65a6fe355f220ee3ed3f16f0570d34a58f80d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2985b406_383f3a6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1981530
+      },
+      "writtenOn": "2024-06-26T20:51:09Z",
+      "side": 1,
+      "message": "This is coming up because vendor code is already using aconfig flag APIs, and we are accessing this file under the hood in the APIs, so we\u0027re running into SELinux failures for that code. I\u0027m not super familiar with this area--what are GRF/Treble, and what would it mean to support the format of the data?\n\nFWIW, this is an empty file--the codegen just checks if it\u0027s present or not. Also, we\u0027d ideally like to delete this file and these permissions once the whole implementation is landed.",
+      "parentUuid": "e74aceca_54d3a31c",
+      "revId": "8ad65a6fe355f220ee3ed3f16f0570d34a58f80d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
