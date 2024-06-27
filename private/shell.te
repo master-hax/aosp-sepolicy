@@ -52,6 +52,11 @@ allow shell perfetto:process signal;
 # Allow shell to run adb shell cmd stats commands. Needed for CTS.
 binder_call(shell, statsd);
 
+# Allow rkp_factory_extraction_tool to run virtualizationservice from the shell.
+# Vendors use this tool to collect RKP CSRs from different RKP HALs. This permission
+# is required by the AVF RKP HAL to run a special VM.
+binder_call(shell, virtualizationservice)
+
 # Allow shell to read and unlink traces stored in /data/misc/a11ytraces.
 userdebug_or_eng(`
   allow shell accessibility_trace_data_file:dir rw_dir_perms;
