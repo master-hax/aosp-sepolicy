@@ -46,6 +46,30 @@
       },
       "revId": "7c2569d51bf0858319af0ba1af194fb5a25befba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f4f7fc1_ac0240de",
+        "filename": "private/domain.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-06-27T19:30:44Z",
+      "side": 1,
+      "message": "Hmm, what is it flagged on? I meant userdebug or eng as an example of something similar, but we need a new macro for \u0027next or not\u0027? If we use the wrong macro here, two things would break:\n- on next userdebug builds, we couldn\u0027t use these flags, presumably permissions would fail there or flags would be considered off, and we wouldn\u0027t be testing these appropriately\n- on trunk user builds, we wouldn\u0027t have the permission, but we would need them.",
+      "parentUuid": "87275607_ba27edb3",
+      "range": {
+        "startLine": 576,
+        "startChar": 20,
+        "endLine": 577,
+        "endChar": 30
+      },
+      "revId": "7c2569d51bf0858319af0ba1af194fb5a25befba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
