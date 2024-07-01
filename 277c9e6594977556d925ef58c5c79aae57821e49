@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34789c5e_43c73174",
+        "filename": "private/shell.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-07-01T18:43:44Z",
+      "side": 1,
+      "message": "Are there any gotchas here wrt shell being able to call the HAL? As in: are there services other than `IRemotelyProvisionedComponent` that shell could potentially abuse?\n\nFor keymint, we explicitly blocked shell from finding services it shouldn\u0027t get access to:\n```\n# Do not allow shell to talk directly to security HAL services other than\n# hal_remotelyprovisionedcomponent_service\nneverallow shell {\n  hal_keymint_service\n  hal_secureclock_service\n  hal_sharedsecret_service\n}:service_manager find;\n```\n\nIt\u0027s not clear to me if we should lock down AVF similarly or not.",
+      "range": {
+        "startLine": 58,
+        "startChar": 19,
+        "endLine": 58,
+        "endChar": 40
+      },
+      "revId": "277c9e6594977556d925ef58c5c79aae57821e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb71cac9_ff68b18c",
+        "filename": "private/shell.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-07-01T18:43:44Z",
+      "side": 1,
+      "message": "Can you please move the change to here, so that it\u0027s logically connected with the permissions needed for keymint?\n\n```suggestion\n# Allow shell to execute the remote key provisioning factory tool\nbinder_call(shell, hal_keymint)\nbinder_call(shell, virtualizationservice)\n```",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 31
+      },
+      "revId": "277c9e6594977556d925ef58c5c79aae57821e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
