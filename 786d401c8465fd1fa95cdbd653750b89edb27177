@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a38b2cb_6c288539",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2007245
+      },
+      "writtenOn": "2024-07-01T07:42:40Z",
+      "side": 1,
+      "message": "The property doesn\u0027t have a proper context and it can only be set from system domain, which will be cleared after flashing GSI. After discussing with Andy and Mikhail, we reached a conclusion to set it as \"audio_config_prop\".",
+      "parentUuid": "a0efddc8_d358e1b8",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 37
+      },
+      "revId": "786d401c8465fd1fa95cdbd653750b89edb27177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "12c4d9e1_141388d9",
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f76d21e_ca2a543b",
+        "filename": "prebuilts/api/34.0/private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2007245
+      },
+      "writtenOn": "2024-07-01T07:42:40Z",
+      "side": 1,
+      "message": "Could you explain more about this ? \nHow can we prevent build fail while modifying private/property_contexts but do not update the 34.0 prebuilt ?",
+      "parentUuid": "77880b3f_8b71a549",
+      "range": {
+        "startLine": 0,
+        "startChar": 0,
+        "endLine": 0,
+        "endChar": 0
+      },
+      "revId": "786d401c8465fd1fa95cdbd653750b89edb27177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "17bc6a5d_5c7b3ed0",
         "filename": "prebuilts/api/34.0/private/property_contexts",
         "patchSetId": 1
@@ -77,6 +125,30 @@
       "writtenOn": "2024-07-01T06:41:41Z",
       "side": 1,
       "message": "this name looks confusing. what\u0027s \"output_device\" and what\u0027s \"corrected\"?",
+      "range": {
+        "startLine": 382,
+        "startChar": 16,
+        "endLine": 382,
+        "endChar": 39
+      },
+      "revId": "786d401c8465fd1fa95cdbd653750b89edb27177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "526d6ca8_d9b3043f",
+        "filename": "prebuilts/api/34.0/private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 2007245
+      },
+      "writtenOn": "2024-07-01T07:42:40Z",
+      "side": 1,
+      "message": "The property\u0027s name stands for allowing \"timestamp correction\" for \"multistream audio output device\".\n\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/av/services/audioflinger/Threads.cpp;l\u003d2096",
+      "parentUuid": "17bc6a5d_5c7b3ed0",
       "range": {
         "startLine": 382,
         "startChar": 16,
