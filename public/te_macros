@@ -197,7 +197,6 @@ allow { virtualizationmanager crosvm } $1:fifo_file { ioctl getattr read write }
 # that it created. Notice that we do not grant permission to create a vsock;
 # the client can only connect to VMs that it owns.
 allow $1 virtualizationmanager:vsock_socket { getattr getopt read write };
-neverallow {$1 -virtualizationservice} self:vsock_socket { create bind connect accept listen };
 # Allow client to inspect hypervisor capabilities
 get_prop($1, hypervisor_prop)
 # Allow client to read (but not open) the crashdump provided by virtualizationmanager
