@@ -22,6 +22,30 @@
       },
       "revId": "17ac54d3ab94eb0c1619c5f9f709324ab47f0913",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d400e21_659cfc1d",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-05T16:04:50Z",
+      "side": 1,
+      "message": "SELinux policy is deny by default. Since sigkill is only allowed for `artd_subprocess_type` on line 137, an addition neverallow rule seems to be a duplicate.\n\nAs the comment above this line says, this neverallow rule is just to make sure  artd_subprocess_type is complete (i.e., if someone adds another `domain_auto_trans` rule for `artd`, they will have to add that domain to `artd_subprocess_type`, or they\u0027ll get a build error from this neverallow rule.",
+      "parentUuid": "eb1f036d_52d421b0",
+      "range": {
+        "startLine": 190,
+        "startChar": 59,
+        "endLine": 190,
+        "endChar": 69
+      },
+      "revId": "17ac54d3ab94eb0c1619c5f9f709324ab47f0913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
