@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "492d4c5e_648babf1",
+        "filename": "private/shell.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-07-08T13:12:15Z",
+      "side": 1,
+      "message": "Thanks. I have disallowed the shell access to the internal VirtualizationService.",
+      "parentUuid": "34789c5e_43c73174",
+      "range": {
+        "startLine": 58,
+        "startChar": 19,
+        "endLine": 58,
+        "endChar": 40
+      },
+      "revId": "277c9e6594977556d925ef58c5c79aae57821e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb71cac9_ff68b18c",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-07-01T18:43:44Z",
       "side": 1,
       "message": "Can you please move the change to here, so that it\u0027s logically connected with the permissions needed for keymint?\n\n```suggestion\n# Allow shell to execute the remote key provisioning factory tool\nbinder_call(shell, hal_keymint)\nbinder_call(shell, virtualizationservice)\n```",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 31
+      },
+      "revId": "277c9e6594977556d925ef58c5c79aae57821e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a6f8b20_37447c7c",
+        "filename": "private/shell.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-07-08T13:12:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb71cac9_ff68b18c",
       "range": {
         "startLine": 204,
         "startChar": 0,
