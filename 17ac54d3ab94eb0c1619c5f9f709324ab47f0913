@@ -46,6 +46,30 @@
       },
       "revId": "17ac54d3ab94eb0c1619c5f9f709324ab47f0913",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67599154_dde65b1d",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-08T14:08:28Z",
+      "side": 1,
+      "message": "\u003e an addition neverallow rule seems to be a duplicate.\n\nIt\u0027d catch someone adding another `allow artd \u003csomething\u003e:process sigkill` somewhere, i.e. making the `artd_subprocess_type` incomplete in that regard.\n\nBut maybe the benefit is marginal (one can certainly add lots of neverallow\u0027s with that kind of reasoning). I think I was just a bit thrown off by what the comment meant with \"complete\" - can you please extend it to mention what it\u0027s complete with respect to?",
+      "parentUuid": "3d400e21_659cfc1d",
+      "range": {
+        "startLine": 190,
+        "startChar": 59,
+        "endLine": 190,
+        "endChar": 69
+      },
+      "revId": "17ac54d3ab94eb0c1619c5f9f709324ab47f0913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
