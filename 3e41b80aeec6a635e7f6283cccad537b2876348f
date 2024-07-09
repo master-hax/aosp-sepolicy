@@ -104,6 +104,24 @@
       "parentUuid": "735e2471_4259b869",
       "revId": "3e41b80aeec6a635e7f6283cccad537b2876348f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f99fa6d_b0c7905c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-07-09T15:22:07Z",
+      "side": 1,
+      "message": "\u003e we could also consider asking the vendors to run the factory tool with SELinux disabled\n\nThis is not workable for many OEMs. We have quite a few partners who need to run the `rkp_factory_extraction_tool` on user builds.\n\nOEMs/ODMs have various processes -- some use factory builds, but many do not. Some flash only user builds because using a different build in the factory slows their processes too much. For example: b/344778236#comment5\n\nIf we\u0027re concerned about granting shell access, we could split the service hosting the HAL. A separate sepolicy domain could be created that hosts _only_ the `IRemotelyProvisionedComponent`. I see no harm in allowing shell access to the IRPC HAL.",
+      "parentUuid": "daa4a154_cdeed537",
+      "revId": "3e41b80aeec6a635e7f6283cccad537b2876348f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
