@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d6a1832_cf2b9d6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-07-09T23:14:43Z",
+      "side": 1,
+      "message": "It doesn\u0027t answer my question.\n\nReading through the changes, this property is set on build time (possibly the value depends on targets), and read runtime, to branch. Nothing else. In such case, I believe [build time flags](https://g3doc.corp.google.com/company/teams/android-core-experiments/trunk-stable/build-system-flags.md?cl\u003dhead) are exactly what you want. You can still differentiate the value among targets, and you can still branch depending on the value determined on the build time.\n\nAlso the property is baked to the system image (`ADDITIONAL_SYSTEM_PROPERTIES`). I think it\u0027s against our goal minimizing system.img differences.",
+      "parentUuid": "21bbc8e2_0ec520ad",
+      "revId": "c7ce1a7da13b226ca3662353ac3f8e59056fdf2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "abe900bf_3ef4360a",
         "filename": "private/property_contexts",
         "patchSetId": 1
@@ -210,6 +228,30 @@
       "side": 1,
       "message": "lgtm - though I\u0027d like Inseob to confirm the name.",
       "parentUuid": "dc7141ce_4a7385ef",
+      "range": {
+        "startLine": 1026,
+        "startChar": 3,
+        "endLine": 1026,
+        "endChar": 9
+      },
+      "revId": "c7ce1a7da13b226ca3662353ac3f8e59056fdf2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "143b7a25_e37f65f5",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-07-09T23:14:43Z",
+      "side": 1,
+      "message": "looks better than before. thanks.",
+      "parentUuid": "838b050b_4c1a9867",
       "range": {
         "startLine": 1026,
         "startChar": 3,
