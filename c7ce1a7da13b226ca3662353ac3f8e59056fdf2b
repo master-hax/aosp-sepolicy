@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58cec6bb_00efb15f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956258
+      },
+      "writtenOn": "2024-07-09T20:13:43Z",
+      "side": 1,
+      "message": "We want to verify if device actual booted with 16kb page size which was specified during build time using TARGET_BOOTS_16K",
+      "parentUuid": "9566f851_47291c31",
+      "revId": "c7ce1a7da13b226ca3662353ac3f8e59056fdf2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abe900bf_3ef4360a",
@@ -102,6 +120,54 @@
       "side": 1,
       "message": "It\u0027s not a kernel parameter property though. Can you suggest something?\n\nAlso, maybe we should call it \u0027ro.product.page_size\u0027 or similar (so that it can be 4096 or 16384)",
       "parentUuid": "72aece30_18466325",
+      "range": {
+        "startLine": 1026,
+        "startChar": 3,
+        "endLine": 1026,
+        "endChar": 9
+      },
+      "revId": "c7ce1a7da13b226ca3662353ac3f8e59056fdf2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e585b395_501707cc",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1956258
+      },
+      "writtenOn": "2024-07-09T20:13:43Z",
+      "side": 1,
+      "message": "ro.product.build.16k_page.enabled property is set when 16kb developer options are turned on for the device : https://source.android.com/docs/core/architecture/16kb-page-size/16kb-developer-option",
+      "parentUuid": "abe900bf_3ef4360a",
+      "range": {
+        "startLine": 1026,
+        "startChar": 0,
+        "endLine": 1026,
+        "endChar": 59
+      },
+      "revId": "c7ce1a7da13b226ca3662353ac3f8e59056fdf2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc7141ce_4a7385ef",
+        "filename": "private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1956258
+      },
+      "writtenOn": "2024-07-09T20:13:43Z",
+      "side": 1,
+      "message": "Changed to o.product.page_size",
+      "parentUuid": "4f2bc767_6e21f444",
       "range": {
         "startLine": 1026,
         "startChar": 3,
