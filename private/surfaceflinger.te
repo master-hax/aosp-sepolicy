@@ -85,6 +85,9 @@ perfetto_producer(surfaceflinger)
 # Use socket supplied by adbd, for cmd gpu vkjson etc.
 allow surfaceflinger adbd:unix_stream_socket { read write getattr };
 
+# Allow reading and writing to sockets provided by apps (used for sending buffer release fences)
+allow surfaceflinger appdomain:unix_stream_socket { read write };
+
 # Allow a dumpstate triggered screenshot
 binder_call(surfaceflinger, dumpstate)
 binder_call(surfaceflinger, shell)
