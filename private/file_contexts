@@ -900,6 +900,14 @@
 /storage(/.*)?              u:object_r:storage_file:s0
 
 #############################
+# mount point for shared obb files
+/storage/emulated/[0-9]+/Android/obb(/.*)?      u:object_r:media_rw_data_file:s0
+
+#############################
+# mount point for app sandbox external files
+/storage/emulated/[0-9]+/Android/data(/.*)?     u:object_r:media_rw_data_file:s0
+
+#############################
 # mount point for read-write vendor partitions
 /mnt/vendor(/.*)?           u:object_r:mnt_vendor_file:s0
 
