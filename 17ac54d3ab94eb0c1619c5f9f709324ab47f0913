@@ -70,6 +70,30 @@
       },
       "revId": "17ac54d3ab94eb0c1619c5f9f709324ab47f0913",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c1123ef_8ded966d",
+        "filename": "private/artd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-10T17:04:59Z",
+      "side": 1,
+      "message": "I see what you mean.\n\nWhat I want to make sure is \"if a process can be created by artd or its subprocesses, then artd is able to kill it\". This is reasoned by:\n\n1. If a process can be created by artd or its subprocesses, then it\u0027s in `artd_subprocess_type`. (line 191 + line 199)\n2. If a process is in `artd_subprocess_type`, then artd is able to kill it. (line 137)\n\nUpdated the comment.",
+      "parentUuid": "67599154_dde65b1d",
+      "range": {
+        "startLine": 190,
+        "startChar": 59,
+        "endLine": 190,
+        "endChar": 69
+      },
+      "revId": "17ac54d3ab94eb0c1619c5f9f709324ab47f0913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
