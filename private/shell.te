@@ -261,9 +261,19 @@ userdebug_or_eng(`set_prop(shell, persist_sysui_ranking_update_prop)')
 # Allow shell to read the build properties for attestation feature
 get_prop(shell, build_attestation_prop)
 
+<<<<<<< PATCH SET (cbae9f 2nd attempt in fixing sepolicy for shell+oatdump)
+<<<<<<< PATCH SET (a81e93 2nd attempt in fixing sepolicy for shell+oatdump)
+# Allow shell to execute oatdump.
+# TODO (b/350628688): Remove this once it's safe to do so.
+allow shell oatdump_exec:file rx_file_perms;
+
+=======
+>>>>>>> BASE      (d84b34 Fix the sepolicy issue around shell and oatdump)
+=======
 # Allow shell to execute oatdump.
 allow shell oatdump_exec:file rx_file_perms;
 
+>>>>>>> BASE      (7dea3a Revert "Fix the sepolicy issue around shell and oatdump")
 # Allow shell access to socket for test
 userdebug_or_eng(`
     allow shell aconfigd_socket:sock_file write;

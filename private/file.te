@@ -37,9 +37,19 @@ type system_perfetto_config_file, file_type, system_file_type;
 # /data/misc/uprobestats-configs for uprobestats configs
 type uprobestats_configs_data_file, file_type, data_file_type, core_data_file_type;
 
+<<<<<<< PATCH SET (cbae9f 2nd attempt in fixing sepolicy for shell+oatdump)
+<<<<<<< PATCH SET (a81e93 2nd attempt in fixing sepolicy for shell+oatdump)
+# /apex/com.android.art/bin/oatdump
+# TODO (b/350628688): Remove this once it's safe to do so.
+type oatdump_exec, system_file_type, exec_type, file_type;
+
+=======
+>>>>>>> BASE      (d84b34 Fix the sepolicy issue around shell and oatdump)
+=======
 # /apex/com.android.art/bin/oatdump
 type oatdump_exec, system_file_type, exec_type, file_type;
 
+>>>>>>> BASE      (7dea3a Revert "Fix the sepolicy issue around shell and oatdump")
 # /data/misc_{ce/de}/<user>/sdksandbox root data directory for sdk sandbox processes
 type sdk_sandbox_system_data_file, file_type, data_file_type, core_data_file_type;
 # /data/misc_{ce/de}/<user>/sdksandbox/<app-name>/* subdirectory for sdk sandbox processes
