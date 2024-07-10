@@ -16,6 +16,24 @@
       "message": "I\u0027d like to understand why a socket is needed here. You\u0027re sending a socket over binder, and then using that socket to communicate between SF and the app instead of binder? That seems extremely odd.",
       "revId": "aa46b53843f273a96947073bffbb8a0e137f6606",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d6975cf_d9a30afa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1955350
+      },
+      "writtenOn": "2024-07-10T23:15:05Z",
+      "side": 1,
+      "message": "InputFlinger uses a similar strategy with Unix sockets instead of binder so there\u0027s prior art. I\u0027m making an optimization to address a top contributor to jank that is caused by thread scheduling delays related to binder. A one-time binder call is made to set up the Unix socket and then that is used for optimizing communication on the hot path. See go/blast-buffer-release-optimization",
+      "parentUuid": "a79da000_5298a1f7",
+      "revId": "aa46b53843f273a96947073bffbb8a0e137f6606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
