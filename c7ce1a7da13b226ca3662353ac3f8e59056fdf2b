@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9c64f054_22a615c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-07-10T00:02:13Z",
+      "side": 1,
+      "message": "If it\u0027s a buildtime flag, we have no way of reading what the intended page size of the device is. getpagesize(2) returns what the kernel says (which can be configured dynamically in the case of simulated larger page size). So there are many things and configurations that can cause a different page size to be used at runtime. We weren\u0027t going to add this, but there were 1-2 bugs where the wrong kernel was used, so we\u0027d like to make it explicit.\n\nWhen we say on a given product that it\u0027s 16 KB, we want to say that explicitly, and then we have this property to verify at testing time the kernel is actually 16 KB and getpagesize(2) returns the right value.\n\nThis property could be set in system_ext or product instead, doesn\u0027t have to be ADDITIONAL_SYSTEM_PROPERTIES.",
+      "parentUuid": "0d6a1832_cf2b9d6a",
+      "revId": "c7ce1a7da13b226ca3662353ac3f8e59056fdf2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "abe900bf_3ef4360a",
         "filename": "private/property_contexts",
         "patchSetId": 1
