@@ -97,7 +97,6 @@ allow untrusted_app_all mediadrmserver_service:service_manager find;
 allow untrusted_app_all nfc_service:service_manager find;
 allow untrusted_app_all radio_service:service_manager find;
 allow untrusted_app_all app_api_service:service_manager find;
-allow untrusted_app_all vr_manager_service:service_manager find;
 
 # gdbserver for ndk-gdb ptrace attaches to app process.
 allow untrusted_app_all self:process ptrace;

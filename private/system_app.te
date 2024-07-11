@@ -106,7 +106,6 @@ allow system_app {
   -system_suspend_control_internal_service
   -system_suspend_control_service
   -tracingproxy_service
-  -virtual_touchpad_service
   -vold_service
   -default_android_service
 }:service_manager find;
@@ -117,7 +116,6 @@ dontaudit system_app {
   installd_service
   mdns_service
   netd_service
-  virtual_touchpad_service
   vold_service
 }:service_manager find;
 
