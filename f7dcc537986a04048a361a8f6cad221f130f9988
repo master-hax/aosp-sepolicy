@@ -22,6 +22,30 @@
       },
       "revId": "f7dcc537986a04048a361a8f6cad221f130f9988",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc15fc73_110fe63f",
+        "filename": "private/installd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-11T22:08:28Z",
+      "side": 0,
+      "message": "`otapreopt` never uses `dexoptanalyzer`. `installd` uses `dexoptanalyzer` for secondary dex files, while `otapreopt` never handles secondary dex files (and that\u0027s why you don\u0027t see relevant permissions for `postinstall_dexopt`).",
+      "parentUuid": "69953e38_194426b7",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 64
+      },
+      "revId": "f7dcc537986a04048a361a8f6cad221f130f9988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

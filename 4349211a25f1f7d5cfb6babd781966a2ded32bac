@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1679d2bb_26801e61",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-11T22:08:28Z",
+      "side": 1,
+      "message": "As you pointed out, `dexoptanalyzer` is used by installd, which is dead since UDC. There is no usage anywhere else.",
+      "parentUuid": "94c0cd2b_1f7736f0",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 41
+      },
+      "revId": "4349211a25f1f7d5cfb6babd781966a2ded32bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8e0dc7d_0b80f242",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-07-11T19:35:43Z",
       "side": 1,
       "message": "Why keep this? Are there remaining use cases?\n\nI see there\u0027s a neverallow [here](https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/sepolicy/private/system_server.te;l\u003d1550;drc\u003df84f423e88af45cb96b7b87fd423e3832e39fdb1) but that can be cleaned up too, can\u0027t it?",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 65
+      },
+      "revId": "4349211a25f1f7d5cfb6babd781966a2ded32bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ae1b0bf_05216427",
+        "filename": "private/dexoptanalyzer.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-11T22:08:28Z",
+      "side": 1,
+      "message": "File types are burnt into the apex image, so we need it in order to build ART apex. If we remove this type, the SELinux label for `dexoptanalyzer` in the ART apex will change, and old platforms won\u0027t be able to call it.",
+      "parentUuid": "a8e0dc7d_0b80f242",
       "range": {
         "startLine": 2,
         "startChar": 0,
