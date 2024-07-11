@@ -167,14 +167,6 @@ use_keystore({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all })
 
 use_credstore({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all })
 
-# For app fuse.
-pdx_client({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all }, display_client)
-pdx_client({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all }, display_manager)
-pdx_client({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all }, display_vsync)
-pdx_client({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all }, performance_client)
-# Apps do not directly open the IPC socket for bufferhubd.
-pdx_use({ appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all }, bufferhub_client)
-
 # Apps receive an open tun fd from the framework for
 # device traffic. Do not allow untrusted app to directly open tun_device
 allow { appdomain -isolated_app_all -ephemeral_app -sdk_sandbox_all } tun_device:chr_file { read write getattr append ioctl };

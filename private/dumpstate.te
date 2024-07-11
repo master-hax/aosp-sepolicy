@@ -460,7 +460,6 @@ allow dumpstate {
   -dumpstate_service
   -gatekeeper_service
   -hal_service_type
-  -virtual_touchpad_service
   -vold_service
   -default_android_service
 }:service_manager find;
@@ -470,7 +469,6 @@ dontaudit dumpstate {
   dumpstate_service
   gatekeeper_service
   hal_service_type
-  virtual_touchpad_service
   vold_service
 }:service_manager find;
 
@@ -520,7 +518,7 @@ allow dumpstate self:netlink_socket create_socket_perms_no_ioctl;
 allow dumpstate self:netlink_generic_socket create_socket_perms_no_ioctl;
 
 # Allow dumpstate to run ss
-allow dumpstate { domain pdx_channel_socket_type pdx_endpoint_socket_type }:socket_class_set getattr;
+allow dumpstate domain:socket_class_set getattr;
 
 # Allow dumpstate to read linkerconfig directory
 allow dumpstate linkerconfig_file:dir { read open };
@@ -538,9 +536,6 @@ dontaudit dumpstate {
   mirror_data_file
   mnt_user_file
 }:dir getattr;
-
-# Allow dumpstate to talk to bufferhubd over binder
-binder_call(dumpstate, bufferhubd);
 
 # Allow dumpstate to talk to mediaswcodec over binder
 binder_call(dumpstate, mediaswcodec);
