@@ -117,15 +117,6 @@ allow surfaceflinger system_server:unix_stream_socket { read write };
 allow surfaceflinger ion_device:chr_file r_file_perms;
 allow surfaceflinger dmabuf_system_heap_device:chr_file r_file_perms;
 
-# pdx IPC
-pdx_server(surfaceflinger, display_client)
-pdx_server(surfaceflinger, display_manager)
-pdx_server(surfaceflinger, display_screenshot)
-pdx_server(surfaceflinger, display_vsync)
-
-pdx_client(surfaceflinger, bufferhub_client)
-pdx_client(surfaceflinger, performance_client)
-
 # Allow supplying timestats statistics to statsd
 allow surfaceflinger stats_service:service_manager find;
 allow surfaceflinger statsmanager_service:service_manager find;
