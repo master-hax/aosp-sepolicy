@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69953e38_194426b7",
+        "filename": "private/installd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-11T19:35:43Z",
+      "side": 0,
+      "message": "The code path from `dexopt` in the installd service is dead since UDC, but there\u0027s also one from [otapreopt](https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:frameworks/native/cmds/installd/otapreopt.cpp;l\u003d519-535;drc\u003dbb9872b32007d9b70937d0e0826dfe6e84759359), and the legacy OTA dexopt hasn\u0027t been torn down yet. However that call site should end up in the `otapreopt` binary which uses the `postinstall_dexopt` sepolicy domain rather than this one (and there\u0027s already no domain transition to dexoptanalyzer there). So I suppose this is safe.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 64
+      },
+      "revId": "f7dcc537986a04048a361a8f6cad221f130f9988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
