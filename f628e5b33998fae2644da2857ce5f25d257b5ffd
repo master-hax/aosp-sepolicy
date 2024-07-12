@@ -22,6 +22,30 @@
       },
       "revId": "f628e5b33998fae2644da2857ce5f25d257b5ffd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0836b3be_318b2032",
+        "filename": "private/service_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1307979
+      },
+      "writtenOn": "2024-07-12T22:15:18Z",
+      "side": 1,
+      "message": "vr_manager_service is part of system_server and SystemUI still seems to connect to it, even though it doesn\u0027t really do anything nowadays. It would have to be removed from frameworks/base first. I tried removing chip-specific permission grants for vr_manager_service and they were reverted due to SELinux test breakages, see b/352465601 and aosp/3163729",
+      "parentUuid": "8166dbd7_04749abb",
+      "range": {
+        "startLine": 475,
+        "startChar": 0,
+        "endLine": 475,
+        "endChar": 74
+      },
+      "revId": "f628e5b33998fae2644da2857ce5f25d257b5ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
