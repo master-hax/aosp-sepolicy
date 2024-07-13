@@ -150,3 +150,6 @@ neverallow { domain -init userdebug_or_eng(`-shell -platform_app') } persist_sys
 
 # app domains which access /dev/fuse should not run as platform_app
 neverallow platform_app fuse_device:chr_file *;
+
+# com.android.systemui package reads wallpaper properties via WallpaperManager
+get_prop(platform_app, wallpaper_config_prop)
