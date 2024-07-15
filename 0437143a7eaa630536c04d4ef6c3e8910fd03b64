@@ -34,6 +34,24 @@
       "parentUuid": "b5f79540_1394ecdb",
       "revId": "0437143a7eaa630536c04d4ef6c3e8910fd03b64",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bd7f7b7_cc3291cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-07-15T20:02:36Z",
+      "side": 1,
+      "message": "So, as far as vendor processes are concerned, init is special because it\u0027s built on system, but it\u0027s ambiguous in SEPolicy whether init directly accesses a property, or whether it does so on behalf of a .rc file that is on the vendor partition, so from a Treble perspective, the effect of this change is that vendor .rc files may read vold properties.\n\nIf vendor_init does need to read certain properties, then it\u0027s probably best to make a separate set of properties which are only exposed to vendor.\n\nOtherwise, ideally we could only use system here.\n\nCan you point to the change which caused these properties to be needed?",
+      "parentUuid": "d8d29d2e_f232638c",
+      "revId": "0437143a7eaa630536c04d4ef6c3e8910fd03b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
