@@ -19,6 +19,9 @@ get_prop(vendor_init, apex_ready_prop)
 # for this property
 get_prop(vendor_init, fstype_prop)
 
+# Let vendor_init read vold.checkpoint_committed to process init.rc triggers
+get_prop(vendor_init, vold_prop)
+
 # chown/chmod on devices, e.g. /dev/ttyHS0
 allow vendor_init {
   dev_type
