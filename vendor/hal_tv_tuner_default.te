@@ -11,3 +11,12 @@ allow hal_tv_tuner_default dmabuf_system_heap_device:chr_file r_file_perms;
 
 # Allow servicemanager to notify hal_tv_tuner_default clients status
 binder_use(hal_tv_tuner_default)
+
+# Allow network communication
+allow hal_tv_tuner_default proc_net:file { getattr open read };
+allow hal_tv_tuner_default node:udp_socket node_bind;
+allow hal_tv_tuner_default self:udp_socket { bind connect create getattr getopt read setattr setopt write };
+allow hal_tv_tuner_default port:udp_socket name_bind;
+allow hal_tv_tuner_default node:tcp_socket node_bind;
+allow hal_tv_tuner_default self:tcp_socket { bind connect create getattr getopt read setattr setopt write };
+allow hal_tv_tuner_default port:tcp_socket name_connect;
