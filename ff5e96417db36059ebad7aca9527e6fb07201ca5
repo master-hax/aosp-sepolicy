@@ -260,6 +260,30 @@
       },
       "revId": "ff5e96417db36059ebad7aca9527e6fb07201ca5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e796bcc2_56f004eb",
+        "filename": "private/surfaceflinger.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1955350
+      },
+      "writtenOn": "2024-07-16T20:47:35Z",
+      "side": 1,
+      "message": "I haven\u0027t found a way to avoid giving SurfaceFlinger read permissions. Using \"shutdown\" to close the socket for reading doesn\u0027t change anything. Pipes are not feasible because I need to send file descriptors over the unix socket.\n\nThere\u0027s precedent for adding read / write permissions for Unix sockets. System server\u0027s policy includes \n\n```\nallow system_server appdomain:{ fifo_file unix_stream_socket } { getattr read write };\n```\n\nand SurfaceFlinger\u0027s policy includes\n\n```\nallow surfaceflinger system_server:unix_stream_socket { read write };\n```",
+      "parentUuid": "b0486555_7f55c7e2",
+      "range": {
+        "startLine": 89,
+        "startChar": 21,
+        "endLine": 89,
+        "endChar": 30
+      },
+      "revId": "ff5e96417db36059ebad7aca9527e6fb07201ca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
