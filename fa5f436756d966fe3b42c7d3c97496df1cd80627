@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "41d09a9a_3565c8a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-07-18T02:35:01Z",
+      "side": 1,
+      "message": "Ok. I think I now have a slightly better understanding of these media paths.\n\n* `/storage/emulated/\u003cuser_id\u003e` is a FUSE view of the actual directory `/data/media/\u003cuser_id\u003e`.\n\n* The latter considered an impl detail. Users are expected to use the former path. adb-pushing files directly to the latter is not allowed (unless you root).\n\n* files under `/storage/emulated/\u003cuser_id\u003e` are all labeled as `fuse` by the fuse filesystem, but on the actual path (`/data/media/\u003cuser_id\u003e`), they are labeled as `media_media_rw_file`.\n\nSo, it doesn\u0027t seem to be our expectation that files under `/storage/emulated/` are labeled as `media_rw_data_file`.\n\n---------\n\nMy experiment on Pixel:\n\n```\n$ adb shell touch /data/media/0/Android/obb/foo\ntouch: \u0027/data/media/0/Android/obb/foo\u0027: Permission denied\n```\n\nAbove is as expected. (adb was unrooted then)\n\n```\n$ adb shell touch /storage/emulated/0/Android/obb/foo\n$ adb shell ls -alZ /storage/emulated/0/Android/obb/foo\n-rw-rw---- 1 shell ext_obb_rw u:object_r:fuse:s0  0 2024-07-18 11:32 /storage/emulated/0/Android/obb/foo\n```\n\nIt is labeled as `fuse` on `/storage/emulated/`\n\n```\n$ adb root\nrestarting adbd as root\n$ adb shell ls -alZ /data/media/0/Android/obb/foo\n-rw-rw---- 1 shell ext_obb_rw u:object_r:media_rw_data_file:s0  0 2024-07-18 11:32 /data/media/0/Android/obb/foo\n```\n\nThe same file is correctly labeled as `media_rw_data_file` on the data partition.\n\n\n-------\n\nI don\u0027t think this change is needed.",
+      "parentUuid": "491aea87_a4b9641e",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 27
+      },
+      "revId": "fa5f436756d966fe3b42c7d3c97496df1cd80627",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "846dab3a_68939c3a",
@@ -96,6 +120,24 @@
       "side": 1,
       "message": "@jiyong@google.com not sure what this means",
       "parentUuid": "c20150c1_8e242ad4",
+      "revId": "fa5f436756d966fe3b42c7d3c97496df1cd80627",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7886b1ef_14fd5742",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-07-18T02:35:01Z",
+      "side": 1,
+      "message": "sorry, this was a typo. please disregard this.",
+      "parentUuid": "f998e940_0d69ac73",
       "revId": "fa5f436756d966fe3b42c7d3c97496df1cd80627",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
