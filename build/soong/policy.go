@@ -33,7 +33,6 @@ const (
 
 // This order should be kept. checkpolicy syntax requires it.
 var policyConfOrder = []string{
-	"flagging_macros",
 	"security_classes",
 	"initial_sids",
 	"access_vectors",
