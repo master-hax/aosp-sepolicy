@@ -14,7 +14,6 @@
 
 se_policy_conf {
     name: "31.0_plat_pub_policy.conf",
-    defaults: ["se_policy_conf_flags_defaults"],
     srcs: [
         ":se_build_files{.plat_public_31.0}",
         ":se_build_files{.reqd_mask}",
@@ -33,7 +32,6 @@ se_policy_cil {
 
 se_policy_conf {
     name: "31.0_product_pub_policy.conf",
-    defaults: ["se_policy_conf_flags_defaults"],
     srcs: [
         ":se_build_files{.plat_public_31.0}",
         ":se_build_files{.system_ext_public_31.0}",
