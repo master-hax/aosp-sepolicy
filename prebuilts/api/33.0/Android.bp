@@ -14,12 +14,14 @@
 
 se_policy_conf {
     name: "33.0_plat_pub_policy.conf",
+    defaults: ["se_policy_conf_flags_defaults"],
     srcs: [
         ":se_build_files{.plat_public_33.0}",
         ":se_build_files{.reqd_mask}",
     ],
     installable: false,
     build_variant: "user",
+    board_api_level: "33",
 }
 
 se_policy_cil {
@@ -32,6 +34,7 @@ se_policy_cil {
 
 se_policy_conf {
     name: "33.0_product_pub_policy.conf",
+    defaults: ["se_policy_conf_flags_defaults"],
     srcs: [
         ":se_build_files{.plat_public_33.0}",
         ":se_build_files{.system_ext_public_33.0}",
@@ -40,6 +43,7 @@ se_policy_conf {
     ],
     installable: false,
     build_variant: "user",
+    board_api_level: "33",
 }
 
 se_policy_cil {
@@ -60,6 +64,7 @@ se_versioned_policy {
 
 se_policy_conf {
     name: "33.0_plat_policy.conf",
+    defaults: ["se_policy_conf_flags_defaults"],
     srcs: [
         ":se_build_files{.plat_public_33.0}",
         ":se_build_files{.plat_private_33.0}",
@@ -70,6 +75,7 @@ se_policy_conf {
     ],
     installable: false,
     build_variant: "user",
+    board_api_level: "33",
 }
 
 se_policy_cil {
