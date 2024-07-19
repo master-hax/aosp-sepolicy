@@ -94,6 +94,30 @@
       },
       "revId": "a161d3648e0a3fcd1f7d95bd972bc9c9875f7bd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aad1a8c_98ca13e7",
+        "filename": "microdroid/system/private/microdroid_payload.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2024-07-19T14:51:31Z",
+      "side": 1,
+      "message": "From Android\u0027s perspective, there\u0027s no way of knowing that the VM payload is going to be well-behaved. If it\u0027s a system-provided VM, it should be ok as the system is trusted to know that it has the responsibility of verification. However, Alan made a specific request for the neverallow rule to be added b/261477008#comment4 and that\u0027s consistent with preventing non-system microdroid VMs from being able to dynamically load code.\n\nSince we already have a mechanism to allow extra code to be loaded (extra APKs), it feels better to make use of the existing mechanism rather than introduce a new dynamic access control for executing from the encrypted store based on provenance of the VM?",
+      "parentUuid": "932b28a8_79304e5f",
+      "range": {
+        "startLine": 70,
+        "startChar": 3,
+        "endLine": 70,
+        "endChar": 10
+      },
+      "revId": "a161d3648e0a3fcd1f7d95bd972bc9c9875f7bd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
