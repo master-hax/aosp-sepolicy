@@ -1,0 +1,8 @@
+is_flag_enabled(RELEASE_AVF_SUPPORT_BOOTSTRAP_VM, `
+    # Domain for a child process that manages bootstrap VMs (available in the early boot) on behalf
+    # of its parent.
+    type bootstrap_virtmgr, domain, coredomain;
+    type bootstrap_virtmgr_exec, system_file_type, exec_type, file_type;
+
+    use_bootstrap_libs(bootstrap_virtmgr)
+')
