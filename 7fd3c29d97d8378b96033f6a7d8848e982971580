@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31d5dbad_cc6cad0b",
+        "filename": "Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1318142
+      },
+      "writtenOn": "2024-07-22T19:56:29Z",
+      "side": 1,
+      "message": "I think instead of converting it to bp, it might be better moving it to product configuration, say selinux_policy.mk, and let base_system.mk and minimal_system.mk inherit from it.\n\nhttps://source.corp.google.com/search?q\u003dc:selinux_policy_system\u0026sq\u003drepo:googleplex-android%2Fplatform%2Fsuperproject%2Fmain%20b:main",
+      "range": {
+        "startLine": 958,
+        "startChar": 11,
+        "endLine": 958,
+        "endChar": 32
+      },
+      "revId": "7fd3c29d97d8378b96033f6a7d8848e982971580",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cc725bf_583b6808",
+        "filename": "Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1318142
+      },
+      "writtenOn": "2024-07-22T19:56:29Z",
+      "side": 1,
+      "message": "it looks this is added when: \n\n(PLATFORM_SEPOLICY_VERSION !\u003d 202404) \n\u0026\u0026 !(ASAN_ENABLED \u003d\u003d true \u0026\u0026 SELINUX_IGNORE_NEVERALLOWS \u003d\u003d true)",
+      "range": {
+        "startLine": 995,
+        "startChar": 13,
+        "endLine": 995,
+        "endChar": 41
+      },
+      "revId": "7fd3c29d97d8378b96033f6a7d8848e982971580",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
