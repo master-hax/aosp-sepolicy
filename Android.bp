@@ -900,6 +900,7 @@ genrule {
         ":odm_file_contexts",
         ":precompiled_sepolicy",
     ],
+    host_required: ["sepolicy_tests"],
     tools: ["sepolicy_tests"],
     out: ["sepolicy_test"],
     cmd: "$(location sepolicy_tests) " +
@@ -912,11 +913,11 @@ genrule {
         "touch $(out)",
 }
 
-phony_rule {
-    name: "trigger_sepolicy_test",
-    phony_deps: [
-        "sepolicy_test",
-        "sepolicy_dev_type_test",
+prebuilt_etc_host {
+    name: "prebuilt_sepolicy_test",
+    srcs: [
+        ":sepolicy_test",
+        ":sepolicy_dev_type_test",
     ],
 }
 
