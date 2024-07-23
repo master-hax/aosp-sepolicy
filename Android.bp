@@ -920,6 +920,14 @@ phony_rule {
     ],
 }
 
+prebuilt_etc {
+    name: "prebuilt_sepolicy_test",
+    srcs: [
+        ":sepolicy_test",
+        ":sepolicy_dev_type_test",
+    ],
+}
+
 //////////////////////////////////
 // TestDevTypeViolations can't run on old devices (V or before)
 //////////////////////////////////
