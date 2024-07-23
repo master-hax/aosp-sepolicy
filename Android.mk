@@ -187,7 +187,9 @@ LOCAL_NOTICE_FILE := $(LOCAL_PATH)/NOTICE
 LOCAL_MODULE_TAGS := optional
 LOCAL_REQUIRED_MODULES += \
     selinux_policy_nonsystem \
-    selinux_policy_system \
+
+include build/make/target/product/selinux_policy_system.mk
+LOCAL_REQUIRED_MODULES += $(SEPOLICY_SYSTEM_MODULES)
 
 include $(BUILD_PHONY_PACKAGE)
 
@@ -195,65 +197,6 @@ include $(BUILD_PHONY_PACKAGE)
 # Most tests are FAKE modules, so aren'triggered on normal builds. (e.g. 'm')
 # By setting as droidcore's dependency, tests will run on normal builds.
 droidcore: selinux_policy
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := selinux_policy_system
-LOCAL_LICENSE_KINDS := SPDX-license-identifier-Apache-2.0 legacy_unencumbered
-LOCAL_LICENSE_CONDITIONS := notice unencumbered
-LOCAL_NOTICE_FILE := $(LOCAL_PATH)/NOTICE
-# These build targets are not used on non-Treble devices. However, we build these to avoid
-# divergence between Treble and non-Treble devices.
-LOCAL_REQUIRED_MODULES += \
-    plat_mapping_file \
-    $(addprefix plat_,$(addsuffix .cil,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS))) \
-    $(addsuffix .compat.cil,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS)) \
-    plat_sepolicy.cil \
-    secilc \
-
-ifneq ($(PRODUCT_PRECOMPILED_SEPOLICY),false)
-LOCAL_REQUIRED_MODULES += plat_sepolicy_and_mapping.sha256
-endif
-
-LOCAL_REQUIRED_MODULES += \
-    build_sepolicy \
-    plat_file_contexts \
-    plat_file_contexts_test \
-    plat_keystore2_key_contexts \
-    plat_mac_permissions.xml \
-    plat_property_contexts \
-    plat_property_contexts_test \
-    plat_seapp_contexts \
-    plat_service_contexts \
-    plat_service_contexts_test \
-    plat_hwservice_contexts \
-    plat_hwservice_contexts_test \
-    fuzzer_bindings_test \
-    plat_bug_map \
-    searchpolicy \
-
-ifneq ($(with_asan),true)
-ifneq ($(SELINUX_IGNORE_NEVERALLOWS),true)
-LOCAL_REQUIRED_MODULES += \
-    sepolicy_compat_test \
-
-# HACK: sepolicy_test is implemented as genrule
-# genrule modules aren't installable, so LOCAL_REQUIRED_MODULES doesn't work.
-# Instead, use LOCAL_ADDITIONAL_DEPENDENCIES with intermediate output
-LOCAL_ADDITIONAL_DEPENDENCIES += $(call intermediates-dir-for,ETC,sepolicy_test)/sepolicy_test
-LOCAL_ADDITIONAL_DEPENDENCIES += $(call intermediates-dir-for,ETC,sepolicy_dev_type_test)/sepolicy_dev_type_test
-
-LOCAL_REQUIRED_MODULES += \
-    $(addprefix treble_sepolicy_tests_,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS)) \
-
-endif  # SELINUX_IGNORE_NEVERALLOWS
-endif  # with_asan
-
-ifeq ($(RELEASE_BOARD_API_LEVEL_FROZEN),true)
-LOCAL_REQUIRED_MODULES += \
-    se_freeze_test
-endif
-
-include $(BUILD_PHONY_PACKAGE)
 
 #################################
 
