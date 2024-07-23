@@ -912,11 +912,11 @@ genrule {
         "touch $(out)",
 }
 
-phony_rule {
-    name: "trigger_sepolicy_test",
-    phony_deps: [
-        "sepolicy_test",
-        "sepolicy_dev_type_test",
+prebuilt_etc_host {
+    name: "prebuilt_sepolicy_test",
+    srcs: [
+        ":sepolicy_test",
+        ":sepolicy_dev_type_test",
     ],
 }
 
