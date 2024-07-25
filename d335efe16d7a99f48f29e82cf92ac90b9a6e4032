@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c83fcde1_287886b7",
+        "filename": "prebuilts/api/34.0/public/hal_neverallows.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1960475
+      },
+      "writtenOn": "2024-07-25T22:49:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df48de16_4eb4a395",
+      "revId": "d335efe16d7a99f48f29e82cf92ac90b9a6e4032",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99ed1013_8e899b2d",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-07-22T04:09:16Z",
       "side": 1,
       "message": "Please explain in the commit message why hal_tv_tuner would require network access? What is the exact purpose?",
+      "revId": "d335efe16d7a99f48f29e82cf92ac90b9a6e4032",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82f3bc67_5f4c4623",
+        "filename": "private/hal_neverallows.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1960475
+      },
+      "writtenOn": "2024-07-25T22:49:20Z",
+      "side": 1,
+      "message": "Updated. Please take a look.",
+      "parentUuid": "99ed1013_8e899b2d",
       "revId": "d335efe16d7a99f48f29e82cf92ac90b9a6e4032",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "efc92a65_04bebe16",
+        "filename": "vendor/hal_tv_tuner_default.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1960475
+      },
+      "writtenOn": "2024-07-25T22:49:20Z",
+      "side": 1,
+      "message": "Most TV tuner HALs will implement IPTV and require network access.",
+      "parentUuid": "b459f5a0_a4f8a6c8",
+      "revId": "d335efe16d7a99f48f29e82cf92ac90b9a6e4032",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "55d53946_30e6d18a",
         "filename": "vendor/hal_tv_tuner_default.te",
         "patchSetId": 3
@@ -65,6 +119,24 @@
       "writtenOn": "2024-07-22T04:09:16Z",
       "side": 1,
       "message": "Most of the permissions here should either: be replaced by multiple macro calls (see `create_stream_socket_perms` and `create_socket_perms`); or replaced by the  macro `net_domain(\u003cmydomain\u003e)` to grant general network access to a domain.",
+      "revId": "d335efe16d7a99f48f29e82cf92ac90b9a6e4032",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "445a7d0e_87900506",
+        "filename": "vendor/hal_tv_tuner_default.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1960475
+      },
+      "writtenOn": "2024-07-25T22:49:20Z",
+      "side": 1,
+      "message": "Updated to use net_domain.",
+      "parentUuid": "55d53946_30e6d18a",
       "revId": "d335efe16d7a99f48f29e82cf92ac90b9a6e4032",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
