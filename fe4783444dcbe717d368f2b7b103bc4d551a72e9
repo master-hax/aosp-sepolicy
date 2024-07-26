@@ -16,6 +16,24 @@
       "message": "Steven/Joe, This sepolicy change is part of effort to register fingerprint virtual hal with IVirtualHal interface (instead of IFingerpint previously), along with CLs ag/28358413 and ag/28361804). Both CLs will be submitted for review after this sepolicy changes are merged to AOSP and to main.  Thanks",
       "revId": "fe4783444dcbe717d368f2b7b103bc4d551a72e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "862a982c_f768e25c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-07-26T18:41:52Z",
+      "side": 1,
+      "message": "Can you submit those to review before adding sepolicy?\n\nI might suggest avoiding the android.hardware.* namespace, and going with a framework namespace, and I think we would want fuzzers if these are implemented in native code.\n\nFinally - I wonder if we should give these a new service type (not hal_face_service) so that vendor can\u0027t serve them as discussed.",
+      "parentUuid": "180b892c_c010d0df",
+      "revId": "fe4783444dcbe717d368f2b7b103bc4d551a72e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
