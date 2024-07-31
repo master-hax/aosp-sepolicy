@@ -205,7 +205,12 @@ allow init {
     postinstall_mnt_dir
     mirror_data_file
     shell_data_file
+    is_flag_enabled(RELEASE_AVF_ENABLE_EARLY_VM, `early_vm_data_file')
 }:dir mounton;
+
+is_flag_enabled(RELEASE_AVF_ENABLE_EARLY_VM, `
+    allow init early_vm_data_file:dir relabelto;
+')
 
 # Mount bpf fs on sys/fs/bpf
 allow init fs_bpf:dir mounton;
@@ -305,6 +310,7 @@ allow init {
     -storage_area_app_dir
     -storage_area_content_file
   ')
+  -early_vm_data_file
   -bpffs_type
   -exec_type
   -misc_logd_file
@@ -324,6 +330,7 @@ allow init {
     -storage_area_app_dir
     -storage_area_content_file
   ')
+  -early_vm_data_file
   -bpffs_type
   -credstore_data_file
   -exec_type
@@ -351,6 +358,7 @@ allow init {
     -storage_area_app_dir
     -storage_area_content_file
   ')
+  -early_vm_data_file
   -bpffs_type
   -exec_type
   -gsi_data_file
@@ -383,6 +391,7 @@ allow init {
     -storage_area_app_dir
     -storage_area_content_file
   ')
+  -early_vm_data_file
   -bpffs_type
   -exec_type
   -gsi_data_file
@@ -408,6 +417,7 @@ allow init {
     -storage_area_app_dir
     -storage_area_content_file
   ')
+  -early_vm_data_file
   -bpffs_type
   -exec_type
   -gsi_data_file
@@ -439,6 +449,7 @@ allow init {
     -storage_area_app_dir
     -storage_area_content_file
   ')
+  -early_vm_data_file
   -privapp_data_file
 }:dir_file_class_set relabelto;
 
