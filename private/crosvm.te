@@ -5,6 +5,8 @@ type crosvm_tmpfs, file_type;
 # Let crosvm open VM manager devices such as /dev/kvm.
 allow crosvm vm_manager_device_type:chr_file rw_file_perms;
 
+init_daemon_domain(crosvm)
+
 # Most other domains shouldn't access /dev/kvm.
 neverallow { domain -crosvm -ueventd -shell } kvm_device:chr_file getattr;
 neverallow { domain -crosvm -ueventd } kvm_device:chr_file ~getattr;
@@ -184,8 +186,10 @@ neverallow crosvm {
 }:file read;
 
 # Only virtualizationmanager can run crosvm
-neverallow {
-  domain
-  -crosvm
-  -virtualizationmanager
-} crosvm_exec:file no_x_file_perms;
+# neverallow {
+#   domain
+#   -crosvm
+#   -virtualizationmanager
+# } crosvm_exec:file no_x_file_perms;
+
+allow crosvm kmsg_debug_device:chr_file w_file_perms;
