@@ -16,6 +16,24 @@
       "message": "+lorenzo.\n\nI\u0027m trying to convince myself that this is safe. The last time we attempted this (like 7 years ago?), we broke some apps. I thought we properly deprecated it such that no apps can currently access it, but searching for those removals is turning up a blank. That seems weird because I thought I remembered it happening.",
       "revId": "af08bd3aa81e801bb4dafa65a579183e2be685f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1ddbf11_546f611d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-08-02T23:44:48Z",
+      "side": 1,
+      "message": "All Android V+ supported kernels won\u0027t even have the /proc \u0026 /dev nodes because starting with some old Android OS we required them to be missing and the kernel option disabled. Indeed that was long enough ago, that those xTS tests have already been gc\u0027ed as well. :-)\n\nThe only hit for \u0027CONFIG.*QTAGUID\u0027 in aosp is\n\nkernel/configs/r/android-4.14/android-base.config\n\n# is not set\n\nThere are some qtaguid named apis in the platform, but they actually query bpf.\n\n(for example system/core/libcutils/qtaguid.cpp is only *named* qtaguid)\n\n(also note that the entire kernel functionality was never ported to anything newer than 4.19, and even AFAIK even the 4.19 port wasn\u0027t ever included in ACK)",
+      "tag": "mailMessageId\u003d\u003cCANP3RGfJivqj3iafKhU58uHd_z-j87fPRs9GRgrQj3ZsLQYCgA@mail.gmail.com\u003e",
+      "revId": "af08bd3aa81e801bb4dafa65a579183e2be685f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
