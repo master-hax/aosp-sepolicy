@@ -1,7 +1,11 @@
 # virtual_camera - virtual camera daemon
 
-type virtual_camera, domain, coredomain;
-type virtual_camera_exec, system_file_type, exec_type, file_type;
+# In 2025Q2 release types definition is moved to system/sepolicy/public
+starting_at_board_api(202504,
+`',`
+  type virtual_camera, domain, coredomain;
+  type virtual_camera_exec, system_file_type, exec_type, file_type;
+')
 
 init_daemon_domain(virtual_camera)
 
