@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be0da6b4_61ac55e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-08-05T14:35:56Z",
+      "side": 1,
+      "message": "behavior",
+      "range": {
+        "startLine": 9,
+        "startChar": 46,
+        "endLine": 9,
+        "endChar": 54
+      },
+      "revId": "2091237c9c2dcf53dc32e23d1faa4f4e3fbd96fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "828d0992_40727b66",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-08-05T14:35:56Z",
+      "side": 1,
+      "message": "Do we know why the denial is happening? What the consequences of denying or allowing it are?\n\nIdeally we\u0027d be fixing the unnecessary behavior instead of suppressing selinux denials.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 74
+      },
+      "revId": "2091237c9c2dcf53dc32e23d1faa4f4e3fbd96fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e22ae79_f0e17d55",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-08-05T14:35:56Z",
+      "side": 1,
+      "message": "Was it previously crashing? I don\u0027t see why adding dontaudit would fix that. dontaudit does not change behavior, the permission is still denied. The only difference is that it doesn\u0027t generate the denial message in the log. But I wouldn\u0027t expect that to have any impact on a process crashing or not crashing.",
+      "range": {
+        "startLine": 12,
+        "startChar": 21,
+        "endLine": 12,
+        "endChar": 33
+      },
+      "revId": "2091237c9c2dcf53dc32e23d1faa4f4e3fbd96fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f66cb82_7f2876a4",
+        "filename": "private/system_server.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 1636,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2024-08-05T14:35:56Z",
+      "side": 1,
+      "message": "the comment should state why the rule has been added, not what the rule is.",
+      "range": {
+        "startLine": 1636,
+        "startChar": 0,
+        "endLine": 1636,
+        "endChar": 47
+      },
+      "revId": "2091237c9c2dcf53dc32e23d1faa4f4e3fbd96fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
