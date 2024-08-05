@@ -1,6 +1,7 @@
 # virtual_camera - virtual camera daemon
 
-# types defined in system/sepolicy/public
+type virtual_camera, domain, coredomain;
+type virtual_camera_exec, system_file_type, exec_type, file_type;
 
 init_daemon_domain(virtual_camera)
 
