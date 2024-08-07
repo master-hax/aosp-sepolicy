@@ -193,6 +193,7 @@ var (
 		"android.system.vmtethering.IVmTethering":                             EXCEPTION_NO_FUZZER,
 		"ambient_context":               EXCEPTION_NO_FUZZER,
 		"app_binding":                   EXCEPTION_NO_FUZZER,
+		"app_function":                  EXCEPTION_NO_FUZZER,
 		"app_hibernation":               EXCEPTION_NO_FUZZER,
 		"app_integrity":                 EXCEPTION_NO_FUZZER,
 		"app_prediction":                EXCEPTION_NO_FUZZER,
