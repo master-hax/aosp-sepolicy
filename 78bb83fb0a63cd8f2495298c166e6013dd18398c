@@ -16,6 +16,23 @@
       "message": "Selinux denial:\n\n```\n07-30 08:21:00.830   251   251 I auditd  : type\u003d1400 audit(0.0:5): avc:  denied  { ioctl } for  comm\u003d\"binder:251_2\" path\u003d\"/dev/block/dm-102\" dev\u003d\"tmpfs\" ino\u003d1392 ioctlcmd\u003d0x125d scontext\u003du:r:vold:s0 tcontext\u003du:object_r:dm_device:s0 tclass\u003dblk_file permissive\u003d0\n\n```",
       "revId": "78bb83fb0a63cd8f2495298c166e6013dd18398c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffd8f7ab_9e6a9c5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-08-07T00:29:25Z",
+      "side": 1,
+      "message": "Given that there is already R/W access here to the block device, being able to mark it as read only doesn\u0027t create any additional permission, and in fact gives it the option to reduce runtime permissions, so +2.",
+      "revId": "78bb83fb0a63cd8f2495298c166e6013dd18398c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
