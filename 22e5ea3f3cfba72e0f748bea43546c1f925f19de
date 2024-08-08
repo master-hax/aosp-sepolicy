@@ -81,6 +81,30 @@
       },
       "revId": "22e5ea3f3cfba72e0f748bea43546c1f925f19de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d526f5e_bac117ae",
+        "filename": "public/service.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-08-08T22:55:27Z",
+      "side": 1,
+      "message": "\u003e if you want to move the services to private? or move in this CL?\n\nonce we added a type to public (either by accidentally or intentionally), I don\u0027t think we want to remove the type from public without a good reason. Also doing that here seems out of scope; I\u0027d like to focus on this new type and move only this new type.\n\nIf you really need to move other types too, can you file a bug? IMO that\u0027s not necessary, as we don\u0027t get much compared to the risk breaking partners\n\n@pablogamito@google.com Once you move this to private, we don\u0027t need 202404.ignore.cil change.",
+      "parentUuid": "8287ed9d_f7faafa3",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 89
+      },
+      "revId": "22e5ea3f3cfba72e0f748bea43546c1f925f19de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
