@@ -56,6 +56,9 @@ r_dir_file(logd, cgroup_v2)
 r_dir_file(logd, proc_kmsg)
 r_dir_file(logd, proc_meminfo)
 
+# Read access to cgroup.json API-versioned files
+allow logd cgroup_desc_api_file:file read;
+
 allow logd self:global_capability_class_set { setuid setgid setpcap sys_nice audit_control };
 allow logd self:global_capability2_class_set syslog;
 allow logd self:netlink_audit_socket { create_socket_perms_no_ioctl nlmsg_write };
