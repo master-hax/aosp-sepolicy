@@ -1,3 +1,5 @@
+<<<<<<< HEAD   (ccd34d Merge "Revert "Add SELinux policies for new ProtoLog service)
+=======
 # only HALs responsible for network hardware should have privileged
 # network capabilities
 neverallow {
@@ -34,6 +36,7 @@ neverallow {
   # TODO(b/196225233): Remove hal_uwb_vendor_server
   -hal_uwb_vendor_server
   -hal_nlinterceptor_server
+  -hal_bluetooth_server
   -hal_tv_tuner_server
 } domain:{ udp_socket rawip_socket } *;
 
@@ -99,3 +102,4 @@ neverallow { domain -init } halserverdomain:process transition;
 # allow transitioning into a HAL domain by use of seclabel in an
 # init.*.rc script.
 neverallow * halserverdomain:process dyntransition;
+>>>>>>> BRANCH (8d3b0f Add network permissions for tuner HAL)
