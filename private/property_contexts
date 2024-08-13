@@ -1173,6 +1173,9 @@ ro.vendor.build.version.release             u:object_r:build_vendor_prop:s0 exac
 ro.vendor.build.version.release_or_codename u:object_r:build_vendor_prop:s0 exact string
 ro.vendor.build.version.sdk                 u:object_r:build_vendor_prop:s0 exact int
 ro.vendor.build.dont_use_vabc               u:object_r:build_vendor_prop:s0 exact bool
+# Whether the device has a high quality barometer as defined on the CDD.
+# Set by OEMs, read for xTS verifier tests
+ro.vendor.sensor.barometer_high_quality.implemented  u:object_r: high_barometer_quality_prop exact bool
 
 # All vendor CPU abilist props are set by /vendor/build.prop
 ro.vendor.product.cpu.abilist   u:object_r:build_vendor_prop:s0 exact string
