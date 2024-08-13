@@ -51,6 +51,24 @@
       "parentUuid": "499524fa_d178a81d",
       "revId": "88bb11cbdbb3033ca23776c752c0760d87fc567d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45888cc2_aecf7b55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-08-13T01:13:24Z",
+      "side": 1,
+      "message": "If the build team approves aosp/3212556, then I\u0027m fine with this.\n\nBut if this flag is only for internal targets, consider defining the flag outside of AOSP and then adding your own `se_flags` module.\n\n```\nse_flags {\n    name: \"usb_udc_sysfs_flags\", // random name; TBD\n    flags: [\"RELEASE_USB_UDC_SYSFS_SELINUX_POLICY_ENABLED\"],\n    export_to: [\"all_selinux_flags\"],\n}\n```\n\nSo I\u0027d like to wait for aosp/3212556.",
+      "parentUuid": "fbf7b750_d2a198db",
+      "revId": "88bb11cbdbb3033ca23776c752c0760d87fc567d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
