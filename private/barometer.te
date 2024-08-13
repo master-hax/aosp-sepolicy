@@ -1,0 +1,9 @@
+type barometer coredomain;
+
+init_daemon_domain(dhcp)
+
+get_prop(barometer, high_barometer_quality_prop)
+
+neverallow {
+    domain -init -barometer
+} {high_barometer_quality_prop}:property_service set;
