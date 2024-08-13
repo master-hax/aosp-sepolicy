@@ -1,0 +1,9 @@
+typeattribute sensor coredomain;
+
+init_daemon_domain(sensor)
+
+get_prop(sensor, high_barometer_quality_prop)
+
+neverallow {
+    domain -init -sensor
+} {high_barometer_quality_prop}:property_service set;
