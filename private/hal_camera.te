@@ -36,7 +36,7 @@ allow hal_camera shell:fifo_file write;
 neverallow hal_camera_server { file_type fs_type }:file execute_no_trans;
 
 # hal_camera should never need network access. Disallow network sockets.
-neverallow hal_camera_server { domain userdebug_or_eng(`-su') }:{ tcp_socket udp_socket rawip_socket } *;
+neverallow { hal_camera_server -hal_automotive_socket_exemption } { domain userdebug_or_eng(`-su') }:{ tcp_socket udp_socket rawip_socket } *;
 
 # Only camera HAL may directly access the camera hardware
 neverallow { halserverdomain -hal_camera_server } camera_device:chr_file *;
