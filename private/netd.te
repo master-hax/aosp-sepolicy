@@ -95,6 +95,7 @@ allow netd sysfs_usb:file write;
 
 r_dir_file(netd, cgroup_v2)
 allow netd cgroup_desc_file:file r_file_perms;
+allow netd vendor_cgroup_desc_file:file r_file_perms;
 
 # TODO: netd previously thought it needed these permissions to do WiFi related
 #       work.  However, after all the WiFi stuff is gone, we still need them.

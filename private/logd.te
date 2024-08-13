@@ -57,7 +57,8 @@ r_dir_file(logd, proc_kmsg)
 r_dir_file(logd, proc_meminfo)
 
 # Read access to cgroup.json API-versioned files
-allow logd cgroup_desc_api_file:file read;
+allow logd cgroup_desc_api_file:file r_file_perms;
+allow logd vendor_cgroup_desc_file:file r_file_perms;
 
 allow logd self:global_capability_class_set { setuid setgid setpcap sys_nice audit_control };
 allow logd self:global_capability2_class_set syslog;
