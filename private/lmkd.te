@@ -53,6 +53,11 @@ allow lmkd cgroup_v2:dir { remove_name rmdir };
 allow lmkd cgroup:file r_file_perms;
 allow lmkd cgroup_v2:file r_file_perms;
 
+# Allow to read cgroup descriptor files
+allow lmkd cgroup_desc_file:file r_file_perms;
+allow lmkd cgroup_desc_api_file:file r_file_perms;
+allow lmkd vendor_cgroup_desc_file:file r_file_perms;
+
 # Set self to SCHED_FIFO
 allow lmkd self:global_capability_class_set sys_nice;
 
