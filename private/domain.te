@@ -729,6 +729,7 @@ neverallow {
     domain
     with_asan(`-asan_extract')
     recovery_only(`userdebug_or_eng(`-fastbootd')')
+    recovery_only(`userdebug_or_eng(`-recovery')')
 } {
     system_file_type
     vendor_file_type

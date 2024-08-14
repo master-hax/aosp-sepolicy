@@ -182,6 +182,21 @@ recovery_only(`
   # Recovery uses liblogwrap to write fsck logs to kmsg, liblogwrap requires devpts.
   allow recovery devpts:chr_file rw_file_perms;
   allow recovery kmsg_device:chr_file { getattr w_file_perms };
+
+  allow recovery overlayfs_file:dir { create_dir_perms mounton };
+  allow recovery proc_filesystems:file { getattr open read };
+  dontaudit recovery kernel:system module_request;
+  allow recovery {
+    system_file_type
+    unlabeled
+    vendor_file_type
+  }:dir { remove_name rmdir search write };
+  allow recovery {
+    overlayfs_file
+    system_file_type
+    unlabeled
+    vendor_file_type
+  }:{ file lnk_file } unlink;
 ')
 
 ###
@@ -202,11 +217,13 @@ neverallow recovery {
    data_file_type
    -cache_file
    -cache_recovery_file
+   -overlayfs_file
   with_native_coverage(`-method_trace_data_file')
 }:file { no_w_file_perms no_x_file_perms };
 neverallow recovery {
    data_file_type
    -cache_file
    -cache_recovery_file
+   -overlayfs_file
   with_native_coverage(`-method_trace_data_file')
 }:dir no_w_dir_perms;
