@@ -309,6 +309,9 @@ allow dumpstate { cache_file rootfs }:lnk_file { getattr read };
 # Read /dev/cpuctl and /dev/cpuset
 r_dir_file(dumpstate, cgroup)
 r_dir_file(dumpstate, cgroup_v2)
+allow dumpstate cgroup_desc_file:file r_file_perms;
+allow dumpstate cgroup_desc_api_file:file r_file_perms;
+allow dumpstate vendor_cgroup_desc_file:file r_file_perms;
 
 # Allow dumpstate to make binder calls to any binder service
 binder_call(dumpstate, binderservicedomain)
