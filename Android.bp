@@ -912,6 +912,25 @@ genrule {
         "touch $(out)",
 }
 
+python_test_host {
+    name: "sepolicy_test_appcompat",
+    srcs: ["sepolicy_test_appcompat.py"],
+    data: [
+        ":sepolicy_tests",
+        ":plat_file_contexts",
+        ":vendor_file_contexts",
+        ":system_ext_file_contexts",
+        ":product_file_contexts",
+        ":odm_file_contexts",
+        ":precompiled_sepolicy",
+    ],
+    version: {
+        py3: {
+            embedded_launcher: true,
+        },
+    },
+}
+
 //////////////////////////////////
 // TestDevTypeViolations can't run on old devices (V or before)
 //////////////////////////////////
