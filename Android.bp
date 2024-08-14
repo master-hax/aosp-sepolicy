@@ -912,6 +912,14 @@ genrule {
         "touch $(out)",
 }
 
+phony_rule {
+    name: "trigger_sepolicy_test",
+    phony_deps: [
+        "sepolicy_test",
+        "sepolicy_dev_type_test",
+    ],
+}
+
 //////////////////////////////////
 // TestDevTypeViolations can't run on old devices (V or before)
 //////////////////////////////////
