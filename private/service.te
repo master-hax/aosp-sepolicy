@@ -12,6 +12,18 @@ type logcat_service,                 system_server_service, service_manager_type
 type logd_service,                   service_manager_type;
 type mediatuner_service,             app_api_service, service_manager_type;
 type on_device_intelligence_service, app_api_service, system_server_service, service_manager_type, isolated_compute_allowed_service;
+<<<<<<< PATCH SET (642fe7 Allow protolog_service to be accessed from apps)
+type profcollectd_service,          service_manager_type;
+type protolog_service,              app_api_service, system_api_service, system_server_service, service_manager_type;
+type resolver_service,              system_server_service, service_manager_type;
+type rkpd_registrar_service,        service_manager_type;
+type rkpd_refresh_service,          service_manager_type;
+type safety_center_service,         app_api_service, system_api_service, system_server_service, service_manager_type;
+type stats_service,                 service_manager_type;
+type statsbootstrap_service,        system_server_service, service_manager_type;
+type statscompanion_service,        system_server_service, service_manager_type;
+type statsmanager_service,          system_api_service, system_server_service, service_manager_type;
+=======
 type profcollectd_service,           service_manager_type;
 type protolog_configuration_service, system_api_service, system_server_service, service_manager_type;
 type resolver_service,               system_server_service, service_manager_type;
@@ -26,6 +38,7 @@ type statsmanager_service,           system_api_service, system_server_service, 
 is_flag_enabled(RELEASE_SUPERVISION_SERVICE, `
     type supervision_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 ')
+>>>>>>> BASE      (9a90b9 Rename protolog service to protolog_configuration)
 type tracingproxy_service,          system_server_service, service_manager_type;
 type transparency_service,          system_server_service, service_manager_type;
 
