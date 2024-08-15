@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e2985e6_11b9263d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-08-15T19:50:40Z",
+      "side": 1,
+      "message": "dontaudit",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 4
+      },
+      "revId": "ffa2e7b194bdfa0508f00c951bbb9f8131eca8f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0380dfe3_11de561e",
+        "filename": "private/domain.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-08-15T19:50:40Z",
+      "side": 1,
+      "message": "Hey, it seems we don\u0027t have any test coverage for this case. This is a fine change here, but it also means that access will not return OK, so the functionality will not work (it\u0027ll return false and say hwservicemanager isn\u0027t installed when it really is).\n\nYou might want the code in libhwbinder to say:\n\n```\nstatic bool file_exists(char* f) {\n    int res \u003d access(f, F_OK);\n    if (res \u003d\u003d 0 || errno \u003d\u003d EACCES) return true;\n    return false; // could also log for other errnos\n}\n\nstatic bool isHwServiceManagerInstalled() {\n    return file_exists(\"/system_ext/bin/hwservicemanager\") ||\n           file_exists(\"/system/system_ext/bin/hwservicemanager\") ||\n           file_exists(\"/system/bin/hwservicemanager\");\n}\n```",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 57
+      },
+      "revId": "ffa2e7b194bdfa0508f00c951bbb9f8131eca8f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
