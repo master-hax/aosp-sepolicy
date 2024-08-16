@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package selinux
+package selinuxcf_x86_
 
 var EXCEPTION_NO_FUZZER = []string{}
 
@@ -163,6 +163,7 @@ var (
 		"adaptive_auth":       EXCEPTION_NO_FUZZER,
 		"adb":                 EXCEPTION_NO_FUZZER,
 		"adservices_manager":  EXCEPTION_NO_FUZZER,
+		"advanced_protection": EXCEPTION_NO_FUZZER,
 		"aidl_lazy_test_1":    EXCEPTION_NO_FUZZER,
 		"aidl_lazy_test_2":    EXCEPTION_NO_FUZZER,
 		"aidl_lazy_test_quit": EXCEPTION_NO_FUZZER,
