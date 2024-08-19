@@ -752,8 +752,10 @@ neverallow domain system_and_vendor_property_type:{file property_service} *;
 neverallow {
   domain
   -init
-  -shell
+  -keystore
   -rkpdapp
+  -shell
+  -system_server
 } remote_prov_prop:property_service set;
 
 neverallow {
