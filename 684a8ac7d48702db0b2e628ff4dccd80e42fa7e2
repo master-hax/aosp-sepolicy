@@ -16,6 +16,23 @@
       "message": "this is actually broken due to empty handling.\n\nIf the actual test target is empty but any of the other is not it\u0027ll pass.\nIf any of the _other_ context_files is empty (ex system_ext) but the target test isn\u0027t the test will fail.\n\nThe latter happens when system_ext isn\u0027t a partition but vendor (or odm) is, the former just breaks the older test expectations.\n\nWill try to see if that can be solved.",
       "revId": "684a8ac7d48702db0b2e628ff4dccd80e42fa7e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5cba95e_ba06a47c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2024-08-21T11:55:06Z",
+      "side": 1,
+      "message": "much simpler, the other solution was similar to how props were handled, but this does the job as far as checks go",
+      "revId": "684a8ac7d48702db0b2e628ff4dccd80e42fa7e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
