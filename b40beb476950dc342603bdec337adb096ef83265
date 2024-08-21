@@ -115,6 +115,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0b4dbe76_ea2b2733",
+        "filename": "private/virtual_camera.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 3576197
+      },
+      "writtenOn": "2024-08-21T08:56:09Z",
+      "side": 1,
+      "message": "you mean below comment. \n******************************\nYou have tried to change system/sepolicy/public after vendor API freeze.\nTo make these errors go away, you can guard types and attributes listed above,\nso they won\u0027t be included to the release build.\n\nSee an example of how to guard them:\n    https://android-review.googlesource.com/3050544\n******************************",
+      "parentUuid": "45f206e0_1c629cfb",
+      "range": {
+        "startLine": 4,
+        "startChar": 16,
+        "endLine": 4,
+        "endChar": 22
+      },
+      "revId": "b40beb476950dc342603bdec337adb096ef83265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b08f418_def35340",
         "filename": "public/virtual_camera.te",
         "patchSetId": 3
