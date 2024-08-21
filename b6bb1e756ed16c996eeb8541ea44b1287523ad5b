@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1451d86a_f6c632ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2024-08-21T11:13:38Z",
+      "side": 1,
+      "message": "Maybe we can keep the current login of one context file per test to preserve the current per-partition empty-ness, plat can\u0027t be empty and vendor/odm can be empty, (product/system_ext can probably be empty?)\n\nWe then add a single test with all the entries, to cover the merge usecase, and that would allow empty entries\n\nHow does that sound?",
+      "parentUuid": "12b27329_2193229e",
+      "revId": "b6bb1e756ed16c996eeb8541ea44b1287523ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ff23ef7_65aa4715",
         "filename": "tools/checkfc.c",
         "patchSetId": 1
@@ -214,6 +232,30 @@
       "side": 1,
       "message": "not sure how that article is related to this.\n\nargv is null-terminated anyway, right? AFAIK, it\u0027s a part of ansi-c standard.\n\nbut yeah, this isn\u0027t critical. this is fine.",
       "parentUuid": "60bd7fd6_81655536",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 505,
+        "endChar": 50
+      },
+      "revId": "b6bb1e756ed16c996eeb8541ea44b1287523ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1808ddad_1504794d",
+        "filename": "tools/checkfc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2024-08-21T11:13:38Z",
+      "side": 1,
+      "message": "I was indeed remembering incorrectly, ops",
+      "parentUuid": "752bf679_400f0f48",
       "range": {
         "startLine": 505,
         "startChar": 0,
