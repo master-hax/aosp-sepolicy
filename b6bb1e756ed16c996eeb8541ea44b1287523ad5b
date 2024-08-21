@@ -35,6 +35,41 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91dfd96a_1338a5e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2024-08-21T10:57:47Z",
+      "side": 1,
+      "message": "We\u0027re not in a hurry.\n\nCurrently the build _will_ fail if there are duplicated service entries with different service labels.\n\nWe hit that more than we\u0027d like to admit with QCOM BSPs...",
+      "parentUuid": "b7915da7_e936b84f",
+      "revId": "b6bb1e756ed16c996eeb8541ea44b1287523ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d5730a3_84e50d45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2024-08-21T10:57:47Z",
+      "side": 1,
+      "message": "this is actually broken due to empty handling.\nIf the actual test target is empty but any of the other is not it\u0027ll pass.\nIf any of the _other_ context_files is empty (ex system_ext) but the target test isn\u0027t the test will fail.\n\nThe latter happens when system_ext isn\u0027t a partition but vendor is, the former just breaks the older test expectations.\n\nWill try to see if that can be solved.",
+      "revId": "b6bb1e756ed16c996eeb8541ea44b1287523ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ff23ef7_65aa4715",
@@ -58,6 +93,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b6c89d2_bb2cfb3f",
+        "filename": "tools/checkfc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2024-08-21T10:57:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ff23ef7_65aa4715",
+      "range": {
+        "startLine": 434,
+        "startChar": 0,
+        "endLine": 434,
+        "endChar": 52
+      },
+      "revId": "b6bb1e756ed16c996eeb8541ea44b1287523ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "edca2f55_30e9ccb7",
@@ -71,6 +130,30 @@
       "writtenOn": "2024-08-21T10:44:57Z",
       "side": 1,
       "message": "argv itself is null-terminated (yes, argc is a duplicated piece of info). so you actually don\u0027t need to send the length.",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 505,
+        "endChar": 50
+      },
+      "revId": "b6bb1e756ed16c996eeb8541ea44b1287523ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60bd7fd6_81655536",
+        "filename": "tools/checkfc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2024-08-21T10:57:47Z",
+      "side": 1,
+      "message": "In our case probably yes, but that\u0027s not always been the case, https://lwn.net/Articles/882799/\n\nAssuming exec is used properly let me know if you want to change it",
+      "parentUuid": "edca2f55_30e9ccb7",
       "range": {
         "startLine": 505,
         "startChar": 0,
