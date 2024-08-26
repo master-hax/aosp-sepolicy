@@ -223,6 +223,17 @@ userdebug_or_eng(`
 allow appdomain shell:process sigchld;
 allow appdomain adbd:process sigchld;
 
+# App can kill crosvm (as long as the UID is the same, which means the crosvm
+# is a VM owned by this app) in case when virtmgr which is the direct parent of
+# crosvm is killed for whatever reason. If we don't do this, crosvm will be
+# reparented to init and is never reaped, because no one ever killed it.
+allow appdomain crosvm:process sigkill;
+
+# App can know the process group of the virtmanager process. This is for the
+# app to be able to kill the proccess group when it detects a crash of the
+# virtmanager process.
+allow appdomain virtualizationmanager:process getpgid;
+
 # child shell or gdbserver pty access for runas.
 allow appdomain devpts:chr_file { getattr read write ioctl };
 
@@ -582,7 +593,8 @@ neverallow { appdomain -shell } { domain -appdomain }:file no_rw_file_perms;
 # All others prohibited.
 # -perfetto is to allow shell (which is an appdomain) to kill perfetto
 # (see private/shell.te).
-neverallow appdomain { domain -appdomain -perfetto }:process
+# -crosvm: see the allow rule above on why.
+neverallow appdomain { domain -appdomain -perfetto -crosvm }:process
     { sigkill sigstop signal };
 
 # Write to rootfs.
