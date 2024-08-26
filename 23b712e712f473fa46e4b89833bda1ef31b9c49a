@@ -118,6 +118,30 @@
       },
       "revId": "23b712e712f473fa46e4b89833bda1ef31b9c49a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1ea90c0_edfdc9fd",
+        "filename": "private/crosvm.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-08-26T07:49:23Z",
+      "side": 1,
+      "message": "\u003e Do you have a build system check which will error if someone else or a partner tries to enable this flag now, or if someone forgets?\n\nThe release flags are intended to be turned on only in -trunk until the feature is approved to be included in -next. Essentially, these are treated as normal boolean build variables in soong, and there doesn\u0027t appear to be any specific check that prevents people from turning on these flags if they want to try out the feature.\n\n@ioffe@google.com, are there any plans to add a guard mechanism to ensure that release flags can only be enabled in the appropriate branches?",
+      "parentUuid": "0554cf19_21650fdc",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 55
+      },
+      "revId": "23b712e712f473fa46e4b89833bda1ef31b9c49a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
