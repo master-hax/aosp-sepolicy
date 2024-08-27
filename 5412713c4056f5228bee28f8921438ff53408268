@@ -22,6 +22,30 @@
       },
       "revId": "5412713c4056f5228bee28f8921438ff53408268",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e762a0d5_77b1bb03",
+        "filename": "Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1308036
+      },
+      "writtenOn": "2024-08-27T09:30:58Z",
+      "side": 1,
+      "message": "The thought is to find a way to go through sepolicy_test and sepolicy_dev_type_test.\n\nUsing prebuilt_etc in my local build \"m selinux_sepolicy\" can pass and get out/target/product/vsoc_x86_64/system/etc/sepolicy_test and ./target/product/vsoc_x86_64/system/etc/sepolicy_dev_type_test that are touch files from genrule sepolicy_test and sepolicy_dev_type_test.\n\nBut it got a Presubmit error:\n```\nFAILED: out/target/product/vsoc_x86_64/obj/PACKAGING/system_intermediates/file_diff.timestamp\n...ndroid_common/fileList       out/host/linux-x86/etc/system_image_diff_allowlist  aosp_cf_system_x86_64 ) \u0026\u0026 (touch out/target/product/vsoc_x86_64/obj/PACKAGING/system_intermediates/file_diff.timestamp )\"\nPlease add following modules into system image module aosp_cf_system_x86_64.\nKATI only module(s):\netc/sepolicy_dev_type_test\netc/sepolicy_test\n\nFAILED: System image from KATI and SOONG differs from installed file list.\n```\n\nI\u0027m tring prebuilt_etc_host to avoid build into device image.",
+      "parentUuid": "b6f39590_7c83d608",
+      "range": {
+        "startLine": 923,
+        "startChar": 0,
+        "endLine": 930,
+        "endChar": 0
+      },
+      "revId": "5412713c4056f5228bee28f8921438ff53408268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
