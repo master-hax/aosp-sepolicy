@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4631a814_7b7de1df",
+        "filename": "private/adbd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2024-08-27T09:42:11Z",
+      "side": 0,
+      "message": "I had to work around this like:\n```\nAPEXES\u003d$(adb shell ls /vendor/apex)\nfor apex in $APEXES; do\n  adb pull /vendor/apex/$apex\ndone\n```\n\nI think r_dir_file is okay.",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 220,
+        "endChar": 46
+      },
+      "revId": "a48c7cef6d441f4109feca7006dcc5cbe497999d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
