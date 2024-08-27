@@ -141,6 +141,7 @@ hal_client_domain(adbd, hal_graphics_allocator)
 # Read /data/misc/adb/adb_keys.
 allow adbd adb_keys_file:dir search;
 allow adbd adb_keys_file:file r_file_perms;
+allow adbd adb_keys_file:lnk_file r_file_perms;
 
 userdebug_or_eng(`
   # Write debugging information to /data/adb
