@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "adca69be_33e42c92",
+        "filename": "flagging/flagging_macros",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-08-27T04:10:12Z",
+      "side": 1,
+      "message": "yeah, this is probably not what we want. What I said \"disabled\" is based on the macro definition you wrote.\n\nAs b/358516352 my original intention was that `until_board_api` affects both public and private in the same way, contrast to starting_at_board_api which affects only public. So if we move a type `foo` from public to private, we write\n\n```\n# public/foo.te\nuntil_board_api(202504, `type foo;\u0027)\n```\n\n```\n# private/foo.te\nr_dir_file(foo, bar)\n```\n\nIf we remove a type completely, we wrte\n\n```\n# public/foo.te\nuntil_board_api(202504, `type foo;\u0027)\n```\n\n```\n# private/foo.te\nuntil_board_api(202504, `r_dir_file(foo, bar)\u0027)\n```\n\nTo do that, we\u0027ll need to add another variable, like `target_platform_private_policy`, and then use that variable in `starting_at_board_api`, like:\n\n```\ndefine(`starting_at_board_api\u0027, `ifelse(eval(target_board_api_level \u003e\u003d $1), 1, `ifelse(eval(target_platform_private_policy), true, , `$2\u0027))\u0027)\n\ndefine(`until_board_api\u0027, `ifelse(eval(target_board_api_level \u003c $1), 1, `$2\u0027)\u0027)\n```\n\nand then update `system/sepolicy/build/soong/policy.go` to assign two variables appropriately.\n\nWDYT?",
+      "parentUuid": "9da72589_e2dd0234",
+      "range": {
+        "startLine": 33,
+        "startChar": 40,
+        "endLine": 33,
+        "endChar": 47
+      },
+      "revId": "a97296d2cd82f94919fd4d4576df1f791b7da906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8da1a0ac_0c9899c9",
         "filename": "flagging/flagging_macros",
         "patchSetId": 2
