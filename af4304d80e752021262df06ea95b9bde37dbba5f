@@ -22,6 +22,30 @@
       },
       "revId": "af4304d80e752021262df06ea95b9bde37dbba5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53c2c0a1_449a3538",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-08-28T11:12:49Z",
+      "side": 1,
+      "message": "I just didn\u0027t know about PR_SET_PDEATHSIG. Thank you!!!\n\nBut it seems to miss the case of children of crosvm. They won\u0027t be killed unless they do the prctl as well. We currently don\u0027t have any children of crosvm, but in the future we may? Is it too early to worry about that?",
+      "parentUuid": "7265e60f_98c45f7f",
+      "range": {
+        "startLine": 15,
+        "startChar": 48,
+        "endLine": 16,
+        "endChar": 63
+      },
+      "revId": "af4304d80e752021262df06ea95b9bde37dbba5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
