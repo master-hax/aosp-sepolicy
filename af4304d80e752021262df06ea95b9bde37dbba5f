@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7265e60f_98c45f7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1882526
+      },
+      "writtenOn": "2024-08-28T11:04:33Z",
+      "side": 1,
+      "message": "High level question before I dive into the code; why not flip the logic to make `virtmgr`\u0027s children tell the kernel that they don\u0027t want to outlive their parent?\n\nFor example, by issuing (in the `virtmgr` code but really from the child process)\n```\nprctl(PR_SET_PDEATHSIG, SIGKILL); // Not sure which SIGx is best\n```\nbetween the `fork` and `exec` that will run the child (`crosvm`)? This seems considerably simpler (and easier to maintain), if it works.\n\nI\u0027m not sure how to express this from our Rust code, though. In [`run_vm()`](https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/Virtualization/android/virtmgr/src/crosvm.rs;l\u003d882;drc\u003d3a06c7f3a7d2f832390915dca16588372e2496ac), `virtmgr` spawns `crosvm` using the OS-agnostic `std::process::Command` but what I\u0027m describing is specific to Linux (UNIX?). Maybe by using [`std::os::unix::process::CommandExt::pre_exec()`](https://doc.rust-lang.org/std/os/unix/process/trait.CommandExt.html#tymethod.pre_exec)?",
+      "range": {
+        "startLine": 15,
+        "startChar": 48,
+        "endLine": 16,
+        "endChar": 63
+      },
+      "revId": "af4304d80e752021262df06ea95b9bde37dbba5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
