@@ -46,6 +46,30 @@
       },
       "revId": "af4304d80e752021262df06ea95b9bde37dbba5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0598a440_4caa180d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1882526
+      },
+      "writtenOn": "2024-08-28T11:31:26Z",
+      "side": 1,
+      "message": "If I\u0027m looking at the right code, crosvm\u0027s [`Process::new()`](https://cs.android.com/android/platform/superproject/main/+/main:external/crosvm/src/crosvm/plugin/process.rs;l\u003d197;drc\u003d742791deefeded9392c20835e92a5a215c2421f2) is spawned using `std::process::Command` but note that `crosvm` will try to clean it up in `impl Drop for Process`. Don\u0027t know if that runs when the main process panics (and it definitely doesn\u0027t on `SIGKILL`) but WDYT of bringing this problem up with upstream crosvm?\n\nAs you said, Android doesn\u0027t support crosvm\u0027s sandboxing (yet?) so that\u0027s not a problem in AOSP today, AFAIU.",
+      "parentUuid": "53c2c0a1_449a3538",
+      "range": {
+        "startLine": 15,
+        "startChar": 48,
+        "endLine": 16,
+        "endChar": 63
+      },
+      "revId": "af4304d80e752021262df06ea95b9bde37dbba5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
