@@ -63,6 +63,30 @@
       },
       "revId": "c299a33bae02f96a32b7f5c149238b8d458ff431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c370b17d_66036248",
+        "filename": "private/hal_camera.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1347177
+      },
+      "writtenOn": "2024-08-29T23:42:18Z",
+      "side": 1,
+      "message": "In my mind, the right practice is have HALs do their special work and communicate to each other to complement their missing capabilities and permission.\n\nIn this case, I expect your hal_camera to binder_call a network HAL to achieve what you\u0027re up to instead of putting everything in one box. It will make your service a juicy target to hackers.",
+      "parentUuid": "63e5ff8f_d5e5d86b",
+      "range": {
+        "startLine": 39,
+        "startChar": 31,
+        "endLine": 39,
+        "endChar": 63
+      },
+      "revId": "c299a33bae02f96a32b7f5c149238b8d458ff431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
