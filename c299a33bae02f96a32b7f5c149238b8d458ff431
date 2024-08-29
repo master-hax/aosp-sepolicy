@@ -39,6 +39,30 @@
       },
       "revId": "c299a33bae02f96a32b7f5c149238b8d458ff431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63e5ff8f_d5e5d86b",
+        "filename": "private/hal_camera.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2024-08-29T22:17:03Z",
+      "side": 1,
+      "message": "@adamshih@google.com, could you please elaborate your question a bit? `hal_automotive_socket_exemption` is an attribute declared in `system/sepolicy/public/attributes`, to mitigate our device-specific characteristics; some hw subsystems exist outside of Android and are available over the network. A network (or IP) camera is an good example and we do need to make these camera devices available through Android framework API.\n\nAs it\u0027s commented, this exemption will be only effective on automotive devices (this is enforced by CTS). Therefore, unless other device implementations plan to enable network cameras, this would be acceptable change for us. Please let us know if you have any concerns - happy to discuss more. :)",
+      "parentUuid": "2c766e81_a2afc66d",
+      "range": {
+        "startLine": 39,
+        "startChar": 31,
+        "endLine": 39,
+        "endChar": 63
+      },
+      "revId": "c299a33bae02f96a32b7f5c149238b8d458ff431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
