@@ -142,6 +142,30 @@
       },
       "revId": "23b712e712f473fa46e4b89833bda1ef31b9c49a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1e0f9e2_ba62d248",
+        "filename": "private/crosvm.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2024-08-29T11:40:19Z",
+      "side": 1,
+      "message": "Sorry, not sure I understood the question correctly, but will try my best to answer :)\n\nIn trunk-stable world there is only branch - aosp_main (well, actually 2, as there is also git_main).\n\nGiven that we definitely don\u0027t want to ship RELEASE_AVF_ENABLE_EARLY_VM before fixing b/357025924, we can probably add a check in our product_packages.mk to ensure that RELEASE_AVF_ENABLE_EARLY_VM is only enabled on trunk-staging release configuration.",
+      "parentUuid": "d1ea90c0_edfdc9fd",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 55
+      },
+      "revId": "23b712e712f473fa46e4b89833bda1ef31b9c49a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
