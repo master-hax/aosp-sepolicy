@@ -1,0 +1,28 @@
+type rpmb_dev, domain, coredomain;
+type rpmb_dev_exec, exec_type, system_file_type, file_type;
+type rpmb_dev_data_file, data_file_type, file_type;
+type rpmb_dev_socket, file_type;
+init_daemon_domain(rpmb_dev)
+
+type storageproxyd, domain, coredomain;
+type storageproxyd_exec, exec_type, system_file_type, file_type;
+init_daemon_domain(storageproxyd)
+
+allow rpmb_dev mnt_vendor_file:dir r_dir_perms;
+allow rpmb_dev mnt_vendor_file:lnk_file r_file_perms;
+allow rpmb_dev metadata_file:dir search;
+#allow rpmb_dev tee_data_file:dir rw_dir_perms;
+#allow rpmb_dev tee_data_file:{file sock_file} create_file_perms;
+#allow rpmb_dev rpmb_dev_socket:sock_file rw_file_perms;
+
+allow storageproxyd mnt_vendor_file:dir r_dir_perms;
+allow storageproxyd mnt_vendor_file:lnk_file r_file_perms;
+allow storageproxyd metadata_file:dir search;
+#allow storageproxyd tee_data_file:dir rw_dir_perms;
+#allow storageproxyd tee_data_file:{file sock_file} create_file_perms;
+#allow storageproxyd rpmb_dev_socket:sock_file rw_file_perms;
+#allow storageproxyd rpmb_dev:unix_stream_socket connectto;
+#allow storageproxyd self:vsock_socket { create_socket_perms_no_ioctl };
+
+# Allow storageproxyd access to gsi_public_metadata_file
+#read_fstab(storageproxyd)
