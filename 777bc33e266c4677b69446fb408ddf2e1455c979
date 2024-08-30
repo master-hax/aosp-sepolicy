@@ -1,0 +1,85 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a019920b_027efaaf",
+        "filename": "build/soong/service_fuzzer_bindings.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-08-30T18:14:22Z",
+      "side": 1,
+      "message": "is it in C++? if so, we must add a fuzzer",
+      "range": {
+        "startLine": 50,
+        "startChar": 77,
+        "endLine": 50,
+        "endChar": 96
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "4f5cae7e_301710dc",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "build/soong/service_fuzzer_bindings.go",
+              "range": {
+                "startLine": 50,
+                "startChar": 0,
+                "endLine": 51,
+                "endChar": 0
+              },
+              "replacement": "\t\t\"android.hardware.biometrics.fingerprint.virtualhal.IVirtualHal/virtual\":  []string{\"android.hardware.biometrics.fingerprint.virtualhal.IVirtualHal_fuzzer\"},\n"
+            }
+          ]
+        }
+      ],
+      "revId": "777bc33e266c4677b69446fb408ddf2e1455c979",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8d837bb_a50a4cca",
+        "filename": "private/virtual_fingerprint.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-08-30T18:14:22Z",
+      "side": 1,
+      "message": "I think you can remove this, since it\u0027s in \u0027private\u0027?",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 31
+      },
+      "revId": "777bc33e266c4677b69446fb408ddf2e1455c979",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2a9f4e5_295c1cef",
+        "filename": "public/virtual_fingerprint.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-08-30T18:14:22Z",
+      "side": 1,
+      "message": "delete this file, since it\u0027s empty",
+      "revId": "777bc33e266c4677b69446fb408ddf2e1455c979",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
