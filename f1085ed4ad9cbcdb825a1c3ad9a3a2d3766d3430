@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7602ed09_df9a5e7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1955350
+      },
+      "writtenOn": "2024-08-30T16:14:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22b689da_be6f2c6a",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 52
+      },
+      "revId": "f1085ed4ad9cbcdb825a1c3ad9a3a2d3766d3430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bc06924_732aa943",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-08-30T16:08:58Z",
       "side": 1,
       "message": "TODO on b/353597444 and add a note there?\n\nOne thing I\u0027m a bit confused though it looks like there is a way to make this write only, but the permission is still needed?",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 82
+      },
+      "revId": "f1085ed4ad9cbcdb825a1c3ad9a3a2d3766d3430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "709021d3_20ccbc89",
+        "filename": "private/surfaceflinger.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1955350
+      },
+      "writtenOn": "2024-08-30T16:14:06Z",
+      "side": 1,
+      "message": "b/353597444 includes suggestions on making the socket effectively write-only but none of those options are enforceable at the SELinux level. I call `shutdown` on the socket to make it write only from SurfaceFlinger. \n\nMaking this only use write would require work from the security team but it doesn\u0027t sound like they\u0027re going to do that work (b/353597444#comment11).",
+      "parentUuid": "3bc06924_732aa943",
       "range": {
         "startLine": 91,
         "startChar": 0,
