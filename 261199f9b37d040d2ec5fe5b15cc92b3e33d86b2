@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a932d944_fedd13dc",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-08-30T19:02:01Z",
+      "side": 1,
+      "message": "can you make sure to update all the places which get ctl_default_prop?\n\nhttps://cs.android.com/search?q\u003df:te$%20ctl_default_prop%20-f:%5Edevice%20-f:prebuilts\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain\n\nFYI: Inseob - this is kind of a standing problem in sepolicy. We could use technical_debt.cil to apply all these to default, but it would be good also to neverallow ctl_default_prop",
+      "range": {
+        "startLine": 777,
+        "startChar": 0,
+        "endLine": 777,
+        "endChar": 49
+      },
+      "revId": "261199f9b37d040d2ec5fe5b15cc92b3e33d86b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
