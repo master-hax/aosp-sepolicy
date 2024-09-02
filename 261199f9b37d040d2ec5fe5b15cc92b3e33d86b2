@@ -22,6 +22,30 @@
       },
       "revId": "261199f9b37d040d2ec5fe5b15cc92b3e33d86b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bdce7dc_c76e0fb9",
+        "filename": "private/system_server.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-09-02T09:52:47Z",
+      "side": 1,
+      "message": "IIUC, I\u0027m only moving `artd_pre_reboot` properties from `ctl_start_prop`/`ctl_stop_prop`/`ctl_restart_prop` to `ctl_artd_pre_reboot_prop`, meaning those properties weren\u0027t `ctl_default_prop` before my change?\n\nRules for `ctl_start_prop`/`ctl_stop_prop`/`ctl_restart_prop` are here:\n\nhttps://cs.android.com/search?q\u003df:te$%20ctl_start_prop%7Cctl_stop_prop%7Cctl_restart_prop%20-f:%5Edevice%20-f:prebuilts%20-packages%2Fservices%2FCar%20-f:microdroid\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain",
+      "parentUuid": "a932d944_fedd13dc",
+      "range": {
+        "startLine": 777,
+        "startChar": 0,
+        "endLine": 777,
+        "endChar": 49
+      },
+      "revId": "261199f9b37d040d2ec5fe5b15cc92b3e33d86b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
