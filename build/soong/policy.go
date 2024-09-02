@@ -225,7 +225,17 @@ func (c *policyConf) mlsCats() int {
 }
 
 func (c *policyConf) boardApiLevel(ctx android.ModuleContext) string {
-	return ctx.Config().VendorApiLevel()
+	level := proptools.StringDefault(c.properties.Board_api_level, "system")
+
+	if level == "system" {
+		// aribtrary value greater than any other vendor API levels
+		return "1000000"
+	} else if level == "vendor" {
+		return ctx.Config().VendorApiLevel()
+	} else {
+		return level
+	}
+
 }
 
 func findPolicyConfOrder(name string) int {
