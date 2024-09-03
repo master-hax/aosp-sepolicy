@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e23228a_bc67964d",
+        "filename": "private/virtual_fingerprint.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-09-03T16:38:28Z",
+      "side": 1,
+      "message": "hey Inseob, Jeff mentioned that this line produced this error, even with line 2:\n\n\"unknown type virtual_fingerprint\".\n\nThis is very strange to me as it\u0027s declared on line 2, and I thought it should work (without starting_at_board_api here). We shouldn\u0027t use starting_at_board_api here since virtual fingerprint needs to run on all devices.\n\nRunning presubmit to try to reproduce the error.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 45
+      },
+      "revId": "f998570ad1f6d4cf2c0a322506e1141ae72d7cb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
