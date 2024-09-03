@@ -38,6 +38,7 @@ allow crosvm {
   privapp_data_file
   apex_compos_data_file
   apex_virt_data_file
+  apex_accessordemo_data_file
   shell_data_file
   vendor_microdroid_file
   is_flag_enabled(RELEASE_AVF_ENABLE_EARLY_VM, `vm_data_file')
@@ -78,6 +79,7 @@ allow crosvm {
   privapp_data_file
   apex_compos_data_file
   apex_virt_data_file
+  apex_accessordemo_data_file
   is_flag_enabled(RELEASE_AVF_ENABLE_EARLY_VM, `vm_data_file')
 }:file write;
 

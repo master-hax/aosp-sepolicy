@@ -46,6 +46,9 @@ is_flag_enabled(RELEASE_AVF_ENABLE_MICROFUCHSIA, `
 type uce_service,                   service_manager_type;
 type wearable_sensing_service,      app_api_service, system_server_service, service_manager_type;
 
+# You can put this in public/service.te
+type hal_accessordemo_service,      service_manager_type;
+
 ###
 ### Neverallow rules
 ###
