@@ -1495,6 +1495,8 @@ neverallow {
   -ueventd
   -vold
   -system_writes_mnt_vendor_violators
+  is_flag_enabled(RELEASE_AVF_ENABLE_EARLY_VM, `-rpmb_dev')
+  is_flag_enabled(RELEASE_AVF_ENABLE_EARLY_VM, `-storageproxyd')
 } mnt_vendor_file:dir *;
 
 # Only apps are allowed access to vendor public libraries.
