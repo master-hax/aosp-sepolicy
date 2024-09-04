@@ -16,6 +16,23 @@
       "message": "Dear Alice,\n\nAlthough you suspected about potential SELinux change around vsock,\nI only needed standard SELinux labels for launching VMs.\n(i.e. nothing extra for VM HAL)\n\nIs it working as intended?",
       "revId": "4cd8d4f3240e164d7a3d1bf49f9a503d0301c051",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd605fb6_f5e104cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-09-04T09:38:18Z",
+      "side": 1,
+      "message": "Actually I\u0027m a bit surprised that this is enough to enable SELinux, do we need some sort of hal_server/client definition to make the HAL work? Plus, I also added a bunch of accessor name check, it seems that it\u0027s also needed in this cl...",
+      "revId": "4cd8d4f3240e164d7a3d1bf49f9a503d0301c051",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
