@@ -16,6 +16,24 @@
       "message": "lgtm, can you fix the merge conflict/presubmit errors?\n\nAre you sure no old devices would define this as well?",
       "revId": "7659cb890432f76243254fcef333b9379340f7ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ddb602b_581185cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-09-04T20:04:13Z",
+      "side": 1,
+      "message": "I am actually not sure how to add the version guard. According to https://android-review.git.corp.google.com/c/platform/system/sepolicy/+/3050544, I should add version guard. But then nsfs will not be defined in system until 202504. Then how would car system policy able to use nsfs?\n\nI tried defining nsfs in car system policy, but that will cause duplicate definition between car system policy and goldfish policy (since goldfish also defines nsfs).",
+      "parentUuid": "839800fb_6ab20d20",
+      "revId": "7659cb890432f76243254fcef333b9379340f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
