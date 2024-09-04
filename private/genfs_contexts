@@ -341,3 +341,6 @@ genfscon bpf /prog_bpfMemEvents_tracepoint_vmscan_mm_vmscan_direct_reclaim_end_l
 genfscon bpf /tethering u:object_r:fs_bpf_tethering:s0
 genfscon bpf /vendor u:object_r:fs_bpf_vendor:s0
 genfscon bpf /uprobestats u:object_r:fs_bpf_uprobestats:s0
+
+# /proc/<pid>/ns
+genfscon nsfs / u:object_r:nsfs:s0
