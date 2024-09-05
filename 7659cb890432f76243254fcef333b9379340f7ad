@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab60d6fb_54b5a58a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-09-05T00:25:18Z",
+      "side": 1,
+      "message": "I think this is generally okay - we actually want to add as many public types as possible for standard things, so that we don\u0027t run into the Treble file context labeling problem later. See b/361985697 comment #3 and later for a conversation we\u0027re having about this recently.",
+      "parentUuid": "3da3dfba_6c5f8484",
+      "range": {
+        "startLine": 13,
+        "startChar": 18,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "7659cb890432f76243254fcef333b9379340f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "57ece29b_e9b2508f",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -203,6 +227,24 @@
       "side": 1,
       "message": "Does that mean that apexd is broken on goldfish? it should have failed some CTS?",
       "parentUuid": "214bf125_b174160a",
+      "revId": "7659cb890432f76243254fcef333b9379340f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "379abfc9_73b43cea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-09-05T00:25:18Z",
+      "side": 1,
+      "message": "It would be good to know this, but yeah, seems like we would need to be public.\n\nHowever, introducing a new public type that used to be a vendor type is very difficult right now. b/361985697 is discussing a path forward, but it may be a few weeks, so if you can fully understand the goldfish need first, that may help!",
+      "parentUuid": "ffb63441_2c8d3311",
       "revId": "7659cb890432f76243254fcef333b9379340f7ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
