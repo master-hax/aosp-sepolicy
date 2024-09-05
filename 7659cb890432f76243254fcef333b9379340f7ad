@@ -337,6 +337,29 @@
       "parentUuid": "bc0bd683_9a3ab163",
       "revId": "7659cb890432f76243254fcef333b9379340f7ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d27397d_eb05ed0d",
+        "filename": "public/file.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2024-09-05T01:18:01Z",
+      "side": 1,
+      "message": "You need to guard new public types with board API level macros.\n\nIn `public/file.te`,\n\n```\nstarting_at_board_api(202504, `type nsfs, fs_type;\u0027)\n```\n\nIn `private/file.te`,\n\n```\nuntil_board_api(202504, `type nsfs, fs_type;\u0027)\n```\n\nThis also means that vendor sepolicy (including goldfish vendor) won\u0027t be able to refer to new public types until 25Q2. You may want to guard lines removed in aosp/3255697 with `until_board_api(202504, ...)`.",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 19
+      },
+      "revId": "7659cb890432f76243254fcef333b9379340f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
