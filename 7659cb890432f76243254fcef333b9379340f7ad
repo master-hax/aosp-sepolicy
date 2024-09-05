@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3da3dfba_6c5f8484",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-09-05T00:22:12Z",
+      "side": 1,
+      "message": "in this CL, nobody has access to this. which process would you want to give access to this?",
+      "range": {
+        "startLine": 13,
+        "startChar": 18,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "7659cb890432f76243254fcef333b9379340f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57ece29b_e9b2508f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-09-05T00:22:12Z",
+      "side": 1,
+      "message": "The description in the bug is very weak. Could you explain how this relates to car_generic?",
+      "range": {
+        "startLine": 17,
+        "startChar": 5,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "7659cb890432f76243254fcef333b9379340f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "839800fb_6ab20d20",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -122,6 +168,23 @@
       "side": 1,
       "message": "`allow goldfish_setup nsfs:file r_file_perms;` is in goldfish_setup.te which is device specific. I do not know why goldfish needs this though. It was there before.",
       "parentUuid": "d5da3f60_924e550a",
+      "revId": "7659cb890432f76243254fcef333b9379340f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "214bf125_b174160a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-09-05T00:22:12Z",
+      "side": 1,
+      "message": "`/proc/self/ns/mnt` is used by apexd. This labeling shouldn\u0027t make apexd loose access to the file. Please add appropriate allow rules.\n\nhttps://cs.android.com/search?q\u003dproc%5C%2Fself%5C%2Fns%20-f:external%20-f:prebuilts\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain",
       "revId": "7659cb890432f76243254fcef333b9379340f7ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
