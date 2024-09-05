@@ -87,6 +87,24 @@
       "parentUuid": "9e946550_156dab8c",
       "revId": "4cd8d4f3240e164d7a3d1bf49f9a503d0301c051",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0410204_b1260f6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-09-05T01:41:25Z",
+      "side": 1,
+      "message": "We may want to create a domain for it, and create an init rule for it, so we can see what it would take to build an RPC service APEX using IAccessor as a system component, as this is what vendors will need to implement.\n\nI think Devin was going to do this for a system-defined HAL, so that we had an end-to-end example AVF users can put in production. Maybe you could work with him to converge this demo on that?\n\nI also suggest we move it into hardware/interfaces, probably under vibrator (because we use this as our example HAL for everything, including extensions, and vendor/product HAL clients). If it\u0027s there, we can be sure there is no special apex_available rule which in the Virtualization code allows this to work, but for our partners and other Android developers would block them from productionizing this.",
+      "parentUuid": "f832fe99_fa4108a2",
+      "revId": "4cd8d4f3240e164d7a3d1bf49f9a503d0301c051",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
