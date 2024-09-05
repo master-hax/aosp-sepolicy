@@ -341,6 +341,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a04aaea_3e2fe9d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-09-05T01:19:11Z",
+      "side": 1,
+      "message": "Yes, if apexd has access to /proc/self/ before, it no longer has access to nsfs now, since this is carved out.\n\nOn goldfish, apexd should already not have access to nsfs (or this is fixed another way), so there is an open question there.",
+      "parentUuid": "a5fb42f5_d3f713b4",
+      "revId": "7659cb890432f76243254fcef333b9379340f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d27397d_eb05ed0d",
         "filename": "public/file.te",
         "patchSetId": 2
