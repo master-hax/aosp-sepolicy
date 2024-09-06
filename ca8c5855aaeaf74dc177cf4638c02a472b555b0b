@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4432cc74_9813bf45",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1977936
+      },
+      "writtenOn": "2024-09-06T08:28:18Z",
+      "side": 1,
+      "message": "so far on user-debug builds, sets the property at the time of test\nsetprop ro.crypto.hw_wrapped_keys.kdf \"legacykdf\"\nhowever not possible the same way for user builds so thought to add this property as default one.\n\nwhen added at vendor side, property is not reflected as default one.\n\nhowever this property needs to be defined at vendor side only to control the kdf, which is tied to execution environment. \nwill abandon this change.",
+      "parentUuid": "1f033d71_81f48569",
+      "revId": "ca8c5855aaeaf74dc177cf4638c02a472b555b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d740cd7c_ba7cc957",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-09-05T16:34:14Z",
       "side": 1,
       "message": "It should be vold_config_prop.  Please move it to line 755 where the other vold_config_prop are.",
+      "revId": "ca8c5855aaeaf74dc177cf4638c02a472b555b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f3880fc_271bbd5c",
+        "filename": "private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1977936
+      },
+      "writtenOn": "2024-09-06T08:28:18Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "d740cd7c_ba7cc957",
       "revId": "ca8c5855aaeaf74dc177cf4638c02a472b555b0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
