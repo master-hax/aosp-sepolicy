@@ -110,6 +110,30 @@
       },
       "revId": "c299a33bae02f96a32b7f5c149238b8d458ff431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1eaf997e_4de83e88",
+        "filename": "private/hal_camera.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 3163667
+      },
+      "writtenOn": "2024-09-09T11:57:43Z",
+      "side": 1,
+      "message": "@adamshih@google.com My understanding of the camera architecture is that both control and transport are supposed to be handled in the camera hal and not meant to be split.\n\nIn our system it would be in general possible to add a camera-custom-hal to forward the control signals to, although with limited / no security benefits in my eyes and a more complex architecture. Although not part of AOSP policies, we enforce additional security policies to allow only a specific hal to access the control signals of the camera and block all other access to any signals in the board net / block any other socket connections. Thus, the privileges in our system of the camera hal is exactly the same, be it with a.) directly accessing the boardnet over socket or b.) with forwarding the control signals over binder to a camera-custom-hal that then passes the signals through to the boardnet. I assume this is standard practice in the industry.\n\nIn systems where also the transport stream of the camera is received over network, this restriction would cause to forwarding everything including the transport stream from the camera-hal to a camera-custom-hal.\n\nAllowing hal_automotive_socket_exemption for the camera hal would also be in line with private/hal_neverallows.te. I assume that the hal_automotive_socket_exemption is wildly accepted for the automotive use case since the system design in general is more distributed and socket communication is the most common mean to interact with various peripherals.",
+      "parentUuid": "c370b17d_66036248",
+      "range": {
+        "startLine": 39,
+        "startChar": 31,
+        "endLine": 39,
+        "endChar": 63
+      },
+      "revId": "c299a33bae02f96a32b7f5c149238b8d458ff431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
