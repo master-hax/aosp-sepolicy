@@ -53,6 +53,9 @@ allow virtualizationmanager apex_data_file:dir search;
 allow virtualizationmanager staging_data_file:file r_file_perms;
 allow virtualizationmanager staging_data_file:dir search;
 
+allow virtualizationmanager system_file:file lock;
+allow virtualizationmanager shell_data_file:file lock;
+
 # Run derive_classpath in our domain
 allow virtualizationmanager derive_classpath_exec:file rx_file_perms;
 allow virtualizationmanager apex_mnt_dir:dir r_dir_perms;

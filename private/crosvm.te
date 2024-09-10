@@ -41,6 +41,7 @@ allow crosvm {
 # Allow crosvm to read the instance image of the service VM saved in apex_virt_data_file.
 # Note that the open permission is not given as the files are passed as file descriptors.
 allow crosvm {
+  system_file
   virtualizationservice_data_file
   staging_data_file
   apk_data_file
