@@ -52,6 +52,24 @@
       "parentUuid": "a1e9c1ef_cb23dd2f",
       "revId": "b9cd9999a3f3acad6aded1c47b73715a906972f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67908153_93fbede8",
+        "filename": "private/crash_dump.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2024-09-11T23:01:02Z",
+      "side": 1,
+      "message": "The reasoning discussed in the bug still holds (b/68319037#comment5). I don\u0027t think we should grant the access. The two options are 1) preventing crash_dump from triggering the denials (that is, not always assuming that a mapping is an ELF file); or 2) (this change) silence the access.",
+      "parentUuid": "0d08861a_1be6752d",
+      "revId": "b9cd9999a3f3acad6aded1c47b73715a906972f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
