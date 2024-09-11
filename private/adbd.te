@@ -115,6 +115,9 @@ get_prop(adbd, test_harness_prop)
 # Read persist.adb.tls_server.enable property
 get_prop(adbd, system_adbd_prop)
 
+# Read tradeinmode properties
+get_prop(adbd, tradeinmode_prop)
+
 # Read device's overlayfs related properties and files
 userdebug_or_eng(`
   get_prop(adbd, persistent_properties_ready_prop)
