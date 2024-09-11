@@ -198,6 +198,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d0123d7_cb8c82ad",
+        "filename": "private/virtual_camera.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3576197
+      },
+      "writtenOn": "2024-09-11T02:41:15Z",
+      "side": 1,
+      "message": "+++ b/private/virtual_camera.te\n@@ -1,10 +1,8 @@\n # virtual_camera - virtual camera daemon\n \n # In 2025Q2 release types definition is moved to system/sepolicy/public\n-until_board_api(202504, `\n-  type virtual_camera, domain, coredomain;\n-  type virtual_camera_exec, system_file_type, exec_type, file_type;\n-\u0027)\n+type virtual_camera, domain, coredomain;\n+type virtual_camera_exec, system_file_type, exec_type, file_type;\n \n init_daemon_domain(virtual_camera)",
+      "parentUuid": "6cf4004c_60bd3448",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 2
+      },
+      "revId": "b40beb476950dc342603bdec337adb096ef83265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b08f418_def35340",
         "filename": "public/virtual_camera.te",
         "patchSetId": 3
