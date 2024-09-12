@@ -1,0 +1,5 @@
+binder_call(hal_keymint_in_system_client, hal_keymint_in_system_server)
+
+hal_attribute_service(hal_keymint_in_system, hal_keymint_service)
+hal_attribute_service(hal_keymint_in_system, hal_remotelyprovisionedcomponent_service)
+binder_call(hal_keymint_in_system_server, servicemanager)
