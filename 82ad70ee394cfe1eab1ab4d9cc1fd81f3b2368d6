@@ -16,6 +16,24 @@
       "message": "Just as a note, the original GitHub issue was about at reading this on Linux only. It\u0027s somewhat WAI that this is not available on Android; though we wouldn\u0027t be opposed to having smaps, I\u0027m not sure jeffv@ will like this patch very much 😊",
       "revId": "82ad70ee394cfe1eab1ab4d9cc1fd81f3b2368d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0884d3b5_5a4791cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2005646
+      },
+      "writtenOn": "2024-09-13T16:22:39Z",
+      "side": 1,
+      "message": "\u003e [...] reading this on Linux only. It\u0027s somewhat WAI that this is not available on Android\n\nFWIW, we\u0027ve been using this primarily on Android (similar patches were needed to make it work).\n\nThis only grants access to the capability (needed to read arbitrary process\u0027 memory maps) rather than full ptrace() functionality, although arguably it is still quite broad (for example, the same cap limits access to `/proc/\u003cpid\u003e/mem` as well I believe -- fortunately that\u0027s only readable by root). Curious what y\u0027all think!",
+      "parentUuid": "17744ea4_37670de2",
+      "revId": "82ad70ee394cfe1eab1ab4d9cc1fd81f3b2368d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
