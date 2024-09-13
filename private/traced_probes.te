@@ -115,6 +115,9 @@ allow traced_probes stats_service:service_manager find;
 # set the initial value for the counter in traces.
 get_prop(traced_probes, debug_tracing_desktop_mode_visible_tasks_prop)
 
+# Allow traced_probes to read process maps
+allow traced_probes self:global_capability_class_set sys_ptrace;
+
 ###
 ### Neverallow rules
 ###
