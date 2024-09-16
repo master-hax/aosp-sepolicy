@@ -50,6 +50,24 @@
       "message": "Also webview_zygote can still access the props.",
       "revId": "994245af7ee73323d58eaf273b181301aaa1204d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af4bdba9_a24f444e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2024-09-16T01:19:23Z",
+      "side": 1,
+      "message": "I don\u0027t think so. `app_zygote` is only able to spawn `isolated_app`s (which are already excluded here). This change closes the hole of `app_zygote` (which runs arbitrary app code), to access these properties.\n\nLGTM, but I would still like to have jeffv@ confirmation.",
+      "parentUuid": "24c53097_00121acc",
+      "revId": "994245af7ee73323d58eaf273b181301aaa1204d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
