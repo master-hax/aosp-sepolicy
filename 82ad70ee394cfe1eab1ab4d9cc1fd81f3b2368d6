@@ -52,6 +52,24 @@
       "parentUuid": "0884d3b5_5a4791cf",
       "revId": "82ad70ee394cfe1eab1ab4d9cc1fd81f3b2368d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c37c6ac7_46881379",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2005646
+      },
+      "writtenOn": "2024-09-16T20:00:03Z",
+      "side": 1,
+      "message": "@jeffv@google.com: I believe the `BIONIC_SIGNAL_PROFILER` mechanism (used by `traced_perf`) doesn\u0027t include `smaps{,_rollup}`, so it\u0027s not sufficient to track PSS.\n\nIt could certainly be extended, but it\u0027s not how PSS sampling currently works in Perfetto (aosp/2565650): `ProcessStatsDataSource` reads `/proc/\u003cpid\u003e/smaps_rollup` (in addition to `status`) and parses the `Pss` fields.\n\nI mainly wanted to flag that not having the capability causes Perfetto with `scan_smaps_rollup` enabled to silently fail on Android, which seems like a bug.",
+      "parentUuid": "4b9994bb_c54a9d53",
+      "revId": "82ad70ee394cfe1eab1ab4d9cc1fd81f3b2368d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
